@@ -1,0 +1,29 @@
+﻿input_path: random_100_datasets_full_metadata.csv
+input_format: csv
+sample_per_variant: 300
+random_seed: 42
+query_variants:
+  - V1_TOPIC
+  - V2_TOPIC_METHOD
+  - V3_TOPIC_COUNTRY
+  - V4_TOPIC_UNIVERSE
+  - V5_TOPIC_TITLE
+modes:
+  - NO_WEB
+  - WEB_SEARCH
+model_no_web: gpt-5
+model_web: gpt-5
+top_k_return: 10
+qrels_strategy: silver
+silver_qrels_fields:
+  - abstract
+  - content_description
+  - categories
+  - topics_stw
+  - topics_thesoz
+  - universe
+retrieval_for_candidates: false
+retrieval_candidates_k: 30
+silver_top_m: 50
+api_base_url: https://ai-openwebui.gesis.org/api
+api_key_env: OPENWEBUI_API_KEY
