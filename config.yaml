@@ -1,20 +1,23 @@
-﻿input_path: random_100_datasets_full_metadata.csv
+﻿temperature: 0
+top_p: 1
+input_path: random_100_datasets_full_metadata.csv
 input_format: csv
-sample_per_variant: 300
+output_dir: output/metadata_websearch
+source_row_limit: 100
+sample_per_variant: 0
 random_seed: 42
+time_format: decade 
 query_variants:
-  - V1_TOPIC
-  - V2_TOPIC_METHOD
-  - V3_TOPIC_COUNTRY
-  - V4_TOPIC_UNIVERSE
-  - V5_TOPIC_TITLE
+  - V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
+  #- V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
+  #- V3_TITLE_ONLY
+
 modes:
-  - NO_WEB
-  - WEB_SEARCH
-model_no_web: gpt-5
-model_web: gpt-5
+  - WEB_SEARCH 
+model_no_web: gpt-5.1
+model_web: gpt-5.1
 top_k_return: 10
-qrels_strategy: silver
+qrels_strategy: metadata_filter
 silver_qrels_fields:
   - abstract
   - content_description
@@ -27,3 +30,8 @@ retrieval_candidates_k: 30
 silver_top_m: 50
 api_base_url: https://ai-openwebui.gesis.org/api
 api_key_env: OPENWEBUI_API_KEY
+openwebui_web_search_mode: tool_ids
+request_timeout_connect_seconds: 30
+request_timeout_read_seconds: 600
+request_max_retries: 2
+request_retry_backoff_seconds: 5

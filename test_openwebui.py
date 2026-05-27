@@ -17,14 +17,18 @@ print("Models:")
 for m in models.get("data", []):
     print("-", m.get("id"))
 
-# 2) Use the first model for a quick chat test
-model_id = models["data"][0]["id"]
+# 2) Use the configured model for a quick chat test
+model_id = os.getenv("OPENWEBUI_TEST_MODEL", "gpt-5.1")
+print(f"\nTesting model: {model_id}")
 payload = {
     "model": model_id,
     "messages": [{"role": "user", "content": "Hello! Reply with one short sentence."}],
 }
 
 r = requests.post(f"{BASE_URL}/api/chat/completions", headers=headers, json=payload, timeout=30)
+if not r.ok:
+    print("\nError response:")
+    print(r.text)
 r.raise_for_status()
 resp = r.json()
 

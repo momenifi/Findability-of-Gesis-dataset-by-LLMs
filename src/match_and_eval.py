@@ -1,19 +1,27 @@
 ﻿import argparse
+import ast
+import json
 import math
 import re
+from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
-from urllib.parse import urlparse
+from typing import Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
 import yaml
-from rapidfuzz import fuzz, process
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+try:
+    from rapidfuzz import fuzz, process
+except ImportError:
+    fuzz = None
+    process = None
 
 from .load_metadata import load_metadata
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
+RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
 
 
 def load_config(path: str) -> dict:
@@ -25,16 +33,110 @@ def _normalize_whitespace(text: str) -> str:
     return re.sub(r"\s+", " ", text or "").strip()
 
 
+def _parse_list_value(value: object) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [_normalize_whitespace(str(item)) for item in value if _normalize_whitespace(str(item))]
+
+    text = _normalize_whitespace(str(value))
+    if not text:
+        return []
+
+    parsed = None
+    if text.startswith("[") and text.endswith("]"):
+        try:
+            parsed = json.loads(text)
+        except json.JSONDecodeError:
+            try:
+                parsed = ast.literal_eval(text)
+            except (ValueError, SyntaxError):
+                parsed = None
+
+    if isinstance(parsed, list):
+        return [_normalize_whitespace(str(item)) for item in parsed if _normalize_whitespace(str(item))]
+
+    return [text]
+
+
+def _normalize_label(value: str) -> str:
+    return _normalize_whitespace(value).casefold()
+
+
+def _label_set(value: object) -> set[str]:
+    return {_normalize_label(item) for item in _parse_list_value(value) if _normalize_label(item)}
+
+
+def _year_range(value: object) -> Tuple[int, int] | None:
+    years = []
+    for item in _parse_list_value(value):
+        years.extend(int(match.group(0)) for match in re.finditer(r"\b\d{4}\b", item))
+    if not years:
+        return None
+    return min(years), max(years)
+
+
+def _ranges_overlap(left: Tuple[int, int] | None, right: Tuple[int, int] | None) -> bool:
+    if left is None or right is None:
+        return False
+    return left[0] <= right[1] and right[0] <= left[1]
+
+
+def _best_title_match(title: str, titles: List[str]) -> Tuple[float, int] | None:
+    if process is not None and fuzz is not None:
+        best = process.extractOne(title, titles, scorer=fuzz.token_set_ratio)
+        if not best:
+            return None
+        _, score, idx = best
+        return float(score), int(idx)
+
+    title_norm = _normalize_label(title)
+    if not title_norm:
+        return None
+
+    best_score = 0.0
+    best_idx = -1
+    for idx, candidate in enumerate(titles):
+        candidate_norm = _normalize_label(candidate)
+        if not candidate_norm:
+            continue
+        score = SequenceMatcher(None, title_norm, candidate_norm).ratio() * 100.0
+        if score > best_score:
+            best_score = score
+            best_idx = idx
+
+    if best_idx < 0:
+        return None
+    return best_score, best_idx
+
+
 def _normalize_doi(raw: str) -> str:
     doi = (raw or "").strip()
     if not doi:
         return ""
+    if doi.startswith("[") and doi.endswith("]"):
+        try:
+            parsed = ast.literal_eval(doi)
+            if isinstance(parsed, list):
+                doi = next((str(item).strip() for item in parsed if str(item).strip()), "")
+        except (ValueError, SyntaxError):
+            pass
+    embedded = RE_DOI.search(doi)
+    if embedded:
+        doi = embedded.group(0)
     doi = re.sub(r"^doi:\s*", "", doi, flags=re.IGNORECASE)
     doi = doi.replace("https://doi.org/", "").replace("http://doi.org/", "")
     doi = doi.replace("https://dx.doi.org/", "").replace("http://dx.doi.org/", "")
     doi = doi.split("?")[0].split("#")[0]
     doi = doi.strip().strip("<>")
     return doi
+
+
+def _extract_dataset_id(text: str) -> str:
+    match = RE_ZA_ID.search(text or "")
+    if match:
+        return match.group(0).upper()
+    return ""
 
 
 def _extract_doi(text: str) -> str:
@@ -83,20 +185,122 @@ def build_qrels(df: pd.DataFrame, queries: pd.DataFrame, fields: List[str], top_
     return qrels_map
 
 
+def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict[int, List[str]]:
+    rows_by_id = {str(row.get("id", "")): row for _, row in df.iterrows()}
+
+    indexed_rows = []
+    for _, row in df.iterrows():
+        indexed_rows.append(
+            {
+                "id": str(row.get("id", "")),
+                "topics": _label_set(row.get("topic", "")),
+                "countries": _label_set(row.get("country", "")),
+                "years": _year_range(row.get("time_collection_years", "")),
+            }
+        )
+
+    qrels_map: Dict[int, List[str]] = {}
+    for _, query in queries.iterrows():
+        query_id = int(query["query_id"])
+        source_id = str(query.get("source_dataset_id", ""))
+        variant = str(query.get("query_variant", ""))
+        source_row = rows_by_id.get(source_id)
+        if source_row is None:
+            continue
+
+        if variant == "V3_TITLE_ONLY":
+            qrels_map[query_id] = [source_id]
+            continue
+
+        query_topics = _label_set(query.get("query_topics", ""))
+        query_countries = _label_set(query.get("query_countries", ""))
+        query_years = _year_range(query.get("query_time_collection_years", ""))
+
+        if not query_topics:
+            query_topics = _label_set(source_row.get("topic", ""))
+        if not query_countries:
+            query_countries = _label_set(source_row.get("country", ""))
+        if query_years is None:
+            query_years = _year_range(source_row.get("time_collection_years", ""))
+
+        if not query_topics or not query_countries or query_years is None:
+            continue
+
+        relevant_ids = []
+        for row in indexed_rows:
+            if not row["id"]:
+                continue
+            if not (query_topics & row["topics"]):
+                continue
+            if not (query_countries & row["countries"]):
+                continue
+            if not _ranges_overlap(query_years, row["years"]):
+                continue
+            relevant_ids.append(row["id"])
+
+        if relevant_ids:
+            qrels_map[query_id] = relevant_ids
+
+    return qrels_map
+
+
+def qrels_to_frame(qrels_map: Dict[int, List[str]], df: pd.DataFrame, queries: pd.DataFrame) -> pd.DataFrame:
+    metadata_by_id = {
+        str(row.get("id", "")): {
+            "relevant_title": str(row.get("title", "")),
+            "relevant_topic": str(row.get("topic", "")),
+            "relevant_country": str(row.get("country", "")),
+            "relevant_time_collection_years": str(row.get("time_collection_years", "")),
+        }
+        for _, row in df.iterrows()
+    }
+    query_meta = {
+        int(row["query_id"]): {
+            "query_variant": str(row.get("query_variant", "")),
+            "source_dataset_id": str(row.get("source_dataset_id", "")),
+            "source_title": str(row.get("source_title", "")),
+            "query_text": str(row.get("query_text", "")),
+            "query_topics": str(row.get("query_topics", "")),
+            "query_countries": str(row.get("query_countries", "")),
+            "query_time_collection_years": str(row.get("query_time_collection_years", "")),
+        }
+        for _, row in queries.iterrows()
+    }
+
+    rows = []
+    for query_id, relevant_ids in qrels_map.items():
+        qinfo = query_meta.get(int(query_id), {})
+        for relevant_id in relevant_ids:
+            rows.append(
+                {
+                    "query_id": int(query_id),
+                    **qinfo,
+                    "relevant_dataset_id": relevant_id,
+                    **metadata_by_id.get(str(relevant_id), {}),
+                }
+            )
+
+    return pd.DataFrame(rows)
+
+
 def match_items(
     results: pd.DataFrame, df: pd.DataFrame
 ) -> Tuple[pd.DataFrame, Dict[str, str], Dict[str, str]]:
     doi_to_id = {}
     portal_to_id = {}
+    dataset_id_to_id = {}
 
     for _, row in df.iterrows():
         did = str(row.get("id", ""))
         doi = _normalize_doi(str(row.get("doi", "")))
         portal = _normalize_url(str(row.get("portal_url", "")))
+        dataset_id = _extract_dataset_id(did)
         if doi:
             doi_to_id[doi] = did
         if portal:
             portal_to_id[portal] = did
+        if dataset_id:
+            dataset_id_to_id[dataset_id] = did
 
     titles = df["title"].fillna("").astype(str).tolist()
     ids = df["id"].fillna("").astype(str).tolist()
@@ -122,10 +326,14 @@ def match_items(
                 matched_id = portal_to_id[portal]
                 confidence = 1.0
             else:
-                if title:
-                    best = process.extractOne(title, titles, scorer=fuzz.token_set_ratio)
+                dataset_id = _extract_dataset_id(link_or_doi)
+                if dataset_id and dataset_id in dataset_id_to_id:
+                    matched_id = dataset_id_to_id[dataset_id]
+                    confidence = 1.0
+                elif title:
+                    best = _best_title_match(title, titles)
                     if best:
-                        best_title, score, idx = best
+                        score, idx = best
                         if score >= 70:
                             matched_id = ids[idx]
                             confidence = float(score) / 100.0
@@ -135,7 +343,8 @@ def match_items(
             link_valid = doi in doi_to_id
         else:
             portal = _normalize_url(link_or_doi)
-            link_valid = portal in portal_to_id
+            dataset_id = _extract_dataset_id(link_or_doi)
+            link_valid = portal in portal_to_id or dataset_id in dataset_id_to_id
 
         matched_ids.append(matched_id)
         confidences.append(confidence)
@@ -150,7 +359,7 @@ def match_items(
 
 def compute_metrics(
     results: pd.DataFrame, qrels_map: Dict[int, List[str]], top_k: int
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     per_query_rows = []
     metrics_rows = []
 
@@ -167,13 +376,20 @@ def compute_metrics(
         link_valids = group["link_valid"].tolist()
 
         rels = []
+        credited_relevant_ids = set()
         for i in range(top_k):
-            if i < len(matched_ids) and matched_ids[i] in relevant_ids:
+            if (
+                i < len(matched_ids)
+                and matched_ids[i] in relevant_ids
+                and matched_ids[i] not in credited_relevant_ids
+            ):
                 rels.append(1)
+                credited_relevant_ids.add(matched_ids[i])
             else:
                 rels.append(0)
 
         relevant_retrieved = sum(rels)
+        hit = 1 if relevant_retrieved > 0 else 0
         precision = relevant_retrieved / float(top_k)
         recall = relevant_retrieved / float(len(relevant_ids) or 1)
 
@@ -206,6 +422,7 @@ def compute_metrics(
                 "query_id": query_id,
                 "query_variant": variant,
                 "mode": mode,
+                "hit_at_k": hit,
                 "precision_at_k": precision,
                 "recall_at_k": recall,
                 "mrr": mrr,
@@ -231,6 +448,7 @@ def compute_metrics(
             columns=[
                 "query_variant",
                 "mode",
+                "hit_at_k",
                 "precision_at_k",
                 "recall_at_k",
                 "mrr",
@@ -242,45 +460,63 @@ def compute_metrics(
     else:
         summary = (
             metrics_per_query.groupby(["query_variant", "mode"], sort=False)
-            .mean(numeric_only=True)
+            .agg(
+                precision_at_k=("precision_at_k", "mean"),
+                hit_at_k=("hit_at_k", "mean"),
+                recall_at_k=("recall_at_k", "mean"),
+                mrr=("mrr", "mean"),
+                ndcg_at_k=("ndcg_at_k", "mean"),
+                link_valid_rate=("link_valid_rate", "mean"),
+                off_repo_rate=("off_repo_rate", "mean"),
+            )
             .reset_index()
         )
 
-    return per_query, summary
+    return per_query, summary, metrics_per_query
 
 
 def match_and_eval(config_path: str) -> None:
     cfg = load_config(config_path)
+    output_dir = Path(cfg.get("output_dir", "."))
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    results_path = Path("llm_results.csv")
+    results_path = output_dir / "llm_results.csv"
     if not results_path.exists():
         raise FileNotFoundError("llm_results.csv not found. Run run_llm first.")
 
     results = pd.read_csv(results_path)
-    queries = pd.read_csv("queries.csv")
+    queries = pd.read_csv(output_dir / "queries.csv")
     df = load_metadata(cfg["input_path"], cfg["input_format"])
 
-    qrels_fields = cfg.get(
-        "silver_qrels_fields",
-        [
-            "abstract",
-            "content_description",
-            "categories",
-            "topics_stw",
-            "topics_thesoz",
-            "universe",
-        ],
-    )
-    top_m = int(cfg.get("silver_top_m", 50))
+    qrels_strategy = str(cfg.get("qrels_strategy", "silver")).strip().lower()
+    if qrels_strategy == "metadata_filter":
+        qrels_map = build_metadata_filter_qrels(df, queries)
+    elif qrels_strategy == "silver":
+        qrels_fields = cfg.get(
+            "silver_qrels_fields",
+            [
+                "abstract",
+                "content_description",
+                "categories",
+                "topics_stw",
+                "topics_thesoz",
+                "universe",
+            ],
+        )
+        top_m = int(cfg.get("silver_top_m", 50))
+        qrels_map = build_qrels(df, queries, qrels_fields, top_m)
+    else:
+        raise ValueError(f"Unsupported qrels_strategy: {qrels_strategy}")
 
-    qrels_map = build_qrels(df, queries, qrels_fields, top_m)
     results, _, _ = match_items(results, df)
 
     top_k = int(cfg.get("top_k_return", 10))
-    per_query, summary = compute_metrics(results, qrels_map, top_k)
+    per_query, summary, metrics_per_query = compute_metrics(results, qrels_map, top_k)
 
-    per_query.to_csv("per_query_results.csv", index=False)
-    summary.to_csv("metrics_summary.csv", index=False)
+    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False)
+    per_query.to_csv(output_dir / "per_query_results.csv", index=False)
+    metrics_per_query.to_csv(output_dir / "metrics_per_query.csv", index=False)
+    summary.to_csv(output_dir / "metrics_summary.csv", index=False)
 
 
 def main() -> None:
