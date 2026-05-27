@@ -34,7 +34,6 @@ Summary:
 | Returned rows | 125 |
 | Relevant returned rows | 113 |
 | Matched returned rows | 116 |
-| Precision@10 | 0.096 |
 | Hit@10 | 0.960 |
 | Recall@10 | 0.960 |
 | MRR | 0.960 |
@@ -44,7 +43,9 @@ Summary:
 
 Interpretation:
 
-Title-based search performs strongly. In about 96% of evaluated title queries, the correct/source dataset was found in the top 10, usually at rank 1. Precision@10 is low by design because title search normally has only one expected correct dataset while the denominator is 10.
+Title-based search performs strongly. In about 96% of evaluated title queries, the correct/source dataset was found in the top 10, usually at rank 1.
+
+Precision@10 is intentionally not reported for the title baseline because it is misleading in known-item search: each title query normally has only one expected correct dataset, while Precision@10 divides by 10 returned slots.
 
 ## Variant 2: Topic/Country/Time Search
 
