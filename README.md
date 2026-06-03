@@ -147,7 +147,7 @@ python -m src.generate_queries --config config.yaml
 python -m src.run_llm --config config.yaml
 python -m src.match_and_eval --config config.yaml
 ```
-
+<!--
 ## OpenWebUI Prerequisites
 
 If you use OpenWebUI and want real `WEB_SEARCH`, configure OpenWebUI first:
@@ -158,3 +158,4 @@ If you use OpenWebUI and want real `WEB_SEARCH`, configure OpenWebUI first:
 - If you want agentic search with tool use, set that model's Function Calling mode to `Native`.
 
 If you want to use the OpenAI hosted API instead of OpenWebUI, set `api_base_url` to empty and set `api_key_env: OPENAI_API_KEY`, then export `OPENAI_API_KEY`.
+-->
