@@ -23,10 +23,14 @@ pip install -r requirements.txt
 
 3. Set your API key:
 
+in Windows:
 ```bash
 set OPENWEBUI_API_KEY=YOUR_KEY
 ```
-
+in Linux:
+```bash
+ export OPENWEBUI_API_KEY='YOUR_KEY'
+ ```
 ## Configuration
 
 Edit `config.yaml`:
