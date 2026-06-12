@@ -33,12 +33,15 @@ Edit `config.yaml`:
 
 - `input_path`: path to your metadata file
 - `input_format`: `csv` or `jsonl`
+- `qrels_input_path`: optional metadata file used for evaluation/qrels; use this to query a sample but evaluate against the full corpus
+- `qrels_input_format`: format for `qrels_input_path`
 - `output_dir`: folder for `queries.csv`, `llm_results.csv`, metrics, qrels, and logs
 - `sample_per_variant`: number of queries per variant
 - `query_variants`: configured query templates
 - `time_format`: `years`, `span`, or `decade` for topic/country/time query wording
 - `modes`: `WEB_SEARCH`
 - `model_no_web`, `model_web`: model IDs
+- `models_no_web`, `models_web`: optional lists of model IDs for model comparison; these override the single-model settings
 - `top_k_return`: number of items to return per query
 - `retrieval_for_candidates`: optional local candidate filtering
 - `api_base_url`: optional base URL (for OpenWebUI use `https://ai-openwebui.gesis.org/api`)
@@ -147,6 +150,25 @@ python -m src.generate_queries --config config.yaml
 python -m src.run_llm --config config.yaml
 python -m src.match_and_eval --config config.yaml
 ```
+
+Expanded comparison setup:
+
+```yaml
+input_path: random_100_datasets_full_metadata.csv
+qrels_input_path: all_research_data_full_metadata.csv
+output_dir: output/full_metadata_model_comparison
+query_variants:
+  - V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
+modes:
+  - NO_WEB
+  - WEB_SEARCH
+models_no_web:
+  - gpt-5.1
+models_web:
+  - gpt-5.1
+```
+
+This generates queries from the 100-row sample but builds qrels and matches returned datasets against the full metadata file.
 <!--
 ## OpenWebUI Prerequisites
 

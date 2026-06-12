@@ -1,0 +1,107 @@
+model,check,status_code,finish_reason,content_present,tool_calls,works_for_pipeline,error,content_preview
+gemma3:27b,plain_chat_no_web,200,stop,True,,True,,"```json
+{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.48488/22063""}]}
+```"
+gemma3:27b,features_web_search_true,200,stop,True,,True,,"```json
+{""items"":[{""title"":""GESIS dataset \""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"""", ""url_or_doi"":""https://dbk.gesis.org/dbksearch/catalogue/EN/RDCElection""}]}
+```"
+gemma3:27b,tool_ids_web_search,200,stop,True,,True,,"```json
+{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.48488/14387""}]}
+```"
+gpt-4.1,plain_chat_no_web,200,stop,True,,True,,"{
+  ""items"": [
+    {
+      ""title"": ""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",
+      ""url_or_doi"": ""https://search.gesis.org/research_data/ZA0449""
+    }
+  ]
+}"
+gpt-4.1,features_web_search_true,200,tool_calls,False,search_web,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""GESIS Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972) dataset\"",\""count\"":5}"", ""name"": ""search_web""}, ""id"": ""call_qwDijJ7milgqfN97mdObUEnq"", ""type"": ""function""}]}"
+gpt-4.1,tool_ids_web_search,200,stop,True,,True,,"{
+  ""items"": [
+    {
+      ""title"": ""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",
+      ""url_or_doi"": ""https://search.gesis.org/research_data/ZA0671""
+    }
+  ]
+}"
+gpt-4.1-mini,plain_chat_no_web,200,tool_calls,False,search_knowledge_bases,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"",\""count\"":5}"", ""name"": ""search_knowledge_bases""}, ""id"": ""call_Aftb892b3PMh4IScEWaMPG42"", ""type"": ""function""}]}"
+gpt-4.1-mini,features_web_search_true,200,tool_calls,False,search_knowledge_bases,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"",\""count\"":5}"", ""name"": ""search_knowledge_bases""}, ""id"": ""call_BZVos9MGQZPv4OffzWZEIjtT"", ""type"": ""function""}]}"
+gpt-4.1-mini,tool_ids_web_search,200,tool_calls,False,search_knowledge_bases,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\""}"", ""name"": ""search_knowledge_bases""}, ""id"": ""call_q3n80rve64XvAxyBbh2R0kfT"", ""type"": ""function""}]}"
+llama4:latest,plain_chat_no_web,200,stop,True,,True,,"<|python_start|>import requests
+
+def get_dataset_info():
+    url = ""https://search.gesis.org/research_data/api/datasets/""
+
+    response = requests.get(url)
+    # If the request was successful, parse the JSON response
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
+
+def find_specific_dataset(data, dataset_title):
+    for item in data:
+        if item['title'] == dataset_title:
+            return item
+    return None
+
+def search_dataset():
+    respo"
+llama4:latest,features_web_search_true,200,stop,True,,True,,"To find the specific GESIS dataset titled 'Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)', I will provide a search result based on the available information.
+
+
+## Search Result
+
+Given the context and available information, here is a search result in JSON format:
+
+```json
+{
+  ""items"": [
+    {
+      ""title"": ""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",
+      ""url_or_doi"": ""https://doi.org/10.4232/1.10838""
+    }
+  ]
+}
+```
+
+### "
+llama4:latest,tool_ids_web_search,200,stop,True,,True,,"<|python_start|>import requests
+
+def search_gesis_dataset(query):
+    url = f""https://search.gesis.org/research_data/api/search/?q={query}&format=json""
+    try:
+        response = requests.get(url)
+        data = response.json()
+        items = []
+        for result in data['items']:
+            title = result.get('title', '')
+            url_or_doi = result.get('url', '')
+            if not url_or_doi:  # Check if there's a DOI or similar
+                url_or_doi = result.get('doi', '')
+     "
+o4-mini,plain_chat_no_web,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 – January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.11185""}]}"
+o4-mini,features_web_search_true,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.0840""}]}"
+o4-mini,tool_ids_web_search,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.11423""}]}"
+gpt-5,plain_chat_no_web,200,stop,True,,True,,"{""items"":[]}"
+gpt-5,features_web_search_true,200,tool_calls,False,search_web,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""GESIS \\\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\\\""\""}"", ""name"": ""search_web""}, ""id"": ""call_is9vGZV2CU5xwSyb1zmldoMh"", ""type"": ""function""}]}"
+gpt-5,tool_ids_web_search,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://dbk.gesis.org/dbksearch/SDesc2.asp?search=Federal%20Parliament%20Election%201972%20(Panel:%202nd%20Wave,%20October%201971%20-%20January%201972)&db=e""}]}"
+gpt-5-mini,plain_chat_no_web,200,stop,True,,True,,"{""items"":[]}"
+gpt-5-mini,features_web_search_true,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.0840""}]}"
+gpt-5-mini,tool_ids_web_search,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""""}]}"
+gpt-5.1,plain_chat_no_web,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.0532""}]}"
+gpt-5.1,features_web_search_true,200,tool_calls,False,search_web,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""\\\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\\\"" GESIS\"",\""count\"":5}"", ""name"": ""search_web""}, ""id"": ""call_gj10ZUCDddjqoC3GoMO2tYQG"", ""type"": ""function""}]}"
+gpt-5.1,tool_ids_web_search,200,stop,True,,True,,"{""items"":[{""title"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)"",""url_or_doi"":""https://doi.org/10.4232/1.0355""}]}"
+gpt-5.4,plain_chat_no_web,200,tool_calls,False,query_knowledge_files,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""GESIS dataset \\\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\\\"" DOI URL\"", \""count\"": 5}"", ""name"": ""query_knowledge_files""}, ""id"": ""call_qfwwgwd2IBtFpFldHGMBTlyQ"", ""type"": ""function""}]}"
+gpt-5.4,features_web_search_true,200,tool_calls,False,search_web,False,,"{""annotations"": [], ""content"": null, ""refusal"": null, ""role"": ""assistant"", ""tool_calls"": [{""function"": {""arguments"": ""{\""query\"":\""GESIS \\\""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\\\"" DOI OR URL\"", \""count\"": 5}"", ""name"": ""search_web""}, ""id"": ""call_LQn5PphtIPLE6Q5IdK0Za1rU"", ""type"": ""function""}]}"
+gpt-5.4,tool_ids_web_search,200,tool_calls,True,"query_knowledge_files,search_chats,search_notes",False,,"{""tool_uses"":[{""recipient_name"":""functions.query_knowledge_files"",""parameters"":{""query"":""GESIS dataset \""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"" DOI URL"",""count"":5}},{""recipient_name"":""functions.search_chats"",""parameters"":{""query"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972) GESIS"", ""count"":5}},{""recipient_name"":""functions.search_notes"",""parameters"":{""query"":""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1"
+gpt-oss:120b,plain_chat_no_web,200,tool_calls,False,search_knowledge_files,False,,"{""role"": ""assistant"", ""content"": """", ""reasoning_content"": ""We need to search knowledge bases for that dataset. Use query_knowledge_files perhaps. Let's try search_knowledge_files with filename query."", ""tool_calls"": [{""index"": 0, ""id"": ""call_znt0i0dz"", ""type"": ""function"", ""function"": {""name"": ""search_knowledge_files"", ""arguments"": ""{\""query\"": \""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"", \""count\"": 10}""}}]}"
+gpt-oss:120b,features_web_search_true,200,tool_calls,False,search_web,False,,"{""role"": ""assistant"", ""content"": """", ""reasoning_content"": ""We need to find the GESIS dataset titled \""Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\"". Use web search. Use search_web tool."", ""tool_calls"": [{""index"": 0, ""id"": ""call_byf8xbzv"", ""type"": ""function"", ""function"": {""name"": ""search_web"", ""arguments"": ""{\""query\"": \""GESIS \\\""Federal Parliament Election 1972\\\"" \\\""Panel: 2nd Wave\\\""\"", \""count\"": 5}""}}]}"
+gpt-oss:120b,tool_ids_web_search,200,tool_calls,False,search_knowledge_files,False,,"{""role"": ""assistant"", ""content"": """", ""reasoning_content"": ""The user asks: \""Use web search if available. Find the GESIS dataset titled 'Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)'. Return ONLY JSON: {\""items\"":[{\""title\"":\""...\"",\""url_or_doi\"":\""...\""}]}\""\n\nWe have tools for knowledge bases, not web. No web search tool is listed. Could use search_knowledge_files, query_knowledge_files, etc. But the dataset likely exists in GESIS Data Archive. Could search "
+gpt-oss:latest,plain_chat_no_web,200,stop,True,,True,,"{""items"":[]}"
+gpt-oss:latest,features_web_search_true,200,tool_calls,False,search_web,False,,"{""role"": ""assistant"", ""content"": """", ""reasoning_content"": ""The user wants to find a GESIS dataset titled 'Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)'. We need to search the web. We have tool search_web. Let's do that."", ""tool_calls"": [{""index"": 0, ""id"": ""call_dk71hwqt"", ""type"": ""function"", ""function"": {""name"": ""search_web"", ""arguments"": ""{\""count\"": 5, \""query\"": \""GESIS dataset 'Federal Parliament Election 1972' 'Panel: 2nd Wave'\""}""}}]}"
+gpt-oss:latest,tool_ids_web_search,,,False,,False,"('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+mistral-small3.2:latest,plain_chat_no_web,,,False,,False,"HTTPSConnectionPool(host='ai-openwebui.gesis.org', port=443): Max retries exceeded with url: /api/chat/completions (Caused by NameResolutionError(""HTTPSConnection(host='ai-openwebui.gesis.org', port=443): Failed to resolve 'ai-openwebui.gesis.org' ([Errno 11001] getaddrinfo failed)""))",
+mistral-small3.2:latest,features_web_search_true,,,False,,False,"HTTPSConnectionPool(host='ai-openwebui.gesis.org', port=443): Max retries exceeded with url: /api/chat/completions (Caused by NameResolutionError(""HTTPSConnection(host='ai-openwebui.gesis.org', port=443): Failed to resolve 'ai-openwebui.gesis.org' ([Errno 11001] getaddrinfo failed)""))",
+mistral-small3.2:latest,tool_ids_web_search,,,False,,False,"HTTPSConnectionPool(host='ai-openwebui.gesis.org', port=443): Max retries exceeded with url: /api/chat/completions (Caused by NameResolutionError(""HTTPSConnection(host='ai-openwebui.gesis.org', port=443): Failed to resolve 'ai-openwebui.gesis.org' ([Errno 11001] getaddrinfo failed)""))",

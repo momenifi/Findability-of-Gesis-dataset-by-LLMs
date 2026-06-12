@@ -51,7 +51,7 @@ def _normalize_url(raw: Optional[object]) -> str:
 
 def load_metadata(input_path: str, input_format: str) -> pd.DataFrame:
     if input_format.lower() == "csv":
-        df = pd.read_csv(input_path)
+        df = pd.read_csv(input_path, dtype=str, low_memory=False)
     elif input_format.lower() == "jsonl":
         df = pd.read_json(input_path, lines=True)
     else:

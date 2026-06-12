@@ -2,20 +2,40 @@
 top_p: 1
 input_path: random_100_datasets_full_metadata.csv
 input_format: csv
-output_dir: output/metadata_websearch
-source_row_limit: 100
+qrels_input_path: all_research_data_full_metadata.csv
+qrels_input_format: csv
+output_dir: output/full_metadata_model_comparison
+source_row_limit: 1
 sample_per_variant: 0
 random_seed: 42
 time_format: decade 
 query_variants:
-  - V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
-  #- V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
+  #- V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
+  - V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
   #- V3_TITLE_ONLY
 
 modes:
-  - WEB_SEARCH 
-model_no_web: gpt-5.1
-model_web: gpt-5.1
+  - NO_WEB
+  - WEB_SEARCH
+#model_no_web: gpt-5.1
+#model_web: gpt-5.1
+models_no_web:
+  - gemma3:27b
+  - gpt-4.1
+  - llama4:latest
+  - o4-mini
+  - gpt-5
+  - gpt-5-mini
+  - gpt-5.1
+  - gpt-oss:latest
+models_web:
+  - gemma3:27b
+  - gpt-4.1
+  - llama4:latest
+  - o4-mini
+  - gpt-5
+  - gpt-5-mini
+  - gpt-5.1
 top_k_return: 10
 qrels_strategy: metadata_filter
 silver_qrels_fields:

@@ -11,8 +11,8 @@ from .load_metadata import load_metadata
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 
-QUERY_TEMPLATE = "Can you find datasets related to [{topic}] in [{country}] during the [{time_collection_years}]?"
-TITLE_QUERY_TEMPLATE = "Can you find the dataset titled [{title}]?"
+QUERY_TEMPLATE = "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}?"
+TITLE_QUERY_TEMPLATE = "Can you find the GESIS dataset titled {title}?"
 
 VARIANTS = {
     "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS": "all_topics",
@@ -59,6 +59,17 @@ def _format_list_value(values: list[str]) -> str:
     if not values:
         return ""
     return json.dumps(values, ensure_ascii=False)
+
+
+def _format_natural_list(values: list[str]) -> str:
+    cleaned = [_normalize_whitespace(value) for value in values if _normalize_whitespace(value)]
+    if not cleaned:
+        return ""
+    if len(cleaned) == 1:
+        return cleaned[0]
+    if len(cleaned) == 2:
+        return f"{cleaned[0]} and {cleaned[1]}"
+    return f"{', '.join(cleaned[:-1])}, and {cleaned[-1]}"
 
 
 def _extract_years(values: list[str]) -> list[int]:
@@ -116,10 +127,12 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
     if variant == "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS":
         if not topics or not countries or not years:
             return []
-        country_text = _format_list_value(countries)
+        country_text = _format_natural_list(countries)
+        country_qrels_text = _format_list_value(countries)
         years_text = _format_time_value(years, time_format)
         years_qrels_text = _format_list_value(years)
-        topic_text = _format_list_value(topics)
+        topic_text = _format_natural_list(topics)
+        topic_qrels_text = _format_list_value(topics)
         return [
             {
                 "query_text": QUERY_TEMPLATE.format(
@@ -127,8 +140,8 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
                     country=country_text,
                     time_collection_years=years_text,
                 ),
-                "query_topics": topic_text,
-                "query_countries": country_text,
+                "query_topics": topic_qrels_text,
+                "query_countries": country_qrels_text,
                 "query_time_collection_years": years_qrels_text,
                 "query_time_display": years_text,
             }
@@ -137,20 +150,22 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
     if variant == "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC":
         if not topics or not countries or not years:
             return []
-        country_text = _format_list_value(countries)
+        country_text = _format_natural_list(countries)
+        country_qrels_text = _format_list_value(countries)
         years_text = _format_time_value(years, time_format)
         years_qrels_text = _format_list_value(years)
         queries = []
         for topic in topics:
+            topic_qrels_text = _format_list_value([topic])
             queries.append(
                 {
                     "query_text": QUERY_TEMPLATE.format(
-                        topic=_format_list_value([topic]),
+                        topic=_format_natural_list([topic]),
                         country=country_text,
                         time_collection_years=years_text,
                     ),
-                    "query_topics": _format_list_value([topic]),
-                    "query_countries": country_text,
+                    "query_topics": topic_qrels_text,
+                    "query_countries": country_qrels_text,
                     "query_time_collection_years": years_qrels_text,
                     "query_time_display": years_text,
                 }

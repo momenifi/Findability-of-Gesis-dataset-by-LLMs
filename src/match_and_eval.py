@@ -205,22 +205,21 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
         source_id = str(query.get("source_dataset_id", ""))
         variant = str(query.get("query_variant", ""))
         source_row = rows_by_id.get(source_id)
-        if source_row is None:
-            continue
 
         if variant == "V3_TITLE_ONLY":
-            qrels_map[query_id] = [source_id]
+            if source_row is not None:
+                qrels_map[query_id] = [source_id]
             continue
 
         query_topics = _label_set(query.get("query_topics", ""))
         query_countries = _label_set(query.get("query_countries", ""))
         query_years = _year_range(query.get("query_time_collection_years", ""))
 
-        if not query_topics:
+        if not query_topics and source_row is not None:
             query_topics = _label_set(source_row.get("topic", ""))
-        if not query_countries:
+        if not query_countries and source_row is not None:
             query_countries = _label_set(source_row.get("country", ""))
-        if query_years is None:
+        if query_years is None and source_row is not None:
             query_years = _year_range(source_row.get("time_collection_years", ""))
 
         if not query_topics or not query_countries or query_years is None:
@@ -238,10 +237,40 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
                 continue
             relevant_ids.append(row["id"])
 
+        if not relevant_ids and source_row is not None and source_id:
+            relevant_ids.append(source_id)
+
         if relevant_ids:
             qrels_map[query_id] = relevant_ids
 
     return qrels_map
+
+
+def metadata_filter_debug_frame(df: pd.DataFrame, queries: pd.DataFrame, qrels_map: Dict[int, List[str]]) -> pd.DataFrame:
+    ids = {str(row.get("id", "")) for _, row in df.iterrows()}
+    rows = []
+    for _, query in queries.iterrows():
+        query_id = int(query["query_id"])
+        source_id = str(query.get("source_dataset_id", ""))
+        query_topics = _label_set(query.get("query_topics", ""))
+        query_countries = _label_set(query.get("query_countries", ""))
+        query_years = _year_range(query.get("query_time_collection_years", ""))
+        rows.append(
+            {
+                "query_id": query_id,
+                "query_variant": str(query.get("query_variant", "")),
+                "source_dataset_id": source_id,
+                "source_id_in_eval_metadata": source_id in ids,
+                "query_topics_count": len(query_topics),
+                "query_countries_count": len(query_countries),
+                "query_years": "" if query_years is None else f"{query_years[0]}-{query_years[1]}",
+                "qrels_count": len(qrels_map.get(query_id, [])),
+                "query_topics_raw": str(query.get("query_topics", "")),
+                "query_countries_raw": str(query.get("query_countries", "")),
+                "query_time_collection_years_raw": str(query.get("query_time_collection_years", "")),
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def qrels_to_frame(qrels_map: Dict[int, List[str]], df: pd.DataFrame, queries: pd.DataFrame) -> pd.DataFrame:
@@ -363,9 +392,16 @@ def compute_metrics(
     per_query_rows = []
     metrics_rows = []
 
-    for (query_id, variant, mode), group in results.groupby(
-        ["query_id", "query_variant", "mode"], sort=False
-    ):
+    group_cols = ["query_id", "query_variant", "mode"]
+    if "model" in results.columns:
+        group_cols.append("model")
+
+    for group_key, group in results.groupby(group_cols, sort=False):
+        if len(group_cols) == 4:
+            query_id, variant, mode, model = group_key
+        else:
+            query_id, variant, mode = group_key
+            model = ""
         query_id = int(query_id)
         if query_id not in qrels_map:
             continue
@@ -422,6 +458,7 @@ def compute_metrics(
                 "query_id": query_id,
                 "query_variant": variant,
                 "mode": mode,
+                "model": model,
                 "hit_at_k": hit,
                 "precision_at_k": precision,
                 "recall_at_k": recall,
@@ -448,6 +485,7 @@ def compute_metrics(
             columns=[
                 "query_variant",
                 "mode",
+                "model",
                 "hit_at_k",
                 "precision_at_k",
                 "recall_at_k",
@@ -459,7 +497,7 @@ def compute_metrics(
         )
     else:
         summary = (
-            metrics_per_query.groupby(["query_variant", "mode"], sort=False)
+            metrics_per_query.groupby(["query_variant", "mode", "model"], sort=False)
             .agg(
                 precision_at_k=("precision_at_k", "mean"),
                 hit_at_k=("hit_at_k", "mean"),
@@ -486,7 +524,9 @@ def match_and_eval(config_path: str) -> None:
 
     results = pd.read_csv(results_path)
     queries = pd.read_csv(output_dir / "queries.csv")
-    df = load_metadata(cfg["input_path"], cfg["input_format"])
+    eval_input_path = cfg.get("qrels_input_path", cfg["input_path"])
+    eval_input_format = cfg.get("qrels_input_format", cfg.get("input_format", "csv"))
+    df = load_metadata(eval_input_path, eval_input_format)
 
     qrels_strategy = str(cfg.get("qrels_strategy", "silver")).strip().lower()
     if qrels_strategy == "metadata_filter":
@@ -508,12 +548,18 @@ def match_and_eval(config_path: str) -> None:
     else:
         raise ValueError(f"Unsupported qrels_strategy: {qrels_strategy}")
 
+    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False)
+    if qrels_strategy == "metadata_filter":
+        metadata_filter_debug_frame(df, queries, qrels_map).to_csv(
+            output_dir / "qrels_debug.csv",
+            index=False,
+        )
+
     results, _, _ = match_items(results, df)
 
     top_k = int(cfg.get("top_k_return", 10))
     per_query, summary, metrics_per_query = compute_metrics(results, qrels_map, top_k)
 
-    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False)
     per_query.to_csv(output_dir / "per_query_results.csv", index=False)
     metrics_per_query.to_csv(output_dir / "metrics_per_query.csv", index=False)
     summary.to_csv(output_dir / "metrics_summary.csv", index=False)
