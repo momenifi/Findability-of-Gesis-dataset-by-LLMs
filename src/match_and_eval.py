@@ -19,6 +19,7 @@ except ImportError:
     process = None
 
 from .load_metadata import load_metadata
+from .config_paths import resolve_output_dir
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
@@ -515,7 +516,7 @@ def compute_metrics(
 
 def match_and_eval(config_path: str) -> None:
     cfg = load_config(config_path)
-    output_dir = Path(cfg.get("output_dir", "."))
+    output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     results_path = output_dir / "llm_results.csv"

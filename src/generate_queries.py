@@ -8,6 +8,7 @@ import pandas as pd
 import yaml
 
 from .load_metadata import load_metadata
+from .config_paths import resolve_output_dir
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 
@@ -191,7 +192,7 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
 
 def generate_queries(config_path: str) -> pd.DataFrame:
     cfg = load_config(config_path)
-    output_dir = Path(cfg.get("output_dir", "."))
+    output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
     df = load_metadata(cfg["input_path"], cfg["input_format"])
     source_row_limit = int(cfg.get("source_row_limit", 0) or 0)

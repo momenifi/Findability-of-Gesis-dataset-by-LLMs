@@ -12,6 +12,7 @@ import yaml
 from openai import OpenAI
 
 from .load_metadata import load_metadata
+from .config_paths import resolve_output_dir
 
 
 def load_config(path: str) -> dict:
@@ -216,7 +217,7 @@ def _build_messages(query_text: str, top_k: int, mode: str) -> List[dict]:
 
 def run_llm(config_path: str) -> pd.DataFrame:
     cfg = load_config(config_path)
-    output_dir = Path(cfg.get("output_dir", "."))
+    output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
     logs_dir = output_dir / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)

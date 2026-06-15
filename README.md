@@ -40,6 +40,7 @@ Edit `config.yaml`:
 - `qrels_input_path`: optional metadata file used for evaluation/qrels; use this to query a sample but evaluate against the full corpus
 - `qrels_input_format`: format for `qrels_input_path`
 - `output_dir`: folder for `queries.csv`, `llm_results.csv`, metrics, qrels, and logs
+- `output_dir_by_variant`: explicit output folder for each query variant; used when exactly one variant is active
 - `sample_per_variant`: number of queries per variant
 - `query_variants`: configured query templates
 - `time_format`: `years`, `span`, or `decade` for topic/country/time query wording
@@ -73,6 +74,27 @@ Outputs are written under `output_dir`:
 - `metrics_summary.csv`: metrics grouped by query variant and mode
 - `qrels.csv`: relevant datasets used for evaluation
 - `logs/`: raw model responses
+
+To keep variant results separate, configure explicit output folders:
+
+```yaml
+output_dir: output/full_metadata_model_comparison
+output_dir_by_variant:
+  V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/full_metadata_model_comparison/v1_all_topics
+  V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/full_metadata_model_comparison/v2_single_topic
+  V3_TITLE_ONLY: output/full_metadata_model_comparison/v3_title_only
+query_variants:
+  - V3_TITLE_ONLY
+```
+
+the files are written to:
+
+```text
+output/full_metadata_model_comparison/v3_title_only/
+```
+
+When exactly one variant is active, all three pipeline commands use its mapped
+folder. If several variants are active together, the general `output_dir` is used.
 
 ## Notes on Modes
 
