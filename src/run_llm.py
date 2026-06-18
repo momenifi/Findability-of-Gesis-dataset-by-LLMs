@@ -14,6 +14,8 @@ from openai import OpenAI
 from .load_metadata import load_metadata
 from .config_paths import resolve_output_dir
 
+OUTPUT_CSV_SEP = ";"
+
 
 def load_config(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
@@ -226,7 +228,7 @@ def run_llm(config_path: str) -> pd.DataFrame:
     if not queries_path.exists():
         raise FileNotFoundError(f"{queries_path} not found. Run generate_queries first.")
 
-    queries = pd.read_csv(queries_path)
+    queries = pd.read_csv(queries_path, sep=None, engine="python")
     # Keep this load for validation/future candidate filtering.
     load_metadata(cfg["input_path"], cfg["input_format"])
 
@@ -356,6 +358,7 @@ def run_llm(config_path: str) -> pd.DataFrame:
                         mode="a",
                         header=not results_path.exists(),
                         index=False,
+                        sep=OUTPUT_CSV_SEP,
                     )
 
                 completed_requests += 1
@@ -368,7 +371,7 @@ def run_llm(config_path: str) -> pd.DataFrame:
 
     out = pd.DataFrame(rows)
     if not results_path.exists():
-        out.to_csv(results_path, index=False)
+        out.to_csv(results_path, index=False, sep=OUTPUT_CSV_SEP)
     return out
 
 

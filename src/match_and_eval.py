@@ -23,6 +23,7 @@ from .config_paths import resolve_output_dir
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
+OUTPUT_CSV_SEP = ";"
 
 
 def load_config(path: str) -> dict:
@@ -523,8 +524,8 @@ def match_and_eval(config_path: str) -> None:
     if not results_path.exists():
         raise FileNotFoundError("llm_results.csv not found. Run run_llm first.")
 
-    results = pd.read_csv(results_path)
-    queries = pd.read_csv(output_dir / "queries.csv")
+    results = pd.read_csv(results_path, sep=None, engine="python")
+    queries = pd.read_csv(output_dir / "queries.csv", sep=None, engine="python")
     eval_input_path = cfg.get("qrels_input_path", cfg["input_path"])
     eval_input_format = cfg.get("qrels_input_format", cfg.get("input_format", "csv"))
     df = load_metadata(eval_input_path, eval_input_format)
@@ -549,11 +550,12 @@ def match_and_eval(config_path: str) -> None:
     else:
         raise ValueError(f"Unsupported qrels_strategy: {qrels_strategy}")
 
-    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False)
+    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False, sep=OUTPUT_CSV_SEP)
     if qrels_strategy == "metadata_filter":
         metadata_filter_debug_frame(df, queries, qrels_map).to_csv(
             output_dir / "qrels_debug.csv",
             index=False,
+            sep=OUTPUT_CSV_SEP,
         )
 
     results, _, _ = match_items(results, df)
@@ -561,9 +563,9 @@ def match_and_eval(config_path: str) -> None:
     top_k = int(cfg.get("top_k_return", 10))
     per_query, summary, metrics_per_query = compute_metrics(results, qrels_map, top_k)
 
-    per_query.to_csv(output_dir / "per_query_results.csv", index=False)
-    metrics_per_query.to_csv(output_dir / "metrics_per_query.csv", index=False)
-    summary.to_csv(output_dir / "metrics_summary.csv", index=False)
+    per_query.to_csv(output_dir / "per_query_results.csv", index=False, sep=OUTPUT_CSV_SEP)
+    metrics_per_query.to_csv(output_dir / "metrics_per_query.csv", index=False, sep=OUTPUT_CSV_SEP)
+    summary.to_csv(output_dir / "metrics_summary.csv", index=False, sep=OUTPUT_CSV_SEP)
 
 
 def main() -> None:

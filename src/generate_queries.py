@@ -11,6 +11,7 @@ from .load_metadata import load_metadata
 from .config_paths import resolve_output_dir
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
+OUTPUT_CSV_SEP = ";"
 
 QUERY_TEMPLATE = "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}?"
 TITLE_QUERY_TEMPLATE = "Can you find the GESIS dataset titled {title}?"
@@ -238,7 +239,7 @@ def generate_queries(config_path: str) -> pd.DataFrame:
 
     out = pd.DataFrame(results)
     if out.empty:
-        out.to_csv(output_dir / "queries.csv", index=False)
+        out.to_csv(output_dir / "queries.csv", index=False, sep=OUTPUT_CSV_SEP)
         return out
 
     sample_per_variant = int(cfg.get("sample_per_variant", 0) or 0)
@@ -257,7 +258,7 @@ def generate_queries(config_path: str) -> pd.DataFrame:
     sampled_out = sampled_out.reset_index(drop=True)
     sampled_out.insert(0, "query_id", range(1, len(sampled_out) + 1))
 
-    sampled_out.to_csv(output_dir / "queries.csv", index=False)
+    sampled_out.to_csv(output_dir / "queries.csv", index=False, sep=OUTPUT_CSV_SEP)
     return sampled_out
 
 
