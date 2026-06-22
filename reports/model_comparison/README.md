@@ -2,7 +2,7 @@
 
 This folder contains the curated result tables for comparing LLM-based discovery of GESIS datasets.
 
-Start with `INTERPRETATION.md` for the narrative summary and use the CSV files as supporting evidence.
+Start with `INTERPRETATION.md`, the single consolidated study report, and use the CSV files as supporting evidence.
 
 ## Query Variants
 
@@ -12,7 +12,7 @@ Start with `INTERPRETATION.md` for the narrative summary and use the CSV files a
 
 ## Files
 
-- `INTERPRETATION.md`: short written interpretation of the results for discussion.
+- `INTERPRETATION.md`: consolidated pilot setup, model comparison, and interpretation.
 - `*_summary.csv`: main comparison table. Use these for reporting.
 - `*_response_status.csv`: response coverage diagnostics, showing how often models returned items, empty lists, or tool-only responses.
 - `*_queries.csv`: generated prompts used for each variant.

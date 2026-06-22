@@ -1,6 +1,17 @@
-# Interpretation of Model Comparison Results
+# Pilot and Model Comparison Report
 
-This report summarizes the current pilot evaluation of LLM-based discovery of GESIS datasets. It is intended as a short overview for discussion, with the CSV files in this folder as supporting evidence.
+This report consolidates the pilot setup, current model comparison, and interpretation of LLM-based discovery of GESIS datasets. The CSV files in this folder provide the supporting queries, response diagnostics, metrics, and labeled model outputs.
+
+## Study Design
+
+The study separates the source of test queries from the corpus used to define and match relevant datasets:
+
+- Query source: 100 randomly sampled GESIS datasets from `random_100_datasets_full_metadata.csv`.
+- Evaluation corpus: the full metadata collection in `all_research_data_full_metadata.csv`.
+- Qrels strategy: metadata filtering using the topic, country, and collection-time values represented in each query.
+- Retrieval depth: up to 10 returned datasets per model response.
+
+The first pilot used only the 100-row sample for both query generation and evaluation. That established that title-based known-item retrieval worked, but it also caused plausible datasets outside the sample to be counted as unmatched. The current comparison improves this by evaluating returned datasets and constructing metadata-based qrels against the full corpus.
 
 ## What Was Tested
 
@@ -16,6 +27,12 @@ For each variant, we compared different models and two modes:
 - `WEB_SEARCH`: the model can use OpenWebUI web search.
 
 The main evaluation file for each variant is `*_summary.csv`. The most important metrics are `coverage_rate`, `hit_at_k_all_queries`, `mrr_all_queries`, and `ndcg_at_k_all_queries`.
+
+## Evaluation Workflow
+
+`match_and_eval.py` builds qrels, matches returned records to the metadata corpus, labels relevance, and calculates per-query metrics. `audit_results.py` then reconstructs every expected query/model/mode request from the configuration and logs. Missing, empty, error, and unfinished tool-call responses receive zero scores in the audit summaries.
+
+The audit summaries are used in this report because they include all requests in the denominator and therefore avoid overstating models that returned usable results for only a small share of queries.
 
 ## Main Finding
 
@@ -96,13 +113,14 @@ This means that web search should be treated as one experimental condition, not 
 
 ## Conclusion
 
-The current pilot is useful and credible for an initial discussion:
+The current evaluation is useful and credible for an initial model comparison:
 
 - The pipeline works.
 - The evaluation was audited with all requests included.
 - Title-based discovery performs well and can be used as a sanity check.
 - Realistic metadata-based discovery is much harder.
 - Single-topic prompts are probably more interpretable than all-topic prompts.
-- Future work should use the full metadata collection for qrels/relevance matching and continue improving prompt design.
+- The full metadata collection is now used for qrels and returned-record matching.
+- Further work should improve the relevance definition and prompt design.
 
-Recommended next step: present the current results as a pilot, then propose a full-dataset evaluation with improved relevance definitions and additional prompt variants for time expressions, such as exact year ranges versus decades.
+Recommended next step: manually inspect a stratified sample of labeled results to validate the metadata-filter qrels, then compare additional prompt formulations for time expressions, such as exact year ranges versus decades. Repeated runs would also help determine whether observed model differences are stable or caused by response variability.
