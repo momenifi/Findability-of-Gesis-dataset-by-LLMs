@@ -1,4 +1,5 @@
 import argparse
+import copy
 import json
 import os
 import re
@@ -156,6 +157,20 @@ def _serialize_response(response) -> str:
         return str(response)
 
 
+def _response_to_json_value(response):
+    if isinstance(response, (dict, list)) or response is None:
+        return response
+    if hasattr(response, "model_dump"):
+        try:
+            return response.model_dump(mode="json")
+        except Exception:
+            pass
+    try:
+        return json.loads(_serialize_response(response))
+    except Exception:
+        return {"unserializable_response": str(response)}
+
+
 def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
     payload = {"model": model, "messages": messages}
     if enable_web_search:
@@ -260,8 +275,23 @@ def run_llm(config_path: str) -> pd.DataFrame:
                 messages = _build_messages(query_text, top_k, mode)
                 parsed = None
                 last_response = None
+                attempt_traces = []
 
                 for attempt in range(max_retries + 1):
+                    attempt_trace = {
+                        "attempt": attempt + 1,
+                        "request": {
+                            "model": model,
+                            "mode": mode,
+                            "web_search_enabled": mode == "WEB_SEARCH",
+                            "openwebui_web_search_mode": (
+                                str(cfg.get("openwebui_web_search_mode", "tool_ids"))
+                                if use_openwebui_native and mode == "WEB_SEARCH"
+                                else None
+                            ),
+                            "messages": copy.deepcopy(messages),
+                        },
+                    }
                     print(
                         f"START [{completed_requests + 1}/{total_requests}] "
                         f"query_id={query_id} variant={query_variant} mode={mode} "
@@ -292,6 +322,8 @@ def run_llm(config_path: str) -> pd.DataFrame:
                             "model": model,
                             "attempt": attempt + 1,
                         }
+                        attempt_trace["response"] = last_response
+                        attempt_traces.append(attempt_trace)
                         if attempt < max_retries:
                             wait_seconds = retry_backoff_seconds * (attempt + 1)
                             print(
@@ -302,6 +334,9 @@ def run_llm(config_path: str) -> pd.DataFrame:
                             time.sleep(wait_seconds)
                             continue
                         break
+
+                    attempt_trace["response"] = _response_to_json_value(last_response)
+                    attempt_traces.append(attempt_trace)
 
                     try:
                         parsed = _extract_json(_response_text(last_response))
@@ -333,7 +368,18 @@ def run_llm(config_path: str) -> pd.DataFrame:
 
                 safe_model = re.sub(r"[^A-Za-z0-9_.-]+", "_", str(model))
                 raw_path = logs_dir / f"query_{query_id}_{mode}_{safe_model}.json"
-                raw_path.write_text(_serialize_response(last_response), encoding="utf-8")
+                log_record = {
+                    "query_id": query_id,
+                    "query_variant": query_variant,
+                    "mode": mode,
+                    "model": model,
+                    "top_k_return": top_k,
+                    "attempts": attempt_traces,
+                }
+                raw_path.write_text(
+                    json.dumps(log_record, indent=2, ensure_ascii=False),
+                    encoding="utf-8",
+                )
 
                 items = _extract_items(parsed)
                 batch_rows = []

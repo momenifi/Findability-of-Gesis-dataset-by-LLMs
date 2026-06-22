@@ -29,7 +29,7 @@ Start with `INTERPRETATION.md`, the single consolidated study report, and use th
 
 The `*_summary.csv` files use all requests as the denominator, so empty responses and unfinished tool calls count as failures. This is the fairest version for model comparison.
 
-The `*_model_outputs_top10_labeled.csv` files include `is_relevant`, `matched_dataset_id`, `match_confidence`, and `link_valid` so returned datasets can be inspected directly. Full raw logs are much larger and are kept outside this report folder.
+The `*_model_outputs_top10_labeled.csv` files include `is_relevant`, `matched_dataset_id`, `match_confidence`, and `link_valid` so returned datasets can be inspected directly. Full request/response logs are much larger and are kept outside this report folder.
 
 ## High-Level Reading
 

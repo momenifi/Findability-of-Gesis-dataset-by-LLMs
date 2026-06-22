@@ -13,7 +13,7 @@ metadata sample
 generate_queries -> queries.csv
       |
       v
-run_llm -> llm_results.csv + raw logs
+run_llm -> llm_results.csv + request/response logs
       |
       v
 match_and_eval -> qrels + relevance labels + answered-query metrics
@@ -125,7 +125,7 @@ For a model or mode comparison, keep the generated queries fixed and change only
 
 ### 2. Query Models
 
-`src.run_llm` sends every query to each configured model and mode. It writes normalized ranked items to `llm_results.csv` and stores the raw API response for each request under `logs/` in the selected output directory.
+`src.run_llm` sends every query to each configured model and mode. It writes normalized ranked items to `llm_results.csv` and stores the complete message list and API response for every attempt under `logs/` in the selected output directory. Authorization headers and API keys are not logged.
 
 ### 3. Match and Evaluate
 
@@ -148,7 +148,7 @@ Each variant output directory contains:
 
 - `queries.csv`: generated prompts and source metadata.
 - `llm_results.csv`: normalized datasets returned by models.
-- `logs/`: raw API responses and tool-call states.
+- `logs/`: request messages, responses, retries, and tool-call states.
 - `qrels.csv`: datasets considered relevant to each query.
 - `qrels_debug.csv`: metadata-filter matching diagnostics, when enabled.
 - `per_query_results.csv`: returned items with metadata matches and relevance labels.

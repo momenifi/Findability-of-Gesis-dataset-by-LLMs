@@ -44,18 +44,36 @@ For reporting, `hit_at_k_all_queries` is the clearest metric. It answers: in how
 
 ## Results by Prompt Variant
 
+All configured model/mode combinations are shown below. `gpt-oss:latest` was configured only for `NO_WEB`, so it has no `WEB_SEARCH` row.
+
 ### V3 Title Only
 
-This is the strongest variant. The best results are:
+This is the strongest variant.
 
-| Mode | Model | Coverage | Hit@10 | MRR |
-| --- | --- | ---: | ---: | ---: |
-| NO_WEB | gemma3:27b | 1.00 | 0.82 | 0.82 |
-| WEB_SEARCH | gemma3:27b | 1.00 | 0.80 | 0.795 |
-| WEB_SEARCH | gpt-5-mini | 0.85 | 0.61 | 0.54 |
-| NO_WEB | llama4:latest | 0.98 | 0.57 | 0.57 |
-| WEB_SEARCH | llama4:latest | 0.99 | 0.49 | 0.485 |
-| WEB_SEARCH | gpt-5.1 | 0.95 | 0.31 | 0.31 |
+#### NO_WEB
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.820 | 0.820 | 0.820 |
+| gpt-4.1 | 1.000 | 0.340 | 0.340 | 0.340 |
+| llama4:latest | 0.980 | 0.570 | 0.570 | 0.570 |
+| o4-mini | 0.210 | 0.100 | 0.100 | 0.100 |
+| gpt-5 | 0.050 | 0.050 | 0.050 | 0.050 |
+| gpt-5-mini | 0.000 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.480 | 0.190 | 0.190 | 0.190 |
+| gpt-oss:latest | 0.190 | 0.190 | 0.190 | 0.190 |
+
+#### WEB_SEARCH
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.800 | 0.795 | 0.796 |
+| gpt-4.1 | 1.000 | 0.260 | 0.260 | 0.260 |
+| llama4:latest | 0.990 | 0.490 | 0.485 | 0.486 |
+| o4-mini | 0.670 | 0.330 | 0.323 | 0.325 |
+| gpt-5 | 0.120 | 0.110 | 0.110 | 0.110 |
+| gpt-5-mini | 0.850 | 0.610 | 0.540 | 0.558 |
+| gpt-5.1 | 0.950 | 0.310 | 0.310 | 0.310 |
 
 Interpretation:
 
@@ -63,15 +81,32 @@ Title search confirms that the pipeline and evaluation are working. Some models 
 
 ### V2 Single Topic, Country, Time
 
-This is a more realistic discovery setting. The best results are:
+This is a more realistic discovery setting.
 
-| Mode | Model | Coverage | Hit@10 | MRR |
-| --- | --- | ---: | ---: | ---: |
-| WEB_SEARCH | gpt-4.1 | 1.00 | 0.020 | 0.0045 |
-| WEB_SEARCH | llama4:latest | 0.968 | 0.020 | 0.0059 |
-| WEB_SEARCH | gpt-5.1 | 0.956 | 0.020 | 0.0067 |
-| NO_WEB | llama4:latest | 0.944 | 0.016 | 0.0083 |
-| NO_WEB | gpt-5.1 | 0.468 | 0.012 | 0.0024 |
+#### NO_WEB
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.000 | 0.000 | 0.000 |
+| gpt-4.1 | 1.000 | 0.008 | 0.002 | 0.004 |
+| llama4:latest | 0.944 | 0.016 | 0.008 | 0.010 |
+| o4-mini | 0.684 | 0.000 | 0.000 | 0.000 |
+| gpt-5 | 0.372 | 0.004 | 0.004 | 0.004 |
+| gpt-5-mini | 0.244 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.468 | 0.012 | 0.002 | 0.005 |
+| gpt-oss:latest | 0.408 | 0.004 | 0.001 | 0.001 |
+
+#### WEB_SEARCH
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.004 | 0.002 | 0.003 |
+| gpt-4.1 | 1.000 | 0.020 | 0.004 | 0.008 |
+| llama4:latest | 0.968 | 0.020 | 0.006 | 0.009 |
+| o4-mini | 0.760 | 0.012 | 0.003 | 0.005 |
+| gpt-5 | 0.156 | 0.004 | 0.001 | 0.001 |
+| gpt-5-mini | 0.824 | 0.004 | 0.001 | 0.002 |
+| gpt-5.1 | 0.956 | 0.020 | 0.007 | 0.010 |
 
 Interpretation:
 
@@ -79,15 +114,32 @@ Single-topic metadata search is much harder than title search. Web search improv
 
 ### V1 All Topics, Country, Time
 
-This variant performs weakest overall. The best results are:
+This variant performs weakest overall.
 
-| Mode | Model | Coverage | Hit@10 | MRR |
-| --- | --- | ---: | ---: | ---: |
-| WEB_SEARCH | llama4:latest | 0.988 | 0.047 | 0.0298 |
-| WEB_SEARCH | gpt-5.1 | 0.906 | 0.024 | 0.0040 |
-| NO_WEB | llama4:latest | 0.953 | 0.024 | 0.0176 |
-| NO_WEB | gemma3:27b | 1.00 | 0.012 | 0.0118 |
-| WEB_SEARCH | gemma3:27b | 1.00 | 0.012 | 0.0059 |
+#### NO_WEB
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.012 | 0.012 | 0.012 |
+| gpt-4.1 | 0.988 | 0.000 | 0.000 | 0.000 |
+| llama4:latest | 0.953 | 0.024 | 0.018 | 0.019 |
+| o4-mini | 0.741 | 0.000 | 0.000 | 0.000 |
+| gpt-5 | 0.447 | 0.000 | 0.000 | 0.000 |
+| gpt-5-mini | 0.282 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.318 | 0.000 | 0.000 | 0.000 |
+| gpt-oss:latest | 0.388 | 0.000 | 0.000 | 0.000 |
+
+#### WEB_SEARCH
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.012 | 0.006 | 0.007 |
+| gpt-4.1 | 1.000 | 0.000 | 0.000 | 0.000 |
+| llama4:latest | 0.988 | 0.047 | 0.030 | 0.034 |
+| o4-mini | 0.753 | 0.012 | 0.006 | 0.007 |
+| gpt-5 | 0.200 | 0.000 | 0.000 | 0.000 |
+| gpt-5-mini | 0.859 | 0.012 | 0.012 | 0.012 |
+| gpt-5.1 | 0.906 | 0.024 | 0.004 | 0.008 |
 
 Interpretation:
 

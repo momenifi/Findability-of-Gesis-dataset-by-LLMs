@@ -58,6 +58,15 @@ def classify_log(path: Path) -> tuple[str, int]:
     except Exception:
         return "invalid_log_json", 0
 
+    # New logs contain the request and response for every attempt. Older logs
+    # contain only the final API response and remain supported.
+    if isinstance(data, dict) and isinstance(data.get("attempts"), list):
+        attempts = data["attempts"]
+        if not attempts:
+            return "empty_response", 0
+        last_attempt = attempts[-1]
+        data = last_attempt.get("response") if isinstance(last_attempt, dict) else None
+
     if isinstance(data, dict) and data.get("error"):
         return "api_error", 0
 
