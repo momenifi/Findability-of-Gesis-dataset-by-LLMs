@@ -15,7 +15,7 @@ Start with `INTERPRETATION.md`, the single consolidated study report, and use th
 - `INTERPRETATION.md`: consolidated pilot setup, model comparison, and interpretation.
 - `*_summary.csv`: main comparison table. Use these for reporting.
 - `*_response_status.csv`: response coverage diagnostics, showing how often models returned items, empty lists, or tool-only responses.
-- `*_queries.csv`: generated prompts used for each variant.
+- `*_queries.csv`: generated query text and source metadata. Newly generated files also include the complete initial NO_WEB and WEB_SEARCH prompts.
 - `*_model_outputs_top10_labeled.csv`: datasets returned by each model/mode/query up to rank 10, including matched dataset ID and relevance label.
 
 ## Main Metrics

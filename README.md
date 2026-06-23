@@ -83,6 +83,7 @@ output_dir_by_variant:
   V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/full_metadata_model_comparison/v1_all_topics
   V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/full_metadata_model_comparison/v2_single_topic
   V3_TITLE_ONLY: output/full_metadata_model_comparison/v3_title_only
+  V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS: output/full_metadata_model_comparison/v4_all_topics_population_unit
 ```
 
 When exactly one variant is active, every pipeline stage uses its mapped output directory. If multiple variants are active, the general `output_dir` is used.
@@ -92,15 +93,19 @@ When exactly one variant is active, every pipeline stage uses its mapped output 
 - `V1_TOPIC_COUNTRY_TIME_ALL_TOPICS`: one query per source dataset using all topics, countries, and time.
 - `V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC`: one query for each individual topic, with the same countries and time.
 - `V3_TITLE_ONLY`: one known-item query using the dataset title.
+- `V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS`: extends V1 with the study population (`universe_en`) and unit of analysis (`analysis_unit_en`). A query is generated only when both fields contain meaningful values.
 
 Current templates:
 
 ```text
 Can you find GESIS datasets about {topic} in {country} during the {time}?
 Can you find the GESIS dataset titled {title}?
+Can you find GESIS datasets about {topic} in {country} during the {time}, where the study population is {universe} and the unit of analysis is {analysis_unit}?
 ```
 
 Prompt values are formatted as natural text. The structured topic, country, and exact year values remain in separate `queries.csv` columns for qrels construction.
+
+For V4, `query_universe` and `query_analysis_units` are also stored separately. With `qrels_strategy: metadata_filter`, a relevant dataset must match the normal V1 criteria and both added fields. The current 100-dataset sample contains 19 rows eligible for this variant.
 
 ## Run the Pipeline
 
@@ -121,7 +126,7 @@ For a model or mode comparison, keep the generated queries fixed and change only
 
 ### 1. Generate Queries
 
-`src.generate_queries` reads the sample metadata and writes `queries.csv`. The number of queries can exceed the number of source datasets for the single-topic variant because one dataset can have several topics.
+`src.generate_queries` reads the sample metadata and writes `queries.csv`. In addition to `query_text`, it stores `full_prompt_no_web` and `full_prompt_web_search`, including the system instruction, top-k limit, and required JSON format. The number of queries can exceed the number of source datasets for the single-topic variant because one dataset can have several topics.
 
 ### 2. Query Models
 
@@ -146,7 +151,7 @@ Its summary may omit requests that produced no usable returned items.
 
 Each variant output directory contains:
 
-- `queries.csv`: generated prompts and source metadata.
+- `queries.csv`: generated query text, complete initial prompts for both modes, and source metadata.
 - `llm_results.csv`: normalized datasets returned by models.
 - `logs/`: request messages, responses, retries, and tool-call states.
 - `qrels.csv`: datasets considered relevant to each query.

@@ -198,6 +198,8 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
                 "topics": _label_set(row.get("topic", "")),
                 "countries": _label_set(row.get("country", "")),
                 "years": _year_range(row.get("time_collection_years", "")),
+                "universes": _label_set(row.get("universe", "")),
+                "analysis_units": _label_set(row.get("analysis_unit", "")),
             }
         )
 
@@ -216,6 +218,8 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
         query_topics = _label_set(query.get("query_topics", ""))
         query_countries = _label_set(query.get("query_countries", ""))
         query_years = _year_range(query.get("query_time_collection_years", ""))
+        query_universes = _label_set(query.get("query_universe", ""))
+        query_analysis_units = _label_set(query.get("query_analysis_units", ""))
 
         if not query_topics and source_row is not None:
             query_topics = _label_set(source_row.get("topic", ""))
@@ -224,7 +228,18 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
         if query_years is None and source_row is not None:
             query_years = _year_range(source_row.get("time_collection_years", ""))
 
+        population_unit_variant = (
+            variant == "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS"
+        )
+        if population_unit_variant and source_row is not None:
+            if not query_universes:
+                query_universes = _label_set(source_row.get("universe", ""))
+            if not query_analysis_units:
+                query_analysis_units = _label_set(source_row.get("analysis_unit", ""))
+
         if not query_topics or not query_countries or query_years is None:
+            continue
+        if population_unit_variant and (not query_universes or not query_analysis_units):
             continue
 
         relevant_ids = []
@@ -236,6 +251,10 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
             if not (query_countries & row["countries"]):
                 continue
             if not _ranges_overlap(query_years, row["years"]):
+                continue
+            if population_unit_variant and not (query_universes & row["universes"]):
+                continue
+            if population_unit_variant and not (query_analysis_units & row["analysis_units"]):
                 continue
             relevant_ids.append(row["id"])
 
@@ -257,6 +276,8 @@ def metadata_filter_debug_frame(df: pd.DataFrame, queries: pd.DataFrame, qrels_m
         query_topics = _label_set(query.get("query_topics", ""))
         query_countries = _label_set(query.get("query_countries", ""))
         query_years = _year_range(query.get("query_time_collection_years", ""))
+        query_universes = _label_set(query.get("query_universe", ""))
+        query_analysis_units = _label_set(query.get("query_analysis_units", ""))
         rows.append(
             {
                 "query_id": query_id,
@@ -266,10 +287,14 @@ def metadata_filter_debug_frame(df: pd.DataFrame, queries: pd.DataFrame, qrels_m
                 "query_topics_count": len(query_topics),
                 "query_countries_count": len(query_countries),
                 "query_years": "" if query_years is None else f"{query_years[0]}-{query_years[1]}",
+                "query_universe_count": len(query_universes),
+                "query_analysis_units_count": len(query_analysis_units),
                 "qrels_count": len(qrels_map.get(query_id, [])),
                 "query_topics_raw": str(query.get("query_topics", "")),
                 "query_countries_raw": str(query.get("query_countries", "")),
                 "query_time_collection_years_raw": str(query.get("query_time_collection_years", "")),
+                "query_universe_raw": str(query.get("query_universe", "")),
+                "query_analysis_units_raw": str(query.get("query_analysis_units", "")),
             }
         )
     return pd.DataFrame(rows)
@@ -282,6 +307,8 @@ def qrels_to_frame(qrels_map: Dict[int, List[str]], df: pd.DataFrame, queries: p
             "relevant_topic": str(row.get("topic", "")),
             "relevant_country": str(row.get("country", "")),
             "relevant_time_collection_years": str(row.get("time_collection_years", "")),
+            "relevant_universe": str(row.get("universe", "")),
+            "relevant_analysis_unit": str(row.get("analysis_unit", "")),
         }
         for _, row in df.iterrows()
     }
@@ -294,6 +321,8 @@ def qrels_to_frame(qrels_map: Dict[int, List[str]], df: pd.DataFrame, queries: p
             "query_topics": str(row.get("query_topics", "")),
             "query_countries": str(row.get("query_countries", "")),
             "query_time_collection_years": str(row.get("query_time_collection_years", "")),
+            "query_universe": str(row.get("query_universe", "")),
+            "query_analysis_units": str(row.get("query_analysis_units", "")),
         }
         for _, row in queries.iterrows()
     }

@@ -14,6 +14,7 @@ from openai import OpenAI
 
 from .load_metadata import load_metadata
 from .config_paths import resolve_output_dir
+from .prompts import build_messages
 
 OUTPUT_CSV_SEP = ";"
 
@@ -210,28 +211,6 @@ def _call_openai(cfg: dict, model: str, messages: List[dict], enable_web_search:
     return client.chat.completions.create(model=model, messages=messages)
 
 
-def _build_messages(query_text: str, top_k: int, mode: str) -> List[dict]:
-    if mode == "NO_WEB":
-        system_msg = (
-            "Do not browse the web. Use only your internal knowledge. "
-            "Only include datasets hosted by GESIS. Do not invent links; if unsure, omit the item."
-        )
-    else:
-        system_msg = (
-            "Use web search to find relevant datasets hosted by GESIS. "
-            "Only include GESIS-hosted landing pages or DOIs. Do not invent links. "
-            "Do not call time, date, timestamp, or clock tools."
-        )
-    user_msg = (
-        f"Query: {query_text}\n"
-        f"Return up to {top_k} items. "
-        "Respond ONLY as JSON in this exact shape: "
-        '{"items":[{"title":"...","url_or_doi":"...","justification":"..."}]}. '
-        "Put any DOI, GESIS URL, landing page, or link in url_or_doi."
-    )
-    return [{"role": "system", "content": system_msg}, {"role": "user", "content": user_msg}]
-
-
 def run_llm(config_path: str) -> pd.DataFrame:
     cfg = load_config(config_path)
     output_dir = resolve_output_dir(cfg)
@@ -272,7 +251,7 @@ def run_llm(config_path: str) -> pd.DataFrame:
 
         for mode in modes:
             for model in models_by_mode.get(mode, []):
-                messages = _build_messages(query_text, top_k, mode)
+                messages = build_messages(query_text, top_k, mode)
                 parsed = None
                 last_response = None
                 attempt_traces = []

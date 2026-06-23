@@ -9,17 +9,31 @@ import yaml
 
 from .load_metadata import load_metadata
 from .config_paths import resolve_output_dir
+from .prompts import build_messages, format_messages
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 OUTPUT_CSV_SEP = ";"
 
 QUERY_TEMPLATE = "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}?"
+POPULATION_UNIT_QUERY_TEMPLATE = (
+    "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}, "
+    "where the study population is {universe} and the unit of analysis is {analysis_unit}?"
+)
 TITLE_QUERY_TEMPLATE = "Can you find the GESIS dataset titled {title}?"
 
 VARIANTS = {
     "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS": "all_topics",
     "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC": "single_topic",
     "V3_TITLE_ONLY": "title",
+    "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS": "all_topics_population_unit",
+}
+
+MISSING_METADATA_LABELS = {
+    "n/a",
+    "no specific information",
+    "not applicable",
+    "not specified",
+    "unknown",
 }
 
 
@@ -74,6 +88,14 @@ def _format_natural_list(values: list[str]) -> str:
     return f"{', '.join(cleaned[:-1])}, and {cleaned[-1]}"
 
 
+def _meaningful_values(values: list[str]) -> list[str]:
+    return [
+        value
+        for value in values
+        if _normalize_whitespace(value).casefold() not in MISSING_METADATA_LABELS
+    ]
+
+
 def _extract_years(values: list[str]) -> list[int]:
     years = []
     for value in values:
@@ -125,6 +147,8 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
     titles = _parse_list_value(row.get("title", ""))
     countries = _parse_list_value(row.get("country", ""))
     years = _parse_list_value(row.get("time_collection_years", ""))
+    universes = _meaningful_values(_parse_list_value(row.get("universe", "")))
+    analysis_units = _meaningful_values(_parse_list_value(row.get("analysis_unit", "")))
 
     if variant == "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS":
         if not topics or not countries or not years:
@@ -146,6 +170,8 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
                 "query_countries": country_qrels_text,
                 "query_time_collection_years": years_qrels_text,
                 "query_time_display": years_text,
+                "query_universe": "",
+                "query_analysis_units": "",
             }
         ]
 
@@ -170,6 +196,8 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
                     "query_countries": country_qrels_text,
                     "query_time_collection_years": years_qrels_text,
                     "query_time_display": years_text,
+                    "query_universe": "",
+                    "query_analysis_units": "",
                 }
             )
         return queries
@@ -184,8 +212,35 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
                 "query_countries": "",
                 "query_time_collection_years": "",
                 "query_time_display": "",
+                "query_universe": "",
+                "query_analysis_units": "",
             }
             for title in titles
+        ]
+
+    if variant == "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS":
+        if not topics or not countries or not years or not universes or not analysis_units:
+            return []
+        country_text = _format_natural_list(countries)
+        years_text = _format_time_value(years, time_format)
+        universe_text = _format_natural_list(universes)
+        analysis_unit_text = _format_natural_list(analysis_units)
+        return [
+            {
+                "query_text": POPULATION_UNIT_QUERY_TEMPLATE.format(
+                    topic=_format_natural_list(topics),
+                    country=country_text,
+                    time_collection_years=years_text,
+                    universe=universe_text,
+                    analysis_unit=analysis_unit_text,
+                ),
+                "query_topics": _format_list_value(topics),
+                "query_countries": _format_list_value(countries),
+                "query_time_collection_years": _format_list_value(years),
+                "query_time_display": years_text,
+                "query_universe": _format_list_value(universes),
+                "query_analysis_units": _format_list_value(analysis_units),
+            }
         ]
 
     return []
@@ -202,6 +257,7 @@ def generate_queries(config_path: str) -> pd.DataFrame:
 
     variants = cfg.get("query_variants", list(VARIANTS.keys()))
     time_format = str(cfg.get("time_format", "years")).strip().lower()
+    top_k = int(cfg.get("top_k_return", 10))
     results = []
     seen = set()
 
@@ -224,11 +280,19 @@ def generate_queries(config_path: str) -> pd.DataFrame:
                 results.append(
                     {
                         "query_text": query,
+                        "full_prompt_no_web": format_messages(
+                            build_messages(query, top_k, "NO_WEB")
+                        ),
+                        "full_prompt_web_search": format_messages(
+                            build_messages(query, top_k, "WEB_SEARCH")
+                        ),
                         "query_variant": variant,
                         "query_topics": query_info["query_topics"],
                         "query_countries": query_info["query_countries"],
                         "query_time_collection_years": query_info["query_time_collection_years"],
                         "query_time_display": query_info["query_time_display"],
+                        "query_universe": query_info["query_universe"],
+                        "query_analysis_units": query_info["query_analysis_units"],
                         "source_dataset_id": str(row.get("id", "")),
                         "source_title": str(row.get("title", "")),
                         "source_doi": str(row.get("doi", "")),
