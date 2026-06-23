@@ -84,6 +84,7 @@ output_dir_by_variant:
   V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/full_metadata_model_comparison/v2_single_topic
   V3_TITLE_ONLY: output/full_metadata_model_comparison/v3_title_only
   V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS: output/full_metadata_model_comparison/v4_all_topics_population_unit
+  V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS: output/full_metadata_model_comparison/v5_all_topics_population
 ```
 
 When exactly one variant is active, every pipeline stage uses its mapped output directory. If multiple variants are active, the general `output_dir` is used.
@@ -94,6 +95,7 @@ When exactly one variant is active, every pipeline stage uses its mapped output 
 - `V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC`: one query for each individual topic, with the same countries and time.
 - `V3_TITLE_ONLY`: one known-item query using the dataset title.
 - `V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS`: extends V1 with the study population (`universe_en`) and unit of analysis (`analysis_unit_en`). A query is generated only when both fields contain meaningful values.
+- `V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS`: extends V1 with only the study population (`universe_en`). A query is generated when the universe contains a meaningful value; analysis unit is not used.
 
 Current templates:
 
@@ -101,11 +103,14 @@ Current templates:
 Can you find GESIS datasets about {topic} in {country} during the {time}?
 Can you find the GESIS dataset titled {title}?
 Can you find GESIS datasets about {topic} in {country} during the {time}, where the study population is {universe} and the unit of analysis is {analysis_unit}?
+Can you find GESIS datasets about {topic} in {country} during the {time}, where the study population is {universe}?
 ```
 
 Prompt values are formatted as natural text. The structured topic, country, and exact year values remain in separate `queries.csv` columns for qrels construction.
 
-For V4, `query_universe` and `query_analysis_units` are also stored separately. With `qrels_strategy: metadata_filter`, a relevant dataset must match the normal V1 criteria and both added fields. The current 100-dataset sample contains 19 rows eligible for this variant.
+For V4, `query_universe` and `query_analysis_units` are also stored separately. With `qrels_strategy: metadata_filter`, a relevant dataset must match the normal V1 criteria and both added fields. The current 100-dataset sample contains 21 rows eligible for this variant when English fields and German fallbacks are considered.
+
+For V5, only `query_universe` is added to the normal V1 criteria. Analysis unit is neither included in the prompt nor required by the metadata-filter qrels. The current sample contains 80 eligible source rows before duplicate query removal.
 
 ## Run the Pipeline
 

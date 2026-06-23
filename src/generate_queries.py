@@ -19,6 +19,10 @@ POPULATION_UNIT_QUERY_TEMPLATE = (
     "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}, "
     "where the study population is {universe} and the unit of analysis is {analysis_unit}?"
 )
+POPULATION_QUERY_TEMPLATE = (
+    "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}, "
+    "where the study population is {universe}?"
+)
 TITLE_QUERY_TEMPLATE = "Can you find the GESIS dataset titled {title}?"
 
 VARIANTS = {
@@ -26,6 +30,7 @@ VARIANTS = {
     "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC": "single_topic",
     "V3_TITLE_ONLY": "title",
     "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS": "all_topics_population_unit",
+    "V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS": "all_topics_population",
 }
 
 MISSING_METADATA_LABELS = {
@@ -240,6 +245,27 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
                 "query_time_display": years_text,
                 "query_universe": _format_list_value(universes),
                 "query_analysis_units": _format_list_value(analysis_units),
+            }
+        ]
+
+    if variant == "V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS":
+        if not topics or not countries or not years or not universes:
+            return []
+        years_text = _format_time_value(years, time_format)
+        return [
+            {
+                "query_text": POPULATION_QUERY_TEMPLATE.format(
+                    topic=_format_natural_list(topics),
+                    country=_format_natural_list(countries),
+                    time_collection_years=years_text,
+                    universe=_format_natural_list(universes),
+                ),
+                "query_topics": _format_list_value(topics),
+                "query_countries": _format_list_value(countries),
+                "query_time_collection_years": _format_list_value(years),
+                "query_time_display": years_text,
+                "query_universe": _format_list_value(universes),
+                "query_analysis_units": "",
             }
         ]
 

@@ -228,18 +228,25 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
         if query_years is None and source_row is not None:
             query_years = _year_range(source_row.get("time_collection_years", ""))
 
-        population_unit_variant = (
+        universe_variant = variant in {
+            "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS",
+            "V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS",
+        }
+        analysis_unit_variant = (
             variant == "V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS"
         )
-        if population_unit_variant and source_row is not None:
+        if universe_variant and source_row is not None:
             if not query_universes:
                 query_universes = _label_set(source_row.get("universe", ""))
+        if analysis_unit_variant and source_row is not None:
             if not query_analysis_units:
                 query_analysis_units = _label_set(source_row.get("analysis_unit", ""))
 
         if not query_topics or not query_countries or query_years is None:
             continue
-        if population_unit_variant and (not query_universes or not query_analysis_units):
+        if universe_variant and not query_universes:
+            continue
+        if analysis_unit_variant and not query_analysis_units:
             continue
 
         relevant_ids = []
@@ -252,9 +259,9 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
                 continue
             if not _ranges_overlap(query_years, row["years"]):
                 continue
-            if population_unit_variant and not (query_universes & row["universes"]):
+            if universe_variant and not (query_universes & row["universes"]):
                 continue
-            if population_unit_variant and not (query_analysis_units & row["analysis_units"]):
+            if analysis_unit_variant and not (query_analysis_units & row["analysis_units"]):
                 continue
             relevant_ids.append(row["id"])
 
