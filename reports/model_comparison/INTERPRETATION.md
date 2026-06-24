@@ -20,6 +20,9 @@ We compared three prompt variants:
 - `V3_TITLE_ONLY`: the model receives the dataset title.
 - `V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC`: the model receives one topic, country, and decade.
 - `V1_TOPIC_COUNTRY_TIME_ALL_TOPICS`: the model receives all topics together, plus country and decade.
+- `V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS`: V1 plus study population and unit of analysis.
+
+`V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS`, which removes analysis unit from V4, is implemented as the next experiment but has no results in this report yet.
 
 For each variant, we compared different models and two modes:
 
@@ -145,13 +148,50 @@ Interpretation:
 
 Using all topics together may make the prompt too broad or noisy. A dataset with many topics can produce a query that describes a wide thematic area rather than a specific user need. This may explain why the model returns plausible but not target/relevant datasets.
 
+### V4 All Topics, Population, and Unit of Analysis
+
+V4 extends V1 with `universe_en` and `analysis_unit_en`. Only 21 of the 100 source datasets had all required fields. These 21 queries were sent to 15 model/mode combinations, producing 315 requests. All expected logs are present.
+
+#### NO_WEB
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.000 | 0.000 | 0.000 |
+| gpt-4.1 | 0.952 | 0.000 | 0.000 | 0.000 |
+| llama4:latest | 0.952 | 0.000 | 0.000 | 0.000 |
+| o4-mini | 0.714 | 0.000 | 0.000 | 0.000 |
+| gpt-5 | 0.286 | 0.000 | 0.000 | 0.000 |
+| gpt-5-mini | 0.095 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.619 | 0.048 | 0.048 | 0.048 |
+| gpt-oss:latest | 0.571 | 0.000 | 0.000 | 0.000 |
+
+#### WEB_SEARCH
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.000 | 0.000 | 0.000 |
+| gpt-4.1 | 1.000 | 0.000 | 0.000 | 0.000 |
+| llama4:latest | 0.905 | 0.048 | 0.016 | 0.024 |
+| o4-mini | 0.619 | 0.048 | 0.016 | 0.024 |
+| gpt-5 | 0.095 | 0.000 | 0.000 | 0.000 |
+| gpt-5-mini | 0.667 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 1.000 | 0.048 | 0.024 | 0.030 |
+
+Interpretation:
+
+Only one of the four credited request-level hits was exact: `gpt-5.1` in NO_WEB mode retrieved `ZA3680` at rank 1. The other three were fuzzy title matches. Manual inspection showed conflicting or unresolved returned identifiers, including titles and DOIs that did not identify the target records. The reported V4 Hit@10 values therefore overstate reliable retrieval.
+
+The strict metadata filter produced exactly one qrel per V4 query because free-text population descriptions rarely repeat exactly. V4 consequently behaves more like target-dataset retrieval than broad discovery. Its prompts are also substantially longer, averaging approximately 476 characters and reaching 1,012 characters.
+
+On the same 21 source datasets, V1 produced five credited request-level hits and V4 produced four; each variant had only one exact hit. This run provides no evidence that adding both population and analysis unit improved retrieval. V5 will test whether population alone offers a better balance between specificity, prompt length, and metadata coverage.
+
 ## Model Comparison
 
 The model ranking depends strongly on the prompt type.
 
 For title-only search, `gemma3:27b` is strongest in this run. `llama4:latest` and `gpt-5-mini` also perform well in some modes. `gpt-5.1` has high web-search coverage but lower Hit@10 than the best models.
 
-For metadata search, no model performs strongly. `llama4:latest`, `gpt-4.1`, and `gpt-5.1` are among the better models depending on the variant and mode, but the absolute hit rates are still low.
+For metadata search, no model performs strongly. `llama4:latest`, `gpt-4.1`, and `gpt-5.1` are among the better models depending on the variant and mode, but the absolute hit rates are still low. V4 did not show an improvement over V1 on the paired subset.
 
 The comparison should always consider coverage. A model with low coverage may look better or worse depending on whether unanswered cases are included. The audit summaries in this folder use all requests as the denominator, so empty responses and unfinished tool calls count as failures. This is the fairer comparison.
 
@@ -172,7 +212,9 @@ The current evaluation is useful and credible for an initial model comparison:
 - Title-based discovery performs well and can be used as a sanity check.
 - Realistic metadata-based discovery is much harder.
 - Single-topic prompts are probably more interpretable than all-topic prompts.
+- Adding both population and unit of analysis did not improve exact retrieval in V4.
 - The full metadata collection is now used for qrels and returned-record matching.
+- Fuzzy matching must be made more conservative before relying on small differences in Hit@10.
 - Further work should improve the relevance definition and prompt design.
 
-Recommended next step: manually inspect a stratified sample of labeled results to validate the metadata-filter qrels, then compare additional prompt formulations for time expressions, such as exact year ranges versus decades. Repeated runs would also help determine whether observed model differences are stable or caused by response variability.
+Recommended next step: prevent conflicting or unresolved returned identifiers from being credited through fuzzy title matching, rerun evaluation without repeating the LLM calls, and then evaluate V5. Repeated runs would also help determine whether observed model differences are stable or caused by response variability.
