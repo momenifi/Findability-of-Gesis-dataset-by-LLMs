@@ -123,6 +123,23 @@ python -m src.match_and_eval --config config.yaml
 python -m src.audit_results --config config.yaml
 ```
 
+You can override the configured variant for any stage without editing `config.yaml`. Use the same variant for all four commands:
+
+```bash
+python -m src.generate_queries --config config.yaml --variant V1
+python -m src.run_llm --config config.yaml --variant V1
+python -m src.match_and_eval --config config.yaml --variant V1
+python -m src.audit_results --config config.yaml --variant V1
+```
+
+The short form is also supported:
+
+```bash
+python -m src.generate_queries -V V1 --config config.yaml
+```
+
+Aliases `V1`, `V2`, `V3`, `V4`, and `V5` resolve to their full variant names and select the corresponding directory from `output_dir_by_variant`. The command-line override does not modify `config.yaml`.
+
 Run `generate_queries` again whenever the query variant, source row limit, time format, or input sample changes. Changing `source_row_limit` does not modify an existing `queries.csv` automatically.
 
 For a model or mode comparison, keep the generated queries fixed and change only the configured model lists or modes.

@@ -19,7 +19,7 @@ except ImportError:
     process = None
 
 from .load_metadata import load_metadata
-from .config_paths import resolve_output_dir
+from .config_paths import apply_variant_override, resolve_output_dir
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
@@ -551,8 +551,8 @@ def compute_metrics(
     return per_query, summary, metrics_per_query
 
 
-def match_and_eval(config_path: str) -> None:
-    cfg = load_config(config_path)
+def match_and_eval(config_path: str, variant: str | None = None) -> None:
+    cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -607,8 +607,9 @@ def match_and_eval(config_path: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
     args = parser.parse_args()
-    match_and_eval(args.config)
+    match_and_eval(args.config, args.variant)
 
 
 if __name__ == "__main__":

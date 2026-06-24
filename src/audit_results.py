@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
-from .config_paths import resolve_output_dir
+from .config_paths import apply_variant_override, resolve_output_dir
 
 OUTPUT_CSV_SEP = ";"
 
@@ -96,8 +96,8 @@ def classify_log(path: Path) -> tuple[str, int]:
     return "items", len(raw_items)
 
 
-def audit(config_path: str) -> None:
-    cfg = load_config(config_path)
+def audit(config_path: str, variant: str | None = None) -> None:
+    cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     queries_path = output_dir / "queries.csv"
     metrics_path = output_dir / "metrics_per_query.csv"
@@ -200,8 +200,9 @@ def audit(config_path: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
     args = parser.parse_args()
-    audit(args.config)
+    audit(args.config, args.variant)
 
 
 if __name__ == "__main__":

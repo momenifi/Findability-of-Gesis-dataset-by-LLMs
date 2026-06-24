@@ -13,7 +13,7 @@ import yaml
 from openai import OpenAI
 
 from .load_metadata import load_metadata
-from .config_paths import resolve_output_dir
+from .config_paths import apply_variant_override, resolve_output_dir
 from .prompts import build_messages
 
 OUTPUT_CSV_SEP = ";"
@@ -211,8 +211,8 @@ def _call_openai(cfg: dict, model: str, messages: List[dict], enable_web_search:
     return client.chat.completions.create(model=model, messages=messages)
 
 
-def run_llm(config_path: str) -> pd.DataFrame:
-    cfg = load_config(config_path)
+def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
+    cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
     logs_dir = output_dir / "logs"
@@ -403,8 +403,9 @@ def run_llm(config_path: str) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
     args = parser.parse_args()
-    run_llm(args.config)
+    run_llm(args.config, args.variant)
 
 
 if __name__ == "__main__":

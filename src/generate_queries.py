@@ -8,7 +8,7 @@ import pandas as pd
 import yaml
 
 from .load_metadata import load_metadata
-from .config_paths import resolve_output_dir
+from .config_paths import apply_variant_override, resolve_output_dir
 from .prompts import build_messages, format_messages
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
@@ -272,8 +272,8 @@ def _build_queries_for_row(row: pd.Series, variant: str, time_format: str) -> li
     return []
 
 
-def generate_queries(config_path: str) -> pd.DataFrame:
-    cfg = load_config(config_path)
+def generate_queries(config_path: str, variant: str | None = None) -> pd.DataFrame:
+    cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
     df = load_metadata(cfg["input_path"], cfg["input_format"])
@@ -355,8 +355,9 @@ def generate_queries(config_path: str) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
     args = parser.parse_args()
-    generate_queries(args.config)
+    generate_queries(args.config, args.variant)
 
 
 if __name__ == "__main__":
