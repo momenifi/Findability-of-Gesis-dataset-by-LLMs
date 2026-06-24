@@ -10,7 +10,7 @@ Start with `INTERPRETATION.md`, the single consolidated study report, and use th
 - `v2_single_topic`: one query per topic, plus country and decade.
 - `v3_title_only`: one query using only the dataset title.
 - `v4_population_unit`: V1 plus study population and unit of analysis; 21 source datasets had all required metadata.
-- `v5_population`: V1 plus study population only. The variant is implemented, but results are not included yet.
+- `v5_population`: V1 plus study population only; 73 unique queries were evaluated.
 
 ## Files
 
@@ -38,6 +38,8 @@ The `*_model_outputs_top10_labeled.csv` files include `is_relevant`, `matched_da
 - Title search (`v3_title_only`) performs best by a large margin.
 - Metadata-based search (`v1_all_topics` and `v2_single_topic`) is much harder.
 - Adding population and unit of analysis in V4 did not improve exact retrieval on the 21-query paired subset.
+- Population-only V5 also did not improve retrieval over V1 on the corresponding source subset.
 - Web search improves coverage for several GPT models, especially `gpt-5.1`.
 - Coverage-aware metrics are important because some models return empty responses often.
 - V4 fuzzy hits require manual review because several conflicting or unresolved returned identifiers were incorrectly credited through title similarity.
+- The same matching issue affects V5; its apparent exact hit was produced by a perfect fuzzy-title score despite conflicting returned ZA identifiers.

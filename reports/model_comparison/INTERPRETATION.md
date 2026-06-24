@@ -21,8 +21,7 @@ We compared three prompt variants:
 - `V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC`: the model receives one topic, country, and decade.
 - `V1_TOPIC_COUNTRY_TIME_ALL_TOPICS`: the model receives all topics together, plus country and decade.
 - `V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS`: V1 plus study population and unit of analysis.
-
-`V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS`, which removes analysis unit from V4, is implemented as the next experiment but has no results in this report yet.
+- `V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS`: V1 plus study population, without unit of analysis.
 
 For each variant, we compared different models and two modes:
 
@@ -183,7 +182,46 @@ Only one of the four credited request-level hits was exact: `gpt-5.1` in NO_WEB 
 
 The strict metadata filter produced exactly one qrel per V4 query because free-text population descriptions rarely repeat exactly. V4 consequently behaves more like target-dataset retrieval than broad discovery. Its prompts are also substantially longer, averaging approximately 476 characters and reaching 1,012 characters.
 
-On the same 21 source datasets, V1 produced five credited request-level hits and V4 produced four; each variant had only one exact hit. This run provides no evidence that adding both population and analysis unit improved retrieval. V5 will test whether population alone offers a better balance between specificity, prompt length, and metadata coverage.
+On the same 21 source datasets, V1 produced five credited request-level hits and V4 produced four; each variant had only one exact hit. This run provides no evidence that adding both population and analysis unit improved retrieval. V5 tests whether population alone offers a better balance between specificity, prompt length, and metadata coverage.
+
+### V5 All Topics and Population
+
+V5 removes analysis unit from V4 and retains study population. It generated 73 unique queries after metadata eligibility checks and duplicate removal. These queries were sent to 15 model/mode combinations, producing 1,095 requests. All expected logs are present.
+
+#### NO_WEB
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.000 | 0.000 | 0.000 |
+| gpt-4.1 | 0.973 | 0.000 | 0.000 | 0.000 |
+| llama4:latest | 0.767 | 0.014 | 0.003 | 0.005 |
+| o4-mini | 0.452 | 0.000 | 0.000 | 0.000 |
+| gpt-5 | 0.110 | 0.014 | 0.005 | 0.007 |
+| gpt-5-mini | 0.027 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.342 | 0.000 | 0.000 | 0.000 |
+| gpt-oss:latest | 0.384 | 0.000 | 0.000 | 0.000 |
+
+#### WEB_SEARCH
+
+| Model | Coverage | Hit@10 | MRR | nDCG@10 |
+| --- | ---: | ---: | ---: | ---: |
+| gemma3:27b | 1.000 | 0.014 | 0.014 | 0.014 |
+| gpt-4.1 | 1.000 | 0.014 | 0.003 | 0.006 |
+| llama4:latest | 0.849 | 0.014 | 0.007 | 0.009 |
+| o4-mini | 0.534 | 0.000 | 0.000 | 0.000 |
+| gpt-5 | 0.068 | 0.000 | 0.000 | 0.000 |
+| gpt-5-mini | 0.699 | 0.000 | 0.000 | 0.000 |
+| gpt-5.1 | 0.849 | 0.014 | 0.001 | 0.004 |
+
+Interpretation:
+
+V5 returned usable items for 661 of 1,095 requests. Another 416 responses contained zero items and 18 ended with tool calls only. Six distinct requests were credited with a hit, but five were based on fuzzy title matching.
+
+Manual inspection found several conflicts. For example, results explicitly linking to `ZA2283` and `ZA2282` were credited as the V5 target `ZA2546` after fuzzy title fallback. Another result referenced a different EVS decade and an unresolved DOI. The apparent exact hit is also not reliable because the current audit treats `match_confidence == 1.0` as exact, while fuzzy title matching can also produce a score of 1.0.
+
+Potentially plausible discoveries include the ISSP 2001 result associated with `ZA3680` and the Weimar parliamentary-data result associated with `ZA8007`, but these still require manual validation. The metadata filter again produced exactly one qrel per query because free-text universe descriptions rarely repeat exactly.
+
+V5 prompts averaged approximately 337 characters, compared with 476 for V4. On the corresponding source subset, V1 had seven credited request-level hits across 1,080 requests, while V5 had six across 1,095 requests. Under the current matching logic, each had one apparent exact hit. V5 therefore provides no evidence that adding population improved retrieval over V1.
 
 ## Model Comparison
 
@@ -191,7 +229,7 @@ The model ranking depends strongly on the prompt type.
 
 For title-only search, `gemma3:27b` is strongest in this run. `llama4:latest` and `gpt-5-mini` also perform well in some modes. `gpt-5.1` has high web-search coverage but lower Hit@10 than the best models.
 
-For metadata search, no model performs strongly. `llama4:latest`, `gpt-4.1`, and `gpt-5.1` are among the better models depending on the variant and mode, but the absolute hit rates are still low. V4 did not show an improvement over V1 on the paired subset.
+For metadata search, no model performs strongly. `llama4:latest`, `gpt-4.1`, and `gpt-5.1` are among the better models depending on the variant and mode, but the absolute hit rates are still low. Neither V4 nor V5 showed an improvement over V1 on the corresponding source subsets.
 
 The comparison should always consider coverage. A model with low coverage may look better or worse depending on whether unanswered cases are included. The audit summaries in this folder use all requests as the denominator, so empty responses and unfinished tool calls count as failures. This is the fairer comparison.
 
@@ -213,8 +251,9 @@ The current evaluation is useful and credible for an initial model comparison:
 - Realistic metadata-based discovery is much harder.
 - Single-topic prompts are probably more interpretable than all-topic prompts.
 - Adding both population and unit of analysis did not improve exact retrieval in V4.
+- Adding population without analysis unit did not improve retrieval in V5.
 - The full metadata collection is now used for qrels and returned-record matching.
 - Fuzzy matching must be made more conservative before relying on small differences in Hit@10.
 - Further work should improve the relevance definition and prompt design.
 
-Recommended next step: prevent conflicting or unresolved returned identifiers from being credited through fuzzy title matching, rerun evaluation without repeating the LLM calls, and then evaluate V5. Repeated runs would also help determine whether observed model differences are stable or caused by response variability.
+Recommended next step: prevent conflicting or unresolved returned identifiers from being credited through fuzzy title matching, record the match method explicitly, and rerun evaluation for all variants without repeating the LLM calls. Repeated runs would also help determine whether observed model differences are stable or caused by response variability.
