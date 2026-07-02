@@ -14,16 +14,16 @@ from .prompts import build_messages, format_messages
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 OUTPUT_CSV_SEP = ";"
 
-QUERY_TEMPLATE = "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}?"
+QUERY_TEMPLATE = "Can you find datasets about {topic} in {country} during the {time_collection_years}?"
 POPULATION_UNIT_QUERY_TEMPLATE = (
-    "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}, "
+    "Can you find datasets about {topic} in {country} during the {time_collection_years}, "
     "where the study population is {universe} and the unit of analysis is {analysis_unit}?"
 )
 POPULATION_QUERY_TEMPLATE = (
-    "Can you find GESIS datasets about {topic} in {country} during the {time_collection_years}, "
+    "Can you find datasets about {topic} in {country} during the {time_collection_years}, "
     "where the study population is {universe}?"
 )
-TITLE_QUERY_TEMPLATE = "Can you find the GESIS dataset titled {title}?"
+TITLE_QUERY_TEMPLATE = "Can you find the dataset titled {title}?"
 
 VARIANTS = {
     "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS": "all_topics",

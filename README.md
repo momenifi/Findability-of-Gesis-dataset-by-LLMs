@@ -101,10 +101,10 @@ When exactly one variant is active, every pipeline stage uses its mapped output 
 Current templates:
 
 ```text
-Can you find GESIS datasets about {topic} in {country} during the {time}?
-Can you find the GESIS dataset titled {title}?
-Can you find GESIS datasets about {topic} in {country} during the {time}, where the study population is {universe} and the unit of analysis is {analysis_unit}?
-Can you find GESIS datasets about {topic} in {country} during the {time}, where the study population is {universe}?
+Can you find datasets about {topic} in {country} during the {time}?
+Can you find the dataset titled {title}?
+Can you find datasets about {topic} in {country} during the {time}, where the study population is {universe} and the unit of analysis is {analysis_unit}?
+Can you find datasets about {topic} in {country} during the {time}, where the study population is {universe}?
 ```
 
 Prompt values are formatted as natural text. The structured topic, country, and exact year values remain in separate `queries.csv` columns for qrels construction.
@@ -140,6 +140,38 @@ python -m src.generate_queries -V V1 --config config.yaml
 ```
 
 Aliases `V1`, `V2`, `V3`, `V4`, and `V5` resolve to their full variant names and select the corresponding directory from `output_dir_by_variant`. The command-line override does not modify `config.yaml`.
+
+To run all variants sequentially while keeping separate output folders, use the PowerShell runner:
+
+```powershell
+.\run_all_variants.ps1
+```
+
+It runs `generate_queries`, `run_llm`, `match_and_eval`, and `audit_results` for `V1` through `V5`, using the `output_dir_by_variant` mapping. A transcript is written to `output/full_metadata_model_comparison/run_all_variants_<timestamp>.log`.
+
+You can restrict the variants:
+
+```powershell
+.\run_all_variants.ps1 -Variants V1,V2,V3
+```
+
+Or stop immediately if one stage fails:
+
+```powershell
+.\run_all_variants.ps1 -StopOnError
+```
+
+On Linux, use the Bash runner:
+
+```bash
+bash run_all_variants.sh
+```
+
+Restrict variants on Linux with a comma-separated list:
+
+```bash
+bash run_all_variants.sh --variants V1,V2,V3
+```
 
 Run `generate_queries` again whenever the query variant, source row limit, time format, or input sample changes. Changing `source_row_limit` does not modify an existing `queries.csv` automatically.
 
