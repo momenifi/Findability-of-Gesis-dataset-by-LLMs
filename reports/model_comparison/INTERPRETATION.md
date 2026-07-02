@@ -36,6 +36,18 @@ The main evaluation file for each variant is `*_summary.csv`. The most important
 
 The audit summaries are used in this report because they include all requests in the denominator and therefore avoid overstating models that returned usable results for only a small share of queries.
 
+## Metric Definitions
+
+- `coverage_rate`: share of expected model-query requests where the model returned at least one usable dataset item.
+- `hit_at_k_all_queries`: share of all expected requests where at least one relevant dataset appears anywhere in the top-k returned items.
+- `mrr_all_queries`: mean reciprocal rank; rewards models for placing the first relevant dataset higher in the ranking, with rank 1 receiving 1.0, rank 2 receiving 0.5, and rank 10 receiving 0.1.
+- `ndcg_at_k_all_queries`: normalized ranking-quality score for the top-k results; it is most useful when more than one dataset can be relevant because it rewards relevant datasets appearing higher in the list.
+- `exact_hit_at_k_all_queries`: share of all expected requests where a relevant dataset was found through an exact identifier, DOI, URL, or equivalent exact match.
+- `fuzzy_hit_at_k_all_queries`: share of all expected requests where the hit was credited only through fuzzy title matching, so these cases should be interpreted cautiously and may need manual review.
+- `zero_items`: number of requests where the model returned no usable dataset item.
+- `tool_calls_only`: number of requests where the model called a tool but did not return a final answer usable by the pipeline.
+- `error`: number of requests that failed because of an API, request, or response-parsing error.
+
 ## Main Finding
 
 The title-only prompt works much better than metadata-based prompts. This is expected and useful: it shows that the pipeline can detect known datasets when the query is specific. The more realistic discovery setting, where users search by topic, country, and time, is much harder.

@@ -22,12 +22,15 @@ Start with `INTERPRETATION.md`, the single consolidated study report, and use th
 
 ## Main Metrics
 
-- `coverage_rate`: share of requests where the model returned at least one usable item.
-- `hit_at_k_all_queries`: share of all queries where the target/relevant dataset was found in the top-k results.
-- `mrr_all_queries`: rewards finding the relevant dataset at higher ranks.
-- `ndcg_at_k_all_queries`: ranking quality over top-k results.
-- `exact_hit_at_k_all_queries`: hit rate based on exact ID/DOI/URL matches.
-- `fuzzy_hit_at_k_all_queries`: hit rate based only on fuzzy title matching.
+- `coverage_rate`: share of expected model-query requests where the model returned at least one usable dataset item.
+- `hit_at_k_all_queries`: share of all expected requests where at least one relevant dataset appears anywhere in the top-k returned items.
+- `mrr_all_queries`: mean reciprocal rank; rewards models for placing the first relevant dataset higher in the ranking, with rank 1 receiving 1.0, rank 2 receiving 0.5, and rank 10 receiving 0.1.
+- `ndcg_at_k_all_queries`: normalized ranking-quality score for the top-k results; it is most useful when more than one dataset can be relevant because it rewards relevant datasets appearing higher in the list.
+- `exact_hit_at_k_all_queries`: share of all expected requests where a relevant dataset was found through an exact identifier, DOI, URL, or equivalent exact match.
+- `fuzzy_hit_at_k_all_queries`: share of all expected requests where the hit was credited only through fuzzy title matching, so these cases should be interpreted cautiously and may need manual review.
+- `zero_items`: number of requests where the model returned no usable dataset item.
+- `tool_calls_only`: number of requests where the model called a tool but did not return a final answer usable by the pipeline.
+- `error`: number of requests that failed because of an API, request, or response-parsing error.
 
 The `*_summary.csv` files use all requests as the denominator, so empty responses and unfinished tool calls count as failures. This is the fairest version for model comparison.
 
