@@ -65,6 +65,7 @@ The main settings are in `config.yaml`:
 - `qrels_strategy`: relevance strategy; the current comparison uses `metadata_filter`.
 - `output_dir_by_variant`: output directory selected for each single active variant.
 - `api_base_url`, `api_key_env`, and `openwebui_web_search_mode`: OpenWebUI connection settings.
+- `openwebui_tool_choice`: controls tool calling for OpenWebUI models. Defaults to `none`, which forbids the model from calling OpenWebUI's server-injected workspace tools (see OpenWebUI Notes). Set to `auto` to restore the previous behavior.
 - `request_timeout_*` and `request_max_retries`: request timeout and retry settings.
 
 Example:
@@ -214,4 +215,8 @@ Start with `reports/model_comparison/INTERPRETATION.md`, then use the CSV files 
 
 For `WEB_SEARCH`, the current OpenWebUI configuration uses the native chat-completions endpoint and `openwebui_web_search_mode: tool_ids`. Web search must also be enabled for the selected model on the OpenWebUI server.
 
-A successful HTTP response is not sufficient: a model can return a tool call without a final answer. These cases are visible in the raw logs and are counted separately by `audit_results`.
+A successful HTTP response is not sufficient: a model can return a tool call without a final answer. These cases are visible in the raw logs and are counted separately by `audit_results`. By default the pipeline sends `tool_choice: "none"` (`openwebui_tool_choice`) so models answer directly instead of calling OpenWebUI's workspace tools; see [Why `tool_choice: "none"`](#why-tool_choice-none) below.
+
+### Why `tool_choice: "none"`
+
+The GESIS OpenWebUI server binds workspace tools (`search_knowledge_files`, `query_knowledge_files`, `search_knowledge_bases`, `search_notes`, `search_chats`) to some model configurations. These search the user's uploaded documents, notes, and chat history — not the GESIS dataset catalog. Reasoning models such as `gpt-5` and `gpt-5.4` call these tools instead of answering, returning `content: null` with `finish_reason: tool_calls`, so they never produce a usable result. Sending `tool_choice: "none"` forbids these calls and forces a direct answer; it does not disable server-side web search, which OpenWebUI injects into the prompt rather than exposing as a model-called tool. Suppressing the workspace tools also keeps the comparison fair: every model answers from its own knowledge (plus web search when enabled) under identical conditions, rather than being influenced by whatever happens to be in a given workspace.

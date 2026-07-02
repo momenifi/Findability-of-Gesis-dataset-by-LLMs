@@ -79,6 +79,10 @@ def post_chat(model: str, payload_extra: dict) -> requests.Response:
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": PROMPT}],
+        # Forbid the model from calling OpenWebUI's server-injected knowledge
+        # tools (search_knowledge_files, ...), forcing a direct answer. Mirrors
+        # the pipeline's openwebui_tool_choice default in run_llm.py.
+        "tool_choice": "none",
         **payload_extra,
     }
     return requests.post(endpoint, headers=headers, json=payload, timeout=(30, 180))

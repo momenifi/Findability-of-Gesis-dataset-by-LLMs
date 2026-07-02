@@ -183,6 +183,17 @@ def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web
         else:
             raise ValueError(f"Unsupported openwebui_web_search_mode: {web_search_mode}")
 
+    # GESIS OpenWebUI binds knowledge-base tools (search_knowledge_files,
+    # query_knowledge_files, ...) to some model configs server-side. Reasoning
+    # models (gpt-5, gpt-5.4, ...) call those instead of answering, returning
+    # content=null with finish_reason=tool_calls. tool_choice="none" forbids the
+    # model from emitting any function call, forcing it to answer from the
+    # already-injected context; it does NOT disable OpenWebUI's server-side web
+    # search. Set openwebui_tool_choice to "auto" to restore the old behavior.
+    tool_choice = str(cfg.get("openwebui_tool_choice", "none")).strip()
+    if tool_choice and tool_choice.lower() != "auto":
+        payload["tool_choice"] = tool_choice
+
     headers = {
         "Authorization": f"Bearer {get_api_key(cfg)}",
         "Content-Type": "application/json",
