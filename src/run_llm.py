@@ -243,6 +243,8 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
         "WEB_SEARCH": _as_list(cfg.get("models_web", cfg.get("model_web"))),
     }
     top_k = int(cfg.get("top_k_return", 10))
+    include_top_k_limit = bool(cfg.get("include_top_k_limit_in_prompt", True))
+    max_returned_items_to_save = int(cfg.get("max_returned_items_to_save", 0) or 0)
     total_requests = sum(len(queries) * len(models_by_mode.get(mode, [])) for mode in modes)
     max_retries = int(cfg.get("request_max_retries", 2))
     retry_backoff_seconds = float(cfg.get("request_retry_backoff_seconds", 5))
@@ -262,7 +264,7 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
 
         for mode in modes:
             for model in models_by_mode.get(mode, []):
-                messages = build_messages(query_text, top_k, mode)
+                messages = build_messages(query_text, top_k, mode, include_top_k_limit)
                 parsed = None
                 last_response = None
                 attempt_traces = []
@@ -364,6 +366,8 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                     "mode": mode,
                     "model": model,
                     "top_k_return": top_k,
+                    "include_top_k_limit_in_prompt": include_top_k_limit,
+                    "max_returned_items_to_save": max_returned_items_to_save,
                     "attempts": attempt_traces,
                 }
                 raw_path.write_text(
@@ -372,8 +376,9 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                 )
 
                 items = _extract_items(parsed)
+                saved_items = items if max_returned_items_to_save <= 0 else items[:max_returned_items_to_save]
                 batch_rows = []
-                for rank, item in enumerate(items[:top_k], start=1):
+                for rank, item in enumerate(saved_items, start=1):
                     record = {
                         "query_id": query_id,
                         "query_variant": query_variant,
@@ -401,7 +406,7 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                 print(
                     f"[{completed_requests}/{total_requests}] "
                     f"query_id={query_id} variant={query_variant} mode={mode} "
-                    f"model={model} items={len(items[:top_k])}",
+                    f"model={model} items={len(saved_items)}",
                     flush=True,
                 )
 
@@ -414,7 +419,7 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
-    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, V5, or V6)")
     args = parser.parse_args()
     run_llm(args.config, args.variant)
 

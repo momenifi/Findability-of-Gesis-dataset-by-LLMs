@@ -34,17 +34,19 @@ conda activate gesis-findability
 pip install -r requirements.txt
 ```
 
-Set the OpenWebUI API key.
+Set the API key for the provider configured in `config.yaml`. For OpenAI API runs, use `OPENAI_API_KEY`; for GESIS OpenWebUI runs, use `OPENWEBUI_API_KEY`.
 
 PowerShell:
 
 ```powershell
+$env:OPENAI_API_KEY = "YOUR_OPENAI_KEY"
 $env:OPENWEBUI_API_KEY = "YOUR_KEY"
 ```
 
 Linux:
 
 ```bash
+export OPENAI_API_KEY='YOUR_OPENAI_KEY'
 export OPENWEBUI_API_KEY='YOUR_KEY'
 ```
 
@@ -61,7 +63,9 @@ The main settings are in `config.yaml`:
 - `time_format`: `years`, `span`, or `decade`.
 - `modes`: `NO_WEB`, `WEB_SEARCH`, or both.
 - `models_no_web` and `models_web`: models evaluated in each mode.
-- `top_k_return`: maximum number of datasets requested from each model.
+- `top_k_return`: evaluation cutoff used for @k metrics.
+- `include_top_k_limit_in_prompt`: when `false`, the prompt does not ask for a maximum number of items.
+- `max_returned_items_to_save`: maximum number of returned items saved from each model response; `0` saves all returned items.
 - `qrels_strategy`: relevance strategy; the current comparison uses `metadata_filter`.
 - `output_dir_by_variant`: output directory selected for each single active variant.
 - `api_base_url`, `api_key_env`, and `openwebui_web_search_mode`: OpenWebUI connection settings.
@@ -86,6 +90,7 @@ output_dir_by_variant:
   V3_TITLE_ONLY: output/full_metadata_model_comparison/v3_title_only
   V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS: output/full_metadata_model_comparison/v4_all_topics_population_unit
   V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS: output/full_metadata_model_comparison/v5_all_topics_population
+  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/full_metadata_model_comparison/v6_all_topics_abstract_natural_language
 ```
 
 When exactly one variant is active, every pipeline stage uses its mapped output directory. If multiple variants are active, the general `output_dir` is used.
@@ -97,6 +102,7 @@ When exactly one variant is active, every pipeline stage uses its mapped output 
 - `V3_TITLE_ONLY`: one known-item query using the dataset title.
 - `V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS`: extends V1 with the study population (`universe_en`) and unit of analysis (`analysis_unit_en`). A query is generated only when both fields contain meaningful values.
 - `V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS`: extends V1 with only the study population (`universe_en`). A query is generated when the universe contains a meaningful value; analysis unit is not used.
+- `V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE`: extends V1 with a natural-language research need generated from the dataset abstract. A fixed query-generation model rewrites the abstract once; the generated text is saved in `queries.csv` and cached in `abstract_query_cache.csv`, so later model comparisons use the same query text.
 
 Current templates:
 
@@ -105,6 +111,7 @@ Can you find datasets about {topic} in {country} during the {time}?
 Can you find the dataset titled {title}?
 Can you find datasets about {topic} in {country} during the {time}, where the study population is {universe} and the unit of analysis is {analysis_unit}?
 Can you find datasets about {topic} in {country} during the {time}, where the study population is {universe}?
+Can you find datasets about {topic} in {country} during the {time}, matching this research need: {abstract_generated_query}
 ```
 
 Prompt values are formatted as natural text. The structured topic, country, and exact year values remain in separate `queries.csv` columns for qrels construction.
@@ -112,6 +119,8 @@ Prompt values are formatted as natural text. The structured topic, country, and 
 For V4, `query_universe` and `query_analysis_units` are also stored separately. With `qrels_strategy: metadata_filter`, a relevant dataset must match the normal V1 criteria and both added fields. The current 100-dataset sample contains 21 rows eligible for this variant when English fields and German fallbacks are considered.
 
 For V5, only `query_universe` is added to the normal V1 criteria. Analysis unit is neither included in the prompt nor required by the metadata-filter qrels. The current sample contains 80 eligible source rows before duplicate query removal.
+
+For V6, set `abstract_query_generator_model` in `config.yaml` to the fixed model used to create the natural-language query text. The generator can use separate provider settings via `abstract_query_generator_api_base_url` and `abstract_query_generator_api_key_env`, so abstract-query generation can use GESIS OpenWebUI while the discovery run uses OpenAI. The generated query is stored in `abstract_generated_query`; the final API prompt is stored in `full_prompt_no_web` and `full_prompt_web_search`. With `qrels_strategy: metadata_filter`, V6 uses the same topic, country, and time relevance logic as V1.
 
 ## Run the Pipeline
 
@@ -139,7 +148,7 @@ The short form is also supported:
 python -m src.generate_queries -V V1 --config config.yaml
 ```
 
-Aliases `V1`, `V2`, `V3`, `V4`, and `V5` resolve to their full variant names and select the corresponding directory from `output_dir_by_variant`. The command-line override does not modify `config.yaml`.
+Aliases `V1`, `V2`, `V3`, `V4`, `V5`, and `V6` resolve to their full variant names and select the corresponding directory from `output_dir_by_variant`. The command-line override does not modify `config.yaml`.
 
 To run all variants sequentially while keeping separate output folders, use the PowerShell runner:
 
@@ -147,7 +156,7 @@ To run all variants sequentially while keeping separate output folders, use the 
 .\run_all_variants.ps1
 ```
 
-It runs `generate_queries`, `run_llm`, `match_and_eval`, and `audit_results` for `V1` through `V5`, using the `output_dir_by_variant` mapping. A transcript is written to `output/full_metadata_model_comparison/run_all_variants_<timestamp>.log`.
+It runs `generate_queries`, `run_llm`, `match_and_eval`, and `audit_results` for `V1` through `V6`, using the `output_dir_by_variant` mapping. A transcript is written to `output/full_metadata_model_comparison/run_all_variants_<timestamp>.log`.
 
 You can restrict the variants:
 
@@ -177,11 +186,20 @@ Run `generate_queries` again whenever the query variant, source row limit, time 
 
 For a model or mode comparison, keep the generated queries fixed and change only the configured model lists or modes.
 
+If the goal is to test whether a dataset is found regardless of its position, use:
+
+```yaml
+include_top_k_limit_in_prompt: false
+max_returned_items_to_save: 0
+```
+
+Then inspect the returned `rank` in `llm_results.csv` / `per_query_results.csv`. The prompt and saved model outputs do not impose a returned-item threshold. The @k metrics still use `top_k_return` as the reporting cutoff for comparability.
+
 ## Stage Responsibilities
 
 ### 1. Generate Queries
 
-`src.generate_queries` reads the sample metadata and writes `queries.csv`. In addition to `query_text`, it stores `full_prompt_no_web` and `full_prompt_web_search`, including the system instruction, top-k limit, and required JSON format. The number of queries can exceed the number of source datasets for the single-topic variant because one dataset can have several topics.
+`src.generate_queries` reads the sample metadata and writes `queries.csv`. In addition to `query_text`, it stores `full_prompt_no_web` and `full_prompt_web_search`, including the system instruction and required JSON format. If `include_top_k_limit_in_prompt: false`, the stored prompt has no returned-item threshold. The number of queries can exceed the number of source datasets for the single-topic variant because one dataset can have several topics.
 
 ### 2. Query Models
 
@@ -223,23 +241,46 @@ Pipeline CSV files use a semicolon (`;`) separator for compatibility with German
 ## Main Metrics
 
 - `coverage_rate`: proportion of all requests that returned at least one usable item.
-- `hit_at_k_all_queries`: proportion of all requests with at least one relevant dataset in the top-k results.
+- `hit_at_k_all_queries`: proportion of all requests with at least one relevant dataset within the evaluation cutoff `top_k_return`.
 - `mrr_all_queries`: rewards placing the first relevant dataset near the top.
-- `ndcg_at_k_all_queries`: evaluates the ranking of one or more relevant datasets in the top-k results.
-- `exact_hit_at_k_all_queries`: hits matched through an exact identifier, DOI, URL, or equivalent exact match.
-- `fuzzy_hit_at_k_all_queries`: hits credited through fuzzy title matching only.
+- `ndcg_at_k_all_queries`: evaluates the ranking of one or more relevant datasets within the evaluation cutoff `top_k_return`.
+- `strict_hit_at_k_all_queries`: proportion of all requests with at least one relevant dataset matched through a DOI, known landing-page URL, or dataset ID.
+- `title_match_hit_at_k_all_queries`: proportion of all requests where relevance was credited only through title matching.
+- `exact_hit_at_k_all_queries`: legacy-compatible strict hit rate based on DOI, URL, or dataset ID matching.
+- `fuzzy_hit_at_k_all_queries`: legacy-compatible title-match hit rate.
+
+`is_relevant` in `per_query_results.csv` is a broad relevance flag and can be true for title-based matches. For reporting valid dataset discovery, prefer `is_strict_relevant` and the strict metrics. `match_method` shows whether a returned item was matched by `doi`, `portal_url`, `dataset_id`, `title_exact`, `title_fuzzy`, or remained `unmatched`.
+
+For broad discovery variants such as V1 and V6, the evaluation separates the original sampled dataset from other matching GESIS datasets:
+
+- `is_source_dataset` / `source_hit_at_k`: the returned item matches the original sampled source dataset.
+- `is_gesis_relevant_dataset` / `gesis_relevant_hit_at_k`: the returned item is a GESIS dataset in the metadata corpus and is relevant according to the query qrels.
+- `is_strict_source_dataset` and `is_strict_gesis_relevant_dataset`: the match is supported by DOI, URL, or dataset ID.
+- `is_title_source_dataset` and `is_title_gesis_relevant_dataset`: the match is based on title matching rather than a reliable identifier.
+
+The latest V1/V6 provider comparison in `reports/model_comparison/provider_strict_source_gesis_summary.csv` uses the strict source and strict GESIS metrics:
+
+| Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
+| --- | --- | ---: | ---: | ---: | ---: |
+| V1 | OpenAI | 6 / 85 | 0.071 | 21 / 85 | 0.247 |
+| V1 | OpenWebUI | 0 / 78 | 0.000 | 10 / 78 | 0.128 |
+| V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
+| V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
+
+`Strict Source Hits` means the original sampled dataset was found through DOI, landing-page URL, or dataset ID. `Strict GESIS Hits` means any qrels-relevant GESIS dataset was found through DOI, landing-page URL, or dataset ID.
 
 Precision@k is available but should not be the main title-search metric because a known-item query normally has one target while the denominator remains `k`.
 
 ## Reports
 
-The curated comparison is under `reports/model_comparison/`:
+The curated current comparison is under `reports/model_comparison/`:
 
-- `INTERPRETATION.md`: consolidated study design, results, and interpretation.
-- `*_summary.csv`: coverage-aware model comparisons by query variant.
-- `*_response_status.csv`: response diagnostics.
-- `*_queries.csv`: prompts used in each experiment.
-- `*_model_outputs_top10_labeled.csv`: returned top-10 items with matches and relevance labels.
+- `INTERPRETATION.md`: concise V1/V6 provider-comparison interpretation.
+- `provider_strict_source_gesis_summary.csv`: compact strict source/GESIS hit table.
+- `v1_queries.csv` and `v6_queries.csv`: prompts used in the current experiment.
+- `v1_provider_difference_summary.csv` and `v6_provider_difference_summary.csv`: OpenAI/OpenWebUI query-level comparison summaries.
+- `v1_provider_differences.csv` and `v6_provider_differences.csv`: per-query provider comparison.
+- `v1_provider_outputs_query_level.csv` and `v6_provider_outputs_query_level.csv`: selected query-level outputs from both providers.
 
 Start with `reports/model_comparison/INTERPRETATION.md`, then use the CSV files to inspect individual models, queries, and returned datasets.
 

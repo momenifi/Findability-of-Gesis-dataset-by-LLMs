@@ -1,48 +1,45 @@
-# Model Comparison Results
+# V1/V6 Provider Comparison
 
-This folder contains the curated result tables for comparing LLM-based discovery of GESIS datasets.
+This folder contains the curated results for the current comparison between OpenAI API and GESIS OpenWebUI. Older pilot variants have been removed from this report folder to keep the material focused.
 
-Start with `INTERPRETATION.md`, the single consolidated study report, and use the CSV files as supporting evidence.
+## What Is Compared
 
-## Query Variants
+- `V1_TOPIC_COUNTRY_TIME_ALL_TOPICS`: all topics, country, and decade.
+- `V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE`: V1 plus a natural-language research need generated from the dataset abstract.
+- Providers:
+  - OpenAI API using `chat-latest`
+  - GESIS OpenWebUI using `gpt-5.4`
 
-- `v1_all_topics`: one query per dataset using all available topics, country, and decade.
-- `v2_single_topic`: one query per topic, plus country and decade.
-- `v3_title_only`: one query using only the dataset title.
-- `v4_population_unit`: V1 plus study population and unit of analysis; 21 source datasets had all required metadata.
-- `v5_population`: V1 plus study population only; 73 unique queries were evaluated.
+The V6 comparison uses the same query texts for both providers.
+
+## Main Result
+
+| Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
+| --- | --- | ---: | ---: | ---: | ---: |
+| V1 | OpenAI | 6 / 85 | 0.071 | 21 / 85 | 0.247 |
+| V1 | OpenWebUI | 0 / 78 | 0.000 | 10 / 78 | 0.128 |
+| V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
+| V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
+
+`Strict Source Hits` means the original sampled dataset was found through DOI, landing-page URL, or dataset ID.
+
+`Strict GESIS Hits` means any qrels-relevant GESIS dataset was found through DOI, landing-page URL, or dataset ID.
 
 ## Files
 
-- `INTERPRETATION.md`: consolidated pilot setup, model comparison, and interpretation.
-- `*_summary.csv`: main comparison table. Use these for reporting.
-- `*_response_status.csv`: response coverage diagnostics, showing how often models returned items, empty lists, or tool-only responses.
-- `*_queries.csv`: generated query text, source metadata, and the complete initial NO_WEB and WEB_SEARCH prompts, including the top-10 and JSON-format instructions.
-- `*_model_outputs_top10_labeled.csv`: datasets returned by each model/mode/query up to rank 10, including matched dataset ID and relevance label.
+- `INTERPRETATION.md`: concise interpretation for Janete.
+- `provider_strict_source_gesis_summary.csv`: compact table with the main strict source/GESIS metrics.
+- `v1_queries.csv`: V1 query texts and complete prompts.
+- `v6_queries.csv`: V6 query texts and complete prompts.
+- `v1_provider_difference_summary.csv`: query-level OpenAI/OpenWebUI strict GESIS comparison summary for V1.
+- `v6_provider_difference_summary.csv`: query-level OpenAI/OpenWebUI strict GESIS comparison summary for V6.
+- `v1_provider_differences.csv`: per-query provider comparison for V1.
+- `v6_provider_differences.csv`: per-query provider comparison for V6.
+- `v1_provider_outputs_query_level.csv`: selected query-level outputs from both providers for V1.
+- `v6_provider_outputs_query_level.csv`: selected query-level outputs from both providers for V6.
 
-## Main Metrics
+## How To Read The Result
 
-- `coverage_rate`: share of expected model-query requests where the model returned at least one usable dataset item.
-- `hit_at_k_all_queries`: share of all expected requests where at least one relevant dataset appears anywhere in the top-k returned items.
-- `mrr_all_queries`: mean reciprocal rank; rewards models for placing the first relevant dataset higher in the ranking, with rank 1 receiving 1.0, rank 2 receiving 0.5, and rank 10 receiving 0.1.
-- `ndcg_at_k_all_queries`: normalized ranking-quality score for the top-k results; it is most useful when more than one dataset can be relevant because it rewards relevant datasets appearing higher in the list.
-- `exact_hit_at_k_all_queries`: share of all expected requests where a relevant dataset was found through an exact identifier, DOI, URL, or equivalent exact match.
-- `fuzzy_hit_at_k_all_queries`: share of all expected requests where the hit was credited only through fuzzy title matching, so these cases should be interpreted cautiously and may need manual review.
-- `zero_items`: number of requests where the model returned no usable dataset item.
-- `tool_calls_only`: number of requests where the model called a tool but did not return a final answer usable by the pipeline.
-- `error`: number of requests that failed because of an API, request, or response-parsing error.
+For the current research question, use the strict metrics rather than broad title-based hits. Strict metrics require a DOI, known landing-page URL, or dataset ID and therefore better reflect whether the model found a real GESIS dataset record.
 
-The `*_summary.csv` files use all requests as the denominator, so empty responses and unfinished tool calls count as failures. This is the fairest version for model comparison.
-
-The `*_model_outputs_top10_labeled.csv` files include `is_relevant`, `matched_dataset_id`, `match_confidence`, and `link_valid` so returned datasets can be inspected directly. Full request/response logs are much larger and are kept outside this report folder.
-
-## High-Level Reading
-
-- Title search (`v3_title_only`) performs best by a large margin.
-- Metadata-based search (`v1_all_topics` and `v2_single_topic`) is much harder.
-- Adding population and unit of analysis in V4 did not improve exact retrieval on the 21-query paired subset.
-- Population-only V5 also did not improve retrieval over V1 on the corresponding source subset.
-- Web search improves coverage for several GPT models, especially `gpt-5.1`.
-- Coverage-aware metrics are important because some models return empty responses often.
-- V4 fuzzy hits require manual review because several conflicting or unresolved returned identifiers were incorrectly credited through title similarity.
-- The same matching issue affects V5; its apparent exact hit was produced by a perfect fuzzy-title score despite conflicting returned ZA identifiers.
+V6 improves OpenAI substantially compared with V1. OpenWebUI retrieves some strict GESIS-relevant datasets, but it does not strictly find the original source datasets in this run.

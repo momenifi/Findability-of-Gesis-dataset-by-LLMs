@@ -1,0 +1,39 @@
+temperature: 0
+top_p: 1
+input_path: random_100_datasets_full_metadata.csv
+input_format: csv
+qrels_input_path: all_research_data_full_metadata.csv
+qrels_input_format: csv
+output_dir: output/provider_comparison/openai
+output_dir_by_variant:
+  V3_TITLE_ONLY: output/provider_comparison/openai/v3_title_only
+source_row_limit: 10
+sample_per_variant: 0
+random_seed: 42
+time_format: decade
+query_variants:
+  - V3_TITLE_ONLY
+modes:
+  - NO_WEB
+  - WEB_SEARCH
+models_no_web:
+  - chat-latest
+models_web:
+  - chat-latest
+top_k_return: 10
+qrels_strategy: metadata_filter
+silver_qrels_fields:
+  - abstract
+  - content_description
+  - categories
+  - topics_stw
+  - topics_thesoz
+  - universe
+retrieval_for_candidates: false
+retrieval_candidates_k: 30
+silver_top_m: 50
+api_key_env: OPENAI_API_KEY
+request_timeout_connect_seconds: 30
+request_timeout_read_seconds: 600
+request_max_retries: 2
+request_retry_backoff_seconds: 5

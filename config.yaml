@@ -11,41 +11,49 @@ output_dir_by_variant:
   V3_TITLE_ONLY: output/full_metadata_model_comparison/v3_title_only
   V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS: output/full_metadata_model_comparison/v4_all_topics_population_unit
   V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS: output/full_metadata_model_comparison/v5_all_topics_population
-source_row_limit: 1
+  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/full_metadata_model_comparison/v6_all_topics_abstract_natural_language
+source_row_limit: 100
 sample_per_variant: 0
 random_seed: 42
 time_format: decade 
 query_variants:
   - V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
-  - V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
-  - V3_TITLE_ONLY
-  - V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS
-  - V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS
+  #- V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC
+  #- V3_TITLE_ONLY
+  #- V4_TOPIC_COUNTRY_TIME_UNIVERSE_ANALYSIS_UNIT_ALL_TOPICS
+  #- V5_TOPIC_COUNTRY_TIME_UNIVERSE_ALL_TOPICS
+  - V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE
 
 modes:
-  - NO_WEB
+  #- NO_WEB
   - WEB_SEARCH
 #model_no_web: gpt-5.1
 #model_web: gpt-5.1
 models_no_web:
-  - gemma3:27b
-  - gpt-4.1
-  - llama4:latest
-  #- o4-mini
-  - gpt-5
-  #- gpt-5-mini
-  - gpt-5.1
-  - gpt-5.4
-  - gpt-oss:latest
+  #- gemma3:27b
+  #- gpt-4.1
+  #- llama4:latest
+  #- gpt-5
+  #- gpt-5.1
+  #- gpt-5.4
+  #- gpt-oss:latest
+  #- chat-latest
 models_web:
-  - gemma3:27b
-  - gpt-4.1
-  - llama4:latest
-  #- o4-mini
-  - gpt-5
-  #- gpt-5-mini
-  - gpt-5.1
+  #- gemma3:27b
+  #- gpt-4.1
+  #- llama4:latest
+  #- gpt-5
+  #- gpt-5.1
+  #- gpt-5.4
+  #- gpt-oss:latest
+  - chat-latest
 top_k_return: 10
+include_top_k_limit_in_prompt: false
+max_returned_items_to_save: 0
+abstract_query_generator_model: gpt-5.4
+abstract_query_generator_api_base_url: https://ai-openwebui.gesis.org/api
+abstract_query_generator_api_key_env: OPENWEBUI_API_KEY
+abstract_query_cache_file: abstract_query_cache.csv
 qrels_strategy: metadata_filter
 silver_qrels_fields:
   - abstract
@@ -57,8 +65,8 @@ silver_qrels_fields:
 retrieval_for_candidates: false
 retrieval_candidates_k: 30
 silver_top_m: 50
-api_base_url: https://ai-openwebui.gesis.org/api
-api_key_env: OPENWEBUI_API_KEY
+#api_base_url: https://ai-openwebui.gesis.org/api
+api_key_env: OPENAI_API_KEY #OPENWEBUI_API_KEY
 openwebui_web_search_mode: tool_ids
 request_timeout_connect_seconds: 30
 request_timeout_read_seconds: 600

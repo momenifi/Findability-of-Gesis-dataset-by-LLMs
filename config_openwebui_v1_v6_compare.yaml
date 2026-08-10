@@ -1,0 +1,47 @@
+temperature: 0
+top_p: 1
+input_path: random_100_datasets_full_metadata.csv
+input_format: csv
+qrels_input_path: all_research_data_full_metadata.csv
+qrels_input_format: csv
+output_dir: output/provider_comparison/openwebui
+output_dir_by_variant:
+  V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/provider_comparison/openwebui/v1_all_topics
+  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/provider_comparison/openwebui/v6_all_topics_abstract_natural_language
+source_row_limit: 100
+sample_per_variant: 0
+random_seed: 42
+time_format: decade
+query_variants:
+  - V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
+modes:
+  - WEB_SEARCH
+models_no_web: []
+models_web:
+  - gpt-5.4
+top_k_return: 10
+include_top_k_limit_in_prompt: false
+max_returned_items_to_save: 0
+abstract_query_generator_model: gpt-5.4
+abstract_query_generator_api_base_url: https://ai-openwebui.gesis.org/api
+abstract_query_generator_api_key_env: OPENWEBUI_API_KEY
+abstract_query_cache_file: abstract_query_cache.csv
+qrels_strategy: metadata_filter
+silver_qrels_fields:
+  - abstract
+  - content_description
+  - categories
+  - topics_stw
+  - topics_thesoz
+  - universe
+retrieval_for_candidates: false
+retrieval_candidates_k: 30
+silver_top_m: 50
+api_base_url: https://ai-openwebui.gesis.org/api
+api_key_env: OPENWEBUI_API_KEY
+openwebui_web_search_mode: tool_ids
+openwebui_tool_choice: none
+request_timeout_connect_seconds: 30
+request_timeout_read_seconds: 600
+request_max_retries: 2
+request_retry_backoff_seconds: 5

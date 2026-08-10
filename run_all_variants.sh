@@ -2,7 +2,7 @@
 set -u
 
 CONFIG="config.yaml"
-VARIANTS=("V1" "V2" "V3" "V4" "V5")
+VARIANTS=("V1" "V2" "V3" "V4" "V5" "V6")
 STAGES=("generate_queries" "run_llm" "match_and_eval" "audit_results")
 STOP_ON_ERROR=0
 
@@ -30,11 +30,6 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
-
-if [[ -z "${OPENWEBUI_API_KEY:-}" ]]; then
-  echo "Set OPENWEBUI_API_KEY before running this script." >&2
-  exit 1
-fi
 
 LOG_DIR="output/full_metadata_model_comparison"
 mkdir -p "$LOG_DIR"

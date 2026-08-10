@@ -24,6 +24,17 @@ from .config_paths import apply_variant_override, resolve_output_dir
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
 OUTPUT_CSV_SEP = ";"
+IDENTIFIER_MATCH_METHODS = {"doi", "portal_url", "dataset_id"}
+TITLE_MATCH_METHODS = {"title_exact", "title_fuzzy"}
+TITLE_COLUMNS = [
+    "title",
+    "study_title",
+    "other_titles",
+    "study_title_en",
+    "title_en",
+    "other_titles_en",
+]
+GLOBAL_TITLE_FUZZY_LIMIT = 50000
 
 
 def load_config(path: str) -> dict:
@@ -78,10 +89,59 @@ def _year_range(value: object) -> Tuple[int, int] | None:
     return min(years), max(years)
 
 
+def _year_range_from_text(*values: object) -> Tuple[int, int] | None:
+    years = []
+    for value in values:
+        text = str(value or "")
+        years.extend(int(match.group(0)) for match in re.finditer(r"\b(18|19|20)\d{2}\b", text))
+    if not years:
+        return None
+    return min(years), max(years)
+
+
 def _ranges_overlap(left: Tuple[int, int] | None, right: Tuple[int, int] | None) -> bool:
     if left is None or right is None:
         return False
     return left[0] <= right[1] and right[0] <= left[1]
+
+
+def _tokens(value: str) -> set[str]:
+    stopwords = {
+        "and",
+        "or",
+        "the",
+        "of",
+        "in",
+        "to",
+        "for",
+        "with",
+        "about",
+        "during",
+        "data",
+        "dataset",
+        "datasets",
+        "survey",
+        "study",
+        "studies",
+    }
+    return {
+        token
+        for token in re.findall(r"[a-zA-Z][a-zA-Z-]{2,}", _normalize_label(value))
+        if token not in stopwords
+    }
+
+
+def _topic_text_matches(query_topics: set[str], row_text: str) -> bool:
+    row_tokens = _tokens(row_text)
+    if not row_tokens:
+        return False
+    for topic in query_topics:
+        topic_tokens = _tokens(topic)
+        if not topic_tokens:
+            continue
+        if topic_tokens & row_tokens:
+            return True
+    return False
 
 
 def _best_title_match(title: str, titles: List[str]) -> Tuple[float, int] | None:
@@ -112,6 +172,45 @@ def _best_title_match(title: str, titles: List[str]) -> Tuple[float, int] | None
     return best_score, best_idx
 
 
+def _build_title_index(df: pd.DataFrame) -> Tuple[List[str], List[str], List[str], Dict[str, List[Tuple[str, str]]], Dict[str, int]]:
+    titles = []
+    ids = []
+    columns = []
+    titles_by_id = {}
+    exact_title_to_idx = {}
+    seen = set()
+
+    for _, row in df.iterrows():
+        did = str(row.get("id", ""))
+        if not did:
+            continue
+        for column in TITLE_COLUMNS:
+            if column not in df.columns:
+                continue
+            for title in _parse_list_value(row.get(column, "")):
+                title_norm = _normalize_label(title)
+                key = (did, title_norm)
+                if not title_norm or key in seen:
+                    continue
+                seen.add(key)
+                exact_title_to_idx.setdefault(title_norm, len(titles))
+                titles_by_id.setdefault(did, []).append((title, column))
+                titles.append(title)
+                ids.append(did)
+                columns.append(column)
+
+    return titles, ids, columns, titles_by_id, exact_title_to_idx
+
+
+def _best_dataset_title_match(title: str, candidates: List[Tuple[str, str]]) -> Tuple[float, str] | None:
+    candidate_titles = [candidate_title for candidate_title, _ in candidates]
+    best = _best_title_match(title, candidate_titles)
+    if not best:
+        return None
+    score, idx = best
+    return score, candidates[idx][1]
+
+
 def _normalize_doi(raw: str) -> str:
     doi = (raw or "").strip()
     if not doi:
@@ -132,6 +231,31 @@ def _normalize_doi(raw: str) -> str:
     doi = doi.split("?")[0].split("#")[0]
     doi = doi.strip().strip("<>")
     return doi
+
+
+def _normalize_dois(raw: str) -> list[str]:
+    text = (raw or "").strip()
+    if not text:
+        return []
+
+    values = []
+    if text.startswith("[") and text.endswith("]"):
+        try:
+            parsed = ast.literal_eval(text)
+            if isinstance(parsed, list):
+                values = [str(item).strip() for item in parsed if str(item).strip()]
+        except (ValueError, SyntaxError):
+            values = []
+
+    if not values:
+        values = [text]
+
+    dois = []
+    for value in values:
+        doi = _normalize_doi(value)
+        if doi and doi not in dois:
+            dois.append(doi)
+    return dois
 
 
 def _extract_dataset_id(text: str) -> str:
@@ -192,14 +316,31 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
 
     indexed_rows = []
     for _, row in df.iterrows():
+        search_text = _normalize_label(
+            " ".join(
+                str(row.get(field, "") or "")
+                for field in [
+                    "title",
+                    "abstract",
+                    "content_description",
+                    "topics_stw",
+                    "topics_thesoz",
+                    "categories",
+                ]
+            )
+        )
+        years = _year_range(row.get("time_collection_years", ""))
+        if years is None:
+            years = _year_range_from_text(search_text)
         indexed_rows.append(
             {
                 "id": str(row.get("id", "")),
                 "topics": _label_set(row.get("topic", "")),
                 "countries": _label_set(row.get("country", "")),
-                "years": _year_range(row.get("time_collection_years", "")),
+                "years": years,
                 "universes": _label_set(row.get("universe", "")),
                 "analysis_units": _label_set(row.get("analysis_unit", "")),
+                "search_text": search_text,
             }
         )
 
@@ -253,7 +394,11 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
         for row in indexed_rows:
             if not row["id"]:
                 continue
-            if not (query_topics & row["topics"]):
+            topic_match = bool(query_topics & row["topics"]) or _topic_text_matches(
+                query_topics,
+                row["search_text"],
+            )
+            if not topic_match:
                 continue
             if not (query_countries & row["countries"]):
                 continue
@@ -265,7 +410,7 @@ def build_metadata_filter_qrels(df: pd.DataFrame, queries: pd.DataFrame) -> Dict
                 continue
             relevant_ids.append(row["id"])
 
-        if not relevant_ids and source_row is not None and source_id:
+        if source_row is not None and source_id and source_id not in relevant_ids:
             relevant_ids.append(source_id)
 
         if relevant_ids:
@@ -359,22 +504,26 @@ def match_items(
 
     for _, row in df.iterrows():
         did = str(row.get("id", ""))
-        doi = _normalize_doi(str(row.get("doi", "")))
+        dois = _normalize_dois(str(row.get("doi", "")))
         portal = _normalize_url(str(row.get("portal_url", "")))
         dataset_id = _extract_dataset_id(did)
-        if doi:
+        for doi in dois:
             doi_to_id[doi] = did
         if portal:
             portal_to_id[portal] = did
         if dataset_id:
             dataset_id_to_id[dataset_id] = did
 
-    titles = df["title"].fillna("").astype(str).tolist()
-    ids = df["id"].fillna("").astype(str).tolist()
+    titles, title_ids, title_columns, titles_by_id, exact_title_to_idx = _build_title_index(df)
 
     matched_ids = []
     confidences = []
     link_valids = []
+    match_methods = []
+    title_matched_ids = []
+    title_match_scores = []
+    title_match_methods = []
+    title_match_columns = []
 
     for _, row in results.iterrows():
         link_or_doi = str(row.get("returned_url_or_doi", ""))
@@ -382,28 +531,64 @@ def match_items(
 
         matched_id = ""
         confidence = 0.0
-
+        match_method = "unmatched"
         doi = _extract_doi(link_or_doi)
         if doi and doi in doi_to_id:
             matched_id = doi_to_id[doi]
             confidence = 1.0
+            match_method = "doi"
         else:
             portal = _normalize_url(link_or_doi)
             if portal in portal_to_id:
                 matched_id = portal_to_id[portal]
                 confidence = 1.0
+                match_method = "portal_url"
             else:
                 dataset_id = _extract_dataset_id(link_or_doi)
                 if dataset_id and dataset_id in dataset_id_to_id:
                     matched_id = dataset_id_to_id[dataset_id]
                     confidence = 1.0
-                elif title:
-                    best = _best_title_match(title, titles)
-                    if best:
-                        score, idx = best
-                        if score >= 70:
-                            matched_id = ids[idx]
-                            confidence = float(score) / 100.0
+                    match_method = "dataset_id"
+
+        title_matched_id = ""
+        title_match_score = 0.0
+        title_match_method = "unmatched"
+        title_match_column = ""
+
+        if title:
+            if matched_id and matched_id in titles_by_id:
+                best = _best_dataset_title_match(title, titles_by_id[matched_id])
+                if best:
+                    score, column = best
+                    if score >= 70:
+                        title_matched_id = matched_id
+                        title_match_score = float(score) / 100.0
+                        title_match_method = "title_exact" if score >= 99.999 else "title_fuzzy"
+                        title_match_column = column
+
+            if not title_matched_id:
+                title_norm = _normalize_label(title)
+                idx = exact_title_to_idx.get(title_norm)
+                if idx is not None:
+                    title_matched_id = title_ids[idx]
+                    title_match_score = 1.0
+                    title_match_method = "title_exact"
+                    title_match_column = title_columns[idx]
+
+            if not title_matched_id and titles and len(titles) <= GLOBAL_TITLE_FUZZY_LIMIT:
+                best = _best_title_match(title, titles)
+                if best:
+                    score, idx = best
+                    if score >= 70:
+                        title_matched_id = title_ids[idx]
+                        title_match_score = float(score) / 100.0
+                        title_match_method = "title_exact" if score >= 99.999 else "title_fuzzy"
+                        title_match_column = title_columns[idx]
+
+        if not matched_id and title_matched_id:
+            matched_id = title_matched_id
+            confidence = title_match_score
+            match_method = title_match_method
 
         link_valid = False
         if doi:
@@ -416,19 +601,63 @@ def match_items(
         matched_ids.append(matched_id)
         confidences.append(confidence)
         link_valids.append(link_valid)
+        match_methods.append(match_method)
+        title_matched_ids.append(title_matched_id)
+        title_match_scores.append(title_match_score)
+        title_match_methods.append(title_match_method)
+        title_match_columns.append(title_match_column)
 
     results = results.copy()
     results["matched_dataset_id"] = matched_ids
     results["match_confidence"] = confidences
     results["link_valid"] = link_valids
+    results["match_method"] = match_methods
+    results["title_matched_dataset_id"] = title_matched_ids
+    results["title_match_score"] = title_match_scores
+    results["title_match_method"] = title_match_methods
+    results["title_match_column"] = title_match_columns
+    results["is_identifier_match"] = results["match_method"].isin(IDENTIFIER_MATCH_METHODS).astype(int)
     return results, doi_to_id, portal_to_id
 
 
+def _ranking_metrics(rels: list[int], relevant_count: int, top_k: int) -> dict:
+    relevant_retrieved = sum(rels)
+    hit = 1 if relevant_retrieved > 0 else 0
+    precision = relevant_retrieved / float(top_k)
+    recall = relevant_retrieved / float(relevant_count or 1)
+
+    mrr = 0.0
+    for idx, rel in enumerate(rels[:top_k], start=1):
+        if rel:
+            mrr = 1.0 / idx
+            break
+
+    dcg = 0.0
+    for i, rel in enumerate(rels, start=1):
+        if rel:
+            dcg += 1.0 / math.log2(i + 1)
+
+    ideal_rels = [1] * min(relevant_count, top_k)
+    idcg = 0.0
+    for i, rel in enumerate(ideal_rels, start=1):
+        if rel:
+            idcg += 1.0 / math.log2(i + 1)
+
+    return {
+        "hit": hit,
+        "precision": precision,
+        "recall": recall,
+        "mrr": mrr,
+        "ndcg": dcg / idcg if idcg > 0 else 0.0,
+    }
+
+
 def compute_metrics(
-    results: pd.DataFrame, qrels_map: Dict[int, List[str]], top_k: int
+    results: pd.DataFrame, qrels_map: Dict[int, List[str]], top_k: int, source_id_by_query: Dict[int, str] | None = None
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     per_query_rows = []
     metrics_rows = []
+    source_id_by_query = source_id_by_query or {}
 
     group_cols = ["query_id", "query_variant", "mode"]
     if "model" in results.columns:
@@ -444,46 +673,95 @@ def compute_metrics(
         if query_id not in qrels_map:
             continue
         relevant_ids = set(qrels_map[query_id])
+        source_id = str(source_id_by_query.get(query_id, ""))
         group = group.sort_values("rank")
 
         matched_ids = group["matched_dataset_id"].tolist()
         link_valids = group["link_valid"].tolist()
+        match_methods = group["match_method"].tolist()
+        title_matched_ids = group["title_matched_dataset_id"].tolist()
+        title_match_methods = group["title_match_method"].tolist()
 
         rels = []
+        strict_rels = []
+        title_rels = []
+        source_rels = []
+        strict_source_rels = []
+        title_source_rels = []
         credited_relevant_ids = set()
+        credited_strict_relevant_ids = set()
+        credited_title_relevant_ids = set()
+        credited_source = False
+        credited_strict_source = False
+        credited_title_source = False
         for i in range(top_k):
+            matched_id = matched_ids[i] if i < len(matched_ids) else ""
+            match_method = match_methods[i] if i < len(match_methods) else "unmatched"
+            title_matched_id = title_matched_ids[i] if i < len(title_matched_ids) else ""
+            title_match_method = title_match_methods[i] if i < len(title_match_methods) else "unmatched"
+            is_source = bool(source_id and matched_id == source_id)
+            is_title_source = bool(source_id and title_matched_id == source_id)
             if (
-                i < len(matched_ids)
-                and matched_ids[i] in relevant_ids
-                and matched_ids[i] not in credited_relevant_ids
+                matched_id in relevant_ids
+                and matched_id not in credited_relevant_ids
             ):
                 rels.append(1)
-                credited_relevant_ids.add(matched_ids[i])
+                credited_relevant_ids.add(matched_id)
             else:
                 rels.append(0)
 
-        relevant_retrieved = sum(rels)
-        hit = 1 if relevant_retrieved > 0 else 0
-        precision = relevant_retrieved / float(top_k)
-        recall = relevant_retrieved / float(len(relevant_ids) or 1)
+            if (
+                matched_id in relevant_ids
+                and match_method in IDENTIFIER_MATCH_METHODS
+                and matched_id not in credited_strict_relevant_ids
+            ):
+                strict_rels.append(1)
+                credited_strict_relevant_ids.add(matched_id)
+            else:
+                strict_rels.append(0)
 
-        mrr = 0.0
-        for idx, mid in enumerate(matched_ids[:top_k], start=1):
-            if mid in relevant_ids:
-                mrr = 1.0 / idx
-                break
+            if (
+                title_matched_id in relevant_ids
+                and title_match_method in TITLE_MATCH_METHODS
+                and title_matched_id not in credited_title_relevant_ids
+            ):
+                title_rels.append(1)
+                credited_title_relevant_ids.add(title_matched_id)
+            else:
+                title_rels.append(0)
 
-        dcg = 0.0
-        for i, rel in enumerate(rels, start=1):
-            if rel:
-                dcg += 1.0 / math.log2(i + 1)
+            if is_source and not credited_source:
+                source_rels.append(1)
+                credited_source = True
+            else:
+                source_rels.append(0)
 
-        ideal_rels = [1] * min(len(relevant_ids), top_k)
-        idcg = 0.0
-        for i, rel in enumerate(ideal_rels, start=1):
-            if rel:
-                idcg += 1.0 / math.log2(i + 1)
-        ndcg = dcg / idcg if idcg > 0 else 0.0
+            if (
+                is_source
+                and match_method in IDENTIFIER_MATCH_METHODS
+                and not credited_strict_source
+            ):
+                strict_source_rels.append(1)
+                credited_strict_source = True
+            else:
+                strict_source_rels.append(0)
+
+            if (
+                is_title_source
+                and title_match_method in TITLE_MATCH_METHODS
+                and not credited_title_source
+            ):
+                title_source_rels.append(1)
+                credited_title_source = True
+            else:
+                title_source_rels.append(0)
+
+        broad_metrics = _ranking_metrics(rels, len(relevant_ids), top_k)
+        strict_metrics = _ranking_metrics(strict_rels, len(relevant_ids), top_k)
+        title_metrics = _ranking_metrics(title_rels, len(relevant_ids), top_k)
+        source_metrics = _ranking_metrics(source_rels, 1 if source_id else 0, top_k)
+        strict_source_metrics = _ranking_metrics(strict_source_rels, 1 if source_id else 0, top_k)
+        title_source_metrics = _ranking_metrics(title_source_rels, 1 if source_id else 0, top_k)
 
         total_returned = len(matched_ids)
         link_valid_rate = (sum(1 for v in link_valids if v) / total_returned) if total_returned else 0.0
@@ -497,11 +775,33 @@ def compute_metrics(
                 "query_variant": variant,
                 "mode": mode,
                 "model": model,
-                "hit_at_k": hit,
-                "precision_at_k": precision,
-                "recall_at_k": recall,
-                "mrr": mrr,
-                "ndcg_at_k": ndcg,
+                "hit_at_k": broad_metrics["hit"],
+                "precision_at_k": broad_metrics["precision"],
+                "recall_at_k": broad_metrics["recall"],
+                "mrr": broad_metrics["mrr"],
+                "ndcg_at_k": broad_metrics["ndcg"],
+                "strict_hit_at_k": strict_metrics["hit"],
+                "strict_precision_at_k": strict_metrics["precision"],
+                "strict_recall_at_k": strict_metrics["recall"],
+                "strict_mrr": strict_metrics["mrr"],
+                "strict_ndcg_at_k": strict_metrics["ndcg"],
+                "title_match_hit_at_k": title_metrics["hit"],
+                "title_match_precision_at_k": title_metrics["precision"],
+                "title_match_recall_at_k": title_metrics["recall"],
+                "title_match_mrr": title_metrics["mrr"],
+                "title_match_ndcg_at_k": title_metrics["ndcg"],
+                "source_hit_at_k": source_metrics["hit"],
+                "source_mrr": source_metrics["mrr"],
+                "source_ndcg_at_k": source_metrics["ndcg"],
+                "strict_source_hit_at_k": strict_source_metrics["hit"],
+                "strict_source_mrr": strict_source_metrics["mrr"],
+                "strict_source_ndcg_at_k": strict_source_metrics["ndcg"],
+                "title_source_hit_at_k": title_source_metrics["hit"],
+                "title_source_mrr": title_source_metrics["mrr"],
+                "title_source_ndcg_at_k": title_source_metrics["ndcg"],
+                "gesis_relevant_hit_at_k": broad_metrics["hit"],
+                "strict_gesis_relevant_hit_at_k": strict_metrics["hit"],
+                "title_gesis_relevant_hit_at_k": title_metrics["hit"],
                 "link_valid_rate": link_valid_rate,
                 "off_repo_rate": off_repo_rate,
             }
@@ -511,7 +811,36 @@ def compute_metrics(
             per_query_rows.append(
                 {
                     **row.to_dict(),
+                    "source_dataset_id_for_query": source_id,
+                    "is_source_dataset": int(source_id and row["matched_dataset_id"] == source_id),
+                    "is_strict_source_dataset": int(
+                        source_id
+                        and row["matched_dataset_id"] == source_id
+                        and row["match_method"] in IDENTIFIER_MATCH_METHODS
+                    ),
+                    "is_title_source_dataset": int(
+                        source_id
+                        and row["title_matched_dataset_id"] == source_id
+                        and row["title_match_method"] in TITLE_MATCH_METHODS
+                    ),
                     "is_relevant": int(row["matched_dataset_id"] in relevant_ids),
+                    "is_gesis_relevant_dataset": int(row["matched_dataset_id"] in relevant_ids),
+                    "is_strict_relevant": int(
+                        row["matched_dataset_id"] in relevant_ids
+                        and row["match_method"] in IDENTIFIER_MATCH_METHODS
+                    ),
+                    "is_strict_gesis_relevant_dataset": int(
+                        row["matched_dataset_id"] in relevant_ids
+                        and row["match_method"] in IDENTIFIER_MATCH_METHODS
+                    ),
+                    "is_title_match_relevant": int(
+                        row["title_matched_dataset_id"] in relevant_ids
+                        and row["title_match_method"] in TITLE_MATCH_METHODS
+                    ),
+                    "is_title_gesis_relevant_dataset": int(
+                        row["title_matched_dataset_id"] in relevant_ids
+                        and row["title_match_method"] in TITLE_MATCH_METHODS
+                    ),
                 }
             )
 
@@ -529,6 +858,28 @@ def compute_metrics(
                 "recall_at_k",
                 "mrr",
                 "ndcg_at_k",
+                "strict_hit_at_k",
+                "strict_precision_at_k",
+                "strict_recall_at_k",
+                "strict_mrr",
+                "strict_ndcg_at_k",
+                "title_match_hit_at_k",
+                "title_match_precision_at_k",
+                "title_match_recall_at_k",
+                "title_match_mrr",
+                "title_match_ndcg_at_k",
+                "source_hit_at_k",
+                "source_mrr",
+                "source_ndcg_at_k",
+                "strict_source_hit_at_k",
+                "strict_source_mrr",
+                "strict_source_ndcg_at_k",
+                "title_source_hit_at_k",
+                "title_source_mrr",
+                "title_source_ndcg_at_k",
+                "gesis_relevant_hit_at_k",
+                "strict_gesis_relevant_hit_at_k",
+                "title_gesis_relevant_hit_at_k",
                 "link_valid_rate",
                 "off_repo_rate",
             ]
@@ -542,6 +893,28 @@ def compute_metrics(
                 recall_at_k=("recall_at_k", "mean"),
                 mrr=("mrr", "mean"),
                 ndcg_at_k=("ndcg_at_k", "mean"),
+                strict_precision_at_k=("strict_precision_at_k", "mean"),
+                strict_hit_at_k=("strict_hit_at_k", "mean"),
+                strict_recall_at_k=("strict_recall_at_k", "mean"),
+                strict_mrr=("strict_mrr", "mean"),
+                strict_ndcg_at_k=("strict_ndcg_at_k", "mean"),
+                title_match_precision_at_k=("title_match_precision_at_k", "mean"),
+                title_match_hit_at_k=("title_match_hit_at_k", "mean"),
+                title_match_recall_at_k=("title_match_recall_at_k", "mean"),
+                title_match_mrr=("title_match_mrr", "mean"),
+                title_match_ndcg_at_k=("title_match_ndcg_at_k", "mean"),
+                source_hit_at_k=("source_hit_at_k", "mean"),
+                source_mrr=("source_mrr", "mean"),
+                source_ndcg_at_k=("source_ndcg_at_k", "mean"),
+                strict_source_hit_at_k=("strict_source_hit_at_k", "mean"),
+                strict_source_mrr=("strict_source_mrr", "mean"),
+                strict_source_ndcg_at_k=("strict_source_ndcg_at_k", "mean"),
+                title_source_hit_at_k=("title_source_hit_at_k", "mean"),
+                title_source_mrr=("title_source_mrr", "mean"),
+                title_source_ndcg_at_k=("title_source_ndcg_at_k", "mean"),
+                gesis_relevant_hit_at_k=("gesis_relevant_hit_at_k", "mean"),
+                strict_gesis_relevant_hit_at_k=("strict_gesis_relevant_hit_at_k", "mean"),
+                title_gesis_relevant_hit_at_k=("title_gesis_relevant_hit_at_k", "mean"),
                 link_valid_rate=("link_valid_rate", "mean"),
                 off_repo_rate=("off_repo_rate", "mean"),
             )
@@ -597,7 +970,11 @@ def match_and_eval(config_path: str, variant: str | None = None) -> None:
     results, _, _ = match_items(results, df)
 
     top_k = int(cfg.get("top_k_return", 10))
-    per_query, summary, metrics_per_query = compute_metrics(results, qrels_map, top_k)
+    source_id_by_query = {
+        int(row["query_id"]): str(row.get("source_dataset_id", ""))
+        for _, row in queries.iterrows()
+    }
+    per_query, summary, metrics_per_query = compute_metrics(results, qrels_map, top_k, source_id_by_query)
 
     per_query.to_csv(output_dir / "per_query_results.csv", index=False, sep=OUTPUT_CSV_SEP)
     metrics_per_query.to_csv(output_dir / "metrics_per_query.csv", index=False, sep=OUTPUT_CSV_SEP)
@@ -607,7 +984,7 @@ def match_and_eval(config_path: str, variant: str | None = None) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
-    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, V5, or V6)")
     args = parser.parse_args()
     match_and_eval(args.config, args.variant)
 

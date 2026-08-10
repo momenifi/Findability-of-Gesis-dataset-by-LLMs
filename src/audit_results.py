@@ -70,6 +70,38 @@ def classify_log(path: Path) -> tuple[str, int]:
     if isinstance(data, dict) and data.get("error"):
         return "api_error", 0
 
+    if isinstance(data, dict) and data.get("object") == "response":
+        if data.get("error"):
+            return "api_error", 0
+        output = data.get("output") or []
+        tool_calls = [
+            item for item in output
+            if isinstance(item, dict) and str(item.get("type", "")).endswith("_call")
+        ]
+        text_parts = []
+        for item in output:
+            if not isinstance(item, dict) or item.get("type") != "message":
+                continue
+            for part in item.get("content") or []:
+                if isinstance(part, dict) and part.get("type") == "output_text":
+                    text_parts.append(str(part.get("text", "")))
+
+        content = "\n".join(part for part in text_parts if part.strip())
+        if not content and tool_calls:
+            return "tool_calls_only", 0
+        if not content:
+            return "empty_content", 0
+        try:
+            parsed = extract_json(content)
+        except Exception:
+            return "invalid_content_json", 0
+        raw_items = parsed.get("items", []) if isinstance(parsed, dict) else []
+        if not isinstance(raw_items, list):
+            return "invalid_items", 0
+        if not raw_items:
+            return "zero_items", 0
+        return "items", len(raw_items)
+
     choices = data.get("choices") if isinstance(data, dict) else None
     if not choices:
         return "empty_response", 0
@@ -125,9 +157,10 @@ def audit(config_path: str, variant: str | None = None) -> None:
         relevant = per_query[per_query["is_relevant"].astype(str) == "1"]
         for row in relevant.itertuples(index=False):
             key = (int(row.query_id), str(row.mode), str(row.model))
-            if float(row.match_confidence) >= 1.0:
+            match_method = str(getattr(row, "match_method", ""))
+            if match_method in {"doi", "portal_url", "dataset_id"}:
                 exact_hit_keys.add(key)
-            else:
+            elif match_method in {"title_exact", "title_fuzzy"}:
                 fuzzy_hit_keys.add(key)
 
     request_rows = []
@@ -157,6 +190,21 @@ def audit(config_path: str, variant: str | None = None) -> None:
                         "ndcg_at_k_all": float(metric.ndcg_at_k) if metric is not None else 0.0,
                         "recall_at_k_all": float(metric.recall_at_k) if metric is not None else 0.0,
                         "precision_at_k_all": float(metric.precision_at_k) if metric is not None else 0.0,
+                        "strict_hit_at_k_all": float(getattr(metric, "strict_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "strict_mrr_all": float(getattr(metric, "strict_mrr", 0.0)) if metric is not None else 0.0,
+                        "strict_ndcg_at_k_all": float(getattr(metric, "strict_ndcg_at_k", 0.0)) if metric is not None else 0.0,
+                        "strict_recall_at_k_all": float(getattr(metric, "strict_recall_at_k", 0.0)) if metric is not None else 0.0,
+                        "strict_precision_at_k_all": float(getattr(metric, "strict_precision_at_k", 0.0)) if metric is not None else 0.0,
+                        "title_match_hit_at_k_all": float(getattr(metric, "title_match_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "title_match_mrr_all": float(getattr(metric, "title_match_mrr", 0.0)) if metric is not None else 0.0,
+                        "title_match_ndcg_at_k_all": float(getattr(metric, "title_match_ndcg_at_k", 0.0)) if metric is not None else 0.0,
+                        "source_hit_at_k_all": float(getattr(metric, "source_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "source_mrr_all": float(getattr(metric, "source_mrr", 0.0)) if metric is not None else 0.0,
+                        "strict_source_hit_at_k_all": float(getattr(metric, "strict_source_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "title_source_hit_at_k_all": float(getattr(metric, "title_source_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "gesis_relevant_hit_at_k_all": float(getattr(metric, "gesis_relevant_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "strict_gesis_relevant_hit_at_k_all": float(getattr(metric, "strict_gesis_relevant_hit_at_k", 0.0)) if metric is not None else 0.0,
+                        "title_gesis_relevant_hit_at_k_all": float(getattr(metric, "title_gesis_relevant_hit_at_k", 0.0)) if metric is not None else 0.0,
                         "exact_hit_at_k_all": int(key in exact_hit_keys),
                         "fuzzy_hit_at_k_all": int(key in fuzzy_hit_keys and key not in exact_hit_keys),
                         "log_path": str(log_path),
@@ -176,6 +224,21 @@ def audit(config_path: str, variant: str | None = None) -> None:
             ndcg_at_k_all_queries=("ndcg_at_k_all", "mean"),
             recall_at_k_all_queries=("recall_at_k_all", "mean"),
             precision_at_k_all_queries=("precision_at_k_all", "mean"),
+            strict_hit_at_k_all_queries=("strict_hit_at_k_all", "mean"),
+            strict_mrr_all_queries=("strict_mrr_all", "mean"),
+            strict_ndcg_at_k_all_queries=("strict_ndcg_at_k_all", "mean"),
+            strict_recall_at_k_all_queries=("strict_recall_at_k_all", "mean"),
+            strict_precision_at_k_all_queries=("strict_precision_at_k_all", "mean"),
+            title_match_hit_at_k_all_queries=("title_match_hit_at_k_all", "mean"),
+            title_match_mrr_all_queries=("title_match_mrr_all", "mean"),
+            title_match_ndcg_at_k_all_queries=("title_match_ndcg_at_k_all", "mean"),
+            source_hit_at_k_all_queries=("source_hit_at_k_all", "mean"),
+            source_mrr_all_queries=("source_mrr_all", "mean"),
+            strict_source_hit_at_k_all_queries=("strict_source_hit_at_k_all", "mean"),
+            title_source_hit_at_k_all_queries=("title_source_hit_at_k_all", "mean"),
+            gesis_relevant_hit_at_k_all_queries=("gesis_relevant_hit_at_k_all", "mean"),
+            strict_gesis_relevant_hit_at_k_all_queries=("strict_gesis_relevant_hit_at_k_all", "mean"),
+            title_gesis_relevant_hit_at_k_all_queries=("title_gesis_relevant_hit_at_k_all", "mean"),
             exact_hit_at_k_all_queries=("exact_hit_at_k_all", "mean"),
             fuzzy_hit_at_k_all_queries=("fuzzy_hit_at_k_all", "mean"),
         )
@@ -200,7 +263,7 @@ def audit(config_path: str, variant: str | None = None) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
-    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, or V5)")
+    parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, V5, or V6)")
     args = parser.parse_args()
     audit(args.config, args.variant)
 

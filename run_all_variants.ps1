@@ -1,15 +1,11 @@
 param(
     [string]$Config = "config.yaml",
-    [string[]]$Variants = @("V1", "V2", "V3", "V4", "V5"),
+    [string[]]$Variants = @("V1", "V2", "V3", "V4", "V5", "V6"),
     [string[]]$Stages = @("generate_queries", "run_llm", "match_and_eval", "audit_results"),
     [switch]$StopOnError
 )
 
 $ErrorActionPreference = "Stop"
-
-if (-not $env:OPENWEBUI_API_KEY) {
-    throw "Set OPENWEBUI_API_KEY before running this script."
-}
 
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $logDir = Join-Path "output" "full_metadata_model_comparison"

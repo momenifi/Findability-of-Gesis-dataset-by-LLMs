@@ -1,7 +1,7 @@
 from typing import List
 
 
-def build_messages(query_text: str, top_k: int, mode: str) -> List[dict]:
+def build_messages(query_text: str, top_k: int, mode: str, include_top_k_limit: bool = True) -> List[dict]:
     if mode == "NO_WEB":
         system_message = (
             "Do not browse the web. Use only your internal knowledge. "
@@ -14,9 +14,10 @@ def build_messages(query_text: str, top_k: int, mode: str) -> List[dict]:
             "Do not call time, date, timestamp, or clock tools."
         )
 
+    limit_instruction = f"Return up to {top_k} items. " if include_top_k_limit else ""
     user_message = (
         f"Query: {query_text}\n"
-        f"Return up to {top_k} items. "
+        f"{limit_instruction}"
         "Respond ONLY as JSON in this exact shape: "
         '{"items":[{"title":"...","url_or_doi":"...","justification":"..."}]}. '
         "Put any DOI, URL, landing page, or link in url_or_doi."
