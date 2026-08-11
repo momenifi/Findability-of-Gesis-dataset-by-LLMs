@@ -249,7 +249,7 @@ Pipeline CSV files use a semicolon (`;`) separator for compatibility with German
 - `exact_hit_at_k_all_queries`: legacy-compatible strict hit rate based on DOI, URL, or dataset ID matching.
 - `fuzzy_hit_at_k_all_queries`: legacy-compatible title-match hit rate.
 
-`is_relevant` in `per_query_results.csv` is a broad relevance flag and can be true for title-based matches. For reporting valid dataset discovery, prefer `is_strict_relevant` and the strict metrics. `match_method` shows whether a returned item was matched by `doi`, `portal_url`, `dataset_id`, `title_exact`, `title_fuzzy`, or remained `unmatched`.
+`is_gesis_relevant_dataset` in `per_query_results.csv` is the broad qrels-based GESIS relevance flag. It can be true for identifier or title-based matches. For reporting valid dataset discovery, prefer `is_strict_gesis_relevant_dataset`, `is_strict_source_dataset`, and the strict metrics. `match_method` shows the primary match method: `doi`, `portal_url`, `dataset_id`, `title_exact`, `title_fuzzy`, or `unmatched`.
 
 For broad discovery variants such as V1 and V6, the evaluation separates the original sampled dataset from other matching GESIS datasets:
 
@@ -258,7 +258,7 @@ For broad discovery variants such as V1 and V6, the evaluation separates the ori
 - `is_strict_source_dataset` and `is_strict_gesis_relevant_dataset`: the match is supported by DOI, URL, or dataset ID.
 - `is_title_source_dataset` and `is_title_gesis_relevant_dataset`: the match is based on title matching rather than a reliable identifier.
 
-The latest V1/V6 provider comparison in `reports/model_comparison/provider_strict_source_gesis_summary.csv` uses the strict source and strict GESIS metrics:
+The latest report in `reports/model_comparison/` first uses V1/V6 to compare providers, then continues with OpenAI only to compare V1, V2, and V6. The provider comparison in `provider_strict_source_gesis_summary.csv` uses the strict source and strict GESIS metrics:
 
 | Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -275,9 +275,10 @@ Precision@k is available but should not be the main title-search metric because 
 
 The curated current comparison is under `reports/model_comparison/`:
 
-- `INTERPRETATION.md`: concise V1/V6 provider-comparison interpretation.
-- `provider_strict_source_gesis_summary.csv`: compact strict source/GESIS hit table.
-- `v1_queries.csv` and `v6_queries.csv`: prompts used in the current experiment.
+- `INTERPRETATION.md`: concise provider-check and OpenAI variant-comparison interpretation.
+- `provider_strict_source_gesis_summary.csv`: compact OpenAI/OpenWebUI strict source/GESIS hit table for V1/V6.
+- `openai_variant_comparison_summary.csv`: compact OpenAI-only comparison for V1/V2/V6.
+- `v1_queries.csv`, `v2_queries.csv`, and `v6_queries.csv`: prompts used in the current experiment.
 - `v1_provider_difference_summary.csv` and `v6_provider_difference_summary.csv`: OpenAI/OpenWebUI query-level comparison summaries.
 - `v1_provider_differences.csv` and `v6_provider_differences.csv`: per-query provider comparison.
 - `v1_provider_outputs_query_level.csv` and `v6_provider_outputs_query_level.csv`: selected query-level outputs from both providers.

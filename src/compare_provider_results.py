@@ -93,12 +93,12 @@ def best_query_rows(provider: str, output_dir: Path) -> pd.DataFrame:
                 "selected_returned_url_or_doi": first_value(chosen, "returned_url_or_doi"),
                 "selected_matched_dataset_id": first_value(chosen, "matched_dataset_id"),
                 "selected_match_method": first_value(chosen, "match_method"),
-                "selected_is_relevant": first_value(chosen, "is_relevant"),
-                "selected_is_strict_relevant": first_value(chosen, "is_strict_relevant"),
                 "selected_is_gesis_relevant_dataset": first_value(chosen, "is_gesis_relevant_dataset"),
                 "selected_is_strict_gesis_relevant_dataset": first_value(chosen, "is_strict_gesis_relevant_dataset"),
+                "selected_is_title_gesis_relevant_dataset": first_value(chosen, "is_title_gesis_relevant_dataset"),
                 "selected_is_source_dataset": first_value(chosen, "is_source_dataset"),
                 "selected_is_strict_source_dataset": first_value(chosen, "is_strict_source_dataset"),
+                "selected_is_title_source_dataset": first_value(chosen, "is_title_source_dataset"),
                 "selected_link_valid": first_value(chosen, "link_valid"),
             }
         )

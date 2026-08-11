@@ -154,14 +154,19 @@ def audit(config_path: str, variant: str | None = None) -> None:
     exact_hit_keys = set()
     fuzzy_hit_keys = set()
     if not per_query.empty:
-        relevant = per_query[per_query["is_relevant"].astype(str) == "1"]
-        for row in relevant.itertuples(index=False):
+        strict_relevant = per_query[
+            per_query.get("is_strict_gesis_relevant_dataset", pd.Series(dtype=str)).astype(str) == "1"
+        ]
+        for row in strict_relevant.itertuples(index=False):
             key = (int(row.query_id), str(row.mode), str(row.model))
-            match_method = str(getattr(row, "match_method", ""))
-            if match_method in {"doi", "portal_url", "dataset_id"}:
-                exact_hit_keys.add(key)
-            elif match_method in {"title_exact", "title_fuzzy"}:
-                fuzzy_hit_keys.add(key)
+            exact_hit_keys.add(key)
+
+        title_relevant = per_query[
+            per_query.get("is_title_gesis_relevant_dataset", pd.Series(dtype=str)).astype(str) == "1"
+        ]
+        for row in title_relevant.itertuples(index=False):
+            key = (int(row.query_id), str(row.mode), str(row.model))
+            fuzzy_hit_keys.add(key)
 
     request_rows = []
     models_by_mode = configured_models(cfg)

@@ -1,22 +1,28 @@
-# Interpretation: V1/V6 Provider Comparison
+# Interpretation: Provider Check and OpenAI Variant Comparison
 
-This report summarizes the current experiment only: V1 and V6 with web search, comparing OpenAI API and GESIS OpenWebUI.
+This report summarizes the current experiment in two steps. First, V1 and V6 are compared across OpenAI API and GESIS OpenWebUI to check whether the provider setup affects dataset discovery. Second, the analysis continues with OpenAI only and compares V1, V2, and V6.
 
 ## Setup
 
 - Query source: 100 sampled GESIS datasets.
 - Evaluation corpus: full GESIS metadata file.
-- Providers:
-  - OpenAI API, model `chat-latest`
-  - GESIS OpenWebUI, model `gpt-5.4`
-- Prompt variants:
-  - V1: all topics, country, and decade.
-  - V6: V1 plus a natural-language research need generated from the dataset abstract.
+- Mode: web search.
 - Retrieval instruction: no returned-item threshold was included in the prompt, and the pipeline saved all returned items.
+- Strict matching: hits are credited through DOI, landing-page URL, or dataset ID. Fuzzy title-only matches are excluded from the strict metrics.
+
+The main distinction in the results is:
+
+- `Strict Source Hits`: the original sampled dataset was found.
+- `Strict GESIS Hits`: any qrels-relevant GESIS dataset was found.
+
+## Provider Check: OpenAI vs OpenWebUI
+
+The provider check uses V1 and V6:
+
+- V1: all topics, country, and decade.
+- V6: V1 plus a natural-language research need generated from the dataset abstract.
 
 For V6, both providers used the same generated query texts. This makes the provider comparison cleaner than earlier runs.
-
-## Main Strict Results
 
 | Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -25,26 +31,46 @@ For V6, both providers used the same generated query texts. This makes the provi
 | V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
 | V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
 
-## Metric Meaning
+OpenAI performs better than OpenWebUI under strict identifier-based evaluation. OpenWebUI retrieves some strict GESIS-relevant datasets, but it does not strictly retrieve the original source datasets in this run.
 
-`Strict Source Hits` answers whether the original sampled dataset was found through a DOI, landing-page URL, or dataset ID.
+This provider difference is a reason to continue the main prompt-variant analysis with OpenAI API. The difference likely reflects more than the visible prompt text: web-search implementation, tool handling, hidden system instructions, API behavior, or model routing may differ between OpenAI API and GESIS OpenWebUI.
 
-`Strict GESIS Hits` answers whether any qrels-relevant GESIS dataset was found through a DOI, landing-page URL, or dataset ID.
+## OpenAI-Only Variant Comparison
 
-The strict metrics intentionally exclude fuzzy title-only matches. This is important because title-only matches can be plausible but less reliable for evaluating whether a model found an actual dataset record.
+After the provider check, the current variant comparison uses OpenAI API only.
 
-## Interpretation
+- V1: all topics, country, and decade.
+- V2: one topic at a time, plus country and decade.
+- V6: all topics, country, decade, and natural-language research need from the abstract.
 
-OpenAI performs better than OpenWebUI in this comparison.
+### Query-Level View
 
-The strongest result is OpenAI V6: it strictly finds the original source dataset in 23 of 87 evaluated queries and finds at least one strict qrels-relevant GESIS dataset in 37 of 87 queries.
+This treats every generated query separately. V2 has more queries because one source dataset can generate several single-topic prompts.
 
-V6 improves OpenAI clearly compared with V1. Adding the natural-language research need from the abstract seems to help the OpenAI API search for more specific dataset records.
+| Variant | Queries | Strict Source Hits | Source Hits | Strict GESIS Hits | GESIS Hits |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| V1 | 85 | 6 / 85 = 0.071 | 9 / 85 = 0.106 | 21 / 85 = 0.247 | 32 / 85 = 0.376 |
+| V2 | 250 | 14 / 250 = 0.056 | 16 / 250 = 0.064 | 54 / 250 = 0.216 | 58 / 250 = 0.232 |
+| V6 | 87 | 23 / 87 = 0.264 | 30 / 87 = 0.345 | 37 / 87 = 0.425 | 46 / 87 = 0.529 |
 
-OpenWebUI retrieves some strict GESIS-relevant datasets, but it does not strictly find the original source datasets in this run. This suggests that the difference is not only the visible prompt text. The web-search/tool pipeline, hidden system instructions, API behavior, or model routing may differ between OpenAI API and GESIS OpenWebUI.
+On a query-level denominator, V2 is not better than V1. It produces more total hits, but it also produces many more queries.
 
-## Summary Statement
+### Source-Dataset-Level View
 
-In the current V1/V6 provider comparison, OpenAI API outperforms GESIS OpenWebUI under strict identifier-based evaluation. The V6 prompt, which adds a natural-language research need generated from the abstract, improves OpenAI from 6 to 23 strict source hits and from 21 to 37 strict GESIS hits. OpenWebUI retrieves some strict GESIS-relevant datasets but does not strictly retrieve the original source datasets in this run.
+This asks whether at least one query for a source dataset succeeded. This view is useful for V2 because it has multiple queries per source dataset.
 
-The supporting CSV files in this folder contain the query texts, selected model outputs, and per-query provider differences.
+| Variant | Source Datasets | Strict Source Dataset Hits | Source Dataset Hits | Strict GESIS Dataset Hits | GESIS Dataset Hits |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| V1 | 85 | 6 / 85 = 0.071 | 9 / 85 = 0.106 | 21 / 85 = 0.247 | 32 / 85 = 0.376 |
+| V2 | 84 | 11 / 84 = 0.131 | 13 / 84 = 0.155 | 35 / 84 = 0.417 | 37 / 84 = 0.440 |
+| V6 | 87 | 23 / 87 = 0.264 | 30 / 87 = 0.345 | 37 / 87 = 0.425 | 46 / 87 = 0.529 |
+
+In this source-dataset-level view, V2 improves over V1. Splitting topics into separate prompts can help retrieve at least one relevant GESIS dataset for more source datasets. However, V6 remains strongest overall, especially for finding the original source dataset.
+
+## Summary
+
+The provider check shows that OpenAI API gives stronger strict retrieval results than GESIS OpenWebUI in the current setup. Therefore, the main prompt-variant comparison continues with OpenAI only.
+
+Within OpenAI, V6 is currently the best-performing variant. Adding a natural-language research need generated from the abstract improves strict source retrieval and strict GESIS retrieval compared with V1. V2 is useful when evaluated at the source-dataset level, but it does not outperform V6.
+
+The supporting CSV files in this folder contain the query texts, provider comparison files, and OpenAI variant summary.

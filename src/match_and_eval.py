@@ -811,7 +811,7 @@ def compute_metrics(
             per_query_rows.append(
                 {
                     **row.to_dict(),
-                    "source_dataset_id_for_query": source_id,
+                    "source_dataset_id": source_id,
                     "is_source_dataset": int(source_id and row["matched_dataset_id"] == source_id),
                     "is_strict_source_dataset": int(
                         source_id
@@ -823,19 +823,10 @@ def compute_metrics(
                         and row["title_matched_dataset_id"] == source_id
                         and row["title_match_method"] in TITLE_MATCH_METHODS
                     ),
-                    "is_relevant": int(row["matched_dataset_id"] in relevant_ids),
                     "is_gesis_relevant_dataset": int(row["matched_dataset_id"] in relevant_ids),
-                    "is_strict_relevant": int(
-                        row["matched_dataset_id"] in relevant_ids
-                        and row["match_method"] in IDENTIFIER_MATCH_METHODS
-                    ),
                     "is_strict_gesis_relevant_dataset": int(
                         row["matched_dataset_id"] in relevant_ids
                         and row["match_method"] in IDENTIFIER_MATCH_METHODS
-                    ),
-                    "is_title_match_relevant": int(
-                        row["title_matched_dataset_id"] in relevant_ids
-                        and row["title_match_method"] in TITLE_MATCH_METHODS
                     ),
                     "is_title_gesis_relevant_dataset": int(
                         row["title_matched_dataset_id"] in relevant_ids
