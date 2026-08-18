@@ -41,6 +41,7 @@ PowerShell:
 ```powershell
 $env:OPENAI_API_KEY = "YOUR_OPENAI_KEY"
 $env:OPENWEBUI_API_KEY = "YOUR_KEY"
+$env:GEMINI_API_KEY = "YOUR_GEMINI_KEY"
 ```
 
 Linux:
@@ -48,9 +49,23 @@ Linux:
 ```bash
 export OPENAI_API_KEY='YOUR_OPENAI_KEY'
 export OPENWEBUI_API_KEY='YOUR_KEY'
+export GEMINI_API_KEY='YOUR_GEMINI_KEY'
 ```
 
 The full metadata file is not stored in Git. Place `all_research_data_full_metadata.csv` in the repository root or update `qrels_input_path` in `config.yaml`.
+
+## Gemini Web Search Run
+
+`config_gemini_websearch.yaml` runs Gemini with Google Search grounding for the 100-dataset sample. It uses `gemini-3.6-flash`, `WEB_SEARCH` only, no returned-item threshold in the prompt, and saves all returned items.
+
+```bash
+python -m src.generate_queries --config config_gemini_websearch.yaml -V V1
+python -m src.run_llm --config config_gemini_websearch.yaml -V V1
+python -m src.match_and_eval --config config_gemini_websearch.yaml -V V1
+python -m src.audit_results --config config_gemini_websearch.yaml -V V1
+```
+
+Gemini web search is implemented as a separate provider path because OpenAI web search uses OpenAI's Responses API tools, while Gemini uses Google Search grounding.
 
 ## Configuration
 

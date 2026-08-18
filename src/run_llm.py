@@ -43,10 +43,21 @@ def get_api_key(cfg: dict) -> str | None:
     return api_key
 
 
+def _redact_secrets(text: str) -> str:
+    return re.sub(r"([?&]key=)[^&\s]+", r"\1<REDACTED>", str(text))
+
+
 def _is_openwebui(cfg: dict) -> bool:
     base_url = str(cfg.get("api_base_url") or "").lower()
     api_key_env = str(cfg.get("api_key_env") or "").lower()
     return "openwebui" in base_url or api_key_env == "openwebui_api_key"
+
+
+def _is_gemini(cfg: dict) -> bool:
+    provider = str(cfg.get("provider") or "").strip().lower()
+    base_url = str(cfg.get("api_base_url") or "").lower()
+    api_key_env = str(cfg.get("api_key_env") or "").lower()
+    return provider == "gemini" or "generativelanguage.googleapis.com" in base_url or api_key_env == "gemini_api_key"
 
 
 def _openwebui_chat_endpoint(cfg: dict) -> str:
@@ -54,6 +65,17 @@ def _openwebui_chat_endpoint(cfg: dict) -> str:
     if base_url.endswith("/api"):
         return f"{base_url}/chat/completions"
     return f"{base_url}/api/chat/completions"
+
+
+def _gemini_base_url(cfg: dict) -> str:
+    base_url = str(cfg.get("api_base_url") or "https://generativelanguage.googleapis.com/v1beta").rstrip("/")
+    if base_url.endswith("/openai"):
+        base_url = base_url[: -len("/openai")]
+    return base_url
+
+
+def _gemini_generate_content_endpoint(cfg: dict, model: str) -> str:
+    return f"{_gemini_base_url(cfg)}/models/{model}:generateContent"
 
 
 def _content_to_text(content) -> str:
@@ -72,6 +94,16 @@ def _content_to_text(content) -> str:
 
 def _response_text(response) -> str:
     if isinstance(response, dict):
+        candidates = response.get("candidates") or []
+        if candidates:
+            parts = ((candidates[0].get("content") or {}).get("parts")) or []
+            texts = [
+                str(part.get("text", ""))
+                for part in parts
+                if isinstance(part, dict) and part.get("text")
+            ]
+            if texts:
+                return "\n".join(texts)
         choices = response.get("choices") or []
         if choices:
             message = choices[0].get("message") or {}
@@ -222,7 +254,64 @@ def _call_openai(cfg: dict, model: str, messages: List[dict], enable_web_search:
     return client.chat.completions.create(model=model, messages=messages)
 
 
-def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
+def _call_gemini(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
+    system_parts = []
+    user_parts = []
+    for message in messages:
+        text = _content_to_text(message.get("content"))
+        if not text:
+            continue
+        if str(message.get("role", "")).lower() == "system":
+            system_parts.append(text)
+        else:
+            user_parts.append(text)
+
+    payload = {
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": "\n\n".join(user_parts)}],
+            }
+        ],
+    }
+    if system_parts:
+        payload["system_instruction"] = {"parts": [{"text": "\n\n".join(system_parts)}]}
+    if enable_web_search:
+        payload["tools"] = [{"google_search": {}}]
+
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(
+        _gemini_generate_content_endpoint(cfg, model),
+        params={"key": get_api_key(cfg)},
+        headers=headers,
+        json=payload,
+        timeout=(
+            float(cfg.get("request_timeout_connect_seconds", 30)),
+            float(cfg.get("request_timeout_read_seconds", 600)),
+        ),
+    )
+    if not response.ok:
+        raise RuntimeError(
+            _redact_secrets(
+                f"{response.status_code} {response.reason} for {response.url}: {response.text}"
+            )
+        )
+    return response.json()
+
+
+def _parse_query_ids(value: str | None) -> set[int]:
+    if not value:
+        return set()
+    query_ids = set()
+    for part in str(value).split(","):
+        part = part.strip()
+        if not part:
+            continue
+        query_ids.add(int(part))
+    return query_ids
+
+
+def run_llm(config_path: str, variant: str | None = None, query_ids: str | None = None) -> pd.DataFrame:
     cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -234,6 +323,13 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
         raise FileNotFoundError(f"{queries_path} not found. Run generate_queries first.")
 
     queries = pd.read_csv(queries_path, sep=None, engine="python")
+    selected_query_ids = _parse_query_ids(query_ids)
+    if selected_query_ids:
+        queries = queries[queries["query_id"].astype(int).isin(selected_query_ids)].copy()
+        missing_query_ids = selected_query_ids - set(queries["query_id"].astype(int).tolist())
+        if missing_query_ids:
+            raise ValueError(f"Query IDs not found in {queries_path}: {sorted(missing_query_ids)}")
+
     # Keep this load for validation/future candidate filtering.
     load_metadata(cfg["input_path"], cfg["input_format"])
 
@@ -249,10 +345,23 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
     max_retries = int(cfg.get("request_max_retries", 2))
     retry_backoff_seconds = float(cfg.get("request_retry_backoff_seconds", 5))
     use_openwebui_native = _is_openwebui(cfg)
+    use_gemini_native = _is_gemini(cfg)
 
     results_path = output_dir / "llm_results.csv"
-    if results_path.exists():
+    if results_path.exists() and not selected_query_ids:
         results_path.unlink()
+    elif results_path.exists() and selected_query_ids:
+        existing = pd.read_csv(results_path, sep=OUTPUT_CSV_SEP)
+        rerun_models = {
+            (mode, model)
+            for mode in modes
+            for model in models_by_mode.get(mode, [])
+        }
+        keep_mask = ~(
+            existing["query_id"].astype(int).isin(selected_query_ids)
+            & existing.apply(lambda row: (str(row["mode"]), str(row["model"])) in rerun_models, axis=1)
+        )
+        existing.loc[keep_mask].to_csv(results_path, index=False, sep=OUTPUT_CSV_SEP)
 
     rows = []
     completed_requests = 0
@@ -298,6 +407,13 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                                 messages=messages,
                                 enable_web_search=(mode == "WEB_SEARCH"),
                             )
+                        elif use_gemini_native:
+                            last_response = _call_gemini(
+                                cfg=cfg,
+                                model=model,
+                                messages=messages,
+                                enable_web_search=(mode == "WEB_SEARCH"),
+                            )
                         else:
                             last_response = _call_openai(
                                 cfg=cfg,
@@ -306,8 +422,9 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                                 enable_web_search=(mode == "WEB_SEARCH"),
                             )
                     except Exception as exc:
+                        error_text = _redact_secrets(str(exc))
                         last_response = {
-                            "error": str(exc),
+                            "error": error_text,
                             "query_id": query_id,
                             "query_variant": query_variant,
                             "mode": mode,
@@ -320,7 +437,7 @@ def run_llm(config_path: str, variant: str | None = None) -> pd.DataFrame:
                             wait_seconds = retry_backoff_seconds * (attempt + 1)
                             print(
                                 f"RETRY query_id={query_id} variant={query_variant} mode={mode} "
-                                f"model={model} after error: {exc} (sleep {wait_seconds:.1f}s)",
+                                f"model={model} after error: {error_text} (sleep {wait_seconds:.1f}s)",
                                 flush=True,
                             )
                             time.sleep(wait_seconds)
@@ -420,8 +537,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Path to config.yaml")
     parser.add_argument("-V", "--variant", help="Override query variant (V1, V2, V3, V4, V5, or V6)")
+    parser.add_argument(
+        "--query-ids",
+        help="Comma-separated query IDs to rerun, e.g. 3,9,20. Existing rows for these IDs/model/mode are replaced.",
+    )
     args = parser.parse_args()
-    run_llm(args.config, args.variant)
+    run_llm(args.config, args.variant, args.query_ids)
 
 
 if __name__ == "__main__":

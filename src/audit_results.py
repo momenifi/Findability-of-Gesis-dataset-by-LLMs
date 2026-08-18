@@ -102,6 +102,27 @@ def classify_log(path: Path) -> tuple[str, int]:
             return "zero_items", 0
         return "items", len(raw_items)
 
+    candidates = data.get("candidates") if isinstance(data, dict) else None
+    if candidates:
+        parts = ((candidates[0].get("content") or {}).get("parts")) or []
+        content = "\n".join(
+            str(part.get("text", ""))
+            for part in parts
+            if isinstance(part, dict) and part.get("text")
+        )
+        if not content.strip():
+            return "empty_content", 0
+        try:
+            parsed = extract_json(content)
+        except Exception:
+            return "invalid_content_json", 0
+        raw_items = parsed.get("items", []) if isinstance(parsed, dict) else []
+        if not isinstance(raw_items, list):
+            return "invalid_items", 0
+        if not raw_items:
+            return "zero_items", 0
+        return "items", len(raw_items)
+
     choices = data.get("choices") if isinstance(data, dict) else None
     if not choices:
         return "empty_response", 0
