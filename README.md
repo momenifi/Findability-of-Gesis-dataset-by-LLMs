@@ -34,7 +34,7 @@ conda activate gesis-findability
 pip install -r requirements.txt
 ```
 
-Set the API key for the provider configured in `config.yaml`. For OpenAI API runs, use `OPENAI_API_KEY`; for GESIS OpenWebUI runs, use `OPENWEBUI_API_KEY`.
+Set the API key for the provider configured in the run config. For OpenAI API runs, use `OPENAI_API_KEY`; for GESIS OpenWebUI runs, use `OPENWEBUI_API_KEY`; for Gemini runs, use `GEMINI_API_KEY`.
 
 PowerShell:
 
@@ -66,6 +66,8 @@ python -m src.audit_results --config config_gemini_websearch.yaml -V V1
 ```
 
 Gemini web search is implemented as a separate provider path because OpenAI web search uses OpenAI's Responses API tools, while Gemini uses Google Search grounding.
+
+The current Gemini comparison uses V1, V2, and V6. After rerunning transient failures, V1 and V2 have full item coverage. V6 has one remaining Gemini API error and one valid empty-item response.
 
 ## Configuration
 
@@ -273,14 +275,16 @@ For broad discovery variants such as V1 and V6, the evaluation separates the ori
 - `is_strict_source_dataset` and `is_strict_gesis_relevant_dataset`: the match is supported by DOI, URL, or dataset ID.
 - `is_title_source_dataset` and `is_title_gesis_relevant_dataset`: the match is based on title matching rather than a reliable identifier.
 
-The latest report in `reports/model_comparison/` first uses V1/V6 to compare providers, then continues with OpenAI only to compare V1, V2, and V6. The provider comparison in `provider_strict_source_gesis_summary.csv` uses the strict source and strict GESIS metrics:
+The latest report in `reports/model_comparison/` uses V1/V6 for provider context and compares OpenAI and Gemini across V1, V2, and V6. The provider comparison in `provider_strict_source_gesis_summary.csv` uses the strict source and strict GESIS metrics:
 
 | Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
 | --- | --- | ---: | ---: | ---: | ---: |
 | V1 | OpenAI | 6 / 85 | 0.071 | 21 / 85 | 0.247 |
 | V1 | OpenWebUI | 0 / 78 | 0.000 | 10 / 78 | 0.128 |
+| V1 | Gemini | 1 / 85 | 0.012 | 18 / 85 | 0.212 |
 | V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
 | V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
+| V6 | Gemini | 28 / 87 | 0.329 | 37 / 87 | 0.435 |
 
 `Strict Source Hits` means the original sampled dataset was found through DOI, landing-page URL, or dataset ID. `Strict GESIS Hits` means any qrels-relevant GESIS dataset was found through DOI, landing-page URL, or dataset ID.
 
@@ -290,13 +294,16 @@ Precision@k is available but should not be the main title-search metric because 
 
 The curated current comparison is under `reports/model_comparison/`:
 
-- `INTERPRETATION.md`: concise provider-check and OpenAI variant-comparison interpretation.
-- `provider_strict_source_gesis_summary.csv`: compact OpenAI/OpenWebUI strict source/GESIS hit table for V1/V6.
-- `openai_variant_comparison_summary.csv`: compact OpenAI-only comparison for V1/V2/V6.
+- `INTERPRETATION.md`: concise provider and variant-comparison interpretation.
+- `provider_variant_comparison_summary.csv`: compact OpenAI/OpenWebUI/Gemini query-level table for V1/V2/V6 where available.
+- `provider_strict_source_gesis_summary.csv`: compact strict source/GESIS hit table for V1/V6 provider context.
+- `openai_gemini_variant_comparison_summary.csv`: compact OpenAI/Gemini comparison for V1/V2/V6.
+- `openai_variant_comparison_summary.csv`: earlier OpenAI-only comparison for V1/V2/V6, including source-dataset-level aggregation.
 - `v1_queries.csv`, `v2_queries.csv`, and `v6_queries.csv`: prompts used in the current experiment.
 - `v1_provider_difference_summary.csv` and `v6_provider_difference_summary.csv`: OpenAI/OpenWebUI query-level comparison summaries.
 - `v1_provider_differences.csv` and `v6_provider_differences.csv`: per-query provider comparison.
 - `v1_provider_outputs_query_level.csv` and `v6_provider_outputs_query_level.csv`: selected query-level outputs from both providers.
+- `v1_gemini_outputs_labeled.csv`, `v2_gemini_outputs_labeled.csv`, and `v6_gemini_outputs_labeled.csv`: Gemini returned items with source/GESIS relevance labels.
 
 Start with `reports/model_comparison/INTERPRETATION.md`, then use the CSV files to inspect individual models, queries, and returned datasets.
 
