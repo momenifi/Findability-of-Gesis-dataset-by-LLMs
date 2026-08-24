@@ -1,6 +1,6 @@
 # Interpretation: Provider and Variant Comparison
 
-This report summarizes the current dataset-discovery experiment. The main comparison now focuses on web-search runs for V1, V2, and V6, with OpenAI API and Gemini. GESIS OpenWebUI is kept as provider context because earlier tests showed that OpenWebUI can behave differently from the direct OpenAI API, even with similar visible prompts.
+This report summarizes the current dataset-discovery experiment. The main comparison now focuses on web-search runs for V1, V2, V3, and V6, with OpenAI API and Gemini. GESIS OpenWebUI is kept as provider context because earlier tests showed that OpenWebUI can behave differently from the direct OpenAI API, even with similar visible prompts.
 
 ## Setup
 
@@ -22,9 +22,10 @@ The main metrics used here are:
 
 - V1: all topics, country, and decade.
 - V2: one topic at a time, plus country and decade.
+- V3: exact title search as the discoverability baseline.
 - V6: V1 plus a natural-language research need generated from the dataset abstract.
 
-V2 creates more prompts than V1/V6 because one source dataset can produce several single-topic queries. Therefore V2 should be read both at the query level and, where needed, at the source-dataset level.
+V3 answers whether the exact source dataset is discoverable when the title is already known. V2 creates more prompts than V1/V3/V6 because one source dataset can produce several single-topic queries. Therefore V2 should be read both at the query level and, where needed, at the source-dataset level.
 
 ## Provider Context
 
@@ -35,13 +36,15 @@ The earlier provider check compared OpenAI API and GESIS OpenWebUI for V1 and V6
 | V1 | OpenAI | 6 / 85 | 0.071 | 21 / 85 | 0.247 |
 | V1 | OpenWebUI | 0 / 78 | 0.000 | 10 / 78 | 0.128 |
 | V1 | Gemini | 1 / 85 | 0.012 | 18 / 85 | 0.212 |
+| V3 | OpenAI | 36 / 100 | 0.360 | 36 / 100 | 0.360 |
+| V3 | Gemini | 63 / 100 | 0.630 | 63 / 100 | 0.630 |
 | V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
 | V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
-| V6 | Gemini | 28 / 87 | 0.329 | 37 / 87 | 0.435 |
+| V6 | Gemini | 28 / 87 | 0.322 | 37 / 87 | 0.425 |
 
 OpenWebUI retrieves some relevant GESIS datasets but is clearly weaker for strict source retrieval in this run. This supports treating direct provider APIs separately from OpenWebUI.
 
-Gemini changes the picture for V6: it is weaker than OpenAI for V1, but competitive or better for V6 on strict source retrieval.
+Gemini changes the picture for title search and V6: it is weaker than OpenAI for V1 and V2, but stronger on V3 title-search strict source retrieval and competitive for V6.
 
 ## OpenAI vs Gemini
 
@@ -55,10 +58,12 @@ This table treats every generated query as one evaluation unit.
 | V1 | Gemini | 85 | 1 / 85 = 0.012 | 3 / 85 = 0.035 | 18 / 85 = 0.212 | 23 / 85 = 0.271 |
 | V2 | OpenAI | 250 | 14 / 250 = 0.056 | 16 / 250 = 0.064 | 54 / 250 = 0.216 | 58 / 250 = 0.232 |
 | V2 | Gemini | 250 | 6 / 250 = 0.024 | 8 / 250 = 0.032 | 32 / 250 = 0.128 | 41 / 250 = 0.164 |
+| V3 | OpenAI | 100 | 36 / 100 = 0.360 | 72 / 100 = 0.720 | 36 / 100 = 0.360 | 72 / 100 = 0.720 |
+| V3 | Gemini | 100 | 63 / 100 = 0.630 | 78 / 100 = 0.780 | 63 / 100 = 0.630 | 78 / 100 = 0.780 |
 | V6 | OpenAI | 87 | 23 / 87 = 0.264 | 30 / 87 = 0.345 | 37 / 87 = 0.425 | 46 / 87 = 0.529 |
-| V6 | Gemini | 87 | 28 / 87 = 0.329 | 32 / 87 = 0.376 | 37 / 87 = 0.425 | 44 / 87 = 0.518 |
+| V6 | Gemini | 87 | 28 / 87 = 0.322 | 32 / 87 = 0.368 | 37 / 87 = 0.425 | 44 / 87 = 0.506 |
 
-V6 is the strongest variant for both providers. For OpenAI, V6 improves substantially over V1 and V2. For Gemini, V6 also improves strongly and even exceeds OpenAI on strict source hits, while OpenAI is slightly higher on broad GESIS hits.
+V3 is the title-search baseline and gives the upper bound for direct discoverability. Gemini is stronger than OpenAI on strict V3 title retrieval. V6 is the strongest metadata/research-need variant for both providers. For OpenAI, V6 improves substantially over V1 and V2. For Gemini, V6 also improves strongly, while OpenAI is slightly higher on broad GESIS hits.
 
 ### Source-Dataset-Level View
 
@@ -76,13 +81,14 @@ After rerunning failed Gemini requests:
 
 - Gemini V1: 85 / 85 requests returned items.
 - Gemini V2: 250 / 250 requests returned items.
+- Gemini V3: 98 / 100 requests returned items; two requests had Gemini API errors.
 - Gemini V6: 85 / 87 requests returned items; one request had a Gemini API error and one returned an empty item list.
 
 The remaining Gemini V6 gaps should be reported as provider/API behavior, not as prompt-generation errors.
 
 ## Summary
 
-The main result is that V6 is the best prompt design so far. Adding a natural-language research need from the abstract improves retrieval of the original source dataset and relevant GESIS datasets.
+The main result is that V3 provides a necessary discoverability baseline, and V6 is the best realistic prompt design so far when users do not know the exact title. Adding a natural-language research need from the abstract improves retrieval of the original source dataset and relevant GESIS datasets.
 
 OpenAI remains stronger than Gemini for V1 and V2. Gemini is competitive for V6 and has the highest strict source hit count in the current V6 run. OpenWebUI remains useful as an institutional interface, but its results are not equivalent to direct OpenAI API results, so it should not be used as a substitute when the goal is to emulate ChatGPT/OpenAI API behavior.
 
