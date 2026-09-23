@@ -455,7 +455,12 @@ def generate_queries(config_path: str, variant: str | None = None) -> pd.DataFra
     top_k = int(cfg.get("top_k_return", 10))
     include_top_k_limit = bool(cfg.get("include_top_k_limit_in_prompt", True))
     abstract_query_generator_model = str(cfg.get("abstract_query_generator_model", "chat-latest"))
-    abstract_cache_path = output_dir / str(cfg.get("abstract_query_cache_file", "abstract_query_cache.csv"))
+    configured_cache_path = str(cfg.get("abstract_query_cache_path", "")).strip()
+    abstract_cache_path = (
+        Path(configured_cache_path)
+        if configured_cache_path
+        else output_dir / str(cfg.get("abstract_query_cache_file", "abstract_query_cache.csv"))
+    )
     abstract_cache = _load_abstract_query_cache(abstract_cache_path)
     abstract_cache_rows = [
         {
@@ -556,8 +561,15 @@ def generate_queries(config_path: str, variant: str | None = None) -> pd.DataFra
 
     out = pd.DataFrame(results)
     if out.empty:
-        out.to_csv(output_dir / "queries.csv", index=False, sep=OUTPUT_CSV_SEP)
-        return out
+        queries_path = output_dir / "queries.csv"
+        queries_path.unlink(missing_ok=True)
+        active_variants = ", ".join(variants)
+        raise ValueError(
+            "No queries could be generated for "
+            f"variant(s) {active_variants} from {cfg['input_path']}. "
+            "Check that the required metadata fields are populated. "
+            "V1/V2 require topic, country, and collection time; V6 also requires an abstract."
+        )
 
     sample_per_variant = int(cfg.get("sample_per_variant", 0) or 0)
     random_seed = int(cfg.get("random_seed", 42))

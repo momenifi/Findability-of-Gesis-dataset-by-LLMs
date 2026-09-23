@@ -174,6 +174,8 @@ def audit(config_path: str, variant: str | None = None) -> None:
 
     exact_hit_keys = set()
     fuzzy_hit_keys = set()
+    conflict_keys = set()
+    conflict_row_counts = {}
     if not per_query.empty:
         strict_relevant = per_query[
             per_query.get("is_strict_gesis_relevant_dataset", pd.Series(dtype=str)).astype(str) == "1"
@@ -188,6 +190,36 @@ def audit(config_path: str, variant: str | None = None) -> None:
         for row in title_relevant.itertuples(index=False):
             key = (int(row.query_id), str(row.mode), str(row.model))
             fuzzy_hit_keys.add(key)
+
+        conflict_col = None
+        if "title_identifier_conflict" in per_query.columns:
+            conflict_col = per_query["title_identifier_conflict"].astype(str) == "1"
+        else:
+            required_conflict_cols = {
+                "matched_dataset_id",
+                "title_matched_dataset_id",
+                "match_method",
+                "title_match_method",
+            }
+            if required_conflict_cols.issubset(per_query.columns):
+                identifier_methods = {"doi", "portal_url", "dataset_id"}
+                title_methods = {"title_exact", "title_fuzzy"}
+                conflict_col = (
+                    per_query["matched_dataset_id"].fillna("").astype(str).ne("")
+                    & per_query["title_matched_dataset_id"].fillna("").astype(str).ne("")
+                    & per_query["matched_dataset_id"].fillna("").astype(str).ne(
+                        per_query["title_matched_dataset_id"].fillna("").astype(str)
+                    )
+                    & per_query["match_method"].isin(identifier_methods)
+                    & per_query["title_match_method"].isin(title_methods)
+                )
+
+        if conflict_col is not None:
+            conflicts = per_query[conflict_col]
+            for row in conflicts.itertuples(index=False):
+                key = (int(row.query_id), str(row.mode), str(row.model))
+                conflict_keys.add(key)
+                conflict_row_counts[key] = conflict_row_counts.get(key, 0) + 1
 
     request_rows = []
     models_by_mode = configured_models(cfg)
@@ -233,6 +265,8 @@ def audit(config_path: str, variant: str | None = None) -> None:
                         "title_gesis_relevant_hit_at_k_all": float(getattr(metric, "title_gesis_relevant_hit_at_k", 0.0)) if metric is not None else 0.0,
                         "exact_hit_at_k_all": int(key in exact_hit_keys),
                         "fuzzy_hit_at_k_all": int(key in fuzzy_hit_keys and key not in exact_hit_keys),
+                        "title_identifier_conflict_at_k_all": int(key in conflict_keys),
+                        "title_identifier_conflict_rows": int(conflict_row_counts.get(key, 0)),
                         "log_path": str(log_path),
                     }
                 )
@@ -267,6 +301,8 @@ def audit(config_path: str, variant: str | None = None) -> None:
             title_gesis_relevant_hit_at_k_all_queries=("title_gesis_relevant_hit_at_k_all", "mean"),
             exact_hit_at_k_all_queries=("exact_hit_at_k_all", "mean"),
             fuzzy_hit_at_k_all_queries=("fuzzy_hit_at_k_all", "mean"),
+            title_identifier_conflict_at_k_all_queries=("title_identifier_conflict_at_k_all", "mean"),
+            title_identifier_conflict_rows=("title_identifier_conflict_rows", "sum"),
         )
         .reset_index()
     )

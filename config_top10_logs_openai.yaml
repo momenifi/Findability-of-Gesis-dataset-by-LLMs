@@ -1,26 +1,26 @@
 temperature: 0
 top_p: 1
-input_path: random_100_datasets_full_metadata.csv
+input_path: "top 10/top_10_from_logs.csv"
 input_format: csv
 qrels_input_path: all_research_data_full_metadata.csv
 qrels_input_format: csv
-output_dir: output/gemini_websearch
+output_dir: output/top10_visibility/logs_openai
 output_dir_by_variant:
-  V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/gemini_websearch/v1_all_topics
-  V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/gemini_websearch/v2_single_topic
-  V3_TITLE_ONLY: output/gemini_websearch/v3_title_only
-  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/gemini_websearch/v6_all_topics_abstract_natural_language
-source_row_limit: 100
+  V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/top10_visibility/logs_openai/v1_all_topics
+  V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/top10_visibility/logs_openai/v2_single_topic
+  V3_TITLE_ONLY: output/top10_visibility/logs_openai/v3_title_only
+  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/top10_visibility/logs_openai/v6_all_topics_abstract_natural_language
+source_row_limit: 10
 sample_per_variant: 0
 random_seed: 42
 time_format: decade
 query_variants:
-  - V1_TOPIC_COUNTRY_TIME_ALL_TOPICS
+  - V3_TITLE_ONLY
 modes:
   - WEB_SEARCH
 models_no_web: []
 models_web:
-  - gemini-3.6-flash
+  - chat-latest
 top_k_return: 10
 include_top_k_limit_in_prompt: false
 max_returned_items_to_save: 0
@@ -28,7 +28,7 @@ abstract_query_generator_model: gpt-5.4
 abstract_query_generator_api_base_url: https://ai-openwebui.gesis.org/api
 abstract_query_generator_api_key_env: OPENWEBUI_API_KEY
 abstract_query_cache_file: abstract_query_cache.csv
-abstract_query_cache_path: output/shared_query_cache/random_100_v6_abstract_queries.csv
+abstract_query_cache_path: output/shared_query_cache/top10_logs_v6_abstract_queries.csv
 qrels_strategy: metadata_filter
 silver_qrels_fields:
   - abstract
@@ -40,10 +40,8 @@ silver_qrels_fields:
 retrieval_for_candidates: false
 retrieval_candidates_k: 30
 silver_top_m: 50
-provider: gemini
-api_base_url: https://generativelanguage.googleapis.com/v1beta
-api_key_env: GEMINI_API_KEY
+api_key_env: OPENAI_API_KEY
 request_timeout_connect_seconds: 30
 request_timeout_read_seconds: 600
-request_max_retries: 4
-request_retry_backoff_seconds: 15
+request_max_retries: 2
+request_retry_backoff_seconds: 5

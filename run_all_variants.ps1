@@ -2,10 +2,24 @@ param(
     [string]$Config = "config.yaml",
     [string[]]$Variants = @("V1", "V2", "V3", "V4", "V5", "V6"),
     [string[]]$Stages = @("generate_queries", "run_llm", "match_and_eval", "audit_results"),
+    [string]$PythonExe = "",
     [switch]$StopOnError
 )
 
 $ErrorActionPreference = "Stop"
+
+if ([string]::IsNullOrWhiteSpace($PythonExe)) {
+    if ($env:CONDA_PREFIX) {
+        $candidate = Join-Path $env:CONDA_PREFIX "python.exe"
+        if (Test-Path $candidate) {
+            $PythonExe = $candidate
+        }
+    }
+}
+
+if ([string]::IsNullOrWhiteSpace($PythonExe)) {
+    $PythonExe = "python"
+}
 
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $logDir = Join-Path "output" "full_metadata_model_comparison"
@@ -18,6 +32,7 @@ try {
     Write-Host "Config: $Config"
     Write-Host "Variants: $($Variants -join ', ')"
     Write-Host "Stages: $($Stages -join ', ')"
+    Write-Host "Python: $PythonExe"
     Write-Host "Transcript: $transcriptPath"
 
     foreach ($variant in $Variants) {
@@ -31,7 +46,7 @@ try {
             $module = "src.$stage"
             $args = @("-m", $module, "--config", $Config, "-V", $variant)
 
-            & python @args
+            & $PythonExe @args
             $exitCode = $LASTEXITCODE
 
             if ($exitCode -ne 0) {

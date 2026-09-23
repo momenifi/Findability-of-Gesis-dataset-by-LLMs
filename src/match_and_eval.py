@@ -495,8 +495,39 @@ def qrels_to_frame(qrels_map: Dict[int, List[str]], df: pd.DataFrame, queries: p
     return pd.DataFrame(rows)
 
 
+def _query_source_identifier_aliases(
+    queries: pd.DataFrame,
+) -> Tuple[Dict[str, str], Dict[str, str], Dict[str, str]]:
+    doi_to_id = {}
+    portal_to_id = {}
+    dataset_id_to_id = {}
+
+    for _, row in queries.iterrows():
+        did = str(row.get("source_dataset_id", "")).strip()
+        if not did:
+            continue
+
+        for doi in _normalize_dois(str(row.get("source_doi", ""))):
+            if doi and doi_to_id.get(doi, did) == did:
+                doi_to_id[doi] = did
+
+        portal = _normalize_url(str(row.get("source_portal_url", "")))
+        if portal and portal_to_id.get(portal, did) == did:
+            portal_to_id[portal] = did
+
+        dataset_id = _extract_dataset_id(did)
+        if dataset_id and dataset_id_to_id.get(dataset_id, did) == did:
+            dataset_id_to_id[dataset_id] = did
+
+    return doi_to_id, portal_to_id, dataset_id_to_id
+
+
 def match_items(
-    results: pd.DataFrame, df: pd.DataFrame
+    results: pd.DataFrame,
+    df: pd.DataFrame,
+    supplemental_doi_to_id: Dict[str, str] | None = None,
+    supplemental_portal_to_id: Dict[str, str] | None = None,
+    supplemental_dataset_id_to_id: Dict[str, str] | None = None,
 ) -> Tuple[pd.DataFrame, Dict[str, str], Dict[str, str]]:
     doi_to_id = {}
     portal_to_id = {}
@@ -507,11 +538,27 @@ def match_items(
         dois = _normalize_dois(str(row.get("doi", "")))
         portal = _normalize_url(str(row.get("portal_url", "")))
         dataset_id = _extract_dataset_id(did)
+
+        if did.startswith("SDN-"):
+            canonical_sdn_doi = _normalize_doi(did.replace("SDN-", "", 1))
+            if canonical_sdn_doi:
+                doi_to_id[canonical_sdn_doi] = did
+
         for doi in dois:
-            doi_to_id[doi] = did
+            doi_to_id.setdefault(doi, did)
         if portal:
             portal_to_id[portal] = did
         if dataset_id:
+            dataset_id_to_id[dataset_id] = did
+
+    for doi, did in (supplemental_doi_to_id or {}).items():
+        if doi and did:
+            doi_to_id[doi] = did
+    for portal, did in (supplemental_portal_to_id or {}).items():
+        if portal and did:
+            portal_to_id[portal] = did
+    for dataset_id, did in (supplemental_dataset_id_to_id or {}).items():
+        if dataset_id and did:
             dataset_id_to_id[dataset_id] = did
 
     titles, title_ids, title_columns, titles_by_id, exact_title_to_idx = _build_title_index(df)
@@ -556,7 +603,15 @@ def match_items(
         title_match_column = ""
 
         if title:
-            if matched_id and matched_id in titles_by_id:
+            title_norm = _normalize_label(title)
+            idx = exact_title_to_idx.get(title_norm)
+            if idx is not None:
+                title_matched_id = title_ids[idx]
+                title_match_score = 1.0
+                title_match_method = "title_exact"
+                title_match_column = title_columns[idx]
+
+            if not title_matched_id and matched_id and matched_id in titles_by_id:
                 best = _best_dataset_title_match(title, titles_by_id[matched_id])
                 if best:
                     score, column = best
@@ -565,15 +620,6 @@ def match_items(
                         title_match_score = float(score) / 100.0
                         title_match_method = "title_exact" if score >= 99.999 else "title_fuzzy"
                         title_match_column = column
-
-            if not title_matched_id:
-                title_norm = _normalize_label(title)
-                idx = exact_title_to_idx.get(title_norm)
-                if idx is not None:
-                    title_matched_id = title_ids[idx]
-                    title_match_score = 1.0
-                    title_match_method = "title_exact"
-                    title_match_column = title_columns[idx]
 
             if not title_matched_id and titles and len(titles) <= GLOBAL_TITLE_FUZZY_LIMIT:
                 best = _best_title_match(title, titles)
@@ -617,6 +663,13 @@ def match_items(
     results["title_match_method"] = title_match_methods
     results["title_match_column"] = title_match_columns
     results["is_identifier_match"] = results["match_method"].isin(IDENTIFIER_MATCH_METHODS).astype(int)
+    results["title_identifier_conflict"] = (
+        results["matched_dataset_id"].astype(str).ne("")
+        & results["title_matched_dataset_id"].astype(str).ne("")
+        & results["matched_dataset_id"].astype(str).ne(results["title_matched_dataset_id"].astype(str))
+        & results["match_method"].isin(IDENTIFIER_MATCH_METHODS)
+        & results["title_match_method"].isin(TITLE_MATCH_METHODS)
+    ).astype(int)
     return results, doi_to_id, portal_to_id
 
 
@@ -832,6 +885,7 @@ def compute_metrics(
                         row["title_matched_dataset_id"] in relevant_ids
                         and row["title_match_method"] in TITLE_MATCH_METHODS
                     ),
+                    "title_identifier_conflict": int(row.get("title_identifier_conflict", 0)),
                 }
             )
 
@@ -958,7 +1012,14 @@ def match_and_eval(config_path: str, variant: str | None = None) -> None:
             sep=OUTPUT_CSV_SEP,
         )
 
-    results, _, _ = match_items(results, df)
+    query_doi_to_id, query_portal_to_id, query_dataset_id_to_id = _query_source_identifier_aliases(queries)
+    results, _, _ = match_items(
+        results,
+        df,
+        supplemental_doi_to_id=query_doi_to_id,
+        supplemental_portal_to_id=query_portal_to_id,
+        supplemental_dataset_id_to_id=query_dataset_id_to_id,
+    )
 
     top_k = int(cfg.get("top_k_return", 10))
     source_id_by_query = {

@@ -49,9 +49,25 @@ def _normalize_url(raw: Optional[object]) -> str:
     return url.strip()
 
 
+def _read_csv_with_fallback(input_path: str, **kwargs) -> pd.DataFrame:
+    last_error = None
+    for encoding in ("utf-8", "utf-8-sig", "cp1252", "latin1"):
+        try:
+            return pd.read_csv(input_path, encoding=encoding, **kwargs)
+        except UnicodeDecodeError as exc:
+            last_error = exc
+    if last_error:
+        raise last_error
+    return pd.read_csv(input_path, **kwargs)
+
+
 def load_metadata(input_path: str, input_format: str) -> pd.DataFrame:
     if input_format.lower() == "csv":
-        df = pd.read_csv(input_path, dtype=str, low_memory=False)
+        comma_header = _read_csv_with_fallback(input_path, dtype=str, nrows=0)
+        if len(comma_header.columns) == 1 and ";" in str(comma_header.columns[0]):
+            df = _read_csv_with_fallback(input_path, dtype=str, sep=";", low_memory=False)
+        else:
+            df = _read_csv_with_fallback(input_path, dtype=str, low_memory=False)
     elif input_format.lower() == "jsonl":
         df = pd.read_json(input_path, lines=True)
     else:

@@ -311,7 +311,13 @@ def _parse_query_ids(value: str | None) -> set[int]:
     return query_ids
 
 
-def run_llm(config_path: str, variant: str | None = None, query_ids: str | None = None) -> pd.DataFrame:
+def run_llm(
+    config_path: str,
+    variant: str | None = None,
+    query_ids: str | None = None,
+    print_output: bool = False,
+    no_save: bool = False,
+) -> pd.DataFrame:
     cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -348,7 +354,9 @@ def run_llm(config_path: str, variant: str | None = None, query_ids: str | None 
     use_gemini_native = _is_gemini(cfg)
 
     results_path = output_dir / "llm_results.csv"
-    if results_path.exists() and not selected_query_ids:
+    if no_save:
+        pass
+    elif results_path.exists() and not selected_query_ids:
         results_path.unlink()
     elif results_path.exists() and selected_query_ids:
         existing = pd.read_csv(results_path, sep=OUTPUT_CSV_SEP)
@@ -487,13 +495,25 @@ def run_llm(config_path: str, variant: str | None = None, query_ids: str | None 
                     "max_returned_items_to_save": max_returned_items_to_save,
                     "attempts": attempt_traces,
                 }
-                raw_path.write_text(
-                    json.dumps(log_record, indent=2, ensure_ascii=False),
-                    encoding="utf-8",
-                )
+                if not no_save:
+                    raw_path.write_text(
+                        json.dumps(log_record, indent=2, ensure_ascii=False),
+                        encoding="utf-8",
+                    )
 
                 items = _extract_items(parsed)
                 saved_items = items if max_returned_items_to_save <= 0 else items[:max_returned_items_to_save]
+
+                if print_output:
+                    print("\n=== API OUTPUT ===", flush=True)
+                    print(f"query_id={query_id} variant={query_variant} mode={mode} model={model}", flush=True)
+                    print("\n--- Assistant text ---", flush=True)
+                    print(_response_text(last_response), flush=True)
+                    print("\n--- Parsed items ---", flush=True)
+                    print(json.dumps(saved_items, indent=2, ensure_ascii=False), flush=True)
+                    print(f"\nraw_response_path={raw_path}", flush=True)
+                    print("=== END API OUTPUT ===\n", flush=True)
+
                 batch_rows = []
                 for rank, item in enumerate(saved_items, start=1):
                     record = {
@@ -511,13 +531,14 @@ def run_llm(config_path: str, variant: str | None = None, query_ids: str | None 
                     batch_rows.append(record)
 
                 if batch_rows:
-                    pd.DataFrame(batch_rows).to_csv(
-                        results_path,
-                        mode="a",
-                        header=not results_path.exists(),
-                        index=False,
-                        sep=OUTPUT_CSV_SEP,
-                    )
+                    if not no_save:
+                        pd.DataFrame(batch_rows).to_csv(
+                            results_path,
+                            mode="a",
+                            header=not results_path.exists(),
+                            index=False,
+                            sep=OUTPUT_CSV_SEP,
+                        )
 
                 completed_requests += 1
                 print(
@@ -528,7 +549,7 @@ def run_llm(config_path: str, variant: str | None = None, query_ids: str | None 
                 )
 
     out = pd.DataFrame(rows)
-    if not results_path.exists():
+    if not no_save and not results_path.exists():
         out.to_csv(results_path, index=False, sep=OUTPUT_CSV_SEP)
     return out
 
@@ -541,8 +562,18 @@ def main() -> None:
         "--query-ids",
         help="Comma-separated query IDs to rerun, e.g. 3,9,20. Existing rows for these IDs/model/mode are replaced.",
     )
+    parser.add_argument(
+        "--print-output",
+        action="store_true",
+        help="Print the assistant text and parsed returned items for each request.",
+    )
+    parser.add_argument(
+        "--no-save",
+        action="store_true",
+        help="Do not modify llm_results.csv or logs; useful with --query-ids and --print-output.",
+    )
     args = parser.parse_args()
-    run_llm(args.config, args.variant, args.query_ids)
+    run_llm(args.config, args.variant, args.query_ids, args.print_output, args.no_save)
 
 
 if __name__ == "__main__":

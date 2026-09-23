@@ -69,6 +69,78 @@ Gemini web search is implemented as a separate provider path because OpenAI web 
 
 The current Gemini comparison uses V1, V2, V3, and V6. After rerunning transient failures, V1, V2, and V3 have high or full item coverage. V3 has two Gemini API errors; V6 has one Gemini API error and one valid empty-item response.
 
+## Top-10 Popular Dataset Visibility Run
+
+The top-10 visibility check uses popular/requested datasets as the query source and the full GESIS metadata file as the evaluation corpus. This is useful for testing whether frequently used datasets are more visible to LLM-mediated search than the random sample.
+
+Available configs:
+
+- `config_top10_requested_openai.yaml`: OpenAI API web search over `top 10/requested_10_datasets_full_metadata.csv`.
+- `config_top10_logs_openai.yaml`: OpenAI API web search over `top 10/top_10_from_logs.csv`.
+- `config_top10_requested_gemini.yaml`: Gemini web search over `top 10/requested_10_datasets_full_metadata.csv`.
+- `config_top10_logs_gemini.yaml`: Gemini web search over `top 10/top_10_from_logs.csv`.
+
+Run V1, V2, and V3 together for the requested/downloaded top-10 list. Use the OpenAI or Gemini config depending on the provider:
+
+```powershell
+.\run_all_variants.ps1 `
+  -Config config_top10_requested_openai.yaml `
+  -Variants V1,V2,V3 `
+  -StopOnError
+
+.\run_all_variants.ps1 `
+  -Config config_top10_requested_gemini.yaml `
+  -Variants V1,V2,V3 `
+  -StopOnError
+```
+
+Run V6 separately if abstract-generated queries are needed:
+
+```powershell
+.\run_all_variants.ps1 `
+  -Config config_top10_requested_openai.yaml `
+  -Variants V6 `
+  -StopOnError
+
+.\run_all_variants.ps1 `
+  -Config config_top10_requested_gemini.yaml `
+  -Variants V6 `
+  -StopOnError
+```
+
+Run link-quality audits after title or abstract-based runs:
+
+```powershell
+python -m src.audit_links --config config_top10_requested_openai.yaml -V V3
+python -m src.audit_links --config config_top10_requested_openai.yaml -V V6
+python -m src.audit_links --config config_top10_requested_gemini.yaml -V V3
+python -m src.audit_links --config config_top10_requested_gemini.yaml -V V6
+```
+
+Top-10 outputs are written under:
+
+```text
+output/top10_visibility/requested_openai/
+output/top10_visibility/logs_openai/
+output/top10_visibility/requested_gemini/
+output/top10_visibility/logs_gemini/
+```
+
+Curated top-10 OpenAI/Gemini summaries for reporting are stored in `reports/model_comparison/`:
+
+- `top10_provider_variant_summary.csv`
+- `top10_provider_response_status.csv`
+- `top10_provider_queries.csv`
+- `top10_provider_outputs_labeled.csv`
+- `top10_provider_link_audit_summary.csv`
+- `top10_provider_title_identifier_conflicts.csv`
+
+Refresh these combined files after rerunning top-10 evaluation and audit:
+
+```bash
+python -m src.build_top10_report
+```
+
 ## Configuration
 
 The main settings are in `config.yaml`:
@@ -83,6 +155,7 @@ The main settings are in `config.yaml`:
 - `top_k_return`: evaluation cutoff used for @k metrics.
 - `include_top_k_limit_in_prompt`: when `false`, the prompt does not ask for a maximum number of items.
 - `max_returned_items_to_save`: maximum number of returned items saved from each model response; `0` saves all returned items.
+- `abstract_query_cache_path`: shared V6 natural-query cache. Use the same path across provider configs to guarantee identical abstract-derived query text.
 - `qrels_strategy`: relevance strategy; the current comparison uses `metadata_filter`.
 - `output_dir_by_variant`: output directory selected for each single active variant.
 - `api_base_url`, `api_key_env`, and `openwebui_web_search_mode`: OpenWebUI connection settings.
@@ -279,13 +352,13 @@ The latest report in `reports/model_comparison/` uses V1/V3/V6 for provider cont
 
 | Variant | Provider | Strict Source Hits | Hit Value | Strict GESIS Hits | Hit Value |
 | --- | --- | ---: | ---: | ---: | ---: |
-| V1 | OpenAI | 6 / 85 | 0.071 | 21 / 85 | 0.247 |
-| V1 | OpenWebUI | 0 / 78 | 0.000 | 10 / 78 | 0.128 |
+| V1 | OpenAI | 7 / 85 | 0.082 | 21 / 85 | 0.247 |
+| V1 | OpenWebUI | 0 / 85 | 0.000 | 10 / 85 | 0.118 |
 | V1 | Gemini | 1 / 85 | 0.012 | 18 / 85 | 0.212 |
-| V3 | OpenAI | 36 / 100 | 0.360 | 36 / 100 | 0.360 |
-| V3 | Gemini | 63 / 100 | 0.630 | 63 / 100 | 0.630 |
+| V3 | OpenAI | 37 / 100 | 0.370 | 37 / 100 | 0.370 |
+| V3 | Gemini | 64 / 100 | 0.640 | 64 / 100 | 0.640 |
 | V6 | OpenAI | 23 / 87 | 0.264 | 37 / 87 | 0.425 |
-| V6 | OpenWebUI | 0 / 85 | 0.000 | 13 / 85 | 0.153 |
+| V6 | OpenWebUI | 0 / 87 | 0.000 | 12 / 87 | 0.138 |
 | V6 | Gemini | 28 / 87 | 0.322 | 37 / 87 | 0.425 |
 
 `Strict Source Hits` means the original sampled dataset was found through DOI, landing-page URL, or dataset ID. `Strict GESIS Hits` means any qrels-relevant GESIS dataset was found through DOI, landing-page URL, or dataset ID.
@@ -308,7 +381,19 @@ The curated current comparison is under `reports/model_comparison/`:
 - `v1_gemini_outputs_labeled.csv`, `v2_gemini_outputs_labeled.csv`, and `v6_gemini_outputs_labeled.csv`: Gemini returned items with source/GESIS relevance labels.
 - `v3_openai_outputs_labeled.csv` and `v3_gemini_outputs_labeled.csv`: V3 title-baseline returned items with source/GESIS relevance labels.
 
+Prompt-only exports are under `reports/generated_prompts/`. They cover the random-100 and top-10 OpenAI/Gemini web-search experiments. V1/V2/V3 are shared because their prompts are identical across providers; V6 has provider-specific files because the existing abstract-derived query text differs. Regenerate them with:
+
+```bash
+python -m src.export_generated_prompts
+```
+
 Start with `reports/model_comparison/INTERPRETATION.md`, then use the CSV files to inspect individual models, queries, and returned datasets.
+
+After rerunning evaluation and audit for the random-100 OpenAI and Gemini experiments, refresh the main comparison files with:
+
+```bash
+python -m src.build_main_report
+```
 
 ## OpenWebUI Notes
 
