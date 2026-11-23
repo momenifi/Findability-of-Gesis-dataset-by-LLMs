@@ -20,6 +20,7 @@ except ImportError:
 
 from .load_metadata import load_metadata
 from .config_paths import apply_variant_override, resolve_output_dir
+from .response_evidence import response_evidence
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
@@ -28,6 +29,7 @@ IDENTIFIER_MATCH_METHODS = {"doi", "portal_url", "dataset_id"}
 TITLE_MATCH_METHODS = {"title_exact", "title_fuzzy"}
 TITLE_COLUMNS = [
     "title",
+    "title_original",
     "study_title",
     "other_titles",
     "study_title_en",
@@ -654,6 +656,12 @@ def match_items(
         title_match_columns.append(title_match_column)
 
     results = results.copy()
+    evidence = pd.DataFrame(
+        [response_evidence(row.get("justification", ""), row.get("returned_url_or_doi", ""))
+         for _, row in results.iterrows()], index=results.index,
+    )
+    for column in evidence:
+        results[column] = evidence[column]
     results["matched_dataset_id"] = matched_ids
     results["match_confidence"] = confidences
     results["link_valid"] = link_valids
@@ -734,6 +742,7 @@ def compute_metrics(
         match_methods = group["match_method"].tolist()
         title_matched_ids = group["title_matched_dataset_id"].tolist()
         title_match_methods = group["title_match_method"].tolist()
+        failure_only = group.get("reports_not_found_without_link", pd.Series(0, index=group.index)).tolist()
 
         rels = []
         strict_rels = []
@@ -752,6 +761,9 @@ def compute_metrics(
             match_method = match_methods[i] if i < len(match_methods) else "unmatched"
             title_matched_id = title_matched_ids[i] if i < len(title_matched_ids) else ""
             title_match_method = title_match_methods[i] if i < len(title_match_methods) else "unmatched"
+            if i < len(failure_only) and failure_only[i]:
+                # Retain raw title evidence, but do not credit an explicit failed search.
+                matched_id = title_matched_id = ""
             is_source = bool(source_id and matched_id == source_id)
             is_title_source = bool(source_id and title_matched_id == source_id)
             if (
@@ -861,28 +873,29 @@ def compute_metrics(
         )
 
         for _, row in group.iterrows():
+            eligible = not bool(row.get("reports_not_found_without_link", 0))
             per_query_rows.append(
                 {
                     **row.to_dict(),
                     "source_dataset_id": source_id,
-                    "is_source_dataset": int(source_id and row["matched_dataset_id"] == source_id),
+                    "is_source_dataset": int(eligible and source_id and row["matched_dataset_id"] == source_id),
                     "is_strict_source_dataset": int(
-                        source_id
+                        eligible and source_id
                         and row["matched_dataset_id"] == source_id
                         and row["match_method"] in IDENTIFIER_MATCH_METHODS
                     ),
                     "is_title_source_dataset": int(
-                        source_id
+                        eligible and source_id
                         and row["title_matched_dataset_id"] == source_id
                         and row["title_match_method"] in TITLE_MATCH_METHODS
                     ),
-                    "is_gesis_relevant_dataset": int(row["matched_dataset_id"] in relevant_ids),
+                    "is_gesis_relevant_dataset": int(eligible and row["matched_dataset_id"] in relevant_ids),
                     "is_strict_gesis_relevant_dataset": int(
-                        row["matched_dataset_id"] in relevant_ids
+                        eligible and row["matched_dataset_id"] in relevant_ids
                         and row["match_method"] in IDENTIFIER_MATCH_METHODS
                     ),
                     "is_title_gesis_relevant_dataset": int(
-                        row["title_matched_dataset_id"] in relevant_ids
+                        eligible and row["title_matched_dataset_id"] in relevant_ids
                         and row["title_match_method"] in TITLE_MATCH_METHODS
                     ),
                     "title_identifier_conflict": int(row.get("title_identifier_conflict", 0)),

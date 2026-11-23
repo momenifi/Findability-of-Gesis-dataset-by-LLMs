@@ -289,6 +289,11 @@ def _build_queries_for_row(
     variant: str,
     time_format: str,
     abstract_query_text: str = "",
+    title_query_template: str = TITLE_QUERY_TEMPLATE,
+    metadata_query_template: str = QUERY_TEMPLATE,
+    abstract_query_template: str = ABSTRACT_QUERY_TEMPLATE,
+    population_query_template: str = POPULATION_QUERY_TEMPLATE,
+    population_unit_query_template: str = POPULATION_UNIT_QUERY_TEMPLATE,
 ) -> list[dict]:
     topics = _parse_list_value(row.get("topic", ""))
     titles = _parse_list_value(row.get("title", ""))
@@ -308,7 +313,7 @@ def _build_queries_for_row(
         topic_qrels_text = _format_list_value(topics)
         return [
             {
-                "query_text": QUERY_TEMPLATE.format(
+                "query_text": metadata_query_template.format(
                     topic=topic_text,
                     country=country_text,
                     time_collection_years=years_text,
@@ -334,7 +339,7 @@ def _build_queries_for_row(
             topic_qrels_text = _format_list_value([topic])
             queries.append(
                 {
-                    "query_text": QUERY_TEMPLATE.format(
+                    "query_text": metadata_query_template.format(
                         topic=_format_natural_list([topic]),
                         country=country_text,
                         time_collection_years=years_text,
@@ -354,7 +359,7 @@ def _build_queries_for_row(
             return []
         return [
             {
-                "query_text": TITLE_QUERY_TEMPLATE.format(title=title),
+                "query_text": title_query_template.format(title=title),
                 "query_topics": "",
                 "query_countries": "",
                 "query_time_collection_years": "",
@@ -376,7 +381,7 @@ def _build_queries_for_row(
         topic_qrels_text = _format_list_value(topics)
         return [
             {
-                "query_text": ABSTRACT_QUERY_TEMPLATE.format(
+                "query_text": abstract_query_template.format(
                     topic=topic_text,
                     country=country_text,
                     time_collection_years=years_text,
@@ -401,7 +406,7 @@ def _build_queries_for_row(
         analysis_unit_text = _format_natural_list(analysis_units)
         return [
             {
-                "query_text": POPULATION_UNIT_QUERY_TEMPLATE.format(
+                "query_text": population_unit_query_template.format(
                     topic=_format_natural_list(topics),
                     country=country_text,
                     time_collection_years=years_text,
@@ -423,7 +428,7 @@ def _build_queries_for_row(
         years_text = _format_time_value(years, time_format)
         return [
             {
-                "query_text": POPULATION_QUERY_TEMPLATE.format(
+                "query_text": population_query_template.format(
                     topic=_format_natural_list(topics),
                     country=_format_natural_list(countries),
                     time_collection_years=years_text,
@@ -516,6 +521,11 @@ def generate_queries(config_path: str, variant: str | None = None) -> pd.DataFra
                 variant,
                 time_format,
                 abstract_generated_query,
+                str(cfg.get("title_query_template", TITLE_QUERY_TEMPLATE)),
+                str(cfg.get("metadata_query_template", QUERY_TEMPLATE)),
+                str(cfg.get("abstract_query_template", ABSTRACT_QUERY_TEMPLATE)),
+                str(cfg.get("population_query_template", POPULATION_QUERY_TEMPLATE)),
+                str(cfg.get("population_unit_query_template", POPULATION_UNIT_QUERY_TEMPLATE)),
             ):
                 query = str(query_info["query_text"])
                 query = _normalize_whitespace(query)

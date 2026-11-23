@@ -33,9 +33,29 @@ The prompts contain no returned-item threshold, and the pipeline saves all retur
 | V6 | OpenAI | 87 | 23 / 87 = 0.264 | 30 / 87 = 0.345 | 37 / 87 = 0.425 | 46 / 87 = 0.529 |
 | V6 | Gemini | 87 | 28 / 87 = 0.322 | 32 / 87 = 0.368 | 37 / 87 = 0.425 | 44 / 87 = 0.506 |
 
-V3 is the title-search baseline and gives the upper bound for direct discoverability. V6 is the strongest metadata/research-need variant for both OpenAI and Gemini.
+V3 is the title-search baseline, not a guaranteed upper bound on retrieval.
+V6 has the highest observed metadata/research-need source hit rates for both
+providers in these runs.
 
 The V1, V2, and V3 prompts are identical across OpenAI and Gemini. The existing V6 runs use different abstract-derived research-need wording for the two providers. V6 provider differences therefore combine provider behavior with some prompt variation and should be interpreted cautiously.
+
+The OpenAI random-100 runs made web search available but optional. In V3,
+15 completed responses were empty: six without an actual search and nine after
+searching. These are not recorded API errors. Optional search may contribute,
+but has not been shown to explain all empty responses. A separate three-query
+required-search check returned items for all three and strict source hits for
+two. It is exploratory and is not merged into the main results; further runs
+are deferred. See
+[Response Quality](INTERPRETATION.md#response-quality) for counts across variants
+and the distinction between observed behavior and untested explanations.
+
+The report covers both random-100 and top-10 samples. Search-evidence audits
+cover random-100 OpenAI and Gemini requests, not top-10. Only one final Gemini
+response records Google Search grounding; enabled search is not confirmed
+search usage. See [Gemini Grounding Evidence](INTERPRETATION.md#gemini-grounding-evidence)
+before interpreting the provider comparison as a web-search comparison. See
+[Interpretation Limits](INTERPRETATION.md#interpretation-limits) for remaining
+methodological qualifications and proposed controlled follow-up work.
 
 ## Top-10 Popular Dataset Check
 
