@@ -45,6 +45,9 @@ def resolve_config(catalog, args):
         cfg["qrels_input_path"] = args.qrels_input_path
     if args.limit is not None:
         cfg["source_row_limit"] = args.limit
+    for key in ("input_path", "qrels_input_path"):
+        if not cfg.get(key):
+            raise ValueError(f"Missing required setting: {key}; set it in the catalog or pass --{key.replace('_', '-')}")
     for key in ("input_path", "qrels_input_path", "abstract_query_cache_path"):
         if cfg.get(key):
             cfg[key] = str((ROOT / cfg[key]).resolve())
@@ -111,7 +114,10 @@ def main():
     if args.dry_run:
         return
     if not args.run_dir:
-        inputs = {key: fingerprint(cfg[key]) for key in ("input_path", "qrels_input_path")}
+        try:
+            inputs = {key: fingerprint(cfg[key]) for key in ("input_path", "qrels_input_path")}
+        except OSError as exc:
+            ap.error(f"Cannot read experiment input: {exc}")
         run_dir.mkdir(parents=True, exist_ok=False)
         config_path.write_text(yaml.safe_dump(cfg, sort_keys=False), encoding="utf-8")
         manifest = {"created_at": datetime.now(timezone.utc).isoformat(), "selection": vars(args), "inputs": inputs}

@@ -2,6 +2,7 @@
 
 import argparse
 from datetime import datetime, timezone
+import json
 import os
 from pathlib import Path
 import signal
@@ -59,7 +60,6 @@ def main():
                     time.sleep(0.5)
                 code = process.wait()
             event = {"stage": stage, "finished_at": datetime.now(timezone.utc).isoformat(), "exit_code": code}
-            import json
             with (run_dir / "stages.jsonl").open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event) + "\n")
             if state["state"] == "stopped":

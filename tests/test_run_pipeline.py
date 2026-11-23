@@ -1,7 +1,14 @@
 import unittest
 from argparse import Namespace
+from copy import deepcopy
+from pathlib import Path
+import tempfile
+from unittest.mock import patch
+
+import yaml
 
 from src.run_pipeline import ROOT, read_yaml, resolve_config
+from src.run_pipeline import main
 
 
 class ResolveConfigTests(unittest.TestCase):
@@ -46,6 +53,32 @@ class ResolveConfigTests(unittest.TestCase):
         cfg = resolve_config(self.catalog, self.args)
         self.assertNotIn("abstract_query_cache_path", cfg)
         self.assertEqual(cfg["source_row_limit"], 3)
+
+    def test_missing_input_settings_have_clear_errors(self):
+        for key in ("input_path", "qrels_input_path"):
+            with self.subTest(key=key):
+                catalog = deepcopy(self.catalog)
+                catalog["defaults"].pop(key, None)
+                catalog["datasets"]["random100"].pop(key, None)
+                with self.assertRaisesRegex(ValueError, f"Missing required setting: {key}"):
+                    resolve_config(catalog, self.args)
+
+    def test_unreadable_input_fails_before_output_creation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            catalog = deepcopy(self.catalog)
+            catalog["datasets"]["random100"]["input_path"] = str(directory / "absent.csv")
+            config = directory / "catalog.yaml"
+            config.write_text(yaml.safe_dump(catalog), encoding="utf-8")
+            output = directory / "results"
+            argv = ["pipeline", "--config", str(config), "--provider", "openai", "-V", "V3",
+                    "--output-root", str(output)]
+            with patch("sys.argv", argv), patch("src.run_pipeline.subprocess.run") as run:
+                with self.assertRaises(SystemExit) as error:
+                    main()
+            self.assertEqual(error.exception.code, 2)
+            self.assertFalse(output.exists())
+            run.assert_not_called()
 
 
 if __name__ == "__main__":

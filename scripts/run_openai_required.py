@@ -79,7 +79,11 @@ def main():
     print(f"Results: {directory}\nPlanned requests: {manifest['planned_requests']}", flush=True)
     if not args.execute:
         print("Prepared only; no API calls. Run:", flush=True)
-        print(f'python -m scripts.run_openai_required --run-dir "{directory.relative_to(ROOT)}" --execute')
+        try:
+            display_path = directory.relative_to(ROOT)
+        except ValueError:
+            display_path = directory
+        print(f'python -m scripts.run_openai_required --run-dir "{display_path}" --execute')
         return
     if not os.environ.get("OPENAI_API_KEY"):
         parser.error("Set OPENAI_API_KEY in this terminal before execution")
