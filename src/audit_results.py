@@ -273,6 +273,25 @@ def audit(config_path: str, variant: str | None = None) -> None:
 
     audit_per_request = pd.DataFrame(request_rows)
     group_cols = ["query_variant", "mode", "model"]
+    evidence_columns = ["mentions_gesis", "claims_gesis_provider", "claims_cessda_catalogue",
+                        "reports_not_found_without_link"]
+    request_keys = ["query_id", "query_variant", "mode", "model"]
+    if not per_query.empty and all(column in per_query for column in evidence_columns):
+        evidence = per_query.groupby(request_keys, sort=False)[evidence_columns].max().reset_index()
+        attribution = audit_per_request[request_keys].merge(evidence, on=request_keys, how="left")
+        attribution[evidence_columns] = attribution[evidence_columns].fillna(0).astype(int)
+        attribution.to_csv(output_dir / "repository_attribution_per_query.csv", index=False, sep=OUTPUT_CSV_SEP)
+        attribution_summary = attribution.groupby(group_cols, sort=False).agg(
+            requests=("query_id", "count"),
+            gesis_mentioned_queries=("mentions_gesis", "sum"),
+            gesis_mention_rate=("mentions_gesis", "mean"),
+            gesis_provider_claim_queries=("claims_gesis_provider", "sum"),
+            gesis_provider_claim_rate=("claims_gesis_provider", "mean"),
+            cessda_catalogue_claim_queries=("claims_cessda_catalogue", "sum"),
+            cessda_catalogue_claim_rate=("claims_cessda_catalogue", "mean"),
+            queries_with_failure_items=("reports_not_found_without_link", "sum"),
+        ).reset_index()
+        attribution_summary.to_csv(output_dir / "repository_attribution_summary.csv", index=False, sep=OUTPUT_CSV_SEP)
     summary = (
         audit_per_request.groupby(group_cols, sort=False)
         .agg(

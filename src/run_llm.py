@@ -244,12 +244,16 @@ def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web
 
 
 def _call_openai(cfg: dict, model: str, messages: List[dict], enable_web_search: bool):
+    choice = str(cfg.get("openai_web_search_tool_choice", "auto"))
+    if enable_web_search and choice not in {"auto", "required"}:
+        raise ValueError("openai_web_search_tool_choice must be auto or required")
     client = OpenAI(base_url=cfg.get("api_base_url") or None, api_key=get_api_key(cfg))
     if enable_web_search:
         return client.responses.create(
             model=model,
             input=messages,
             tools=[{"type": "web_search"}],
+            tool_choice=choice,
         )
     return client.chat.completions.create(model=model, messages=messages)
 
@@ -393,6 +397,11 @@ def run_llm(
                             "model": model,
                             "mode": mode,
                             "web_search_enabled": mode == "WEB_SEARCH",
+                            "openai_web_search_tool_choice": (
+                                str(cfg.get("openai_web_search_tool_choice", "auto"))
+                                if mode == "WEB_SEARCH" and not use_openwebui_native and not use_gemini_native
+                                else None
+                            ),
                             "openwebui_web_search_mode": (
                                 str(cfg.get("openwebui_web_search_mode", "tool_ids"))
                                 if use_openwebui_native and mode == "WEB_SEARCH"

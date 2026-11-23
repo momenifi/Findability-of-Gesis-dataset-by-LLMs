@@ -79,14 +79,108 @@ For V2, source-dataset-level results are useful because several single-topic que
 
 ## Response Quality
 
-After rerunning failed Gemini requests:
+The relocated random-100 audits give the following counts. An empty response
+(`zero_items`) is distinct from an API error and from returned but incorrect items.
 
-- Gemini V1: 85 / 85 requests returned items.
-- Gemini V2: 250 / 250 requests returned items.
-- Gemini V3: 98 / 100 requests returned items; two requests had Gemini API errors.
-- Gemini V6: 85 / 87 requests returned items; one request had a Gemini API error and one returned an empty item list.
+| Variant | Requests per Provider | OpenAI Empty Responses | Gemini Empty Responses | API Errors |
+| --- | ---: | ---: | ---: | --- |
+| V1 | 85 | 0 (0%) | 0 (0%) | None |
+| V2 | 250 | 37 (14.8%) | 0 (0%) | None |
+| V3 | 100 | 15 (15%) | 3 (3%) | None |
+| V6 | 87 | 0 (0%) | 1 (1.1%) | Gemini: 1 |
 
-The remaining Gemini V6 gaps should be reported as provider/API behavior, not as prompt-generation errors.
+Source: each variant's `metrics_audit_per_request.csv` under
+`output/random100_openai_gemini_comparison/{openai,gemini}/`.
+Gemini V3 currently has 97 responses with items, superseding the earlier
+98-item-response/two-error description.
+
+### Search Configuration and Empty Title Responses
+
+An offline audit of all 522 original OpenAI request logs distinguishes actual
+search actions from merely enabling web search. All logs were readable.
+
+| Variant | Requests | Used Search | Did Not Use Search | Returned Items Without Search | Empty With Search | Empty Without Search |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| V1 | 85 | 85 | 0 | 0 | 0 | 0 |
+| V2 | 250 | 196 | 54 | 17 | 0 | 37 |
+| V3 | 100 | 75 | 25 | 19 | 9 | 6 |
+| V6 | 87 | 87 | 0 | 0 | 0 | 0 |
+
+Search usage means the final response records a `web_search_call` with
+`action.type=search`; page-opening actions are counted separately. In V2, all
+37 empty responses occurred without a search. Conversely, returning items does
+not establish search usage: 17 V2 and 19 V3 responses returned items without
+searching. These associations do not establish that requiring search would
+resolve every empty response or improve retrieval accuracy.
+
+Per-request evidence and the summary are saved in
+`output/random100_openai_gemini_comparison/openai/web_search_usage_per_request.csv`
+and `web_search_usage_summary.csv`. Rebuild with
+`python scripts/audit_openai_search_usage.py`; no API calls are made.
+
+The 15 empty OpenAI V3 responses were completed API responses containing
+`{"items":[]}`, not recorded HTTP/API failures or missing requests. All 100 title
+queries were submitted; the count is not caused by V1's 85-query eligibility.
+
+In this OpenAI run, web search was available but optional (`tool_choice=auto`).
+The response logs show actual search actions for 75 of 100 requests. Among the
+15 empty responses, six performed no search (query IDs 18, 22, 53, 69, 72, 94),
+while nine did search and still returned no items.
+
+This is evidence of a search-configuration limitation, not evidence that all
+15 cases are a technical failure. Equally, optional search is not a demonstrated
+explanation for all 15: nine empty responses occurred despite a search. An empty
+answer does not establish that the dataset is unavailable or undiscoverable.
+The results describe the tested model, provider, tools, and configuration
+together, rather than model capability in isolation.
+
+The main results remain unchanged and reflect optional search. In a separate
+exploratory check, three previously empty V3 queries (18, 22, 53) were repeated
+with `tool_choice=required`. All three searched and returned items; two matched
+the original source dataset by identifier. Query 22 returned a publication PDF
+mentioning the study, rather than a dataset landing page or DOI. Evidence is
+saved in `output/search_mode_comparison/20261123T105923Z_4fa7136b/`.
+
+This selected, single-repeat check is not a controlled estimate of improvement:
+the queries were selected because they previously failed, and the calls were
+made at different times. Its outcomes are not merged into the main results.
+Further API runs are deferred. Future work should compare optional and required
+search on the same complete query set, with repeated runs.
+
+### Gemini Grounding Evidence
+
+An offline audit of all 522 saved random-100 Gemini request logs found the
+following evidence in the final attempts:
+
+| Variant | Requests | Recorded Search Queries | No Recorded Search Evidence | API Errors |
+| --- | ---: | ---: | ---: | ---: |
+| V1 | 85 | 0 | 85 | 0 |
+| V2 | 250 | 0 | 250 | 0 |
+| V3 | 100 | 0 | 100 | 0 |
+| V6 | 87 | 1 | 85 | 1 |
+
+V6 query 80 contains `groundingMetadata.webSearchQueries` and grounded web
+sources. No other final response contains grounding metadata. Earlier,
+non-final attempts contain grounding evidence for two V2 requests and one
+additional V6 request; that evidence is not attributed to the final answers.
+All 522 logs were readable.
+
+The code enables `google_search`, but this does not require Gemini to use it.
+Google documents that responses using Search grounding include
+`groundingMetadata`, and that enabled search may be unused
+([Google grounding documentation](https://firebase.google.com/docs/ai-logic/grounding-google-search)).
+The conservative audit label is "no recorded search evidence", rather than
+claiming independent knowledge of every internal provider action.
+
+This materially limits the comparison: the `WEB_SEARCH` label describes the
+configured mode, not confirmed search execution. The Gemini hit counts remain
+observed retrieval outcomes, but cannot be presented as outcomes of uniformly
+search-grounded requests. Requiring OpenAI search alone would not establish
+equivalent search conditions across providers.
+
+Evidence is saved in `gemini/web_search_usage_per_request.csv` and
+`gemini/web_search_usage_summary.csv` under the random-100 comparison folder.
+Rebuild offline with `python -m scripts.audit_gemini_search_usage`.
 
 ## Top-10 Popular Dataset Visibility
 
@@ -108,6 +202,26 @@ V3 is the clearest popularity baseline. For popular datasets queried by exact ti
 Title-only matches must be interpreted carefully. Some responses contain a returned title that matches the requested dataset but a DOI/URL that resolves to a different dataset. These are counted as `title_identifier_conflict` and should not be treated as reliable source retrieval. In the corrected top-10 V3 evaluation, OpenAI has 3 conflict rows and Gemini has 2. For example, OpenAI V3 query 2 returned the ISSP 2023 title but attached DOI `10.4232/1.14420`, which resolves to `ZA8879` rather than the source dataset `ZA10010`.
 
 The top-10 run supports the hypothesis that popular datasets are more visible, especially when queried by exact title or by a rich abstract-derived research need. Link quality remains a separate issue: in the top-10 title run, suspect DOI/URL rates were 0.300 for OpenAI and 0.000 for Gemini; in V6, they were 0.308 for OpenAI and 0.250 for Gemini.
+
+## Interpretation Limits
+
+- These are descriptive results for the tested samples and configurations, not
+  provider-independent measures of dataset discoverability. Empty responses do
+  not establish that a dataset cannot be found.
+- Exact-title retrieval is a useful baseline, not a guaranteed upper bound on
+  metadata-based retrieval for an individual dataset.
+- The top-10 sample is small and purposively selected. Higher hit rates cannot
+  establish that popularity causes visibility; eligibility and metadata differ.
+- Historical V6 wording differs across providers. Comparisons therefore combine
+  provider effects with prompt variation.
+- Metadata-filter qrels are operational relevance judgments within the supplied
+  corpus, not exhaustive human judgments of every potentially relevant dataset.
+- Identifier matches are evidence of catalogue identity, not proof that every
+  returned URL was live or independently verified. Title-only evidence is weaker.
+- Search-evidence audits cover random-100 OpenAI and Gemini logs, using their
+  respective response formats. Top-10 search-evidence audits are not included.
+- Repeated-run variability and changing model aliases/search indexes limit
+  reproducibility. The three-query follow-up does not isolate a causal effect.
 
 ## Summary
 

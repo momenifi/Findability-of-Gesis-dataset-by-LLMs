@@ -4,6 +4,209 @@ This repository evaluates how well language models discover and rank GESIS datas
 
 ## Pipeline
 
+### Optional Versus Required OpenAI Search
+
+To prepare a complete required-search OpenAI rerun for both saved samples
+(random-100 and top-10, V1/V2/V3/V6), without regenerating prompts:
+
+```powershell
+python -m scripts.run_openai_required
+```
+
+This creates a new folder under `output/openai_required_websearch/`, validates
+saved full prompts against the current message builder, and copies query CSVs
+byte-for-byte. It prints a command with `--run-dir ... --execute` to submit the
+610 planned requests and run evaluation/audit. Preparation alone uses no API.
+The original results and report tables are not replaced. An execution refuses
+to overwrite existing `llm_results.csv` files; partial runs require inspection
+before continuing. Retries can add API requests beyond the planned count.
+
+The original OpenAI `WEB_SEARCH` runs made search available without requiring a
+tool call. A paired investigation reuses six historical empty V3 prompts (IDs
+18, 22, 53, 69, 72, 94) with `tool_choice=auto` versus `required`.
+Only the web-search tool is available in these requests. The existing default
+remains `auto`; other providers and existing experiment files are unchanged.
+
+Prepare the comparison without making API calls:
+
+```powershell
+python -m src.compare_search_modes
+```
+
+Execute a new comparison after setting `OPENAI_API_KEY`:
+
+```powershell
+python -m src.compare_search_modes --execute --repeats 3
+```
+
+This schedules 36 requests (six prompts, two conditions, three repetitions),
+plus any retries. `--repeats 1` schedules 12 requests for an initial check.
+`--model` selects one model for both conditions; otherwise the OpenAI profile's
+model is used. Query text and complete prompts are checked against the saved
+original wording. Prompt order is shuffled identically within each pair and
+condition order alternates across repetitions. Each condition has separate
+logs, CSVs and a resolved configuration under a unique
+`output/search_mode_comparison/<comparison-id>/` folder.
+
+The command evaluates and audits each condition, then writes
+`comparison_per_request.csv` and `comparison_summary.csv`. These report actual
+search actions, empty answers, API errors, strict source hits, evaluation
+availability and the model name returned by the API. Rebuild those summaries
+without API calls with:
+
+```powershell
+python -m src.compare_search_modes --summarize output/search_mode_comparison/<comparison-id>
+```
+
+This is a diagnostic on selected failures, not an estimate of all-dataset
+performance. Compare the contemporaneous conditions; changing model aliases,
+index contents and dates prevent treating differences from historical runs as
+caused only by required search. A successful tool call does not itself prove
+that useful results or correct dataset identifiers were found. Incomplete runs
+have missing logs or unevaluated requests and should not be interpreted as a
+completed comparison. Each `--execute` invocation starts a new comparison.
+
+### Local Web Interface
+
+The Streamlit interface uses the same generation, retrieval, evaluation and audit
+stages as the command line. Install the optional web dependencies in the active
+environment and start it from the repository root:
+
+```powershell
+conda activate gesis-findability
+python -m pip install -r requirements-web.txt
+python -m streamlit run app.py
+```
+
+Open `http://127.0.0.1:8501`. The default configuration binds to this computer
+only. Set provider API keys in the terminal before starting the server; keys are
+read from environment variables and are not entered into the interface.
+
+The **Experiments** view opens existing runs under `output/experiments/`, with
+coverage and matching metrics, returned dataset evidence, full prompts and CSV
+downloads. Filter returned items by query, strict source match, relevance,
+identifier conflict or explicit failure. Repository attribution remains a model
+claim; catalogue matches do not independently validate a live URL.
+
+Use **New experiment** to select OpenAI, Gemini or OpenWebUI; a metadata preset
+or supported metadata combination; the random100/top10 source profile or an
+uploaded metadata CSV; a model; and a source row limit. All interface runs use
+`WEB_SEARCH`. Uploaded files must use
+the existing metadata schema and are saved by content hash under
+`output/web_uploads/`. Evaluation still uses the full corpus configured in
+`experiment.yaml`. **Sample data and metadata columns** shows the source fields
+and previews selected records. The row limit takes the first rows of the saved
+sample; it does not draw a new random sample.
+
+**Metadata fields** determines the evaluation variant automatically:
+
+| Selected metadata | Topics per query | Variant |
+| --- | --- | --- |
+| Title | Not applicable | V3 |
+| Topic, country, collection time | All topics | V1 |
+| Topic, country, collection time | Single topic | V2 |
+| Topic, country, collection time, population | All topics | V5 |
+| Topic, country, collection time, population, analysis unit | All topics | V4 |
+| Topic, country, collection time, abstract-derived research need | All topics | V6 |
+
+Unsupported combinations cannot start a run: they need explicit generation and
+relevance rules first. V6's automated relevance reference still uses topic,
+country and time; abstract-specific relevance is not independently assessed.
+The selected fields and named template are saved with each run. Source-column
+labels show the standard loader's English-first fallbacks, not a custom mapping.
+
+**Prompt template** lists only compatible named templates from `experiment.yaml`.
+Choose search/download wording where available, then edit it if needed. Templates
+are editable with validated placeholders:
+
+- V3: `{title}`.
+- V1/V2: `{topic}`, `{country}`, `{time_collection_years}`.
+- V5: the V1 placeholders plus `{universe}`.
+- V4: the V5 placeholders plus `{analysis_unit}`.
+- V6: the V1 placeholders plus `{abstract_query}`.
+
+**Preview prompts** is offline. It uses the same query builder and shared V6
+cache; uncached abstract queries are reported and omitted from the preview.
+**Generate prompts** creates a saved run without retrieval. V6 generation may
+call the configured abstract model for missing cache entries. **Start experiment**
+runs the complete pipeline and consumes provider quota. Every run stores its
+resolved settings, source fingerprints and stage history.
+
+Jobs run in a background process and survive a browser refresh or navigation.
+Keep the computer/server running. The run view refreshes status every three
+seconds, exposes execution logs and supports stopping the current job.
+**Run retrieval & evaluation** continues a prompt-only run (or repeats retrieval,
+replacing that run's responses); **Re-evaluate saved responses** only runs matching
+and audit without model calls. Run the interface on the same machine that owns
+the paths saved in `resolved_config.yaml`.
+
+### Unified Experiment Command
+
+New experiments use `experiment.yaml`, which defines shared settings, dataset
+profiles, provider defaults, and named title templates. Existing configurations
+and individual stage commands remain supported.
+
+Run the 100-dataset Gemini experiment with the download title prompt:
+
+```powershell
+python -m src.run_pipeline --provider gemini --sample random100 -V V3 --template title_download
+```
+
+Other examples:
+
+```powershell
+python -m src.run_pipeline --provider openai --sample top10 -V V1
+python -m src.run_pipeline --provider gemini --sample random100 -V V6
+python -m src.run_pipeline --provider openai --sample random100 -V V2 --limit 3
+```
+
+The mode defaults to `WEB_SEARCH`. Set `--model` to override the provider's
+default model. `--template title_original` and `--template title_download` are
+V3 templates; other variants use their established generation logic. The
+`default` template preserves existing prompts. V6 uses the same shared abstract
+query cache for both providers, with separate caches for random100 and top10.
+Uncached V6 generation needs `OPENWEBUI_API_KEY` for its fixed generator.
+
+Use `--input-path` and `--qrels-input-path` for custom metadata files.
+`--limit` limits source rows, not returned items; zero uses all input rows.
+No result limit is added to prompts, and all returned items are saved.
+`top_k_return: 10` remains the evaluation cutoff.
+
+Preview without writing files or making API calls:
+
+```powershell
+python -m src.run_pipeline --provider gemini -V V3 --template title_download --dry-run
+```
+
+Every new run creates a unique directory under `output/experiments/`, containing
+the existing CSV results and request logs, `resolved_config.yaml`, an
+`experiment.json` manifest with input SHA-256 fingerprints, and a `stages.jsonl`
+execution history. API keys stay in environment variables. Command-line
+selections override profiles; each run keeps its resolved settings.
+
+Generate prompts without running retrieval:
+
+```powershell
+python -m src.run_pipeline --provider gemini -V V3 --template title_download --stages generate_queries
+```
+
+Continue that run, using the directory printed by the command:
+
+```powershell
+python -m src.run_pipeline --run-dir output/experiments/<run-directory> --stages run_llm match_and_eval audit_results
+```
+
+Re-evaluate saved responses without API calls:
+
+```powershell
+python -m src.run_pipeline --run-dir output/experiments/<run-directory> --stages match_and_eval audit_results
+```
+
+Resume uses the saved configuration and rejects experiment overrides. Selecting
+`run_llm` explicitly calls the API again and replaces that run's retrieval results.
+Execution stops at the first failed stage. Existing results and older configuration
+files are retained during migration.
+
 The pipeline has four stages:
 
 ```text
@@ -23,6 +226,49 @@ audit_results -> coverage-aware model comparison metrics
 ```
 
 The stages remain separate so query generation, API calls, matching, and auditing can be inspected independently.
+
+### Response Evidence and Repository Attribution
+
+The metadata loader preserves original, English, study and alternative title
+fields for evaluation. The primary `title` remains English-first for query
+generation. Returned German titles can therefore match the same dataset without
+requiring translation or changing generated prompts. The `title_match_column`
+field records which title field supported the match.
+
+Evaluation uses the same response rules for V1, V2, V3 and V6, for every provider.
+An item with no returned link and an explicit failed-search statement is flagged
+`reports_not_found_without_link=1`. It receives no source or relevance hit,
+including title-based hits. Raw title matches remain available in
+`title_matched_dataset_id`, `title_match_score` and `title_match_method`.
+Positive title matches are diagnostic evidence, not proof of a working dataset
+link. Strict identifier metrics continue to use catalogue identifiers, DOIs and
+record URLs; they do not perform live webpage verification.
+
+`per_query_results.csv` also records:
+
+- `repository_mentions`: repository names occurring in the model's justification.
+- `claimed_data_providers`: positive provider attribution extracted from the text.
+- `claimed_catalogues`: positive catalogue attribution, with CESSDA distinguished
+  from the data provider.
+- `returned_link_repository`: recognized domain of the returned URL. DOI links
+  remain unresolved here; their registrant is not inferred from the DOI domain.
+- `repository_attribution_status`: `positive_claim` or `unresolved`.
+
+These are conservative English-language rules, not verified repository ownership
+or a general natural-language inference engine. Negative or ambiguous sentences
+are left unresolved; a missing extracted claim is not evidence that the provider
+was wrong. A GESIS mention in a failed search is not a positive attribution.
+Correct attribution rates require validation against authoritative repository
+metadata or reviewed labels; the automatic outputs report model claims only.
+
+After evaluation, audit writes `repository_attribution_per_query.csv` and
+`repository_attribution_summary.csv`. Mention and attribution-claim rates use
+all configured requests as their denominator and all saved returned items as
+evidence, independently of the ranking cutoff. An item containing a failure does
+not invalidate other successful items for the same query.
+
+Re-running evaluation and audit on saved responses updates these outputs without
+calling a model. Existing reports are not automatically regenerated.
 
 ## Setup
 

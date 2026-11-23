@@ -1,0 +1,76 @@
+# Shared settings; each run saves its resolved configuration.
+defaults:
+  temperature: 0
+  top_p: 1
+  input_format: csv
+  qrels_input_path: all_research_data_full_metadata.csv
+  qrels_input_format: csv
+  sample_per_variant: 0
+  random_seed: 42
+  time_format: decade
+  top_k_return: 10
+  include_top_k_limit_in_prompt: false
+  max_returned_items_to_save: 0
+  qrels_strategy: metadata_filter
+  retrieval_for_candidates: false
+  abstract_query_generator_model: gpt-5.4
+  abstract_query_generator_api_base_url: https://ai-openwebui.gesis.org/api
+  abstract_query_generator_api_key_env: OPENWEBUI_API_KEY
+  request_timeout_connect_seconds: 30
+  request_timeout_read_seconds: 600
+  request_max_retries: 4
+  request_retry_backoff_seconds: 15
+output_root: output/experiments
+datasets:
+  random100:
+    input_path: random_100_datasets_full_metadata.csv
+    source_row_limit: 100
+    abstract_query_cache_path: output/shared_query_cache/random_100_v6_abstract_queries.csv
+  top10:
+    input_path: top 10/requested_10_datasets_full_metadata.csv
+    source_row_limit: 10
+    abstract_query_cache_path: output/shared_query_cache/top10_v6_abstract_queries.csv
+providers:
+  openai:
+    provider: openai
+    model: chat-latest
+    api_base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+  gemini:
+    provider: gemini
+    model: gemini-3.6-flash
+    api_base_url: https://generativelanguage.googleapis.com/v1beta
+    api_key_env: GEMINI_API_KEY
+  openwebui:
+    provider: openwebui
+    model: gpt-5.4
+    api_base_url: https://ai-openwebui.gesis.org/api
+    api_key_env: OPENWEBUI_API_KEY
+    openwebui_web_search_mode: tool_ids
+    openwebui_tool_choice: none
+templates:
+  default: {}
+  title_original:
+    variants: [V3]
+    title_query_template: "Can you find the dataset titled {title}?"
+  title_download:
+    variants: [V3]
+    title_query_template: "Where can you download the dataset titled {title}? Please give the direct link and which database the link belongs to."
+  metadata_search:
+    variants: [V1, V2]
+    metadata_query_template: "Can you find datasets about {topic} in {country} during the {time_collection_years}?"
+  metadata_download:
+    variants: [V1, V2]
+    metadata_query_template: "Where can I access datasets about {topic} in {country} during the {time_collection_years}? Please give the dataset links and repository names."
+  population_search:
+    variants: [V5]
+    population_query_template: "Can you find datasets about {topic} in {country} during the {time_collection_years}, where the study population is {universe}?"
+  population_unit_search:
+    variants: [V4]
+    population_unit_query_template: "Can you find datasets about {topic} in {country} during the {time_collection_years}, where the study population is {universe} and the unit of analysis is {analysis_unit}?"
+  abstract_research_need:
+    variants: [V6]
+    abstract_query_template: "Can you find datasets about {topic} in {country} during the {time_collection_years}, matching this research need: {abstract_query}"
+  abstract_download:
+    variants: [V6]
+    abstract_query_template: "Where can I access datasets about {topic} in {country} during the {time_collection_years}, matching this research need: {abstract_query}? Please give the dataset links and repository names."

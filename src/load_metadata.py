@@ -78,6 +78,11 @@ def load_metadata(input_path: str, input_format: str) -> pd.DataFrame:
         if col not in df.columns:
             df[col] = ""
 
+    # Query generation keeps its English-first title; evaluation also needs the
+    # original title when no separate study_title field is present.
+    if "title_original" not in df.columns:
+        df["title_original"] = df.get("title", pd.Series("", index=df.index))
+
     def col_or_empty(name: str) -> pd.Series:
         if name in df.columns:
             return df[name]
@@ -125,6 +130,12 @@ def load_metadata(input_path: str, input_format: str) -> pd.DataFrame:
         "handle",
         "link",
         "title",
+        "title_original",
+        "title_en",
+        "study_title",
+        "study_title_en",
+        "other_titles",
+        "other_titles_en",
         "abstract",
         "topic",
         "methodology",
