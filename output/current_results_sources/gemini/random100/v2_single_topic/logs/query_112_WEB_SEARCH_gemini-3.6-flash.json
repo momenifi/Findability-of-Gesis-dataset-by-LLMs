@@ -1,0 +1,69 @@
+{
+  "query_id": 112,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Equality, inequality and social exclusion in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core v38eu)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"SOEP is a long-running representative longitudinal panel study of private households in Germany. It collects comprehensive annual data on income distribution, poverty risks, employment, and living conditions covering the entire 2010s.\"\n    },\n    {\n      \"title\": \"Panel Study Labour Market and Social Security (PASS)\",\n      \"url_or_doi\": \"https://doi.org/10.1093/ije/dyz041\",\n      \"justification\": \"PASS is an annual household panel study conducted by the Institute for Employment Research (IAB) that oversamples welfare benefit recipients to analyze poverty, labor market dynamics, and the social consequences of unemployment and social exclusion in Germany throughout the 2010s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS 2016)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12796\",\n      \"justification\": \"ALLBUS collects representative biennial data on social structure, public attitudes toward social inequality, gender roles, and social integration/marginalization in Germany during the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 574,
+          "candidatesTokenCount": 341,
+          "totalTokenCount": 2220,
+          "cachedContentTokenCount": 262,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 574
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 262
+            }
+          ],
+          "thoughtsTokenCount": 1305,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ETmEasUrmJXE3w_1-JmwDw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 13,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment and Higher and further education in Bavaria during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\"items\":[{\"title\":\"Sample of Integrated Labour Market Biographies (SIAB-R 1975–2021)\",\"url_or_doi\":\"https://doi.org/10.5164/IAB.SIAB-R7521.de.en.v1\",\"justification\":\"Contains administrative microdata on individual employment trajectories, job statuses, and educational attainment across West German federal states, including Bavaria, starting in 1975.\"},{\"title\":\"RWI-UNI-SUBJECTS: Dataset of Study Program Availability in German Higher Education (1971–1996)\",\"url_or_doi\":\"https://doi.org/10.1038/s41597-024-03916-2\",\"justification\":\"Provides complete records of available study programs and academic disciplines across higher education institutions in Germany, including Bavarian universities and universities of applied sciences, from 1971 to 1996.\"},{\"title\":\"GENESIS-Online Bayern (Bayerisches Landesamt für Statistik)\",\"url_or_doi\":\"https://www.statistikdaten.bayern.de/genesis/online\",\"justification\":\"The official database of the Bavarian State Office for Statistics containing historical statistical time series, census records, and regional data on employment, higher education, and vocational training in Bavaria dating back to the 1970s.\"}]}```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1628,
+          "candidatesTokenCount": 307,
+          "totalTokenCount": 4221,
+          "cachedContentTokenCount": 584,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1628
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 584
+            }
+          ],
+          "thoughtsTokenCount": 2286,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "U_KDaoGODYuQvdIPr9XX4As"
+      }
+    }
+  ]
+}

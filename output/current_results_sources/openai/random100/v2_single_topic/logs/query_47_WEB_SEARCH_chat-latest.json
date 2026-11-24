@@ -1,0 +1,186 @@
+{
+  "query_id": 47,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0037962d8dd68c30006b045d31212887d2a4abc08fa26373bb",
+        "created_at": 1795448113.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0037962d8dd68c30006b045d32259887d28c7a2c5a7537e0b8",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS tourism Germany overnight stays 2010 2019 dataset",
+                "Eurostat tourism trips residents Germany dataset 2010 2019",
+                "Germany time use survey 2012 2013 leisure dataset Destatis",
+                "Germany sport participation survey 2010 2019 dataset Eurobarometer"
+              ],
+              "query": "Destatis GENESIS tourism Germany overnight stays 2010 2019 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0037962d8dd68c30006b045d3555a087d29fd43d15ddc9dd39",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org eurobarometer 2017 sport physical activity 88.4 dataset",
+                "site:gesis.org Eurobarometer 80.2 sport physical activity 2013 ZA",
+                "site:ec.europa.eu/eurostat/databrowser/product/page/ sport physical activity Germany 2014 ehis",
+                "site:ec.europa.eu/eurostat/databrowser/product/page/ tour_occ_ninat Germany 2010"
+              ],
+              "query": "site:search.gesis.org eurobarometer 2017 sport physical activity 88.4 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0037962d8dd68c30006b045d3874b487d2a8d1aea412f68e1e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis GENESIS-Online: Tourist Arrivals, Overnight Stays and Average Length of Stay in Germany (1992–2025)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/454%2A/table/45412-0001\",\n      \"justification\": \"Official dataset from the German Federal Statistical Office (Destatis), covering the entire 2010–2019 period. Provides annual statistics on tourist arrivals, overnight stays and average length of stay in German accommodation establishments. Particularly useful for analyzing tourism growth, accommodation demand and travel trends in Germany throughout the 2010s. Dataset code: 45412-0001.\"\n    },\n    {\n      \"title\": \"Destatis: German Time Use Survey 2012/2013 (Zeitverwendungserhebung) – Public Use File\",\n      \"url_or_doi\": \"https://doi.org/10.21242/63911.2013.00.00.4.1.0\",\n      \"justification\": \"Official microdata from Germany's 2012–2013 Time Use Survey, containing information about how individuals allocate their daily time across activities, including sports, hobbies, games, entertainment and social activities. The public-use dataset includes 4,221 households and provides household-level, individual-level and activity-diary data. Particularly valuable for investigating leisure behavior, demographic differences and recreational activities in Germany during the early 2010s. Registration is required to download the anonymized CSV files.\"\n    },\n    {\n      \"title\": \"Eurostat: Participation in Tourism for Personal Purposes by Duration of Stay and Destination (2012–2025)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/TOUR_DEM_TOTOT\",\n      \"justification\": \"Official European statistical dataset covering tourism participation among residents aged 15 and older, including Germany. Contains annual data from 2012 onward, allowing analysis of tourism participation during 2012–2019. Includes the number and percentage of people taking personal tourism trips, categorized by destination and duration. Useful for studying domestic and international leisure travel among German residents and comparing Germany with other European countries.\"\n    },\n    {\n      \"title\": \"Eurostat: Nights Spent at Tourist Accommodation Establishments\",\n      \"url_or_doi\": \"https://doi.org/10.2908/tour_occ_ninat\",\n      \"justification\": \"Official Eurostat tourism dataset providing statistics on overnight stays in tourist accommodation establishments across European countries, including Germany. Historical coverage includes the 2010s, making it useful for examining tourism development between 2010 and 2019. Supports analysis of accommodation demand, tourism intensity and changes in overnight stays over time. Particularly relevant for comparing Germany's tourism sector with other European destinations.\"\n    },\n    {\n      \"title\": \"Eurobarometer 80.2 (2013): Sport and Physical Activity\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation/standard-special-eb/study-overview/eurobarometer-802-za5877-nov-dec-2013\",\n      \"justification\": \"European Commission survey conducted in November–December 2013, archived by GESIS under study number ZA5877. Includes the Special Eurobarometer 412 module on sport and physical activity. Contains survey responses from Germany and other European countries concerning exercise frequency, sporting activities and physical activity habits. Useful for studying sports participation, barriers to exercise and recreational behavior in Germany during the early 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat: European Health Interview Survey – Practising Sport, Fitness or Recreational Physical Activities (2014 and 2019)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/HLTH_EHIS_PE3I\",\n      \"justification\": \"Official European Health Interview Survey dataset containing information about participation in sports, fitness and recreational physical activities. Includes German data from the 2014 and 2019 survey waves, enabling comparison of physical activity habits across the decade. Particularly useful for examining participation frequency, demographic differences and changes in leisure-time physical activity among German residents.\"\n    },\n    {\n      \"title\": \"Eurostat: European Health Interview Survey – Sport and Recreational Physical Activity (2014)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/HLTH_EHIS_PE3E\",\n      \"justification\": \"Eurostat dataset derived from the 2014 European Health Interview Survey, including Germany. Provides information about participation in sports, fitness and recreational physical activities, with demographic breakdowns. Useful for investigating differences in physical activity participation by sex and other population characteristics during the mid-2010s. Complements the 2019 survey data for historical comparisons.\"\n    },\n    {\n      \"title\": \"Eurostat: Nights Spent at Tourist Accommodation Establishments by NUTS 2 Region\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tgs00111/default/table\",\n      \"justification\": \"Regional tourism dataset from Eurostat, providing statistics on tourist overnight stays at the NUTS 2 regional level. Includes German regions and data for 2014–2019. Particularly useful for studying geographical differences in tourism demand, identifying major tourism destinations and comparing tourism development across German regions during the second half of the 2010s.\"\n    },\n    {\n      \"title\": \"Destatis: Tourist Arrivals, Overnight Stays and Average Length of Stay by Guest Residence and Accommodation Type\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/https%3A-genesis.destatis.de-genesisws-downloads-00-tables-45412-0005_00?locale=en\",\n      \"justification\": \"Official German tourism statistics published through the European Data Portal, originating from Destatis GENESIS-Online. Provides information on arrivals, overnight stays and average lengths of stay, with breakdowns by guest residence and accommodation establishment type. Relevant for analyzing domestic versus international tourism and accommodation preferences in Germany during the 2010s. Useful for investigating structural differences within Germany's tourism industry.\"\n    },\n    {\n      \"title\": \"OECD Time Use Database – Leisure Activities in Germany\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/time-use-database.html\",\n      \"justification\": \"Internationally harmonized OECD dataset examining how people allocate their time to paid work, unpaid work, personal care, leisure and other activities. Includes German time-use observations from the 2012–2013 survey period. Useful for comparing leisure time across demographic groups and countries and analyzing how recreational activities fit into everyday life in Germany. Particularly suitable for international comparative research involving Germany during the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat: Tourism Trips of EU Residents – Annual Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/tour_dem_esms.htm\",\n      \"justification\": \"Official Eurostat tourism-demand data collection covering travel behavior among European residents, including Germany. German tourism-trip data extend back to 1999, providing coverage of the entire 2010–2019 period. The collection includes tourism trips involving overnight stays, with information on travel purposes and destinations. Particularly useful for analyzing German residents' holiday travel behavior, domestic versus outbound tourism and long-term changes in travel patterns. This is the official metadata and dataset-discovery landing page.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448128.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19085,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1732,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20817
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

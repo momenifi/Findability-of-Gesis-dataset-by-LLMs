@@ -1,0 +1,62 @@
+{
+  "query_id": 40,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators, Information society, Political behaviour and attitudes, Government, political systems and organisations, Equality, inequality and social exclusion, Cultural and national identity, Social behaviour and attitudes, and Religion and values in Germany during the 2010s, matching this research need: German 2018 survey data on political attitudes and participation, populism, democracy, refugees and immigration, media use, social inequality, nationalism/right-wing extremism, religion, social networks, trust, wellbeing, and detailed socio-demographics.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13250\",\n      \"justification\": \"The German General Social Survey (ALLBUS 2018) was conducted in Germany in 2018 and specifically covers political attitudes and participation, populism, attitudes toward democracy, refugees and immigration, media use, social inequality, right-wing extremism, religion (ISSP Religion IV), social networks (ISSP Social Networks II), trust, well-being, and comprehensive socio-demographics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 606,
+          "candidatesTokenCount": 164,
+          "totalTokenCount": 1816,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 606
+            }
+          ],
+          "thoughtsTokenCount": 1046,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "bIWEavSFC-jxxN8PsaXcqAE"
+      }
+    }
+  ]
+}

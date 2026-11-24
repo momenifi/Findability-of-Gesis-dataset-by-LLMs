@@ -1,0 +1,69 @@
+{
+  "query_id": 39,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Federal Election Study 1990 (ZA2429)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2429\",\n      \"justification\": \"This dataset captures individual voting behavior, party preferences, political orientations, and attitudes of the German population surrounding the first post-reunification federal election in 1990.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991 (ZA1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"Part of the German General Social Survey series, this dataset collects empirical data on political attitudes, social integration, and civic orientations in newly unified Germany in 1991.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1994 (ZA2400)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12823\",\n      \"justification\": \"Provides representative survey data on political participation, trust in public institutions, political attitudes, and social structure in Germany in 1994.\"\n    },\n    {\n      \"title\": \"German Federal Election Study 1998 (ZA4301)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4301\",\n      \"justification\": \"Covers voting behavior, candidate evaluations, party attachment, and political attitudes across Germany during the 1998 federal election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 927,
+          "candidatesTokenCount": 415,
+          "totalTokenCount": 3119,
+          "cachedContentTokenCount": 155,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 927
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 155
+            }
+          ],
+          "thoughtsTokenCount": 1777,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Ki2EasLTH9OgxN8Pj_vFwAw"
+      }
+    }
+  ]
+}

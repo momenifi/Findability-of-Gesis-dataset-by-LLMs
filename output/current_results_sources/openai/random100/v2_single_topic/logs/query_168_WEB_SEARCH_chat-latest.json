@@ -1,0 +1,201 @@
+{
+  "query_id": 168,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_08213978fb8da7f3006b0465080ab887d297ad9cb6d93f66d2",
+        "created_at": 1795450120.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_08213978fb8da7f3006b046508eec887d2b6053337a19a702d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS youth Germany 1960s survey dataset Jugend 1962 1967",
+                "GESIS ZA youth Germany 1960 Shell Jugendstudie data",
+                "German youth 1960s historical microdata survey dataset"
+              ],
+              "query": "GESIS youth Germany 1960s survey dataset Jugend 1962 1967",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08213978fb8da7f3006b04650bb22087d2a1d894449cbf03e0",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA0246 Jugend Bildung Freizeit 1965",
+                "site:search.gesis.org/research_data/ \"Jugend\" \"1962\"",
+                "site:search.gesis.org/research_data/ \"Jugend\" \"1966\"",
+                "site:search.gesis.org/research_data/ \"Jugend\" \"1969\""
+              ],
+              "query": "site:search.gesis.org/research_data/ZA0246 Jugend Bildung Freizeit 1965",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08213978fb8da7f3006b04650d7e3c87d2b04c172336ba3ae5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Jugend, Bildung und Freizeit\" \"1965\" GESIS doi",
+                "site:search.gesis.org/research_data/ZA6149 1968",
+                "site:search.gesis.org/research_data/ \"Young Generation of West Germany 1962\"",
+                "\"Junge Generation West-Deutschlands 1962\" gesis"
+              ],
+              "query": "\"Jugend, Bildung und Freizeit\" \"1965\" GESIS doi",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_08213978fb8da7f3006b04651049f487d2ac64b9bae51afe3e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Junge Generation West-Deutschlands 1962 (Young Generation of West Germany, 1962)\",\"url_or_doi\":\"https://doi.org/10.17026/DANS-ZXE-6XKU\",\"justification\":\"Highly relevant historical dataset examining young people in West Germany in 1962. Covers upbringing, parent-child relationships, school experiences, employment, career aspirations, political attitudes, sexuality, religion, media consumption, and social values. Particularly useful for studying youth culture, generational differences, and social change in early 1960s West Germany. Archived by DANS; access is restricted.\"},{\"title\":\"Jugend, Bildung und Freizeit 1965 (Youth, Education and Leisure, 1965) — Shell Youth Study\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA0246\",\"justification\":\"One of the most directly relevant datasets for researching German youth during the 1960s. Conducted by EMNID in 1965 as part of the Shell Youth Studies series, it examines educational opportunities, leisure activities, political interests, reading habits, media consumption, sports, sexuality education, attitudes toward technology, and disposable income. Particularly valuable for understanding everyday life and cultural interests among young people in West Germany. Identified in the GESIS archive as study ZA0246.\"},{\"title\":\"Intervallstudie: Entwicklungsfaktoren und Entwicklungsformen von Jugendlichen in der DDR (1968–1980) — First Wave\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA6149\",\"justification\":\"Longitudinal research initiated in 1968 by the Central Institute for Youth Research in Leipzig. Investigates the development of young people in East Germany, including personality, social attitudes, education, vocational training, political values, and socialization. The first wave provides a valuable starting point for studying East German youth at the end of the 1960s. Subsequent waves allow researchers to examine how attitudes and experiences changed over time.\"},{\"title\":\"Bildungsentwicklung in Deutschland: Allgemeinbildende Schulen 1960 bis 2000 (Development of General Education in Germany, 1960–2000)\",\"url_or_doi\":\"https://doi.org/10.4232/1.8220\",\"justification\":\"Historical educational statistics covering Germany from 1960 to 2000, with data for West Germany during the 1960s. Useful for examining changes in school participation, educational structures, and opportunities available to young people. Provides quantitative context for research into educational expansion, social mobility, and the experiences of school-age youth during the 1960s.\"},{\"title\":\"GESIS Microcensus Trendfile 1962–2016\",\"url_or_doi\":\"https://www.gesis.org/en/gml/microcensus/microcensus-trendfile\",\"justification\":\"Harmonized historical microdata from German population surveys beginning in 1962. Researchers can identify younger age groups to investigate educational attainment, employment, household structure, family circumstances, and socioeconomic characteristics of youth in 1960s West Germany. Particularly useful for quantitative demographic analysis and comparisons across generations. Access to historical microdata may require special arrangements through GESIS.\"},{\"title\":\"German Microcensus 1962–1969: Historical Documentation and Data Access\",\"url_or_doi\":\"https://www.gesis.org/en/missy/materials/MZ/weiterefiles/1962-1969\",\"justification\":\"GESIS provides historical documentation covering German Microcensus surveys conducted between 1962 and 1969. These population surveys provide opportunities to examine the demographic, educational, occupational, and household circumstances of young people during the decade. The resource is especially useful for identifying available variables and selecting survey years. Historical data can be analyzed through the German Microdata Lab under applicable access conditions.\"},{\"title\":\"Politische Situation in West-Berlin (Jugendliche aus der DDR) — Political Situation in West Berlin (Young People from East Germany)\",\"url_or_doi\":\"https://doi.org/10.4232/1.0590\",\"justification\":\"Historical survey specifically concerned with young people from East Germany and their experiences or political circumstances in West Berlin. Relevant for investigating youth migration, political attitudes, German division, and the differences between East and West German society during the Cold War. The dataset is especially valuable for research focusing on the political experiences of young Germans in divided Berlin.\"},{\"title\":\"Sozialstruktur der deutschen Sportjugend (Social Structure of German Sport Youth)\",\"url_or_doi\":\"https://doi.org/10.4232/1.0234\",\"justification\":\"Survey of 1,879 sports club members aged 15–25 in West Germany, including West Berlin. Although collected in 1958, it provides an important baseline for studying youth culture entering the 1960s. Topics include leisure activities, sports participation, relationships with parents, education, employment, religion, cultural preferences, music, literature, and attitudes toward older generations. Useful for comparisons with youth surveys conducted during the 1960s.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450134.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 26822,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1241,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 28063
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

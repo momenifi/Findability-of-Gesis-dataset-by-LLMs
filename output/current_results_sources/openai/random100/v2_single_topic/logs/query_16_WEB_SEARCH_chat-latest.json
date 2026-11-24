@@ -1,0 +1,186 @@
+{
+  "query_id": 16,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03c47cab4206c07b006b045b4b0e3087d2bac42910b1fcf0b5",
+        "created_at": 1795447627.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03c47cab4206c07b006b045b4c045c87d2b92ce4f6ae9a1231",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurofound European Working Conditions Survey 2015 dataset countries 35 download",
+                "Eurofound European Working Conditions Survey 2010 dataset 34 countries",
+                "Eurostat labour force survey working conditions 2010 2019 dataset EU",
+                "European working conditions telephone survey 2021 2015 UK Turkey Western Balkans data"
+              ],
+              "query": "Eurofound European Working Conditions Survey 2015 dataset countries 35 download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03c47cab4206c07b006b045b4f9ce887d29f5d4c7040d78d62",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2015",
+                "site:eurofound.europa.eu/en/surveys-and-data/data-catalogue \"2015\" \"working conditions\"",
+                "site:osha.europa.eu ESENER 2014 2019 data survey enterprises",
+                "site:eurofound.europa.eu European Company Survey 2013 2019 dataset"
+              ],
+              "query": "site:eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2015",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03c47cab4206c07b006b045b52dce087d2bc794e7a9daef9fb",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2015 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2015\",\n      \"justification\": \"The most directly relevant dataset for this query. Conducted in 2015, the sixth European Working Conditions Survey interviewed approximately 44,000 workers across 35 European countries. It covers Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Montenegro, North Macedonia, and Serbia. Variables include working hours, employment conditions, job quality, occupational risks, physical and psychosocial working environments, workplace relationships, work-life balance, earnings, training, and health and well-being. It provides harmonized cross-country data suitable for comparative analysis of working conditions during the 2010s. Iceland is not included.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2010 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2010\",\n      \"justification\": \"A major cross-national dataset covering working conditions at the beginning of the 2010s. The fifth EWCS interviewed approximately 44,000 workers in 34 European countries between January and June 2010. It includes the 27 EU member states at that time, Norway, Croatia, Turkey, Albania, Montenegro, North Macedonia, and Kosovo. Topics include working time, job security, occupational health and safety, workplace stress, work organization, employee participation, training, earnings, and work-life balance. Particularly useful for comparisons with the 2015 EWCS and for identifying changes in European working conditions during the decade. Switzerland, Iceland, and Serbia were not covered in this wave.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey Integrated Data File, 1991–2024 – CESSDA Data Catalogue\",\n      \"url_or_doi\": \"https://datacatalogue.cessda.eu/detail/166b4a66fb0dc93d962e9d6f5f960e439ce696ba70f37efa6201ad387491584b?lang=en\",\n      \"justification\": \"A harmonized longitudinal dataset combining multiple waves of the European Working Conditions Survey, including the 2010 and 2015 surveys. It enables cross-national and temporal comparisons of employment conditions, working hours, occupational risks, job satisfaction, health, skills, and workplace organization. The integrated dataset is especially valuable for examining trends across the 2010s using consistent variables. Geographic coverage varies between survey waves, but the 2015 wave includes 34 of the 35 countries requested, excluding Iceland. Access to microdata may require registration or an application through the UK Data Service.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER-2), 2014 – European Agency for Safety and Health at Work\",\n      \"url_or_doi\": \"https://osha.europa.eu/en/about-eu-osha/press-room/note-to-editor/european-survey-enterprises-new-and-emerging-risks-esener-2\",\n      \"justification\": \"A highly relevant dataset examining occupational health and safety conditions in European workplaces. Conducted in 2014, ESENER-2 surveyed approximately 50,000 enterprises across 36 countries, covering all 35 countries specified in the query, including Iceland. It provides information on occupational hazards, workplace risk assessments, psychosocial risks, occupational stress, employee participation in safety management, and organizational approaches to health and safety. Unlike the EWCS, which surveys workers, ESENER collects establishment-level information. It is particularly useful for comparing workplace safety practices across all requested countries.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER) 2019 – EU-OSHA\",\n      \"url_or_doi\": \"https://osha.europa.eu/en/about-eu-osha/press-room/note-to-editor/esener-2019\",\n      \"justification\": \"The third edition of the European Survey of Enterprises on New and Emerging Risks provides information about occupational health and safety management toward the end of the 2010s. The dataset examines workplace hazards, psychosocial risks, employee involvement, risk prevention, organizational safety practices, and risks associated with digitalization. Its questionnaire maintains substantial continuity with the 2014 survey, making it useful for studying changes in workplace health and safety management between 2014 and 2019. The survey provides comparative European establishment-level evidence and complements the worker-level information in the EWCS.\"\n    },\n    {\n      \"title\": \"European Company Survey (ECS) 2013 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-company-survey/ecs-2013\",\n      \"justification\": \"A cross-national survey of workplace practices conducted between February and June 2013. It collected more than 39,000 interviews across 32 European countries, including all 28 EU member states at that time. The dataset examines work organization, human resource management, employee participation, workplace innovation, social dialogue, and organizational performance. It provides a valuable employer-side perspective on the institutional and organizational factors influencing working conditions during the early 2010s. Geographic coverage is less comprehensive than the 2015 EWCS or the 2014 ESENER survey.\"\n    },\n    {\n      \"title\": \"European Company Survey (ECS) 2019 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-company-survey/ecs-2019\",\n      \"justification\": \"A European establishment-level survey conducted in 2019, covering the EU member states and the United Kingdom. It examines workplace organization, human resource practices, employee involvement, management strategies, skills development, organizational performance, and workplace social dialogue. The dataset is valuable for understanding working conditions through organizational practices toward the end of the 2010s. It can be used alongside the 2013 European Company Survey to investigate changes in workplace practices over time. It does not provide complete coverage of the requested non-EU countries.\"\n    },\n    {\n      \"title\": \"European Union Labour Force Survey (EU-LFS) – Eurostat Scientific-Use Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/collections-research/european-union-labour-force-survey\",\n      \"justification\": \"A major source of harmonized employment and labour market microdata covering the entire 2010–2019 period. The EU-LFS provides information on employment status, occupation, economic sector, full-time and part-time employment, working hours, temporary employment, job permanency, and other employment characteristics. It covers EU member states and participating European Free Trade Association and candidate countries, although country availability varies by year. Its annual and quarterly structure makes it especially suitable for tracking trends in working conditions throughout the decade. Scientific-use microdata generally require authorized research access.\"\n    },\n    {\n      \"title\": \"European Union Labour Force Survey (EU-LFS) – Eurostat Public-Use Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/public-microdata/labour-force-survey\",\n      \"justification\": \"A publicly accessible collection of EU Labour Force Survey microdata organized by country and year. The files contain information relevant to employment conditions, including working time, employment arrangements, occupational classifications, and labour market participation. The dataset is useful for studying country-level differences and temporal trends during the 2010s. Public-use files are available for a limited selection of countries and years, so coverage of the requested countries is incomplete. Researchers needing more comprehensive coverage should consider the scientific-use EU-LFS files.\"\n    },\n    {\n      \"title\": \"European Union Labour Force Survey 2019 Ad Hoc Module on Work Organisation and Working Time Arrangements – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/collections-research/european-union-labour-force-survey\",\n      \"justification\": \"A specialized 2019 Labour Force Survey module focusing directly on work organization and working-time arrangements. It provides information about scheduling flexibility, working-time autonomy, work organization, and the organization of employees' working lives. It is particularly relevant for comparing flexible working arrangements across European countries immediately before the COVID-19 pandemic. The module complements the core EU-LFS employment variables and provides a detailed snapshot of specific working conditions at the end of the 2010s. Geographic availability should be checked in the Eurostat microdata documentation.\"\n    },\n    {\n      \"title\": \"European Working Conditions Surveys (EWCS) – Eurofound Survey Series\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"The official landing page for the European Working Conditions Survey series, providing access to individual survey waves, questionnaires, methodological information, and related data resources. The 2010 and 2015 waves are especially relevant to the requested decade. The series measures working time, employment quality, physical and psychosocial risks, job satisfaction, work organization, training, health, and work-life balance using harmonized survey instruments. It is an important resource for identifying comparable variables and understanding differences in country coverage across survey waves.\"\n    },\n    {\n      \"title\": \"European Working Conditions Telephone Survey (EWCTS) 2021 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/data-catalogue/european-working-conditions-telephone-survey-2021\",\n      \"justification\": \"A supplementary dataset that extends analysis of European working conditions beyond the requested 2010–2019 period. Conducted in 2021, it surveyed more than 70,000 workers in 36 countries, including most of the requested European countries and several Western Balkan countries. It covers job quality, working hours, occupational risks, workplace relationships, work-life balance, and well-being. Although outside the 2010s, it may be useful for investigating how working conditions changed after 2015. Its different interviewing methodology limits direct comparability with earlier EWCS waves, and it should not be treated as a 2010s observation.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447646.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19042,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2426,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21468
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

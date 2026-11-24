@@ -1,0 +1,201 @@
+{
+  "query_id": 9,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Leisure, tourism and sport, Reproductive health, Specific diseases, disorders and medical conditions, Family life and marriage, and Gender and gender roles in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_06475d6fd0291318006b0453a827c887d2990a3d22ac06d294",
+        "created_at": 1795445672.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_06475d6fd0291318006b0453a904b487d2a8f84e3874dd4baa",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1988 1990 survey family gender employment leisure dataset",
+                "German Democratic Republic 1980s statistical yearbook data employment health marriage tourism",
+                "GDR 1980s fertility reproductive health abortion dataset historical",
+                "East Germany 1980s health disease mortality data dataset"
+              ],
+              "query": "GESIS DDR 1988 1990 survey family gender employment leisure dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_06475d6fd0291318006b0453abda2887d2aae2b571b2c38484",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data DDR 1988 Frauenstudie geschlechterrollen",
+                "site:search.gesis.org/research_data DDR Freizeit Urlaub 1987 1988",
+                "site:search.gesis.org/research_data DDR Familie Ehe Kinderwunsch 1980 1985",
+                "site:search.gesis.org/research_data DDR Gesundheit 1988 Krankheiten"
+              ],
+              "query": "site:search.gesis.org/research_data DDR 1988 Frauenstudie geschlechterrollen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_06475d6fd0291318006b0453ae736487d2b21fcd245c56c1a6",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"DDR\" \"1988\" \"Frauen\"",
+                "site:search.gesis.org/research_data/ \"DDR\" \"1985\" \"Familie\"",
+                "site:search.gesis.org/research_data/ \"DDR\" \"1986\" \"Gesundheit\""
+              ],
+              "query": "site:search.gesis.org/research_data/ \"DDR\" \"1988\" \"Frauen\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_06475d6fd0291318006b0453b09d3087d286795e410ea33ce6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Official Employment Statistics of the German Democratic Republic (1949–1989)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8078\",\n      \"justification\": \"Category: Employment. This GESIS historical dataset contains 1,219 statistical time series documenting employment in the GDR from 1949 to 1989. It incorporates official employment statistics, occupational censuses, including the 1981 census, and additional surveys conducted by the GDR statistical authorities. Particularly relevant for examining employment structures, occupational distribution, and labor-market developments throughout the 1980s.\"\n    },\n    {\n      \"title\": \"Employment Survey for East Germany (GDR) 1989 (BTE1989)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/archived-data/employment-survey-for-east-germany-ddr-1989-bte1989/\",\n      \"justification\": \"Category: Employment and Gender and gender roles. Conducted in 1989, this employment survey provides information about the employment structure of the GDR immediately before German reunification. It is particularly valuable for examining occupational structures and the distribution of employment across different population groups. The dataset is documented by the Research Data Centre of the German Federal Employment Agency at the Institute for Employment Research.\"\n    },\n    {\n      \"title\": \"GDR Labor Market Report: Long-Term Time Series (Datenreport DDR-Arbeitsmarkt)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/7e5219e1-7d89-567b-b31a-4b47ba9340ee\",\n      \"justification\": \"Category: Employment. This historical dataset compiles labor-market statistics from official GDR sources, including statistical yearbooks and government records. It contains employment indicators covering 1966–1989, including employment participation among the working-age population and employment across sectors such as education, culture, health, and social services. It is directly relevant for studying labor-market changes during the 1980s.\"\n    },\n    {\n      \"title\": \"Young People and Sport 1987 (Jugend und Sport 1987)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6096\",\n      \"justification\": \"Categories: Leisure, tourism and sport; Employment; and Health. This GESIS dataset contains survey responses from 2,606 young people aged 16–35 in the GDR, collected between June and July 1987. It examines participation in organized and informal sports, frequency of physical activity, leisure interests, sporting motivations, and health-related habits. Respondents included apprentices, industrial and agricultural workers, and students. It is an especially strong match for research on sport and leisure in the GDR during the 1980s.\"\n    },\n    {\n      \"title\": \"Interval Study of Abilities and Occupational Trajectories, 1985–1995: Fourth Wave, 1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6125\",\n      \"justification\": \"Categories: Employment; Leisure, tourism and sport; Family life and marriage. This longitudinal study examines young people's development in the GDR, including the influence of family circumstances, educational experiences, and leisure activities. Its fourth wave was conducted in 1989. Variables address life goals, social values, educational performance, family conditions, and attitudes toward work and society. It provides individual-level evidence about the experiences of young people toward the end of the 1980s.\"\n    },\n    {\n      \"title\": \"Statistical Overviews of Social Policy in Germany Since 1945: Soviet Occupation Zone and GDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"Categories: Employment; Reproductive health; Specific diseases, disorders and medical conditions; Family life and marriage; and Gender and gender roles. Compiled by André Steiner, this GESIS dataset contains 2,185 historical statistical time series covering social policy in the Soviet occupation zone and the GDR. Its sources include official GDR health statistics published through 1988 and other government statistical publications. The dataset is particularly valuable for examining social welfare, healthcare provision, and demographic and social-policy developments during the 1980s. Researchers should consult the variable documentation to identify specific reproductive-health and family indicators.\"\n    },\n    {\n      \"title\": \"Historical Statistics on Health Conditions in Germany, 1816–2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12094\",\n      \"justification\": \"Categories: Specific diseases, disorders and medical conditions; Reproductive health. This GESIS historical data compilation covers health conditions across different German political territories, including the GDR from 1949 to 1990. It draws on official statistics to document mortality, age-specific death rates, life expectancy, and broader developments in public health. The GDR observations from the 1980s are useful for investigating population health and mortality patterns, including changes associated with major causes of death. Detailed variable documentation should be consulted to establish the availability of individual disease categories.\"\n    },\n    {\n      \"title\": \"WHO Mortality Database\",\n      \"url_or_doi\": \"https://www.who.int/data/data-collection-tools/who-mortality-database\",\n      \"justification\": \"Category: Specific diseases, disorders and medical conditions. The World Health Organization maintains an international mortality database containing historical cause-of-death statistics dating back to 1950. It supports analysis of mortality by disease category, age, sex, and year. Researchers investigating GDR disease-specific mortality during the 1980s can use this resource to search for historical East German records. Availability and comparability of GDR-specific observations should be verified before analysis.\"\n    },\n    {\n      \"title\": \"German Fertility and Family Survey 1992\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3400\",\n      \"justification\": \"Categories: Reproductive health; Family life and marriage; Employment; and Gender and gender roles. Conducted in 1992, this GESIS dataset includes respondents from the territory of the former GDR and examines fertility intentions, family formation, household composition, marital status, employment, and attitudes toward having children. Although the survey was conducted after reunification, it is relevant for retrospective research on family formation and reproductive experiences during the 1980s. Historical analysis depends on the availability of retrospective variables.\"\n    },\n    {\n      \"title\": \"Life in the GDR 1990 (Leben in der DDR 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6873\",\n      \"justification\": \"Categories: Employment; Leisure, tourism and sport; Family life and marriage; and Gender and gender roles. This GESIS survey was conducted in January 1990 in the GDR districts of Potsdam, Leipzig, and Schwerin. It investigates employment, partnerships, health, housing, social security, cultural and leisure opportunities, and general life satisfaction. Although collected just after the 1980s, the data offer valuable evidence about living conditions and social attitudes inherited from the late-socialist period.\"\n    },\n    {\n      \"title\": \"Leisure and Media Use 1990 (Freizeit und Mediennutzung 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6032\",\n      \"justification\": \"Category: Leisure, tourism and sport. Conducted in spring 1990 by the Central Institute for Youth Research in Leipzig, this survey contains information from 824 schoolchildren and apprentices in the GDR. It covers leisure activities, cultural participation, media consumption, and youth attitudes. Although conducted in 1990 rather than the 1980s, it provides a useful comparison point for research on leisure patterns established during the final years of the GDR.\"\n    },\n    {\n      \"title\": \"Personal, Property, and Social Insurance in the Former GDR, 1950–1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10254\",\n      \"justification\": \"Categories: Employment; Family life and marriage; and Health-related social protection. This GESIS historical dataset contains 1,269 statistical time series covering insurance systems in the GDR between 1950 and 1989. Its information was compiled from GDR statistical yearbooks and historical insurance statistics. The dataset can support research on social insurance, economic security, and institutional arrangements affecting working individuals and households during the 1980s. It is a contextual rather than a direct measure of family relationships or medical conditions.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of the German Democratic Republic, 1984\",\n      \"url_or_doi\": \"https://books.google.com/books/about/Statistisches_Jahrbuch_der_Deutschen_Dem.html?id=nyUYAAAAMAAJ\",\n      \"justification\": \"Categories: Employment; Leisure, tourism and sport; Reproductive health; Specific diseases, disorders and medical conditions; Family life and marriage; and Gender and gender roles. This official GDR statistical yearbook is a primary historical statistical source for the early 1980s. Its sections include employment, population statistics, education and culture, sport, recreation, tourism, public health, and social welfare. It is particularly useful for obtaining historical aggregate statistics and identifying official indicators. The linked record is a bibliographic landing page for the yearbook rather than a ready-to-download machine-readable dataset.\"\n    },\n    {\n      \"title\": \"GESIS: Additional Official Data from the GDR, Including the 1988 Survey of Cultural and Social Living Conditions\",\n      \"url_or_doi\": \"https://www.gesis.org/gml/weitere-amtliche-daten\",\n      \"justification\": \"Categories: Employment; Leisure, tourism and sport; Family life and marriage; and Gender and gender roles. This GESIS resource describes historical official datasets from the GDR, including the 1988 survey of cultural and social living conditions, the 1988 income sample of workers' and employees' households, and the 1988–1989 household budget statistics. These sources are especially relevant for examining living standards, household economics, cultural participation, and social conditions in the late 1980s. Researchers should consult the documentation for variable-level coverage and data-access conditions.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795445695.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 27269,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2413,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 29682
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

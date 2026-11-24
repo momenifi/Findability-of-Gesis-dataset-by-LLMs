@@ -1,0 +1,69 @@
+{
+  "query_id": 6,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalism, journalist, social media, news, and news value theory in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2819\",\n      \"justification\": \"This dataset consists of human-coded annotations for over 4,000 TikTok videos published in 2023 by German-speaking news outlets. It explicitly incorporates journalism research concepts including news value theory, visual style, and text presentation on social media.\"\n    },\n    {\n      \"title\": \"Die Themen 'Umwelt' und 'Corona' in der medialen Berichterstattung während der ersten Coronawelle in Deutschland 2020\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2333\",\n      \"justification\": \"This dataset provides quantitative content analysis for 15,038 news items across German national print outlets and social media channels (such as Tagesschau on Instagram, rbb24 on Twitter, and RTLaktuell on Facebook) during early 2020 in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1010,
+          "candidatesTokenCount": 279,
+          "totalTokenCount": 2605,
+          "cachedContentTokenCount": 459,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1010
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 459
+            }
+          ],
+          "thoughtsTokenCount": 1316,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "t7WnatqcLZLtxs0PsZDj4Ao"
+      }
+    }
+  ]
+}

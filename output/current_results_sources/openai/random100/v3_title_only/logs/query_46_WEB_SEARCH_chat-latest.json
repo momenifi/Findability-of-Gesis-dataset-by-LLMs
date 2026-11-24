@@ -1,0 +1,168 @@
+{
+  "query_id": 46,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Dataset of Italian Municipal Unions (Intermunicipal Cooperation forms). 1996-2015.?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d19cbbc0c7144ff006b046df752d087d2afbe9d8c9f2cb1a5",
+        "created_at": 1795452407.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d19cbbc0c7144ff006b046df83f2887d2b4b37c3e3ede93f1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Dataset of Italian Municipal Unions\" \"1996-2015\"",
+                "Dataset of Italian Municipal Unions Intermunicipal Cooperation forms DOI"
+              ],
+              "query": "\"Dataset of Italian Municipal Unions\" \"1996-2015\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d19cbbc0c7144ff006b046dfa383087d29cc7c4b74914828e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Dataset of Italian Municipal Unions (Intermunicipal Cooperation forms). 1996-2015.\",\"url_or_doi\":\"https://doi.org/10.7802/1754\",\"justification\":\"Exact match for the requested dataset. Published in 2018 by Silvia Bolgherini, Mattia Casula, and Mariano Marotta through the GESIS Data Archive. The dataset provides systematic information on 462 Municipal Unions established in Italy between 1996 and 2015. It contains 15 variables covering establishment dates, membership, population characteristics, territorial accessibility, demographic balance, and intermunicipal cooperation. This is the official DOI for the dataset.\"},{\"title\":\"Dataset of Italian Municipal Unions (Intermunicipal Cooperation forms). 1996-2015. — GESIS Data Archive\",\"url_or_doi\":\"https://search.gesis.org/research_data/SDN-10.7802-1754?doi=10.7802/1754\",\"justification\":\"Official dataset landing page at GESIS Data Archive, identified through the da|ra research data registry. Provides access to the dataset published in 2018, including its metadata and available research files. The dataset covers all 462 Italian Municipal Unions recorded in 2015, with historical information extending back to 1996.\"},{\"title\":\"Dataset of Italian Municipal Unions (Intermunicipal Cooperation forms). 1996-2015. — B2FIND\",\"url_or_doi\":\"https://b2find.eudat.eu/dataset/99904721-962e-5c87-b659-84be3f03551e\",\"justification\":\"Verified metadata record in the European B2FIND research data discovery service. Identifies the exact dataset, its authors, publication year (2018), DOI (10.7802/1754), publisher (GESIS Data Archive), and open-access status. The record also specifies the CC BY-NC-SA 4.0 license and available Excel and Word file formats.\"},{\"title\":\"Dataset of Italian Municipal Unions (Intermunicipal Cooperation forms). 1996-2015. — University of Naples Federico II\",\"url_or_doi\":\"https://www.iris.unina.it/handle/11588/723433\",\"justification\":\"Institutional repository record at the University of Naples Federico II confirming the dataset's title, authorship, publication year, and DOI. Includes a detailed description of the 15 variables and confirms coverage of 462 Municipal Unions across Italy during 1996–2015. This record provides an additional authoritative reference, although it does not host downloadable dataset files.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452412.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10640,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 549,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 11189
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 9,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Leisure, tourism and sport, Reproductive health, Specific diseases, disorders and medical conditions, Family life and marriage, and Gender and gender roles in German Democratic Republic (1949-1990) during the 1980s, matching this research need: Survey data on women’s health, menstruation, contraception, fertility, sexuality, partnership quality, domestic labor, childrearing, work conditions, housing, and work-family balance, including partner relations, violence, and financial arrangements.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Partner II – 1979/80 (ZA6145)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6145\",\n      \"justification\": \"Conducted by the Zentralinstitut für Jugendforschung (ZIJ) in Leipzig, this East German (GDR) survey collected data entering the 1980s regarding partnership quality, sexuality, contraception, family planning, partner relations, and gender role expectations.\"\n    },\n    {\n      \"title\": \"Partner III - Studenten 1990 (ZA6147)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6147\",\n      \"justification\": \"Administered by ZIJ Leipzig and the Research Center for Partner and Sexual Research, this GDR dataset focuses on East German university students, capturing detailed data on sexuality, contraception, partnership quality, domestic arrangements, reproductive health, and gender roles.\"\n    },\n    {\n      \"title\": \"Studenten-Intervallstudie Leistung 1982 bis 1988 - SIL C (ZA6167)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6167\",\n      \"justification\": \"A longitudinal study conducted in the GDR between 1982 and 1988 by ZIJ Leipzig tracking living and study conditions, physical and psychological health, drug use, contraception, pregnancy, partnership relations, family life, housing, and work-family balance.\"\n    },\n    {\n      \"title\": \"Schülerintervallstudie IS II (jüngere Kohorte) 1979-1985 (ZA6187)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6187\",\n      \"justification\": \"An interval panel survey from the GDR during the 1980s that tracks young people's attitudes and behaviors regarding sexuality, partner relationships, gender role orientations, health, and family planning.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2218,
+          "candidatesTokenCount": 507,
+          "totalTokenCount": 5500,
+          "cachedContentTokenCount": 952,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2218
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 952
+            }
+          ],
+          "thoughtsTokenCount": 2775,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "uXaEau3rCKnXxN8PraCrgQ8"
+      }
+    }
+  ]
+}

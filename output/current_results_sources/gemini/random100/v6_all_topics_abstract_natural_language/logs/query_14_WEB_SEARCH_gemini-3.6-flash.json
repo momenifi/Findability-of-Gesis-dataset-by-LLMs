@@ -1,0 +1,69 @@
+{
+  "query_id": 14,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators, Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1990s, matching this research need: survey data on Germans’ evaluations of democracy and the political system, party preference, reunification, social market economy, optimism about Germany’s future, and demographic characteristics around the Federal Republic’s 50th anniversary\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"50 Jahre Bundesrepublik (Mai 1999) [ZA3222]\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3222\",\n      \"justification\": \"Conducted by the Institut für praxisorientierte Sozialforschung (IPOS) in May 1999 specifically for the 50th anniversary of the Federal Republic of Germany, this dataset contains survey data on Germans' evaluations of democracy and the political system, party preference, reunification, social market economy, optimism about Germany's future, and demographic characteristics.\"\n    },\n    {\n      \"title\": \"German General Social Survey - ALLBUS 1998 [ZA3000]\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3000\",\n      \"justification\": \"This 1998 wave of the ALLBUS survey provides population-representative data on social conditions, economic evaluations, attitudes toward democratic institutions, party preferences, and demographic indicators in East and West Germany in the late 1990s.\"\n    },\n    {\n      \"title\": \"Election Study 1998 (Politbarometer 1998) [ZA3160]\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3160\",\n      \"justification\": \"Distributed by GESIS, this dataset collects data on political attitudes, party preferences, candidate evaluations, government performance, and voting behavior in Germany around the 1998 federal election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1478,
+          "candidatesTokenCount": 390,
+          "totalTokenCount": 3993,
+          "cachedContentTokenCount": 750,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1478
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 750
+            }
+          ],
+          "thoughtsTokenCount": 2125,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "DHmEapG9DaizxN8Pt9e18AM"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 15,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled 50 Years Federal Republic of Germany?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"50 Years Federal Republic of Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3222\",\n      \"justification\": \"This dataset (GESIS Study ZA3222), conducted by IPOS and published via GESIS Data Archive, contains survey data on public perceptions, democracy judgments, and political expectations on the occasion of the 50th anniversary of the Federal Republic of Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 337,
+          "candidatesTokenCount": 129,
+          "totalTokenCount": 1163,
+          "cachedContentTokenCount": 116,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 337
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 116
+            }
+          ],
+          "thoughtsTokenCount": 697,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "5EW-apfhHPDR28oPxZzjwAU"
+      }
+    }
+  ]
+}

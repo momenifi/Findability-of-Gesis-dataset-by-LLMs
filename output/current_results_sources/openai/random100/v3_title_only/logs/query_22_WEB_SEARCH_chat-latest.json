@@ -1,0 +1,183 @@
+{
+  "query_id": 22,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled The Role of Women in the Informal sector: The Case of Ajegunle, Nigeria?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_01a0f819dabec89b006b046d64c9bc87d291c7a5768971bafa",
+        "created_at": 1795452260.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_01a0f819dabec89b006b046d65b32c87d2aa81794c6fbbd3d3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"The Role of Women in the Informal sector\" \"Ajegunle\" dataset",
+                "\"The Role of Women in the Informal sector: The Case of Ajegunle, Nigeria\""
+              ],
+              "query": "\"The Role of Women in the Informal sector\" \"Ajegunle\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_01a0f819dabec89b006b046d67e5ec87d29602ee2b88cddb9d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"The Role of Women in the Informal Sector\" \"5003\" GESIS",
+                "site:search.gesis.org/research_data/ \"Ajegunle\"",
+                "\"Role of Women\" \"Ajegunle\" \"doi.org\""
+              ],
+              "query": "\"The Role of Women in the Informal Sector\" \"5003\" GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_01a0f819dabec89b006b046d6a3a8887d28d07550d9347e0ea",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"The Role of Women in the Informal Sector: The Case of Ajegunle, Nigeria\",\"url_or_doi\":\"https://www.gesis.org/fileadmin/upload/forschung/publikationen/zeitschriften/za_information/ZA-Info-27.pdf\",\"justification\":\"Exact title match found in the official GESIS (Leibniz Institute for the Social Sciences) publication ZA-Information, Issue 27 (November 1990). The dataset is listed under study number 5003. This confirms that the study was cataloged in the GESIS data archive. The provided URL leads to the official publication documenting the dataset, rather than a direct dataset landing page. A dedicated dataset landing page, downloadable data files, and DOI could not be independently verified.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452267.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 16657,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 295,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 16952
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

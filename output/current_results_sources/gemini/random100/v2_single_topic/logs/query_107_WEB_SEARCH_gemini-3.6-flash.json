@@ -1,0 +1,69 @@
+{
+  "query_id": 107,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Income, property and investment/saving in Germany during the 1910s and 1920s and 1930s and 1940s and 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"World Inequality Database: Germany Income and Wealth Country Series\",\n      \"url_or_doi\": \"https://wid.world/country/germany/\",\n      \"justification\": \"Provides long-run historical time series and distributional national accounts on income, wealth (property), capital assets, and investment/savings in Germany spanning from the early 20th century (1910s) through the 2000s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel Study (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40eu\",\n      \"justification\": \"A representative multi-cohort panel dataset of households in Germany starting in 1984, capturing detailed individual and household data on income, property ownership, financial assets, and savings across the 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"UNU-WIDER World Income Inequality Database (WIID)\",\n      \"url_or_doi\": \"https://www.wider.unu.edu/database/world-income-inequality-database-wiid\",\n      \"justification\": \"Compiles historic long-run country-level statistics and distributional data on income, savings, and economic inequality in Germany covering various historical periods from the early 1900s through the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1584,
+          "candidatesTokenCount": 356,
+          "totalTokenCount": 4017,
+          "cachedContentTokenCount": 805,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1584
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 805
+            }
+          ],
+          "thoughtsTokenCount": 2077,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "KTiEaqWLDb_8vdIP2f6XyQY"
+      }
+    }
+  ]
+}

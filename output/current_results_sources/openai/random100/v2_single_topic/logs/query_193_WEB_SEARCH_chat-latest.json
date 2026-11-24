@@ -1,0 +1,183 @@
+{
+  "query_id": 193,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Czech Republic during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_07a7fc808d2e70aa006b0466b6f0bc87d298a0abeca800cccf",
+        "created_at": 1795450550.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_07a7fc808d2e70aa006b0466b7f8e887d28c9bf15c4a7ed411",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Czech Statistical Office election results 2002 2006 2000 2004 2008 data volby.cz",
+                "Czech Republic election datasets 2000 2009 parliamentary local European election download"
+              ],
+              "query": "Czech Statistical Office election results 2002 2006 2000 2004 2008 data volby.cz",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_07a7fc808d2e70aa006b0466bb8e1887d299d9c00528c5458e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:volby.gov.cz/opendata/ ep2004 ep2009 opendata",
+                "site:volby.gov.cz/opendata/ kz2004 kz2008 kv2006",
+                "site:volby.gov.cz/opendata/ senate 2000 2002 2004 2006 2008"
+              ],
+              "query": "site:volby.gov.cz/opendata/ ep2004 ep2009 opendata",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_07a7fc808d2e70aa006b0466bf3e7887d29c85c1bfaf11febd",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Czech Statistical Office – Election Results for All Election Types Since 2004\",\n      \"url_or_doi\": \"https://csu.gov.cz/volebni-vysledky-za-vsechny-typy-voleb-od-roku-2004\",\n      \"justification\": \"Official dataset collection published by the Czech Statistical Office (CZSO). Contains historical results for parliamentary, Senate, regional, municipal, and European Parliament elections. Provides election results at multiple geographic levels, including municipalities and polling districts. Data are available in XML and Excel formats. Particularly useful for comprehensive analysis of Czech elections between 2004 and 2009.\"\n    },\n    {\n      \"title\": \"Czech Parliamentary Election Results – 2002\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/ps2002/ps2002_opendata.htm\",\n      \"justification\": \"Official open dataset covering the 2002 elections to the Chamber of Deputies of the Czech Parliament. Contains voting results, political party performance, and electoral statistics. Useful for investigating party competition, geographic voting patterns, and electoral participation during the early 2000s.\"\n    },\n    {\n      \"title\": \"Czech Parliamentary Election Results – 2006\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/ps2006/ps2006_opendata.htm\",\n      \"justification\": \"Official Czech Statistical Office dataset documenting the 2006 parliamentary elections. Includes election results, political party votes, and geographic breakdowns. Particularly valuable for comparing the 2002 and 2006 parliamentary elections and studying changes in political preferences.\"\n    },\n    {\n      \"title\": \"Czech Senate Election Results – 1996–2025\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/senat_vse/senat_vse_opendata.htm\",\n      \"justification\": \"Comprehensive official dataset covering elections to the Czech Senate, including elections held in 2000, 2002, 2004, 2006, and 2008. Contains candidate information, electoral districts, voting results, and polling-district-level data. Includes downloadable data in XML, Excel, CSV, and JSON formats. Suitable for longitudinal research on Czech Senate elections throughout the 2000s.\"\n    },\n    {\n      \"title\": \"Czech Senate Elections – Complete Historical Data and Candidate Registers\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/senat_vse/senat_vse_opendata_seznam.htm\",\n      \"justification\": \"Official downloadable data collection containing candidate registers, political party classifications, electoral district identifiers, and historical Senate election data from 1996 through 2025. Includes all regular Senate elections held during the 2000s. Particularly useful for candidate-level analysis, party affiliation research, and comparisons across election years.\"\n    },\n    {\n      \"title\": \"Czech Senate Election Results – 2008\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/se2008/se2008_opendata.htm\",\n      \"justification\": \"Official dataset specifically documenting the 2008 Czech Senate elections. Provides election results and supporting electoral data in open formats. Useful for studying candidate performance, voting patterns, and electoral competition in the final years of the 2000s.\"\n    },\n    {\n      \"title\": \"Czech Regional Elections – 2000\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/kz2000/kz2000_opendata.htm\",\n      \"justification\": \"Official Czech Statistical Office open dataset containing results from the 2000 regional council elections. Provides information on regional electoral competition and voting outcomes. Particularly useful for examining the development of regional politics and electoral behavior at the beginning of the decade.\"\n    },\n    {\n      \"title\": \"Czech Regional Elections – 2004\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/kz2004/kz2004_opendata.htm\",\n      \"justification\": \"Official dataset covering the 2004 elections to regional councils in the Czech Republic. Contains regional election results and supporting electoral statistics. Enables comparisons with the 2000 regional elections and analysis of changing political preferences across Czech regions.\"\n    },\n    {\n      \"title\": \"Czech Municipal Elections – 2002\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/kv2002/kv2002_opendata.htm\",\n      \"justification\": \"Official open dataset documenting the 2002 municipal council elections. Contains local election results and related electoral information. Particularly relevant for studying local political competition, independent candidates, and voting behavior across Czech municipalities.\"\n    },\n    {\n      \"title\": \"Czech European Parliament Elections – 2009\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/ep2009/EP2009_XML.pdf\",\n      \"justification\": \"Official Czech Statistical Office documentation describing the XML election-results data for the 2009 European Parliament elections. Provides information about the structure and availability of electoral results. Useful for researchers examining European electoral participation and political party performance in the Czech Republic during the late 2000s.\"\n    },\n    {\n      \"title\": \"Czech European Parliament Elections – Polling District Data, 2004–2014\",\n      \"url_or_doi\": \"https://volby.gov.cz/opendata/ep2009/EP_datovaveta.pdf\",\n      \"justification\": \"Official data documentation for polling-district-level European Parliament election results covering 2004 through 2014, including both the 2004 and 2009 elections. Describes variables such as registered voters, ballots issued, valid votes, political party votes, and candidate preference votes. Useful for researchers working with granular European election data.\"\n    },\n    {\n      \"title\": \"Czech Election Results by Municipality and Polling District – 1996–2026\",\n      \"url_or_doi\": \"https://czechdatasets.com/en/data/volby\",\n      \"justification\": \"Harmonized historical election dataset combining Czech Statistical Office election results into a consistent structure. Covers parliamentary elections in 2002 and 2006; European Parliament elections in 2004 and 2009; regional elections in 2000, 2004, and 2008; municipal elections in 2002 and 2006; and Senate elections throughout the decade. Provides standardized geographic identifiers and multiple data formats, including CSV, JSON, Parquet, and PostgreSQL. Particularly valuable for longitudinal analysis and geographic comparisons. This is a third-party processed dataset rather than an official CZSO release.\"\n    },\n    {\n      \"title\": \"Voter Turnout in Czech Elections Since 1996\",\n      \"url_or_doi\": \"https://czechdatasets.com/en/otevrena-data/volby-prehled\",\n      \"justification\": \"Historical election participation dataset derived from Czech Statistical Office records. Includes elections held throughout the 2000–2009 period, with information on registered voters, ballots issued, valid votes, and voter turnout percentages. Covers multiple election types and is particularly useful for comparing electoral participation across years and election categories.\"\n    },\n    {\n      \"title\": \"Czech Statistical Office – Election Results in the Public Database\",\n      \"url_or_doi\": \"https://csu.gov.cz/vysledky_voleb_ve_verejne_databazi\",\n      \"justification\": \"Official Czech Statistical Office resource describing election results available through its public statistical database. Includes information about the 2006 parliamentary elections and geographic breakdowns covering municipalities, districts, regions, and other administrative areas. Useful for researchers interested in integrating election results with demographic and regional statistical indicators.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of the Czech Republic 2003 – Election Statistics\",\n      \"url_or_doi\": \"https://csu.gov.cz/produkty/statistical-yearbook-of-the-czech-republic-2003-vjqt4glxjg\",\n      \"justification\": \"Official statistical publication containing historical election tables, including results from the 2002 municipal and Senate elections. Includes information about votes, seats, political parties, and independent candidates. Provides useful supplementary historical statistics for analyzing elections in the early 2000s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450568.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18922,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1896,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20818
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

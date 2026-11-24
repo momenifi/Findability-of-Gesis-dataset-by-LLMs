@@ -1,0 +1,69 @@
+{
+  "query_id": 25,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Social Situation and Political Orientations of the Jena Populace before the Municipal Election in May 1990?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Social Situation and Political Orientations of the Jena Populace before the Municipal Election in May 1990 (Soziale Situation und politische Orientierungen der Jenaer Bevölkerung vor der Kommunalwahl im Mai 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6350\",\n      \"justification\": \"This dataset (GESIS Study ZA6350) captures the survey data regarding the social situation and political orientations of citizens in Jena prior to the municipal election in May 1990.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1412,
+          "candidatesTokenCount": 154,
+          "totalTokenCount": 3411,
+          "cachedContentTokenCount": 934,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1412
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 934
+            }
+          ],
+          "thoughtsTokenCount": 1845,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "q0e-avrTN9W1kdUP1-TlKA"
+      }
+    }
+  ]
+}

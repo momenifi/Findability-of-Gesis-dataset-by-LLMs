@@ -1,0 +1,69 @@
+{
+  "query_id": 176,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sample Survey of Income and Expenditure 1983 & 1988 (Einkommens- und Verbrauchsstichprobe - EVS)\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/en/households/evs\",\n      \"justification\": \"Conducted every five years by the German Federal Statistical Office (including 1983 and 1988), the EVS is the primary official dataset tracking West German private household incomes, asset equipment, debt, and detailed consumption expenditure categories.\"\n    },\n    {\n      \"title\": \"SOEP-Core: German Socio-Economic Panel (1984 onwards)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38\",\n      \"justification\": \"Launched in West Germany in 1984, the SOEP is a long-running representative panel study that gathers annual microdata on German households, capturing income, living conditions, consumer durables, and individual economic behavior.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS Cumulative 1980-2018 (German General Social Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13324\",\n      \"justification\": \"Initiated in 1980 by GESIS, this biennial survey series monitors social and economic trends in West Germany during the 1980s, including consumer attitudes, subjective economic well-being, and material living conditions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 782,
+          "candidatesTokenCount": 384,
+          "totalTokenCount": 3391,
+          "cachedContentTokenCount": 323,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 782
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 323
+            }
+          ],
+          "thoughtsTokenCount": 2225,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "6UeEaqrAE9a8kdUP2-3LgAk"
+      }
+    }
+  ]
+}

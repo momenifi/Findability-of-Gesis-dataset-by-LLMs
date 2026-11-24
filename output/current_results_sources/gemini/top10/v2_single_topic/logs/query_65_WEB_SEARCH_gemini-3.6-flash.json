@@ -1,0 +1,69 @@
+{
+  "query_id": 65,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about social media in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Parliament Election 2024: German Candidates Social Media Activities\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14457\",\n      \"justification\": \"This dataset, published by GESIS Web Data, captures social media activities across Facebook, Instagram, TikTok, and X (Twitter) for German candidates during the 2024 European Parliament election.\"\n    },\n    {\n      \"title\": \"Social Media Accounts (TikTok, YouTube, X/Twitter) of the Candidates in the 2025 German Federal Election\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2862\",\n      \"justification\": \"Compiled under the SPARTA research project and archived at GESIS, this dataset tracks social media handles and post metadata for candidates in the 2025 German federal election.\"\n    },\n    {\n      \"title\": \"Twitter-Accounts der Kandidierenden zur Bundestagswahl 2021 (GLES)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14233\",\n      \"justification\": \"Published by GESIS as part of the German Longitudinal Election Study (GLES), this dataset contains Twitter account details and posting data for major political party candidates during the 2021 German federal election.\"\n    },\n    {\n      \"title\": \"EPINetz Twitter Politicians Dataset 2021\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2415\",\n      \"justification\": \"This dataset offers curated data on 2,449 Twitter accounts belonging to German parliamentarians, ministers, state secretaries, and political parties across state, federal, and EU levels in 2021.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 795,
+          "candidatesTokenCount": 446,
+          "totalTokenCount": 3016,
+          "cachedContentTokenCount": 180,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 795
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 180
+            }
+          ],
+          "thoughtsTokenCount": 1775,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "nrmnauDSA4HynsEPg-ekgAY"
+      }
+    }
+  ]
+}

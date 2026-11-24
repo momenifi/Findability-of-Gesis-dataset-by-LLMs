@@ -1,0 +1,69 @@
+{
+  "query_id": 66,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Meinungsumfrage 1990 - Zur Entwicklung in der DDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6049\",\n      \"justification\": \"Conducted in 1990 by the Zentralinstitut für Jugendforschung (ZIJ) in Leipzig, this survey measures political attitudes, party preferences, expectations regarding German unification, and general political/social outlooks in the German Democratic Republic during 1990.\"\n    },\n    {\n      \"title\": \"Städte und Gemeinden 1990 (Hauptuntersuchung)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6302\",\n      \"justification\": \"Survey conducted in March 1990 by the Institut für Soziologie und Sozialpolitik at the GDR Academy of Sciences, examining citizen participation, political attitudes, and municipal policy preferences in East German towns and cities.\"\n    },\n    {\n      \"title\": \"Political Attitudes in East and West, March 1990 (Comparative Survey FRG - GDR)\",\n      \"url_or_doi\": \"https://madata.bib.uni-mannheim.de/324/\",\n      \"justification\": \"A comparative survey led by Rudolf Wildenmann in March 1990 that collects data on political attitudes, economic expectations, and views on reunification across both East Germany (GDR) and West Germany (FRG).\"\n    },\n    {\n      \"title\": \"Sächsische Längsschnittstudie (Saxony Longitudinal Study)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10774\",\n      \"justification\": \"A panel study started in 1987 in the GDR and continued through multiple waves in the 1990s, tracking young East Germans' political socialization, democracy orientations, identity, and political attitudes before and after reunification.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 800,
+          "candidatesTokenCount": 474,
+          "totalTokenCount": 2686,
+          "cachedContentTokenCount": 399,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 800
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 399
+            }
+          ],
+          "thoughtsTokenCount": 1412,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "QTKEavX6G8G3vdIPp8WhqAo"
+      }
+    }
+  ]
+}

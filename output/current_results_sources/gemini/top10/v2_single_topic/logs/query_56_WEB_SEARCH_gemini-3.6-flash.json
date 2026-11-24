@@ -1,0 +1,69 @@
+{
+  "query_id": 56,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"World Bank Open Data: Germany Country Indicators\",\n      \"url_or_doi\": \"https://data.worldbank.org/country/germany\",\n      \"justification\": \"Provides comprehensive open datasets on key German macroeconomic indicators including annual GDP growth, inflation, unemployment, trade balances, and gross capital formation throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Economic and Financial Data for Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/_node.html\",\n      \"justification\": \"Maintained by the German Federal Statistical Office (Destatis), offering direct datasets and short-term indicators covering national accounts, consumer price indices, manufacturing output, and public finance for Germany across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank Macroeconomic Time Series Database\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/time-series-databases\",\n      \"justification\": \"The Deutsche Bundesbank database features time series and real-time datasets detailing monetary policy, capital markets, prices, and general macroeconomic indicators for Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Germany - Social-Economic Indicators Dataset (2003–2020)\",\n      \"url_or_doi\": \"https://www.kaggle.com/datasets/samanemami/germany-socialeconomic-indicators-20032020\",\n      \"justification\": \"A structured Kaggle dataset compiling macro-level annual economic and demographic indicators for Germany from 2003 to 2020 in a CSV format suited for exploratory data analysis.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpQRCpERARFNMg/ofB9nahBcv/7MKCbB+aWwqnwUFkF02sZatJi7VH1c3xOXmo3Std1XqDZRdFUiCiCPsu+GjlJFAdsbO8LnqQFsFpmPtYq2zPMTAN9zLerQ9CpIxcu8YezoIHtdaQr/aWkK7x3dScWltxv1n8ZeHtvcA5TX84TC5Btt9AIf1sMbooiCm2oM/dCCk9zuqVYqRGWsGEIV3+Pnf+bZ1+zpSnrQWNkzkaMEt6yz4ATjdI+U2tIbnySiPVIHHXWnA80sy1A7452ti4fXbP78ECikBFlG1SY+cb6vpa7iwXsuwMVpR1hLYCS03UB1XZcbjegsarLZD6nNqof66CQ+gwq4o0EQQf63JOf9WMrsNUnzBdTD43g8VpHoyTZLqTgRjqiRhPJLmY179o7jjbImns4LsuTWoIRy2GII3kSo9elpqpqyQsihnVOBVQRc8WC//tYkxpszbCYEnxaoGBRbjDmYg0WcsJlBZkxctNv+HhQrd1XOFy9Mn9WgVrjbvBM440UaJDBg0nUaRcHke+WfAs5RWWiLOS/7bjeqcDg7BfJXezWRnPeX7stQTcRnmw7R/YJnC0E6pe7+sOTyQXdsFfaqAFfBuW7KoxgCof2U4gXnPYP+y559tv+agAdBtaHudPqU/KYKTl2irfAuau18bpOBJ+rfh7NnTT2Yo1ZZijC62y7b7u77yVIQdEJnec21TNAt7r+p7fImEaz4bcka5L1HnryJguFQ+9DiCHN53643b88NHF/Df9zZmHkrbRoJ01twpcK8mJ1eYcimLtCOazf7Ay9fSwyNrXbMqVXqtB88HSmOCVbzKPVMGkQGqZZ6SRjKc4u7gxjkbYlpApTdPfi/IDX1xnzmMH2dVtNQ6KsAHn4q4inL4udmS+fcNRwhVLCPDfO7sCj2Lo3uMzCJ2JtR+tZ78BKzQe3ZzrWafUFqz4cFnVaTOIEXPmxNU5VqF/i1FLao8tV6SDgKvYAqNEWuBkhtQ6HVCoof3otHLgD7rZxLRBFmdLhKgT6knK1RE7tMUJzZ32wJaafFzCCxUg43LGfUSMSSvxgatJcuEymPhqE6RJVJzr3Z1ZHBH0H2h+wxGfy05/ln7cY6CgLFHAYGCdVHJXCiUsdnD4docSmEJUehizxzZ157baWPAbcleDn93U0SOT5tVXp0S4egT+HBazsbjRxzzaojQVKvdA6WpqfO4UD6bOTwGc5Nmoyp/QTb/zv7Ef2fm1Mm7l6RcSvjwCaOQYyArixarsQAInYuLgjTQdDhguW50zeTnwXAdKd1YoWmSNkXALf6HUVEuTfxwI2ytQ+b9tjB5zZjjiTtFkOu5c1YPb6gib2gPLQaUZNB1PHGjVpKHuPOuIs6wsbRdtXRZjXTpIlAxyusYaxz7xe7gnPu/Uuu45si/9SUnYMkP4Jfiggk4RlDvJ65EHC8ISONbK3iy6IlSxP429H+3OYnfmLqV8kFxqF+CY2qah/0TJyiA4udUO8jqPs8I5yHDwmQUrU3T38UpKZH6BfNQ3izBk8XeEsvdf1dx5TR4w96lFTytcyvwy/aOzqQ48HWr/6l2YBP+mC/MeJ6V8ma80vB7AmSJuti+bMtQuejj8oAZ2HeS6s3YE+QmHSQiWf69DOV9YZerrLm7rTumS7L4u6OHjZo+HhSKe4n+wUcjwW4KJLMp/d+1W2p5vBOSiF5GCSx6f9xV3tcQ4sCyGMlG988c/VIlPxcnqrqpVAK9ajTP36izbF7Q3R3GELdQghx6Io++LpOetaSiA7Qi7b+MrCxTGbN/5G2pphI0jBYdt6L4absVbSsBYFX4IkXrsrtjFCMGQez04SFLaK8bdQ23sl7AkTHJP1Z3QF661GmVUuan1X0ObhELNzYHEmZ221EWanAxX691+xHQmhEKThsFGiLIFeyfeYiU0KMkjr1QnelikjpgUyyjgYLbWhxcjYnY04C5Q0ME+BZWEiI1hkWEMyxvKVNlnC+35+3msmW3aYZ9nR4UQCGyQjO2ikyIOHyHoUeijTWD82j+QOZMidNnX82NyEJJALhAT8MwHaDvjMfIQ155yDHX+7h111wnrj4GKB1HY0k041p5vaulpQ0EhYwV13JI0tQKOvUbD7M+G6JByHhhR0riwrNP3YzGvoulv7D+0/kjMLSgAbBU3cZqphq6spQEZ/IwSeru1mCoXNzBFzLYzt/M3WQuAbE+fRZjXbvvVGBgPxfD8GMbvH3tsa2KLetvUlG+sbbudJGakZrVLpeScxwVv+h9VIhEe31xc/LNFdPd6XmK9SAAK2JZ6pSiN5foTFMtTfmIG/pXk5VL9xdjyCCQuGHjqPdgw2C0TiZDMd/adtQiSdBKfxgI/ygxQVPwUlTScbUaiZe8BGUQ3eXBHgEnowK1EiZR/C9u2NmqnAITJQHOoeJq8muTtGT4Z3npxdxPrgV8Nu5U6U1hN+Cgo7M4RgpThAB59HstfmANfomVTVFuGgbi/TVhq4HmPQO86tHD7HbPDwqXs9UfphhVE1VYDV7AAghmagoJYOU6incWp9Rho1kbIYCR4MTvZg86Cz/3yBU80Y7l5ev0Qf9BwWSK0/B0Mgy+BY1XIHm0t5IGWbiOimwiWKPLGltRh8kqWTgVPiHcXnt5eNPipw4XYcvFJGuQ7m+W3r7F7i+TBncgRvq3hPIlZpqFM0tNSSfspaJIfKiFPlCPFOCcHQbjWrepqOWqTLaADsfCFzcO23shQL0/Fp73VLn4/HsCE1YgL+EGFy8fz7ocMRZUota2/K3gVkd3aYwdR5AYY7RNdnU6skQkZCzWZiJP3imrd0lFJkw5wuYOAL1a626DSWIMkyCeV5A8ZwVjuf4VMt5WcIlVAlmMkXZ74BZQFuG+i777U3dLAHoRsIZXi4Ok2E3Mjy3NDJMHmna9mC4+fzDRwwlC7zIViHllw4l"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1176,
+          "candidatesTokenCount": 443,
+          "totalTokenCount": 3226,
+          "cachedContentTokenCount": 667,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1176
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 667
+            }
+          ],
+          "thoughtsTokenCount": 1607,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "E7mnarDIK8nlnsEPo9PW0QY"
+      }
+    }
+  ]
+}

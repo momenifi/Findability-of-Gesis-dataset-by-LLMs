@@ -1,0 +1,69 @@
+{
+  "query_id": 65,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Ostdeutsche Wohnmilieus im Wandel\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2653\",\n      \"justification\": \"This dataset (GESIS ZA2653) investigates the transformation of housing environments, local community structures, and urban living conditions across selected East German municipal districts following the collapse of the GDR during the early 1990s transition period.\"\n    },\n    {\n      \"title\": \"Ehemalige DDR-Bürger in der Bundesrepublik\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2425\",\n      \"justification\": \"Conducted in the early 1990s, this dataset (GESIS ZA2425) documents the urban and rural background, housing situations, community mobility, and integration experiences of former GDR citizens.\"\n    },\n    {\n      \"title\": \"The Potsdam Grievance Statistics File (PGSF)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12916\",\n      \"justification\": \"This dataset (GESIS ZA6413) provides quantitative records of public grievances (Eingaben) submitted by GDR citizens between 1970 and 1989, documenting quality of life, local community issues, and urban/rural infrastructure problems across East German municipalities.\"\n    },\n    {\n      \"title\": \"Sächsische Längsschnittstudie (Saxon Longitudinal Study)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10774\",\n      \"justification\": \"This longitudinal panel dataset (GESIS ZA6213 et seq.) tracks East German youth from late GDR times (1987) through the 1990s transition, surveying local community integration, political attitudes, and changing urban and rural living conditions in Saxony.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 658,
+          "candidatesTokenCount": 478,
+          "totalTokenCount": 2480,
+          "cachedContentTokenCount": 240,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 658
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 240
+            }
+          ],
+          "thoughtsTokenCount": 1344,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "m1mFareFCf2WvdIP27aWCA"
+      }
+    }
+  ]
+}

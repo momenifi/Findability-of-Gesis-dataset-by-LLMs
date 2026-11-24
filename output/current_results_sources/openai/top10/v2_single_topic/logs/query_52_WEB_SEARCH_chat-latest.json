@@ -1,0 +1,186 @@
+{
+  "query_id": 52,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_033483c8e3780d0c006b047a47471087d298922ac826ce167c",
+        "created_at": 1795455559.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_033483c8e3780d0c006b047a48482487d2b05f6b85b1f8ea37",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany health disease prevalence datasets 2010 2020 RKI Gesundheit in Deutschland diabetes depression",
+                "Germany cancer registry data 2010 2022 ZfKD database",
+                "Germany infectious disease surveillance data SurvStat RKI 2010 2024",
+                "Germany hospital diagnosis statistics 2010 2023 Destatis dataset"
+              ],
+              "query": "Germany health disease prevalence datasets 2010 2020 RKI Gesundheit in Deutschland diabetes depression",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_033483c8e3780d0c006b047a4c667487d287ee58c042cbfb57",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:krebsdaten.de datenbank krebs deutschland datenbankabfrage 2022",
+                "site:destatis.de GENESIS online Krankenhausdiagnosestatistik 23131",
+                "site:rki.de diabetes surveillance dashboard deutschland daten",
+                "site:github.com/robert-koch-institut COVID-19 Daten Deutschland repository"
+              ],
+              "query": "site:krebsdaten.de datenbank krebs deutschland datenbankabfrage 2022",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_033483c8e3780d0c006b047a50b12487d2b6a03a10d7cd73b1",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Health Update (GEDA) 2019/2020 – Chronic Diseases and Health Conditions\",\n      \"url_or_doi\": \"https://doi.org/10.7797/31-201920-1-1-1\",\n      \"justification\": \"Official dataset from the Robert Koch Institute (RKI) covering 22,708 adults in Germany surveyed between 2019 and 2020. Includes information on chronic diseases and specific medical conditions such as diabetes, cardiovascular diseases, asthma, chronic obstructive pulmonary disease (COPD), and depression. Contains 310 variables and supports analysis by age, sex, and federal state. Particularly useful for studying disease prevalence during the transition from the 2010s to the 2020s. Scientific Use File access conditions apply.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA) – Surveys from 2010, 2012, 2014/2015, and 2019/2020\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"Collection of nationally representative health survey datasets maintained by the Robert Koch Institute. Includes GEDA 2010 (22,050 participants), GEDA 2012 (19,294 participants), GEDA 2014/2015 (24,016 participants), and GEDA 2019/2020 (22,708 participants). Provides information about diagnosed illnesses, chronic medical conditions, health status, and associated risk factors. Especially valuable for comparing disease prevalence across different periods of the 2010s and 2020s. Scientific Use Files require an application.\"\n    },\n    {\n      \"title\": \"National Diabetes Surveillance Germany – Results 2015–2024\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.14935276\",\n      \"justification\": \"Research dataset published by the Robert Koch Institute containing indicators from Germany's National Diabetes Surveillance program. Covers diagnosed diabetes, disease prevalence, incidence, and related health indicators. Includes analyses based on statutory health insurance records and other surveillance sources. Particularly relevant for investigating diabetes mellitus and its regional and demographic distribution in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Hospital Diagnosis Statistics – GENESIS-Online, Dataset 23131\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23131/details\",\n      \"justification\": \"Official annual hospital diagnosis statistics maintained by the German Federal Statistical Office (Destatis). Provides data on hospitalized patients classified by ICD-10 diagnosis, including cardiovascular diseases, cancers, respiratory disorders, neurological conditions, diabetes, and mental disorders. Includes annual observations covering the 2010s and 2020s, with breakdowns by age, sex, and geographical region. Useful for analyzing hospitalization patterns, disease-specific admissions, and changes in severe illness over time.\"\n    },\n    {\n      \"title\": \"German Hospital Patients by ICD-10 Diagnosis, Age, Sex, and Year\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23131/details\",\n      \"justification\": \"The Destatis GENESIS-Online hospital diagnosis database includes table 23131-0002, which provides annual hospital patient statistics by ICD-10 primary diagnosis, age group, and sex. It enables comparisons of specific medical conditions across demographic groups during the 2010s and 2020s. The database also includes regional tables, such as 23131-0011, for examining differences between German federal states. These are hospitalization counts rather than population prevalence estimates.\"\n    },\n    {\n      \"title\": \"German Causes of Death Statistics – GENESIS-Online, Dataset 23211\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"Official German mortality statistics produced by Destatis. Dataset 23211 contains annual death counts categorized by cause of death, age, and sex. Covers specific diseases and medical conditions including malignant neoplasms, cardiovascular diseases, respiratory illnesses, neurological disorders, and infectious diseases. Provides historical annual data suitable for studying changes in disease-specific mortality across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Infectious Disease Surveillance – RKI SurvStat\",\n      \"url_or_doi\": \"https://survstat.rki.de/\",\n      \"justification\": \"Official infectious disease surveillance database operated by the Robert Koch Institute. Contains reported cases of legally notifiable infectious diseases in Germany, including tuberculosis, measles, hepatitis, salmonellosis, influenza-related conditions, and other infections. Provides historical surveillance records spanning the 2010s and 2020s. Supports customized queries by disease, year, age group, sex, and geographical area. Particularly useful for investigating infectious disease incidence and temporal trends.\"\n    },\n    {\n      \"title\": \"Germany Infectious Disease Surveillance Data 2010–2026 – Global Infectious Disease Surveillance\",\n      \"url_or_doi\": \"https://globalinfectiousdisease.com/countries/de/\",\n      \"justification\": \"Country-specific infectious disease surveillance dataset consolidating records from the Robert Koch Institute's SurvStat system. Covers 71 tracked infectious diseases, with observations from 1990 through October 2026. Provides downloadable CSV, JSON, and XLSX datasets organized into time periods including 2010–2014, 2015–2019, and 2020–2025. Especially useful for machine-readable longitudinal analysis of infectious diseases in Germany. This is a third-party aggregation of official surveillance data.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS1)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"Nationally representative adult health examination dataset from the Robert Koch Institute, collected during 2008–2011. Includes 7,987 participants and more than 1,000 variables. Covers specific conditions such as diabetes, hypertension, obesity, cardiovascular diseases, depression, and other chronic illnesses. Combines questionnaire responses with clinical examination measurements, making it particularly valuable for estimating disease prevalence at the beginning of the 2010s and comparing results with later German health surveys.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS), Waves 1 and 2\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"National health survey datasets focusing on children and adolescents aged 0–17 years in Germany. KiGGS Wave 1 covers 2009–2012 and includes 12,368 participants; Wave 2 provides data from the 2010s for 15,023 participants. Contains information on childhood illnesses, allergic diseases, asthma, obesity, mental health problems, and other health conditions. Useful for investigating pediatric disease prevalence and changes in children's health during the 2010s.\"\n    },\n    {\n      \"title\": \"German Cancer Registry Data – Centre for Cancer Registry Data (ZfKD)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Institute/Organisation/Departments/Department-2/German-Centre-for-Cancer-Registry-Data/ZFKD_org.html\",\n      \"justification\": \"Official national cancer surveillance resource managed by the Robert Koch Institute's German Centre for Cancer Registry Data. Consolidates information from Germany's federal state cancer registries and provides cancer incidence estimates and epidemiological analyses. Covers specific malignant diseases, including breast, lung, colorectal, prostate, and other cancers. Particularly useful for investigating cancer occurrence and demographic differences in Germany during the 2010s and 2020s. Access to detailed registry data may be restricted.\"\n    },\n    {\n      \"title\": \"SARS-CoV-2 Infections in Germany – Robert Koch Institute Open Data\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland\",\n      \"justification\": \"Official open dataset published by the Robert Koch Institute containing reported SARS-CoV-2 infections in Germany. Includes COVID-19 case counts and associated epidemiological information, with geographical breakdowns to district level and demographic information such as age groups and sex. Covers the COVID-19 pandemic period beginning in 2020. Useful for investigating the geographical distribution and temporal evolution of COVID-19 in Germany.\"\n    },\n    {\n      \"title\": \"SARS-CoV-2 Genomic Surveillance Data from Germany\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/SARS-CoV-2-Sequenzdaten_aus_Deutschland\",\n      \"justification\": \"Official Robert Koch Institute repository containing SARS-CoV-2 genomic surveillance data from Germany. Includes information on viral sequences and variants identified through national surveillance activities during the COVID-19 pandemic. Data transmitted through the German Electronic Sequence Data Hub cover surveillance activities through May 2023. Relevant for studying SARS-CoV-2 variants, genomic epidemiology, and changes in circulating viral lineages during the early 2020s.\"\n    },\n    {\n      \"title\": \"German National Surveillance of Noncommunicable Diseases\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/NCD-surveillance.html\",\n      \"justification\": \"Robert Koch Institute resource bringing together national surveillance information on noncommunicable diseases. Includes work on diabetes surveillance during 2015–2024, mental health surveillance during 2019–2023, and childhood obesity surveillance during 2015–2020. Draws on health surveys, administrative records, healthcare data, and disease registries. Useful for locating disease-specific datasets and indicators covering chronic physical and mental health conditions in Germany.\"\n    },\n    {\n      \"title\": \"German Disease-Specific Healthcare Costs – GENESIS-Online\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/b0dcfc69\",\n      \"justification\": \"Official Destatis dataset reporting healthcare expenditure by disease category using ICD-10 classifications. Includes costs associated with specific conditions and disease groups such as asthma, chronic respiratory diseases, cardiovascular diseases, and other medical disorders. Provides annual and disease-specific economic indicators for Germany, enabling analysis of the financial burden associated with different medical conditions. Complements epidemiological datasets by measuring healthcare costs rather than disease prevalence.\"\n    },\n    {\n      \"title\": \"German Infectious Disease Epidemiological Yearbooks – Robert Koch Institute\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Infektionsepidemiologisches-Jahrbuch/infektionsepidemiologisches-jahrbuch-node.html\",\n      \"justification\": \"Official collection of annual infectious disease surveillance reports from the Robert Koch Institute. Contains statistics on nationally notifiable diseases, including reported cases, incidence, geographical distribution, and demographic characteristics. Provides historical information across the 2010s and 2020s, including the effects of the COVID-19 pandemic on infectious disease reporting. Particularly useful for disease-specific historical comparisons and validating data retrieved from SurvStat.\"\n    },\n    {\n      \"title\": \"German Hospital Diagnosis Statistics 2023 – Federal Statistical Office\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Krankenhauser/Publikationen/Downloads-Krankenhaeuser/statistischer-bericht-diagnosedaten-5231301237015.html\",\n      \"justification\": \"Official statistical release containing hospital diagnosis data for Germany in 2023. Reports hospital treatment cases by ICD-10 disease classifications, allowing analysis of specific illnesses, injuries, and medical disorders. Useful for studying the distribution of serious medical conditions requiring inpatient care in the 2020s and comparing the findings with historical hospital diagnosis statistics available through GENESIS-Online.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455581.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19109,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2728,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21837
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

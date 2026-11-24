@@ -1,0 +1,69 @@
+{
+  "query_id": 17,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Occupational health in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Working Conditions Survey, 2015 (EWCS 2015)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-8098-5\",\n      \"justification\": \"A major European survey conducted by Eurofound across 35 European countries in 2015, capturing detailed individual-level data on working conditions, exposure to physical and psychosocial health risks, occupational safety, and overall health and well-being at work.\"\n    },\n    {\n      \"title\": \"Second European Survey of Enterprises on New and Emerging Risks, 2014 (ESENER-2)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-7808-1\",\n      \"justification\": \"A establishment-level survey carried out by EU-OSHA in 2014 across 36 European nations, measuring occupational safety and health management, workplace risk assessments, and health risk mitigation measures in workplaces.\"\n    },\n    {\n      \"title\": \"Third European Survey of Enterprises on New and Emerging Risks, 2019 (ESENER-3)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-8690-1\",\n      \"justification\": \"Conducted by EU-OSHA in 2019 across European countries, this dataset examines occupational health and safety management practices, including psychosocial risk prevention, workplace ergonomics, and safety procedures.\"\n    },\n    {\n      \"title\": \"Eurostat - European Statistics on Accidents at Work (ESAW)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/hsw_acc_work_esms.htm\",\n      \"justification\": \"Eurostat's harmonized statistical dataset providing standardized statistics on fatal and non-fatal occupational accidents and work-related health problems across European Union member states and partner countries throughout the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1329,
+          "candidatesTokenCount": 493,
+          "totalTokenCount": 3492,
+          "cachedContentTokenCount": 379,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1329
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 379
+            }
+          ],
+          "thoughtsTokenCount": 1670,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "hyaEasSJCJiVxN8P9fiZsA8"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 42,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about General health and well-being in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0199693bd9e81a44006b04797e3c2887d29734745e609987dd",
+        "created_at": 1795455358.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0199693bd9e81a44006b04797faee087d2b9d8618d93b2e5a6",
+            "action": {
+              "type": "search",
+              "queries": [
+                "RKI Gesundheit in Deutschland aktuell GEDA 2019 2020 2021 dataset download",
+                "GESIS German General Social Survey ALLBUS health wellbeing data 2010 2023",
+                "SOEP German Socio Economic Panel health life satisfaction data 2010 2023",
+                "Eurostat Germany self perceived health life satisfaction dataset 2010 2024"
+              ],
+              "query": "RKI Gesundheit in Deutschland aktuell GEDA 2019 2020 2021 dataset download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0199693bd9e81a44006b0479830b5887d28be052472b256467",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP data access soep core 2024 health satisfaction",
+                "site:ec.europa.eu/eurostat/databrowser/product/page/ ilc_pw01 life satisfaction Germany",
+                "site:gesis.org German ageing survey DEAS data 2023 health wellbeing",
+                "site:ec.europa.eu/eurostat/databrowser/product/page/ hlth_silc_02 chronic illness"
+              ],
+              "query": "site:diw.de SOEP data access soep core 2024 health satisfaction",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0199693bd9e81a44006b047986245087d2bd6cdd9838219486",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Health Update (GEDA) 2010–2020 – Robert Koch Institute\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"One of the most relevant sources for studying general health and well-being in Germany during the 2010s and 2020s. The Robert Koch Institute (RKI) provides nationally representative health survey datasets for 2010, 2012, 2014/2015, and 2019/2020. Variables cover self-rated health, chronic illnesses, health behaviors, healthcare utilization, and physical and mental health. Scientific Use Files provide individual-level research data, subject to access requirements.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA 2019/2020-EHIS) – Open Data\",\n      \"url_or_doi\": \"https://robert-koch-institut.github.io/Gesundheit_in_Deutschland_Aktuell/\",\n      \"justification\": \"An openly available dataset containing aggregated health indicators from Germany's 2019–2020 European Health Interview Survey. It includes information on physical and mental health, health behaviors, and population health differences by age, gender, education, and federal state. Data are available in CSV format, making this particularly useful for quantitative analysis of health inequalities and population well-being immediately before and during the early COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA) – Scientific Use Files 2010, 2012, 2014/2015, and 2019/2020\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/GEDA/GEDA_inhalt.html\",\n      \"justification\": \"The official RKI landing page provides detailed descriptions of individual GEDA survey waves and their Scientific Use Files. These datasets support comparisons of health status, health-related behaviors, and healthcare access across different periods. The 2019/2020 wave contains 22,708 respondents and 310 variables. Particularly suitable for examining changes in health and well-being between the early 2010s and 2020.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42r\",\n      \"justification\": \"A major longitudinal household survey covering Germany from 1984 through 2025, including the entire 2010s and the first half of the 2020s. The dataset includes self-reported health, health satisfaction, general life satisfaction, employment, household income, education, and socioeconomic conditions. Its longitudinal structure allows researchers to investigate how individuals' health and subjective well-being change over time and how these changes relate to economic and social circumstances. Access is subject to research data agreements.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 1980–2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A nationally representative repeated cross-sectional survey examining social conditions, attitudes, and behaviors in Germany. The ALLBUS series includes surveys throughout the 2010s and 2020s, with a cumulative dataset available through 2023 and a separate 2025 wave. Relevant variables include subjective well-being, social relationships, socioeconomic circumstances, and health-related measures in selected waves. Useful for studying the social determinants of well-being and changes in quality of life across population groups. Registration is required to download survey data.\"\n    },\n    {\n      \"title\": \"Eurostat – Self-Perceived Health by Sex, Age and Labour Status\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/HLTH_SILC_01\",\n      \"justification\": \"An official European statistical dataset measuring individuals' assessments of their general health. It provides data covering 2008–2025, including Germany throughout the 2010s and 2020s. Observations can be disaggregated by sex, age, and employment status. Particularly useful for analyzing trends in perceived health, demographic health inequalities, and differences between Germany and other European countries. Data are accessible through Eurostat's online database.\"\n    },\n    {\n      \"title\": \"Eurostat – Overall Life Satisfaction by Sex, Age and Educational Attainment\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ilc_pw01\",\n      \"justification\": \"A European statistical dataset covering overall life satisfaction from 2013 to 2025, including Germany. Life satisfaction is measured on a scale from 0 to 10, with breakdowns by age, sex, and educational attainment. This dataset directly addresses subjective well-being and quality of life. It is particularly valuable for examining changes in happiness and life satisfaction during the 2010s and 2020s, including differences between demographic and socioeconomic groups.\"\n    },\n    {\n      \"title\": \"Eurostat – European Union Statistics on Income and Living Conditions (EU-SILC)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/microdata/european-union-statistics-on-income-and-living-conditions\",\n      \"justification\": \"A comprehensive European household survey covering income, living conditions, health, and social inclusion, with German observations throughout the 2010s and 2020s. Relevant measures include self-perceived health, chronic health conditions, limitations in daily activities, material deprivation, and socioeconomic circumstances. The dataset is especially useful for analyzing connections between financial well-being, social inequality, and health. Access to scientific-use microdata requires an application.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS1)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"A nationally representative German adult health survey conducted around the beginning of the 2010s. The DEGS1 dataset includes 7,987 respondents and 1,033 variables, covering physical health, chronic diseases, health-related behaviors, and other health indicators. It provides a useful baseline for understanding population health in Germany during the early 2010s. Particularly suitable for detailed analyses of adult health and comparisons with later RKI surveys.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS), Waves 1 and 2\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"A major health monitoring study focusing on children and adolescents aged 0–17 in Germany. Wave 1 covers 2009–2012, while Wave 2 provides observations from the mid-2010s. The surveys include indicators of physical health, mental health, health behaviors, and socioeconomic conditions. These datasets are especially useful for examining health inequalities and well-being among younger populations during the 2010s, complementing the adult-focused GEDA surveys.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulative Dataset 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus\",\n      \"justification\": \"A harmonized cumulative dataset combining multiple waves of Germany's General Social Survey through 2023. It enables longer-term comparisons of subjective well-being, social integration, living conditions, and selected health-related indicators. The cumulative format is particularly useful for comparing the 2010s with the early 2020s without having to combine separate survey files manually. Researchers should check variable availability and question consistency across survey years.\"\n    },\n    {\n      \"title\": \"Eurostat – Self-Perceived Health by Sex, Age and Citizenship\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/bookmark/c59a302a-92f2-4983-b04e-da5657d82791?createdAt=2026-10-12T15%3A18%3A30Z&lang=en\",\n      \"justification\": \"An official Eurostat dataset providing self-reported health indicators differentiated by age, sex, and citizenship group. It includes observations for Germany during the 2020s and can support investigations of health disparities between population groups. Particularly useful for research on migration-related health inequalities, population diversity, and differences in perceived general health.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core) – EU Edition, 1984–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42eu\",\n      \"justification\": \"The EU Edition of Germany's longitudinal Socio-Economic Panel provides household and individual survey data, including health satisfaction, life satisfaction, income, employment, and living conditions. It covers the 2010s and 2020s through 2025. The dataset is particularly suitable for investigating relationships between socioeconomic changes, subjective well-being, and health over time. Its repeated observations enable individual-level longitudinal analysis. Access requires an appropriate data-use agreement.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455375.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19239,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2147,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21386
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

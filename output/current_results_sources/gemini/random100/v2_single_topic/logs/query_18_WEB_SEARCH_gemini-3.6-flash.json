@@ -1,0 +1,69 @@
+{
+  "query_id": 18,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Reproductive health in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Human Fertility Database (HFD) - Germany Country Series\",\n      \"url_or_doi\": \"https://www.humanfertility.org/Country/Country?cntr=DEU\",\n      \"justification\": \"Maintained by the Max Planck Institute for Demographic Research and the Vienna Institute of Demography, this open-access database provides standardized historical demographic datasets on age-specific fertility rates, live birth counts, and cohort fertility for West Germany, East Germany, and unified Germany during the 1970s.\"\n    },\n    {\n      \"title\": \"GENESIS-Online Database (Statistisches Bundesamt)\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/\",\n      \"justification\": \"The official statistical database of Germany's Federal Statistical Office (Destatis) hosts historical vital and health statistics, including annual records on births, total fertility rates, and abortion statistics for both West and East Germany throughout the 1970s.\"\n    },\n    {\n      \"title\": \"Human Fertility Collection (HFC) - Germany Series\",\n      \"url_or_doi\": \"https://www.fertilitydata.org/\",\n      \"justification\": \"Managed by the Max Planck Institute for Demographic Research and the Vienna Institute of Demography, HFC offers supplementary historical fertility estimates, survey data, and age-specific birth data covering East and West Germany during the 1970s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpclCpQlARFNMg+iPRR+Lc6V04w+z8WG9JF8B/HsB6ng87oCiWaNzqAtymR5vwD7XiZPlkUYsSWMUBum+r4gMFCEP7aWbXqe3UosxdEh6l7bbZHaB+4KnTtZpBj/QhKL3KypjqA5YuaItlaMGYXwmnCnGbU7ACIsN4UfzykzXPlpVVBy6gpR8mtWLBnwxeFTaAjq2hrf9Qtxr2Lw/9mBUSKy1B7f3qT3L2Intj2TumDlMd12DsPZupEhh29wz5mqgaVC/vIOSR3T94ztyHAJTuUaadw/uAdE96GKzEhZLXymI9jo+nVjEv0yAMKyQl9487HA6Ra4ynOLCnvLcD52/jdSuF2dhzB4rmMarThaGju1YqUFs/mjfkbWeq9qF7hYonKTQnYSlgmLhy0brMX2moyDOd/Jsq61djBclg3rE9uq0khCSidwLJw68feBkGauwJq0OVlbCwNzxXEFs2D1WVwhGQo3y92laLE16CI3EQrUIhwv6CMzyFVQOTB4I+EGjFCwMkMAFwB5babOsSnhbFhCEtWrHyhe/UBbl5ZDIQW9WR2Mq+MD2nYNbitVg3iYIxODjbcFLS77NG96yutNvagZbO8mt4+l1VCNpfBfND8XQc4QqZ5Yp2yMvsbfwnVq+G0LAJ2jQrvCp6Ms2GJIkDSsrAADljw08Cw50Hgr2SVr7Utsl9p+JPm7TIb0Qc+8SRuF8Vty2E/e8+p39BU/3Cdp2kxMHvqeoF+apRM+NJ4+q7cKD1L63C31xjKWYi4W9wS+BJfm+j+8QHIcYbbZGo3FLEYccTSCYStg9HL4lLQM7oHFwsoES/yzQX50bR30fK6BdT7TW3L36iLc7iYfCOkzC1zVen95H9LRVu9m+Rl4RQN0Z1Ga5w4tBkDVfcOZjc05Hhr31JoAPMS+zuf4jEpYhURtuQPfvXWKdH5ZSRRgwXiCgN2rFP8GwJgl4IUginkbU1dJrazcNI8c0uO0pUznBgLT+CYfcYrO3q3sk5ynUp16N72JGDEpVma+aLH3wT+HGSBnX4rBdB5JIsRUV4Z1alnfrW2F5LSCQnrkoKyLfUOK7dnSP7Cp2m3LxgI7fKl4+T3Lplc96zNDI2X3aeMmy79NwK+CzNh5vYp9wE7Q3jTYFzrocTteV35lOH0AWECxQ9kQNAybMMJjecl1YpXhbAvPESJl5jn/Evpndjmv/GItY6IueM8UxBqWsLTw6JX1hP3ZUm9GTmyUYNQSmaLAA9/s1LQT2S3GPaYIhK/naXy+X/PDRjvlAZMwf1E/8KvKlXlj5yZ2alln88WOY+NSoZodK2ax64v8/cE7RD9kT2XhS8hqDJBUTgwlW1IKpNuWhvBOuJ0mPvljR09x/QqPVZ5d/kWA1KT3o+fgo/G8JOfherZWNozDrTaMKRNJEgq0wZ+GDCXOXUWBjCeGO7uHxeZy7dnhicXXRswcBU2Y90InrXaGhL7dh4QDFyuZz079iES1dY9aso9Cg7puOxx8t19L/IIxIymec8dIosXzWEWULfedv/u6U0YOm8ku4HcW1Yll+XKi//ECp8zPmmg86CoBLBG7oCHqiqbMzXIKHRn3HSA40huI9+V0tbt3LrD8vnJbuuS0Hl34nN1Sy44AWOMhZb1+muAW+gUnT/MIAG46XJc4XP2hse+weQiCocpo8yMIebXK33cYMTrrPu6Q2HGgQCQb1MqovzuIOnizgCr/YKJQMY43wMiRWmDc6IHF4pIqgolixUIwv4Mz0qtxssWPWmxo9zVLYIzy0P4xZyP0dPCWupV+AG8NQO1Binnh759g5o7f0DvFfPM1DHE8aVGbynAWz6te0Oh8Z44zXshbkHbN4qPE5r4RtZbfvTuXF97udRhTPrL0nS47NrBWR+MxclVNmUbOHwBfFtqyhgc8ZyBelcbAQzyKjyMhdyKXl6a2ANn+EUPI0Muy1RS7Vc5/vbnu6ayZvoupz6tUKoZId9o0/mNRwLXhNY8zgvNR6xO8CWAECsl9QLdbrn/Fi+4YSvHzuyac2lA4FNaCmVjWFnhHBbPCJXTP2UUh5dL7GFwvGbWU/UGBrhvt9DUbAMpxu7X2GClkX2O78PlTgGIu1unx8XR1+yALqqU48sX0305OBdVI3+3QjMF2bojYkEcLZp5DCm4LhS+7r86G8fknS5Mmg+JLM03vbf7TU2+ca67RQDIsJE0qGYallsqEL2xNiCi5Ld6GdgQeos20B56fo1ckeAL6rJvdmqa/4N93ye7dGVP8Qe5QVoxeA92IQV6jyrwYjECV+VehpsSSLHfy7UGHfiOYLM8T/6tE8PUu4BgEiYFsgUASkGHBXU7Iu8KVqk/KF50I5pmMYrB/a/+GPg0ZUXh85hxLvn7LAzjB2otjgBKHrxc+twr4HprqLXqkpFxDWUCur/mS3fQb7EH4QRfGD6jTmKdOcM81aCBluTyIiAEKCyEHjuXXpK/R4y3qphsv9RCyIhEuNhY/fzS4Q79E/FM/6juY1qZPqYG4Jv4B0BmeRN/0ZWLUJeXwHgHviaPZVCmtdfyrhVhnJs5wUx4orTnkaP3u08bGQ6qyKt8A1/I5P2qibQSQmy3QUxVgpTBFp5R2JDnBwbj2g6NntUIP+iF7R2CfoF2czil9LHiu8pbv0JQiIcj8SuG1SnpkjYjo54mvNwR6/0Npe0P1J9nLLTjHakRcX0kVRiLfFbWRE3FEMmJWOP6lSKAQ+fHgNMtvckaPDYFCzvkM4fJyceB9G5kU22LP/we67Wi5n3fNJamye8460CkPE128d2a+ecp7BzktaXuiUriR/qb/6if6g8aVt0JGdUxRzZDqAyys8bduIo6D9h3uJDQlTbqJtUXqOuF8BXHD10ffEFSbkFej1bHRYhPRlJGWbd7BTOPg7vzpuvPaRYp7x2SAYtYjy4AjDbPr0MBB7+2LfGdbRQHcD2EwGvXw3BkDIDqtLs7KPbsyGlAv6o9aCatGP/6gq4TP8F2a2qmguI0g6ehXAjipqXkjROKwMpHFYi9wRvNqrtAxchTzYRdTUepJjNtOAvqDnu0ykgGcWJNMMEWBN+2LWl3rJO6D8vkoy6QkV50t+m2bc6FbUrPEQz0zbjt22PZmwN0RYfQJ/VNQeBiOYcoOgRpgYZFKirXAqNeJK1viZDZQ02kmrVpy2gLzj9Kw3pq14B0bJTp5T2vJHe4kpJHrMR9/lqhwAhPzJ1/953BtiFrw+DlbIEGrK/bne7GgOmoMIASJZiRb4EiVBTgMXna39dLEPFxqyhr9qv9augFVEyXeRKF5NTj9Q5TcUCYiaFoJCWTDIdOHn4a9GZxXjWkL5OSxeIDbT53PvWoYiM3z/XH5YwG7bpb08CV9UmwI1aBDybgaRdOILH9Iolh2TzAAjQ1rFb92WX2Z1sgP22iZS2Jyw1x5e7rHL5W43gVyWoegZ7oXdxo5mLM+uLyAMqxEoqxVyswefccTKQUcjtfHXjPpiy93t7nQE7XxJ4HL/lMB/USZBgeW+XHPmzYoqUsxJAgnsczPHXuc+5znx2A0E0bFUBW2dQji8rwGr7FjX/r8a2b1i1/IokQTauC6D5Z+w9G6ELuaxJlR7HilARHLbxKsV5wwpEHLw8c6mveMmh/4qDnA7ToFB548+Lag3KJwTlJMFnSgPtxn84VBc8y86QzDOIbNeoa6UIzeJNUr9rwEWHq4IQBvyex5rc65SiJjWvOoCfiFDMU737dumGT84lXlG+G+yvyzzj4Dc4pY6gyGIoH+LSnlY64A6bBiTRf99V1GgFQ26fiz9Azk3I07kUP8ifEwE+933X7LW1Iaq7Zr7vTIVYILsBjOi0HNhQiUpkkwnokepu0ge0/PmyI34mHK/iswz+0Ly/f3dJUS21BoF/7IsEhImueSFqedhuFRmG4T/ZXH5ut8YLlFiXpKn4Xw4GL6chFOcwVm2vrW5yfBlbneBGnRg1y53iOfHJEjuoQyKvphNLwaV4NS37914CJ5TSJUQzWZClz4YKUAIQJaXN13F+1vQum8fofA60ohGrhq03npIm9iTgEGdjqYHHgt9O3z5RBeXJPS0jWjWzgAeJOhluSUJ38YH4DualbhjgnDWJIkmVoQI6s5GSnB/KZXxYohkND5otOmK0HsSgmcYO/XnbhesKc0yGsRASNGUBum7HNoWxLhw/eEwkuN3OrtnRsqYl2utZOz5vwb299n/BkQtljJ+Gi1YjltKu5XaXyjOtWWAqWZv/hHwhOEGTtQu1Zx4SJEl/aMQZ3YplBx8+5CEABgfQK9Y1VFMUzMoOLrPyJlG8SK820fj7l2wZc4QICX7fFv0hGRuKxwESj4gLRRn9XC9GfZqBP5l7qwqOHqmrcXpdhA9iOeZSg3Rn3KKO2Qlv7tl6Bo6duMpeBRe1jvGuUB+GPcI8cksTR+wZ+yHlf8W4LPgKdOCrdy4F/W+Hb1F78zjFJ+5rpBOg6Qs8hbrAw0KjT68h1Zny8/MCf7xKepzerDwtkd4FoJPLiW5w05wYJRcv3T8zPKdhyQYINWJOQSM3As/vO4M0zX5ik4ZJj4U0xzgj4494fbBAEHua/5184MHud8ZjwmyXJUL01Q7qCz74KS2//5s8MJ3SjLZCAHmBG5F44TJl0Yy0pFVgtFJ2BGhGPuIDQOamNfS3nDsUghzhL1UZ9qK5+X+6Ru3+BPQN6Bqfb+ACNYlhnyDsylKwXIAL2oz2Ntc26kVXTqjW3LLHCG2WH9rl+QZGHmKRNrtfbBcXX5UGiFEfXCnbIjZsL4yek/ZfkOndteU4Mo95jkDmZnVMZz+CiQwiHiEzePl/AhMKjY41iddIYnmZ6MZi+okM41FYjLI8WrAq8dT1ceBKh36K0jZH30vFBggqDexyHZ/MdopAAJJagYzeOWZOJ+QCdU2ZIeP/0UWyS1crgv1iunE30faYz9llzjktPAC+1PFldS8WUJn0yttSpMmHgiJQu9/PJo9v+erjpNq5vj2GZccNl0Ra0hbyZ08HnYZnKYKy4udx0FWzX5aFPacjFjsBHX8JGCPA7crAUOkLuu7R0GWFZb6uXNrLoPizsNq1wvzb8xz0oG4Kq+z5XK8Tm5jHl8qY5LXR1bnrzsaNjbCzT2iJxbEBmJX2nW0To9DCgO3DWy3wgwdVu2RCULyoh3oGKRNlInse2zxs4ZaVm00xcA4aMSj+gmNDp2Weol949ADSCbgwpAJmQbpiqOAPBLxyOdVs1Z/qSyH3jKpt+nTlP3tu9XHOuWtWuT71z9OSiTsU+N2yjQo9UX+AqwOj6Omdqxxe4NGY7ehzdgz52SqvbIlsXI7w/LEZFigKdhvSvmN0etfOcl684L2UhZjXtFg8TgKrmVxxMRR/Up8nxryzA9S6YxbBqdvQ6ham8wXEoS3YEPTrFsJrNhocUmsuGYpRAoYATfz3UPGolS+ZsafDH+RGA0U048zQrsZCpHBVqikXwjpd5Rg0deln+oUsGOex/MW78cd5Hvx2exCZtQUcfwTxqUwAt5AfrxFBMoPj8SEAmBmWzDm4rvj5LDId6swb7+chek0Ye1bbq7UDcdX38SEOc9q0W8aBMuDa+F/Rv4NlvZ0djGHmr4L7cioXsIkdTBo4FLSTYJ/vBbRa+j34jC+yp1W0STGlCDoAB21PFnFE2No0D1zcA4txRBRqHH4nKeM5sz3gMIJkNlUBUl14coCwc/wH9Yuu94JCQmKM6Dq7EJ1BcLcFBKBx0YtCTg32Z2fj1XctoKmyfeNS2OsECzGF7TAJnx0FgsmRuFiCmqigD566au6TzT0tRgMBh3Ls9XbwmPOwCj2SJzjZ+5pKNZPbG3WsmUk8Xfoi4kIgshOe3vKXDN4F3BdNBxtiikZrF84zQrfoT/UHLQD0U/MyAcTtos+dQcKZG27W9byoB4pjXI3w2QDuUPHcGqf4SK+asu3HRaIYTsZcNsax5l3Ah1+x7e71JlWyW4AxmNvQFFAcvp0kJK6WzfesaWF5h7i7hnTKLuW7TjnQlq59LWHvHGIFqMmoEiWEJUHKj9vB3nPw6o26LzXMXcvNUhO13M9ZvW5oWuU0FSPmjvIToER32tZgytd7UwOVolOznwIAHomhRPRIqkF2oesqI/Z/VEqXpQJMBc2BY7Ylt+IBeQ7owmSpCVN4IbMzJ74wKsERaTQGHMvu6MKKc4WwknrgwrAQ0fIEt60t4AYrzG2dDyByfKyzKZG0yra5oFy4Kw6vGRQ5W6ykVpOAn0hIwzRZEH4QjNde8iu079uVpeHQ93zs3b8bPYqGEqUYSRMii3GNjjpjNLPtvD/yBZ3OgbXFZciiLBAOtpSJQvWCGYWzA93ocRk+S3J/pLQpZTGjrw6huEqqhhycz5vslawQ=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 887,
+          "candidatesTokenCount": 339,
+          "totalTokenCount": 3140,
+          "cachedContentTokenCount": 575,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 887
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 575
+            }
+          ],
+          "thoughtsTokenCount": 1914,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "NFiFasygPI--vdIP--7cwQo"
+      }
+    }
+  ]
+}

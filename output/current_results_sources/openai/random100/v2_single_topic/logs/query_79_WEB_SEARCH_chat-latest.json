@@ -1,0 +1,185 @@
+{
+  "query_id": 79,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Health care services and policies in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ba4c7c2f2804535006b045f47558487d289118e3be9c6b311",
+        "created_at": 1795448647.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ba4c7c2f2804535006b045f48368887d2bd05295ce0b5bbe6",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany health care data 2020 2024 Destatis health expenditure hospitals dataset",
+                "Germany health care policies data OECD health statistics Germany dataset",
+                "Germany health services data 2020 2025 GBE Bund information system health monitoring"
+              ],
+              "query": "Germany health care data 2020 2024 Destatis health expenditure hospitals dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0ba4c7c2f2804535006b045f4bc8b487d286e6a699fd74a6ae",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:genesis.destatis.de/datenbank/online/statistic/23111/table hospitals beds Germany 2024",
+                "site:ec.europa.eu/eurostat/databrowser/view/hlth_rs_bds Germany hospital beds",
+                "site:bundesgesundheitsministerium.de daten gesetzliche krankenversicherung kennzahlen 2024 statistik",
+                "site:gesundheitsatlas-deutschland.de data regional healthcare Germany 2023"
+              ],
+              "query": "site:genesis.destatis.de/datenbank/online/statistic/23111/table hospitals beds Germany 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ba4c7c2f2804535006b045f4eecd887d2b529596fd4990820",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"OECD Health Statistics 2026 – Germany\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/oecd-health-statistics.html\",\n      \"justification\": \"Comprehensive international healthcare dataset containing German data for the 2020s. Covers healthcare expenditure, financing, hospital services, healthcare workforce, primary care, patient safety, health insurance coverage, and healthcare quality. Particularly useful for evaluating Germany's healthcare policies, service delivery, and health system performance against other OECD countries.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Healthcare Expenditure by Funding Source, Service Type, and Facility\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23611/table/23611-0004\",\n      \"justification\": \"Official German government dataset containing annual healthcare expenditure statistics from 1992 through 2024, including the 2020s. Provides detailed breakdowns by funding institution, healthcare service, and facility type. Useful for studying healthcare financing policies, public versus private expenditure, insurance spending, and changes in healthcare resource allocation.\"\n    },\n    {\n      \"title\": \"Destatis – Hospitals, Beds, and Patients in Germany\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23111/table/23111-0001/table-toolbar\",\n      \"justification\": \"Official annual statistics covering German hospitals from 1991 through 2024. Includes hospital numbers, available beds, patient admissions, hospital utilization, average length of stay, and bed occupancy rates. Particularly relevant for examining hospital capacity, healthcare accessibility, the effects of COVID-19, and hospital restructuring policies during the 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Health – Statutory Health Insurance Statistics and Financial Indicators\",\n      \"url_or_doi\": \"https://www.bundesgesundheitsministerium.de/themen/krankenversicherung/zahlen-und-fakten-zur-krankenversicherung/kennzahlen-daten-bekanntmachungen\",\n      \"justification\": \"Official statistics from Germany's Federal Ministry of Health covering statutory health insurance finances, contributions, expenditure, and healthcare services. Includes annual indicators for 2013–2025 and quarterly statistics for the 2020s. Valuable for analyzing Germany's statutory health insurance policies, healthcare financing reforms, expenditure trends, and financial sustainability.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Health – Statutory Health Insurance Membership and Coverage\",\n      \"url_or_doi\": \"https://www.bundesgesundheitsministerium.de/themen/krankenversicherung/zahlen-und-fakten-zur-krankenversicherung/mitglieder-und-versicherte\",\n      \"justification\": \"Official German health insurance enrollment statistics, including data from the 2020s. Provides information on insured populations categorized by age, residence, insurance fund, and membership status. Useful for studying health insurance coverage, demographic inequalities, access to healthcare, and changes in Germany's statutory insurance system.\"\n    },\n    {\n      \"title\": \"OECD Data Explorer – Healthcare Coverage in Germany\",\n      \"url_or_doi\": \"https://data-explorer.oecd.org/vis?df%5Bag%5D=OECD.ELS.HD&df%5Bds%5D=dsDisseminateFinalDMZ&df%5Bid%5D=DSD_HEALTH_PROT%40DF_HEALTH_PROT&dq=DEU.A...&lc=en&ly%5Bcl%5D=TIME_PERIOD&ly%5Brs%5D=INSURANCE_TYPE&ly%5Brw%5D=COMBINED_UNIT_MEASURE&pd=2010%2C&to%5BTIME_PERIOD%5D=false&vw=tb\",\n      \"justification\": \"Germany-specific dataset on health insurance coverage, including observations for 2020–2024. Measures population coverage under government, compulsory, and voluntary health insurance arrangements. Useful for assessing universal healthcare coverage, the relationship between public and private insurance, and the implications of insurance policy changes.\"\n    },\n    {\n      \"title\": \"Destatis – Healthcare Expenditure by Functions of Healthcare\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Health/Health-Expenditure/Tables/functions.html\",\n      \"justification\": \"Official healthcare expenditure dataset containing German statistics for 2021–2024. Separates spending on preventive healthcare, public health services, medical treatment, diagnostics, rehabilitation, and other healthcare functions. Particularly useful for investigating healthcare policy priorities, preventive medicine investment, and spending changes following the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Destatis – Healthcare Expenditure by Healthcare Facilities\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitsausgaben/Tabellen/einrichtungen.html\",\n      \"justification\": \"Official German dataset reporting healthcare spending across different types of facilities for 2021–2024. Includes hospitals, physician practices, pharmacies, outpatient services, nursing facilities, rehabilitation centers, and emergency services. Supports research on healthcare delivery structures, funding allocation, outpatient versus inpatient services, and health system reforms.\"\n    },\n    {\n      \"title\": \"Destatis – Healthcare Expenditure by Sources of Funding\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Health/Health-Expenditure/Tables/sources-of-funding.html\",\n      \"justification\": \"Official German healthcare financing statistics covering 2021–2025, with 2025 figures identified as preliminary. Provides expenditure breakdowns by financing source, including statutory health insurance, long-term care insurance, private insurance, and other payers. Useful for studying healthcare financing policies, public expenditure, and financial pressures on Germany's healthcare system.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Health – Long-Term Care Insurance Statistics\",\n      \"url_or_doi\": \"https://www.bundesgesundheitsministerium.de/themen/pflege/pflegeversicherung-zahlen-und-fakten\",\n      \"justification\": \"Official data on Germany's long-term care insurance system, including statistics for the 2020s. Covers beneficiaries, insurance benefits, expenditure, financing, and developments in long-term care provision. Particularly valuable for examining elderly care policies, long-term care reforms, demographic pressures, and the financial sustainability of Germany's social care system.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Basic Hospital Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23111/details\",\n      \"justification\": \"Official collection of detailed German hospital datasets, including hospital infrastructure, staffing, physician numbers, nursing personnel, and operational characteristics. Contains historical series extending into the 2020s. Useful for analyzing healthcare workforce shortages, hospital staffing policies, service capacity, and structural reforms in German hospitals.\"\n    },\n    {\n      \"title\": \"Eurostat – Hospital Beds by Type of Care\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/HLTH_RS_BDS\",\n      \"justification\": \"European statistical dataset containing hospital bed capacity by type of care, including Germany. This historical series extends through 2020, making it particularly suitable for examining healthcare infrastructure at the beginning of the decade and establishing a baseline for pandemic-era healthcare capacity. DOI: 10.2908/hlth_rs_bds.\"\n    },\n    {\n      \"title\": \"Eurostat – Hospital Beds by Type of Care (Current Series)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/hlth_rs_bds1\",\n      \"justification\": \"European healthcare resource statistics covering hospital bed availability by type of care, including observations for Germany during the 2020s. Supports international comparisons of healthcare infrastructure, hospital capacity, and resource allocation. Particularly useful for evaluating Germany's hospital planning and healthcare capacity policies relative to other European countries.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Federal Health Monitoring Information System\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Health-and-Society/Health-reporting/Information-System/information-system-node.html\",\n      \"justification\": \"Official gateway to Germany's Federal Health Monitoring Information System, providing access to a broad collection of health indicators and statistical datasets. Covers population health, healthcare utilization, health services, disease patterns, and health system performance. Relevant for examining healthcare access, public health policy, inequalities, and health service needs during the 2020s.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Health Update (GEDA 2019/2020-EHIS)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Journal-of-Health-Monitoring/GBEDownloadsJ/JoHM_03_2021_GEDA_2019_2020_EHIS_EN.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official documentation of Germany's GEDA 2019/2020-EHIS population health survey. The underlying survey provides information about health status, healthcare utilization, health-related behaviors, and factors affecting healthcare access. Particularly relevant for investigating healthcare service use at the beginning of the COVID-19 pandemic and informing German public health policy. The linked document describes the survey rather than providing unrestricted individual-level microdata.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Health – Healthcare Statistics 2022\",\n      \"url_or_doi\": \"https://www.bundesgesundheitsministerium.de/service/publikationen/details/daten-des-gesundheitswesens-2022\",\n      \"justification\": \"Official statistical compilation published by Germany's Federal Ministry of Health. Contains data on healthcare financing, health insurance, healthcare services, health system resources, and related indicators. Useful for examining healthcare system developments during the early 2020s, including pandemic-era changes in healthcare spending and service provision.\"\n    },\n    {\n      \"title\": \"European Data Portal – Health Expenditure in Germany by Year and Healthcare Facility\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/https%3A-genesis.destatis.de-genesisws-downloads-00-tables-23611-0003_00?locale=en\",\n      \"justification\": \"European open-data catalog entry for an official Destatis dataset reporting German healthcare expenditure by year and healthcare facility. Provides a structured source for analyzing healthcare financing, hospital expenditure, outpatient care spending, and resource allocation. Suitable for quantitative research on the evolution of healthcare services and financing policies during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448665.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18887,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2412,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21299
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

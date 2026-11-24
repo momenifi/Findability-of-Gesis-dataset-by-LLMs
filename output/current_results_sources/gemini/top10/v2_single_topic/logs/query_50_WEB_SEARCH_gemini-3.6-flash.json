@@ -1,0 +1,69 @@
+{
+  "query_id": 50,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Einkommens- und Verbrauchsstichprobe (EVS) 2018 - Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.21242/63221.2018.00.04.3.1.2\",\n      \"justification\": \"Official sample survey on household income and expenditure from the Research Data Center of the Statistical Offices of the Federation and the Länder (Destatis), tracking consumer spending, private consumption patterns, and household equipment in Germany.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core v40eu)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40eu\",\n      \"justification\": \"Longitudinal representative panel dataset managed by DIW Berlin that tracks German household living conditions, income, consumer spending, and economic behaviors through the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Activities and Expenditures of German Non-Travelers in 2022\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2850\",\n      \"justification\": \"GESIS dataset featuring survey data collected via GfK Consumer Panels & Services, measuring leisure activities and local consumption/spending behaviors of German residents during 2022.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 319,
+          "candidatesTokenCount": 357,
+          "totalTokenCount": 1924,
+          "cachedContentTokenCount": 94,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 319
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 94
+            }
+          ],
+          "thoughtsTokenCount": 1248,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "u7inaoX2CIzNnsEP2dOQsQU"
+      }
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "query_id": 15,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth, EDUCATION, Higher and further education, Migration, Social behaviour and attitudes, Leisure, tourism and sport, Children, and Family life and marriage in Germany during the 2010s, matching this research need: Data on future life plans and aspirations of adolescents in special schools for emotional and social development, including work, family, leisure, finances, civic participation, and demographic or migration background characteristics.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0a455aba8ee36dc3006b04703e536887d29b081f8154ac25c0",
+        "created_at": 1795452990.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0a455aba8ee36dc3006b04703f30ec87d2817522554939649e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset Zukunftspläne Jugendliche Förderschule emotionale soziale Entwicklung Beruf Familie Freizeit Migration Studie",
+                "GESIS Jugendliche Förderschule emotionale soziale Entwicklung Zukunftsperspektiven Datensatz",
+                "Germany youth survey 2010 aspirations family work leisure migration dataset NEPS special education"
+              ],
+              "query": "dataset Zukunftspläne Jugendliche Förderschule emotionale soziale Entwicklung Beruf Familie Freizeit Migration Studie",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0a455aba8ee36dc3006b047042192087d29cf6f338a3ec9680",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org \"Zukunft\" \"Förderschulen\" \"emotionale\" \"Familie\"",
+                "site:search.gesis.org \"Aufwachsen in Deutschland: Alltagswelten\" 2014",
+                "site:lifbi.de NEPS SC4 DOI 2010 special needs",
+                "site:diw.de SOEP data doi 2019 youth questionnaire"
+              ],
+              "query": "site:search.gesis.org \"Zukunft\" \"Förderschulen\" \"emotionale\" \"Familie\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0a455aba8ee36dc3006b047045424c87d2b520b08820198795",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Growing Up in Germany: Everyday Life (Aufwachsen in Deutschland: Alltagswelten – AID:A), 2009\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/c87c8a51-4eff-508a-a040-60119537899f\",\n      \"justification\": \"Very strong thematic match. This German youth and family survey includes adolescents aged 13–17 and examines future life plans, educational and occupational aspirations, leisure activities, financial resources, family relationships, social participation, and migration background. Variables include desired occupations, plans after leaving school, preferred qualifications, importance of different life domains, monthly disposable income, civic responsibilities, friendships, and parental relationships. School type is recorded, potentially allowing identification of special-school students. The 2009 survey provides a baseline immediately preceding the 2010s. However, the availability of a sufficiently large subgroup attending special schools for emotional and social development requires verification.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS), Starting Cohort 4: Grade 9, 2010/2011\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC4:11.0.0\",\n      \"justification\": \"Strong match for adolescents attending special schools and their educational and occupational futures. Starting Cohort 4 began in the 2010/2011 school year and includes ninth-grade students attending mainstream schools and students with special educational needs in learning at special schools. It investigates educational aspirations, vocational transitions, social background, migration characteristics, and subsequent educational and employment pathways. The dataset incorporates follow-up information from the FÖS2 project concerning former special-school students. Its main limitation is that the special-school sample focuses on learning difficulties rather than specifically emotional and social development.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS), Starting Cohort 3: Grade 5, 2010/2011\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC3:13.1.0\",\n      \"justification\": \"Relevant longitudinal dataset following German adolescents who entered fifth grade in 2010/2011. It includes educational trajectories, aspirations, family and socioeconomic background, migration characteristics, and school experiences. Students with special educational needs were included during the early survey waves, making this dataset potentially useful for comparing educational expectations across school settings. Special-needs students were not followed throughout the entire longitudinal study, and the availability of a distinct emotional and social development subgroup needs verification.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), 1984–2019, International Edition\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36i\",\n      \"justification\": \"Excellent thematic match for adolescents' future life plans, particularly through the youth questionnaires administered to 16–17-year-olds during the 2010s. The 2019 questionnaire covers relationships, friendships, leisure, sports, education, vocational plans, future expectations, employment, money, attitudes, and self-perceptions. Household-level information adds parental education, income, family composition, and migration background. This allows investigation of relationships between socioeconomic circumstances and adolescents' aspirations. However, special-school attendance and emotional or social development needs may not be identifiable with sufficient precision.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), 1984–2018, Version 35\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v35\",\n      \"justification\": \"Relevant nationally representative longitudinal dataset containing youth interviews throughout the 2010s. The youth questionnaire addresses education, occupational plans, family relationships, leisure activities, social attitudes, and personal expectations. Household information provides financial resources, parental occupations, educational backgrounds, and migration characteristics. The dataset is useful for examining how social disadvantage and family circumstances influence adolescents' aspirations. It offers a valuable comparison population, although it does not specifically target special schools for emotional and social development.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS), Starting Cohort 4: Grade 9, 2010/2011, Version 16.0.0\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC4:16.0.0\",\n      \"justification\": \"An expanded release of the longitudinal study of ninth-grade students initially surveyed in 2010/2011, including students from special schools with a focus on learning. Particularly valuable for investigating whether educational and occupational aspirations expressed during adolescence correspond to later educational qualifications and employment outcomes. The study includes demographic, family, and migration-related characteristics. Its longitudinal design makes it useful for researching transitions into adult life. However, the special-school sample does not specifically represent students with emotional and social development needs.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS), Starting Cohort 4: Grade 9, 2010/2011, Version 10.0.0\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC4:10.0.0\",\n      \"justification\": \"A dataset release from 2019 containing longitudinal information on adolescents who entered ninth grade in 2010/2011. It is relevant for analyzing educational aspirations, occupational expectations, school-to-work transitions, demographic background, and migration characteristics during the 2010s. The sample includes students attending special schools with a learning focus, providing a useful comparison group for research on adolescents with special educational needs. The dataset does not specifically target emotional and social development.\"\n    },\n    {\n      \"title\": \"Students Receiving Special Educational Support in Germany, by School Year, School Type and Special Educational Needs (GENESIS-Online, Table 21111-0007)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/21111/table/21111-0007\",\n      \"justification\": \"Highly relevant for identifying the target population. This official German education statistics dataset distinguishes special educational needs categories, including emotional and social development (Emotionale und soziale Entwicklung), and provides information by school year and school type. It supports analysis of the size and distribution of the relevant special-school population during the 2010s. Although it does not measure individual aspirations, family plans, leisure preferences, or civic participation, it provides essential contextual data for evaluating the representativeness of survey samples.\"\n    },\n    {\n      \"title\": \"Students Receiving Special Educational Support in Germany, by School Year, Gender, School Type and Special Educational Needs (GENESIS-Online, Table 21111-0008)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/b4049cf3\",\n      \"justification\": \"Strong contextual match because it explicitly identifies pupils receiving special educational support in emotional and social development. The dataset provides information by gender, school type, and school year, with coverage beginning in the 2014/2015 academic year. It can be used to establish the demographic composition of the target population and compare special-school enrollment patterns across the 2010s. It does not contain individual-level information about future plans, migration background, family aspirations, financial expectations, or leisure activities.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), 1984–2019, EU Edition\",\n      \"url_or_doi\": \"https://www.diw.de/de/diw_01.c.814095.de/edition/soep-core_v36eu__daten_1984-2019__eu-edition.html\",\n      \"justification\": \"A relevant alternative edition of the German Socio-Economic Panel covering the entire 2010s. It contains youth questionnaires addressing occupational plans, education, expectations, relationships, leisure, and social attitudes. Its longitudinal household structure allows adolescents' responses to be linked to parental socioeconomic characteristics, household finances, and migration background. This makes it useful for analyzing inequalities in future aspirations and family-related expectations. It is best suited to comparative analysis rather than identifying a specific sample of adolescents attending special schools for emotional and social development.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453006.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18656,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1886,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20542
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

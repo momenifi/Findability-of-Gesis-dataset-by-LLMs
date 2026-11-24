@@ -1,0 +1,62 @@
+{
+  "query_id": 26,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14151\",\n      \"justification\": \"A major cross-sectional survey examining social attitudes, behavior, political orientations, and socio-demographic trends of the population in Germany during 2021.\"\n    },\n    {\n      \"title\": \"European Social Survey Round 10 (ESS10 - 2020/2022)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS10-2020\",\n      \"justification\": \"Contains multi-country survey data including Germany, covering public attitudes towards democracy, digital social contacts, family life, and special responses to COVID-19 in the early 2020s.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41i\",\n      \"justification\": \"A long-running, representative longitudinal study of private households in Germany collecting annual data through the 2020s on living conditions, values, social participation, and behavioral change.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 408,
+          "candidatesTokenCount": 334,
+          "totalTokenCount": 1667,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 408
+            }
+          ],
+          "thoughtsTokenCount": 925,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ebenavnKOda1kdUPqvSW2Qo"
+      }
+    }
+  ]
+}

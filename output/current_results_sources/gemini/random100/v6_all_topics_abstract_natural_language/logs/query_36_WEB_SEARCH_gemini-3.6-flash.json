@@ -1,0 +1,69 @@
+{
+  "query_id": 36,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions, Vocational education and training, and Occupational health in Hesse during the 1980s, matching this research need: data on young workers and apprentices in Hesse covering training and employment conditions, working hours, overtime, weekend work, vocational school conflicts, vacation, workplace representation, union membership, and occupational health and safety compliance\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Die Praktizierung des Jugendarbeitsschutzes in Hessen aus der Sicht Jugendlicher (ZA1376)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1376\",\n      \"justification\": \"This GESIS dataset (ZA1376) surveyed young workers and apprentices in Hesse between October 1983 and April 1984. It directly addresses training and employment conditions, working hours, overtime, weekend work, conflicts regarding vocational school, vacation entitlements, workplace representation (Jugendvertretung/Betriebsrat), union membership, and compliance with occupational health and safety regulations under the Youth Employment Protection Act (Jugendarbeitsschutzgesetz).\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1901,
+          "candidatesTokenCount": 186,
+          "totalTokenCount": 4477,
+          "cachedContentTokenCount": 1134,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1901
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1134
+            }
+          ],
+          "thoughtsTokenCount": 2390,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "L4SEasr9FdCLvdIPsPS-gAM"
+      }
+    }
+  ]
+}

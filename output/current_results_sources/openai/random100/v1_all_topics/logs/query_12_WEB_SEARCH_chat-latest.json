@@ -1,0 +1,202 @@
+{
+  "query_id": 12,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport, Social behaviour and attitudes, Media, TRANSPORT AND TRAVEL, Consumption and consumer behaviour, Economic systems and development, and Economic conditions and indicators in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e87217a47bdb4b8006b0453e0557487d2a59375749170c9ec",
+        "created_at": 1795445728.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e87217a47bdb4b8006b0453e1546887d28b20304fc5780c7a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:stat.fi historical statistics Finland 1960 tourism transport consumption national accounts dataset",
+                "site:fred.stlouisfed.org Finland 1960 GDP consumption indicators",
+                "site:services.fsd.tuni.fi Finland 1960 survey attitudes media leisure dataset",
+                "site:statistics.fi statistical yearbook Finland 1960 transport tourism household expenditure"
+              ],
+              "query": "site:stat.fi historical statistics Finland 1960 tourism transport consumption national accounts dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e87217a47bdb4b8006b0453e4318c87d2acc8c382cc893fb0",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:services.fsd.tuni.fi/catalogue \"1960\" \"1969\" leisure media Finland",
+                "site:services.fsd.tuni.fi/catalogue/FSD3385 1960 newspaper",
+                "site:stat.fi 1960 1969 household consumption expenditure historical statistics Finland",
+                "site:stat.fi statistical yearbook Finland 1965 archive digitized"
+              ],
+              "query": "site:services.fsd.tuni.fi/catalogue \"1960\" \"1969\" leisure media Finland",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e87217a47bdb4b8006b0453e73a7887d2becb0169f7f8ad82",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:services.fsd.tuni.fi/catalogue/FSD3386 \"1960\"",
+                "site:otos.stat.fi/items \"Suomen tilastollinen vuosikirja 1969\"",
+                "site:otos.stat.fi/items \"Suomen tilastollinen vuosikirja 1968\"",
+                "site:pxdata.stat.fi 1966 household consumption 1966 1971"
+              ],
+              "query": "site:services.fsd.tuni.fi/catalogue/FSD3386 \"1960\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e87217a47bdb4b8006b0453eacb9087d2b683873016698d14",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Historical Series of National Accounts, Finland, 1860–2024\",\n      \"url_or_doi\": \"https://pxweb2-testi.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__vtp/129i.px/\",\n      \"justification\": \"Official dataset from Statistics Finland containing historical economic indicators, including GDP, national income, private consumption, imports, exports, employment, and economic activity by industry. Includes annual observations for the entire 1960–1969 period. Highly relevant to economic systems and development, economic conditions and indicators, and consumption and consumer behaviour.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1960\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/8bb5efef-404f-4b2c-9205-213bfc4feacb/full\",\n      \"justification\": \"Official historical statistical publication covering Finland around 1960, including historical statistical series. Provides a starting point for examining transport, economic conditions, consumption, population, and social development at the beginning of the decade. The publication is digitized and available through Statistics Finland's archive.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1965\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/1b19bd5d-2164-42b1-825c-6cf03c0590b4\",\n      \"justification\": \"Official statistical yearbook covering Finland in the mid-1960s, with historical series extending to earlier decades. Relevant for investigating economic development, household consumption, transport, population characteristics, and social conditions. Particularly useful for contextualizing changes in Finnish society during the 1960s.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1966\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/1620ffc0-084c-437f-95b9-5ddb2f545733\",\n      \"justification\": \"Historical statistical publication from Finland's official statistical authorities. Provides quantitative information on Finnish society and the economy during the 1960s. Relevant to economic conditions, consumption, transport, demographic development, and broader social trends.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1967\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/acde2978-f769-4d82-84e3-ceb20a63900f\",\n      \"justification\": \"Digitized official statistical yearbook documenting Finnish economic and social conditions during the late 1960s. Useful for researching economic indicators, transportation, consumption patterns, and social development. Can also provide historical context for changes in leisure activities and living standards.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1968\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/f153803b-8084-4dd6-b2f1-f1c22d6762d4\",\n      \"justification\": \"Official statistical yearbook containing historical data covering 1966–1968 and earlier periods. Relevant to Finland's transport infrastructure, economic development, household consumption, and demographic and social conditions. Especially useful for comparing developments across the second half of the 1960s.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland 1969\",\n      \"url_or_doi\": \"https://otos.stat.fi/items/b9d81ca9-2817-4652-843c-9496b5d17a16\",\n      \"justification\": \"Official historical statistical yearbook providing information on Finland toward the end of the 1960s. Relevant to transport and travel, consumption, national economic conditions, and social development. Can be combined with earlier yearbooks to reconstruct trends throughout the decade.\"\n    },\n    {\n      \"title\": \"Cultural Distinctions, Generations and Change 1960–2010: Coverage in European Newspaper Articles (FSD3385)\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd3385\",\n      \"justification\": \"Quantitative research dataset archived by the Finnish Social Science Data Archive. Includes newspaper articles from Finland's Helsingin Sanomat and newspapers in other European countries, with observations beginning in 1960. Contains information about cultural reporting, music, literature, dance, article characteristics, and cultural representations. Directly relevant to media, leisure, cultural behaviour, and social attitudes in Finland during the 1960s. Data access is restricted to research purposes.\"\n    },\n    {\n      \"title\": \"Cultural Distinctions, Generations and Change 1960–2010: Coverage in European Newspaper Issues (FSD3386)\",\n      \"url_or_doi\": \"https://services.fsd.tuni.fi/catalogue/FSD3386?lang=en\",\n      \"justification\": \"Quantitative dataset documenting newspaper issues from six European newspapers, including Finland's Helsingin Sanomat. Contains observations for 1960 and subsequent benchmark years. Variables include publication dates, total newspaper pages, cultural section pages, and the placement of cultural content. Useful for researching Finnish media, cultural participation, and the visibility of leisure and arts in newspaper coverage. This is a complementary dataset to FSD3385.\"\n    },\n    {\n      \"title\": \"Household Budget Survey and Historical Household Consumption Statistics, Finland, 1966 Onward\",\n      \"url_or_doi\": \"https://stat.fi/en/documentation/documentation-of-statistics/ktutk\",\n      \"justification\": \"Official Statistics Finland household consumption data series with electronically available observations beginning in 1966. The historical series includes household expenditure, disposable income, housing conditions, and consumption patterns. Relevant to consumption and consumer behaviour, household economic conditions, transport expenditure, and leisure-related spending. The documentation identifies a historical comparable series beginning in 1966 and continuing through 1971, 1976, 1981, 1985, and 1990. The linked page provides documentation rather than a direct data download.\"\n    },\n    {\n      \"title\": \"Private Consumption Expenditure by Category, Finland, 1964–1970\",\n      \"url_or_doi\": \"https://otos.stat.fi/server/api/core/bitstreams/cc492cc3-4334-4dd4-bd10-f3d57135694b/content\",\n      \"justification\": \"Historical statistical table containing annual Finnish private consumption expenditure by category from 1964 through 1970. Includes household spending categories and expenditure by non-residents in Finland. Particularly relevant to consumption and consumer behaviour, economic conditions, and tourism-related expenditure. The table enables direct comparisons of consumer spending patterns during the second half of the 1960s.\"\n    },\n    {\n      \"title\": \"Private Consumption Expenditure by Category, Finland, 1964–1971\",\n      \"url_or_doi\": \"https://otos.stat.fi/server/api/core/bitstreams/1a87abbc-0e37-457d-bcc1-d716f9fe561e/content\",\n      \"justification\": \"Historical statistical table providing Finnish private consumption expenditure across multiple categories from 1964 through 1971. Includes expenditure on household furnishings and equipment and spending by foreign visitors in Finland. Useful for investigating consumer behaviour, changing living standards, economic development, and tourism-related consumption during the 1960s.\"\n    },\n    {\n      \"title\": \"Leading Indicators OECD: Reference Series: Gross Domestic Product, Original Series for Finland\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/series/LORSGPORFIQ661S\",\n      \"justification\": \"Quarterly historical GDP index for Finland, sourced from the OECD and distributed through the Federal Reserve Bank of St. Louis. The series begins in the first quarter of 1960 and includes observations throughout the decade. Highly relevant to economic conditions and indicators, economic development, and analysis of Finnish economic growth during the 1960s.\"\n    },\n    {\n      \"title\": \"Leading Indicators OECD: Reference Series: Gross Domestic Product, Ratio to Trend for Finland\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/series/FINLORSGPRTSTSAM\",\n      \"justification\": \"OECD-derived historical economic indicator for Finland available through FRED. Measures GDP relative to its estimated trend and includes observations from the 1960s. Useful for identifying economic fluctuations and business-cycle conditions during the decade. Particularly relevant to economic conditions and indicators and historical economic development.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Finland: Historical Statistical Collection, 1879 Onward\",\n      \"url_or_doi\": \"https://stat.fi/en/services/library-and-archiving-services/library-and-publications/statistical-yearbook-of-finland\",\n      \"justification\": \"Official Statistics Finland collection providing access to digitized historical statistical yearbooks, including publications from every year of the 1960s. The yearbooks cover topics such as population, transport, consumption, prices, economic activity, education, and social conditions. This is a particularly valuable source for reconstructing historical datasets on tourism, sport, leisure, media, transport, consumer behaviour, and economic indicators when dedicated machine-readable datasets are unavailable.\"\n    },\n    {\n      \"title\": \"Statistics Finland Historical Archive: Original Statistical Data and Historical Tables\",\n      \"url_or_doi\": \"https://stat.fi/en/services/library-and-archiving-services/statistics-finlands-archive\",\n      \"justification\": \"Official archive containing historical statistical records, original data, unpublished tables, and administrative statistical materials. Potentially relevant to detailed research on Finnish transport, tourism, consumption, social conditions, and economic development during the 1960s. Some records are available digitally, while others require consultation or a formal data request. This is an archival discovery resource rather than a single downloadable dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795445748.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 26821,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2282,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 29103
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

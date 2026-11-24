@@ -1,0 +1,69 @@
+{
+  "query_id": 23,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled The CFS’s (Center for Financial Studies) historical money and capital market data base, Germany 1871 to 1914.?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The CFS's (Center for Financial Studies) historical money and capital market data base, Germany 1871 to 1914\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8286\",\n      \"justification\": \"This dataset, produced by the Center for Financial Studies at the University of Frankfurt and authored by Steffen Eube, Anja Weigt, and Johannes Müller, covers historical money and capital market time series for Germany between 1871 and 1914, available via the GESIS Data Archive.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 402,
+          "candidatesTokenCount": 160,
+          "totalTokenCount": 1267,
+          "cachedContentTokenCount": 137,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 402
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 137
+            }
+          ],
+          "thoughtsTokenCount": 705,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "gke-aqvYEp2Dxs0PudG1iQM"
+      }
+    }
+  ]
+}

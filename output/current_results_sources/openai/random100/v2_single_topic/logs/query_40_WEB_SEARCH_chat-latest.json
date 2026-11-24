@@ -1,0 +1,186 @@
+{
+  "query_id": 40,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_08eac6aed89eee02006b045cc9ece087d2ac79e8bdb8e0488f",
+        "created_at": 1795448009.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_08eac6aed89eee02006b045ccad7c887d2b368d6b76a4b5116",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German election study 1990 1994 1998 dataset ZA",
+                "German Bundestag election results 1990 1994 1998 dataset official",
+                "Manifesto Project dataset Germany 1990s party manifestos",
+                "Quality of Government dataset Germany 1990 political institutions 1990s"
+              ],
+              "query": "GESIS German election study 1990 1994 1998 dataset ZA",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08eac6aed89eee02006b045cce416887d2ba78a80ef0edd202",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:bundeswahlleiterin.de/en/bundestagswahlen/1994.html",
+                "site:bundeswahlleiterin.de/en/bundestagswahlen/1998.html",
+                "site:search.gesis.org/research_data/ZA3073 1998 election",
+                "site:search.gesis.org/research_data/ZA2600 1994 election"
+              ],
+              "query": "site:bundeswahlleiterin.de/en/bundestagswahlen/1994.html",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_08eac6aed89eee02006b045cd102f887d2a209e45d0fafd8fa",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Bundestag Election Results 1990\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/bundestagswahlen/1990.html\",\n      \"justification\": \"Official electoral dataset from Germany's Federal Returning Officer covering the first federal parliamentary election after German reunification on December 2, 1990. Includes party vote shares, constituency-level results, voter turnout, parliamentary seat distribution, and political party participation. Particularly useful for studying German reunification, electoral institutions, political representation, and the transformation of Germany's party system.\"\n    },\n    {\n      \"title\": \"German Bundestag Election Results 1994\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/bundestagswahlen/1994.html\",\n      \"justification\": \"Official dataset documenting Germany's 1994 federal parliamentary election. Provides constituency-level election results, political party performance, voter turnout, and parliamentary representation. Useful for examining the consolidation of Germany's post-reunification political system, party competition, and the electoral foundations of Helmut Kohl's government.\"\n    },\n    {\n      \"title\": \"German Bundestag Election Results 1998\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/bundestagswahlen/1998.html\",\n      \"justification\": \"Official election dataset covering the September 27, 1998 federal election, which resulted in a transition from Helmut Kohl's CDU/CSU-FDP government to Gerhard Schröder's SPD-Green coalition. Contains detailed political party results, constituency-level voting statistics, turnout, and parliamentary seat allocations. Particularly valuable for studying government transitions, coalition formation, and democratic electoral processes during the late 1990s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database – Political Party Preferences and Election Manifestos\",\n      \"url_or_doi\": \"https://manifesto-project.wzb.eu/datasets/\",\n      \"justification\": \"Longitudinal comparative dataset documenting political parties' policy positions through systematic analysis of election manifestos. Includes major German political parties such as CDU/CSU, SPD, FDP, the Greens, and PDS during the 1990s. Enables quantitative investigation of party ideology, political competition, government policy priorities, reunification debates, and changes in Germany's political landscape. Data are available in multiple statistical formats.\"\n    },\n    {\n      \"title\": \"German Policy Agendas Project – Comparative Agendas Project\",\n      \"url_or_doi\": \"https://compagendas.la.utexas.edu/project/germany\",\n      \"justification\": \"Comprehensive collection of datasets examining political and governmental activities in Germany. Covers parliamentary questions, legislative proposals, adopted laws, government speeches, party manifestos, and public policy priorities. The historical coverage includes 1976–2005, making the entire 1990s available for analysis. Especially relevant for studying the German Bundestag, government decision-making, parliamentary institutions, legislative processes, and changes in public policy following reunification.\"\n    },\n    {\n      \"title\": \"Comparative Agendas Project – German Party Manifestos\",\n      \"url_or_doi\": \"https://compagendas.la.utexas.edu/datasets_codebooks\",\n      \"justification\": \"Structured dataset containing policy-topic classifications of German political party manifestos from 1949 to 2013, including 53,887 observations. Allows researchers to investigate changes in party priorities, political ideologies, electoral competition, and policy agendas throughout the 1990s. Particularly useful for comparing political organisations and studying how reunification influenced party platforms and political discourse.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994 (ZA3065)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3065?lang=en\",\n      \"justification\": \"GESIS research dataset examining political attitudes, participation, and electoral behavior in reunified Germany during 1994. Relevant for investigating democratic participation, political party preferences, voter behavior, and the relationship between citizens and political institutions. Particularly valuable for examining the political integration of eastern and western Germany during the early post-reunification period.\"\n    },\n    {\n      \"title\": \"German National Election Study – Post-Election Study 1998 (ZA3073)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3073\",\n      \"justification\": \"German election research dataset associated with the 1998 federal election and the Comparative Study of Electoral Systems. Provides a source for examining voting behavior, political preferences, democratic representation, and electoral politics during the transition from the Kohl government to the Schröder government. Relevant for research into Germany's political institutions, electoral system, and changing party alignments.\"\n    },\n    {\n      \"title\": \"GESIS German State Elections – Historical Election Studies\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"GESIS collection of election research datasets covering Germany's federal states, including studies from the 1990s. The collection includes research on the 1990 state elections in eastern Germany and the 1999 Berlin parliamentary election. Particularly relevant for examining federalism, regional political organisations, state-level party systems, and the institutional integration of the former East German states into the Federal Republic.\"\n    },\n    {\n      \"title\": \"German Local Manifesto Project (GLMP)\",\n      \"url_or_doi\": \"https://localmanifestoproject.de/\",\n      \"justification\": \"Research dataset documenting local political party manifestos and political competition across German municipalities. Its historical coverage begins in 1989 and includes municipal elections throughout the 1990s. Contains documents from established national parties, their local branches, and independent local political organisations. Useful for investigating local government, municipal political institutions, party organisation, decentralisation, and political representation.\"\n    },\n    {\n      \"title\": \"Historical German Federal Election Results Since 1949 – German Bundestag\",\n      \"url_or_doi\": \"https://www.bundestag.de/parlament/wahlen/ergebnisse_seit1949-244692\",\n      \"justification\": \"Official historical electoral statistics maintained by the German Bundestag. Includes federal election results for 1990, 1994, and 1998 alongside earlier and later elections. Provides comparable party vote shares over time, allowing researchers to examine changes in Germany's political party system, democratic representation, and governing coalitions during the 1990s.\"\n    },\n    {\n      \"title\": \"German Federal Elections – Historical Results by Federal State\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/dam/jcr/397735e3-0585-46f6-a0b5-2c60c5b83de6/btw_ab49_gesamt.pdf\",\n      \"justification\": \"Official historical statistical compilation from Germany's Federal Returning Officer covering federal elections since 1949, including all three Bundestag elections held during the 1990s. Provides comparative electoral information across German federal states, including party voting results and electoral participation. Valuable for investigating regional differences in political representation, the development of Germany's federal political system, and electoral changes following reunification.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448025.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18798,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1664,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20462
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

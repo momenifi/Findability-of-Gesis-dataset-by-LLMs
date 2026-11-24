@@ -1,0 +1,208 @@
+{
+  "query_id": 3,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany, England, Sweden, and United States of America during the 1950s and 1960s and 1970s and 1980s and 1990s and 2000s, matching this research need: Long-run comparative time-series data on violent crime and social integration, linking homicide, assault, imprisonment, inequality, unemployment, precarious work, welfare, family change, migration, and perceived security in Germany, Britain, and Sweden, 1950s-2000s\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02214baff7114282006b046f7a01bc87d29160025ce226a868",
+        "created_at": 1795452794.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02214baff7114282006b046f7b2d2c87d2a321e568e9302305",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Our World in Data homicide rates historical dataset 1950 2000 country",
+                "Clio Infra historical crime homicide data Europe 1950 2000 dataset",
+                "OECD historical social expenditure SOCX database unemployment inequality data",
+                "European Social Survey data download perceived safety crime 2002"
+              ],
+              "query": "Our World in Data homicide rates historical dataset 1950 2000 country",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02214baff7114282006b046f7ecc4c87d2b8c6b6a737c5de4f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Luxembourg Income Study LIS database historical inequality 1960 2000",
+                "World Inequality Database data download country historical income inequality",
+                "Comparative Welfare Entitlements Dataset CWED 1971 2010",
+                "OECD family database marriage divorce fertility historical datasets",
+                "ICTWSS database union density 1960 2000 OECD",
+                "European Values Study longitudinal data 1981 1990 1999 2008 GESIS"
+              ],
+              "query": "Luxembourg Income Study LIS database historical inequality 1960 2000",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02214baff7114282006b046f83120487d296569b87fd32e2a2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "OECD ICTWSS database 1960 union density employment protection data",
+                "ILO ILOSTAT historical unemployment 1960 dataset",
+                "World Prison Brief data prison population historical country",
+                "UN DESA international migrant stock 1990 2000 dataset",
+                "International Crime Victims Survey ICVS data 1989 2005 dataset",
+                "WHO mortality database homicide data download",
+                "FBI Crime Data Explorer historical crime 1960",
+                "OECD employment database temporary employment 1980 2000"
+              ],
+              "query": "OECD ICTWSS database 1960 union density employment protection data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02214baff7114282006b046f8b05e487d2ad3072901ae3c147",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Crimes Recorded by the Police (1950–2000)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_hist\",\n      \"justification\": \"One of the strongest starting points for reconstructing long-run crime trends in Germany, England and Wales, and Sweden. Provides annual historical police-recorded crime statistics covering 1950–2000, although the starting years differ by country. Particularly useful for examining the rise in recorded crime during the 1960s–1990s and comparing changes across national contexts. Total recorded crime is available over longer periods than individual violent-offence categories. Differences in criminal definitions, recording practices, and reporting rates must be considered.\"\n    },\n    {\n      \"title\": \"Eurostat – Historical Crime and Criminal Justice Statistics (1950–2007)\",\n      \"url_or_doi\": \"https://www.statsoftheunion.eu/en/browse/crim_h\",\n      \"justification\": \"Provides access to historical European crime datasets covering police-recorded offences, homicide, violent crime, and imprisonment. Total recorded crime series extend to 1950 for some countries, including Germany and England and Wales, while more detailed offence categories generally begin in 1993 and prison population statistics in 1987. Particularly relevant for studying whether changes in violence corresponded with changes in imprisonment and criminal justice policies during the late twentieth century.\"\n    },\n    {\n      \"title\": \"World Health Organization – WHO Mortality Database (1950–Present)\",\n      \"url_or_doi\": \"https://www.who.int/data/data-collection-tools/who-mortality-database\",\n      \"justification\": \"A particularly important source for historical homicide comparisons. Contains cause-specific mortality statistics reported by national vital registration systems, with records extending back to 1950 where available. Homicide deaths can be identified through the relevant international cause-of-death classifications and analyzed by age, sex, country, and year. Useful for comparing Germany, the United Kingdom, Sweden, and the United States while reducing dependence on police-recorded crime statistics. Changes in ICD coding and differences in historical coverage require harmonization.\"\n    },\n    {\n      \"title\": \"ICPSR – Violence and Crime in Cross-National Perspective, 1900–1974\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/NACJD/studies/8612\",\n      \"justification\": \"Historical comparative crime dataset covering 110 countries and 44 urban locations over periods extending from 1900 to 1974. Particularly valuable for establishing pre-1970 baselines for violent crime and examining long-term differences in criminal violence between industrialized societies. Can complement Eurostat and WHO datasets by extending the historical perspective into the early postwar decades. Researchers should inspect country-specific coverage and variable definitions before constructing comparable series.\"\n    },\n    {\n      \"title\": \"World Prison Brief – Historical Prison Population Statistics\",\n      \"url_or_doi\": \"https://prisonstudies.org/about-world-prison-brief\",\n      \"justification\": \"Provides internationally comparable information on prison populations and imprisonment rates per 100,000 inhabitants, including historical trends where available. Relevant for comparing the expansion or contraction of imprisonment in Germany, Britain, Sweden, and the United States. Particularly useful for investigating whether rising imprisonment coincided with changes in homicide, recorded violence, unemployment, and social inequality. Historical coverage varies considerably across countries.\"\n    },\n    {\n      \"title\": \"International Crime Victims Survey – Integrated Database (1989–2016)\",\n      \"url_or_doi\": \"https://www.icvs-crime.eu/database\",\n      \"justification\": \"Provides cross-national victimization survey data from 1989 onward. Especially useful for examining assault, robbery, victimization experiences, and perceptions of crime independently of official police statistics. Offers a valuable complement to homicide and recorded-crime series when investigating perceived security and public exposure to violence. Survey waves are intermittent rather than annual, and country participation varies.\"\n    },\n    {\n      \"title\": \"European Social Survey – Cross-National Social Attitudes and Security Data (2002–Present)\",\n      \"url_or_doi\": \"https://www.europeansocialsurvey.org/\",\n      \"justification\": \"Major comparative survey resource beginning in 2002, covering Germany, the United Kingdom, Sweden, and numerous other European countries. Contains measures related to perceived safety, experiences of crime, interpersonal trust, institutional trust, social participation, immigration attitudes, employment, and subjective well-being. Especially valuable for operationalizing social integration and perceived security during the 2000s. Repeated survey waves permit comparisons across countries and periods, although the dataset does not cover the earlier postwar decades.\"\n    },\n    {\n      \"title\": \"European Values Study – Longitudinal Data (1981–2008)\",\n      \"url_or_doi\": \"https://europeanvaluesstudy.eu/surveys/data-access/\",\n      \"justification\": \"Highly relevant for examining social integration and cultural change in Germany, Britain, and Sweden from the early 1980s through the 2000s. Includes repeated measures of interpersonal trust, family values, social norms, institutional confidence, political attitudes, and attitudes toward immigrants. Particularly useful for testing whether changes in social cohesion accompanied changes in violent crime and economic insecurity. The longitudinal dataset harmonizes multiple survey waves but does not provide annual observations.\"\n    },\n    {\n      \"title\": \"European Values Study – Longitudinal Data File 1981–2008, GESIS ZA4804\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/50680\",\n      \"justification\": \"Specific archived longitudinal dataset integrating European Values Study waves from 1981, 1990, 1999, and 2008. Includes observations from Britain, Sweden, West Germany, and, in later waves, East Germany. Especially appropriate for investigating the relationship between changes in trust, social attitudes, family norms, and broader processes of social integration. The distinction between East and West Germany is particularly important when analyzing social change surrounding reunification in 1990.\"\n    },\n    {\n      \"title\": \"UNU-WIDER – World Income Inequality Database (WIID)\",\n      \"url_or_doi\": \"https://www.wider.unu.edu/database/world-income-inequality-database-wiid\",\n      \"justification\": \"Extensive cross-national database of historical income inequality estimates, including Gini coefficients and other distributional measures. Useful for reconstructing inequality trends in Germany, Britain, Sweden, and the United States across much of the second half of the twentieth century. Particularly valuable for investigating associations between inequality, homicide, imprisonment, and social cohesion. Researchers should distinguish original observations from harmonized estimates and assess comparability across income concepts and survey sources.\"\n    },\n    {\n      \"title\": \"World Inequality Database – Historical Income and Wealth Inequality\",\n      \"url_or_doi\": \"https://wid.world/data/\",\n      \"justification\": \"Provides historical estimates of income and wealth distribution across countries, including top income shares and other inequality measures. Particularly suitable for examining structural economic changes between the 1950s and 2000s in Germany, the United Kingdom, Sweden, and the United States. Can support tests of whether rising income concentration coincided with changes in homicide and social integration. Historical series differ in source quality, measurement definitions, and availability.\"\n    },\n    {\n      \"title\": \"OECD – Social Expenditure Database (SOCX), 1980 Onward\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/social-expenditure-database-socx.html\",\n      \"justification\": \"Core comparative dataset for investigating welfare-state development and social protection in Germany, Britain, Sweden, and the United States. Provides information on public and private social spending, including pensions, unemployment support, family benefits, health, housing, and other social services. Historical coverage begins in 1980. Especially useful for examining whether welfare expansion or retrenchment corresponded with changes in inequality, labor-market insecurity, imprisonment, and violent crime.\"\n    },\n    {\n      \"title\": \"Comparative Welfare Entitlements Dataset (CWED2)\",\n      \"url_or_doi\": \"https://cwed2.org/\",\n      \"justification\": \"Cross-national historical dataset measuring the structure and generosity of social insurance programs in industrialized countries. Particularly relevant for comparing unemployment insurance, sickness benefits, and pension arrangements across Germany, Britain, Sweden, and the United States. Provides a more direct measure of welfare entitlements than aggregate social expenditure alone. Useful for investigating whether differences in social protection moderated relationships between unemployment, inequality, social integration, and violent crime.\"\n    },\n    {\n      \"title\": \"OECD/AIAS – Institutional Characteristics of Trade Unions, Wage Setting, State Intervention and Social Pacts (ICTWSS)\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/oecdaias-ictwss-database.html\",\n      \"justification\": \"Important historical comparative dataset on labor-market institutions, trade union density, collective bargaining coverage, wage-setting arrangements, and employment relations. Particularly useful for comparing the evolution of organized labor and economic integration in Sweden, Germany, Britain, and the United States. Historical observations extend into the postwar period for a number of indicators. Can be linked to inequality, unemployment, and crime series to investigate the relationship between labor-market institutions and social stability.\"\n    },\n    {\n      \"title\": \"OECD – Employment by Permanency of the Job\",\n      \"url_or_doi\": \"https://data-explorer.oecd.org/vis?bp=true&df%5Bag%5D=OECD.ELS.SAE&df%5Bds%5D=dsDisseminateFinalDMZ&df%5Bid%5D=DSD_TEMP%40DF_TEMP_D&df%5Bvs%5D=1.0\",\n      \"justification\": \"Comparative employment dataset distinguishing temporary from permanent employment arrangements. Directly relevant to operationalizing precarious employment and labor-market insecurity. Useful for examining changes in nonpermanent work in Germany, Britain, and Sweden during the later decades of the study period. Historical availability differs across countries, so it is best used alongside longer unemployment and labor-market institution series. Temporary employment is only one dimension of precarious work.\"\n    },\n    {\n      \"title\": \"OECD – Family Database\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/oecd-family-database.html\",\n      \"justification\": \"Cross-national collection of indicators concerning family formation, marriage, divorce, fertility, household composition, children, and family policies. Particularly relevant for analyzing family change as a component of social integration in Germany, Britain, Sweden, and the United States. Can be linked to crime, welfare, and labor-market data to investigate whether changing family structures accompanied changes in violence. Historical coverage depends on the indicator, with some demographic series extending substantially further back than contemporary family-policy measures.\"\n    },\n    {\n      \"title\": \"Generations and Gender Programme – Harmonized Histories Database\",\n      \"url_or_doi\": \"https://www.ggp-i.org/data/harmonized-histories/\",\n      \"justification\": \"Harmonized retrospective demographic dataset containing information on marriage, partnership formation, separation, divorce, childbearing, and family trajectories. Also includes socioeconomic and family-background characteristics. Particularly valuable for studying family transitions and changing forms of household integration over historical periods. Retrospective histories can extend further back than the survey collection dates, although national coverage and representativeness must be checked before using the data for direct comparisons among Germany, Britain, Sweden, and the United States.\"\n    },\n    {\n      \"title\": \"United Nations DESA – International Migrant Stock (1990–2024)\",\n      \"url_or_doi\": \"https://www.un.org/development/desa/pd/content/international-migrant-stock/\",\n      \"justification\": \"Internationally comparable estimates of migrant populations by destination country, origin, and sex. Covers Germany, the United Kingdom, Sweden, and the United States from 1990 onward. Particularly useful for investigating whether changes in migration corresponded with changes in social integration, perceptions of security, and violent crime during the 1990s and 2000s. The series provides migrant population stocks rather than direct measures of integration or annual immigration flows.\"\n    },\n    {\n      \"title\": \"FBI – Uniform Crime Reporting Program, Historical Crime in the United States\",\n      \"url_or_doi\": \"https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/ucr/publications\",\n      \"justification\": \"Primary official source for historical United States crime statistics, including murder, aggravated assault, robbery, and other recorded offences. Historical publications provide data extending through the 1960s and later decades. Particularly relevant for including the United States as a comparative case alongside Germany, Britain, and Sweden. The American case allows examination of contrasting imprisonment, inequality, welfare, and violent-crime trajectories. Researchers must account for changes in reporting coverage and offence definitions.\"\n    },\n    {\n      \"title\": \"GESIS – European Values Study Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation\",\n      \"justification\": \"Official archive and documentation resource for historical European Values Study datasets. Provides access to individual survey waves and longitudinal harmonized files, with questionnaires, methodological documentation, and country coverage information. Particularly valuable for selecting consistent indicators of social trust, family change, institutional confidence, and attitudes toward migration across Germany, Britain, and Sweden. Supports careful assessment of variable comparability across the 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"World Prison Brief – Historical Trends in Imprisonment\",\n      \"url_or_doi\": \"https://prisonstudies.org/news/its-20th-anniversary-icpr%25E2%2580%2599s-world-prison-brief-adds-new-historic-data-over-30-countries?language_content_entity=en-gb\",\n      \"justification\": \"Documentation of expanded historical imprisonment data in the World Prison Brief. Useful for identifying countries with longer historical incarceration series and reconstructing prison population trends. Particularly relevant for distinguishing violent-crime developments from changes in penal policy and imprisonment practices. Historical coverage is uneven, and direct comparisons require attention to whether statistics include remand prisoners, sentenced prisoners, and other categories of detention.\"\n    },\n    {\n      \"title\": \"OECD – Historical Comparative Homicide Data Referenced in How Was Life?\",\n      \"url_or_doi\": \"https://www.oecd.org/en/publications/how-was-life_9789264214262-en.html\",\n      \"justification\": \"Historical statistical resource examining long-run developments in living standards and social conditions, including homicide rates across historical periods. The underlying historical homicide estimates are relevant for contextualizing postwar developments against longer-run changes in interpersonal violence. Particularly useful as a supplementary source for historical comparison, although the publication and its underlying source datasets should be distinguished. Researchers should verify the geographic and temporal coverage of the homicide observations before merging them with annual postwar series.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452828.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 25738,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3432,
+          "output_tokens_details": {
+            "reasoning_tokens": 256
+          },
+          "total_tokens": 29170
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

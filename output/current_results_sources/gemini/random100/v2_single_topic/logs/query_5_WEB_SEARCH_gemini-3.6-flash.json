@@ -1,0 +1,69 @@
+{
+  "query_id": 5,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Children in Hesse during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Die Praktizierung des Jugendarbeitsschutzes in Hessen aus der Sicht Jugendlicher\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1376\",\n      \"justification\": \"This GESIS Data Archive study (ZA1376) collects data on working conditions, employment protection, and social situation of youth and working children in the state of Hesse.\"\n    },\n    {\n      \"title\": \"GESIS Mikrozensus-Trendfile: Harmonisierung der Mikrozensen 1962 bis 2012\",\n      \"url_or_doi\": \"https://doi.org/10.21241/ssoar.62061\",\n      \"justification\": \"This harmonized Microcensus dataset series compiled by GESIS includes representative household microdata from West Germany (including Hesse) starting in 1962, capturing child and family demographics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EvYKCvMKARFNMg9otPYn7T4VuF5BuqStGsx8U5akJCAyqi3/L/QCzl+kRIpMFtvFvpM2sWDud05iZA2FCmKgYXUDXroPOOE1zIDRxHL+CYO7zuHVH7SctKy6/JNO2qfO74EHTg9cI9sVoyvBSN1GFBiclkD8UuLo/T+lslFnPqGYPHg8XIuCoY/ekN2P6Z7dIPreP21j3by9giseHXpsLH39B3VZQL6m7rwmQJr3DId/67OhhIWzZC7U12YugJLbVkbE8AwYttDU1KNxuenDOPoG3FjqcqAlJS5a5RLMbX2rCG+9vuCFGjDhmLwBBZ4PLxJkIzI/RRq/r+Xzsf5UWOS2TWSv4N4KvSVNjGcTPZo4rH7UamFfMLMZa9y9SprzmcGhhOw20BtNP0jjfz43z1VX408PcvMt0LiOHrzQOTGkLdDDRGOP4Kz0nU1eivJNS9emNbnWsYzC+z17h7fFoKXqWHFeiV/B2nnxDaYwf+/brB+mUWc2/2goBtbgeNaWz/XKm3yCtAneJBMKdOd04cC1WJeZTAB7QbFQQ+YWz16VePV50b0eETHW4gX5RbwBb+F+7weNAqJR+sLP/Mf7TCMq+QcFW6czIBtNE/ee6YQOHIyxHd1xyHvWfougSzNqDCWfnplBrt7hMJrX3OoNMV6DwdqbP+vwtUauN76ub6sWLZ/uDWKL6hCkQWLc4JBZPNrln5GQu7T4BvjEMSH1He7HSbXUjg7tjn6YF2FFnwhcyzeqY8Iei8FmTAahpWT28uCQLBj4UPyti1HDR49fvdrig43QRDMEjGpZDMOok7Zv3Mr7j+5MljoTsDQBLzjwr926fLTbIoSm5g9gqq4uN6AmnX4xesLi6R+6f/fi+3/+0lmWx3uWo/OIIqqJB2JSZ1FZfYksAAd5Cl6UVNqeCfI+DLVsgsa3ZFLEvXV4ioVV/fs55n/J2MSYVKHuY3zpXavkGOu68rO9bg75XpHGO+3FOfCArVJH6ezC0jJo+UtIxJy7IyppfXFCvdUuCFglQBK76AIaRv/nBbZK+Kb16N4XYLth0DK4Zf4OdcxKG0y8/ptFlQjpyLr5hQuSPCUfDj7htsdt4xI84dUOIPuD7MXdTLD4q/1VDyXiN80sKmPp535/UyLxZgzoTP295uCrQ4JQUYDLFaj1rHaWPbq7Nd++GjteWis6a/nxyrVcbDEKCkVpoCOPS1gGQBBdLI4pVqQoqj+pKhL3yn4WF/yg/p+fZv9gKYUYa7o6kqS9dYdNOsoEM8jmTBD3rEZXDT65wpjyMMoyHjCSFzW23MHNV0vaqgV6+tEzlgGFSUC+7XSiM1YRZMZMziLf39bX63TKPv4V0ksW74cKMPEgWjDRbjdTRFNlfbayKbc7fRRJ6rUFFWjLK35zVKZwM6JaueGiNJQ7YU7H6ET6CLwFYxOX+bNQnPQ1lNeLmP4Yi50A6aMcKG2oB2y7airB7OQ+lKZ+cB4Pf0PZ/9do5yNPDSNpsXRQm90Pa1w8hDZCsl4gz5gqfd9T+S4bWCTuT2IlC0sYAr4KDQxeA6vn0XcZ6z+E87kM5TeDU3DdIRF0QBmIoL/ESg5rKEYeJKkaFaNchBIR4RHTshO5E6nl9irVm2np5ARUEZOwFuj54vCFlM8jml/fXPurFxipi14GGX+4UmGE4wVl93QStx2TyFcwVVnKxRMqGQ18Unc+cv8n4qfinNDODusHWHrrhuhCywPQWYRoMRqbc/AGYIuawXalTBgmeUQDkLhWEOPcPTl0BdyVzvO/4f05YyQsLwoyzSJAKCv2L4UNOlyg71/HJjahBcYizqlln9pGPrV5+X8c4OvSPsBc+Gwbb+POUxWsqqunEm/prBcCCkNt9mkB"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1270,
+          "candidatesTokenCount": 241,
+          "totalTokenCount": 3044,
+          "cachedContentTokenCount": 784,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1270
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 784
+            }
+          ],
+          "thoughtsTokenCount": 1533,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "aSOEaqLVOfi0xN8Pof3qiAQ"
+      }
+    }
+  ]
+}

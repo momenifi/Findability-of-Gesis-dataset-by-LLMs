@@ -1,0 +1,185 @@
+{
+  "query_id": 248,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in German Democratic Republic (1949-1990) during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d038062aa138238006b046a0aa3d487d28091ee43db056095",
+        "created_at": 1795451402.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d038062aa138238006b046a0b8b8487d281db0251ed67603f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GDR DDR 1970s political institutions government dataset historical elections Volkskammer data",
+                "East Germany 1970s political organizations dataset GESIS DDR",
+                "German Democratic Republic 1970s government political dataset archives GDR"
+              ],
+              "query": "GDR DDR 1970s political institutions government dataset historical elections Volkskammer data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d038062aa138238006b046a0fa21087d2bc105f6bf898cc50",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data DDR politische elite 1949 1990 datensatz",
+                "site:discuss-data.net/dataset GDR political elite 1949 1990",
+                "site:search.gesis.org/research_data DDR Eingaben 1970 1989 Potsdam grievance",
+                "site:search.gesis.org/research_data DDR SED mitglieder kandidaten 1952 1989"
+              ],
+              "query": "site:search.gesis.org/research_data DDR politische elite 1949 1990 datensatz",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d038062aa138238006b046a13633c87d292a3d3f33e2b4508",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Members and Candidates of the Socialist Unity Party of Germany (SED), 1952–1989, by District\",\n      \"url_or_doi\": \"https://doi.org/10.7802/1422\",\n      \"justification\": \"Highly relevant dataset documenting membership and candidate membership in the Socialist Unity Party of Germany (SED), the ruling political party of the German Democratic Republic. It provides district-level information covering 1952–1989, including the entire 1970s. The data originates from records of the SED Central Committee and is particularly useful for examining party organization, political control, regional differences, and changes in party membership during the 1970s. Available through the WZB Berlin Social Science Center with free access.\"\n    },\n    {\n      \"title\": \"The Potsdam Grievance Statistics File (PGSF): Petitions and Political Participation in the GDR, 1970–1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12916\",\n      \"justification\": \"Directly relevant dataset covering citizen grievances and petitions submitted to local government authorities in the German Democratic Republic between 1970 and 1989. It contains quantitative information about the number and subjects of grievances, providing evidence of interactions between citizens and socialist government institutions. Particularly valuable for studying political participation, local governance, state responsiveness, and the functioning of government organizations throughout the 1970s.\"\n    },\n    {\n      \"title\": \"Elections to the People's Chamber of the GDR and Distribution of Parliamentary Seats, 1949–1990\",\n      \"url_or_doi\": \"https://www.wahlen-in-deutschland.de/bovk.htm\",\n      \"justification\": \"Historical electoral data covering elections to the Volkskammer, the national parliament of the German Democratic Republic. Includes the parliamentary elections of 1971 and 1976, making it directly relevant to political institutions and electoral arrangements during the 1970s. Provides information about election results, voter participation, and parliamentary seat distribution. Useful for examining the political representation of the SED and other parties and mass organizations within the GDR's socialist political system.\"\n    },\n    {\n      \"title\": \"Federal Archives: Elections in the GDR, 1950–1989\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/wahlen-in-der-ddr/\",\n      \"justification\": \"Official German Federal Archives resource identifying historical electoral records relating to the German Democratic Republic. The underlying archival collections include election legislation, party decisions, electoral directives, voter lists, turnout information, election commission records, and official election results. Records cover the 1971 and 1976 Volkskammer elections. Particularly useful for researchers investigating the organization of elections, government institutions, political parties, and mechanisms of political control. This is an archival collection guide rather than a ready-to-download statistical dataset.\"\n    },\n    {\n      \"title\": \"Statistical Overview of Social Policy in Germany Since 1945: Soviet Occupation Zone and GDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"Historical statistical dataset compiled by André Steiner and distributed through GESIS. Provides time-series information on social policy in the Soviet occupation zone and the German Democratic Republic, including the 1970s. Relevant for studying government responsibilities, public administration, socialist welfare institutions, and the implementation of state social policies. Although primarily focused on social policy rather than party politics, it provides quantitative evidence about government functions and policy development under the GDR political system.\"\n    },\n    {\n      \"title\": \"Federal Foreign Office Political Archive: Ministry for Foreign Affairs of the GDR, 1949–1990\",\n      \"url_or_doi\": \"https://archiv.diplo.de/arc-en/archival-research/the-archive-holdings-2153420\",\n      \"justification\": \"Official archival collection containing approximately 3,000 linear metres of records from the Ministry for Foreign Affairs of the German Democratic Republic, covering 1949–1990. Includes materials relevant to the 1970s, a period of significant developments in East German diplomatic recognition and international relations. Particularly useful for investigating foreign-policy institutions, government decision-making, diplomatic organizations, and relations between the GDR and other states. This is a historical archival collection rather than a structured quantitative dataset.\"\n    },\n    {\n      \"title\": \"German Federal Archives: Digitized Collections of the German Democratic Republic, 1945–1990\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/im-archiv-recherchieren/archivgut-recherchieren/digitalisierte-bestaende/\",\n      \"justification\": \"Official repository listing digitized archival collections relating to government, political institutions, and organizations of the German Democratic Republic. The collections include records associated with state institutions, government ministries, political administration, and the socialist state apparatus. Researchers can identify materials from the 1970s and use archival documents to construct datasets about political decisions, organizational structures, government personnel, and institutional activities. Availability of digitized documents varies by collection.\"\n    },\n    {\n      \"title\": \"The German Democratic Republic: Parliamentary Election of 17 October 1976\",\n      \"url_or_doi\": \"https://data.ipu.org/election-summary/PDF/GERMAN_DEMOCRATIC_REPUBLIC_1976.PDF\",\n      \"justification\": \"Historical election statistics published by the Inter-Parliamentary Union concerning the 1976 election to the Volkskammer of the German Democratic Republic. Includes information about the parliamentary structure, electoral procedures, and election results. Directly relevant to understanding the organization of the GDR legislature and its political representation during the 1970s. Particularly useful for comparative research on parliamentary institutions and electoral systems. The linked resource is a statistical election report rather than a machine-readable dataset.\"\n    },\n    {\n      \"title\": \"The Political Elite of the GDR from 1949 to 1990\",\n      \"url_or_doi\": \"https://www.uni-kassel.de/fb07/index.php?eID=dumpFile&f=4063&t=f&token=baab1d037a7c1a5831424a6cf7c9e46a998e7c73\",\n      \"justification\": \"Research resource examining the political elite of the German Democratic Republic across its entire existence, including the 1970s. The research draws on personnel files, political records, government handbooks, and other historical documentation. Relevant for investigating the composition of political leadership, elite recruitment, political careers, and institutional power structures during the Honecker era. The linked document describes research on political elites; access to the underlying individual-level data is not established by this link.\"\n    },\n    {\n      \"title\": \"GESIS Historical Research Data: German Democratic Republic, 1949–1990\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/SDN-10.7802-1422?doi=10.7802%2F1422\",\n      \"justification\": \"GESIS research-data catalogue entry for a historical dataset specifically classified under political systems, constitutions, and government. The featured dataset documents SED membership across districts from 1952 to 1989, including the 1970s. The catalogue provides methodological information, geographic coverage, data-access conditions, and citation details. Useful as an institutional discovery and access point for quantitative research on political organizations in the GDR. This entry refers to the same underlying dataset as the first item.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451420.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18897,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1742,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20639
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

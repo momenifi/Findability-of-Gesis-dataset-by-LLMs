@@ -1,0 +1,62 @@
+{
+  "query_id": 12,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about POLITICS in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) 2017 Post-Election Cross-Section\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13235\",\n      \"justification\": \"This dataset provides survey data on individual political attitudes, voting choices, and candidate evaluations surrounding the 2017 German federal election.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS 1980-2014 (Cumulated German General Social Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"Contains biennial survey data capturing public opinion, political participation, and social attitudes in Germany during the early 2010s.\"\n    },\n    {\n      \"title\": \"The Manifesto Project Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2024a\",\n      \"justification\": \"Includes content-coded election manifestos and policy positions of political parties in Germany for elections throughout the 2010s (e.g., 2013 and 2017).\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 341,
+          "candidatesTokenCount": 318,
+          "totalTokenCount": 1433,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 341
+            }
+          ],
+          "thoughtsTokenCount": 774,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "HyWEatGSBab7xN8PrPGOeQ"
+      }
+    }
+  ]
+}

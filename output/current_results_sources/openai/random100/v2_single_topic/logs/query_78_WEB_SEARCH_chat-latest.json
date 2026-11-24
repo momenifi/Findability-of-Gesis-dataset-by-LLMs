@@ -1,0 +1,186 @@
+{
+  "query_id": 78,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00982890ea647c2f006b045f34783087d2b32600bdf47f1271",
+        "created_at": 1795448628.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00982890ea647c2f006b045f356c5087d2b4e20b470cb14da4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "BAuA Arbeitszeitbefragung 2023 dataset Germany working conditions",
+                "Eurofound European Working Conditions Telephone Survey 2021 data Germany",
+                "DGB Index Gute Arbeit 2024 Datensatz Ergebnisse",
+                "IAB Linked Personnel Panel 2023 data working conditions Germany"
+              ],
+              "query": "BAuA Arbeitszeitbefragung 2023 dataset Germany working conditions",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00982890ea647c2f006b045f399c3c87d28e49a3d7c9137c7f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:iab.de Linked Personnel Panel LPP 2020 2022 scientific use file",
+                "site:destatis.de quality of employment Germany indicators working conditions data",
+                "site:soep-core.de SOEP Core 2023 data work job satisfaction",
+                "site:eurofound.europa.eu European Working Conditions Survey 2024 data catalogue"
+              ],
+              "query": "site:iab.de Linked Personnel Panel LPP 2020 2022 scientific use file",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00982890ea647c2f006b045f3cea5887d2a6000d3556edfad2",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"BAuA Working Time Survey 2023 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb23.suf.1\",\n      \"justification\": \"A highly relevant, nationally representative dataset from Germany's Federal Institute for Occupational Safety and Health (BAuA). Covers working hours, overtime, shift work, flexible schedules, remote work, physical and psychological demands, occupational health, work-life balance, and job satisfaction. Data were collected in 2023. Scientific Use Files are available for research purposes.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2021 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb21.suf.1\",\n      \"justification\": \"German employee survey covering working conditions during the COVID-19 pandemic. Includes information about working hours, employment arrangements, occupational demands, flexibility, health, and job satisfaction. Particularly useful for examining pandemic-related changes in German workplaces and comparing conditions between 2021 and 2023.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey – Longitudinal Dataset Series (2015–2023)\",\n      \"url_or_doi\": \"https://www.baua.de/DE/Forschung/Forschungsdaten/Arbeitszeitbefragung\",\n      \"justification\": \"Official research data portal providing access to multiple waves of Germany's Working Time Survey, including 2021 and 2023. The longitudinal design supports analysis of changes in employment conditions, working schedules, workplace demands, occupational health, and employee well-being. Particularly useful for identifying trends before and after the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey 2024 (EWCS 2024) – Germany\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2024/\",\n      \"justification\": \"A major European survey conducted by Eurofound in 2024, including Germany. Examines working hours, job quality, occupational risks, psychosocial working conditions, workplace autonomy, employment security, earnings, digitalisation, and work-life balance. Germany-specific observations can be extracted from the international dataset. Microdata are available through the UK Data Service, and an interactive data explorer allows country-level comparisons.\"\n    },\n    {\n      \"title\": \"European Working Conditions Telephone Survey 2021 (EWCTS 2021) – Germany\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/data-catalogue/european-working-conditions-telephone-survey-2021\",\n      \"justification\": \"Cross-national survey conducted during 2021, covering more than 70,000 workers across 36 European countries, including Germany. Measures working conditions, job quality, work intensity, workplace relationships, occupational health, and work-life balance during the pandemic. Particularly valuable for comparing German working conditions with those in other European countries. Survey microdata are available through the UK Data Service.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey 2024 – Interactive Data Explorer\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/default/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2024/dashboard\",\n      \"justification\": \"Interactive statistical dataset allowing users to select Germany and examine employment conditions in 2024. Provides indicators covering job quality, workplace characteristics, working conditions, and quality of working life. Results can be filtered by occupation, industry, gender, age, and employment status. Particularly suitable for descriptive statistics and international comparisons without requiring microdata processing.\"\n    },\n    {\n      \"title\": \"Linked Personnel Panel (LPP) 1224 – Quality of Work and Economic Success in German Establishments\",\n      \"url_or_doi\": \"https://doku.iab.de/fdz/reporte/2025/DR_07-25_EN.pdf\",\n      \"justification\": \"Longitudinal employer-employee dataset maintained by Germany's Institute for Employment Research (IAB). The sixth wave includes information on workplace organisation, employee experiences, personnel management, job satisfaction, and employment conditions. Particularly valuable for examining relationships between organisational practices and employees' working conditions in Germany during the 2020s. Access to individual-level research data is subject to IAB requirements.\"\n    },\n    {\n      \"title\": \"Linked Personnel Panel – Special Survey on the COVID-19 Pandemic (2020)\",\n      \"url_or_doi\": \"https://doku.iab.de/fdz/reporte/2021/DR_08-21_EN.pdf\",\n      \"justification\": \"Special employee survey conducted in Germany during 2020 as part of the IAB Linked Personnel Panel. Investigates working hours, productivity, job satisfaction, mobile working, team communication, and compatibility between employment and family life. Particularly useful for researching how the COVID-19 pandemic affected working conditions and remote work arrangements in Germany. The linked documentation describes the underlying research dataset.\"\n    },\n    {\n      \"title\": \"DGB Index Good Work 2024 (DGB-Index Gute Arbeit)\",\n      \"url_or_doi\": \"https://www.dgb.de/presse/pressemitteilungen/pressemitteilung/dgb-index-gute-arbeit-2024-fachkraeftesicherung-nur-mit-guten-arbeitsbedingungen/\",\n      \"justification\": \"German Trade Union Confederation survey measuring employees' perceptions of working conditions. The 2024 survey includes a representative sample of 6,985 employees working in Germany. Examines workplace stress, employment quality, working hours, occupational demands, and employee satisfaction. Particularly relevant for studying perceived job quality and workplace burdens. Published aggregate findings are available; access to individual-level survey data may require additional arrangements.\"\n    },\n    {\n      \"title\": \"DGB Index Good Work – Annual Survey Reports\",\n      \"url_or_doi\": \"https://www.dgb-bestellservice.de/index-gute-arbeit/\",\n      \"justification\": \"Collection of German Trade Union Confederation reports based on recurring employee surveys, including editions from the 2020s. Provides statistical findings on job quality, working conditions, employment security, psychological strain, workload, and satisfaction. Useful for tracking changes in perceived working conditions across German sectors and occupational groups. The portal primarily provides published survey results rather than unrestricted microdata.\"\n    },\n    {\n      \"title\": \"European Working Conditions Surveys – Historical and Harmonised Data\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"Official Eurofound survey portal containing multiple rounds of the European Working Conditions Survey, including 2021 and 2024. The harmonised dataset supports comparisons of German working conditions across survey waves and against other European countries. Covers employment relationships, working time, health and safety, psychosocial risks, occupational skills, and job quality. Particularly suitable for longitudinal and comparative research.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey 2024 – Germany and European Comparisons\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2024/\",\n      \"justification\": \"The 2024 survey includes detailed country-level data that can be used to examine Germany's position relative to other European labour markets. Its harmonised measures of working time, work intensity, workplace autonomy, occupational health, and job security make it particularly useful for comparative analyses of working conditions in the mid-2020s.\"\n    },\n    {\n      \"title\": \"International Labour Organization – Key Indicators of the Labour Market (KILM)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Countries-Regions/International-Statistics/DataSources/44_01_ILO_KILM.html\",\n      \"justification\": \"International labour-market statistical database documented by Germany's Federal Statistical Office. Contains internationally comparable indicators relating to employment, working time, labour productivity, earnings, and labour-market conditions. Germany-specific time series can support analysis of structural working conditions during the 2020s. Particularly useful for quantitative comparisons with other countries, although it provides less detailed workplace-level information than employee surveys.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448646.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19156,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1908,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21064
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

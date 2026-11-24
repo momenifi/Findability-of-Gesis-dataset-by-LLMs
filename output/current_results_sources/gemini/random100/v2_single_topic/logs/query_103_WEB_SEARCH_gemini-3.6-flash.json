@@ -1,0 +1,69 @@
+{
+  "query_id": 103,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic policy, public expenditure and revenue in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Destatis: Expenditure, revenue and financial balance of the overall public budget\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Topics/Government/Public-Finance/Expenditure-Revenue-Financial-Balance/Tables/quarterly-data.html\",\n      \"justification\": \"Official dataset from the Federal Statistical Office of Germany (Destatis) providing quarterly cash data on public sector revenue, total expenditure, and overall balance across central government, state governments, municipalities, and social security funds throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Government Finance Statistics (GFS) Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/government-finance-statistics/database\",\n      \"justification\": \"Eurostat's official government finance database providing harmonized annual and quarterly statistics on general government revenue, expenditure, main aggregates (gov_10a, gov_10q), and deficits for Germany and other EU member states.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank: Public Finances Statistics\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/public-finances\",\n      \"justification\": \"Central bank statistical repository providing comprehensive time series on German public finance, budgetary developments, revenue, expenditure, Maastricht debt, and deficit ratios covering the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1392,
+          "candidatesTokenCount": 347,
+          "totalTokenCount": 3377,
+          "cachedContentTokenCount": 507,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1392
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 507
+            }
+          ],
+          "thoughtsTokenCount": 1638,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "pjeEarG6M62svdIPuszkgQE"
+      }
+    }
+  ]
+}

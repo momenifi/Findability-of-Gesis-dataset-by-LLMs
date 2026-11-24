@@ -1,0 +1,69 @@
+{
+  "query_id": 52,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Gesundheitsberichterstattung - Daten zu nichtübertragbaren Erkrankungen\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/Gesundheitsberichterstattung_-_Daten_zu_nichtuebertragbaren_Erkrankungen\",\n      \"justification\": \"Published by the Robert Koch Institute (RKI), this dataset provides comprehensive indicators on non-communicable diseases (NCDs) in Germany—including diabetes mellitus, cardiovascular diseases, cancer, and mental health disorders—covering data from the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"SARS-CoV-2 Infektionen in Deutschland\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.4681153\",\n      \"justification\": \"This open dataset from the Robert Koch Institute provides official surveillance data on confirmed COVID-19 cases, deaths, and recoveries in Germany during the 2020s, broken down by district, age group, and sex.\"\n    },\n    {\n      \"title\": \"BURDEN 2020 – Krankheitslast in Deutschland und seinen Regionen\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/BURDEN_2020_-_Krankheitslast_in_Deutschland_und_seinen_Regionen\",\n      \"justification\": \"Produced as part of the BURDEN 2020 pilot project by the RKI, WIdO, and UBA, this dataset quantifies the population health burden (DALYs, YLL, YLD) for numerous specific diseases and medical conditions across German federal states and regional planning units.\"\n    },\n    {\n      \"title\": \"Informationssystem der Gesundheitsberichterstattung des Bundes (IS-GBE)\",\n      \"url_or_doi\": \"https://www.gbe-bund.de\",\n      \"justification\": \"Maintained by the Federal Statistical Office (Destatis) and the Robert Koch Institute, this central database offers nationwide data tables on disease incidence, prevalence, hospitalizations, and mortality in Germany across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"ARE-Konsultationsinzidenz\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/ARE-Konsultationsinzidenz\",\n      \"justification\": \"This dataset from the Robert Koch Institute tracks weekly primary care consultation incidences for acute respiratory illnesses (including influenza, COVID-19, and RSV) across German federal states.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 373,
+          "candidatesTokenCount": 619,
+          "totalTokenCount": 2675,
+          "cachedContentTokenCount": 97,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 373
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 97
+            }
+          ],
+          "thoughtsTokenCount": 1683,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "07inaovTMYXHnsEPmNencA"
+      }
+    }
+  ]
+}

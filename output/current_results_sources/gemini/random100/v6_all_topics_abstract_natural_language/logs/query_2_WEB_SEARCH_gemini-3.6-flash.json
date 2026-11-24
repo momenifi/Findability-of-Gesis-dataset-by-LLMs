@@ -1,0 +1,69 @@
+{
+  "query_id": 2,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Compulsory and pre-school education and Children in Hesse during the 1960s, matching this research need: data on political socialization in preschool children and parents, family authority structures, attitudes to authority and punishment, child-rearing practices, educational goals, and demographic household characteristics\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Politische Sozialisation im Vorschulalter (ZA0529)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0529\",\n      \"justification\": \"This dataset, created by Gertrud Beck at the University of Gießen (Hesse) in 1969, focuses on the role of authority in political socialization during preschool age. It features survey data from both preschool children and their parents, covering family authority structures, parents' child-rearing practices, attitudes toward authority and punishment, educational goals, perceptions of public authority figures, and demographic household characteristics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 721,
+          "candidatesTokenCount": 165,
+          "totalTokenCount": 1961,
+          "cachedContentTokenCount": 437,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 721
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 437
+            }
+          ],
+          "thoughtsTokenCount": 1075,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "1HOEatfPLOefkdUP7Oy2kQw"
+      }
+    }
+  ]
+}

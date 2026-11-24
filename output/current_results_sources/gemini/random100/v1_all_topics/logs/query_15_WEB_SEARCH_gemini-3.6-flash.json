@@ -1,0 +1,69 @@
+{
+  "query_id": 15,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth, EDUCATION, Higher and further education, Migration, Social behaviour and attitudes, Leisure, tourism and sport, Children, and Family life and marriage in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36eu\",\n      \"justification\": \"SOEP is a wide-ranging, representative longitudinal study of private households in Germany collected throughout the 2010s. It covers education, higher/further education, migration background, children, youth, leisure activities, social attitudes, and detailed family life and marriage dynamics.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.14.0.0\",\n      \"justification\": \"pairfam is a multidisciplinary nationwide longitudinal study in Germany that surveyed thousands of individuals, partners, parents, and children annually through the 2010s. It specifically investigates youth development, family life and marriage, child outcomes, intergenerational relationships, and social behaviour.\"\n    },\n    {\n      \"title\": \"Cumulated German General Social Survey (ALLBUS 1980-2014)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"ALLBUS conducts biennial representative cross-sectional surveys in Germany measuring social behaviour and attitudes, family life and marriage, education levels, migration background, youth, and leisure/sport activities across the 2010s.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS)\",\n      \"url_or_doi\": \"https://www.neps-data.de\",\n      \"justification\": \"NEPS collects longitudinal multi-cohort data across Germany launched in the 2010s. It explicitly addresses education, higher and further education, youth, children, migration, and learning environments across the life course.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 631,
+          "candidatesTokenCount": 464,
+          "totalTokenCount": 2624,
+          "cachedContentTokenCount": 194,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 631
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 194
+            }
+          ],
+          "thoughtsTokenCount": 1529,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "x_KDapTII8znxN8PgOyx2QQ"
+      }
+    }
+  ]
+}

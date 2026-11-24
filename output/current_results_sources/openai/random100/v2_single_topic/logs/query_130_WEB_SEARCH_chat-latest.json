@@ -1,0 +1,186 @@
+{
+  "query_id": 130,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03f697adbe5c8eb2006b04629b5f0c87d287eb61c783c8263d",
+        "created_at": 1795449499.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03f697adbe5c8eb2006b04629c599087d2abbe959d82e311b1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany police crime statistics 1990 1999 federal states dataset BKA PKS",
+                "German regional crime data 1990s Bundesländer dataset GESIS",
+                "Germany 1990s right wing violence federal states dataset 1990 2000",
+                "Germany homicide regional data 1990 1999 federal states statistical offices dataset"
+              ],
+              "query": "Germany police crime statistics 1990 1999 federal states dataset BKA PKS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03f697adbe5c8eb2006b0462a0583887d29a9e1d6b4674e784",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:bka.de Polizeiliche Kriminalstatistik Jahrbücher bis 2011 1990 1999",
+                "site:gesis.org regionaldaten bundesländer kriminalität 1990 1999 dataset",
+                "site:sv.uio.no/c-rex RTV dataset download codebook Germany location",
+                "site:search.gesis.org crime regionaldaten bundesländer 1990 1999"
+              ],
+              "query": "site:bka.de Polizeiliche Kriminalstatistik Jahrbücher bis 2011 1990 1999",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03f697adbe5c8eb2006b0462a353fc87d286d647439819d013",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Police Crime Statistics (Polizeiliche Kriminalstatistik, PKS) – Historical Data, 1990–1999\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks1993.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official crime statistics published by Germany's Federal Criminal Police Office (Bundeskriminalamt, BKA). The historical annual reports contain state-level crime statistics for Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Indicators include recorded criminal offenses, violent crimes, homicide, robbery, firearm-related offenses, and suspects. The linked 1993 report includes historical comparisons with earlier years. Highly relevant for investigating regional crime trends and public security during the 1990s.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics – Historical Time Series of Recorded Criminal Offenses, 1987–2013\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2013/Zeitreihen/Faelle/tb01_FaelleGrundtabelle1987-2013_pdf.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official historical crime statistics from the German Federal Criminal Police Office covering the entire 1990–1999 period. The dataset provides annual observations of recorded criminal offenses across different crime categories, supporting analysis of public safety and criminal activity. It is particularly useful for constructing historical crime trends. Researchers should note that geographical coverage changed following German reunification, with nationwide coverage beginning in 1993.\"\n    },\n    {\n      \"title\": \"Police Crime Statistics of Germany – Historical Crime Data for 1994\",\n      \"url_or_doi\": \"https://www.polizei.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks1994.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official German police statistics containing detailed regional crime indicators for 1994, alongside historical comparisons covering 1990–1993. Includes state-level homicide and manslaughter statistics for the requested federal states. The data can be used to compare regional patterns of violent crime and public security during the first half of the 1990s.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics – Federal-State Crime Data for 1998\",\n      \"url_or_doi\": \"https://www.bundesregierung.de/breg-de/suche/die-kriminalitaet-in-der-bundesrepublik-deutschland-polizeiliche-kriminalitaetsstatistik-fuer-das-jahr-1998-i--807924\",\n      \"justification\": \"Official German government publication presenting crime statistics for 1998, including comparisons with 1997. Contains crime counts, population-adjusted crime rates, and regional statistics for German federal states. Covers the requested states and provides evidence on crime and public security toward the end of the 1990s. The published statistical tables can be extracted for quantitative regional comparisons.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics – Federal-State Crime Data for 1997\",\n      \"url_or_doi\": \"https://www.bundesregierung.de/breg-de/service/newsletter-und-abos/bulletin/die-kriminalitaet-in-der-bundesrepublik-deutschland-teil-drei-von-sechs-polizeiliche-kriminalstatistik-fuer-das-jahr-1997-810842\",\n      \"justification\": \"Historical government statistical publication documenting crime in Germany during 1997. Includes statistics on serious criminal offenses, including homicide and manslaughter, and historical comparisons. Useful as a complementary source for studying violent crime, security conditions, and criminal justice trends across German federal states in the late 1990s.\"\n    },\n    {\n      \"title\": \"Right-Wing Terrorism and Violence (RTV) Dataset – Western Europe, 1990–2023\",\n      \"url_or_doi\": \"https://www.sv.uio.no/c-rex/english/resources/rtv-dataset/index.html\",\n      \"justification\": \"Research dataset developed by the Center for Research on Extremism at the University of Oslo. Documents incidents of right-wing terrorism and violence in Western European countries, including Germany, beginning in 1990. Contains information on violent attacks, perpetrators, targets, weapons, and extremist motivations. Particularly relevant for investigating politically motivated violence and extremist threats in German federal states during the 1990s. The associated mapping tool supports geographical analysis. Full event-location information may require researcher access.\"\n    },\n    {\n      \"title\": \"Right-Wing Terrorism and Violence Dataset – Publicly Available Limited Version\",\n      \"url_or_doi\": \"https://www.sv.uio.no/c-rex/english/resources/rtv-dataset/limited-version.html\",\n      \"justification\": \"Downloadable research dataset documenting severe right-wing violence and terrorist incidents in Western Europe, including Germany, from 1990 onward. Provides structured information suitable for examining trends in extremist violence during the 1990s. This version is particularly useful for identifying historical patterns of politically motivated violence. However, exact dates and locations are excluded from the publicly available version, so detailed comparisons between German federal states require access to additional geographical information.\"\n    },\n    {\n      \"title\": \"Regional Data for German Federal States (Regionaldaten – Bundesländer), GESIS\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1701?lang=de\",\n      \"justification\": \"Historical regional research dataset archived by GESIS – Leibniz Institute for the Social Sciences. Combines information from German statistical offices, state criminal police offices, and official police crime statistics. Provides regional indicators at the federal-state level, making it relevant for historical comparisons of crime and social conditions. Its historical coverage extends to 1991, offering information for the beginning of the requested decade. Coverage and availability of individual crime variables should be checked before analysis.\"\n    },\n    {\n      \"title\": \"Regional Data for German Cities (Regionaldaten), GESIS Study ZA2331\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2331\",\n      \"justification\": \"GESIS research dataset containing historical information on German municipalities and cities, drawing on municipal statistical yearbooks, state statistical offices, state criminal police offices, and Federal Criminal Police Office crime statistics. The dataset covers historical observations extending to 1991. It can support investigations of local crime and security conditions in cities within the requested federal states, particularly around the beginning of the 1990s. It does not cover the entire decade.\"\n    },\n    {\n      \"title\": \"Historical Statistics – Crime and Criminal Justice in Germany, 1882–2003\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/6C25D767A540B6F7BA200FB2DDEA5360\",\n      \"justification\": \"Historical statistical research collection covering German crime and criminal justice indicators over an extended period that includes the entire 1990s. Contains statistics relating to criminal suspects, convictions, and population-adjusted rates, drawing on official police and judicial statistics. Useful for studying long-term changes in criminality and criminal justice during reunification and the 1990s. Researchers should verify the geographical breakdown of individual series before using them for comparisons among the requested federal states.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics 1990 – Federal Republic of Germany\",\n      \"url_or_doi\": \"https://search.gesis.org/publication/gesis-bib-116157?lang=en\",\n      \"justification\": \"GESIS bibliographic record for the official 1990 Police Crime Statistics published by the German Federal Criminal Police Office in 1991. This historical statistical publication provides a reference point for investigating crime and public security at the beginning of the decade. It is relevant for establishing baseline conditions before subsequent changes in German crime statistics following reunification. The record describes a statistical publication rather than a directly downloadable machine-readable dataset.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics – Historical Crime Data for 1993\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks1993.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"The 1993 Police Crime Statistics report is particularly important because 1993 marks the beginning of more consistent nationwide crime reporting after German reunification. The publication contains detailed crime statistics, including firearm-related offenses, violent crime, and regional criminal activity. It provides a valuable reference for analyzing crime and security in the requested federal states during the transition from the early to the middle 1990s.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics – Historical Crime Trends, 1990–2009\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks2009.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official Federal Criminal Police Office statistical yearbook containing historical crime trends, including annual observations throughout 1990–1999. Provides a consistent reference for examining long-term changes in recorded crime, crime rates, and public security. The report also documents important methodological changes associated with German reunification, helping researchers interpret discontinuities in historical crime statistics. State-specific historical observations should be verified within the report.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449517.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18762,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2254,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21016
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

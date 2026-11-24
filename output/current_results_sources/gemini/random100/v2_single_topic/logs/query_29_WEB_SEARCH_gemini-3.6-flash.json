@@ -1,0 +1,69 @@
+{
+  "query_id": 29,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"FSD2333 Significance of the Disco Club \\\"Kåren Kellari\\\" 2006-2007: Weblog Data\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2333\",\n      \"justification\": \"Archived at the Finnish Social Science Data Archive (FSD), this qualitative dataset captures memories and accounts of youth leisure time, dance, and recreational venues in 1960s and 1970s Finland. It is officially classified under the CESSDA topic 'Leisure, tourism and sport'.\"\n    },\n    {\n      \"title\": \"Northern Finland Birth Cohort 1966\",\n      \"url_or_doi\": \"urn:nbn:fi:att:bc1e5408-980e-4a62-b899-43bec3755243\",\n      \"justification\": \"Initiated in 1965 to cover mothers and children with expected delivery in 1966 in Northern Finland, this prospective cohort dataset includes longitudinal health, lifestyle, and leisure-time physical activity/sport participation data.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1220,
+          "candidatesTokenCount": 297,
+          "totalTokenCount": 3675,
+          "cachedContentTokenCount": 502,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1220
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 502
+            }
+          ],
+          "thoughtsTokenCount": 2158,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "4CqEavPpB-_zvdIP36OS-Ak"
+      }
+    }
+  ]
+}

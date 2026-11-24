@@ -1,0 +1,184 @@
+{
+  "query_id": 239,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about TRADE, INDUSTRY AND MARKETS in North Rhine-Westphalia during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e6a77d2c979df43006b04697a049087d2a2adcc9d7fefe25b",
+        "created_at": 1795451258.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e6a77d2c979df43006b04697b8e1c87d2a1f41e8aa976f622",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistik.nrw 1960 statistisches jahrbuch Nordrhein Westfalen industrie handel pdf",
+                "site:digibib.genealogy.net Nordrhein Westfalen statistisches jahrbuch 1965 Handel Industrie",
+                "GESIS histat Nordrhein Westfalen 1960 Industrie Handel Daten"
+              ],
+              "query": "site:statistik.nrw 1960 statistisches jahrbuch Nordrhein Westfalen industrie handel pdf",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e6a77d2c979df43006b04697e8b9487d2a3930c9ba0a68932",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA0105 Situation mittelständischer Unternehmen Nordrhein Westfalen 1964",
+                "site:search.gesis.org/research_data/ZA1701 Regionaldaten Bundesländer 1960 1970 doi",
+                "site:search.gesis.org/research_data/ZA8685 Erwerbstätige Wirtschaftsbereichen NRW 1850 1970 doi"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA0105 Situation mittelständischer Unternehmen Nordrhein Westfalen 1964",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e6a77d2c979df43006b046981405487d2b27cd0787f3a117e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"The Situation of Medium-Sized Companies in North Rhine-Westphalia (1965)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0106\",\n      \"justification\": \"Highly relevant dataset specifically classified under TRADE, INDUSTRY AND MARKETS. Conducted by INTERMARKET Düsseldorf between January and March 1965, it examines the situation and organizational structure of medium-sized businesses in North Rhine-Westphalia. The study includes standardized interviews with 350 companies across seven economic sectors, with 50 companies sampled per sector. Particularly useful for investigating business conditions, industrial organization, and the structure of medium-sized enterprises during the 1960s. Available through the GESIS Data Archive; downloading requires registration.\"\n    },\n    {\n      \"title\": \"Regional Data (Federal States), 1960 and 1970\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1701\",\n      \"justification\": \"Highly relevant historical dataset containing socioeconomic, political, and fiscal statistics for German federal states, including North Rhine-Westphalia, for 1960 and 1970. Explicitly categorized under TRADE, INDUSTRY AND MARKETS, among other subjects. Provides regional economic indicators that enable comparisons of industrial and market structures between North Rhine-Westphalia and other German states. Particularly valuable for studying economic changes throughout the 1960s.\"\n    },\n    {\n      \"title\": \"Employed Persons by Economic Sector in the Territory of Today's North Rhine-Westphalia, 1850–1970\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13272\",\n      \"justification\": \"Historical statistical dataset compiled by Harald Klaudat and archived by GESIS. Contains employment statistics organized by economic sector for cities, districts, and municipalities in North Rhine-Westphalia. Covers the period from 1850 to 1970, including observations relevant to the 1960s. Especially useful for examining industrial employment, shifts between economic sectors, regional industrial specialization, and structural economic changes. Contains 3,934 time series and is associated with the HISTAT historical statistics database.\"\n    },\n    {\n      \"title\": \"Regional Data: 1961 Population Census (Federal States)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1827\",\n      \"justification\": \"Dataset derived from the 1961 West German population census, containing 86 variables for federal states, including North Rhine-Westphalia. Includes employment characteristics and occupational information relevant to understanding industrial labor markets and the economic structure of the region. Useful for establishing an early-1960s baseline for research on industrial employment and regional economic development. Distributed by the GESIS Data Archive.\"\n    },\n    {\n      \"title\": \"Regional Data: 1970 Population Census (Federal States)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1740\",\n      \"justification\": \"Official census-based dataset containing 189 variables for German federal states, including North Rhine-Westphalia. Includes employment, occupational status, commuting patterns, sources of income, and other socioeconomic characteristics. Particularly useful when combined with the 1961 census dataset to investigate changes in industrial employment, labor mobility, and regional economic structures during the 1960s.\"\n    },\n    {\n      \"title\": \"The Structure of Regional Labor Force in Germany, 1895–1970\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8212\",\n      \"justification\": \"Historical dataset examining regional employment structures across Germany from 1895 to 1970. Relevant for analyzing the distribution of workers across economic sectors and identifying long-term industrial development patterns affecting North Rhine-Westphalia. Provides historical context for understanding changes in industrial employment and the regional economy during the 1960s. Particularly useful for comparative research on industrialization and economic structural change.\"\n    },\n    {\n      \"title\": \"Basic Economic Data for Germany, 1950–1997: National Accounts, Industry, Prices, Wages, Public Finances, and Social Security\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12079\",\n      \"justification\": \"Extensive historical economic dataset compiled by Jürgen Sensch and archived by GESIS. Includes industrial production, manufacturing, mining, domestic and international trade, retail sales, prices, wages, and economic output. Covers the entire 1960s and provides important national economic indicators for interpreting developments in North Rhine-Westphalia. Especially valuable for comparing regional industrial performance against broader West German economic trends. Geographic coverage is primarily national rather than specific to North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"Industrial Relations in the Federal Republic of Germany, 1950–1999\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10324\",\n      \"justification\": \"Historical dataset documenting industrial relations and labor-market developments in West Germany between 1950 and 1999. Includes information about trade unions, employers' associations, collective bargaining agreements, works councils, employee participation, and industrial disputes. Covers the complete 1960s and provides valuable context for studying labor relations in North Rhine-Westphalia's major industrial sectors, particularly coal mining, steel production, and manufacturing. Not exclusively focused on North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"The Industry in North Rhine-Westphalia, 1965 (Die Industrie in Nordrhein-Westfalen 1965)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018011/Die%20Industrie%20in%20NRW%201965%20Beitrag%20218_A.pdf\",\n      \"justification\": \"Official historical statistical publication from the Statistical Office of North Rhine-Westphalia, containing detailed industrial statistics for the mid-1960s. Includes employment figures and breakdowns across mining, basic materials, capital goods, consumer goods, and food manufacturing. Particularly valuable because the data directly concern North Rhine-Westphalia rather than Germany as a whole. The statistical tables can be extracted for quantitative analysis. This is a digitized statistical publication rather than a ready-to-download machine-readable dataset.\"\n    },\n    {\n      \"title\": \"The Industry in North Rhine-Westphalia, 1966 (Die Industrie in Nordrhein-Westfalen 1966)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018032/Beitrag%20231_A%20.pdf\",\n      \"justification\": \"Official regional industrial statistics publication containing results from monthly industrial reporting throughout 1966 and a survey of smaller industrial establishments conducted in September 1966. Covers industrial turnover, employment, wages, working hours, energy consumption, and production. Provides sector-specific and geographically detailed information useful for studying manufacturing activity and industrial markets in North Rhine-Westphalia. Published in 1967 by the state's statistical office. Data are available in historical statistical tables rather than a machine-readable dataset.\"\n    },\n    {\n      \"title\": \"The Industry in North Rhine-Westphalia, 1968 (Die Industrie in Nordrhein-Westfalen 1968)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018034/Beitrag%20248_A.pdf\",\n      \"justification\": \"Official statistical report documenting industrial activity in North Rhine-Westphalia during 1968. Part of the historical series Beiträge zur Statistik des Landes Nordrhein-Westfalen. Provides information relevant to industrial structure and economic activity during the late 1960s. Useful alongside the 1965 and 1966 industrial reports for investigating changes in the regional manufacturing economy. The source is a digitized statistical publication with extractable tables.\"\n    },\n    {\n      \"title\": \"Statistical Pocketbook of North Rhine-Westphalia, 1961 (Statistisches Taschenbuch 1961)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018373/Z069%20196100_A.pdf\",\n      \"justification\": \"Official historical statistical compilation covering North Rhine-Westphalia's economy around 1960–1961. Includes industrial production indicators, industrial employment statistics, and historical comparisons. Particularly useful for obtaining baseline economic indicators at the beginning of the 1960s. Includes an industrial production index extending from 1950 to 1960, allowing researchers to examine economic trends preceding the decade. Data are presented in statistical tables that can be digitized for further analysis.\"\n    },\n    {\n      \"title\": \"Employment Statistics in the Federal Republic of Germany: Selected Data, 1950–2000\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8184\",\n      \"justification\": \"Historical statistical dataset based on official German labor-force statistics, covering the entire 1960s. Useful for examining employment developments, workforce participation, and changes in economic activity during the period when North Rhine-Westphalia was a major industrial center. Provides broader economic context for regional investigations of industrial labor markets. Researchers should verify the available geographic breakdowns before using it for North Rhine-Westphalia-specific analysis.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451275.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18637,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2123,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20760
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

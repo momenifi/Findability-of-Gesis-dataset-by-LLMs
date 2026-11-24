@@ -1,0 +1,69 @@
+{
+  "query_id": 79,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Health care services and policies in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Gesundheit in Deutschland aktuell - GEDA 2019/2020-EHIS\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7214473\",\n      \"justification\": \"This dataset from the Robert Koch Institute provides nationwide survey data on healthcare service utilization, preventive care, and population health status in Germany collected between 2019 and 2020 as part of the European Health Interview Survey (EHIS).\"\n    },\n    {\n      \"title\": \"Ergebnisdatensatz BURDEN 2020 – Krankheitslast in Deutschland und seinen Regionen\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7646704\",\n      \"justification\": \"Published on Zenodo by the Robert Koch Institute, this dataset quantifies the burden of disease (DALYs, YLLs, YLDs) at national and regional levels in Germany for 2020 to support healthcare resource allocation and public health policy.\"\n    },\n    {\n      \"title\": \"SARS-CoV-2 Infektionen in Deutschland\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.5529229\",\n      \"justification\": \"Maintained by the Robert Koch Institute, this dataset tracks reported infection dynamics, hospitalizations, and deaths across German districts during the 2020s, serving as a primary evidence base for regional and federal healthcare policies.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EscXCsQXARFNMg+NCBtEMVMnRzm7nycpvmeqGlTLbDLi3E80Uikomvn8Tvtgo4EeDDXGVO9J5kt+jIrZljXCwFF2hzPRcOx4mHvo5k8LlgS8OdscSjUu19jCAFOuVzLi5cAuNAWSjRdrNOGZVKVgzy1NiyFYbEP9tL5XoW7LaCv8UDAxPq9l9P2pELHOgBtoRUEwGQZ5xS6xxPkWuYBn8js96/1nTgz/OXBKPwgJeEaQMT7a8iejSEpDSzkDVNoug2NRreM17SHs/G/P3tr5BiAEvUJCJzRxwJfU+hBtSr2hi2gPmLJS5zq+K+KVRBnd8eKqgt9dJJYsC7x5AiW8GGS2DDfwfG9/M0XS72nu3iuc4F7nxKiODH0qY9GSfgnEf/y2gyzNzxrFK0fgMJk+sUTkrZZfC11zsEQd6d6mfyD6QAhkVGqQL7ZmOqxy9aNea+o2Yd5PlZzn9pMg3TPsZ1aqBwyUBi6xQZlg9TgaBJnPJYciKFgd0kMYgTAWXYXJawRV8YlESxtTviPmizODfI+zuFnK7o9T2yEQXKYidfNTR/tTWSsRHsXd5JL9LSisditG1w1DrMbrk0A9Wb6y2zofL9mjZ87QUhRKWZCLVx/oB7/DumesHvYXGGxL/K7crknHKkTSqIbKg2uDpJIoGWcc18hHt6QyXYsBF3Az0wrHLhZMmaNINL4v8C2/w8AsW9mAHPXGPP2iSG3/Rgg7WMlTMH6tGiNTa5AEkpHnDyeEGxj0Ii3UKwzTWI9QGgcMLMakJrNaYiDS1wsusddjCKcNuneJiHfiu1Q89MBZ3X3YcloSSf4SPHYMxOp5MZITpcp5OZtPSkXD8sz90bKCzBDlnp1kYoiI6AagFfTRDYzrgh4d0UJo1i4RNxnRualDb54f8o569erI3CXHNSsdYvOO3wD1ci3DR/3byNJxhoDxc+NuZnPtjGRYeiJgp5ePh5lWyMH3GGk+zbc1zKTkDhM2fzzsgqS3pTQiMH3WPc5P3nnKgde/9Cg7nhgz1VhxqMQook0qvAouvtUphR9pAK586iYp1xyTo9N3kVRdF2rZrUuPYVqqfGh1rQOSDDJ5ZxB1Ep83HI2VcNz6M7MIH+vzbgAsqX7rl86mAljFq56Vd19hr624MTNrgVKar+Dr36v+bWTymuk8XNYp+xD+LEo92mbUWrEXg7qpfD80adzHJYxh2/QNsl1/5xodmyqp7mm8TkTn9Lj7Khrf5kgmdJU5gfeLsBfbnQZppkMvS5xVHAcXMXdZe55BBIuQlhU3FydbxousQEHMPsMjnEHMseEWE0BMoUROr3UKrakqFsA0J+FLH/oswjo82cP7LKxExRlyH38CEBwpv1Vzc6WLYMI0nel2Ft7eXI9B3uhSMUDsQf3EVSfrOXrtU09OQyZjcVluRjBK3Z+Z/9UWrR7HmsP6EOn40n+iKpnqav7fchLEbgtZG+nAVK2LdgB98sVLIL0YnEJMLDfxqTP9KyD40bNtt9BA9oLhRLy8caxoNAsFtDcq/HloNSaC2Iny0jn4mNMB0Ic8/F517ySz2t7QoSiftGUldv4y0OKcfAoTS1RalLATuuddLnIr9/dDAt5O51PypY5saBan/ce2B46DZgq7KWXpta7ZmgER8np9TD70BdJSuIS8jt83pBQ2uGFSpg+h5yS7Fe3MiYY1mV105+N34z8/5TEoTrgJm772REXS/eEpK54JhjRmzCdkwVI95Exw2VQWxqVMW6O2eEQHlmW9s9/CL0YMmg670+YpZWEB50CiZf+GHoQFozZLelem+emQpW7goHLOGOMVtBO/M1cfeLPpq9U2cprXkvoz+ZTQtkhbsGfFYv7FA0GcV4QIZ1sYjeQ4d6vnuUiYV8qVJELGXiX7FjL7O9TBHxUUttaq4Lc4/bDtsfbDUQhvqfCyo7RfW9sgbNzUlNY9enYt8rZ1B3T8JbBBwRaIQG80XffJNR2iTcED2aFBRulmgFlekppVAbTKiggjvu4MbwHoPmQRrf0VJDK02B0PN9blqnAOsYeGOGuZn7XmxV284yi5ZkRmn0h0S0CJfCs/JMPTiHHzmzltTpTcYwFgYB8n9nXZ7oWRoJn1DQonSzxd+XZJPZkeUZrzw6HA2w+kEEElVyrQeYZlEtfbidk/6pLywZNj2vcqMsP1FLmrQRrDUPg9VEBZliaITAUoAFTrBSW2JRP+xi4amR5a37E1VUi+iqO1p/hCn0U/IpIktGQXFu+iv862IIBN4jn6yQ7w+Iht7o91Ye/cbQSpB+BvbZeEa9vVxS8av415KjZUphTlVmgyWb0QJci6UtxKYYppaRgc22k+enu0H8T0c31ISW5ijjrSzXRgfkj1R0D3Z4+matylcU7bmKtMymu/W3CqrN1A5hC+V/feEHUn2HElkbDnEUiGiLY0Qv2UtdYRzYclz0sJuS0Bht6NHU2Rsck/7o4obaU9KZlzCUFQyCDUKkmjvBj71nRO+XyHTSUp0KJ00Eft4J7uIjPnFzl6jFuknXukdSx9M350fddKfFyG+DnJQSEDt9YHUKRHmhGu4c1tbS1hbb+7t19girKv4UeHQ4lCfjuyDGCvE392Vc4t3tWk8f/gKJ0hkPVJ918n2Cey7aDYwl7/5oj2PytHlypI+4V8yOYsNDfQ9xBovcjJYPMAF6K+TqJlvD0Qnyvy5hVL8Wu/FEqf4xgVMcxbywVm3F/UP2FY8s2lwfytkyXNw2Pms+I0LOJ+ziqgxuGOzTcAckHDcM/8dNV3q/DU3ZSbiaw07u8FJdxK9NaZC11QixtZkEJBrbNuWtdvTIZu8d7onyeE6ODDZPpDnpBdWoQFD1buPBnMDJ8UwqwJ43BadmIeRuqQ4r+6j8sWW0Qsoxzj3HxDWqf2uJ+EUPZrUoNQuGqyEXV5wlpMM3TzS2x3geYqFFbXUPX7P/f6aKjg1zNW0yVotNy8mcbbkQWfvVb95O7MiaH/HT++tL+dLDpDCACSsbCrpUXM5rbM2FLetG7n8YNUrEJu48OX4i2vdwoCX8iikNt94wy1UcLHwk8/3ZvlLaVtYBAYws4ir+7jicv6axcWa1aCho7EuVijA94rGOWSeUv+L28QugpFTfCtk9nZ0m8TGZpp8mBygsirphJZMHYnB3PsuKf/I2wiGQ4VVHbsUmllCN6u1RwDrw+YgGy/fbBezT87nM3Tm1aMsGfLItwlEzAxaX3x6NYL8Q4zhAUWNZnKs6arY3cw0ZM0v9kJkmDQtrrFnyogRzQSh04wO4Wt0m+z3Q7pUkkQDu5keXp11s/vPgdTniOjnJu9BHmEDkXljB66s5z3PRpqTW2N3B0q5uXPCAHx+l8DtF1CIqqNuTfB6yv9Ys19XWjat+FkHV4yq2vN0suStqdNf499UobhsX7Bxt/H1jagoEAQJ0YnkUJusBe7Rspzfob2T8eUzpMF7CNpgu2bxxwyu3aPKkqSb/PzSdAieWecBC5dZ2p7sD8nYsr62TjbFzOLrBUjOXle7ayKIyAFDx4yvq83SrJATdKwIkJZ7yDhxuWULxJlsTgrVUTBZGoz0P0dfjOBI7wqLKchPb30uGJ618rJ/yes0RnqK4NJOnXSEF5i917OKdn5Wh9AvJg/rSomlf92xfMd82V96AyakPYc1Vlkz3H7ZM6r/iq9fqrPFDxx8H00Uz3SnzuQnhByBYcnyaJJmU5QDUq61O9bwQHSLc96ipkzbdQ1wo3DCirJRANUen230y27LrmanTLUN253bzPD9Lz4/SFtlK6CiQ81MTSIkn5dWkA7CYs+2Hwap3b6Mo1R6iuCTEP5Sue32CSWbKHSd3/8EmUxgOF0jO8lR84FqOBQUnnwAE6i6G8h3uI4/6aVylgRHjUg0bHh2Dt0NkFn/8/Am/UuN2gsw8vbZ/AJ6LDgYgYV4hr0ej1NXHoCyqb25uycAhxyUc4r7HZyn+C22qoINjwuEzTzqQWACDZrgfo8cp78rJyn23IxTAF3j0+DeCePDyCCKnpR7ktsRbieA8bmEsb4fxuCydgV"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 854,
+          "candidatesTokenCount": 383,
+          "totalTokenCount": 2798,
+          "cachedContentTokenCount": 270,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 854
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 270
+            }
+          ],
+          "thoughtsTokenCount": 1561,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "sDSEar_1IMLZkdUPk6D2iAw"
+      }
+    }
+  ]
+}

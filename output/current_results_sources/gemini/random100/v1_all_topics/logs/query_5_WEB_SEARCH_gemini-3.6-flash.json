@@ -1,0 +1,69 @@
+{
+  "query_id": 5,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media, POLITICS, Political behaviour and attitudes, and Government, political systems and organisations in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13325\",\n      \"justification\": \"ALLBUS 2018 is a nationally representative survey in Germany that collects detailed data on political attitudes, trust in political systems and public institutions, political knowledge, media usage, and socio-demographic characteristics.\"\n    },\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2016\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12837\",\n      \"justification\": \"ALLBUS 2016 monitors political participation, confidence in public organizations and administrative bodies, media consumption habits, and core political values among citizens across Germany.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES 2017): Post-election Cross Section\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13235\",\n      \"justification\": \"This GLES 2017 dataset focuses on individual voting behavior, campaign media effects, political party evaluations, and public attitudes toward the German government and political candidates following the 2017 federal election.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES 2017): Candidate Study\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13089\",\n      \"justification\": \"This dataset surveys parliamentary candidates standing for election in Germany in 2017, examining political system dynamics, party organization, political attitudes, and campaign communication strategies.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 769,
+          "candidatesTokenCount": 433,
+          "totalTokenCount": 2504,
+          "cachedContentTokenCount": 175,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 769
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 175
+            }
+          ],
+          "thoughtsTokenCount": 1302,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "kPCDauqjJ8HnnsEPjsvIiQk"
+      }
+    }
+  ]
+}

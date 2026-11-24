@@ -1,0 +1,178 @@
+{
+  "query_id": 178,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Housing in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0494bcdc78815e45006b0465a9b29c87d299bf2adc2d2d3a5d",
+        "created_at": 1795450281.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0494bcdc78815e45006b0465aa87e887d2b31f494d8ed08b2d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DDR statistisches Jahrbuch 1989 Wohnungsbestand Wohnungsbau 1980 1989 daten",
+                "GESIS DDR housing 1980 dataset Wohnungen Wohnverhältnisse",
+                "Statistik DDR 1980 1990 Wohnungsbau Zeitreihen Datenbank"
+              ],
+              "query": "DDR statistisches Jahrbuch 1989 Wohnungsbestand Wohnungsbau 1980 1989 daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0494bcdc78815e45006b0465adc82087d2a6f6545257e4dd83",
+            "action": {
+              "type": "open_page",
+              "url": "https://histat.safe-frankfurt.de/index.php/en/project/tables/1FC3F8522A8F72FAFB73F7CB94240E20/0"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0494bcdc78815e45006b0465b10ad087d2bfbfd5e00e0abe7d",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Housing Policies in the German Democratic Republic (1949–1990) – GESIS\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12396\",\n      \"justification\": \"A historical dataset archived by GESIS, compiled by Hannsjörg Buck, covering housing policies in the German Democratic Republic from 1949 to 1990. Particularly relevant for examining housing policy during the 1980s, including the development and consequences of state-directed housing programs. This is one of the most directly relevant datasets for the requested subject.\"\n    },\n    {\n      \"title\": \"Housing Construction and Housing Stock in the Former GDR, 1970–1990 (Wohnungsbau und Wohnungsbestand 1970 bis 1990)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033403/DokumenteDDR-31.pdf\",\n      \"justification\": \"An official statistical collection published by the German Federal Statistical Office (Statistisches Bundesamt). It includes historical data on housing construction, completed dwellings, residential floor space, housing stock, apartment sizes, and housing equipment. Particularly valuable for the 1980s because it includes annual housing-stock statistics for 1981–1990 and regional breakdowns for selected years. The publication contains statistical tables that can be extracted for quantitative analysis.\"\n    },\n    {\n      \"title\": \"Historical Statistics of Housing in the GDR – Histat Database\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/1FC3F8522A8F72FAFB73F7CB94240E20/0\",\n      \"justification\": \"A historical statistical database containing time series on housing in East Germany. Particularly relevant tables include the development of housing stock in the GDR and East Berlin from 1950 to 1990 and officially recognized housing demand and urgent housing applications from 1980 to 1989. These indicators are useful for investigating housing shortages, housing availability, and the effectiveness of socialist housing policies during the 1980s.\"\n    },\n    {\n      \"title\": \"Berlin-Marzahn 1986 – Housing and Living Conditions Survey\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6373\",\n      \"justification\": \"A GESIS dataset based on a 1986 survey of adult residents maintaining independent households in Berlin-Marzahn, one of East Germany's major socialist housing developments. The study investigates housing, residential environments, and social attitudes. It is particularly useful for studying everyday residential experiences and perceptions of housing conditions in the GDR during the 1980s. The dataset is part of a longitudinal investigation of residential life in Berlin-Marzahn.\"\n    },\n    {\n      \"title\": \"GDR Microdata – Representative Surveys of Living Conditions in the Late 1980s\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gml/further-data-from-official-statistics/gdr-microdata\",\n      \"justification\": \"GESIS provides information about historical microdata from representative surveys conducted in the German Democratic Republic during the late 1980s. The datasets concern social and cultural living conditions, household income, and consumption. They may support research into the socioeconomic characteristics of households and the relationship between living standards and housing conditions. Researchers should inspect individual survey variables to determine whether specific housing indicators are available.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of the German Democratic Republic 1989 – Housing Construction Statistics\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1989/seite-168-814728.html\",\n      \"justification\": \"Historical official statistics from the GDR's 1989 Statistical Yearbook, including annual figures for completed dwellings, newly constructed apartments, housing modernization, residential floor space, and expenditures on housing construction. The table provides annual observations throughout 1980–1988, making it particularly useful for examining changes in housing construction and investment during the decade. It also contains regional statistics for 1988.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of the German Democratic Republic 1989 – Housing Stock and Residential Floor Space\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1989/seite-171-814734.html\",\n      \"justification\": \"Official historical housing statistics reporting the total number of dwellings, residential floor space, and residential space per inhabitant in East Germany. Includes observations for 1981, 1985, 1987, and 1988. Particularly useful for measuring changes in housing availability and residential living standards throughout the 1980s.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of the German Democratic Republic 1990 – Housing Stock by Ownership and District\",\n      \"url_or_doi\": \"https://www.gvoon.de/art/dokumente/1990/statistisches-jahrbuch-ddr-1990-1/pdf/statistisches-jahrbuch-ddr-1990-1-seite_200.pdf\",\n      \"justification\": \"An official GDR statistical table documenting housing stock by ownership category and administrative district. Contains observations for 1981, 1985, 1988, and 1989, alongside earlier historical figures. Particularly valuable for comparing housing availability across East German districts, including East Berlin, Dresden, Leipzig, and other regions, and for studying regional differences in housing development toward the end of the socialist period.\"\n    },\n    {\n      \"title\": \"Life in the GDR 1990 (Leben in der DDR 1990) – GESIS\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA6873?lang=de\",\n      \"justification\": \"A historical social survey archived by GESIS examining different aspects of life in the German Democratic Republic around 1990. Includes questions concerning housing conditions, the housing market, living standards, and satisfaction with different aspects of life. Although collected in 1990 rather than during the 1980s, it provides valuable evidence about residential experiences and housing-related attitudes at the end of the GDR period.\"\n    },\n    {\n      \"title\": \"Construction Activity and Housing in Germany, 1950–2005 – GESIS Historical Data Compilation\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8398\",\n      \"justification\": \"A historical statistical compilation covering housing construction and housing statistics in Germany between 1950 and 2005. It brings together official building and housing statistics from statistical offices and historical publications. Potentially useful for comparing housing development before and after German reunification, although researchers should verify which historical tables specifically cover East Germany during the 1980s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450296.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18928,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1534,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 20462
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

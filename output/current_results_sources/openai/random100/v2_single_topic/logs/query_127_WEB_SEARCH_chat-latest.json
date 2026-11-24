@@ -1,0 +1,186 @@
+{
+  "query_id": 127,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d8e47ae7b2ec964006b046265366487d287d41ebb7f1bcc70",
+        "created_at": 1795449445.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d8e47ae7b2ec964006b046266343487d29c700004698b1709",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany federal states attitudes dataset",
+                "German Socio Economic Panel SOEP 1990s regional federal states social attitudes dataset",
+                "German Youth Institute youth survey 1992 1997 bundesländer dataset GESIS",
+                "German election study 1990 1994 1998 attitudes federal states GESIS dataset"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany federal states attitudes dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d8e47ae7b2ec964006b04626a4eec87d2af16e156992d6712",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Welfare Survey\" \"1998\" Germany",
+                "site:search.gesis.org/research_data/ \"International Social Survey Programme\" \"1995\" Germany",
+                "site:diw.de SOEP data research 1984 federal state regional indicators 1990",
+                "site:search.gesis.org/research_data/ \"Integrated Data Set\" \"State Elections\" 1962 2004"
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Welfare Survey\" \"1998\" Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d8e47ae7b2ec964006b04626d8c0087d28974d60c2bf07000",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"One of the most relevant datasets for studying social behaviour and attitudes across German federal states during the 1990s. Includes survey waves from 1990, 1991, 1992, 1994, 1996, and 1998. Covers political attitudes, social values, interpersonal relationships, religious beliefs, social participation, trust, immigration attitudes, and demographic characteristics. The geographical coverage includes Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. State-level comparisons require access to a version containing federal-state identifiers, such as ALLBUS Extended.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Extended Datasets\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Particularly suitable for comparing social attitudes across the eleven specified German states. ALLBUS Extended provides additional geographical classifications, including federal-state identifiers. The 1990s survey waves allow researchers to investigate regional differences in social behaviour, political participation, family values, religious affiliation, social inequality, and attitudes toward immigration and German reunification. Registration and applicable access conditions are required.\"\n    },\n    {\n      \"title\": \"DJI Youth Survey 1992 and 1997 – Cumulated Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3608\",\n      \"justification\": \"Highly relevant for examining social behaviour and attitudes among young people and young adults in Germany during the 1990s. Combines surveys conducted in 1992 and 1997. Measures moral orientations, political attitudes, national identity, gender-role attitudes, life satisfaction, social solidarity, political participation, and communication about politics with family and friends. Includes respondents from western and eastern Germany. Researchers should verify the availability of individual federal-state identifiers before conducting comparisons between the requested states.\"\n    },\n    {\n      \"title\": \"DJI Youth Survey 1992, 1997 and 2003\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/37539\",\n      \"justification\": \"A longitudinally comparable collection of youth surveys from the German Youth Institute. The 1992 and 1997 waves fall directly within the requested period. Provides information about young people's political orientations, social integration, identity, life circumstances, and attitudes toward society. Useful for examining generational differences in social values during the decade following German reunification. Regional coverage includes western and eastern Germany, although the availability of detailed state identifiers needs verification.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), Data 1984–2010\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.740815.en/edition/soep-core_v27__data_1984-2010.html\",\n      \"justification\": \"A major longitudinal household survey providing annual observations throughout the 1990s. Covers all eleven requested federal states and includes federal-state residence identifiers in appropriately detailed versions. Relevant variables include life satisfaction, household relationships, employment, education, social mobility, economic concerns, health, and subjective well-being. Particularly valuable for examining changes in social conditions and individual attitudes over time rather than relying exclusively on repeated cross-sectional surveys.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), 1984–2021, Remote Edition\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38r\",\n      \"justification\": \"A version of the German Socio-Economic Panel intended for research requiring detailed information under controlled access conditions. Includes observations from every year of the 1990s. Suitable for analysing social attitudes, life satisfaction, family structures, employment behaviour, economic insecurity, and differences in living conditions across German federal states. Especially useful when state-level geographical detail is necessary. Access to specific regional variables is subject to the data provider's restrictions.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), 1984–2020, Onsite Edition\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v37o\",\n      \"justification\": \"An alternative SOEP edition providing access to detailed household and individual survey data, including historical observations from the 1990s. Relevant for investigating social inequality, household behaviour, subjective well-being, family relationships, and differences between Germany's federal states. The underlying SOEP data include a federal-state residence classification covering all eleven requested locations. Onsite access arrangements may be necessary for detailed geographical analyses.\"\n    },\n    {\n      \"title\": \"SOEPmonitor – Historical Social Indicators from 1984 Onward\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_02.c.222727.en/soepmonitor.html\",\n      \"justification\": \"Provides historical social-indicator time series derived from the German Socio-Economic Panel. Includes observations throughout the 1990s on household characteristics, individual living conditions, and social indicators. Particularly useful for establishing trends in subjective well-being and socioeconomic circumstances. Historical tables distinguish eastern and western Germany from 1990 onward, but do not generally provide the same level of federal-state detail as the underlying SOEP microdata.\"\n    },\n    {\n      \"title\": \"German State Election Studies – Integrated Dataset 1962–2004\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"A collection of historical state-election survey datasets covering German federal-state elections, including elections held during the 1990s. Especially relevant for studying political behaviour, voting preferences, party identification, political satisfaction, and regional political attitudes. Provides a route to comparing electoral behaviour across Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Individual studies differ in their questions, sampling methods, and election years, so direct comparisons require harmonisation.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies, 1949–2005\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-federal-elections\",\n      \"justification\": \"Historical election-survey collection containing studies associated with the German federal elections of 1990, 1994, and 1998. Relevant for analysing political attitudes, voting behaviour, party preferences, political participation, social divisions, and perceptions of German reunification. These nationwide studies provide opportunities to investigate differences between respondents living in the requested federal states, subject to the geographical identifiers and sample sizes available in individual datasets.\"\n    },\n    {\n      \"title\": \"GESIS Research Data Center Elections – Historical Political Behaviour Surveys\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"A research data collection covering historical German federal and state election surveys, Politbarometer surveys, and Forsa-Bus surveys beginning in 1991. Provides access routes to datasets measuring political opinions, voting intentions, political trust, public concerns, and political participation during the 1990s. Particularly useful for identifying additional survey series with observations from the eleven specified German states. State-level representativeness and geographical identifiers vary by survey.\"\n    },\n    {\n      \"title\": \"GESIS ALLBUS Historical Survey Collection\",\n      \"url_or_doi\": \"https://search.gesis.org/?lang=en&study_group_en=ALLBUS&type=research_data\",\n      \"justification\": \"A searchable collection of individual German General Social Survey datasets, including surveys conducted throughout the 1990s. Allows researchers to locate specific survey years and examine questionnaires covering social relationships, political attitudes, religious beliefs, family values, social inequality, trust, national identity, and civic engagement. Particularly useful when individual 1990s waves contain variables unavailable or harmonised differently in cumulative datasets. Federal-state analysis requires checking the geographical information available in each data edition.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449464.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18852,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1907,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20759
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

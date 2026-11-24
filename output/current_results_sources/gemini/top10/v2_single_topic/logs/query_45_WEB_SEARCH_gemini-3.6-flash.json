@@ -1,0 +1,69 @@
+{
+  "query_id": 45,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about NATURAL ENVIRONMENT in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ReSurveyGermany: Vegetation-plot time-series over the past hundred years in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.25829/idiv.3514-0qsq70\",\n      \"justification\": \"Provides harmonized vegetation-plot time-series data across Germany, tracking plant biodiversity and species incidence up to 2020.\"\n    },\n    {\n      \"title\": \"The PROFOUND database for evaluating vegetation models and simulating climate impacts on European forests\",\n      \"url_or_doi\": \"https://doi.org/10.5880/PIK.2020.006\",\n      \"justification\": \"Hosted by GFZ Data Services, this dataset contains forest ecosystem, climate, soil, and vegetation data across European forest sites, including Germany, covering the 2010s.\"\n    },\n    {\n      \"title\": \"Grassland Dynamics - Rhine Main Observatory (Germany) - 2010-2020\",\n      \"url_or_doi\": \"https://doi.org/10.23728/b2share.c133c64814b64f06842a45bca75c66d2\",\n      \"justification\": \"Contains long-term plant species abundance and ecological dynamics data collected at the Rhine-Main Observatory in Germany between 2010 and 2020.\"\n    },\n    {\n      \"title\": \"Daily means of hourly grids of meteorological variables for Germany (project TRY Advancement)\",\n      \"url_or_doi\": \"https://doi.org/10.5676/DWD_CDC/TRY_Basis_v001\",\n      \"justification\": \"Maintained by the Deutscher Wetterdienst (DWD) Climate Data Center, this dataset provides high-resolution gridded meteorological and climate data across Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 847,
+          "candidatesTokenCount": 465,
+          "totalTokenCount": 3015,
+          "cachedContentTokenCount": 249,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 847
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 249
+            }
+          ],
+          "thoughtsTokenCount": 1703,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "drinaqv2O52Y3boPisKfyQo"
+      }
+    }
+  ]
+}

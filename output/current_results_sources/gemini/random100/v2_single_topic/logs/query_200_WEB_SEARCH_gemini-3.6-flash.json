@@ -1,0 +1,69 @@
+{
+  "query_id": 200,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Protest and Coercion Data - Germany (FR Germany & German DR)\",\n      \"url_or_doi\": \"https://ronfrancisco.ku.edu/epcd/germany.html\",\n      \"justification\": \"This event dataset compiled by Prof. Ron Francisco tracks daily and sub-daily instances of political protest, peace demonstrations, and government coercion in both West Germany (FRG) and East Germany (GDR) during the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1984\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1340\",\n      \"justification\": \"This survey dataset from GESIS captures West German public opinion during the peak of the 1980s peace movement, measuring attitudes toward defense, national security, NATO, and threat perceptions.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1980\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1000\",\n      \"justification\": \"A representative national survey dataset archived at GESIS measuring public attitudes in West Germany in 1980 on security policy, military issues, political conflicts, and civil society.\"\n    },\n    {\n      \"title\": \"Geschichtsbewusstsein 1983 (History-Consciousness 1983 - East Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6339\",\n      \"justification\": \"Archived at GESIS, this dataset captures social attitudes, peace perspectives, and state security awareness among citizens in East Germany (GDR) in 1983.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 946,
+          "candidatesTokenCount": 442,
+          "totalTokenCount": 2938,
+          "cachedContentTokenCount": 311,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 946
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 311
+            }
+          ],
+          "thoughtsTokenCount": 1550,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "6U-EarOpApChvdIPzoeM8A4"
+      }
+    }
+  ]
+}

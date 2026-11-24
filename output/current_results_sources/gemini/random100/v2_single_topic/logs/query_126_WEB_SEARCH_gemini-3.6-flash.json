@@ -1,0 +1,69 @@
+{
+  "query_id": 126,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Mass Communication 1970-1995 (Massenkommunikation 1970-1995)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2825\",\n      \"justification\": \"This GESIS dataset belongs to the long-running ARD/ZDF mass communication research program (initiated in West Germany in 1964) measuring media equipment, print media reach, and electronic media usage trends.\"\n    },\n    {\n      \"title\": \"Internationale Beziehungen (Juni 1961, Deutschland, Form B)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0381\",\n      \"justification\": \"Archived by GESIS, this survey dataset was conducted in West Germany in June 1961 by USIA and DIVO to examine public opinion, international relations, and information/media exposure during the Cold War.\"\n    },\n    {\n      \"title\": \"German Time Series Dataset, 1834-2012\",\n      \"url_or_doi\": \"https://doi.org/10.6084/m9.figshare.1450809.v1\",\n      \"justification\": \"Hosted on Figshare, this dataset aggregates historical time series for Germany, including long-term statistics on culture, mass media, post, and telecommunications covering the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 960,
+          "candidatesTokenCount": 366,
+          "totalTokenCount": 3059,
+          "cachedContentTokenCount": 709,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 960
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 709
+            }
+          ],
+          "thoughtsTokenCount": 1733,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "AjuEap64HvuInsEP5OC88As"
+      }
+    }
+  ]
+}

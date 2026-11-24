@@ -1,0 +1,69 @@
+{
+  "query_id": 14,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators, Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994 (ZA3065)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11973\",\n      \"justification\": \"This GESIS dataset covers political participation, voting behavior, political attitudes, and social indicators in Germany following the 1994 federal election.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998 (ZA3066)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11968\",\n      \"justification\": \"This election study captures German political attitudes, party preferences, evaluations of government performance, and political participation surrounding the 1998 Bundestag election.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - Cumulation 1980-2014\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"A biennial trend survey in Germany containing comprehensive data on social conditions, political attitudes, trust in government institutions, and voter demography throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977-2019 (Partial Cumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13631\",\n      \"justification\": \"A long-term series collecting frequent polling data on political attitudes, candidate evaluations, government support, and voting intentions in Germany during the 1990s.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 1\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module1.2015-12-15\",\n      \"justification\": \"Includes cross-national election data featuring Germany's 1998 federal election study, measuring voter behavior, political attitudes, democratic institution evaluations, and social demographics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1197,
+          "candidatesTokenCount": 541,
+          "totalTokenCount": 3930,
+          "cachedContentTokenCount": 647,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1197
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 647
+            }
+          ],
+          "thoughtsTokenCount": 2192,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "mfKDavLfM8eUxN8Pk6ejkQU"
+      }
+    }
+  ]
+}

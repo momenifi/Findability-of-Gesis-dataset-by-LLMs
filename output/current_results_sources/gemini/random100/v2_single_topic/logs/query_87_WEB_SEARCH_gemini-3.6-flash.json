@@ -1,0 +1,69 @@
+{
+  "query_id": 87,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific social services: use and availability in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"DJI-Kinderbetreuungsstudie (KiBS) - Längsschnittdatensatz 2012–2022\",\n      \"url_or_doi\": \"https://doi.org/10.17621/kibs2022\",\n      \"justification\": \"This dataset from the German Youth Institute (DJI) provides longitudinal survey data on parents' use, demand, and regional availability of childcare and early education services across Germany.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core v39eu)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39eu\",\n      \"justification\": \"A representative longitudinal household study in Germany covering up to 2022, which includes detailed information on household social assistance, long-term care arrangements, and childcare utilization.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14151\",\n      \"justification\": \"A biennial population survey curated by GESIS that includes microdata on population structure, social inequality, and public engagement with social and state services in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 361,
+          "candidatesTokenCount": 331,
+          "totalTokenCount": 2190,
+          "cachedContentTokenCount": 112,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 361
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 112
+            }
+          ],
+          "thoughtsTokenCount": 1498,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ojWEaqvjPNOgxN8P8Ibu0AQ"
+      }
+    }
+  ]
+}

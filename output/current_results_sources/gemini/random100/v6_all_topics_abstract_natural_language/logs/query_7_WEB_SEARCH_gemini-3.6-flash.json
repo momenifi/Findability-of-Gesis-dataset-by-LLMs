@@ -1,0 +1,69 @@
+{
+  "query_id": 7,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions and Occupational health in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia during the 2010s, matching this research need: European establishment-level survey data on occupational safety and health management, psychosocial risks, work-related stress, violence, harassment, musculoskeletal disorders, risk assessment practices, employee participation, and organizational drivers/barriers across public and private workplaces.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Second European Survey of Enterprises on New and Emerging Risks, 2014 (ESENER-2)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-7808-1\",\n      \"justification\": \"Conducted in 2014 across 36 European countries (including EU Member States and non-EU countries in the prompt), this establishment-level survey captures responses from safety and health management representatives across public and private workplaces on occupational safety and health management, psychosocial risk factors (work-related stress, violence, harassment), musculoskeletal risks, risk assessment practices, worker participation, and organizational drivers and barriers.\"\n    },\n    {\n      \"title\": \"Third European Survey of Enterprises on New and Emerging Risks, 2019 (ESENER-3)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-8690-1\",\n      \"justification\": \"Conducted in 2019 across 33 European countries, this dataset provides establishment-level survey data from public and private workplaces on health and safety management practices, psychosocial risk management (stress, bullying, harassment), physical risk factors including musculoskeletal disorders, risk assessment implementation, employee participation, and organizational drivers and barriers.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks, 2009 (ESENER-1)\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-6446-1\",\n      \"justification\": \"Conducted at the threshold of the 2010s across 31 European countries, this establishment-level dataset covers occupational safety and health management, psychosocial risks, risk assessment procedures, worker representation, and drivers and barriers in European workplaces.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1063,
+          "candidatesTokenCount": 444,
+          "totalTokenCount": 3414,
+          "cachedContentTokenCount": 285,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1063
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 285
+            }
+          ],
+          "thoughtsTokenCount": 1907,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "MHaEau28N535nsEPibbpkQk"
+      }
+    }
+  ]
+}

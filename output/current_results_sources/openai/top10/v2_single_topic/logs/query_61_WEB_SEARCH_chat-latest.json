@@ -1,0 +1,186 @@
+{
+  "query_id": 61,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Physical fitness and exercise in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b0952035449c99a006b047af24c2487d2ba91fddf1290fb0f",
+        "created_at": 1795455730.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b0952035449c99a006b047af33e9887d283383339419252f5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany physical activity exercise dataset 2010 2020 GEDA RKI data",
+                "Germany DEGS1 physical fitness motor fitness dataset 2010 2012",
+                "Germany sports participation survey dataset 2022 2024 data download",
+                "Germany KiGGS wave 2 physical activity dataset research data centre"
+              ],
+              "query": "Germany physical activity exercise dataset 2010 2020 GEDA RKI data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b0952035449c99a006b047af6197887d2acaa7ddef320cbd3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:momo.kit.edu MoMo Studie Daten 2018 2022 körperliche fitness",
+                "site:destatis.de sportvereine mitglieder 2010 2024 daten deutschland",
+                "site:ec.europa.eu/eurostat databrowser physical activity Germany dataset hlth_ehis_pe",
+                "site:share-eric.eu data access SHARE waves physical activity Germany"
+              ],
+              "query": "site:momo.kit.edu MoMo Studie Daten 2018 2022 körperliche fitness",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b0952035449c99a006b047af8fda487d29306be46feb77003",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Health Update (GEDA) 2010\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"A nationally representative health survey conducted by the Robert Koch Institute (RKI), covering 22,050 adults in Germany. Includes information on health behaviors, physical activity, and exercise participation. Particularly useful for establishing baseline physical activity patterns at the beginning of the 2010s. Scientific Use Files are available to researchers upon application.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA) 2012\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Themen/Nichtuebertragbare-Krankheiten/Studien-und-Surveillance/Studien/GEDA/geda_gesamt.html?nn=16782108\",\n      \"justification\": \"A nationwide health survey covering approximately 19,294 respondents. Contains information on physical activity, sports participation, and other health-related behaviors. Useful for comparing exercise habits across demographic groups and examining changes in physical activity during the early 2010s.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA) 2014/2015 – European Health Interview Survey (EHIS)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"A nationally representative survey of 24,016 respondents that includes standardized physical activity measurements collected using the European Health Interview Survey Physical Activity Questionnaire (EHIS-PAQ). Covers aerobic physical activity, cycling, walking, and muscle-strengthening activities. Particularly useful for comparing German exercise patterns with other European countries.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA) 2019/2020 – European Health Interview Survey\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"A nationally representative dataset covering 22,708 adults in Germany. Includes physical activity and health behavior indicators, allowing researchers to analyze exercise patterns at the transition from the 2010s to the 2020s. Especially valuable for comparisons with GEDA 2014/2015 because both surveys follow the European Health Interview Survey framework.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS1), 2008–2011\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"A comprehensive national health examination survey involving 7,987 adults aged 18–79. Particularly relevant to physical fitness research because it includes objectively measured cardiorespiratory fitness through bicycle ergometer testing among eligible participants, alongside information about physical activity and health. Provides both physiological and behavioral measurements from the beginning of the 2010s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS) – Wave 1, 2009–2012\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/KiGGS/KiGGS_inhalt.html?nn=16780210\",\n      \"justification\": \"A nationwide health survey of approximately 12,368 children and adolescents aged 0–17. Includes information about physical activity, sports participation, and health-related behaviors. Useful for investigating exercise habits among young people in Germany during the early 2010s and comparing physical activity across age groups.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS) – Wave 2, 2014–2017\",\n      \"url_or_doi\": \"https://doi.org/10.7797/17-201417-1-1-1\",\n      \"justification\": \"A nationally representative dataset containing information from 15,023 children and adolescents in Germany. Includes measurements of physical activity, sports participation, and related health indicators. Particularly useful for studying whether young people meet recommended physical activity levels and identifying demographic differences in exercise participation. The dataset is available as a Scientific Use File through the Robert Koch Institute.\"\n    },\n    {\n      \"title\": \"Eurostat – Performing Health-Enhancing Physical Activity by Sex, Age and Educational Attainment\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/HLTH_EHIS_PE9E\",\n      \"justification\": \"An official Eurostat dataset containing physical activity indicators for Germany and other European countries, with observations from 2014 and 2019. Measures participation in health-enhancing physical activity and allows comparisons by age, sex, and educational attainment. Particularly useful for examining German physical activity trends during the 2010s and benchmarking Germany against other European countries. Data can be downloaded directly from Eurostat.\"\n    },\n    {\n      \"title\": \"Eurostat – Sport Participation and Physical Activity Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Sport_participation_-_practicing_sport_and_physical_activity\",\n      \"justification\": \"An official Eurostat entry point identifying datasets on sports participation, exercise, and physical activity across European countries, including Germany. Covers participation in sporting activities and health-enhancing exercise, with demographic breakdowns. Useful for identifying harmonized statistical datasets suitable for international comparisons. The linked page provides references to the underlying downloadable datasets.\"\n    },\n    {\n      \"title\": \"Eurostat – Persons Participating in Cultural or Sport Activities in the Last 12 Months\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/sobu0hvbbun7o8l3vxrxfq?locale=en\",\n      \"justification\": \"A European statistical dataset covering participation in sporting and cultural activities, including observations for Germany. Provides breakdowns by sex, age, educational attainment, activity type, and participation frequency. Useful for studying sports participation and demographic inequalities in recreational activities. The dataset is available through the European Union's official data portal.\"\n    },\n    {\n      \"title\": \"Survey of Health, Ageing and Retirement in Europe (SHARE) – Waves 4–9\",\n      \"url_or_doi\": \"https://share-eric.eu/data/data-documentation/waves-overview/\",\n      \"justification\": \"A longitudinal European survey containing repeated observations of adults aged 50 and older, including participants living in Germany. Waves collected during the 2010s and 2020s include information about physical activity, health, functional limitations, and demographic characteristics. Particularly valuable for studying exercise behavior among older Germans and investigating how physical activity changes with age.\"\n    },\n    {\n      \"title\": \"SHARE Wave 8 – Accelerometer Study of Physical Activity, 2019–2020\",\n      \"url_or_doi\": \"https://share-eric.eu/data/data-set-details/accelerometer-study?cHash=4335b50213f6ba283957cf48ad68cd28&showOptIn=1\",\n      \"justification\": \"A specialized dataset measuring physical activity using wearable accelerometers among older adults in ten European countries, including Germany. Provides objectively recorded movement data rather than relying exclusively on self-reported exercise. Particularly relevant for studying physical activity intensity, sedentary behavior, and daily movement patterns around 2019–2020. Data access requires researcher registration.\"\n    },\n    {\n      \"title\": \"SHARE – Data and Documentation Tool\",\n      \"url_or_doi\": \"https://share-eric.eu/data/data-documentation/data-and-documentation-tool?showOptIn=1\",\n      \"justification\": \"An official searchable research data catalog containing documentation and variables from SHARE survey waves. Researchers can identify German observations and variables relating to vigorous physical activity, moderate exercise, and physical functioning. Useful for locating comparable measures across multiple survey waves during the 2010s and 2020s and constructing longitudinal datasets.\"\n    },\n    {\n      \"title\": \"Motorik-Modul (MoMo) – German Motor Performance and Physical Activity Study\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12709637/\",\n      \"justification\": \"A major German study focusing specifically on physical fitness, motor skills, and physical activity among children and adolescents. The study includes repeated cross-sectional surveys and longitudinal observations spanning 2003–2022. Particularly valuable for analyzing changes in endurance, strength, coordination, and physical activity among German youth during the 2010s and early 2020s. The linked scientific overview identifies the dataset and its coverage; it is not a direct data download page.\"\n    },\n    {\n      \"title\": \"German Ageing Survey (DEAS), 2011–2023\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12709637/\",\n      \"justification\": \"A longitudinal German survey of adults aged 40 and older, conducted by the German Centre of Gerontology. It contains repeated measurements of physical activity and other health-related behaviors. Particularly useful for examining exercise participation among middle-aged and older adults throughout the 2010s and early 2020s. The linked research overview identifies DEAS as a major source of German physical activity data but does not directly host its microdata.\"\n    },\n    {\n      \"title\": \"Physical Activity and Physical Activity Promotion in Germany – Overview of 23 Large-Scale Datasets\",\n      \"url_or_doi\": \"https://doi.org/10.25646/13557\",\n      \"justification\": \"A 2025 research publication systematically identifying 23 large-scale studies containing physical activity data from Germany, including datasets spanning the 2010s and 2020s. Covers population surveys, physical fitness studies, sports participation, and active mobility. Especially useful as a dataset discovery resource because it compares study populations, collection periods, sample sizes, and physical activity indicators. This is a research overview rather than an individual downloadable dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455748.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19133,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2316,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21449
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

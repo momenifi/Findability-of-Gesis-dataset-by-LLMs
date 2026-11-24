@@ -1,0 +1,69 @@
+{
+  "query_id": 33,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Statistics Finland: Households' Consumption (Household Budget Survey)\",\n      \"url_or_doi\": \"https://www.stat.fi/til/ktut/\",\n      \"justification\": \"Statistics Finland has conducted the Household Budget Survey (Kotitaloustutkimus) periodically since 1966. It provides comprehensive data on the consumption expenditure, lifestyle goods, and living conditions of Finnish households starting in the 1960s.\"\n    },\n    {\n      \"title\": \"FSD3385 Cultural Distinctions, Generations and Change 1960-2010: Coverage in European Newspaper Articles\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd3385\",\n      \"justification\": \"Archived at the Finnish Social Science Data Archive (FSD), this dataset includes data from major daily newspapers—including Finland's Helsingin Sanomat—from 1960 to 2010, focusing on cultural consumption, generational lifestyles, and media trends.\"\n    },\n    {\n      \"title\": \"FSD2333 Significance of the Disco Club 'Kåren Kellari' 2006-2007: Weblog Data\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2333\",\n      \"justification\": \"Archived at the Finnish Social Science Data Archive (FSD), this qualitative dataset captures youth leisure activities, public establishment visitation, and consumer entertainment behavior in Finland from 1960 to 1979.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1769,
+          "candidatesTokenCount": 392,
+          "totalTokenCount": 4437,
+          "cachedContentTokenCount": 364,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1769
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "thoughtsTokenCount": 2276,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "0CuEatLUEKSCxN8Pq7H2qA8"
+      }
+    }
+  ]
+}

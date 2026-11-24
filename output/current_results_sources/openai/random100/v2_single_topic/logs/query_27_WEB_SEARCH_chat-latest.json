@@ -1,0 +1,185 @@
+{
+  "query_id": 27,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0c87f02fedab0f10006b045bf6ef3087d29b64c3acc988c574",
+        "created_at": 1795447798.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0c87f02fedab0f10006b045bf7d21c87d28a1fc587b03fc6eb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1980 1982 1984 family marriage Germany dataset",
+                "German Socio Economic Panel SOEP 1984 family marriage data research dataset",
+                "German family survey 1988 DJI Familiensurvey dataset",
+                "Germany 1980 1990 marriage family statistics historical dataset Destatis"
+              ],
+              "query": "GESIS ALLBUS 1980 1982 1984 family marriage Germany dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0c87f02fedab0f10006b045bfb0e7487d2bbe01bd32dbd029e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP core 1984 data doi family household",
+                "site:search.gesis.org \"ALLBUS 1988\" family marriage",
+                "site:gesis.org microcensus 1980 1989 family dataset Germany"
+              ],
+              "query": "site:diw.de SOEP core 1984 data doi family household",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0c87f02fedab0f10006b045bfe17e087d2bd3dd54c8e91c17d",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"DJI Family Survey (Familiensurvey) – West Germany, 1988\",\n      \"url_or_doi\": \"https://www.surveys.dji.de/?m=msw%2C0&sID=1\",\n      \"justification\": \"One of the most directly relevant datasets for studying family life and marriage in 1980s Germany. Conducted by the German Youth Institute (DJI) in 1988, the survey collected approximately 10,000 interviews with adults aged 18–55 in West Germany. It examines marriage, partnerships, family structures, children, household relationships, and changing family lifestyles. Particularly useful for investigating marriage patterns, family dynamics, and attitudes toward family life during the late 1980s. The landing page provides information about the survey and data availability.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) – Longitudinal Household Data, 1984–2025\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.1018683.en/edition/\",\n      \"justification\": \"A major longitudinal household survey conducted annually since 1984 by the German Institute for Economic Research (DIW Berlin). The dataset includes information on marital status, household composition, children, employment, household income, and socioeconomic circumstances. Researchers can select observations from 1984–1989 to examine family life in West Germany during the 1980s. Its longitudinal structure makes it particularly valuable for studying changes in marriage, household formation, family economic circumstances, and living arrangements over time.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A nationally representative social survey conducted regularly since 1980. The cumulative dataset includes surveys from 1980, 1982, 1984, 1986, and 1988, allowing researchers to examine family life and marriage throughout the decade. Relevant variables include marital status, household composition, family relationships, attitudes toward marriage, gender roles, and social values. Particularly useful for investigating changing attitudes toward marriage and traditional family structures in West Germany. Data and documentation are available through GESIS, with registration required for downloading datasets.\"\n    },\n    {\n      \"title\": \"GESIS Microcensus Trendfile 1962–2016 – Family and Household Structures\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gml/microcensus/microcensus-trendfile\",\n      \"justification\": \"A harmonized collection of German Microcensus data designed to study long-term demographic and social changes. It includes observations from 1980, 1982, 1985, 1987, and 1989, making it particularly valuable for research on family structures throughout the 1980s. Variables cover marital status, household composition, family living arrangements, demographic characteristics, and employment. This resource is especially useful for examining the prevalence of married couples, household structures, and changes in family living arrangements in West Germany.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Historical Marriage and Divorce Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Population/Marriages-Divorces-Life-Partnerships/Tables/lrbev06.html\",\n      \"justification\": \"Official historical demographic statistics covering marriages and divorces in Germany, including the 1980s. The time-series data provide information on marriage and divorce counts and rates, allowing researchers to examine trends in marriage formation and marital dissolution. Particularly useful for quantitative analyses of marriage and divorce patterns and for comparing developments during the 1980s with earlier and later decades. Historical figures should be interpreted with attention to the distinction between West Germany, East Germany, and reunified Germany.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – Marriages and Marriage Rates in Germany, 1950–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12611-0001/table-toolbar\",\n      \"justification\": \"An official statistical dataset from Germany's Federal Statistical Office containing historical annual marriage statistics. It includes observations for every year from 1980 through 1989, enabling detailed analysis of marriage trends throughout the decade. The dataset reports marriage counts and marriages per 1,000 inhabitants. It is particularly suitable for statistical analysis, historical comparisons, and investigating changes in marriage frequency. Researchers should check the geographic coverage of historical observations when comparing East and West Germany.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584?lang=de\",\n      \"justification\": \"A cumulative dataset combining multiple waves of the German General Social Survey, including surveys conducted throughout the 1980s. It provides individual-level information on demographic characteristics, marital status, family circumstances, social relationships, and attitudes toward social institutions. Particularly relevant for studying public perceptions of marriage, changing gender expectations, and family-related social values during the 1980s. The cumulative format supports comparisons across survey years and the analysis of long-term social change.\"\n    },\n    {\n      \"title\": \"DJI Family Survey – Family Structures and Changing Family Lifestyles\",\n      \"url_or_doi\": \"https://www.dji.de/ueber-uns/projekte/projekte/familiensurvey.html\",\n      \"justification\": \"The German Youth Institute's official research project covering the development and transformation of family life in Germany. Its first major survey wave was conducted in 1988 in West Germany, followed by a corresponding survey in East Germany in 1990. Research topics include family diversity, marriage and partnership dynamics, childbirth, relationships between relatives, child development, and the relationship between employment and family life. Especially useful for research examining family formation and changing marriage practices in the final years of Germany's division.\"\n    },\n    {\n      \"title\": \"SOEP-Core v38eu – German Household and Individual Panel Data, 1984–2021\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"A DOI-registered edition of the German Socio-Economic Panel containing longitudinal observations beginning in 1984. It includes household-level and individual-level information relevant to marriage, family composition, children's circumstances, employment, income, and living arrangements. Researchers can isolate the 1984–1989 waves to investigate household development and family socioeconomic conditions in West Germany. Particularly useful for examining relationships between marriage, employment, family income, and household stability.\"\n    },\n    {\n      \"title\": \"GESIS German Microcensus – Historical Scientific Use Files, 1980–1989\",\n      \"url_or_doi\": \"https://www.gesis.org/en/missy\",\n      \"justification\": \"GESIS provides documentation and metadata for historical German Microcensus datasets through its MISSY information system. Relevant survey years include 1980, 1982, 1985, 1987, and 1989. These datasets provide detailed demographic information about household composition, marital status, family arrangements, employment, and socioeconomic characteristics. They are particularly useful for studying marriage prevalence, household size, family structures, and demographic differences among families in West Germany during the 1980s. Access to the underlying scientific-use data may require an application.\"\n    },\n    {\n      \"title\": \"German Youth Institute (DJI) – Research Database for Historical Family Surveys\",\n      \"url_or_doi\": \"https://www.dji.de/en/about-us/research-database.html\",\n      \"justification\": \"An official research database containing information about major longitudinal and cross-sectional surveys conducted by the German Youth Institute. It includes the historical Family Survey, whose first major data collection took place in 1988. Relevant research dimensions include marital relationships, family composition, children, household organization, and changing family lifestyles. The database is useful for identifying historical family survey datasets, locating supporting documentation, and exploring the availability of additional survey waves.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447815.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18122,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1877,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 19999
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

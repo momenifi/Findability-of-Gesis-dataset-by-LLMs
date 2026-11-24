@@ -1,0 +1,186 @@
+{
+  "query_id": 188,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LAW, CRIME AND LEGAL SYSTEMS in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, and Croatia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e7e823af3f4919d006b04665f4fe087d2a48447d606c1228e",
+        "created_at": 1795450463.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e7e823af3f4919d006b04666035a087d29eeb0dd887b8107f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurostat crime and criminal justice database recorded offences 2010 2019 dataset",
+                "Eurostat prison population dataset crim pris 2010 2019",
+                "European Social Survey trust legal system police justice data 2010 2018",
+                "CEPEJ evaluation judicial systems data 2010 2018 Europe dashboard"
+              ],
+              "query": "Eurostat crime and criminal justice database recorded offences 2010 2019 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e7e823af3f4919d006b046662875c87d2bc3645600f4bee4d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/crim_ police personnel judges convicted persons",
+                "site:ec.europa.eu/eurostat/databrowser/view/crim_pris prison population",
+                "site:ec.europa.eu/eurostat/databrowser/view/crim_ homicides victims",
+                "European Quality of Life Survey 2011 2016 data catalogue Eurofound justice trust police"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/crim_ police personnel judges convicted persons",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e7e823af3f4919d006b04666523ec87d294e61712abcf63f6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by Offence Category (crim_off_cat)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/crim_off_cat/default/table?lang=en\",\n      \"justification\": \"Official Eurostat dataset containing annual police-recorded crime statistics for European countries, including the 28 countries requested. Covers offences such as intentional homicide, assault, robbery, burglary, theft and sexual violence. Includes observations from the 2010s, making it particularly suitable for comparing crime trends across European countries. Differences in national criminal laws, recording practices and reporting rates should be considered.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime and Criminal Justice Statistics Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime/information-data\",\n      \"justification\": \"Official European statistical collection covering crime, policing, criminal proceedings, convictions, imprisonment and criminal justice personnel. Contains annual data covering the 2010s for EU countries and the United Kingdom. Particularly useful as a central entry point for constructing comparative country-year datasets on crime and criminal justice.\"\n    },\n    {\n      \"title\": \"Eurostat – Prison Capacity and Number of Persons Held (crim_pris_cap)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_pris_cap\",\n      \"justification\": \"Official Eurostat dataset measuring prison capacity and the number of incarcerated people across European countries. Relevant for studying incarceration, prison overcrowding, correctional systems and differences in criminal justice policies. Provides historical observations relevant to the 2010s, although data availability varies by country and year.\"\n    },\n    {\n      \"title\": \"Eurostat – Legal Cases Processed in First Instance Courts (crim_crt_case)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/crim_crt_case_esms.htm\",\n      \"justification\": \"European dataset covering criminal cases processed by first-instance courts, including legal status and court outcomes. Historical data extend from 2008, covering the requested 2010–2019 period. Useful for comparing criminal proceedings, court activity, convictions and acquittals across European judicial systems. Coverage and completeness vary by jurisdiction.\"\n    },\n    {\n      \"title\": \"Eurostat – Intentional Homicide and Sexual Offences by Legal Status and Sex (crim_hom_soff)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_hom_soff\",\n      \"justification\": \"Comparative crime and criminal justice dataset covering victims, suspected persons and convicted persons associated with intentional homicide and sexual offences. Includes sex-disaggregated information and historical observations from the 2010s. Relevant for investigating violent crime, sexual violence, gender differences and criminal justice outcomes across European countries.\"\n    },\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by NUTS 3 Region (crim_gen_reg)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/EN/crim_gen_reg_esms.htm\",\n      \"justification\": \"Regional crime dataset reporting police-recorded offences at the NUTS 3 geographical level. Includes crime categories such as intentional homicide and other serious offences. Contains observations from the 2010s for participating European countries. Especially useful for investigating geographical differences in crime within countries, although regional coverage is incomplete.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime and Criminal Justice Metadata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/crim_sims.htm\",\n      \"justification\": \"Official metadata and dataset directory for European crime and criminal justice statistics. Documents police-recorded offences, criminal justice personnel, offenders, victims, court proceedings and prison populations. Covers data collected during the 2010s and explains national definitions, reporting practices and comparability limitations. Particularly valuable for identifying compatible variables across all requested countries.\"\n    },\n    {\n      \"title\": \"Council of Europe CEPEJ – Dynamic Database of European Judicial Systems\",\n      \"url_or_doi\": \"https://www.coe.int/en/web/cepej/cepej-stat\",\n      \"justification\": \"Official comparative database maintained by the European Commission for the Efficiency of Justice. Contains country-level indicators on judicial budgets, judges, prosecutors, lawyers, court performance, case processing and judicial efficiency. Historical evaluation cycles include the 2010s. Covers European judicial systems, including those of the requested countries, subject to country-specific reporting availability. Particularly suitable for quantitative comparisons of judicial institutions.\"\n    },\n    {\n      \"title\": \"Council of Europe CEPEJ – Evaluation of European Judicial Systems, 2010–2012 Cycle\",\n      \"url_or_doi\": \"https://www.coe.int/en/web/cepej/cepej-work/evaluation-of-judicial-systems/former-evaluation-cycles/2010-2012-cycle\",\n      \"justification\": \"Historical judicial systems evaluation covering the beginning of the requested decade. Includes comparative information about courts, judicial personnel, public prosecution, judicial expenditure, case processing and access to justice. Provides an important baseline for studying institutional changes in European legal systems throughout the 2010s.\"\n    },\n    {\n      \"title\": \"European Commission and CEPEJ – Studies on the Functioning of Judicial Systems in EU Member States (2018)\",\n      \"url_or_doi\": \"https://commission.europa.eu/publications/two-studies-prepared-european-commission-cepej-european-commission-efficiency-justice-functioning_en\",\n      \"justification\": \"European Commission publication containing CEPEJ studies and comparative statistical tables on the functioning of national judicial systems. Published in 2018 and covering EU Member States, including the United Kingdom before Brexit. Relevant indicators include court performance, judicial resources, case processing and institutional efficiency. Particularly useful for comparing legal systems during the latter half of the 2010s.\"\n    },\n    {\n      \"title\": \"Council of Europe CEPEJ – Judicial Systems Evaluation Tools and Historical Reports\",\n      \"url_or_doi\": \"https://www.coe.int/en/web/cepej/eval-tools\",\n      \"justification\": \"Official repository providing access to CEPEJ judicial evaluation resources, reports and comparative indicators. Historical evaluation cycles include observations from the 2010s. Relevant for studying judicial independence, court organization, legal professionals, judicial efficiency and national justice expenditures. Useful for building longitudinal datasets on European judicial systems.\"\n    },\n    {\n      \"title\": \"European Social Survey – Trust in the Legal System, Police and Political Institutions\",\n      \"url_or_doi\": \"https://www.cbs.nl/nl-nl/cijfers/detail/80518ENG\",\n      \"justification\": \"Comparative statistical dataset published by Statistics Netherlands using European Social Survey data. Includes country-level measurements of public trust in the legal system, police and other institutions. Historical survey waves cover the 2010s. Useful for studying perceived legitimacy of legal institutions and public confidence in law enforcement. Not every requested country participated in every survey wave.\"\n    },\n    {\n      \"title\": \"European Quality of Life Survey 2016 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-quality-of-life-survey/eqls-2016/\",\n      \"justification\": \"Large-scale European survey conducted in 2016, including all 28 countries requested. Contains information about trust in institutions, perceived social insecurity, public services and quality of society. Relevant for studying public confidence in police and legal institutions, perceptions of security and differences in institutional legitimacy across European countries.\"\n    },\n    {\n      \"title\": \"European Institute for Gender Equality – Trust in Institutions, European Quality of Life Survey\",\n      \"url_or_doi\": \"https://dgs-p.eige.europa.eu/data/information/ta_pubopn_trust__eqls_trustinstit_perc\",\n      \"justification\": \"Comparative dataset derived from Eurofound's European Quality of Life Survey, containing measurements of trust in public institutions, including the police. Provides observations for 2011 and 2016, as well as an earlier 2007 reference point. Useful for examining changes in public attitudes toward law enforcement and institutional legitimacy across EU countries during the 2010s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450477.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19238,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1901,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21139
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 51,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education, Political behaviour and attitudes, and Government, political systems and organisations in Germany during the 1960s, matching this research need: public opinion survey on student demonstrations, government response, support for SDS/APO, attitudes toward banning SDS, awareness of protest organizers and goals, with demographic variables and party preference in Germany\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS Study ZA0322: Einstellung zu Demonstrationen und zum SDS (Mai 1968)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0322\",\n      \"justification\": \"This representative West German public opinion survey from May 1968 directly addresses student demonstrations, public awareness of protest organizers and goals, support for the Socialist German Student Union (SDS) and Extra-Parliamentary Opposition (APO), opinions on banning or policing SDS activities, alongside demographic variables and party preferences.\"\n    },\n    {\n      \"title\": \"GESIS Study ZA0524: Politik in der Bundesrepublik (November 1967)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0524\",\n      \"justification\": \"This public opinion survey conducted in West Germany in late 1967 measures citizen attitudes towards government performance, emergency legislation (Notstandsgesetze), state authority, and political demonstrations during the peak era of 1960s student unrest, incorporating respondent demographic data and party preferences.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2414,
+          "candidatesTokenCount": 283,
+          "totalTokenCount": 5959,
+          "cachedContentTokenCount": 1729,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2414
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1729
+            }
+          ],
+          "thoughtsTokenCount": 3262,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "mIeEarnLK-PpnsEP7LTzuQw"
+      }
+    }
+  ]
+}

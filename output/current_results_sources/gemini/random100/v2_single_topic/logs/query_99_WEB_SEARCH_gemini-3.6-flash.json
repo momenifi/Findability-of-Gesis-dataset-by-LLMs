@@ -1,0 +1,69 @@
+{
+  "query_id": 99,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/IAB Employment Survey 1985/86 (Qualifikation und Berufsverlauf 1985/86)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12563\",\n      \"justification\": \"A representative sample survey of gainfully employed workers in West Germany (including the state of Hesse) conducted in 1985–1986, providing detailed data on physical working conditions, job demands, qualification levels, and workplace tasks.\"\n    },\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies Regional File 1975–2017 (SIAB-R 1975–2017)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.FDZD.1904.en.v1\",\n      \"justification\": \"Provides administrative microdata based on social security notifications tracking employment histories, wages, and industry sectors, with fine-grained regional identifiers for districts in Hesse throughout the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1980\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1000\",\n      \"justification\": \"A representative cross-sectional survey of the West German population (including regional subsamples from Hesse) conducted in 1980, capturing employment characteristics, socio-economic status, and attitudes toward work and labor unions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 498,
+          "candidatesTokenCount": 388,
+          "totalTokenCount": 2207,
+          "cachedContentTokenCount": 92,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 498
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 92
+            }
+          ],
+          "thoughtsTokenCount": 1321,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zzaEatuEDPi0xN8Pof3qiAQ"
+      }
+    }
+  ]
+}

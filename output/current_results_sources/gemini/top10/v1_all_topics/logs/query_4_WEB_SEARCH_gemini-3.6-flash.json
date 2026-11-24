@@ -1,0 +1,69 @@
+{
+  "query_id": 4,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about NATURAL ENVIRONMENT, Environment and conservation, Information society, Media, Political behaviour and attitudes, Community, urban and rural life, Leisure, tourism and sport, Religion and values, PSYCHOLOGY, Social behaviour and attitudes, Social conditions and indicators, Consumption and consumer behaviour, and Employment in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14151\",\n      \"justification\": \"Provides comprehensive survey data on the German population in 2021 covering political attitudes, environmental concerns, media usage, social conditions, values, and employment status.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core, v38)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38\",\n      \"justification\": \"Representative multi-cohort longitudinal study tracking employment, social indicators, psychological well-being, income, consumption, and living conditions in Germany up through 2021.\"\n    },\n    {\n      \"title\": \"GLES Cross-Section 2021, Pre- and Post-Election\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14170\",\n      \"justification\": \"Part of the German Longitudinal Election Study capturing political behavior, media consumption, public attitudes, and social indicators in Germany around the 2021 federal election.\"\n    },\n    {\n      \"title\": \"GESIS Panel Special Survey on the Coronavirus SARS-CoV-2 Outbreak in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13520\",\n      \"justification\": \"Captures psychological reactions, social behavior and attitudes, employment impacts, media consumption, and institutional trust in Germany during the 2020 pandemic context.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 959,
+          "candidatesTokenCount": 416,
+          "totalTokenCount": 2632,
+          "cachedContentTokenCount": 347,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 959
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 347
+            }
+          ],
+          "thoughtsTokenCount": 1257,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "mrWnauyZGaGd3boPtfD88Aw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 100,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Politbarometer (February 1990)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Meinungsbarometer Januar/Februar 1990 - Einstellung zur Entwicklung in der DDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6010\",\n      \"justification\": \"GESIS Data Archive dataset (ZA6010) containing public opinion survey data collected in East Germany in late January and early February 1990.\"\n    },\n    {\n      \"title\": \"Wahlstudie 1990 (Trenduntersuchungen)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1920\",\n      \"justification\": \"GESIS Data Archive dataset (ZA1920) containing monthly Politbarometer West trend survey data for 1990, including February 1990.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 973,
+          "candidatesTokenCount": 222,
+          "totalTokenCount": 3083,
+          "cachedContentTokenCount": 655,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 973
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 655
+            }
+          ],
+          "thoughtsTokenCount": 1888,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "JE2-av34HeD7nsEPw8WkyQk"
+      }
+    }
+  ]
+}

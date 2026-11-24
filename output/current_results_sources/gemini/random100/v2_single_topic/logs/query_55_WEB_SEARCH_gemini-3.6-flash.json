@@ -1,0 +1,69 @@
+{
+  "query_id": 55,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Business/industrial management and organisation in Belgium, Germany, Denmark, France, Greece, Ireland, Italy, Luxembourg, Netherlands, Portugal, Spain, and Great Britain during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Community Innovation Survey (CIS) Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/microdata/community-innovation-survey\",\n      \"justification\": \"Eurostat's harmonized enterprise-level survey launched in 1992 (CIS 1) and 1996/1997 (CIS 2) covers business innovation, organizational restructuring, management strategies, and industrial practices across European countries including Belgium, Germany, Denmark, France, Greece, Ireland, Italy, Luxembourg, Netherlands, Portugal, Spain, and Great Britain during the 1990s.\"\n    },\n    {\n      \"title\": \"Workplace Employee Relations Survey: Cross-Section, 1998\",\n      \"url_or_doi\": \"http://doi.org/10.5255/UKDA-SN-3955-1\",\n      \"justification\": \"Distributed via the UK Data Service, this microdataset provides representative data on workplace organization, human resource management practices, employee consultation, and industrial relations across business establishments in Great Britain in 1998.\"\n    },\n    {\n      \"title\": \"Eurobarometer 44.3OVR: Second European Survey on Working Conditions (1996)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10918\",\n      \"justification\": \"Commissioned by Eurofound and archived at GESIS, this dataset surveyed employees and workplaces in 1996 across EU member states (including Belgium, Germany, Denmark, France, Greece, Ireland, Italy, Luxembourg, Netherlands, Portugal, Spain, and Great Britain), measuring work organization, structural job characteristics, and workplace management practices.\"\n    },\n    {\n      \"title\": \"UK Innovation Survey, 1994-2023: Secure Access\",\n      \"url_or_doi\": \"http://doi.org/10.5255/UKDA-SN-6699-9\",\n      \"justification\": \"This enterprise-level dataset hosted by the UK Data Service tracks business management, organizational practices, innovation investments, and firm strategy starting from its 1994 wave.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 914,
+          "candidatesTokenCount": 527,
+          "totalTokenCount": 3371,
+          "cachedContentTokenCount": 92,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 914
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 92
+            }
+          ],
+          "thoughtsTokenCount": 1930,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "yFiFaoXuLqnXxN8PraCrgQ8"
+      }
+    }
+  ]
+}

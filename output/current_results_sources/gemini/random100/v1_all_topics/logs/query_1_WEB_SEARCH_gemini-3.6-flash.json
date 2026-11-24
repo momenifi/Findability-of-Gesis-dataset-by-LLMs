@@ -1,0 +1,69 @@
+{
+  "query_id": 1,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Politbarometer 1977-2024 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14611\",\n      \"justification\": \"Provides monthly survey data collected starting in 1977 by Forschungsgruppe Wahlen on political attitudes, party preferences, voting behaviour, and government evaluations in West Germany.\"\n    },\n    {\n      \"title\": \"Eurobarometer 6 (Nov 1976)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10859\",\n      \"justification\": \"Survey dataset conducted in late 1976 that captures political attitudes, perceptions of government institutions, and opinions on political/European integration among West German citizens.\"\n    },\n    {\n      \"title\": \"Die Situation der Studenten in der Bundesrepublik (1976)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0820\",\n      \"justification\": \"Study by Max Kaase et al. examining political behavior, ideological attitudes, views on political systems, and student political activism in West Germany during 1975-1976.\"\n    },\n    {\n      \"title\": \"Bundestagswahl 1972 (1. und 2. Nachuntersuchung)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0646\",\n      \"justification\": \"GESIS post-election survey dataset investigating voting decisions, political orientations, and party choices following the 1972 German federal election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1122,
+          "candidatesTokenCount": 421,
+          "totalTokenCount": 3241,
+          "cachedContentTokenCount": 338,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1122
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 338
+            }
+          ],
+          "thoughtsTokenCount": 1698,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "n--DaurZNtv5xN8Pjs32wA4"
+      }
+    }
+  ]
+}

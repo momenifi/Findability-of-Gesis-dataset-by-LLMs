@@ -1,0 +1,69 @@
+{
+  "query_id": 27,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions, MEDIA, COMMUNICATION AND LANGUAGE, Working conditions, and Health care services and policies in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS Panel.pop Population Sample – Special Survey on the Coronavirus SARS-CoV-2 Outbreak in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2116\",\n      \"justification\": \"Conducted in Germany during 2020, this dataset collects survey data on SARS-CoV-2 infection risks (diseases and medical conditions), modified workplace situations (working conditions), evaluations of governmental health interventions (health care services and policies), and media consumption patterns.\"\n    },\n    {\n      \"title\": \"COMPASS - Corona-Online-Meinungs-Panel-Survey-Spezial\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2364\",\n      \"justification\": \"Initiated in 2020 in Germany, COMPASS provides longitudinal panel data covering public health policy acceptance and health services, individual health and disease impact regarding COVID-19, changes in working conditions, and media/communication trust.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core, v37 / SOEP-CoV)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v37o\",\n      \"justification\": \"A major representative panel study in Germany that added dedicated COVID-19 modules (2020–2021). It covers health status and disease prevalence, labor market impacts and working conditions (remote work, short-time work), public health policies, and social communication dynamics.\"\n    },\n    {\n      \"title\": \"Survey Data Collection and the COVID-19 Pandemic (SDCCP) Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-024-03475-x\",\n      \"justification\": \"Published in 2024, this dataset captures metadata and survey designs for 717 social and behavioral science surveys in Germany during 2020–2022, systematically mapping research on COVID-19 health policies, working conditions, disease perceptions, and media/communication behaviors.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1198,
+          "candidatesTokenCount": 528,
+          "totalTokenCount": 3966,
+          "cachedContentTokenCount": 346,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1198
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 346
+            }
+          ],
+          "thoughtsTokenCount": 2240,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "wPeDarWVJpP-nsEP7aKfsQQ"
+      }
+    }
+  ]
+}

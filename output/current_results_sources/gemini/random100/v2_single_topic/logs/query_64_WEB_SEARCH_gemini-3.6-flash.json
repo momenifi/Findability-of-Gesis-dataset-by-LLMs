@@ -1,0 +1,69 @@
+{
+  "query_id": 64,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Public Safety and Crime\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14272\",\n      \"justification\": \"This GESIS dataset tracks long-term time series data (1950–2013) on public safety, crime frequency, victimization risk, and law enforcement indicators in West Germany, including the entire 1970s period.\"\n    },\n    {\n      \"title\": \"Suicide, demographic, socio-structural, infrastructure and crime statistics of the German Democratic Republic, 1952 – 1990\",\n      \"url_or_doi\": \"https://doi.org/10.7802/1.2010\",\n      \"justification\": \"This dataset provides yearly historical records from the GDR Central Bureau of Statistics spanning 1952 to 1990 (covering the 1970s), including district-level crime statistics, offenders, and convictions in East Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EqAJCp0JARFNMg8uTyBpw/qyKQF3oEfuzvT4lKM/CMLwQkkmKT4KY7/BpT6AB/HkfkgF3yn0NEPfdhm4GYupTwO+yNaV1aTppGSRv/njPRqFqoSQ6BkyUJ8bWZlG7LpCKyPuJKQ3jy0946Pj6PiHLrg8fITmSw+7ZVF10f2+OGV396aEYP7LKIJfqK+3295xfvydEa5ZMUyQ+4KM7UE4vs3ry2kYcn2U6M4yPQkPs/1Qe1iD+6OUbqjHWFOoECe4Df9FSm/Ezzvyv/CnFgqxcG8tBDmIsrdVecUGpLv/LgLq10973n3vCOPuW7j+Fv/NZ5MYwWakPsxUuPm4QSYhdiAyIca0qGvWM2XGHeogiSldnoM7/hDBsgeirFYdEFGvCV9dSPp0WxKlt1fne06ltWWd6fAsTscERzgnygOi0R2CHofBDEqzcpohfuqeU/8yjXUcK5JfjLK+THTzntJ1GfbaiHerQ8p2q4M8NK+4RepVsD9ZvE5j+Hi0etQZqdq1gIXFIyHp3Uv5h81rZ6aGfcDiKTClWcc7u8x6GuufMRSDfDMNOJgcRaKMIwT7z0LFHNIFcOklDotNRb1BgZVVysfZMIRQNgy059wOQ9aBXOaskM0A23E9ilz2UM7gGSvWKJIDc3yRKk2UwoDAjovT2h9oyrzV9hPfxXyrNaUBUQ/cNSiLp2zS66Db9q6CMOlJf1tau2jcMYwVEA9GeAM3hDX4p3U+ufwrcVI0hiLq2rU39lVKjVSx4GpcEpJTclnrRF6FdOTn8GcjxJPKDJsmy8HxBgve+pl8HD24KZrXLfHpCKqeV66m/4mi8zNwqNuFEBrAjNEf4P1NamE94Z4TC+a1MHrmPs2A9dbtCdCFiqJx/ArDQBj3AI4P1ADwj2aaskZssdKKEhoE9p1iRT/ltArKkDmu8iULSLTBh6ytG3Num4eBeMakj7td7ayOj0jYWLbVICQ9ZRN3OzHlwaQyEbdo0er6PCodWIC/bA/mRKL5XlywMgpku045Zv2ZgVuP/qiUnl6l9z/Oj8ispqTTzHRGYG4IJYtMR8C/cojJZNb1GV0JSLYgj3JbJRYwk9+zcdzOXmaO/p/OPwH/20ooOG1t5GB6OifyK7ufK7b64gp5XXh9nWjbDbFlL/LpMdhplQ6YpbpdJiwq5endkz2bEVrzXg+rpnPtUqN+0E+mFpC0jBtmjdfuM0e+5P264NkWjwP0w1+3bguiYcBRc0AXArDkt/DVzvPxRg0Pv3xweVRwjzjwrQfnVOX+I95O/AojfzfhyefJIuprGw70eUnAmoLp3echmn0a4i5Z77yU66lHZ+zGo31bCGbhk9bgoEmCnQG6lQChc2Rh8pjB9K8Umcn4eMIhL8bcq3k+ajF366W9G1jP+XmYsTouuTLw2ZANIbBWFdeYOuhByR5PeXstCIiKR8MnNuCRhSE89AeMrBvQ3QksqOXFbD3Ly3qvftrca6UvUFzUeLFwkvEQKRkKbbYkmVHq5pi8W6DcnayE1OhWQTcl/HuoXAkXUnukCfuiimP1d8foexDEv6sMNYNPwvaar2X/TS1Q+zYPptY0Ka66N+M="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 491,
+          "candidatesTokenCount": 266,
+          "totalTokenCount": 1445,
+          "cachedContentTokenCount": 186,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 491
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 186
+            }
+          ],
+          "thoughtsTokenCount": 688,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "4zGEaviILeefkdUP7Oy2kQw"
+      }
+    }
+  ]
+}

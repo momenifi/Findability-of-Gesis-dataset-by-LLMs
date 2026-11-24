@@ -1,0 +1,187 @@
+{
+  "query_id": 27,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions, MEDIA, COMMUNICATION AND LANGUAGE, Working conditions, and Health care services and policies in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_019d7bb6155ff211006b0454e92dd887d2b7c8761f6ad21ca7",
+        "created_at": 1795445993.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_019d7bb6155ff211006b0454ea1cf087d2b4d70c21ad19fa12",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 2020 2024 health survey dataset diseases healthcare services RKI GEDA",
+                "Germany 2020s working conditions survey dataset BAuA BIBB",
+                "Germany 2020 2024 media communication language dataset GESIS survey",
+                "Germany 2020s healthcare policies dataset German health barometer survey"
+              ],
+              "query": "Germany 2020 2024 health survey dataset diseases healthcare services RKI GEDA",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_019d7bb6155ff211006b0454ece54487d294691b7292a3be65",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesis.org media communication 2023 Germany dataset media use",
+                "site:search.gesis.org media trust Germany 2022 dataset",
+                "site:gesis.org German Internet Panel 2024 dataset media",
+                "site:destatis.de GENESIS online hospital statistics 2023 Germany data",
+                "site:gesis.org ALLBUS 2023 media use data"
+              ],
+              "query": "site:gesis.org media communication 2023 Germany dataset media use",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_019d7bb6155ff211006b0454efa42087d2951e23158ed455fb",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Health Update (GEDA) 2019/2020 – European Health Interview Survey (EHIS)\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/GEDA/gesundheit-in-deutschland-aktuell-geda-node.html\",\n      \"justification\": \"Conducted by the Robert Koch Institute (RKI), this nationally representative health survey covers Germany in 2019–2020. It includes information on chronic diseases, diabetes, cardiovascular conditions, depressive symptoms, health behaviors, and healthcare utilization. Particularly relevant to specific diseases, disorders, medical conditions, and healthcare services. Research data are available through the RKI Research Data Centre.\"\n    },\n    {\n      \"title\": \"GEDA 2019/2020-EHIS – Open RKI Dataset\",\n      \"url_or_doi\": \"https://robert-koch-institut.github.io/Gesundheit_in_Deutschland_Aktuell/\",\n      \"justification\": \"An openly documented dataset associated with the German Health Update 2019/2020 survey. It provides health indicators for Germany, including chronic physical conditions, mental health, and healthcare utilization. Useful for studying population health and disease patterns during the beginning of the 2020s.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Scientific Use Files of German Population Health Surveys\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"Official research data catalogue containing the GEDA 2019/2020-EHIS dataset, with 22,708 respondents and 310 variables. Provides access information for individual-level health survey data on diseases, medical conditions, health-related behaviors, and healthcare services in Germany. Particularly suitable for quantitative epidemiological research.\"\n    },\n    {\n      \"title\": \"RKI Panel – Health in Germany (Gesundheit in Deutschland)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/surveys_inhalt.html\",\n      \"justification\": \"A population health monitoring program launched in 2024 by the Robert Koch Institute. It collects information on health status and health-related characteristics of Germany's population. Relevant to chronic diseases, mental health, and healthcare needs during the mid-2020s. This is an official study landing page; availability of individual-level research data should be checked separately.\"\n    },\n    {\n      \"title\": \"German Hospital Diagnosis Statistics (Diagnosen der Krankenhauspatienten), 2023\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Krankenhauser/Publikationen/Downloads-Krankenhaeuser/statistischer-bericht-diagnosedaten-5231301237015.html\",\n      \"justification\": \"Official dataset published by the German Federal Statistical Office (Destatis), covering diagnoses among hospitalized patients in Germany in 2023. Includes information on diseases classified using ICD-10, hospital treatments, and patient characteristics. Particularly relevant for researching specific medical conditions, hospitalization patterns, and healthcare service utilization.\"\n    },\n    {\n      \"title\": \"German Hospital Statistics – GENESIS-Online, Table 23111-0001\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23111/table/23111-0001/search/s/MjMxMTEgb2RlciAyMzEyMSBvZGVyIDIzMTMxIG9kZXIgMjMxNDE%3D\",\n      \"justification\": \"Official annual statistics on hospitals, hospital beds, inpatient admissions, average lengths of stay, and bed occupancy in Germany. Includes observations from 2020 through 2024. Suitable for examining healthcare infrastructure, hospital capacity, and healthcare service delivery during the 2020s.\"\n    },\n    {\n      \"title\": \"German Hospital Statistics and Healthcare Services – Destatis\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Health/Hospitals/_node.html\",\n      \"justification\": \"Official statistical data portal providing German hospital information, including healthcare facilities, medical personnel, hospital costs, diagnoses, and inpatient treatments. Includes datasets covering the 2020s, supporting research into healthcare services, healthcare system capacity, and the effects of healthcare policy changes.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – German Healthcare Expenditure Statistics (Gesundheitsausgabenrechnung)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"The German Federal Statistical Office's GENESIS database includes healthcare expenditure statistics under series 23611. Data describe healthcare spending by financing source, healthcare provider, and type of service. Relevant for evaluating healthcare financing, health policy, and healthcare resource allocation in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – German Hospital Diagnosis Statistics (Series 23131)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"Official hospital diagnosis statistics organized by ICD-10 categories, patient age, sex, geographical location, and year. Includes annual observations covering the 2020s. Useful for analyzing disease-specific hospitalization rates, regional differences in medical conditions, and healthcare utilization. Search for statistical series 23131.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – German Healthcare Personnel Statistics (Series 23621)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"Official German statistics on healthcare employment, including medical occupations, employment arrangements, healthcare institutions, and workforce demographics. Relevant to both working conditions and healthcare services, particularly for studying workforce capacity and staffing changes in Germany during the 2020s. Search for series 23621.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2024 – Working Conditions in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.24.1.1.10\",\n      \"justification\": \"A nationally representative survey of 20,006 employed people in Germany, conducted in 2023–2024. Contains information on occupational tasks, working conditions, job requirements, qualifications, and employment characteristics. Particularly relevant for studying occupational health risks, work-related stress, working environments, and employment conditions during the 2020s.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2024 – GESIS Research Data Catalogue\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/80381\",\n      \"justification\": \"Official research data catalogue entry for the 2024 BIBB/BAuA Employment Survey. The dataset includes hundreds of variables covering employment characteristics, occupational requirements, and working conditions. Scientific-use data and restricted-access options are documented. Particularly suitable for detailed statistical analysis of employment and workplace conditions in Germany.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2021 – Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb21.suf.1\",\n      \"justification\": \"Research dataset from the German Federal Institute for Occupational Safety and Health (BAuA), covering working-time arrangements and employment conditions in Germany in 2021. Includes working-hour flexibility, occupational demands, physical and psychological working conditions, employee well-being, and job satisfaction. Particularly useful for studying working conditions during the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2023 – Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb23.suf.1\",\n      \"justification\": \"National employment survey dataset covering Germany in 2023. Includes working hours, scheduling flexibility, occupational demands, psychological and physical workload, job satisfaction, and employee well-being. Relevant to workplace health, occupational stress, and changes in employment conditions following the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey – Longitudinal Research Data\",\n      \"url_or_doi\": \"https://www.baua.de/DE/Forschung/Forschungsdaten/Arbeitszeitbefragung\",\n      \"justification\": \"Official landing page for the BAuA Working Time Survey, providing scientific-use datasets for 2015, 2017, 2019, 2021, and 2023. The repeated survey waves enable analysis of changing working hours, workplace demands, occupational health, and employee well-being in Germany. Especially valuable for comparing working conditions before, during, and after the pandemic.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Surveys 2006–2024 – Interactive Working Conditions Data\",\n      \"url_or_doi\": \"https://www.bibb.de/de/217229.php\",\n      \"justification\": \"Interactive data resource from the German Federal Institute for Vocational Education and Training, containing selected indicators from employment surveys conducted in 2006, 2012, 2018, and 2024. Covers working conditions, occupational demands, workplace resources, job satisfaction, and health complaints. Offers downloadable statistical results suitable for examining changes in working conditions through the 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023 – English Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14572\",\n      \"justification\": \"A nationally representative German social survey conducted in 2023 and distributed through GESIS. The ALLBUS survey program covers social attitudes, behavior, media use, health-related topics, and employment characteristics. Relevant to media, communication, social attitudes, and selected aspects of working conditions and health. This DOI identifies the downloadable English ALLBUScompact version.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023 – Full English Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14571\",\n      \"justification\": \"Full English-language version of the 2023 German General Social Survey. Provides detailed demographic information and measures of social attitudes and behavior. The ALLBUS survey series includes topics such as media use, health, and working conditions, making it useful for multidisciplinary research on German society during the 2020s. Access to the full version requires a data-use agreement.\"\n    },\n    {\n      \"title\": \"ALLBUS 2021 and 2023 – German General Social Survey Data Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Official GESIS dataset catalogue providing access to German General Social Survey waves from 2021 and 2023, among other years. The surveys cover social attitudes, demographic characteristics, and selected topics related to media use, health, and employment. Useful for examining changes in communication-related behavior and social conditions during the 2020s. Individual variable availability differs by wave.\"\n    },\n    {\n      \"title\": \"ALLBUS – Media Use, Health, and Working Conditions Variable Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/overview\",\n      \"justification\": \"Official documentation of variables available across the German General Social Survey series. Includes dedicated topic categories for media use, working conditions, health problems, medical consultations, hospitalization, and the pandemic. Particularly useful for identifying which 2020s survey waves contain relevant variables before downloading the corresponding datasets.\"\n    },\n    {\n      \"title\": \"German General Social Survey – Cumulated Data 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A harmonized longitudinal collection of German social survey data extending through 2023. Contains repeated measures of social attitudes and behaviors, including selected indicators related to media, health, and employment. Useful for comparing developments during the early 2020s with earlier decades. The catalogue provides access to the full and compact cumulative datasets.\"\n    },\n    {\n      \"title\": \"German Internet Panel – Wave 68, November 2023\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/77572\",\n      \"justification\": \"A research dataset from the German Internet Panel, a probability-based online panel surveying the German population. Its repeated-wave design supports research into social attitudes, political communication, and changes in public opinion during the 2020s. The November 2023 wave is relevant to research on communication and social behavior; exact media-related variables should be verified in the questionnaire.\"\n    },\n    {\n      \"title\": \"German-Speaking News Outlets on TikTok in 2023 – Research Dataset\",\n      \"url_or_doi\": \"https://access.gesis.org/sharing/2863/6674\",\n      \"justification\": \"A media research dataset containing a sample of TikTok videos published by major German-speaking news organizations during 2023. Particularly relevant to media, communication, digital journalism, and online information dissemination. Useful for analyzing news communication strategies and social media content in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Research Data Catalogue – Media and Communication Datasets\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"Official GESIS research data discovery portal with a dedicated media and communication category. Provides access to survey datasets covering media consumption, communication behavior, public opinion, and digital information environments, including studies from Germany conducted during the 2020s. This is a dataset discovery portal rather than an individual dataset.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – GENESIS-Online Statistical Database\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"Official access point for Germany's GENESIS-Online statistical database and its API. Provides downloadable statistical tables covering healthcare infrastructure, hospital diagnoses, healthcare expenditure, medical personnel, and other socioeconomic indicators. Particularly valuable for constructing reproducible datasets on German healthcare services and policies during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446015.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21028,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3216,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 24244
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "query_id": 36,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions, Vocational education and training, and Occupational health in Hesse during the 1980s, matching this research need: data on young people in Hesse about vocational training and employment conditions, working hours, overtime, weekend or holiday work, vocational school conflicts, vacation, workplace safety, medical exams, unions, and worker representation\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03d3b5a0c1be4950006b047171133487d29be0b29f92559db9",
+        "created_at": 1795453297.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03d3b5a0c1be4950006b047171f95887d28953a1ae6fcc6a10",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Hessen Jugend Auszubildende Arbeitsbedingungen 1980 Befragung Datensatz Arbeitszeit Berufsschule",
+                "GESIS Daten 1980 Auszubildende Hessen Jugendliche Arbeitsbedingungen",
+                "Hessen 1980 Jugend Ausbildungsreport Umfrage Arbeitsschutz Jugendvertretung Datensatz"
+              ],
+              "query": "Hessen Jugend Auszubildende Arbeitsbedingungen 1980 Befragung Datensatz Arbeitszeit Berufsschule",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03d3b5a0c1be4950006b0471758ec087d2b5636b587ee8a8e3",
+            "action": {
+              "type": "open_page",
+              "url": "https://data.gesis.org/datasearchkg/Dataset/10.4232/1.1376"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03d3b5a0c1be4950006b047177e7f087d2aac98fe8dc859ab0",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Die Praktizierung des Jugendarbeitsschutzes in Hessen aus der Sicht Jugendlicher (1983–1984) / Youth Industrial Health and Safety in Practice in Hesse from the Perspective of Young People\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1376\",\n      \"justification\": \"Excellent match and the most directly relevant dataset. Conducted between October 1983 and April 1984, this study specifically examines the implementation of youth occupational health and safety protections in Hesse from the perspective of young people. The sample comprises vocational students in their second or third year of training, representing 18 occupational groups, 171 classes, and 27 vocational schools across Hesse. Its research focus closely matches the requested topics of working conditions, vocational training, working-time protections, workplace safety, and compliance with youth employment regulations. The study is archived by GESIS and was published in 1985. Data and documentation are available for academic research and teaching subject to written authorization from the data depositor.\"\n    },\n    {\n      \"title\": \"Jugend, Ausbildung und Beruf / Youth, Vocational Training and Occupation\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1596?lang=de\",\n      \"justification\": \"Relevant historical survey of young apprentices examining vocational education, occupational choices, training experiences, and attitudes toward employment. Variables include training occupations, company size, employment history after leaving school, apprenticeship starting dates, applications for training positions, vocational preferences, and experiences associated with entering working life. Particularly useful for investigating young people's vocational pathways and employment conditions during the 1980s. The study is not specific to Hesse, so geographic coverage and the availability of Hesse-specific observations should be checked before use.\"\n    },\n    {\n      \"title\": \"BIBB/IAB Surveys of Employed Persons (1979 and 1985/1986)\",\n      \"url_or_doi\": \"https://metadaten.bibb.de/de/group/dataset/23\",\n      \"justification\": \"Highly relevant historical employment surveys conducted by the Federal Institute for Vocational Education and Training (BIBB) and the Institute for Employment Research (IAB). The 1979 and 1985/1986 waves provide information on occupational activities, workplace conditions, job demands, occupational burdens, vocational qualifications, training, and employment histories. These datasets are valuable for examining the relationship between vocational education, employment conditions, and occupational health during the 1980s. They cover Germany rather than Hesse exclusively. Researchers should verify whether regional identifiers permit the identification of young workers in Hesse and whether apprentices are included in the relevant samples.\"\n    },\n    {\n      \"title\": \"Hessisches Statistisches Informationssystem (HESIS) – Historical Regional Statistics for Hesse\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/datenbank-hesis\",\n      \"justification\": \"Official statistical database maintained by the Hessian Statistical Office. Provides regional statistical information for Hesse, including historical series extending back to the 1970s for some indicators. Potentially useful for reconstructing vocational education, employment, and labor-market conditions during the 1980s, with geographic breakdowns at state, district, and municipality levels where available. Particularly relevant for contextualizing apprenticeship participation and regional employment patterns. Unlike the primary GESIS youth protection survey, this is an aggregate statistical resource and is not designed to measure individual experiences of overtime, vocational school conflicts, workplace safety, or worker representation.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453309.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 16410,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 821,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 17231
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

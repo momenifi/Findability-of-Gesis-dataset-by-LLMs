@@ -1,0 +1,69 @@
+{
+  "query_id": 65,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled State Election in Saarland 2012?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"State Election in Saarland 2012\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/studies-on-federal-state-elections\",\n      \"justification\": \"This dataset, archived by GESIS - Leibniz Institute for the Social Sciences under study reference ZA5642 (Landtagswahl im Saarland 2012), contains survey and voting behavior data from the 2012 Saarland state election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 761,
+          "candidatesTokenCount": 136,
+          "totalTokenCount": 2267,
+          "cachedContentTokenCount": 593,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 761
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 593
+            }
+          ],
+          "thoughtsTokenCount": 1370,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "MEu-aur6L5OV3boP0OOA-Qo"
+      }
+    }
+  ]
+}

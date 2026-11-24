@@ -1,0 +1,187 @@
+{
+  "query_id": 14,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05e8adf5d817fdb1006b0477739c4087d2b206313ecdb94b5f",
+        "created_at": 1795454835.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05e8adf5d817fdb1006b047774a67087d2a8c24e81269a4046",
+            "action": {
+              "type": "search",
+              "queries": [
+                "UCDP georeferenced event dataset download 2024 2025",
+                "ACLED data export Europe conflict events dataset",
+                "Global Terrorism Database download 2020 2021 2022 2023",
+                "Eurostat crime police recorded offences dataset Europe"
+              ],
+              "query": "UCDP georeferenced event dataset download 2024 2025",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05e8adf5d817fdb1006b047778266087d2aa243977b0d48f6a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ucdp.uu.se/downloads/ UCDP datasets download center",
+                "site:visionofhumanity.org global peace index data download 2025",
+                "site:sipri.org databases military expenditure database 2025",
+                "site:ec.europa.eu/eurostat/databrowser crim_percap prison personnel police datasets",
+                "site:ec.europa.eu/eurostat/databrowser gov_10a_exp defence expenditure"
+              ],
+              "query": "site:ucdp.uu.se/downloads/ UCDP datasets download center",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05e8adf5d817fdb1006b04777af85887d2841610b5af8aecb8",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"ACLED – Armed Conflict Location & Event Data\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/data-export-tool\",\n      \"justification\": \"One of the most relevant datasets for studying conflict, security and political violence across the requested European countries during the 2020s. Provides georeferenced event-level data on political violence, demonstrations, riots, armed clashes, attacks against civilians and fatalities. Users can filter by country, date, event type and location. Particularly useful for analyzing protests, political instability and security incidents in the EU, Western Balkans, Turkey, Moldova and Georgia. Coverage includes the 2020s and is regularly updated.\"\n    },\n    {\n      \"title\": \"UCDP Georeferenced Event Dataset (GED)\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides geographically and temporally disaggregated information on organized violence, including event locations, dates, actors and estimated fatalities. The dataset covers armed conflicts globally and includes observations from the 2020s. Particularly relevant for studying conflict dynamics in Turkey, Georgia, the Western Balkans and other requested countries where qualifying organized violence has occurred. The download center provides the latest available dataset, historical versions and documentation.\"\n    },\n    {\n      \"title\": \"UCDP/PRIO Armed Conflict Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"A major academic dataset documenting state-based armed conflicts worldwide, including conflict participants, intensity, territorial disputes and government-related incompatibilities. The current dataset covers 1946–2025, enabling analysis of the 2020s. Useful for identifying armed conflicts affecting the requested European countries, including Turkey, Georgia and countries in southeastern Europe. Country-year observations support comparative research on conflict incidence and intensity.\"\n    },\n    {\n      \"title\": \"UCDP Battle-Related Deaths Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides annual estimates of fatalities directly associated with armed conflicts. Includes estimates of battle-related deaths for qualifying conflicts during the 2020s. Useful for evaluating conflict severity, human security and changes in armed violence across the requested countries, especially Turkey and other conflict-affected locations.\"\n    },\n    {\n      \"title\": \"UCDP Non-State Conflict Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Documents organized armed violence between non-state actors, including armed groups and other organized organizations, without direct participation by a government as a warring party. Covers 1989–2025 in the current release. Relevant for examining non-state security threats and armed violence in Turkey, the Balkans and other requested countries where qualifying incidents occur.\"\n    },\n    {\n      \"title\": \"UCDP One-Sided Violence Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Tracks deliberate violence against civilians by governments and formally organized non-state groups. Includes annual observations through 2025. Relevant for research on civilian protection, political violence, human security and conflict-related victimization in the requested countries. Particularly valuable for distinguishing civilian-targeted violence from conventional armed conflict.\"\n    },\n    {\n      \"title\": \"UCDP Country-Year Dataset on Organized Violence within Country Borders\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides country-year information on organized violence, making it particularly suitable for comparative analysis across the requested European countries. The dataset combines information on different categories of organized violence within national borders. Researchers can select observations from 2020 onward and compare countries with and without recorded qualifying violence.\"\n    },\n    {\n      \"title\": \"UCDP Violent Political Protest Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Documents violent political protests and related events. The UCDP download center includes both an annual violent political protest dataset and a georeferenced version. Relevant to examining violent demonstrations, political instability, security challenges and protest-related violence in European countries during the 2020s. Complements ACLED's broader protest-event coverage.\"\n    },\n    {\n      \"title\": \"UCDP Peace Agreement Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/fullpeace.html\",\n      \"justification\": \"Contains structured information on peace agreements associated with armed conflicts, including agreement characteristics and conflict relationships. Useful for historical and comparative peace-process research involving Turkey, Georgia and the Western Balkans. The available dataset is principally historical, so its coverage of agreements concluded during the 2020s is limited.\"\n    },\n    {\n      \"title\": \"SIPRI Military Expenditure Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/milex\",\n      \"justification\": \"Provides internationally comparable annual military expenditure statistics covering 1949–2025. Includes military expenditure in national currencies, current and constant US dollars, expenditure per capita and military spending as a percentage of GDP. Particularly suitable for analyzing defense policy, military investment and national security priorities across the EU, United Kingdom, Turkey, Western Balkans, Moldova and Georgia during the 2020s.\"\n    },\n    {\n      \"title\": \"SIPRI Databases – Arms Transfers and Military Expenditure\",\n      \"url_or_doi\": \"https://www.sipri.org/databases\",\n      \"justification\": \"Provides access to SIPRI's international security datasets, including military expenditure and international arms transfers. Relevant for studying weapons imports and exports, military modernization, defense cooperation and security relationships involving the requested European countries. The arms-transfer data are particularly useful for examining changes in European defense procurement and military assistance during the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by Offence Category\",\n      \"url_or_doi\": \"https://doi.org/10.2908/CRIM_OFF_CAT\",\n      \"justification\": \"Official European statistical dataset on police-recorded criminal offences, including intentional homicide and other categories of crime. Provides annual data covering 2008–2024. Its geographical coverage includes EU member states, the United Kingdom through separate jurisdictions, and several Western Balkan countries and Turkey. Particularly relevant for comparing crime-related security indicators during 2020–2024. Differences in national reporting practices should be considered when making cross-country comparisons.\"\n    },\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by NUTS 3 Region\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/crim_gen_reg/default/table?lang=en\",\n      \"justification\": \"Provides regional statistics on police-recorded criminal offences within European countries. Useful for identifying geographical differences in crime and public security during the 2020s. Regional information supports research on urban-rural security disparities, cross-border crime and spatial patterns of criminal activity. Coverage and available offence categories vary by country.\"\n    },\n    {\n      \"title\": \"Eurostat – Prison Capacity and Number of Persons Held\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/crim_pris_cap/default/table?lang=en\",\n      \"justification\": \"Provides official statistics on prison capacity and incarcerated populations in European countries. Relevant for examining criminal justice systems, institutional security, detention conditions and prison overcrowding during the 2020s. Supports comparative research on the relationship between crime, public security and criminal justice responses across the requested countries.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function (COFOG)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en\",\n      \"justification\": \"Contains annual government expenditure data classified by function, including defense and public order and safety. Useful for comparing national expenditure priorities across EU member states during the 2020s. Researchers can analyze defense budgets, policing, public security and other government functions as shares of GDP or total expenditure. Particularly useful alongside SIPRI military expenditure statistics.\"\n    },\n    {\n      \"title\": \"Global Terrorism Database (GTD) – University of Maryland START\",\n      \"url_or_doi\": \"https://www.start.umd.edu/download-global-terrorism-database\",\n      \"justification\": \"Provides detailed event-level information on terrorist incidents worldwide, including country, location, attack type, target, perpetrators, weapons and casualties. The publicly listed downloadable releases include data through 2020 and the first half of 2021. Relevant for studying terrorism and counterterrorism challenges in France, Germany, Belgium, the United Kingdom, Spain, Turkey and other requested countries. Its limited available 2020s coverage should be considered.\"\n    },\n    {\n      \"title\": \"Global Peace Index – Institute for Economics & Peace\",\n      \"url_or_doi\": \"https://www.visionofhumanity.org/maps/\",\n      \"justification\": \"Provides internationally comparable indicators of peacefulness through the Global Peace Index. Measures include societal safety and security, ongoing domestic and international conflict, and militarization. Particularly relevant because the index covers most of the requested European countries and supports comparisons of peacefulness across the 2020s. The website provides access to downloadable Global Peace Index data under a non-commercial license.\"\n    },\n    {\n      \"title\": \"UCDP Candidate Events Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides frequently updated preliminary event-level information on organized violence. Particularly useful for examining recent conflict developments that may not yet appear in completed annual UCDP releases. Researchers can investigate emerging violence in Turkey, Georgia, Moldova and the Western Balkans during the 2020s. The data are preliminary and may be revised in later releases.\"\n    },\n    {\n      \"title\": \"UCDP Dyadic Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides annual observations on armed conflict relationships between governments and opposing armed organizations. The current version covers 1946–2025. Useful for analyzing conflict actors, the duration of armed confrontations and changes in conflict intensity. Relevant for research involving Turkey, Georgia and other requested countries with qualifying armed conflict relationships during the 2020s.\"\n    },\n    {\n      \"title\": \"UCDP Conflict Onset Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Identifies the beginning or recurrence of armed conflicts using standardized definitions. Provides country-level and conflict-level onset information for intrastate and interstate conflicts. Relevant for examining the emergence of armed conflict, conflict recurrence and security deterioration during the 2020s. Particularly useful when combined with political, economic and institutional indicators for the requested countries.\"\n    },\n    {\n      \"title\": \"UCDP Conflict Termination Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Documents how armed conflicts end, including negotiated settlements, military outcomes and other forms of termination. Useful for studying conflict resolution, peacebuilding and post-conflict stability in the Western Balkans, Turkey, Georgia and Moldova. The available historical dataset is most useful as background for understanding peace and conflict conditions in the 2020s rather than as a comprehensive source of recent terminations.\"\n    },\n    {\n      \"title\": \"UCDP Conflict Issues Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides information about contested political issues underlying armed conflicts. Relevant to research on territorial disputes, governance, self-determination and political grievances. Particularly useful for studying historical conflict drivers relevant to Kosovo, Bosnia and Herzegovina, Serbia, Turkey, Georgia and Moldova. Can complement 2020s event data by providing contextual information on the origins and nature of disputes.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454856.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21187,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2670,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23857
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

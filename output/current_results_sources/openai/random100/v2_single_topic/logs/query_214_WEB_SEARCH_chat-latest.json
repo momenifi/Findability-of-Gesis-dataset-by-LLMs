@@ -1,0 +1,186 @@
+{
+  "query_id": 214,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic policy, public expenditure and revenue in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05df9883aac6503d006b0467eede0c87d2a2b051c994e493ed",
+        "created_at": 1795450862.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05df9883aac6503d006b0467efe4bc87d29c1ae97f0de3b215",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS online Germany government revenue expenditure dataset 2010 2019",
+                "Eurostat gov_10a_main government revenue expenditure Germany dataset",
+                "OECD government revenue expenditure Germany 2010 2019 dataset",
+                "IMF government finance statistics Germany revenue expenditure data portal"
+              ],
+              "query": "Destatis GENESIS online Germany government revenue expenditure dataset 2010 2019",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05df9883aac6503d006b0467f3cf2087d2b6e82ef8733ef0eb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10a_exp government expenditure by function COFOG",
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag taxes social contributions",
+                "site:data.worldbank.org/indicator/GC.XPN.TOTL.GD.ZS Germany expense percent GDP",
+                "site:data.imf.org/Datasets/GFS government finance statistics annual"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/gov_10a_exp government expenditure by function COFOG",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05df9883aac6503d006b0467f708f487d2b266b84cf3e46e4c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Government Revenue, Expenditure and Main Aggregates\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_main\",\n      \"justification\": \"One of the most comprehensive datasets for studying German fiscal policy during 2010–2019. Provides annual government revenue, total expenditure, taxes, social contributions, fiscal deficits and surpluses, and other public finance indicators. Includes breakdowns by central, state and local government, as well as social security funds. Data are available in euros and as percentages of GDP, making the dataset particularly useful for examining Germany's fiscal consolidation and budget surplus policies during the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function (COFOG)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_exp\",\n      \"justification\": \"Provides detailed annual public expenditure data for Germany throughout the 2010s, classified by government function. Categories include education, healthcare, defense, social protection, infrastructure, environmental protection and economic affairs. Particularly useful for analyzing changes in German spending priorities, public investment and the allocation of government resources between 2010 and 2019.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Public Finance: Expenditure, Revenue and Financial Balance\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Government/Public-Finance/Expenditure-Revenue-And-Financial-Balance-Of-Public-Budgets/Tables/expenditure-revenue-balance.html\",\n      \"justification\": \"Official German government statistics providing annual public expenditure, revenue and budget balances, including the complete 2010–2019 period. Figures are expressed in billions of euros. Particularly relevant for examining Germany's transition from a substantial public deficit in 2010 to budget surpluses later in the decade. Researchers should note methodological changes affecting comparisons across years.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Government Revenue, Expenditure and Financing Balance\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/81000/table/81000-0031/search/s/ODEwMDA%3D\",\n      \"justification\": \"Official national accounts dataset published by Germany's Federal Statistical Office. Contains annual government revenue, expenditure and financing balance statistics, including observations from the 2010s. Useful for analyzing the evolution of German fiscal policy, government financing requirements and changes in public-sector financial performance.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Tax Revenue by Type of Tax\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/ccfa4350\",\n      \"justification\": \"Official German tax revenue statistics providing annual figures by tax category. Includes information on different sources of taxation, enabling analysis of changes in Germany's revenue structure during the 2010s. Particularly useful for studying income taxation, consumption taxes, corporate taxation and the contribution of different tax instruments to public finances.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank – Public Finances Statistics\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/public-finances\",\n      \"justification\": \"The German central bank provides historical statistical series covering government revenue, expenditure, fiscal balances and public finances. Includes national accounts measures and budgetary statistics. Valuable for investigating German fiscal policy during 2010–2019, including expenditure developments, revenue growth and government borrowing. Particularly useful as an authoritative national source alongside Destatis.\"\n    },\n    {\n      \"title\": \"International Monetary Fund – Government Finance Statistics\",\n      \"url_or_doi\": \"https://data.imf.org/Datasets/QGFS\",\n      \"justification\": \"Internationally standardized government finance statistics covering government revenue, expenditure, fiscal deficits, financing transactions, assets and liabilities. Provides information for different levels of government and supports analysis of Germany's public finances during the 2010s. Particularly useful for comparing Germany's fiscal performance with that of other advanced economies and examining fiscal trends using harmonized definitions.\"\n    },\n    {\n      \"title\": \"OECD – Revenue Statistics 2021: Country Tables, 1990–2019\",\n      \"url_or_doi\": \"https://www.oecd.org/en/publications/revenue-statistics-2021_6e87f932-en/full-report/component-8.html\",\n      \"justification\": \"OECD historical tax revenue statistics covering Germany and other member countries through 2019. Includes tax revenue as a percentage of GDP, revenue by major tax category and taxation by level of government. Particularly relevant for examining Germany's tax structure, tax burden and changes in public revenue during the 2010s. Supports international comparisons of fiscal and taxation policies.\"\n    },\n    {\n      \"title\": \"World Bank – World Development Indicators: Government Expense (% of GDP), Germany\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/GC.XPN.TOTL.GD.ZS?locations=DE\",\n      \"justification\": \"Provides historical government expense as a percentage of GDP for Germany, including observations covering 2010–2019. Useful for analyzing changes in public expenditure relative to economic output and comparing Germany with other countries. The standardized indicator supports research on fiscal policy, the size of government and public spending trends over time.\"\n    },\n    {\n      \"title\": \"Eurostat – Tax Revenue Statistics: Taxes and Social Contributions\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table?lang=en\",\n      \"justification\": \"Provides annual statistics on government revenue from taxes and social contributions for European countries, including Germany. Relevant indicators include the overall tax burden and the composition of tax and social contribution receipts. Particularly useful for investigating changes in Germany's tax-to-GDP ratio, revenue mobilization and the structure of government financing during 2010–2019.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450878.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18635,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1419,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20054
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

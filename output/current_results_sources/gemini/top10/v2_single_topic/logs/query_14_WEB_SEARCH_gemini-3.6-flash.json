@@ -1,0 +1,69 @@
+{
+  "query_id": 14,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Uppsala Conflict Data Program (UCDP) Datasets\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/index.html\",\n      \"justification\": \"Provides comprehensive event-level and annual data on state-based conflicts, non-state violence, and political security across European, Balkan, Caucasian, and Mediterranean nations throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Armed Conflict Location & Event Data Project (ACLED)\",\n      \"url_or_doi\": \"https://acleddata.com/data-export-tool/\",\n      \"justification\": \"Tracks political violence, protest events, security dynamics, and strategic developments for all specified European, Western Balkan, Caucasian, and Mediterranean countries during the 2020s.\"\n    },\n    {\n      \"title\": \"SIPRI Military Expenditure Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/milex\",\n      \"justification\": \"Contains annual military spending, defense budget allocations, and security expenditure data for EU member states, the UK, Turkey, Western Balkans, Moldova, and Georgia across the 2020s.\"\n    },\n    {\n      \"title\": \"Global Peace Index for 163 countries covering 2008-2023\",\n      \"url_or_doi\": \"10.17632/yjxnfkcv4h.2\",\n      \"justification\": \"Includes country-level scores and domain metrics on ongoing conflict, societal safety and security, and militarization for all specified countries during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "Es4fCssfARFNMg/y1B5O7jEXjGquW2nhdWk5gKz8+oNwvXzOhTxjg13ps4Xt3QIsuDVzriz6aO4SOXu5verhhcKO2m+Jy/6VZ3mVEYaXTsYRk9AYI+AqJE0qr6NjzzAO8cKhI9Fl781T8gk62+N5CUUOUfi+Yp2ucHf2p/g9Havc2cD+3/VLlKOMwfd12gAk1o89T5TX1/lhnTW1B2pqqtwm4xvgBoD5qDxQ00IFNe7MlLHkeiMuBLph+akDq36ypIL3xgS2qrCL4aONPlIOUu+LwaDYLCDHH70inwJMOa7wJlN4ZhHK0i3iGjKwYpMHVNrhC2gD2e+KNKbD+/p2YbEX+I+1lw2ezMGG1CfgrDehOn5nqHofDzjvz3MqKXyjapVtMP9ivbuMvkwi6XIX7hMQj0xriNrF9KB7fYEhIzUdIbKApZ/fdrg76EEEyxIepPdhDuBJ3BnPkY7Dk4FXQcEl3R//YYeYTI8kwyX10Ye2d0fSiSCYNOGq8ydMB78pDqJaYJW0noBxloM5PyeOhdSzAdagR3O2PkmuMlCQWaw4aRO/ZWqhL/IqZ6aU3zBtdZxXQn5JheQy6dN7grPU2++/MW09amg5LOyLYwXGfDwYqzsJK0Tt4nOnTugtE8IOWGCuq8ODKrOSpwZUoHNB801jxqVjrRqHC/WvLGtAfRq5hWQi2fSXf2PJyYdvmDw3HcgMzSrNasOij9KyaqC17WdJrRw7qLKgadX+eG3VgXe6l1USTZCg3/plQPvjJIC2g1D5ZnzVl6k6sCS9nN26NnVYZATzNEk28voLn6VJD9a5QMlos4bbW84LNBp56++yhV6iZNLGeR6G9tLWcLkPMhVpmylEMQCgbUinYrzvLpzaNweleE4eqXMexutQruKZJiMKMod81p9uA09gSv/x57+P4XFvTfDK0xxGl1qcCmM2ki6zwW2FSN8KbWgWXwwExO9s7f8OarPxK0b7Py0yHhkYJxN1dOPDnK4RQbDs2RNc6fUuVMhhETI9llKpC4BQbVbezT9+C5T017hdRIh5dpMMTY5EZ4JqYPcQmFu1TgQQkDBOaDrOjeYYuO1S4Y8tKwquytshspPf5VeYzRccaqMtngC/26bCxCL0QuZymcsS9RAKZZaQoaMthbd5NHCcHe5lGyCcrKuem5G7RYOWm5b5QftU9kkkk45xdGHlOuMGs2tgJfuQNspvV1cmnMtYr1luZqvpoAkgYm+d1MZnPhOEtau+CiY32ocGFBdbH9yQKPAA89OydJZJImc1jEcguQhFsgxkyX92HxEWZ22GKXY7GnpCzT/DVfJ3h1qr8e6vmjegFxXSf+BU+9o/+N2tMTUKlsrbZjOpoMFw7jcXaTgmSFX2OZSnnrLf0XniXJmvKc7Zq+U6LpXa+d64z7cLDaE18Aj+opxtli6yj02XxTEixqOxSYjUApRaz67GM0JMPAV3uWGf1uK/6fL7SPzFJAUu+oTANfaDMxQPR/nhAxRMOXyWEtUZrxfZ1DG0JcLxtxlkTfQIQ/PgFanAWlHeSxeAhiZeE+k/rYZeUPLc0pSrXbxLkfixvWXoOJqxeoLIg5tkymAGswytsr+D7JyUbGgmhnRHoHVKCng4QM9slLFF6zx7PMexf6WbIJnQVYawCJTkwKZopSUbPf4KZX0WBhTg1uZWZLzRGSEGCK4eZJ9KYIiEcR17oktAv7t+3q2K2ERwOm+qK9y2HZhPt5QM07cD9FM0qBe0LJLfouVl/Un/vLE8iiqzn9e5iTNRKG+h7OOmxGgghBg39FuiNhRS9uWaI+U2AU6T/qfJdGQ+CSWafxadxiNOvkt5HI+tqAdean02W3Bl8WvOJUhO2GGtcx+ZlD8TooE+A65rv0zeAe1vG6O7Iay9iqrFP2IxIQRT+1b77X9XErPvqxaewwykfEG5wcuFQ4PGj8E3OwEco5U2BsTQ96B8TdaWAODhUz//BZev3k9/If1vC2/UWelbsgVsG6NVTIhyi5RVg24WH/7z0ikzs+mjUMvWsKIxVHD1wRrU8JxunPG5YJXFjt7RGdcvHFDWNlkK7suutbigfvaJS8XeGT7l6eXKfBiGavIUI306OHI9Q7pj3ju4z5KyCyi5qj57H2S5X7wjhoh7JRvomdbyPtZumT62RZpJ3d3+56gnKl4pAoZQ1kWoMqoUSBORHB18y+53vNWmUHHHAP6IJCCYeRv+KsPzGaJAvKoG1hXJdtpPuUEB0wAe1VspSZiMS0aSPsV44I1EQEaxMd3F4zG69PSvsVxrfNVprfqcnQb9qyVTzg4Pa3eFLBALOOt3N3zeT/eafWhmEZ2kPSl2zcwBkhz6KLuVQNQ/lvY/9ffgmbr48xSrifSn2WQ3PWBzxtPk0bUA0a/0JiUOa7dahHx4H5lZjUlldMJzuFyQc2TK0YaqF+7sHAa8e35xhZTBFYo49nIppGVP+KLOImQnX14UcuHT0EnXa4AO/JkpC7jbAJC/3fe1sUVPX7nqD0RWtghBQxPLg7AgZ+Xx7JVY/NoSLLzdIacsgfCt5EWSSxYoViHI/l5T1y2vn/myDXoGZN/wsuuNeDHwsraxWMI4jDUQqN3aABGMVcamLfu+dVYJQ97pbxpfwrTWVii/NaLMtVee5YpyAtOPUFfjH791EAoXTTDaoTJNZZUhiw+KwT2ZrCsTeb5fpCjry+0l13+zeGvrGz+4qIodjftlrCXAQ428OiYlrzbWYxJ0bkTMSr15bn6IlvbnYcI4pnVV07+XC3HIDJ75fTJdEdBG9SZCcjVht7sCmb08tufP72+id1FL3M75XD9xxoRMiyFkDjQ0HKg5OItcK+qH1owcjdzcaNnWJ6g0XeHRNx/rSRiUCm6/g5pw7DTNXQbZOpCtSJdgHiRUF/b2FLlOXOoQjZKqxXBYpPdjmBPcCRmiadTYeOJ/XXZEyY2ZZrQdsSEICPIeLA2MJ5/066/y/O0ALweKMwQwLmOarE1JRTMiscDbaDNltXyfwKcF+kOVsgRLY9rjdXZu6nUxlDOpg83nOln42v5C+Aq0Cw3b7B3HbNPeaCGczNI+XiVaRYEgRcoVKlQCVaYN6/mBB2uj+0DRkffKGYlbCWrkRzEYPJeEFnWeUrRSzv3Q9BZxZKgIaUmW665Uv3pT+KvLDTKJt/iHveKE4NNR121EP4XbBxxaaRwh7J4g/CgjBBwFfV/1HWzDtzza8a8tVB6M8a+QUSS3d7gqD/sVo6U7bUXHO7Yl26U8wJ94SeStK8zVckFEJV5GL5dgKvcPMPB24jM11DUVYv9oRB+xTLWsyoNIsUF3B+siD3tfr5aeny/40biPpI4Dgl3Q8ULimQMIO1mYB+n5lyvyWWAi4xlWwk566tBhO63+fXx7HhUMHjrBag4Vfnm6Oz4d+C5wPug8eB3IHQF/1igZ4gYTiVZyO2lW4TL+O9kIaYdbmbXk88ls7nW+Uvq/CwxkvH91gYVpe32RlxDpmHKA4n3xzkIsoSWK054VTwzuhphU0dJGIkc48HV8VPoZWLBlarF1+bTvu0aB7n5gRfjDdXFOK8Rb7TE5py5hJ3nuqBzmEwNVZgIXUUVi7ZthL3ThT7Jgu7I3hru6QSQr/zvg4StV5jef5nLZKxRq4jWSgxWPI7fOzP0tLYj41+UdX11S3b30bVBB9cQWA6LzfA5bO2X0ORqHvQCVrG+905JluvEBmw4F8ygmmpKdjcpDA+Z1/PwMf2wrbjq5tZZ2m6NuNcG/3pwGtg3S93LTShOznS6Da+uQCHg8iuEvbovpx9DOtCzyAFmdXXV3rFn/Lje5OhtkBcw3ijYIg84HP4ARqdobyANYximomzdVZO963cHZcj9mj1lHwiHxrF5yhDp2H8elhR/j0Dl9z6VzWDouPjwmPEHB/WOlk49JRuBi1vLpXOTmdATbzYofnALjvc3mqN7uCQtK1V0xGZzApr6f3nymoVj7fS5LxttjkzYji/TJVFIz3keGxQBjPRzKRVdfKJ1wvEdenqUjeyldYPxYXFe8iRxmYGUyWe0aNHNz7rjmpvz8BsZe4R/ewYtPWZ9O+Og9/flhw8rLcSjXv+0EPFnfHiatUS91M2bx0CXXWQY/AhggJvtA9UzuFXAkZlv0E+idzjq7CQ34BQ/IG+ebqc52p+99WBCoUzUCUnHjr0zS+/GssNeuEprR76O1RQOcTtlkbn/uPKEqF0gOp3Q+D0qrZzj1YcqzzwzQOAxtA69YdvAwLb6uTqe9cikaFh6IAPDgRQ3ija9aqkSocxICqyevjGeTPu5YHHph38JRwMGORpi32WSCuU1pgLxCwjZQyrjskXYz1p2G1XZ9GpZyG8hzMmVVsfPX8PwCx4pXgj1xWoRa6cLb/Anr4g2k6ZgTiJ+yIAjDj388Hb3slnc87m2tWkfMU1jcL1e75arw9GGN+QR5PjwuT4atjuSevtCNoOM1yRZov5ZITVjFKgrjAVMGoaSTq9cHCuA/x/IdoK2HxDYGvCEkOTxebKjBwB/7z+ZC91JcMTd0WmomvkQpXnJKm61lcmkkNbN0mhix+OvrPe9o15w0fRy1eGqvMfIt4SSl//hl9FMv1W4vldz7wv/JR5The9mwBqRB9eVaoOoK7K7Iu1zp9vpYHv79ZfWVimTq1RLzI4daVBH9SSKrhIslUKyKhrWNjfs1QHuzpI7Ce9BUuZwuax89IY1qvcEHnRNaK1KF30Jq4CxHAn/B5+9CQbihr04kS1NMd4kTVf8f1XQPSKgI5XY0jy00wSe7MG/GEV38XkrB9upN8RP7jbHrjPKIJUB168RV6rXk2iOYbuERe2nOQzfjn1ssB0g/a6ioDRfJoGM0fduMRPppT2IFb1YxQp0hD7kOxNNhd6FTupf0Qmf1VnW1AIvvPxYVc98qcD4BXqO6tcWt+ReOlYJ1D7TMQgT+7+xIE+ylI5UYonkTkkzTJWQo7v09YL1UT9uaYeesNsDSrVxOXefF29RunTne/4o+SBEjKDmYRQ1Y20ktwfjr3EKF0ItsH+7UHKkbCtMvbE6wg/hgcwe2tEvV3M9AvcRS8MvVH0vzAUPQMoQ8IPUrgNtUz9Wrw9i6C8QCiZYR0rjCAF7BkwxUEcVyq5A0qwPcX8olp+656nIZctuN7LNaLfQYDmjdEtRuBM1HIEaDjerQ4iaqzSktWGJG/rMcevc9eUjSivP/jM75YO788I2GJeWmeoE0Gi0X6QL2PW3CyShD/doZsjSZM+eDUXo4P22AttJa+6MDi4tOUC2j7l2JTKPud9iY7VbCFDkwvG/d4FotbdV8NIVjNC16Mg5twSh9HhsTOrtfrx2pe5oVJCun9BQv6Qa16YMNcHyNUTKkVw2MrJ3SVwTvrGM1f6OCxVjYzfbWl4vns7gLTvhHa+kISB5SwjWuSuk="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1193,
+          "candidatesTokenCount": 393,
+          "totalTokenCount": 3619,
+          "cachedContentTokenCount": 640,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1193
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 640
+            }
+          ],
+          "thoughtsTokenCount": 2033,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "vranaq7GL4z6nsEPtI_mqQk"
+      }
+    }
+  ]
+}

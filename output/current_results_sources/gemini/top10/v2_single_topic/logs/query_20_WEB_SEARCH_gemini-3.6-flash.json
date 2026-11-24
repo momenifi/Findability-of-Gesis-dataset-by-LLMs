@@ -1,0 +1,69 @@
+{
+  "query_id": 20,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Information society in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey - ALLBUS 2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14572\",\n      \"justification\": \"A representative population survey dataset produced by GESIS in 2023 covering social trends, media consumption, and information society indicators in Germany.\"\n    },\n    {\n      \"title\": \"Eurostat: Internet purchases by individuals (2020 onwards)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ec_ib20\",\n      \"justification\": \"An official Eurostat information society dataset tracking digital commerce adoption and online purchasing habits in Germany and other European countries from 2020 onwards.\"\n    },\n    {\n      \"title\": \"Eurostat: Individuals' level of digital skills by NUTS 1 region\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_r_dskl_i\",\n      \"justification\": \"Tracks digital skills, ICT literacy, and technological competence across German states (NUTS 1 regions) during the 2020s.\"\n    },\n    {\n      \"title\": \"Social Media Accounts of Candidates from the German Federal Election 2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14798\",\n      \"justification\": \"A GESIS Web Data dataset mapping digital public presence and social media platform usage among political candidates in Germany during 2025.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 376,
+          "candidatesTokenCount": 397,
+          "totalTokenCount": 2318,
+          "cachedContentTokenCount": 89,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 376
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 89
+            }
+          ],
+          "thoughtsTokenCount": 1545,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ILenavr5OdKb3boP6OL78Ao"
+      }
+    }
+  ]
+}

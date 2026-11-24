@@ -1,0 +1,185 @@
+{
+  "query_id": 208,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_076811d659253d12006b04679aede887d28409e5b84858b909",
+        "created_at": 1795450778.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_076811d659253d12006b04679c106887d28532fb479c8cc651",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Duisburg Statistik Tourismus Übernachtungen 2000 2009 daten",
+                "Duisburg statistisches jahrbuch 2005 sport freizeit tourismus pdf",
+                "regionaldatenbank deutschland Duisburg Gästeübernachtungen 2000"
+              ],
+              "query": "Duisburg Statistik Tourismus Übernachtungen 2000 2009 daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_076811d659253d12006b04679f389c87d2ae3515120d489d9b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistikportal.ruhr Sportvereine Mitglieder Duisburg 2000",
+                "site:duisburg.de statistik jahrbuch 2008 sport vereine bäder besucher",
+                "site:statistikportal.ruhr museen besucher Duisburg 2000 2009",
+                "site:statistikportal.de historische regio stat 2001 2007 sport tourismus"
+              ],
+              "query": "site:statistikportal.ruhr Sportvereine Mitglieder Duisburg 2000",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_076811d659253d12006b0467a2641087d2bc2557736498abdc",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Statistikportal Ruhr – Tourism and Hospitality Statistics (1985 onwards)\",\n      \"url_or_doi\": \"https://statistikportal.ruhr/\",\n      \"justification\": \"One of the most relevant sources for historical tourism data in Duisburg during 2000–2009. Provides downloadable CSV datasets covering tourist arrivals, overnight stays, accommodation establishments, available beds, and visitors' countries of origin. Several datasets contain annual observations beginning in 1985, allowing comparisons throughout the 2000s. Data can be filtered geographically to Duisburg.\"\n    },\n    {\n      \"title\": \"IT.NRW – Historical Tourism and Accommodation Statistics for Duisburg (2000)\",\n      \"url_or_doi\": \"https://webshop.it.nrw.de/download.php?id=9739\",\n      \"justification\": \"Official historical statistical publication from North Rhine-Westphalia containing municipality-level accommodation and tourism data for 2000. Includes Duisburg-specific figures for accommodation establishments, guest beds, tourist arrivals, overnight stays, foreign visitors, average length of stay, and accommodation capacity utilization. Particularly useful for establishing a baseline at the beginning of the decade.\"\n    },\n    {\n      \"title\": \"Niederrheinische IHK – Wirtschaft kompakt: Tourism, Leisure and Travel Statistics (2009)\",\n      \"url_or_doi\": \"https://e-pflicht.ulb.hhu.de/download/pdf/51885\",\n      \"justification\": \"Contains detailed statistical tables on tourism, leisure, and travel-related businesses in Duisburg as of December 31, 2009. Covers hotels, restaurants, bars, travel agencies, tour operators, cultural and entertainment facilities, sports facilities, fitness centers, and recreational businesses. Also reports Duisburg's 2009 overnight stays, accommodation capacity, foreign guest overnight stays, and changes compared with 1999. Especially valuable because it combines tourism, sport, and leisure indicators.\"\n    },\n    {\n      \"title\": \"City of Duisburg – Municipal Participation Report 2006/2007: Public Swimming Pools and Sports Facilities\",\n      \"url_or_doi\": \"https://www.duisburg.de/rathaus/staedtgesellschaften/beteiligungen/Beteiligungsbericht_2006-2007.pdf\",\n      \"justification\": \"Official municipal report containing historical operational statistics for Duisburg's public leisure and sports infrastructure. Includes annual attendance figures for municipal swimming pools in 2004, 2005, and 2006, reporting 939,825, 930,253, and 1,006,984 visits respectively. Useful for measuring recreational participation and public sports facility usage during the mid-2000s.\"\n    },\n    {\n      \"title\": \"City of Duisburg – Municipal Participation Report 2010: DuisburgSport Statistics (2008–2010)\",\n      \"url_or_doi\": \"https://www.duisburg.de/vv/produkte/pro_du/dez_i/20/jahresuebersicht.php.media/66930/Beteiligungsbericht_2010.pdf\",\n      \"justification\": \"Official municipal dataset covering public swimming pool attendance and sports facility infrastructure. Contains annual observations for 2008, 2009, and 2010. Reports 830,551 swimming pool visits in 2008 and 773,190 in 2009, alongside numbers of municipally operated and leased sports facilities. Particularly relevant for studying sporting infrastructure and leisure participation toward the end of the 2000s.\"\n    },\n    {\n      \"title\": \"City of Duisburg – Municipal Participation Report 2008: Duisburg Zoo Visitor Statistics\",\n      \"url_or_doi\": \"https://www.duisburg.de/vv/produkte/pro_du/dez_i/20/jahresuebersicht.php.media/66932/Beteiligungsbericht_2008.pdf\",\n      \"justification\": \"Provides historical visitor statistics for Duisburg Zoo, one of the city's major leisure and tourism attractions. Documents 1,011,488 visitors in 2007 and 1,088,270 in 2008, according to the zoo's standardized visitor-counting methodology. Also discusses annual ticket usage, tourism partnerships, and RuhrTopCard visitors. Useful for analyzing recreational attraction attendance and tourism development during the late 2000s.\"\n    },\n    {\n      \"title\": \"City of Duisburg – Historical Municipal Participation Reports\",\n      \"url_or_doi\": \"https://www.duisburg.de/vv/produkte/pro_du/dez_i/20/jahresuebersicht\",\n      \"justification\": \"Official archive of municipal company reports, including historical publications covering the 2000s. Relevant organizations include DuisburgSport, Duisburg Zoo, and municipal enterprises operating recreational infrastructure. Reports contain quantitative information about visitor attendance, facility operations, municipal sports infrastructure, and related financial indicators. Useful for reconstructing longer time series from individual annual reports.\"\n    },\n    {\n      \"title\": \"Statistikportal Deutschland – Historical Regional Statistics (Regio-Stat, 2001–2007)\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/datenbanken\",\n      \"justification\": \"Official German statistical portal providing access to historical regional datasets for 2001–2007. Historical Regio-Stat tables are available in CSV and Excel formats, with geographical coverage extending to municipalities. Duisburg can be identified within the regional statistical data. Particularly useful for obtaining historical municipal indicators and identifying relevant tourism-related variables alongside demographic and economic information.\"\n    },\n    {\n      \"title\": \"Statistikportal Deutschland – Tourism and Hospitality Regional Statistics\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/tourismus-und-gastgewerbe\",\n      \"justification\": \"Official gateway to German tourism statistics, including regional accommodation data, tourist arrivals, overnight stays, and average visitor stay duration. Provides access to the Regionaldatenbank Deutschland and statistical publications. Useful for locating historical Duisburg tourism observations and comparing the city with other municipalities in North Rhine-Westphalia. Historical availability depends on the selected table.\"\n    },\n    {\n      \"title\": \"Statistisches Bundesamt – Tourismus in Zahlen 2000/2001\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033555/Tourismus-Zahlen_2000-2001.pdf\",\n      \"justification\": \"Historical publication from Germany's Federal Statistical Office containing detailed tourism statistics for cities with at least 100,000 inhabitants, including Duisburg. Includes accommodation arrivals, overnight stays, and year-on-year percentage changes. Particularly useful for investigating tourism conditions around the beginning of the 2000s and benchmarking Duisburg against other major German cities.\"\n    },\n    {\n      \"title\": \"Ruhrgebiet Tourism Development – Overnight Stays in Selected Cities (1990–2009)\",\n      \"url_or_doi\": \"https://diercke.de/sites/default/files/redaktion/pdf/unterricht/360_2010_2_tourismus.pdf\",\n      \"justification\": \"Contains a comparative statistical table of tourism development across major Ruhrgebiet cities, including Duisburg, for 1990, 2000, and 2009. Duisburg recorded approximately 322,300 overnight stays in 2000 and 361,600 in 2009. Additional indicators include average length of stay, international visitor share, and hotel classifications. Useful for analyzing decade-long tourism trends and Duisburg's position within the Ruhr metropolitan region.\"\n    },\n    {\n      \"title\": \"GovData – Historical Data from the City of Duisburg\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/historisch-interessante-daten\",\n      \"justification\": \"Official German open-data catalog entry containing historically significant information about Duisburg compiled by the municipal archive. The dataset covers selected events and milestones in Duisburg's history and is categorized under themes including leisure, sport, and tourism. Useful as supplementary contextual data for identifying significant tourism, recreation, and sporting developments during the 2000s. It is not a continuous statistical time series.\"\n    },\n    {\n      \"title\": \"City of Duisburg – Municipal Statistics and Urban Research Archive\",\n      \"url_or_doi\": \"https://www.duisburg.de/microsites/wahlen/Informationslogistik_Statistik/archiv/archiv\",\n      \"justification\": \"Official municipal archive providing historical statistical publications and annual statistical summaries. Includes documents covering 1995–2010, 2000–2011, and 2005–2012, allowing investigation of Duisburg's development throughout the 2000s. Particularly useful for locating historical municipal indicators and contextual information. Coverage of leisure, sport, and tourism should be checked within individual publications.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450795.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18912,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1960,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20872
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

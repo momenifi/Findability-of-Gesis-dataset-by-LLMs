@@ -1,0 +1,187 @@
+{
+  "query_id": 52,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, SOCIAL STRATIFICATION AND GROUPINGS, Minorities, Equality, inequality and social exclusion, and Cultural and national identity in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0bb5a182875d027f006b0456ecb05887d29e93488899f9d554",
+        "created_at": 1795446508.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0bb5a182875d027f006b0456ed84bc87d283eaada8e2b275be",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS German General Social Survey 2010 2018 dataset landing page",
+                "SOEP German socio economic panel data 2010s inequality migration political attitudes dataset",
+                "GESIS German Longitudinal Election Study GLES 2013 2017 dataset",
+                "German integration barometer 2018 SVR dataset migration identity attitudes"
+              ],
+              "query": "GESIS ALLBUS German General Social Survey 2010 2018 dataset landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0bb5a182875d027f006b0456f1190087d29668e287d916696f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP research data soep core data access",
+                "site:lifbi.de NEPS scientific use file starting cohort data 2010",
+                "site:bamf.de IAB BAMF SOEP survey refugees 2016 data",
+                "site:gesis.org GESIS Panel data 2014 2019",
+                "site:gesis.org ISSP national identity 2013 Germany data"
+              ],
+              "query": "site:diw.de SOEP research data soep core data access",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0bb5a182875d027f006b0456f4498487d2907816e75e4b977c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Surveys 2010–2018\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"One of the most comprehensive datasets for studying political attitudes, social stratification, inequality, minorities, and cultural identity in Germany during the 2010s. The biennial surveys conducted in 2010, 2012, 2014, 2016, and 2018 contain information on political preferences, social class, education, income, migration backgrounds, national identity, attitudes toward immigrants, and perceptions of social inequality. Particularly useful for examining changes in German society throughout the decade.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"A harmonized longitudinal collection of German population surveys that includes observations from the entire 2010s. Covers political attitudes, social mobility, class identification, socioeconomic inequality, immigration, social integration, and cultural values. The cumulative structure facilitates comparisons between survey years and enables researchers to investigate long-term developments in political behavior, social exclusion, and national identity.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Federal Elections 2013 and 2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A major source of German electoral behavior and political attitudes during the 2010s. Includes surveys surrounding the 2013 and 2017 federal elections, covering voting intentions, party identification, political participation, ideological orientations, immigration attitudes, and demographic characteristics. Particularly valuable for studying how social class, education, economic inequality, and attitudes toward minorities influenced political preferences and electoral behavior.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Rolling Cross-Section 2013 and 2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/overview\",\n      \"justification\": \"Provides detailed survey data collected during German federal election campaigns in 2013 and 2017. Captures changes in voter preferences, political engagement, party evaluations, and attitudes toward major political issues. Particularly relevant for analyzing the relationship between political behavior, socioeconomic groupings, immigration debates, and changing national identity during election campaigns.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Long-Term Panel 2009–2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/overview\",\n      \"justification\": \"Longitudinal panel data following German voters across multiple federal elections, including the 2009–2013 and 2013–2017 election periods. Supports analysis of individual-level changes in political attitudes, voting behavior, and party identification. Useful for investigating how socioeconomic status, generational differences, cultural attitudes, and political developments shaped electoral behavior throughout the 2010s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) – Longitudinal Household Survey\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.357906.en/soep_order_form.html\",\n      \"justification\": \"A major longitudinal household dataset covering Germany throughout the 2010s. Contains detailed information on income, wealth-related indicators, employment, education, household composition, migration backgrounds, subjective well-being, social participation, and attitudes. Particularly suitable for investigating economic inequality, social stratification, social mobility, immigrant integration, and differences between demographic groups. Annual observations enable detailed analysis of changes in social exclusion and socioeconomic disparities.\"\n    },\n    {\n      \"title\": \"GESIS Panel – German Population Panel Study, 2013–2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/data-access\",\n      \"justification\": \"A representative longitudinal survey of Germany's adult German-speaking population, with data collection beginning in 2013. Includes measures of political participation, social attitudes, values, subjective well-being, and demographic characteristics. Particularly useful for investigating changes in political attitudes and social participation during the second half of the 2010s, including relationships between socioeconomic position and political engagement.\"\n    },\n    {\n      \"title\": \"GESIS Panel – Social and Political Participation, 2014–2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/documentation/longitudinal-core-studies-gppop\",\n      \"justification\": \"A longitudinal survey module measuring social and political participation among people living in Germany. Data collected throughout 2014–2019 can support research on political engagement, civic participation, and differences between social groups. Particularly relevant for examining how participation varies according to demographic characteristics and socioeconomic circumstances, helping identify inequalities in civic and political involvement.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS) – Scientific Use Files, 2010s\",\n      \"url_or_doi\": \"https://www.lifbi.de/en-us/Start/Data-Services/Data-and-Documentation/SUF-Overview\",\n      \"justification\": \"A large-scale longitudinal study examining educational pathways and social inequalities in Germany. Multiple starting cohorts were surveyed during the 2010s, providing information on educational achievement, family background, migration background, socioeconomic circumstances, and transitions into employment. Particularly useful for investigating social stratification, inequalities affecting minority groups, intergenerational mobility, and mechanisms of social exclusion within the German education system.\"\n    },\n    {\n      \"title\": \"IAB-BAMF-SOEP Survey of Refugees in Germany – Beginning in 2016\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.357906.en/soep_order_form.html\",\n      \"justification\": \"A longitudinal survey focusing on refugees who arrived in Germany, particularly during the migration movements of the mid-2010s. Provides information on education, employment, integration, language acquisition, living conditions, and social participation. Particularly relevant for studying minority experiences, socioeconomic inequality, migration-related disadvantage, integration barriers, and social exclusion. The survey allows researchers to investigate changes in refugees' circumstances during the second half of the decade.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Social Inequality V, 2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"An international comparative survey conducted in 2019 that includes Germany. Focuses specifically on perceptions of social inequality, social mobility, economic fairness, income differences, and attitudes toward redistribution. Particularly useful for analyzing how different socioeconomic groups in Germany perceived inequality at the end of the 2010s. The internationally harmonized structure also enables comparisons between Germany and other countries.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – National Identity Module\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"The ISSP National Identity survey series includes a 2013 wave suitable for studying German national identity during the 2010s. Relevant measures include national pride, national belonging, citizenship, attitudes toward immigration, and perceptions of cultural differences. Particularly useful for examining relationships between national identity, minority attitudes, immigration, social boundaries, and political orientations in Germany.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Family and Changing Gender Roles IV, 2012\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"An internationally comparative survey including Germany in 2012, focused on gender roles, family structures, employment, and attitudes toward the division of household and caregiving responsibilities. Useful for investigating gender inequality, cultural norms, social stratification, and differences in attitudes across demographic groups. Provides a valuable perspective on equality and changing social expectations in Germany during the early 2010s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Work Orientations IV, 2015\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"A comparative survey that includes Germany and focuses on employment attitudes, job characteristics, work preferences, and experiences in the labor market. Relevant for studying occupational stratification, differences between socioeconomic groups, employment-related inequality, and attitudes toward work. The 2015 data provide a mid-decade perspective on the relationship between labor market position and broader social attitudes.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) – Integrated Dataset 2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"A cross-national survey including Germany that examines fundamental social, political, religious, and cultural values. The 2017 wave is particularly relevant for studying national identity, political trust, democratic values, immigration attitudes, tolerance of minorities, gender equality, and perceptions of social differences. Useful for understanding German cultural and political attitudes toward the end of the 2010s and comparing them with those of other European societies.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) – Trend File 1981–2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"A harmonized dataset combining multiple waves of the European Values Study, including German observations from 2017. Provides measures of political values, trust, religion, national belonging, tolerance, family attitudes, and social norms. Particularly useful for placing German attitudes during the 2010s in a longer historical context and examining whether views about minorities, equality, and cultural identity changed across generations.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) – German Survey Data, Rounds 5–9 (2010–2018)\",\n      \"url_or_doi\": \"https://www.europeansocialsurvey.org/\",\n      \"justification\": \"A major European comparative survey containing German data from multiple rounds throughout the 2010s. Covers political trust, electoral participation, democratic attitudes, immigration, discrimination, national and European identity, subjective well-being, social exclusion, and socioeconomic characteristics. Particularly valuable for comparing political and cultural attitudes across social classes, age groups, educational backgrounds, and migration-related groups. Its repeated cross-sectional design enables analysis of trends across the decade.\"\n    },\n    {\n      \"title\": \"German Microcensus (Mikrozensus) – Population and Social Structure Data, 2010–2019\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Home/_node.html\",\n      \"justification\": \"Germany's official annual household survey provides extensive information on demographic and socioeconomic characteristics during the 2010s. Particularly relevant variables include education, employment, occupation, household structure, migration background, and living conditions. Suitable for analyzing social stratification, socioeconomic inequalities, demographic differences, and structural disadvantages affecting immigrant populations and other social groups. Unlike attitude surveys, its principal strength is detailed population and social structure data.\"\n    },\n    {\n      \"title\": \"GESIS Research Data Centre Elections – Politbarometer and DeutschlandTREND Surveys\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"An archive providing access to recurring German political opinion surveys, including Politbarometer and DeutschlandTREND observations from the 2010s. These surveys offer information on party preferences, political evaluations, government satisfaction, and attitudes toward important political issues. Particularly useful for analyzing political behavior and shifts in public opinion during major developments in Germany, including immigration debates and the emergence of new political divisions.\"\n    },\n    {\n      \"title\": \"GESIS German Survey Data Collection – ALLBUS, GLES, and Additional German Studies\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/german-survey-data\",\n      \"justification\": \"An official entry point to multiple German social science datasets with observations from the 2010s. Includes major surveys covering electoral behavior, political attitudes, inequality, demographic characteristics, social participation, and cultural values. Particularly useful for identifying additional studies on minorities, national identity, migration, and social exclusion and for locating associated questionnaires and documentation.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446530.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19916,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2819,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22735
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

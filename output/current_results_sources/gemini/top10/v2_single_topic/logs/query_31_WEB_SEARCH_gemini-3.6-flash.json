@@ -1,0 +1,69 @@
+{
+  "query_id": 31,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Information society in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat: Individuals - internet activities (isoc_ci_ac_i)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ci_ac_i\",\n      \"justification\": \"Provides official European statistics on internet usage, digital society indicators, and online activities of individuals across EU member states, including Germany, spanning from the 2010s into the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Internet purchases by individuals (isoc_ec_ibuy)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ec_ibuy\",\n      \"justification\": \"Tracks e-commerce participation, digital economy adoption, and consumer online purchasing behavior in Germany and other European countries through the 2010s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Ausstattung privater Haushalte (Tabelle 63111-0001)\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/genesis/online?operation=table&code=63111-0001\",\n      \"justification\": \"Contains official statistical series from the German Federal Statistical Office (Destatis) tracking information technology equipment (such as PCs and mobile devices) in German private households from 2000 through the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 638,
+          "candidatesTokenCount": 366,
+          "totalTokenCount": 2997,
+          "cachedContentTokenCount": 119,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 638
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 119
+            }
+          ],
+          "thoughtsTokenCount": 1993,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "urenaoCgFrejkdUP3q62oAI"
+      }
+    }
+  ]
+}

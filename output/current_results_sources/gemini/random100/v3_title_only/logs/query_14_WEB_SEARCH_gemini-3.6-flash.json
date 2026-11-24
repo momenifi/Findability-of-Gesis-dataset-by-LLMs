@@ -1,0 +1,69 @@
+{
+  "query_id": 14,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled College Education and Profession?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"College Education and Profession\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1458\",\n      \"justification\": \"This dataset (German title: 'Hochschulausbildung und Beruf', GESIS study ZA1458), cataloged by CESSDA and hosted by the GESIS Data Archive, surveys college graduates from Munich regarding their school and learning conditions alongside their subsequent professional trajectories.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EuQKCuEKAWkUfRNwT9qgrA8bVQ7yWA/vLLoF8MNRa3oPhfD77Giy4tvLpRmhuVHAZvfud1Qe6WckD4k237sCmnFlk58XsDn08ft2CjMXoTJDl2TzFBVZRBlvx7YB/jCq7iAeh7ZHQIhPzoV+AHAS4acg7aYq79TtoWiAno/JpLcUPfNiz+GsY2REE/ctUPRZkWpH5DdBirhJC2v5o4eAAYGGPcbGyCc8jmuXQQIa9pq+gWsU8HS1pLdfV5HbgH+vrmX2AuvA4c6J5PJL5CjcrUstqp/IghbN/C00xyExj29v5a2CgQ0QhNBzrPUbW0VLBr7wZWTSYzY02fEuKMiiU0C9xjULcDYNY8HnT2PHBSGTqNPRNDPJMn8BUdZZrcPS7qmuQAPuQlm0dIkGfECKHhtWq/AdToM72fZApbYIqNJ0kr3pyhGiwnlFXkWkSw9VbUEiygFpa29NlC91sVQ+05P/B3EeED6fgK5ULUHY5KBktmi26h09DxxHP7ENes/d+WuzQGJpy7vL89Qev6TKMW3VfijSd/o5utm+27bNAIiSwugIVEsRk1pnTca5Mtm4aQGJchn/WSGXuJbbcULsWk9nSZSH+GzXbYQ/ZRP2yLlofSAq8hmn+dHS1ecE/gUkkNe8V4NFDVyUPsnLLvqIFKJRdcIV8Iv+ufGEej4kA2teehuoY+PwBpeMmroSPmnpcue17QGdN8+UA2Tk3j5Ntw/JC8QHTi02Cngs/wU33rDU/oCRqjaOL13bMh8Q5mdRTDC5cMKs7wK1HNbAvadDVHKUxpvM15yKlWKw+NbZyjlUeEeTcjuja5lhYPJl6lZF1/zePN4i6Z2Vko/EXL1lWhmcGVI1x4XahrMYwkcwX4XBNUnMknv+9MyqA1LkNA2Rpq+A5sl/r00bUJFvWaPLdkb4FkuZK4nTPmI/rRZkf1oRVizyzEL2ag8Zkz5QnbxY7AFppn0cFW91mAUFbvugvtEoRap7Zuvw5yMinVYaNfu3SoJZ4kIQOymFiGzgn9nYx3e45tmDMhu3O+3DkyL8bzCDNxHRVRnqgEXzwZpwlXgVBJOJYSGvSaFaJULwMh6gqZ+XA9wMkfMoG25yqQu6OoV3bjVmbmzGVpF/Z/hC4mr16sDgavPqO3+7YOofuNb1VOx+k2Em6Op8jkM2bR1RVlb+kbh90Nvi21oQO512FexDH/Xo8NmFq8ExWTo+sOT9Hv1YqOUeY+Uq+FAE2Kqt8vP3+1ruCAHFgl/7IqN+wltr8+8DKKRUVvIidzfluNYM0qo44Xfic//LdSH7bHkl8966OvALPaqe7TxdmeeZ13bqSocECZGMbwGZbSjWHTHdujzdeFS0MtE6BpfEpk9sH8jcT4cjKESLrnILT4KD66e2P9AujMi5NXDlLyFhprpCFTzs5L12zRk+mAZ6ecwJR7KKaofhEdiJXhV9nOHw9Fz/6o89k/LREf91sbyPpIv5zd//LHHjFwCx0qVJV6Vetg+qGUs2UvuI/z+S2+eoRqkDdaCL+DuNzk0kDS3W8QaA1fG//QYrNHvG4jshDO4HRDN84KOakGrOFZ9CQgooEjU+J3gsNNgsZWTfkKSCayMs0PnpX+0Wj6rMAi020TVHUy0FzhO269tWVeA8EFttl4c7+ERQ3DErDj8tCgkUq8u88g6GLbnNlzj/8Ls2jbEdtbQlreLSjgvLP87R4MLDoWw2RX0Hh3hx9WLN04N2kc7xVscUCeM2PNDxqFI8MunlxERUN7XeQusXwRRC+rdvVZ9RvVfP8LGSxv7zDWb+O13Ti1X03pDnw2Slg6C1u/RlPnNjT15ZbzeNgtvwFJuUiZeEvOv7UCSE"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 673,
+          "candidatesTokenCount": 128,
+          "totalTokenCount": 1739,
+          "cachedContentTokenCount": 301,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 673
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 301
+            }
+          ],
+          "thoughtsTokenCount": 938,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zUW-atPCG8mavdIP_qTWyAc"
+      }
+    }
+  ]
+}

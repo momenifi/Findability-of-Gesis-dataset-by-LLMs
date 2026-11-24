@@ -1,0 +1,69 @@
+{
+  "query_id": 81,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Land use and planning in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"HILDA+ Global Land Use Change (1960–2019)\",\n      \"url_or_doi\": \"https://doi.org/10.1594/PANGAEA.921846\",\n      \"justification\": \"Provides high-resolution spatial land-use and land-cover change data starting in 1960, covering Germany and enabling long-term spatial analysis of agricultural, urban, and natural land dynamics.\"\n    },\n    {\n      \"title\": \"LUCAS LUC Historical Land Use and Land Cover Change Dataset for Europe (1950–2015)\",\n      \"url_or_doi\": \"https://doi.org/10.26050/WDCC/LUC_hist_EU_v1.1\",\n      \"justification\": \"Contains high-resolution (0.1°) annual land use and land cover maps for Europe, including Germany, covering the period from 1950 to 2015 to track historical spatial development.\"\n    },\n    {\n      \"title\": \"History Database of the Global Environment (HYDE 3.2)\",\n      \"url_or_doi\": \"https://doi.org/10.17026/dans-25g-gez3\",\n      \"justification\": \"Offers gridded historical land-use estimates (cropland, pasture, and built-up areas) at 5 arc-minute resolution, including detailed time steps across Germany for the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 618,
+          "candidatesTokenCount": 368,
+          "totalTokenCount": 2188,
+          "cachedContentTokenCount": 189,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 618
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 189
+            }
+          ],
+          "thoughtsTokenCount": 1202,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "_TSEasX7NsCP28oPrYWvqQk"
+      }
+    }
+  ]
+}

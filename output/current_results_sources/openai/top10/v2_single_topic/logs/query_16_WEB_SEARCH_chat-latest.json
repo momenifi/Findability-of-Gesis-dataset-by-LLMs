@@ -1,0 +1,186 @@
+{
+  "query_id": 16,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_052244b941bb025d006b04779eaa9c87d28ed3eae5793161ec",
+        "created_at": 1795454878.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_052244b941bb025d006b04779fd49887d28370a68ceac6ee09",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany Bundestag open data members votes 20th electoral term dataset",
+                "Germany federal election 2021 2025 open data Bundeswahlleiterin results download",
+                "Germany Destatis GENESIS government finance public personnel data",
+                "Germany political parties donations dataset Bundestag open data"
+              ],
+              "query": "Germany Bundestag open data members votes 20th electoral term dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_052244b941bb025d006b0477a4dd8487d2a59b9e664177273b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:lobbyregister.bundestag.de open data download lobbyregister",
+                "site:bundeswahlleiterin.de bundestagswahlen 2021 ergebnisse opendata",
+                "site:govdata.de daten deutschland bundesbehörden organisationen datensatz",
+                "site:bundestag.de parteienfinanzierung rechenschaftsberichte parteien 2023 2024"
+              ],
+              "query": "site:lobbyregister.bundestag.de open data download lobbyregister",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_052244b941bb025d006b0477a8987c87d29fbc80d7ed908bce",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Bundestag Open Data – Parliamentary Documents, Members and Voting Records\",\n      \"url_or_doi\": \"https://www.bundestag.de/services/opendata/\",\n      \"justification\": \"Official open-data portal of the German Bundestag providing machine-readable parliamentary documents, plenary proceedings, member biographies and roll-call voting records. Includes data from the 2020s, particularly the 20th legislative period (2021–2025) and subsequent parliamentary activities. Useful for studying parliamentary behavior, political representation, legislative processes, government accountability and political party dynamics.\"\n    },\n    {\n      \"title\": \"German Federal Election 2025 – Official Open Data\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata.html\",\n      \"justification\": \"Official dataset published by Germany's Federal Returning Officer containing results of the 2025 federal parliamentary election. Provides downloadable CSV and XML data covering political parties, candidates, constituencies and electoral results. Particularly valuable for analyzing Germany's electoral system, political competition, voter preferences and changes in parliamentary representation during the 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Election 2021 – Official Election Results\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse.html\",\n      \"justification\": \"Official results of Germany's 2021 federal election, including constituency-level outcomes, party vote shares and electoral participation. Provides an essential baseline for studying the transition from Angela Merkel's government to the subsequent coalition government. Can be compared with the 2025 election results to investigate political realignment, party competition and electoral change.\"\n    },\n    {\n      \"title\": \"German Election Database (GERDA) – Historical and Contemporary Election Results\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"Research-oriented collection of German election datasets covering different geographic levels and electoral periods, including elections during the 2020s. Provides downloadable data in formats such as CSV, Excel and RDS. Particularly useful for longitudinal analysis of political party support, geographic voting patterns, constituency changes and electoral behavior across Germany.\"\n    },\n    {\n      \"title\": \"German Bundestag – Political Party Financial Reports (Rechenschaftsberichte)\",\n      \"url_or_doi\": \"https://www.bundestag.de/parlament/praesidium/parteienfinanzierung/rechenschaftsberichte\",\n      \"justification\": \"Official collection of financial accountability reports submitted by German political parties. Includes reports for financial years 2020–2024, documenting party revenues, expenditures, assets, donations and public financing. Relevant for studying political organizations, party financing, financial transparency and the relationship between public funding and political competition. The underlying information is primarily published in parliamentary documents rather than as a standardized machine-readable dataset.\"\n    },\n    {\n      \"title\": \"Party Donations Watch – German Political Party Donations\",\n      \"url_or_doi\": \"https://parteispendenwatch.de/\",\n      \"justification\": \"Publicly accessible platform tracking financial donations to German political parties using official Bundestag disclosures. Provides information on donors, recipient parties and donation amounts, with regularly updated records. Useful for investigating political financing, financial influence, transparency and relationships between political organizations and private donors during the 2020s.\"\n    },\n    {\n      \"title\": \"DonationWatch – Political Party Donations in Germany\",\n      \"url_or_doi\": \"https://donation.watch/en/germany\",\n      \"justification\": \"Dataset-oriented platform presenting disclosed large donations to German political parties. Includes historical records extending into the 2020s and information about contributing individuals or organizations, donation amounts and recipient parties. Particularly relevant for studying political finance, donor networks, organizational influence and transparency in German democratic institutions. Coverage is limited to donations exceeding applicable disclosure thresholds.\"\n    },\n    {\n      \"title\": \"Object-Centric and Traditional Event Data of the German Bundestag\",\n      \"url_or_doi\": \"https://zenodo.org/records/16811928\",\n      \"justification\": \"Academic research dataset published on Zenodo containing structured parliamentary process data extracted from the German Bundestag's information systems. Covers legislative periods up to the 20th Bundestag (2021–2025). Includes information about parliamentary activities, legislative procedures and interactions involving parliamentarians and government members. Especially suitable for computational political science, institutional analysis, process mining and research on parliamentary decision-making.\"\n    },\n    {\n      \"title\": \"Every Bundestag Vote Dataset – German Parliamentary Voting\",\n      \"url_or_doi\": \"https://fis.uni-bamberg.de/entities/researchdata/15589a0c-ef09-477f-b996-622af5a0293e\",\n      \"justification\": \"Academic dataset documenting plenary votes in the German Bundestag during the 19th legislative period (2017–2021), including the beginning of the 2020s. Covers recorded and non-recorded votes and supports analysis of parliamentary voting procedures, opposition strategies and legislative decision-making. Particularly useful for comparing voting behavior before and after the 2021 change of government.\"\n    },\n    {\n      \"title\": \"Politblick – German Bundestag Voting Data\",\n      \"url_or_doi\": \"https://politblick.de/daten/\",\n      \"justification\": \"Data download portal providing structured information about parliamentary voting in Germany, including historical voting records from completed legislative periods. Useful for examining voting patterns, political party alignment, parliamentary coalitions and differences between government and opposition behavior during the 2020s.\"\n    },\n    {\n      \"title\": \"Konrad Adenauer Foundation – German Election Results Since 1946\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Historical election data collection covering German federal elections, European Parliament elections and elections in Germany's federal states. Includes election results from the 2020s and supports comparisons across different levels of government. Particularly relevant for studying Germany's federal political system, regional political organizations, electoral trends and long-term changes in party competition.\"\n    },\n    {\n      \"title\": \"German Bundestag – Political Party Financial Reports and Public Financing\",\n      \"url_or_doi\": \"https://www.bundestag.de/parlament/praesidium/parteienfinanzierung/die_staatliche_parteienfinanzierung/07_rechenschaftsberichte-249386\",\n      \"justification\": \"Official Bundestag resource explaining and providing access to political party financial reporting. Relevant reports contain information about the financial resources, expenditures and assets of political parties, including reporting periods in the 2020s. Useful for examining the organizational structure and financial sustainability of political parties, as well as transparency and accountability within Germany's political system.\"\n    },\n    {\n      \"title\": \"German Bundestag – Political Party Financial Data for 2024\",\n      \"url_or_doi\": \"https://www.bundestag.de/presse/hib/kurzmeldungen-1148998\",\n      \"justification\": \"Official publication presenting financial data for seven political parties represented in the Bundestag at the end of 2024. Contains information on party revenues, expenditures and financial balances. Provides a focused source for comparing major German political organizations during the 2020s and investigating differences in their financial resources. The landing page references the underlying official financial reports.\"\n    },\n    {\n      \"title\": \"German Bundestag – Political Party Financial Data for 2023\",\n      \"url_or_doi\": \"https://www.bundestag.de/presse/hib/kurzmeldungen-1050024\",\n      \"justification\": \"Official Bundestag publication covering financial reports for parties represented in parliament during 2023, including CDU, SPD, Bündnis 90/Die Grünen, AfD, FDP, CSU, Die Linke and SSW. Provides data on financial income, expenditure and party resources. Useful for analyzing the financial characteristics of German political organizations during the 2021–2025 legislative period.\"\n    },\n    {\n      \"title\": \"German Bundestag – Political Party Financial Data for 2022\",\n      \"url_or_doi\": \"https://www.bundestag.de/presse/hib/kurzmeldungen-1010468\",\n      \"justification\": \"Official Bundestag publication linking to financial reports from 28 political parties for the 2022 reporting year. Particularly useful for studying smaller political organizations outside the major parliamentary parties, comparing organizational resources and investigating the diversity of Germany's party system during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454898.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18928,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1958,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20886
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

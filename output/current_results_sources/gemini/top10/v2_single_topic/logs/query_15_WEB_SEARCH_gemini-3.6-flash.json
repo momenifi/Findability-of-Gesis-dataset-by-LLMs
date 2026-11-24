@@ -1,0 +1,62 @@
+{
+  "query_id": 15,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) Panel 2016–2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14114\",\n      \"justification\": \"A comprehensive multi-wave survey dataset tracking political attitudes, voter preferences, and electoral behavior of German voters leading up to and following the 2021 federal election.\"\n    },\n    {\n      \"title\": \"GLES Nomination Study 2021 (ZA7717)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13988\",\n      \"justification\": \"A dataset systematically analyzing party-internal candidate nomination processes and constituency candidate selection for the 2021 German federal election.\"\n    },\n    {\n      \"title\": \"Official Open Data for the 2021 German Federal Election (Die Bundeswahlleiterin)\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse/opendata.html\",\n      \"justification\": \"Official machine-readable datasets (CSV/XML) provided by the Federal Returning Officer containing district-level vote counts and results for the 2021 German Bundestag election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 469,
+          "candidatesTokenCount": 329,
+          "totalTokenCount": 2350,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 469
+            }
+          ],
+          "thoughtsTokenCount": 1552,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "0Lanat7-BuOb3boPxfmd-Aw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "query_id": 110,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 110,
+        "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat: Gross domestic product (GDP) and main components (nama_10_gdp)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/nama_10_gdp\",\n      \"justification\": \"Provides official annual national accounts data for European countries, including Germany's GDP, output, final consumption expenditure, and capital formation throughout the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat: Population and employment - national accounts (nama_10_pe)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/nama_10_pe\",\n      \"justification\": \"Contains annual time series data on labor force, total employment, and population in Germany during the 2010s within the European system of accounts framework.\"\n    },\n    {\n      \"title\": \"World Bank Open Data - Germany\",\n      \"url_or_doi\": \"https://data.worldbank.org/country/germany\",\n      \"justification\": \"Tracks key economic indicators for Germany across the 2010s, including annual GDP growth, consumer price inflation, unemployment rates, and trade balances.\"\n    },\n    {\n      \"title\": \"FRED: National Accounts: GDP by Expenditure for Germany (DEUGDPRAPSMEI)\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/series/DEUGDPRAPSMEI\",\n      \"justification\": \"Provides OECD-sourced economic time series dataset for Germany's real gross domestic product and macroeconomic performance throughout the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 889,
+          "candidatesTokenCount": 400,
+          "totalTokenCount": 3003,
+          "cachedContentTokenCount": 336,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 889
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 336
+            }
+          ],
+          "thoughtsTokenCount": 1714,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "rziEaqf9CN7hnsEPi-aPgAo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 43,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_060cc75056393388006b04799115a087d299ba3f089a846502",
+        "created_at": 1795455377.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_060cc75056393388006b047992253887d2acbd50190fae0c2f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS online marriages divorces Germany dataset 2010 2024",
+                "German Family Panel pairfam data 2008 2022 GESIS dataset",
+                "SOEP German socio economic panel family marriage household data 2010 2023",
+                "German family demography survey FReDA data 2021 2024 dataset"
+              ],
+              "query": "Destatis GENESIS online marriages divorces Germany dataset 2010 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_060cc75056393388006b04799623c487d280ae3109ff081e20",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de soep core data distribution doi 2023 2024",
+                "site:destatis.de EN families living arrangements microcensus database 2010 2024",
+                "site:genesis.destatis.de 12631-0001 Ehescheidungen Deutschland Jahre",
+                "site:gesis.org ISSP 2012 family changing gender roles IV ZA5900"
+              ],
+              "query": "site:diw.de soep core data distribution doi 2023 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_060cc75056393388006b0479994b7887d29cfbaff067d9b467",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Family Panel (pairfam) – Panel Analysis of Intimate Relationships and Family Dynamics, 2008–2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.14.2.0\",\n      \"justification\": \"One of the most comprehensive longitudinal datasets on family life and intimate relationships in Germany. Covers 14 survey waves from 2008 to 2022, including the entire 2010s and early 2020s. Contains information on marriage, cohabitation, relationship satisfaction, separation, divorce, fertility intentions, parenting, and intergenerational relationships. Particularly useful for studying how family structures and marriage patterns changed over time. Individual-level research data are available through GESIS under a data-use agreement.\"\n    },\n    {\n      \"title\": \"FReDA – The German Family Demography Panel, 2021–2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14698\",\n      \"justification\": \"A major longitudinal survey specifically designed to study contemporary family life and demographic change in Germany. The referenced release includes survey waves collected between 2021 and 2025. Covers partnerships, marriage, fertility, family planning, parenting, relationship quality, household arrangements, and gender roles. Particularly valuable for analyzing family formation, changing marriage expectations, and family dynamics during the 2020s. It also supports continuity with the earlier German Family Panel (pairfam).\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) – Longitudinal Household and Family Data\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38.1i\",\n      \"justification\": \"A nationally representative longitudinal household survey covering Germany since 1984. This dataset version includes observations through 2021, making it suitable for analyzing family and marriage trends throughout the 2010s and into the 2020s. Contains information on marital status, household composition, partnerships, children, employment, household income, life satisfaction, and socioeconomic inequalities. Especially useful for investigating relationships between marriage, family structures, economic conditions, and well-being. Research access conditions apply.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Annual Marriage Statistics in Germany, 1950–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12611-0001/table-toolbar\",\n      \"justification\": \"Official annual marriage statistics published by the German Federal Statistical Office (Destatis). Provides the number of marriages and marriage rates per 1,000 inhabitants, covering the 2010s and 2020s. Particularly useful for examining long-term marriage trends, changes in marriage frequency, and the impact of the COVID-19 pandemic on marriage patterns. Data can be used for time-series analysis and comparisons between periods.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Marriages by German Federal State, 1990–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12611-0010/table-toolbar\",\n      \"justification\": \"Official regional marriage statistics covering all German federal states. Provides annual marriage counts from 1990 through 2025, including the requested decades. Particularly valuable for studying geographical differences in marriage patterns, comparing eastern and western Germany, and examining regional changes in marriage frequency. Suitable for regional demographic research and longitudinal statistical analysis.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Annual Divorce Statistics in Germany, 1950–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12631-0001/chart/line/table-toolbar\",\n      \"justification\": \"Official German divorce statistics providing annual counts of legally finalized divorces. Includes continuous observations across the 2010s and 2020s. Useful for investigating marital stability, divorce trends, and changes in family dissolution patterns. Can be combined with marriage statistics to compare trends in marriage formation and dissolution. Particularly relevant for examining whether divorce frequency changed during the COVID-19 period.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Divorces by Duration of Marriage, 1982–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12631-0002/search/s/MTI2MzEtMDAwMg%3D%3D\",\n      \"justification\": \"Official divorce statistics classified by the duration of marriage before divorce. Covers both the 2010s and 2020s and allows researchers to investigate marital stability at different relationship durations. Particularly useful for analyzing whether shorter or longer marriages became more likely to end in divorce and for identifying changes in the distribution of marriage duration at dissolution.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Divorces and Children Affected by Divorce\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/12631/details\",\n      \"justification\": \"Official statistical collection containing divorce datasets, including table 12631-0003 on divorces classified by the number of joint minor children. Relevant for examining the relationship between marital dissolution and family life during the 2010s and 2020s. Particularly useful for studying divorces involving children and understanding how changes in divorce patterns may affect families with dependent children.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Family Structures and Living Arrangements in Germany (Microcensus)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/12211/table/12211-0420\",\n      \"justification\": \"Official German Microcensus statistics on family structures and household living arrangements. Includes married couples with and without children, unmarried cohabiting couples, single parents, and other family arrangements. Particularly relevant for examining changes in the prevalence of marriage, cohabitation, single parenthood, and childless partnerships. Provides a foundation for studying structural changes in German family life across the 2010s and 2020s. Researchers should account for methodological changes introduced with the 2020 Microcensus redesign.\"\n    },\n    {\n      \"title\": \"Destatis – Families and Family Members with Minor Children by Living Arrangement\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Population/Households-Families/Tables/families.html\",\n      \"justification\": \"Official statistical tables describing German families with minor children, distinguishing married couples, cohabiting couples, and single-parent households. Includes comparisons between eastern and western Germany. Useful for investigating family composition, the importance of marriage in households with children, and regional differences in family arrangements. Particularly relevant for understanding contemporary family structures in the 2020s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2012 – Family and Changing Gender Roles IV\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12661\",\n      \"justification\": \"International comparative survey dataset containing German respondents and focusing on family attitudes and gender roles. Covers attitudes toward marriage, parenting, women's employment, household responsibilities, partnerships, and the division of labor within families. Particularly useful for examining German social attitudes toward family life during the early 2010s. Enables comparisons between Germany and other countries, as well as comparisons with earlier ISSP family survey waves.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme – Family and Changing Gender Roles, 1988–2022\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/family-and-changing-gender-roles\",\n      \"justification\": \"A collection of internationally comparable survey datasets examining changing attitudes toward family life, marriage, gender roles, parenting, and domestic responsibilities. Includes survey rounds from 2012 and 2022, making it particularly useful for comparing family-related attitudes between the 2010s and 2020s. Researchers can select German respondents to investigate changing expectations surrounding marriage, household labor, parenthood, and gender equality. The collection also supports longer-term comparisons using earlier survey rounds.\"\n    },\n    {\n      \"title\": \"Destatis – Marriages, Divorces and Registered Life Partnerships in Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Population/Marriages-Divorces-Life-Partnerships/_node.html\",\n      \"justification\": \"Official German Federal Statistical Office data portal covering marriage, divorce, and registered life partnerships. Provides access to statistical tables and historical series relevant to the 2010s and 2020s. Particularly useful for investigating marriage trends, marital dissolution, and changes in legally recognized partnerships, including developments following the introduction of same-sex marriage in Germany in 2017. Serves as a central access point for multiple official marriage and divorce datasets.\"\n    },\n    {\n      \"title\": \"Destatis – Households and Families in Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Population/Households-Families/_node.html\",\n      \"justification\": \"Official statistical data portal focusing on household composition, family structures, couples, children, and living arrangements in Germany. Provides access to Microcensus-based statistical tables and information on family types, including married couples, unmarried partnerships, and single-parent households. Useful for analyzing changes in German family structures during the 2010s and 2020s and for identifying relevant datasets on household size, children, and family composition.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455395.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18969,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2203,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21172
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

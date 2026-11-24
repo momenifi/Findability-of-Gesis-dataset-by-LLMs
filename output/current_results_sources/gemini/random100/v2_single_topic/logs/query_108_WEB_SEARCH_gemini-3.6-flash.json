@@ -1,0 +1,69 @@
+{
+  "query_id": 108,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Denmark, Germany, Spain, France, Ireland, Italy, Portugal, United Kingdom, Estonia, Hungary, and Slovenia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Chapel Hill Expert Survey (CHES) Trend File 1999–2019\",\n      \"url_or_doi\": \"https://www.chesdata.eu/ches-europe\",\n      \"justification\": \"Provides expert survey data on political party positions regarding European integration, international politics, and foreign policy across European countries, including Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Estonia, Hungary, and Slovenia during the 2000s (waves in 1999, 2002, 2006, and 2010).\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset (MPDS)\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"Contains content-analyzed party manifestos for national elections in Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Estonia, Hungary, and Slovenia during the 2000s, measuring party stances on internationalism, foreign policy, and international organisations.\"\n    },\n    {\n      \"title\": \"Correlates of War (COW) Intergovernmental Organizations (IGO) Dataset (v3.0)\",\n      \"url_or_doi\": \"https://correlatesofwar.org/data-sets/igo/\",\n      \"justification\": \"Tracks state membership and participation status in formal intergovernmental organisations from 1815 to 2014, covering Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Estonia, Hungary, and Slovenia throughout the 2000s.\"\n    },\n    {\n      \"title\": \"Comparative Political Data Set (CPDS) 1960–2023\",\n      \"url_or_doi\": \"https://www.cpds-data.org/\",\n      \"justification\": \"Collects annual political, institutional, and international relations variables for 36 democratic nations, including Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Estonia, Hungary, and Slovenia across the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1117,
+          "candidatesTokenCount": 522,
+          "totalTokenCount": 3872,
+          "cachedContentTokenCount": 443,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1117
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 443
+            }
+          ],
+          "thoughtsTokenCount": 2233,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "OjiEarGLLuTbvdIPmbHOgQo"
+      }
+    }
+  ]
+}

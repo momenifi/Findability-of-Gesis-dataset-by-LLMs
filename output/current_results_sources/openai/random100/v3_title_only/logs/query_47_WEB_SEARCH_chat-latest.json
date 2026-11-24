@@ -1,0 +1,168 @@
+{
+  "query_id": 47,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Election Study 1994: Politbarometer West 1994 (Trend Investigations)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0bfc72524f6b14f9006b046dfdc28c87d2be5ecb5c2cd4794b",
+        "created_at": 1795452413.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0bfc72524f6b14f9006b046dfead0887d2b9a4bb02b50a23e3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Election Study 1994\" \"Politbarometer West 1994\" \"Trend Investigations\" dataset",
+                "Politbarometer West 1994 Trenduntersuchungen GESIS DOI"
+              ],
+              "query": "\"Election Study 1994\" \"Politbarometer West 1994\" \"Trend Investigations\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0bfc72524f6b14f9006b046e00fb6887d28c491cd907509a1b",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Election Study 1994: Politbarometer West 1994 (Trend Investigations)\",\"url_or_doi\":\"https://doi.org/10.4232/1.2546\",\"justification\":\"Exact title match. This dataset is archived by the GESIS Data Archive in Cologne, Germany, under study identifier ZA2546 (Version 1.0.0), published in 1995. It contains survey data collected in West Germany during 1994, examining political attitudes, voting behavior, party preferences, politicians, and contemporary political issues. The dataset includes 12,247 observations and 310 variables. This DOI is the official persistent identifier for the requested dataset.\"},{\"title\":\"Election Study 1994: Politbarometer West 1994 (Trend Investigations) — GESIS Data Catalogue\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA2546?lang=de\",\"justification\":\"Official GESIS dataset landing page for study ZA2546. It provides the dataset's bibliographic information, survey description, documentation, and information about accessing the research data. The German title is 'Wahlstudie 1994: Politbarometer West 1994 (Trenduntersuchungen).' This record corresponds directly to the requested dataset.\"},{\"title\":\"Election Study 1994: Politbarometer West 1994 (Trend Investigations) — B2FIND\",\"url_or_doi\":\"https://b2find.eudat.eu/dataset/064ad0c2-3332-580a-a624-5727463c9223\",\"justification\":\"Independent dataset catalogue entry in the B2FIND research data discovery service, indexed through CESSDA. It confirms the exact dataset title, publication year (1995), publisher (GESIS Data Archive), and DOI (10.4232/1.2546). The entry includes a detailed description of survey topics, methodology, creators, and access conditions. It provides an alternative discovery page for the same dataset.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452419.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10811,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 422,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 11233
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

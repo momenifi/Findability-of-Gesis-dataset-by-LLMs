@@ -1,0 +1,69 @@
+{
+  "query_id": 34,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Information technology in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat: Digital Intensity by Size Class of Enterprise (isoc_e_dii)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_e_dii\",\n      \"justification\": \"This official Eurostat dataset measures the adoption level of digital technologies and ICT integration across enterprises in EU member states, including Germany, covering data from the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Households - Level of Internet Access (isoc_ci_in_h)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ci_in_h\",\n      \"justification\": \"This dataset tracks household internet access, connectivity, and digital infrastructure adoption in European countries, including Germany, throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Share of Enterprises Using Any Business Software (tin00116)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/tin00116\",\n      \"justification\": \"This dataset measures enterprise usage of core information technology systems—such as ERP, CRM, and BI software—in Germany and other EU countries.\"\n    },\n    {\n      \"title\": \"Eurostat: ICT and Environment by Size Class of Enterprise (isoc_e_envs)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_e_envs\",\n      \"justification\": \"This dataset details how enterprises in EU member states, including Germany, manage ICT equipment, handle e-waste, and implement green IT solutions during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 527,
+          "candidatesTokenCount": 438,
+          "totalTokenCount": 2954,
+          "cachedContentTokenCount": 110,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 527
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 110
+            }
+          ],
+          "thoughtsTokenCount": 1989,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "5benarTDBMaU3boPu9PewAo"
+      }
+    }
+  ]
+}

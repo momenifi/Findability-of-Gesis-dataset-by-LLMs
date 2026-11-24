@@ -1,0 +1,167 @@
+{
+  "query_id": 3,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled European Values Study 2017: Integrated Dataset (EVS 2017)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_066aa7efac565fb7006b047c411e2487d2909c180d6c909fb8",
+        "created_at": 1795456065.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_066aa7efac565fb7006b047c41ef6c87d2be874c750119c5c3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European Values Study 2017 Integrated Dataset EVS 2017 DOI GESIS landing page"
+              ],
+              "query": "European Values Study 2017 Integrated Dataset EVS 2017 DOI GESIS landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_066aa7efac565fb7006b047c44142487d2a5aca3cd21ba1bb4",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"European Values Study 2017: Integrated Dataset (EVS 2017)\",\"url_or_doi\":\"https://doi.org/10.4232/1.13897\",\"justification\":\"Exact match for the requested dataset. Published by the European Values Study (EVS) and archived at GESIS – Leibniz Institute for the Social Sciences, Cologne. The dataset is identified as ZA7500, Version 5.0.0 (2022), and contains survey responses from 59,438 respondents across 36 European countries. It covers social, political, religious, cultural, and moral values. The DOI provides a persistent link to the official dataset record, including documentation and data access information.\"},{\"title\":\"European Values Study 2017: Integrated Dataset (EVS 2017) – GESIS Data Catalogue\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA7500\",\"justification\":\"Official dataset landing page in the GESIS research data catalogue. This record corresponds directly to the requested European Values Study 2017 Integrated Dataset (ZA7500). It provides authoritative metadata, citation information, documentation, and access to the dataset.\"},{\"title\":\"European Values Study 2017 – Official EVS Survey Page\",\"url_or_doi\":\"https://europeanvaluesstudy.eu/surveys/surveys-evs/evs-2017/\",\"justification\":\"Official European Values Study website describing the 2017 survey wave and its integrated datasets. It identifies the requested dataset as ZA7500 and provides its DOI (10.4232/1.13897), information about participating countries, survey methodology, documentation, and access through GESIS.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795456069.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10821,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 356,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 11177
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

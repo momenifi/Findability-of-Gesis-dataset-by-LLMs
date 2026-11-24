@@ -1,0 +1,69 @@
+{
+  "query_id": 1,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Political Action: An Eight Nation Study, 1973-1976\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR07777.v1\",\n      \"justification\": \"This cross-national study conducted between 1973 and 1976 includes personal interviews with respondents in West Germany, capturing data on conventional and unconventional political participation, protest attitudes, and ideological orientations.\"\n    },\n    {\n      \"title\": \"The Mannheim Eurobarometer Trend File, 1970-2002\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR04357.v1\",\n      \"justification\": \"This cumulative dataset combines Eurobarometer survey series starting from the 1970s, measuring public opinion, political trust, voting intentions, and socio-political attitudes in West Germany and other EC member states.\"\n    },\n    {\n      \"title\": \"Political Action Panel Study, 1973-1981\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR09582.v1\",\n      \"justification\": \"This multi-wave longitudinal study tracks political attitudes, government performance evaluations, political trust, and voting behavior in Germany (along with the Netherlands and US) from 1973 through 1981.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 925,
+          "candidatesTokenCount": 359,
+          "totalTokenCount": 2882,
+          "cachedContentTokenCount": 245,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 925
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 245
+            }
+          ],
+          "thoughtsTokenCount": 1598,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "qyKEauTJMdCLvdIPsPS-gAM"
+      }
+    }
+  ]
+}

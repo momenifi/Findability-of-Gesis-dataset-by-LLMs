@@ -1,0 +1,183 @@
+{
+  "query_id": 11,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Sexual Conduct of Men and Women in the Federal Republic of Germany 1989?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0fa53283a9905197006b046d20a66c87d299d8c261bb1d202f",
+        "created_at": 1795452192.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0fa53283a9905197006b046d2168f087d2973049fcca8af45f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset \"Sexual Conduct of Men and Women in the Federal Republic of Germany 1989\"",
+                "\"Sexual Conduct of Men and Women\" \"1989\" dataset"
+              ],
+              "query": "dataset \"Sexual Conduct of Men and Women in the Federal Republic of Germany 1989\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0fa53283a9905197006b046d23954887d2a6b39cc34c2e774c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Sexual Behavior of Men and Women in the Federal Republic of Germany\" 1989 dataset",
+                "\"Sexualverhalten\" \"Männer\" \"Frauen\" \"1989\" GESIS",
+                "site:search.gesis.org \"Sexualverhalten\" \"1989\""
+              ],
+              "query": "\"Sexual Behavior of Men and Women in the Federal Republic of Germany\" 1989 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0fa53283a9905197006b046d271a9487d294cbb34b5f39b251",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Sexual Behaviour of Men and Women in the Federal Republic of Germany (1990)\",\"url_or_doi\":\"https://api.pageplace.de/preview/DT0400.9781000029659_A40387850/preview-9781000029659_A40387850.pdf\",\"justification\":\"A closely matching study is documented in 'Sexual Behaviour and HIV/AIDS in Europe: Comparisons of National Surveys.' The study was conducted in West Germany in 1990, with H. Jung listed as the principal investigator and the Bundesministerium für Gesundheit (Federal Ministry of Health) as the funding organization. The publication identifies the survey by its English title and provides information about its geographic coverage and collection year. However, the documented year is 1990 rather than the requested 1989. This link provides supporting documentation, not a direct dataset download. An exact dataset landing page or DOI for the 1989 study could not be verified.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452200.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 16838,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 266,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 17104
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

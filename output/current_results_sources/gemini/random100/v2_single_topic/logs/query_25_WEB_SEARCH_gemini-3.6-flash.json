@@ -1,0 +1,69 @@
+{
+  "query_id": 25,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Reproductive health in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Human Fertility Database: East Germany and West Germany Fertility Datasets\",\n      \"url_or_doi\": \"https://www.humanfertility.org/\",\n      \"justification\": \"Provides open-access historical vital statistics, birth counts by mother's age, and age-specific fertility rates for both East Germany (GDR) and West Germany (FRG) spanning the 1980s.\"\n    },\n    {\n      \"title\": \"Federal Statistical Office of Germany (Destatis) - Historical Birth and Fertility Statistics\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/\",\n      \"justification\": \"Contains official long-term administrative database records on annual live births, age-specific fertility rates, and birth parity in Germany across the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - GESIS Data Archive\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus\",\n      \"justification\": \"Includes representative population survey datasets collected in West Germany during the 1980s (e.g., 1982, 1988) containing modules on family planning, gender roles, and attitudes toward abortion.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 639,
+          "candidatesTokenCount": 309,
+          "totalTokenCount": 2266,
+          "cachedContentTokenCount": 299,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 639
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 299
+            }
+          ],
+          "thoughtsTokenCount": 1318,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "LSmEatLHJpnzvdIPvIGTYQ"
+      }
+    }
+  ]
+}

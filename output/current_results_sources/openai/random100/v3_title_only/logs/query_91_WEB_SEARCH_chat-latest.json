@@ -1,0 +1,168 @@
+{
+  "query_id": 91,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Representatives in the Reichstag in the Weimar Republic 1919-1933?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00cf9bc7d68ef51e006b046f11a47087d29c8a6fc331756c4f",
+        "created_at": 1795452689.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00cf9bc7d68ef51e006b046f12785c87d29b318fea6ab5c1a4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset \"Representatives in the Reichstag in the Weimar Republic 1919-1933\"",
+                "\"Representatives in the Reichstag\" \"1919\" \"1933\" dataset"
+              ],
+              "query": "dataset \"Representatives in the Reichstag in the Weimar Republic 1919-1933\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00cf9bc7d68ef51e006b046f14fec087d2bad613b425a96d3e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Representatives in the Reichstag in the Weimar Republic 1919-1933\",\"url_or_doi\":\"https://doi.org/10.4232/1.8007\",\"justification\":\"Exact match for the requested dataset. Authored by Heinrich Best and published by the GESIS Data Archive in 1990 (Study ZA8007, Version 1.0.0). The dataset examines the 1,794 representatives who served in the Weimar National Assembly and the German Reichstag between 1919 and 1933, including the Reichstag elected in March 1933. It contains historical and biographical information relevant to research on parliamentary elites, political representation, and the Weimar Republic. The dataset is registered under DOI 10.4232/1.8007. Access to the data requires written authorization from the data depositor for academic research or teaching.\"},{\"title\":\"Representatives in the Reichstag in the Weimar Republic 1919-1933 — GESIS Data Search Knowledge Graph\",\"url_or_doi\":\"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.8007\",\"justification\":\"Official GESIS dataset metadata record confirming the exact English title and German title, 'Abgeordnete der Reichstage der Weimarer Republik 1919-1933.' The record identifies Heinrich Best as the creator, GESIS Data Archive as the publisher, 1990 as the publication year, and 1919–1933 as the temporal coverage. It also provides information about the study population, access conditions, and related research publications. This landing page is useful for verifying the dataset's identity and bibliographic details.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452695.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10791,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 355,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 11146
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

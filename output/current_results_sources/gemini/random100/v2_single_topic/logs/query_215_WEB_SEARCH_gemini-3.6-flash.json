@@ -1,0 +1,62 @@
+{
+  "query_id": 215,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic systems and development in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"DOSE - Global dataset of reported subnational economic output\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-023-02323-8\",\n      \"justification\": \"This dataset provides harmonized subnational economic output and per-capita GDP data for regions across 83 countries, including German federal states, covering 1953 through 2020 (including the full 2010s decade).\"\n    },\n    {\n      \"title\": \"Eurostat: Gross domestic product (GDP) and main components (nama_10_gdp)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/nama_10_gdp\",\n      \"justification\": \"Official Eurostat dataset containing annual national accounts, output, expenditure, and income components for European countries, including Germany, covering the 2010s.\"\n    },\n    {\n      \"title\": \"Destatis Long-term Economic Development in Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/National-Accounts-Domestic-Product/long-term-economic-development.html\",\n      \"justification\": \"Maintained by the German Federal Statistical Office (Destatis), this dataset provides time-series economic indicators, price-adjusted GDP growth, and macroeconomic stats for Germany covering 2010–2020.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators - Germany\",\n      \"url_or_doi\": \"https://databank.worldbank.org/source/world-development-indicators\",\n      \"justification\": \"Provides comprehensive development metrics for Germany, including annual GDP growth, labor force participation, trade balances, and inflation across the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 756,
+          "candidatesTokenCount": 449,
+          "totalTokenCount": 2384,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 756
+            }
+          ],
+          "thoughtsTokenCount": 1179,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "JlWEaquYF7LlkdUPpty0gA0"
+      }
+    }
+  ]
+}

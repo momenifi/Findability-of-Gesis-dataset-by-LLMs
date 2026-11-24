@@ -1,0 +1,186 @@
+{
+  "query_id": 17,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Occupational health in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0997325e56cc0a4b006b045b5f8c4c87d28bdce8003427e5d9",
+        "created_at": 1795447647.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0997325e56cc0a4b006b045b60835887d28196e5760c15c312",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurostat accidents at work dataset ESAW 2010 2019 country",
+                "Eurofound European Working Conditions Survey 2010 2015 dataset countries",
+                "Eurostat occupational diseases work related health problems labour force survey ad hoc module 2013 2020 dataset",
+                "EU OSHA ESENER 2014 2019 survey dataset countries"
+              ],
+              "query": "Eurostat accidents at work dataset ESAW 2010 2019 country",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0997325e56cc0a4b006b045b64154887d2b346b87794c1979a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:osha.europa.eu ESENER 2014 data visualisation survey",
+                "site:osha.europa.eu ESENER 2019 data survey",
+                "site:ec.europa.eu/eurostat/databrowser/product/page/hsw_mi01 accidents",
+                "site:ec.europa.eu/eurostat/databrowser work related health problems 2013 hsw_pb"
+              ],
+              "query": "site:osha.europa.eu ESENER 2014 data visualisation survey",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0997325e56cc0a4b006b045b66fc3487d29392c7ed70fa6c78",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER) 2014 – EU-OSHA\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en/survey/overview/2014\",\n      \"justification\": \"One of the most relevant datasets for the requested research. Conducted in 2014, ESENER-2 covers all 36 countries specified in the query, including Albania, Montenegro, North Macedonia, Serbia, Turkey, Switzerland, Norway, and Iceland. It provides cross-nationally comparable information about occupational health and safety management, workplace hazards, psychosocial risks, work-related stress, employee participation, and preventive measures. Particularly valuable because it offers comprehensive geographical coverage within the requested decade.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER) 2019 – EU-OSHA\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en\",\n      \"justification\": \"The third ESENER survey was conducted in 2019 and collected information on occupational safety and health management from establishments in 33 European countries. Coverage includes the 28 EU member states at that time, Iceland, North Macedonia, Norway, Serbia, and Switzerland. Variables include physical and psychosocial risks, workplace stress, violence, harassment, occupational risk assessments, and preventive measures. The dataset supports comparisons with ESENER 2014. Albania, Montenegro, and Turkey are not included in this wave.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2010 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2010\",\n      \"justification\": \"The fifth European Working Conditions Survey was conducted in 2010 and collected information from more than 43,000 workers across 34 European countries. It includes occupational health indicators such as exposure to physical hazards, ergonomic risks, workplace stress, work intensity, working hours, health complaints, and perceived effects of work on health. It is particularly suitable for analyzing occupational health conditions at the beginning of the 2010s and comparing workers across European countries.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2015 – Eurofound\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey/ewcs-2015\",\n      \"justification\": \"The sixth European Working Conditions Survey provides extensive information about workers' health, safety, well-being, and employment conditions in 2015. It includes indicators on physical workplace hazards, psychosocial risks, musculoskeletal problems, occupational stress, working time, job satisfaction, and work-related health outcomes. Its geographical coverage extends across EU member states and several additional European countries. Particularly useful for comparing occupational health conditions between 2010 and 2015.\"\n    },\n    {\n      \"title\": \"European Working Conditions Surveys (EWCS) – Historical Survey Collection\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"Eurofound's central collection of European Working Conditions Surveys provides access to multiple survey waves, including 2010 and 2015. The surveys use comparable indicators covering occupational health, exposure to workplace risks, work-related stress, physical working conditions, and worker well-being. This resource is especially useful for longitudinal research examining changes in occupational health across European countries during the 2010s.\"\n    },\n    {\n      \"title\": \"European Statistics on Accidents at Work (ESAW), 2008 Onwards – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/hsw_acc_work_esms.htm\",\n      \"justification\": \"Eurostat's European Statistics on Accidents at Work provides harmonized occupational accident statistics covering the entire 2010–2019 period. The data include fatal and non-fatal workplace accidents, injury severity, economic activity, occupation, age, sex, and circumstances of accidents. They are suitable for cross-country comparisons of occupational injury incidence and trends across EU countries and participating European Economic Area and EFTA countries. Coverage and reporting completeness vary by country and year.\"\n    },\n    {\n      \"title\": \"Accidents at Work – Main Indicators (hsw_mi01) – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/products-datasets/-/HSW_MI01\",\n      \"justification\": \"This Eurostat dataset provides key indicators of occupational accidents, including numbers and incidence rates of fatal and non-fatal workplace accidents. It includes observations from the 2010s and allows comparisons across participating European countries. It is especially relevant for studying national differences in occupational safety outcomes, workplace injury trends, and changes in occupational accident incidence over time.\"\n    },\n    {\n      \"title\": \"Accidents at Work by NACE Rev. 2 Activity and Type of Injury (hsw_n2_07) – Eurostat\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/f6uyge3sovcwru5x51sog?locale=en\",\n      \"justification\": \"This dataset provides occupational accident statistics classified by economic activity and injury type. It includes data from the 2010s and supports analysis of occupational injury patterns across European countries and industries. Researchers can investigate differences in workplace injuries between manufacturing, construction, agriculture, transportation, and other economic sectors. It is particularly useful for identifying high-risk industries and comparing occupational injury profiles internationally.\"\n    },\n    {\n      \"title\": \"Accidents at Work by Days Lost and NACE Rev. 2 Activity (hsw_n2_04) – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/HSW_N2_04/default/table?lang=en\",\n      \"justification\": \"This dataset measures occupational accidents according to the number of working days lost and economic activity. It provides information relevant to the severity and consequences of workplace injuries across European countries during the 2010s. It is useful for studying occupational injury burdens, comparing industries, and examining how workplace accidents affect employee absence and occupational health outcomes.\"\n    },\n    {\n      \"title\": \"Accidents at Work by Sex, Age, Severity, NACE Rev. 2 Activity and Working Process (hsw_ph3_03) – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/HSW_PH3_03/default/table?lang=en\",\n      \"justification\": \"This detailed Eurostat dataset provides occupational accident statistics by demographic characteristics, severity, industry, and working process. It includes observations covering part of the 2010s, beginning in 2014. The data support research on demographic inequalities in workplace injuries, occupational risk factors, and industry-specific accident patterns across participating European countries.\"\n    },\n    {\n      \"title\": \"European Occupational Diseases Statistics (EODS), 2013 Onwards – Eurostat\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/health/database/occupational-diseases\",\n      \"justification\": \"This Eurostat resource provides occupational disease statistics beginning in 2013, including downloadable country-level data and information on recognized occupational diseases. It covers 24 EU member states and Switzerland, although availability varies by country and year. The data are valuable for examining occupational disease recognition, distribution, and trends during 2013–2019. Country profiles also provide methodological information about occupational disease reporting and compensation systems.\"\n    },\n    {\n      \"title\": \"European Occupational Diseases Statistics (EODS) – Statistical Metadata and Data Collection\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/hsw_occ_esms.htm\",\n      \"justification\": \"This official Eurostat resource describes the European Occupational Diseases Statistics dataset, including coverage, definitions, reporting methodologies, and country participation. The data collection begins in 2013 and includes information about recognized occupational diseases in participating European countries. It is especially important for interpreting cross-national occupational disease statistics because national recognition, reporting, and compensation systems differ substantially.\"\n    },\n    {\n      \"title\": \"EU Labour Force Survey – Work-Related Health Problems and Occupational Accidents, 2013\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/health/information-data\",\n      \"justification\": \"The 2013 EU Labour Force Survey ad hoc module collected information about workplace accidents and work-related health problems. It provides self-reported occupational health indicators, complementing administrative accident and occupational disease statistics. Relevant variables include work-related health complaints, occupational accidents, and characteristics of affected workers. This resource is useful for comparing work-related health problems across participating EU countries during the middle of the 2010s. The link leads to Eurostat's health data information page rather than an individual downloadable dataset.\"\n    },\n    {\n      \"title\": \"Persons Reporting a Work-Related Health Problem by Occupation – European Institute for Gender Equality\",\n      \"url_or_doi\": \"https://dgs-p.eige.europa.eu/data/view?code=ta_wrklab_wrk_cond_wrkhealthsaf_incid__hsw_pb7\",\n      \"justification\": \"This dataset provides occupational health indicators concerning people reporting work-related health problems, classified by occupation. It includes observations for 2013, directly matching the requested period. Based on Eurostat labour force survey statistics, it enables comparisons of occupational health problems between occupational groups and participating European countries. Particularly useful for studying inequalities in occupational health exposure and outcomes.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER) – Interactive Data Explorer\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en\",\n      \"justification\": \"This interactive EU-OSHA data platform provides access to results from multiple ESENER survey waves, including 2014 and 2019. Users can compare countries, sectors, establishment sizes, and occupational health and safety indicators. It covers workplace risk assessments, physical and psychosocial hazards, occupational health management, and employee participation in prevention. The 2014 survey is especially important because it includes all 36 countries specified in the query, while the 2019 wave supports temporal comparisons for a subset.\"\n    },\n    {\n      \"title\": \"European Working Life Observatory (EurWORK) – Eurofound\",\n      \"url_or_doi\": \"https://b2share.eudat.eu/records/tkfh6-fyr09\",\n      \"justification\": \"EurWORK provides European research and information concerning working conditions, employment relations, occupational health, and workplace well-being. Its historical coverage includes the entire 2010–2019 period. Relevant topics include occupational safety, workplace stress, psychosocial hazards, physical working conditions, absenteeism, workplace health promotion, and work organization. This resource is particularly useful for supplementing quantitative occupational health datasets with comparative institutional and country-level information.\"\n    },\n    {\n      \"title\": \"European Occupational Safety and Health Data – EU-OSHA ESENER 2014\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en/survey/overview/2014\",\n      \"justification\": \"The ESENER 2014 survey is particularly suitable for research requiring simultaneous coverage of Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia. The survey contains establishment-level information on occupational health and safety practices, health risk management, psychosocial risks, workplace hazards, and prevention policies. It is the strongest identified match for the complete geographical scope and the 2010s time frame.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447667.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18896,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2701,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21597
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

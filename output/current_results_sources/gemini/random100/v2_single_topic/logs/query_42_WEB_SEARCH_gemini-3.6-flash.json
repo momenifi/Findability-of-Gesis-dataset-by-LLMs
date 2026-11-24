@@ -1,0 +1,69 @@
+{
+  "query_id": 42,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Shell Jugendstudie (Kumulation 2002, 2006, 2010, 2015, 2019, 2024)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2797\",\n      \"justification\": \"A representative time-series study conducted across Germany capturing values, political attitudes, media usage, and social behaviors of youth aged 12 to 25 throughout the 2010s.\"\n    },\n    {\n      \"title\": \"Aufwachsen in Deutschland: Alltagswelten 2019 (AID:A 2019)\",\n      \"url_or_doi\": \"https://doi.org/10.17621/aida2019\",\n      \"justification\": \"A comprehensive nationwide survey conducted by the German Youth Institute (DJI) examining everyday living conditions, family contexts, leisure time, and socialization of children, adolescents, and young adults in Germany.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 4 - Ninth Grade Students\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC4:15.0.0\",\n      \"justification\": \"A longitudinal panel dataset tracking German students recruited in 9th grade in 2010 throughout the 2010s, focusing on educational trajectories, competencies, and transitions into vocational training and adulthood.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) - Youth Questionnaire (BIOAGE17)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40o\",\n      \"justification\": \"A representative multi-cohort longitudinal study collecting annual survey data from 16-17-year-olds in Germany throughout the 2010s on youth socialization, family dynamics, personality, and plans for the future.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 761,
+          "candidatesTokenCount": 498,
+          "totalTokenCount": 3086,
+          "cachedContentTokenCount": 432,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 761
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 432
+            }
+          ],
+          "thoughtsTokenCount": 1827,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "rS2EapiLH6_4xN8PnLwr"
+      }
+    }
+  ]
+}

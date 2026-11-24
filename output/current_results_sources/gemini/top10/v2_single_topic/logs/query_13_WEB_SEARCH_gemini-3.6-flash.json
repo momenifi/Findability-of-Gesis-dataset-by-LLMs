@@ -1,0 +1,69 @@
+{
+  "query_id": 13,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat Gross domestic product (GDP) and main components (output, expenditure and income) - annual data\",\n      \"url_or_doi\": \"https://doi.org/10.2908/nama_10_gdp\",\n      \"justification\": \"This Eurostat dataset provides comprehensive national accounts indicators and GDP data for European Union member states as well as EU candidate and neighboring countries covering the 2020s.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators\",\n      \"url_or_doi\": \"https://databank.worldbank.org/source/world-development-indicators\",\n      \"justification\": \"The World Bank Open Data platform aggregates main macroeconomic, employment, trade, and financial indicators for all specified countries across Europe and the Western Balkans through the 2020s.\"\n    },\n    {\n      \"title\": \"Downscaled gridded global dataset for gross domestic product (GDP) per capita PPP over 1990–2022 (updated to 1990–2024)\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04487-x\",\n      \"justification\": \"This dataset hosted on Zenodo and published in Scientific Data provides national and subnational GDP per capita and economic indicator data covering the requested European countries during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1163,
+          "candidatesTokenCount": 353,
+          "totalTokenCount": 2906,
+          "cachedContentTokenCount": 446,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1163
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 446
+            }
+          ],
+          "thoughtsTokenCount": 1390,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "rbanarL3KpOLvdIP2pqR0QI"
+      }
+    }
+  ]
+}

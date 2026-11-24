@@ -1,0 +1,62 @@
+{
+  "query_id": 94,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political ideology in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, and Croatia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Social Survey (ESS) Round 10 (2020-2022)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/ess10e03_3\",\n      \"justification\": \"Contains individual-level cross-national survey data collected between 2020 and 2022 across European countries including EU member states, capturing measures of political orientation, left-right self-placement, institutional trust, and political values during the 2020s.\"\n    },\n    {\n      \"title\": \"European Election Study 2024, Voter Study\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14409\",\n      \"justification\": \"A post-election survey conducted across all 27 EU member states following the June 2024 European Parliament elections, measuring citizen political ideology, left-right placement, voting behavior, and attitudes toward European issues.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset (version 2023a)\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2023a\",\n      \"justification\": \"Provides quantitatively coded electoral programs and manifestos of political parties across EU member states, enabling measurement of party policy positions and ideological shifts through the 2020s.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey (CHES) 2023 / SPEED Ukraine\",\n      \"url_or_doi\": \"https://www.chesdata.eu\",\n      \"justification\": \"Offers expert assessments of political party positioning on overall ideology (general left-right, economic left-right, and GAL-TAN) across 30 European countries, including EU member states, during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EuQgCuEgARFNMg9xIdL/Pp7TZwNlpv1ulgMZH3JUVs2xfiWlq2vvoJc2ypcMjuOT+tqctNEOCOs2Nzi29hN1CwZKLRx3Mf21dcqPI+1wW6f/MwUgxYuF/FnAbJgdyBSNUb/lsxk86oeoR47jTS6Qnn+43UFSWDdyS0p7LDGOkRedD4p9sCk32GXPs1TQFP9xphtlFLi4HFuqfaQ0/QxL5ku0ual+vZ7GHFmSl3woK9yjctyHAuReI0mq6argoPqAi6gmYH8nYRHFvO2PK1BQgnFAhz2XHnxOUOc+eI0MtE4lMEkOxjkkwLGdSnrmS22FxoKR5KdJjz7a/0cxU3YSpIPdf4uWbQ3Q4iKgpUtLpEjdlfg5XolmOVH7VlKRYkgMAfB6fpF/c0xSGf0hG+kPvoVRSekZW7puShF7Xnfn7mBqgtEJuxNa3/aAda4xUybny9ITlOoA15spvI1bmanBApUbhyJ5mDgXyDALOCHtOUxfUL6Am+/uA+0QF4OP0hpmZqk5Uj6+G0YgVYf07hbin6/TxyhpcFgClx797e3DC5Zf99ntOjVpIok5H/Ocry84pjOcmx+OI7iimGZ9yYpeZVHUiAlCf5H8eBKTH9vr7Cyr1RRWaUo7w0Vr02vemgZQohFRIIX/pZIYJ+e1QE9fuNN6ihp8e76rwPUm2BjqNpRdWyR4dpenWwDeHl+r0jxCRahRnJtbSzuywlirFYq2o/52HELX4sdrj+PNTQBCJD6DFsF9hOw98sPVdS1LpH0FQRwy7WOrSdl/ExZZJpxKAG1u5S03SpzOeA1rTPHAeyEnycRcg5Yo4AgAbLDpO4ztPJyW58ysSBS9ru3IklIakeAd7W5sC6Sofxb0SoNmmp8AN9l8ZQG6yaGsRSnd5ZL7KPeTgqln4CS062spXvHvWCUUYA3pd8YNwKONDWk5fFaoj5f0Mw+Kd8uQZf9sB1nPhTy1cci+ilN/Pemy0d26v6Rb56O1DIN/L5/NryqY2i2wBdUVo8Va4FuzWkaBR9BLX/82HhILzunCOx0QMQpLTn/ZChvTwdza997JTxbxn/xtO7RZV1RpUhXLZX9PA38Cq7q+NKnWhmpK2UmpvOzAb7zluSuxExRYcFP3T/i36SwgANVUmhrspV9GV4zkc0vb6dGTYz+wNrQCujWG0y9VPPT2vjmLnsmOmzBkTt9WSDwOriSMMIbUhWcoHz8XPWHDkM6yHORdVMusSDYcnfs0nUAJY2JDNYI99m7X38wsE+7Or8Nv1UDeDkDQLDg3QnWP1xs1RBdITLj3d8A3QRVkg/5d4xh6Tc1w0M29v4G1+gPul2mwtGmNuMtban5qklmFNjSsqdCITLaBdzH/3q2jWVz25YjkHn+ZyQENQD5XrrhwlFCv2r6PLqPuXj2qEn+TFz2JaaAd0Eu4+OPiJ76CiMiG618Fcuisw8WPfOZSviadwRmH4PoNsqrp5ByM+c/mgD0NHmH1sAqnxXN3P+FIzMNFPySHu4sQSIu3+vl2/EC/bJrn7AN1Uzy4rjOyZ6Aeu7KfS0lW9HFwte+V7X9wQ3StUe970Gdp2Pe6v7rOIID92AA3IGZsVB/cEE0L/QcG/NvnLiGexYS0jPJ5GRxOnzxnPhbvFxwTnGvjMLWIzopzEv2xFuq/HO5wBtQdDBcZ2IjjhfuA/bZ6TSqfgpzG7Op68dt2lZZFLqQBkmy20mPscsmmet4zC0tgGR0tukew6kKpCaWcXZnt4by2L0OOZGZork8coyi94+L56L/CUPmEO4VE4eVx+rQ8dq2X5bFMwjw5QOJ6m3CUsrNeD2gaPMuK+pd2k1ctrmMv2ZRHU8ZdNw2vND3pOpuOcgostFUfOCTXvhUAPECz2orSyRtqlczSVRwVOxX2yfABCuALYfW8C2D6DfsIiErTt9vU0Gd9CtjL4Ouk55ygYQ6wYbJ5X/+Y9dPqhXd1cmNYvtezn9xoVOhQJHNS6wIfstIUtKbDeX3Yjhn2yiqhKENXo4IfWK9LYfyZKbIMQHe8w8A2GemR0qesOYTsVKSUwZXd/Blp8ZGX2ikA7xg09F1MGvGOdmu2msPUonb6O4BXY8ITV3AtTDgNNvt17H6pE9Vkwue9eeMCdMckRV40lA8cGSqq9g4L6x40xmkl27o7RMrpmP9WnzBtYV7CRq5Ubp2ioGtX9UBNXK07qmFsduug76y5o8HKvuum0rYvY8Zu+55TJvkGJ+lv5O9Y+SN/Fe29JTkDhkzGeYPw42QmBxnM5C93Pkw0qn8HPKULa84vSW/vjszueQfhMXcP5KKJAiVBnvwFs+cx8iqgM2tDQ1T/qGmLvAKl4Y40JmbtCWJbNJVQphshFfbmXwcLQiZdwZJKMW3UWTOn++j0IV1+kFNVOXMmlUKT42aON7DNsN54712DrShM5HhMOVarW4oWZLT9tMQWBJ71OJCHfBYGOlE3JeztcMayzk5cI0OPod+FmBB2qTS1EvO1RIACjuE6e1olA3TTgSQQRnL7N5wsVaxr4lczfdeUTCultexkpnXvyif9oiObpQgQhD9teu32ZOUVNAkXObuj3SD1rp3tEASNd38Lk1+BEgroOFp0FHUQU4XzEzgkgl64WQsx9/XgllWNJi1C3czFt6k6RqGrY5CYklOCDi6E03hx2029EiQf0YHGC0wckXuiSFPiSEK/ibhdEXoy0/dytF+0z6tlKeEcKEPJ4XexBhYsIsd661nEB1L/9FPkZZ1dmz0sWVpfxB7V/mJU/A3Onwq0PHEtS48PGIE1q1sNcoxzg27v3/0Puu8PJpS6KbWMYYupkp71p3uUR8nhwLYWp+DESrLPlgUR9rkC2vRMCEozHj+fQ5LJ7COQnBZU0iiethjlUT7YRPLtdhWojNAK+JIq0G48XWYU6hBQo8Yng7RRTkLgbkrdZE77R/GDHpwT9r6dFjqZoG9WugVhq/PtOLS36lvSBDcxPEfDfajJSi6iAP9XzMiQZ6TdN9MLiXBPFkk4vOywms0EdlyWhUvQbYnSEnf34aD8ImH8tR/EAH3Yfzk7RNGZ5Gm5om1zptB39+Y7kLNuJgaj/Ppu5tN37CzuNRUVCJgW7CI6sy3nyA/ADMZAjYOnGA7x3Dn4gTQiZn2yrY+8dMVK73aus+aQiZq5Lw/pdxGV4MmhjOMELBX33JHnyzKGpXKn5tfzaOTAVbMu8cLX0bFOYYwTkCz8lxJwivbDYfmuysEia2FTWv3pOLvHQmm6EC+Juy5B3ylnpmpDhcaBYoQurjQAlVl4OQmXiNh+cC3sRll0PVsAlNtHOeqiAPmZw49rHDaAqgmXJ+zTlCa2TIOLzhtyVIcUQywFHY4sOsHp5u7kiP9V6xdcmMCnjmZyBRBdLs/TuZ48YjCjNv+Ae35ibe8WUNfvEhzhtcBOgkN75zOoDCc+3keXS3L45jkiRYQI9tcpmEyw86a/5w5S7vvGBLlB9FjPcg/6jiHWVbu0DjJV7UyHfOIF5Y+xP8AN7jnb7uQqLCSPH6uXkHWOpdi/mPkXU393rExxhk4Koznn9XXuwlQiV/kns9GytbSSYCiltPzc76NXs2Da58P00E5YlRsxjqK3TOHvP/doJCkmorzduuWhdF94oPsFVineK3JTDabgx4ac0j1phg2p5p9VYkYnbj9sut7EprGN0W9WF3eyR6Z8MR51rbe4XV5KFaCo9OF41hhu590RYsXWJqhOqdXDdziJ2gAlu4BKEzm0VLHh3EXD/I+aJxBZgQkDefDxYcMxMUnwyPMCOHGaJHndcDSXP+aRuQm3tt2ZNilGLv68XQg6OHQCNHCvkmov9ApKLN8jtQomz+qO7niDbUU/2k3yKpvSKOODwIZT1wg0EUsyQfbxLOkecWwYY3Kk5AoTt6t/o13f7BSfB63NEeFRQ8u+ThB1Dy85ssWG3Df9xZ7KR+9k8X5T0tJ9kGA1MTCwf7EylKkERHj8k6H/qkd2nXX19vXYOnDxTCLYHKnS1ZmhlzAQ3IxdanRRK16QQfjoSeIZDR/t0CtaZpoa+ZCk7wocB/AJa0PO16fCdCGnIHxx/AKEIeuNNYu7/1M0bA4FLmvz3m1uYcAJFvF8k8WzIqmtUGDHhm1A7Nbqz3gTowZ5DM4Vg8ztrsNgRrud+5dE7tTIZ4RFUMT/E6RGXeRy5iGlC4IaUvoJeteONnqeuKa2QO1QLexLbvw3SGe0OhC3nxmTRRwbonJfSgPYa66zSKIvuomKMSIhSGYMdPeMoUnHAxvyvoIywiByxuWkji0U/lMm0pjs34a0biX/8za9S/MiPlm2ilvBAKEeCphU+G5z60Iokorh/8w+NGcj1XkyTCkOD6FRd4mr6fCm2WuFn+2NQFt/XZe5kdTp6s3MDEymbWsY3GW3oFiuZRqci6D3kltUQLlH6iFlrL2bV7ePnE8Xj23Fm0q3B21MkvQGg/RiYTDKm8Oldr9mSx/Fmo2/HC2ajmYqVfdrx+YJliFvfShJlQtsZQLLz/KSInFt2FCndV672NRzbnFcWIspDXW8nJPlFc0GVutUsM9wnGj7T5dyewkp3edmI3UhNXzKdD6mSvokVj4hK1d+SDbtEcxpbbru7SQQIU+TXShMAwlxh0FnVzyRKDlibrMsbY5h0oE7l5a3SxcngPiaMVubBDvosY2oRkXLJ/lKksWAmhyDTFpn0YbWgH3L3F8khrUsmupbwHhgPuccXihpCEIndUua7ofO42X7CAz9Id51guEOVEsSV4j1J8UIdbqAjej28btstUZwk6lATceAHTnuodx80Ac64Y3RwU9jImOyAtzDd5yFDwfo9RVMpWeHzZfs+p3QnQRScMeV2/f5s2cOddypH4TWaSO9lxR2jHqWEgEW8KUZLOXqtH6f5kEB+aVxDHz56FQRPN7pIRB+6qoLujkXRuvfk79DUOM9WRoUCG2LCmIgVb5TI5oJ2dFdtq2QbW/sJSuUZdgh6hM81ZbAQYOiBpBP8moyW768yH8ghI9XK1vJBRntR3o2TAodg1dKLPTswTZ7xt6a4ENEXvYJ86Jc4r6DomXsHgcdQ4G1EwZSxQCMJ5grjST6Z0PPEErWORAvTmFrndCCvtm/W3KWKFWp/lv4pD2MTeDCI7Wxoe2xHL8Q57KRFuYSzW0gFqRU4Y+c1n7shIvPjIMxhmM3t61ngnKsuEHDMrfdgdpbu/QP9g2ICxxsEXZxJOs5foL9r+KMbipeN3UZUSYguLqeqXFAdxajbs50kl6vJz8ao5T2ZvoDjXCBqu8ujJXxC9Z8ZWuZB3GTftaj4PxvA1CZgnx/NGHAeiT1JnaQplbXXLeDGX336qBbqz3ulIZUlfRujOxhLX65RzFM8ISai+BpHJbTi7ITrNB26y9TbXUjmJMyMZzbgWjMb8sZeCCgwBmetGGOtXcNlRsXblyKO+s3LB+5rk27zbNXot4m1oowTvoEJKO7TXKNwL2nrCeTAzGg3qCePaay+iukt8SJa5oxBUlpr7pJ1Syajyknwfo5FAh2g9a1wApzlEMt34NweT5ABjnRWdQa0mAsGEzrVmfH7dcxMiK2aBAZp7ZwgIMuI9hWQrL082Pr7LKPRBf1c664rrMuw8Txb+XzIU8="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 525,
+          "candidatesTokenCount": 462,
+          "totalTokenCount": 2551,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 525
+            }
+          ],
+          "thoughtsTokenCount": 1564,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "NjaEapSALtv5xN8Pjs32wA4"
+      }
+    }
+  ]
+}

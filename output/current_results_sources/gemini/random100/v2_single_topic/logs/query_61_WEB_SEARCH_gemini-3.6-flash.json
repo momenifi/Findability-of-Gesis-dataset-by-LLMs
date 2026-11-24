@@ -1,0 +1,69 @@
+{
+  "query_id": 61,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about TRADE, INDUSTRY AND MARKETS in Lagos during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"African Commodity Trade Database (ACTD)\",\n      \"url_or_doi\": \"https://www.aehnetwork.org/data-research/african-commodity-trade-database/\",\n      \"justification\": \"Maintained by the African Economic History Network, this dataset provides historical export and import time series, commodity values, and trade figures for West Africa and Nigeria (including major trade hubs like Lagos) covering 1737–2010.\"\n    },\n    {\n      \"title\": \"Nigeria National Bureau of Statistics (NBS) Microdata Data Library\",\n      \"url_or_doi\": \"https://microdata.nigerianstat.gov.ng/\",\n      \"justification\": \"Houses official historical microdata and statistical reports from Nigeria (formerly Federal Office of Statistics), including National Consumer Surveys, retail price monitoring, and trade/market data for Lagos State across the 1980s.\"\n    },\n    {\n      \"title\": \"World Bank - Nigeria Economy and Growth Dataset\",\n      \"url_or_doi\": \"https://data.humdata.org/dataset/world-bank-combined-indicators-for-nigeria\",\n      \"justification\": \"Contains long-term historical economic indicators for Nigeria, including industrial value-added, trade balance, exports, imports, and market trends spanning the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 573,
+          "candidatesTokenCount": 322,
+          "totalTokenCount": 2678,
+          "cachedContentTokenCount": 165,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 573
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 165
+            }
+          ],
+          "thoughtsTokenCount": 1783,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "SjGEarWyFrnBxN8PocsX"
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "query_id": 123,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about artificial intelligence in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_059992dcb0086479006b04621f282c87d28b641d646ab1468f",
+        "created_at": 1795449375.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_059992dcb0086479006b0462206e8c87d29228fabe18e07a51",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany artificial intelligence adoption enterprises 2024 dataset Destatis GENESIS",
+                "Eurostat artificial intelligence enterprises Germany 2023 2024 dataset isoc_eb_ai",
+                "Germany AI startups dataset 2024 KI Bundesverband KI Monitor data"
+              ],
+              "query": "Germany artificial intelligence adoption enterprises 2024 dataset Destatis GENESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_059992dcb0086479006b04622406f087d2acd735f7af65fa57",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser isoc_ai_iaiu individuals artificial intelligence",
+                "site:ec.europa.eu/eurostat/databrowser isoc_r_eb_ain2 regional artificial intelligence",
+                "site:destatis.de GENESIS 52911 KI Technologien Unternehmen Datenbank"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser isoc_ai_iaiu individuals artificial intelligence",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_059992dcb0086479006b046227732087d2aef7d3d3600f910a",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Artificial Intelligence in Enterprises (2021–2025)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_EB_AI\",\n      \"justification\": \"Official Eurostat dataset measuring artificial intelligence adoption among enterprises in Germany and other European countries. Covers 2021, 2023, 2024, and 2025, with breakdowns by enterprise size and AI technology type. Includes machine learning, natural language processing, speech recognition, and automated decision-making. Particularly useful for analyzing trends in German business AI adoption and comparing Germany with other EU countries.\"\n    },\n    {\n      \"title\": \"Eurostat – Artificial Intelligence by Economic Activity\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/isoc_eb_ain2\",\n      \"justification\": \"Official European statistical dataset covering AI adoption across economic sectors, including manufacturing, services, and information technology. Includes German observations from the 2020s and enables comparisons across industries and countries. Useful for examining which sectors of the German economy are adopting AI most rapidly.\"\n    },\n    {\n      \"title\": \"Eurostat – Regional Artificial Intelligence Adoption in Enterprises\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_R_EB_AIN2\",\n      \"justification\": \"Regional European dataset measuring enterprise adoption of artificial intelligence at the NUTS 2 regional level. Includes observations for 2023 and 2024 and enables geographical analysis of AI adoption within Germany where regional data are available. Useful for studying regional differences in AI adoption and relationships with regional economic development.\"\n    },\n    {\n      \"title\": \"Eurostat – Individuals' Use of Generative AI Tools (2025)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_AI_IAIU\",\n      \"justification\": \"Official Eurostat dataset measuring individual use of generative AI tools in Germany and other European countries during 2025. Includes demographic breakdowns and distinguishes between personal, professional, and educational uses. Useful for studying AI adoption among German residents, differences between age groups, and the diffusion of generative AI beyond businesses.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – ICT Usage and Artificial Intelligence in German Enterprises (Table 52911-0001)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/52911/table/52911-0001\",\n      \"justification\": \"Official dataset from Germany's Federal Statistical Office (Destatis) covering information and communication technology adoption among German enterprises. Contains AI-related indicators for 2021, 2023, and 2024, including overall AI adoption and specific AI applications. Particularly valuable for national-level research because it provides statistics collected directly from German enterprises.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – AI Adoption by Enterprise Size in Germany (Table 52911-0003)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/52911-0003\",\n      \"justification\": \"Official German statistical dataset providing ICT and artificial intelligence indicators by enterprise employment-size category for years up to 2024. Enables comparisons between smaller businesses and larger enterprises. Useful for investigating whether company size influences AI adoption in Germany and identifying differences in the use of specific AI technologies.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – AI Adoption by Industry and Enterprise Size (Table 52911-0004)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/52911/table/52911-0004\",\n      \"justification\": \"Official Destatis dataset combining economic-sector classifications and enterprise-size categories. Includes artificial intelligence adoption indicators from the 2020s. Particularly useful for investigating differences in AI adoption between German manufacturing, information technology, professional services, and other industries while controlling for enterprise size.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – ICT and AI Indicators by Industry, 2025 (Table 52911-0006)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/c4270cd6\",\n      \"justification\": \"Official German enterprise dataset containing 2025 information and communication technology indicators, including artificial intelligence applications and reasons for not adopting AI. Covers different economic sectors and includes barriers related to data protection and legal uncertainty. Useful for studying obstacles to AI adoption and sector-specific patterns in Germany.\"\n    },\n    {\n      \"title\": \"Eurostat – Enterprise AI Adoption in Germany and the EU, 2021–2025 (Observe Europe)\",\n      \"url_or_doi\": \"https://observe-europe.eu/statistics/eurostat.isoc_eb_ai.enterprises_using_ai\",\n      \"justification\": \"Accessible presentation of official Eurostat statistics on enterprise AI adoption across European countries, including Germany. Covers 2021–2025 and offers downloadable CSV and JSON data. Useful for creating time-series visualizations, comparing German AI adoption against EU averages, and incorporating standardized statistics into quantitative research. The underlying observations originate from Eurostat.\"\n    },\n    {\n      \"title\": \"AI Adoption Atlas – Germany and the European Union\",\n      \"url_or_doi\": \"https://i6eal.de/en/tools/ki-nutzungsatlas/land/deutschland/\",\n      \"justification\": \"Germany-focused statistical resource combining official Eurostat observations on artificial intelligence adoption by enterprises and individuals. Includes German AI adoption indicators for the 2020s, with references to the underlying datasets and information about data availability. Useful for quickly identifying German AI adoption trends and obtaining comparable European statistics.\"\n    },\n    {\n      \"title\": \"i6eal – Open Artificial Intelligence Datasets for Germany and the EU\",\n      \"url_or_doi\": \"https://i6eal.de/tools/daten/\",\n      \"justification\": \"Collection of open datasets related to artificial intelligence in Germany and the European Union. Includes AI adoption statistics alongside resources concerning public procurement, federal budgets, parliamentary activity, and AI governance. Provides dataset descriptions and access to structured data formats, including CSV and JSON for supported collections. Particularly useful for research extending beyond business adoption to public policy and government involvement in AI during the 2020s.\"\n    },\n    {\n      \"title\": \"AI Barometer – European Enterprise AI Adoption Data Explorer\",\n      \"url_or_doi\": \"https://aibarometer.eu/explorer?ind=E_AI_PFIN\",\n      \"justification\": \"Interactive data explorer based on official Eurostat statistics. Allows users to examine artificial intelligence adoption across European countries, including Germany, with breakdowns by enterprise size and year. Useful for comparative analysis, identifying adoption patterns, and exploring differences between German businesses and their European counterparts. The underlying source is Eurostat's artificial intelligence enterprise dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449391.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18668,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1592,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20260
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

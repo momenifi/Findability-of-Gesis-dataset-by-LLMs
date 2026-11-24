@@ -1,0 +1,188 @@
+{
+  "query_id": 29,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Migration, Physical fitness and exercise, Specific diseases, disorders and medical conditions, Government, political systems and organisations, Political behaviour and attitudes, Social welfare policy, Specific social services: use and availability, and Employment in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_027a2baa25fb856b006b0455152ac087d28f1c0d5c88fb5d18",
+        "created_at": 1795446037.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_027a2baa25fb856b006b0455160b6087d2858a46913a09f5c8",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 2023 2024 migration survey dataset IAB BAMF SOEP refugees data",
+                "Germany 2022 2023 health survey dataset exercise diseases RKI GEDA",
+                "Germany 2020 2024 political attitudes government survey GLES dataset",
+                "Germany 2020 2024 social welfare services employment dataset SOEP IAB"
+              ],
+              "query": "Germany 2023 2024 migration survey dataset IAB BAMF SOEP refugees data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_027a2baa25fb856b006b045519654087d2bc93c5a63b15fb00",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org GLES 2021 cross section DOI",
+                "site:gesis.org ALLBUS 2023 2021 dataset DOI",
+                "site:destatis.de 2023 microcensus migration employment dataset research data centre",
+                "site:fdz.iab.de panel study labour market social security PASS 2023 dataset",
+                "site:diw.de SOEP core 2024 data edition DOI",
+                "site:rki.de GEDA 2022 physical activity chronic disease data"
+              ],
+              "query": "site:search.gesis.org GLES 2021 cross section DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_027a2baa25fb856b006b04551c887887d29d0522bbf097379d",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 2020s\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42eu\",\n      \"justification\": \"A major longitudinal household survey covering Germany, with observations extending into the 2020s. Particularly relevant for studying migration, employment, income, unemployment, social welfare benefits, health conditions, healthcare utilization, physical activity, and political attitudes. Includes immigrant and refugee samples. Suitable for investigating relationships between socioeconomic circumstances, health, migration, and social policy. Access requires a data-use agreement.\"\n    },\n    {\n      \"title\": \"IAB-SOEP Migration Sample Survey Data, 2013–2024\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-soep-mig.2024\",\n      \"justification\": \"A longitudinal survey focusing on immigrants to Germany and their descendants. Contains annual observations through 2024, including information on migration histories, integration, educational qualifications, employment, labor market participation, and socioeconomic circumstances. Particularly useful for examining migrant employment, integration policies, and inequalities during the 2020s.\"\n    },\n    {\n      \"title\": \"IAB-BAMF-SOEP Survey of Refugees in Germany, 2023\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-bamf-soep-mig.2023\",\n      \"justification\": \"A representative longitudinal survey of refugees living in Germany. Covers migration experiences, integration, employment, education, living conditions, health, and access to support services. Includes observations from the 2020s and supports research on refugee integration, social welfare, labor market access, and the availability and utilization of services.\"\n    },\n    {\n      \"title\": \"IAB-BAMF-SOEP Survey of Refugees – Version 1623\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/pd_hd/iab-bamf-soep-survey-of-refugees-version-1623-v1/\",\n      \"justification\": \"Official research data center landing page for a longitudinal survey jointly conducted by the Institute for Employment Research, the Federal Office for Migration and Refugees, and the German Socio-Economic Panel. Provides data on refugees' migration backgrounds, employment trajectories, social integration, and living conditions. Relevant for analyzing migration, government integration measures, and social services during the 2020s.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA), 2019–2024\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/geda-german-health-update.html\",\n      \"justification\": \"A population health survey conducted by Germany's Robert Koch Institute. The 2020s survey waves provide information on physical activity, exercise, chronic diseases, health-related behaviors, mental health, and healthcare utilization. Particularly relevant for investigating physical fitness, disease prevalence, health inequalities, and access to medical services in Germany.\"\n    },\n    {\n      \"title\": \"GEDA Scientific Use Files – Robert Koch Institute\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/GEDA/GEDA-Wellen.html\",\n      \"justification\": \"Official catalog of German Health Update survey datasets, including information about available survey waves and research data access. Relevant for identifying health datasets covering the early 2020s. GEDA measures health behaviors, physical activity, chronic conditions, and healthcare utilization. Useful for studying associations between employment, migration background, socioeconomic circumstances, and health.\"\n    },\n    {\n      \"title\": \"GEDA 2021/2022 – Diabetes Survey\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/geda-german-health-update.html\",\n      \"justification\": \"A specialized German Health Update survey focusing on adults diagnosed with diabetes. Collected during 2021–2022, it investigates diabetes management, cardiovascular conditions, mental health, physical activity, body weight, social support, and healthcare utilization. Especially relevant for studying specific diseases, exercise, chronic disease management, and the accessibility of healthcare services. The URL links to the parent GEDA study page.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) Tracking, 2009–2026\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14820\",\n      \"justification\": \"A cumulative dataset covering political attitudes and electoral behavior among German voters, including extensive observations from 2020–2026. Measures political preferences, voting intentions, party evaluations, government satisfaction, and attitudes toward public policy. Particularly relevant for studying political behavior, democratic institutions, government legitimacy, and public attitudes toward migration and social policies.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study – Candidate Study 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14100\",\n      \"justification\": \"A survey of candidates representing major German political parties in the 2021 federal election. Data were collected between October 2021 and January 2022. Covers political attitudes, candidate characteristics, and party-related perspectives. Especially useful for researching political organizations, political representation, electoral competition, and differences between political elites.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14571\",\n      \"justification\": \"A nationally representative German social survey conducted in 2023. Examines social attitudes, social inequality, demographic characteristics, and other aspects of German society. Particularly relevant for political behavior and attitudes, social welfare preferences, migration-related attitudes, employment circumstances, and broader socioeconomic differences.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14002\",\n      \"justification\": \"A German population survey conducted during the early 2020s. Provides information on social values, political orientations, socioeconomic characteristics, and attitudes toward social institutions. Relevant for investigating political behavior, government-related attitudes, migration, social inequality, and employment characteristics during the COVID-19 period.\"\n    },\n    {\n      \"title\": \"ALLBUScompact 2023 – English Edition\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14572\",\n      \"justification\": \"An anonymized, English-language version of the 2023 German General Social Survey. Particularly suitable for international researchers examining political attitudes, social inequality, migration background, employment, and social values in Germany. Includes coarsened demographic information to protect confidentiality.\"\n    },\n    {\n      \"title\": \"ALLBUS Cumulative Dataset, 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A harmonized collection of repeated German General Social Survey observations, including 2021 and 2023. Enables analysis of long-term changes in political attitudes, social welfare preferences, migration-related opinions, employment characteristics, and socioeconomic inequality. Particularly useful for comparing public attitudes in the 2020s with previous decades.\"\n    },\n    {\n      \"title\": \"Panel Study Labour Market and Social Security (PASS), Version 0622\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.PASS-SUF0622.de.en.v1\",\n      \"justification\": \"A major German longitudinal household survey focused on employment, unemployment, poverty, and means-tested income support. Includes observations through 2022 and provides information on welfare recipients, labor market participation, household circumstances, and socioeconomic disadvantage. Especially relevant for social welfare policy, specific social services, employment, and the experiences of economically vulnerable populations.\"\n    },\n    {\n      \"title\": \"Panel Study Labour Market and Social Security (PASS) – Research Data Center\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/pd_hd/panel-study-labour-market-and-social-security-pass-version-0622-v1/\",\n      \"justification\": \"Official dataset landing page providing access information, documentation, questionnaires, and methodological details for the PASS longitudinal study. Valuable for examining unemployment benefits, welfare policy implementation, social assistance, poverty, employment transitions, and the circumstances of households receiving government support in Germany during the early 2020s.\"\n    },\n    {\n      \"title\": \"SOEP-CMI-ADIAB – Linked Household Survey and Employment Records\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/pd_hd/soep-cmi-adiab-7523-v1-en/\",\n      \"justification\": \"A linked dataset combining German Socio-Economic Panel surveys, migration and refugee samples, and administrative employment records from the Institute for Employment Research. Includes observations relevant to the 2020s. Particularly valuable for studying migration, employment histories, unemployment, socioeconomic inequalities, and the relationship between household characteristics and labor market outcomes. Access is restricted to approved research settings.\"\n    },\n    {\n      \"title\": \"SOEP-CMI-ADIAB – German Institute for Economic Research\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.930708.en/soep-cmi-adiab.html\",\n      \"justification\": \"Official institutional landing page describing the integration of SOEP household surveys with German administrative labor market information. Supports research on migrant employment, refugee labor market integration, welfare-related socioeconomic circumstances, and employment transitions. Particularly useful for researchers seeking to combine survey-based social indicators with detailed employment histories.\"\n    },\n    {\n      \"title\": \"SOEP Innovation Sample (SOEP-IS) 2024\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.is.2024\",\n      \"justification\": \"A longitudinal German household survey supporting innovative social science research. Includes observations from 2024 and earlier years. Relevant for studying socioeconomic circumstances, employment, health, social attitudes, and selected experimental survey modules. The availability of specific measures on physical activity, political preferences, or social services depends on the questionnaire modules used.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Scientific Use Files for German Health Surveys\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/information_content.html\",\n      \"justification\": \"Official catalog of population health survey datasets maintained by Germany's Robert Koch Institute. Provides information on study populations, available variables, and research data access. Relevant for finding datasets on physical fitness, exercise, chronic diseases, mental health, healthcare utilization, and demographic health inequalities. Researchers should check the collection years of individual datasets because the catalog also includes historical surveys.\"\n    },\n    {\n      \"title\": \"IAB-SOEP Migration Sample – German Institute for Economic Research\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.930514.en/iab-soep_migration_sample.html\",\n      \"justification\": \"Official institutional landing page for a longitudinal survey of immigrants and their descendants in Germany. Provides information about the study design, sample composition, and research applications. Particularly relevant for examining employment integration, migration trajectories, socioeconomic inequalities, and the living conditions of migrants during the 2020s.\"\n    },\n    {\n      \"title\": \"IAB-BAMF-SOEP Refugee Survey – Data Editions\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.795950.en/\",\n      \"justification\": \"Official catalog of available editions of the longitudinal refugee survey, including datasets covering 2023 and 2024. Relevant for migration, employment, social welfare, healthcare access, and integration-related research. Particularly useful for locating specific data releases and examining changes in refugees' socioeconomic circumstances over time.\"\n    },\n    {\n      \"title\": \"GESIS ALLBUS Research Data Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Official repository of German General Social Survey datasets, including surveys conducted in 2021, 2023, and 2025. Provides access to individual cross-sectional datasets and cumulative data products. Particularly suitable for studying government attitudes, political behavior, migration-related opinions, social inequality, employment characteristics, and public preferences concerning social policy in Germany during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446058.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21154,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2900,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 24054
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

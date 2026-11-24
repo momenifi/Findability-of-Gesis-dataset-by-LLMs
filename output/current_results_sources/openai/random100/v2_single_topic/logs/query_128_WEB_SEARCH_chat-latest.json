@@ -1,0 +1,185 @@
+{
+  "query_id": 128,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b9df21b2758e615006b04627931e487d2b8b8f35e650c0b50",
+        "created_at": 1795449465.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b9df21b2758e615006b04627a20e887d28198f63ae6864546",
+            "action": {
+              "type": "search",
+              "queries": [
+                "BKA Polizeiliche Kriminalstatistik Zeitreihen Bundesländer 1990 1999 download",
+                "GENESIS regionaldatenbank Polizeiliche Kriminalstatistik Bundesländer 1990 1999",
+                "Deutschland Kriminalstatistik Länder 1990 1999 Datensatz GESIS"
+              ],
+              "query": "BKA Polizeiliche Kriminalstatistik Zeitreihen Bundesländer 1990 1999 download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b9df21b2758e615006b04627c6a3c87d29c07486f4708c027",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:bka.de Polizeiliche Kriminalstatistik Zeitreihen 1987 Bundesländer Tabellen",
+                "site:bka.de PKS Jahrbücher bis 2011 1990 1999",
+                "site:histat.safe-frankfurt.de Kriminalität Bundesländer Polizeiliche Kriminalstatistik 1990",
+                "site:genesis.destatis.de 1995 Länder Strafverfolgungsstatistik Verurteilte"
+              ],
+              "query": "site:bka.de Polizeiliche Kriminalstatistik Zeitreihen 1987 Bundesländer Tabellen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b9df21b2758e615006b04627ec83087d29da380446b5487bb",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Federal Criminal Police Office (BKA) – Police Crime Statistics (Polizeiliche Kriminalstatistik), 1990–1999\",\n      \"url_or_doi\": \"https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/PolizeilicheKriminalstatistik/pks_node.html\",\n      \"justification\": \"The official German Federal Criminal Police Office provides historical police crime statistics, including annual reports covering the 1990s. The reports contain state-level information for all 11 requested states: Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Variables include recorded offenses, crime rates per 100,000 inhabitants, offense categories, suspects, and clearance rates. This is the most directly relevant primary source for comparing crime and police-recorded law enforcement outcomes across the specified states during the 1990s.\"\n    },\n    {\n      \"title\": \"BKA – Police Crime Statistics 1993 (Polizeiliche Kriminalstatistik 1993)\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks1993.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official historical crime statistics for 1993, containing detailed tables for German federal states and historical comparisons extending back into the late 1980s and early 1990s. Includes state-level crime frequencies, offense categories, reported cases, and crime rates. Particularly useful because the tables cover all 11 requested states and provide historical figures for 1990–1993. Berlin's figures require attention because statistics through 1990 refer to West Berlin, whereas later figures cover reunified Berlin.\"\n    },\n    {\n      \"title\": \"BKA – Police Crime Statistics 1994 (Polizeiliche Kriminalstatistik 1994)\",\n      \"url_or_doi\": \"https://www.polizei.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/pksJahrbuecherBis2011/pks1994.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official annual crime statistics covering 1994, with retrospective tables extending through earlier years. Provides information on registered offenses, crime categories, suspects, and criminal investigation outcomes. State-level tables allow comparisons among the 11 requested German states. Particularly useful for examining changes in recorded crime during the first half of the 1990s.\"\n    },\n    {\n      \"title\": \"German Federal Government – Police Crime Statistics 1995\",\n      \"url_or_doi\": \"https://www.bundesregierung.de/breg-de/service/newsletter-und-abos/bulletin/die-kriminalitaet-in-der-bundesrepublik-deutschland-1-polizeiliche-kriminalstatistik-fuer-das-jahr-1995-805122\",\n      \"justification\": \"Official German government publication presenting the 1995 Police Crime Statistics. Includes reported crimes, crime trends, offense categories, and information about the geographical distribution of criminal activity. Relevant for studying the requested states during the middle of the 1990s and comparing crime levels with earlier years.\"\n    },\n    {\n      \"title\": \"German Federal Government – Police Crime Statistics 1997\",\n      \"url_or_doi\": \"https://www.bundesregierung.de/breg-de/service/newsletter-und-abos/bulletin/die-kriminalitaet-in-der-bundesrepublik-deutschland-teil-eins-von-sechs-polizeiliche-kriminalstatistik-fuer-das-jahr-1997-810838\",\n      \"justification\": \"Official statistical report containing state-level crime data for 1997, comparisons with 1996, population figures, recorded offenses, and crime rates per 100,000 inhabitants. Covers all 11 requested states individually. Particularly valuable for constructing a state-level dataset comparing crime prevalence and year-over-year changes during the late 1990s.\"\n    },\n    {\n      \"title\": \"German Federal Government – Police Crime Statistics 1998\",\n      \"url_or_doi\": \"https://www.bundesregierung.de/breg-de/suche/die-kriminalitaet-in-der-bundesrepublik-deutschland-polizeiliche-kriminalitaetsstatistik-fuer-das-jahr-1998-i--807924\",\n      \"justification\": \"Official 1998 police crime statistics with a detailed table of crime distribution across German federal states. Includes population, recorded criminal cases for 1997 and 1998, percentage changes, state shares of total crime, and crime rates. All 11 requested states are represented. This source is particularly useful for constructing comparative state-year observations for the final years of the decade.\"\n    },\n    {\n      \"title\": \"BKA – Historical Police Crime Statistics: Recorded Offenses by Crime Category, 1987–2013\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2013/Zeitreihen/Faelle/tb01_FaelleGrundtabelle1987-2013_pdf.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Official longitudinal dataset covering the entire 1990–1999 period. Provides annual numbers of recorded offenses, offense classifications, crime frequency rates, attempted crimes, firearm-related incidents, clearance rates, and suspect counts. It is particularly useful for historical trend analysis and investigating changes in specific crime categories. However, the referenced basic table reports aggregate geographical coverage rather than separate observations for each federal state, so state-level BKA annual reports are needed for comparisons among the 11 states.\"\n    },\n    {\n      \"title\": \"BKA – Historical Police Crime Statistics: German Suspects by Age, 1987–2012\",\n      \"url_or_doi\": \"https://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2012/Zeitreihen/Tatverdaechtige/tb40_TatverdaechtigeDeutscheTatverdaechtigeInsgesamt1987-2012_pdf.pdf?__blob=publicationFile&v=2\",\n      \"justification\": \"Historical statistical series covering German suspects by age and offense category, including all years from 1990 through 1999. Useful for examining demographic patterns in police-identified suspects and changes in recorded criminal activity. The dataset primarily provides aggregate geographical coverage, making it a supplementary source rather than a direct state-level panel.\"\n    },\n    {\n      \"title\": \"Hesse Police Crime Statistics 1991 (Polizeiliche Kriminalstatistik Hessen 1991)\",\n      \"url_or_doi\": \"https://starweb.hessen.de/cache/hessen/polizeistatistik_1991.pdf\",\n      \"justification\": \"Historical official police statistics containing data for 1991 and comparisons with 1990. Particularly relevant because the report includes a table of state-security crime cases across all 11 requested states. The source provides an unusually direct cross-state comparison for the beginning of the 1990s. It can support research on politically motivated offenses and police-recorded state-security crime, although this category is narrower than overall criminal activity.\"\n    },\n    {\n      \"title\": \"GESIS – Regional Data on German Federal States (Regionaldaten Bundesländer), ZA1701\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2331\",\n      \"justification\": \"Historical regional dataset archived by GESIS, covering observations through 1991. Its sources include police crime statistics from the Federal Criminal Police Office and state criminal investigation offices, alongside official regional statistics. Potentially useful for examining crime-related regional indicators around 1990–1991 and combining them with socioeconomic variables. The dataset's documented coverage begins before the requested decade, so its usefulness is primarily for the beginning of the 1990s. The exact crime variables and geographical coverage should be checked in the codebook.\"\n    },\n    {\n      \"title\": \"GESIS – Police Crime Statistics 1990: Federal Republic of Germany\",\n      \"url_or_doi\": \"https://search.gesis.org/publication/gesis-bib-116157?lang=en\",\n      \"justification\": \"GESIS bibliographic record for the 1990 Police Crime Statistics of Germany. Relevant as an archival entry point for locating original statistical tables at the beginning of the requested period. The underlying publication concerns police-recorded crime and can provide historical context for the requested states. This is a publication record rather than a directly downloadable machine-readable dataset.\"\n    },\n    {\n      \"title\": \"Historical Statistics Database (HISTAT) – German Crime Statistics and Criminal Justice\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/6C25D767A540B6F7BA200FB2DDEA5360\",\n      \"justification\": \"Historical statistical collection concerning crime, criminal suspects, convictions, and criminal justice in Germany. Includes longitudinal information from police crime statistics and criminal prosecution statistics, with coverage extending through the 1990s. Useful for comparing police-recorded crime with judicial outcomes and placing the requested decade in a longer historical context. The collection discusses changes in geographical coverage following German reunification. State-level availability should be verified for individual series.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Police Crime Statistics, Table 24911-0001\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/24911-0001/table-toolbar\",\n      \"justification\": \"Official German Federal Statistical Office dataset providing annual recorded crimes and cleared crimes from 1993 onward. Includes all years from 1993 through 1999, enabling analysis of national crime trends and police clearance outcomes during the requested decade. Particularly useful as a standardized, machine-readable reference series for validating figures extracted from state-level police crime reports. The table covers Germany as a whole rather than the 11 states individually.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Criminal Prosecution Statistics, Table 24311-0001\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/24311-0001/\",\n      \"justification\": \"Official statistical dataset on criminal convictions in Germany, classified by offense category. Contains historical observations for every year from 1990 through 1999. Particularly relevant for studying criminal justice outcomes beyond police-recorded offenses. Can be used to compare conviction patterns with police crime statistics, although this specific table reports national aggregates and does not directly provide separate observations for each requested federal state.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Criminal Prosecution Statistics by Region and Offense, Table 24311-0010\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24311/table/24311-0010\",\n      \"justification\": \"Official criminal prosecution statistics recording convicted persons by year, offense category, and broad geographical region. Includes historical observations covering the 1990s. Particularly useful for studying changes in prosecution and conviction outcomes in the former West German states, which include most of the requested geographical areas. The table distinguishes broader regional groupings rather than all 11 states individually, and historical treatment of Berlin requires attention.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Criminal Convictions by Nationality, Sex, Age, and Offense, Table 24311-0002\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24311/table/24311-0002\",\n      \"justification\": \"Official criminal justice statistics providing demographic breakdowns of convicted individuals, including nationality, gender, age groups, and criminal offense categories. Historical coverage includes the 1990s. Useful for studying demographic patterns in criminal convictions and comparing judicial outcomes with police-recorded suspect data. This is primarily a national statistical series and should be supplemented with state-level data for geographical comparisons.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Prison Institutions, Capacity, and Occupancy by Federal State, Table 24321-0003\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24321/table/24321-0003\",\n      \"justification\": \"Official German prison statistics containing state-level information on correctional institutions, prison capacity, and occupancy. The available historical series begins on December 31, 1999, providing a relevant observation at the end of the requested decade. Particularly valuable for examining correctional infrastructure and incarceration-related outcomes across the 11 requested states. Unlike aggregate crime statistics, this table explicitly supports federal-state comparisons, but it does not cover the earlier years of the 1990s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449485.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19025,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2907,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21932
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

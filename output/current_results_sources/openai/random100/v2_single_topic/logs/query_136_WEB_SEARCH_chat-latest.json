@@ -1,0 +1,186 @@
+{
+  "query_id": 136,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic systems and development in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00cd6a353900ab85006b0463159c3c87d2a40bef008c82ec4d",
+        "created_at": 1795449621.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00cd6a353900ab85006b0463167d0c87d2a042b05f16151e95",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Regionaldatenbank Deutschland regional GDP Länder 1991 2000 dataset",
+                "GENESIS online Länder Erwerbstätige 1991 2000 Bruttoinlandsprodukt",
+                "German federal states historical 1990s economic data dataset regional statistics",
+                "Eurostat regional economic accounts NUTS 2 Germany 1990 dataset"
+              ],
+              "query": "Regionaldatenbank Deutschland regional GDP Länder 1991 2000 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00cd6a353900ab85006b04631a74d887d29cab527e7c7006c4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Arbeitskreis VGR der Länder Daten 1991 Bruttoinlandsprodukt Bundesländer download",
+                "ARDECO annual regional database 1980 2024 download JRC",
+                "regionaldatenbank deutschland regionalstatistik landing page",
+                "GENESIS online 82111 Bundesländer Bruttoinlandsprodukt 1991"
+              ],
+              "query": "Arbeitskreis VGR der Länder Daten 1991 Bruttoinlandsprodukt Bundesländer download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00cd6a353900ab85006b04631da77887d2ae81de3c4460ab8f",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Gross Domestic Product and Gross Value Added by German Federal State, 1991–2025 (VGR der Länder)\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/veroeffentlichungen/bruttoinlandsprodukt-bruttowertschoepfung-laenderergebnisse\",\n      \"justification\": \"One of the most relevant official datasets for studying economic development in Germany during the 1990s. Published by the Working Group on Regional Accounts (Arbeitskreis VGR der Länder), it provides annual GDP and gross value added statistics beginning in 1991. It covers all 11 requested federal states: Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Particularly useful for comparing economic growth, regional disparities, and changes in economic structure following German reunification. Downloadable Excel tables are available.\"\n    },\n    {\n      \"title\": \"German Federal States: Nominal Gross Domestic Product by Year (GENESIS-Online)\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/vgr-der-lander-entstehungsrechnung-bruttoinlandsprodukt-zu-marktpreisen-nominal-bundeslander-ja?ids=a42fdd74-f2ba-4c55-8c78-9cd2d40fb646\",\n      \"justification\": \"Official dataset from Germany's Federal Statistical Office covering nominal GDP at the federal-state level. It provides annual observations beginning in 1991, making it directly applicable to research on economic development throughout the 1990s. Researchers can compare the economic size and growth trajectories of the 11 specified states, including differences between industrial regions such as North Rhine-Westphalia and Baden-Württemberg and service-oriented economies such as Hamburg and Berlin.\"\n    },\n    {\n      \"title\": \"Gross Value Added by Economic Sector and Federal State, 1991–2025 (GENESIS Table 82111-0011)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/82%2A/table/82111-0011\",\n      \"justification\": \"Highly relevant for examining economic systems and structural transformation during the 1990s. This official dataset provides annual gross value added by economic sector for Germany's federal states from 1991 onward. It includes agriculture, manufacturing, construction, energy, and service-related activities. The data enable comparisons of industrial specialization, deindustrialization, and the expansion of service sectors across all 11 requested states.\"\n    },\n    {\n      \"title\": \"Annual Regional Database of the European Commission (ARDECO)\",\n      \"url_or_doi\": \"https://knowledge-for-policy.ec.europa.eu/territorial/ardeco-database_en\",\n      \"justification\": \"A comprehensive regional economic database maintained by the European Commission's Joint Research Centre. ARDECO provides historical economic indicators for European regions, including German federal states, with series extending into the 1990s and earlier for some variables. Relevant indicators include regional GDP, employment, population, productivity, and economic structure. It is particularly useful for comparing development across the requested German states and placing their economic performance in a broader European context. Historical availability varies by indicator.\"\n    },\n    {\n      \"title\": \"LAMASUS NUTS-Level Economic Data, 1980–2021\",\n      \"url_or_doi\": \"https://zenodo.org/records/10939644\",\n      \"justification\": \"A research dataset containing harmonized regional economic and educational indicators derived from ARDECO and Eurostat. Its historical coverage includes the entire 1990s, making it useful for studying long-term regional development. German federal states can be identified through their NUTS regional classifications. The dataset supports comparative analysis of economic growth, regional convergence, productivity, and human capital. Availability for individual German states and indicators should be checked, particularly for years before reunification.\"\n    },\n    {\n      \"title\": \"Regional Economic Accounts (Eurostat, reg_eco10)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/EN/reg_eco10_esms_de.htm\",\n      \"justification\": \"Eurostat's regional economic accounts provide standardized economic indicators across European regions. German regional accounts include continuous NUTS 1 time series beginning in 1991, covering the federal states requested. The statistical framework includes GDP, gross value added, and related regional economic aggregates. This source is especially valuable for comparing economic growth and structural development during the post-reunification decade. The linked metadata page explains geographical coverage, historical availability, and methodological revisions.\"\n    },\n    {\n      \"title\": \"German Regional Accounts: Economic Development and GDP by Federal State Since 1991\",\n      \"url_or_doi\": \"https://www.statistikportal.de/sites/default/files/2024-07/vgrdl_broschure_2024.pdf\",\n      \"justification\": \"An official statistical publication containing historical economic data for all German federal states. Its statistical appendix includes annual nominal GDP figures beginning in 1991, with separate observations for Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Particularly useful for constructing a consistent dataset of economic performance during 1991–1999 and examining economic convergence and regional inequality.\"\n    },\n    {\n      \"title\": \"German Federal-State Employment Statistics (Länderberechnung Erwerbstätige)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"The German Federal Statistical Office's GENESIS database includes regional employment statistics under statistical series 13311. These data cover employment, employees, self-employment, and employment by economic sector at the federal-state level. They are relevant for studying labor-market development, changes in production systems, and structural economic transformation in the requested states. Researchers can use the series alongside GDP statistics to investigate productivity and employment patterns. Historical availability for individual variables should be verified before selecting the 1990s observations.\"\n    },\n    {\n      \"title\": \"German Labor Market Statistics: Unemployment and Employment Indicators (GENESIS Table 13211-0001)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/132%2A/table/13211-0001\",\n      \"justification\": \"An official historical labor-market dataset from Germany's Federal Statistical Office, based on Federal Employment Agency statistics. The table provides annual unemployment indicators extending back to 1991, including unemployment counts and rates for Germany's former western and eastern regions. It is useful for investigating the economic consequences of reunification and labor-market adjustment during the 1990s. This particular table reports national and East-West aggregates rather than separate observations for all 11 requested states, so more detailed regional labor-market tables are needed for state-level comparisons.\"\n    },\n    {\n      \"title\": \"German Regional Statistics Database (Regionaldatenbank Deutschland)\",\n      \"url_or_doi\": \"https://www.regionalstatistik.de/\",\n      \"justification\": \"The official regional statistics database maintained by Germany's statistical offices. It provides economic and socioeconomic indicators for federal states and smaller administrative regions. Relevant topics include employment, business activity, manufacturing, construction, population, and regional economic performance. Some historical series extend into the 1990s, although coverage varies by indicator. The database is particularly useful for investigating differences within the 11 requested federal states, including economic disparities between metropolitan areas and rural districts.\"\n    },\n    {\n      \"title\": \"Historical Statistics Database (Histat): German Economic and Social Development\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/index\",\n      \"justification\": \"A historical statistical database providing access to economic and social science time series. It is relevant for studying long-term German economic development and placing the transformations of the 1990s in historical context. Potentially useful topics include industrialization, employment, income, production, and regional economic differences. Histat is a collection of historical datasets rather than a single harmonized state-level panel, so individual series must be checked for coverage of the requested states and years.\"\n    },\n    {\n      \"title\": \"Selected Data on the Economic Development of the Federal Republic of Germany Since 1948 (GESIS ZA8528)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8528?lang=en\",\n      \"justification\": \"A historical economic research dataset archived by GESIS covering German economic development from 1948 to 2010. It includes the 1990s and is useful for examining broader macroeconomic conditions surrounding reunification, economic restructuring, and regional development. It can provide historical context for state-level economic analysis. However, the dataset's geographical detail should be verified because it is not necessarily organized into separate observations for all 11 requested federal states.\"\n    },\n    {\n      \"title\": \"Gross Domestic Product per Capita for German Counties, 1992–2014 (REAT)\",\n      \"url_or_doi\": \"https://rdrr.io/cran/REAT/man/G.counties.gdp.html\",\n      \"justification\": \"A regional economic dataset containing GDP and GDP per capita for 402 German counties from 1992 to 2014. It is particularly relevant for analyzing economic development during 1992–1999 at a finer geographical scale than federal states. County-level observations can be grouped into the 11 requested states to investigate within-state economic inequality, urban-rural differences, and patterns of regional economic growth. Researchers should account for administrative boundary changes when aggregating historical county observations.\"\n    },\n    {\n      \"title\": \"German Federal-State Economic Accounts: Historical Data and Methodological Documentation\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/methoden-und-informationen\",\n      \"justification\": \"Official documentation and access information for Germany's regional economic accounts. The associated statistical series include GDP, gross value added, compensation of employees, investment, and other indicators of economic development. GDP and gross value added series extend back to 1991, making them particularly appropriate for research on the 1990s. The source also explains methodological revisions and comparability issues, which are important when studying economic structural changes across German federal states.\"\n    },\n    {\n      \"title\": \"VGR Monitor der Länder: Long-Term Economic Indicators by German Federal State\",\n      \"url_or_doi\": \"https://www.statistik.bremen.de/themen/volkswirtschaftliche-gesamtrechnungen/dashboard-vgr-monitor-der-laender-56347\",\n      \"justification\": \"An official interactive regional economic monitoring resource providing comparative economic indicators for Germany's federal states from 1991 onward. It includes GDP, gross value added, and selected consumption and savings indicators. The resource is useful for visualizing differences in economic performance and development across all 11 requested states during the 1990s. It is especially suitable for exploratory comparisons and identifying regional economic trends before downloading more detailed statistical tables.\"\n    },\n    {\n      \"title\": \"German Federal-State GDP and Regional Economic Accounts, 1991–2024 (Bremen Open Data Portal)\",\n      \"url_or_doi\": \"https://www.transparenz.bremen.de/daten/vgr-der-laender-entstehungsrechnung-bruttoinlandsprodukt-zu-marktpreisen-nominal-bundeslaender-jahre-276229?asl=bremen02.c.736.de\",\n      \"justification\": \"An official open-data catalog entry for annual nominal GDP by German federal state, covering 1991–2024. Although published through Bremen's transparency portal, the underlying statistical series covers all German states. It is directly applicable to analyzing economic development in the requested 11 states during 1991–1999. The dataset is useful for comparing regional growth rates, changes in relative economic size, and differences between major industrial and service-based regional economies.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449642.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19149,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2657,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21806
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

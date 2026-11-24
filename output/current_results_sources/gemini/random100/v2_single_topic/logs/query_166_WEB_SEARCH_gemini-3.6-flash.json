@@ -1,0 +1,62 @@
+{
+  "query_id": 166,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about job performance in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2018\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.18.1.1.10\",\n      \"justification\": \"A representative survey of over 20,000 workers in Germany that collects comprehensive data on job tasks, qualification usage, work requirements, workloads, and employee working conditions in the 2010s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36eu\",\n      \"justification\": \"A wide-ranging longitudinal panel study of households in Germany containing annual microdata on individual labor force participation, working hours, earnings, job performance indicators, and job satisfaction throughout the 2010s.\"\n    },\n    {\n      \"title\": \"IAB Job Vacancy Survey (IAB-SE)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABSE0016.de.en.v1\",\n      \"justification\": \"An establishment-level dataset from the Institute for Employment Research (IAB) capturing workforce dynamics, skill demands, recruitment practices, and employer evaluation of labor performance across Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "Eo8VCowVARFNMg94rV6ciAZP8cM46pj5PLYAv3KTNSi/WB4y4No9cy/LCksoB/Wx7eJKcPn6OHrBY3juqg53ARSpKa396jux7GYXBRt/hp0MuN2BihEvgQsZM7P3fC8BMAHKZ9ZmEY3dHB5thHeUXmjASOsJQdyCwt5IuoSzi6UoLCS6WeEvNWVOiObuLmo9tezK9aMkwYw9DagxaVws9dQfdp8+WUTcdCCs+sTyM3YaNfaZAx4/0UXrv3PGALgLkThXbTrMWNaa+O3zlArvUvyOIfH1vTKeP/9dc+dLw2JHbG/yJW5XM+eLeqKedERG3/9KFrLZzS/BsPasGACNRgIlSMdrAm6HXRais1sYiMcsxTp7K07wema3NcEwkQHBblfE3Ocl/wY68pd3X3ryZGi6dzI9uzQa+44qnQddQqIiGHLI6XVP/H84gGP6jZfH+HjfDsJMYcXUcdgHuUaoYTSCMzNIrfhUMX9v0Cx6f9NhqPp2bwd/8VfkrEC8N+7h8WWXLyR5b4vmyMpSskoZIX2yjb1McrDin969zfuN/3ti1VoSf7eEFS3lcPDWywmgjxtBOUQ2cuzZRhrmaaPsrhCIQlGPsMvcQ+M4KXwxuXsnemwlENmGGHOHEpM5mx/5Q8cmgmVbMLldRpIpBIBTiju+CTOCTryXDCaCZu6J+TLfC383ZrxME8j3441sGu/4unAlXjY8ra+KfNLFMUmWSF8MVxvrSO9y01l36VVltd/CuhkFEaAEvGQcaMGJIFLxqeR6PVYriqG3VJJemWXEsRLnIrDpI/qulpUbc3i/kw05G3raE6qPQjj1RwciiH+nUSlXTp1NUGAHRvRTI1wMAbdNfJC33d9OTjS1YtuT7VLTTz8X6tUf8cTl6XeWCErPGeM61enrXCyb4H/QcoLkLbn655uN8ScXDsGj0KZSAfgDunVa4LrU5KoLHw/yHbKLLEpre8aXkqSBkSmP5B6MYZVXQPdnn+mOgGOc6r7Drogmulml4g2p0V/nFIKg66hlB6AgLOXWTuO/QeIpUUr9wPxjPTnIB2mEtfWCBMZ1iE0eRsbjGM6egyt68MlhyXgMybx5+itf64yljsz/q1y9ayz5OlQz7A37stlGVwHDUoCdMx2FXrYgOR0aOjP7VNb8hxFKkZSumZycuaukwxknNuL4keJ7RlHI3DSb5THsPM/MjZEt8poAsyA6cwdw857bp/lGc5hv8Dweedkx5DXtwCEHD9KPuiuNFNzfAclEJkr41IACev7pSNc/aTrdeCD6HD4Lvk3dgJnwOLTFp1kunc929Ds0FVPLw/kAsPqMI0LeIlACHUun9OmV8VkoGEnhaWiDHFwNpimrgPBYvhk9/RjxB8AsRx2Z1ybhJRNr0DNRuMqW97AMJqM2Z5v/2Ldf7FkK5xXL9+pLtBHjf5IAgNvIDx0fW7WG3SpKeTgDgUCha4FaP03Kt4p3cTWifO8SoI1lGZC+AIOD784hwgyblaSDulxfm+F+e9dqxoG5rL2ke2YHCGmm7UNvYvYyIJ5H4g88p1hVNU9BJ3KOQUMuk9D+uAKNEH7+zEjeIvkWK99rbEoHBehge7Ni8cA1WuA/7GIxjJERdXskqokGQZbYltcbNmyYRgfSQ5vV9LQ8Vcn7BDP6Gq5RKDhO6kqHYkQKY3dkKJS7gxNC5s1Yj2bfhXka7fIF7gijuEQ+ncyFBEchBHGv9Ee/lARXBk53OcUZS7dkX/Sa0OaKHG8p+oNOhQ7oEGRmEYdS1nTJsf70y83NZsrmVPWF3dQXzGN0SHouQwVBBY+yw0QJdVOhiqkOlR8uwZHPELmMFAdOHgLM60sv/bbcvF0bBtPJVnBpEkfOhRIahuqg+kIy3BW/u1FxZ5q77rSZoyPXUxF912UxJXpQ6JvhvDeyGL0YHj1NwojfjutQBIOty6IRzXpJj7S5+CQDOwu3QjWwy1ADWUJw1WcMY7/bjUFeJkSzZTjhLBKCiEXsMP6PcVgq/qqqIhX05eUASJI4CUfQc6nt5pT1TcpCATjs/U/9q4rXvm+7u3Y+rBNOPHJ5D/nAKJglWoBigXtHc3JbnjRscMn/N3/4jcO2ydO7+Y+LqcUnfDdJve7uU2i+ZheHky5Cdko1c8C/ShpMJKWJoFR0+FNCs3wrtUJJd7flrzdqvwywUR/3Ih0jNir9+aPqIvEARSqexdYtEAkDHEmpTK7mSBiWc0uxG4gKg22KFr6vqAX4WWhLxgJytnoHQgTAqcuxuN/iYeKlTzZoy/UsDS16Wb5Zf4z1kDa6Rvc37vztogladfEGWe+3cSLpYadaHig3t40ahfNofQwOh2WzUpQHBh7dLdOLhhzbdXfLmQIdBRlPcAIPfbhZQJ9x8clDpkXXOCZLxtgyvMDxqXN9ueTLdYS0tknGADoKFf8KTndBsjTGP3bz5uqwNmnQNFWY9YwY4pnLA5gL3fKxBqHTSJFKCjicGINGCqxfk5Q8ZvWon4cDr/f4hqguVJXmU5PUbfgGAwDSKzWSKLlaXiHH4w9ZwYv6ufjwZ+TTKBSx+74xN7G3AIiTvSBiQACYXK5v2f2EugTLP8dE/F0S8CyYkhrIgJUtFF1paiOWHXQzS7Ep45SOW3GjHA39Sh9kgB63cEwD0LiKwqjCYoxlT5kiCtZV0S3e0jOL58eVtA2qI4vBo0TxLY6UFjf/RHuVLrgP7eIqWNi3vYc5PbVWcX2Slg2fAkzLJM2Kqe2TL4p+JLILdL0baqeZzVBYXgqiCd71YuvSMN2y5EEaD5Emksph7GbA0PER+kzZkdtvNbuS7x7J7SfrTTqfrz10Gfm8QZ3LQp21D08ULP9SfGdp6sI8MUyfq4oRB+1S+ADqnPBgT+F+8jHpt2TzJtkosEDcGtlSYPkrUn7AGw/apd1uCvREHioXYA/Vrz+XkJvXsokHj4vedYHF0mCl1VQj+h096gY/9iB7CDJAE2bwgbZ0JOBD4ef8bwSH3JvqR7pRC6tMvSE49zmlpBeuiGScF5n4gVyeqOmztRzwNDScDcRNo23BV/+hCHQPs1kwFPBmLshDMB4+VsU6QRHHEcq4hCTh61H66djf026oZJuDGPVeBy7HixHNtHNQzgE9zroHP+djo2kXRBbih8I9RmlSfiO+5eucitC8KOt1RJWPeMmeyL8HYMKPPhsqqr46IdP+0v99/D64UwSdKCk9w5vC2sTBm2LUYF+NzAEY6fD9f85AXI1mf8uClkVbO0zrGjjrA7qNEmaQelljcyhcsIAB3UoT8MPG2+91NV1Mj84aSwyWolbc0csa104C1ZCnXaOxsn08aM9dWRJgA/+tnJSlgVpauHwc+Bd2lAHbTjc6XpSXL3NT+7wytia9Zp04MUlL5Y1ZlMEZNDb+q8Fdljt8xbd0UkGcz8/S46axuz9nCAQZ0x60E8nZh48+XKndAIQ7n4Sx0RMBLote7z3pV3wqj6phUiioPfVvwT1Hgn9MClgamW9dcFy0TLN/rj22sxPA/reNPGkWc8lT22BgkLEXpLmhWMXcML1e7LrGv8L9NBL7bcvmDTbG9hkvFWNAGul3U+bzgwKV+EMlDUu97QpC07QK52ixFkgyfh0XRZLcw13E"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 316,
+          "candidatesTokenCount": 338,
+          "totalTokenCount": 1672,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 316
+            }
+          ],
+          "thoughtsTokenCount": 1018,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "L0SEasT0OuT-xN8PguSGiQQ"
+      }
+    }
+  ]
+}

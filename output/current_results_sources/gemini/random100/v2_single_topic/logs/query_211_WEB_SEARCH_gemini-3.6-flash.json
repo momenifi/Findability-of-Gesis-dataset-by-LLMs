@@ -1,0 +1,62 @@
+{
+  "query_id": 211,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Vocational education and training in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Anzahl an Schüler*innen in Duisburg\",\n      \"url_or_doi\": \"https://opendata-duisburg.de/dataset/anzahl-sch%C3%BChlerinnen-duisburg\",\n      \"justification\": \"This dataset from Open Data Duisburg provides student enrollment figures across school types in Duisburg, including vocational schools (Berufsschulen), starting from the 2009/2010 school year.\"\n    },\n    {\n      \"title\": \"Citizen Survey Duisburg (Autumn 2000)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3469\",\n      \"justification\": \"Archived in the GESIS Data Archive, this survey dataset conducted in late 2000 by the City of Duisburg collects socio-demographic, vocational qualification, and employment data from Duisburg citizens.\"\n    },\n    {\n      \"title\": \"Berufsbildungsstatistik NRW (Regionaldaten Duisburg)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de\",\n      \"justification\": \"Maintained by IT.NRW (the statistical office of North Rhine-Westphalia), this database offers official vocational education statistics for the city of Duisburg, tracking vocational training contracts and trainees throughout the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 702,
+          "candidatesTokenCount": 339,
+          "totalTokenCount": 2082,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 702
+            }
+          ],
+          "thoughtsTokenCount": 1041,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "QFSEatuVL_i0xN8Pof3qiAQ"
+      }
+    }
+  ]
+}

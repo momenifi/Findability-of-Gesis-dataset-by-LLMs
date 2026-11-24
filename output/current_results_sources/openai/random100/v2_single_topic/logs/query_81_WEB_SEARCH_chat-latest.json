@@ -1,0 +1,184 @@
+{
+  "query_id": 81,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Land use and planning in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0faf6ff542b056b3006b045f6da02c87d284ec4931e24a8dd7",
+        "created_at": 1795448685.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0faf6ff542b056b3006b045f6e817c87d28f4185b53f250462",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany historical land use dataset 1960 1970 land cover",
+                "Germany 1960 land use agricultural area historical statistics dataset",
+                "Germany historical spatial planning 1960 regional plans maps dataset"
+              ],
+              "query": "Germany historical land use dataset 1960 1970 land cover",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0faf6ff542b056b3006b045f70d73c87d284d6cfb6b15e0539",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:histat.safe-frankfurt.de Bodennutzung 1960 1965 Deutschland historische statistik",
+                "site:doi.org Germany land use 1883 2007 dataset 1960",
+                "site:geogreif.uni-greifswald.de Planungsatlas 1960 1969 Deutschland"
+              ],
+              "query": "site:histat.safe-frankfurt.de Bodennutzung 1960 1965 Deutschland historische statistik",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0faf6ff542b056b3006b045f73430c87d2bb49a1bf72b76d75",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Historical Land Use Statistics in Germany (1883–2001) – HISTAT/GESIS\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/9F49DE46FD3D98718A3673101AA2386E\",\n      \"justification\": \"Highly relevant historical dataset containing land-use statistics for Germany, including the 1960s. Covers agricultural land, arable land, forests, and other land-use categories. Includes historical series for West Germany from 1938 to 1978 and agricultural land-use statistics from 1950 to 2001. Particularly useful for examining changes in land allocation, agricultural planning, and land-use patterns during the 1960s.\"\n    },\n    {\n      \"title\": \"LUCAS LUC Historical Land Use and Land Cover Change Dataset for Europe (1950–2015)\",\n      \"url_or_doi\": \"https://doi.org/10.26050/WDCC/LUC_hist_landCovChange_v1.0\",\n      \"justification\": \"Spatially explicit historical land-use and land-cover dataset covering Europe, including Germany, from 1950 to 2015. Provides annual reconstructed land-cover information, making it suitable for investigating land-use changes throughout the 1960s. Particularly valuable for GIS-based research on agricultural expansion, forest cover, and landscape transformations. The historical maps are reconstructions rather than direct observations from the 1960s.\"\n    },\n    {\n      \"title\": \"LUCAS LUC Historical Land Use and Land Cover Change Dataset for Europe, Version 1.1\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/bcfaa951-724f-55d0-8c92-0e883de4e487\",\n      \"justification\": \"Historical geospatial dataset containing annual land-use and land-cover maps for Europe between 1950 and 2015. Includes Germany during the entire 1960s. Useful for analyzing historical land-cover patterns and comparing reconstructed land-use conditions across different years. Particularly relevant for environmental planning, agricultural geography, and long-term spatial development studies.\"\n    },\n    {\n      \"title\": \"Historical Statistics of Construction Activity and Housing in West Germany (1950–2005) – HISTAT\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/B97512D84B3B3366BA7E521C19C429A0\",\n      \"justification\": \"Historical statistical compilation documenting housing construction and building activity in Germany, including the 1960s. Contains information on completed residential buildings, housing construction, and residential floor space. Particularly useful for studying urban development, settlement expansion, residential planning, and construction patterns associated with West Germany's postwar economic growth. Provides planning-related indicators rather than direct land-use maps.\"\n    },\n    {\n      \"title\": \"Historical Housing Development Statistics in Germany (1918–1965) – HISTAT\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/5218E3EFF9264CAC47629DC218DA0E48\",\n      \"justification\": \"Historical dataset containing housing development indicators through 1965, including new housing construction, housing availability, and residential development. Relevant for examining urban planning and settlement growth during the first half of the 1960s. Useful for comparing housing development trends in East and West Germany and investigating the relationship between urbanization and land-use planning.\"\n    },\n    {\n      \"title\": \"Deutscher Planungsatlas: Niedersachsen und Bremen (1969) – GeoGREIF Historical Map Collection\",\n      \"url_or_doi\": \"https://geogreif.uni-greifswald.de/search?init=D&map=theme&map_them=17\",\n      \"justification\": \"Historical planning atlas material from 1969 covering Lower Saxony and Bremen. The GeoGREIF collection provides access to historical geographic and thematic maps, including regional planning atlas records. Particularly relevant for investigating spatial planning, regional development, settlement structures, and land-use organization in West Germany during the late 1960s. The link leads to a searchable collection rather than a single downloadable dataset.\"\n    },\n    {\n      \"title\": \"Basic Statistics of the European Economic Community (1965) – Agricultural Land Use\",\n      \"url_or_doi\": \"https://aei.pitt.edu/52161/\",\n      \"justification\": \"Historical statistical publication containing agricultural land-use data for West Germany in 1963. Includes measurements of arable land, permanent meadows and pastures, permanent crops, and total agricultural area. Provides quantitative evidence of land allocation during the early 1960s and enables comparisons between West Germany and other European countries. Useful for research on agricultural land management and rural planning.\"\n    },\n    {\n      \"title\": \"Long-term Development of Demand and Supply for Agricultural Products in the Federal Republic of Germany – USDA Economic Research Service\",\n      \"url_or_doi\": \"https://ageconsearch.umn.edu/record/316836\",\n      \"justification\": \"Historical agricultural study containing quantitative land-utilization data for West Germany during the 1960s. Includes agricultural land-use measurements for the 1961–1964 reference period and individual observations for 1964 and 1966, alongside projections for later years. Categories include cropland, permanent grassland, cereals, potatoes, sugar beets, and other crops. Particularly useful for studying agricultural planning, changes in cultivated land, and rural land-use allocation.\"\n    },\n    {\n      \"title\": \"Land Utilization in the European Economic Community (1966) – Historical Agricultural Statistics\",\n      \"url_or_doi\": \"https://ageconsearch.umn.edu/record/272857\",\n      \"justification\": \"Historical statistical source containing land-utilization figures for West Germany in 1966. Includes arable land, permanent meadows and pastures, permanent crops, total agricultural area, and forest area. Useful for analyzing the composition of agricultural and forest land in the mid-1960s and comparing German land-use patterns with those of other European Economic Community members.\"\n    },\n    {\n      \"title\": \"Historical Land Use and Land Cover Dynamics in Germany (1883–2007)\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC4375829/\",\n      \"justification\": \"Research publication describing a historical land-use and land-cover data compilation covering Germany from 1883 to 2007. The underlying analysis uses official historical statistics at five-year intervals, including separate observations for East and West Germany between 1950 and 1989. Particularly relevant for studying agricultural land decline, forest recovery, and differences in land-use development under East and West German political and planning systems during the 1960s. This is a research article describing the assembled data rather than a dedicated dataset download page.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448698.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18748,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1589,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20337
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

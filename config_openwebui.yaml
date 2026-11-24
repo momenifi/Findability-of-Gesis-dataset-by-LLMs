@@ -1,0 +1,38 @@
+# Optional standalone OpenWebUI configuration. Main pipeline: experiment.yaml.
+provider: openwebui
+api_base_url: https://ai-openwebui.gesis.org/api
+api_key_env: OPENWEBUI_API_KEY
+input_path: random_100_datasets_full_metadata.csv
+input_format: csv
+qrels_input_path: all_research_data_full_metadata.csv
+qrels_input_format: csv
+output_dir: output/openwebui
+output_dir_by_variant:
+  V1_TOPIC_COUNTRY_TIME_ALL_TOPICS: output/openwebui/v1_all_topics
+  V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC: output/openwebui/v2_single_topic
+  V3_TITLE_ONLY: output/openwebui/v3_title_only
+  V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE: output/openwebui/v6_all_topics_abstract_natural_language
+query_variants:
+  - V3_TITLE_ONLY
+modes: [WEB_SEARCH]
+models_web: [gpt-5.4]
+models_no_web: []
+source_row_limit: 100
+sample_per_variant: 0
+random_seed: 42
+time_format: decade
+top_k_return: 10
+include_top_k_limit_in_prompt: false
+max_returned_items_to_save: 0
+qrels_strategy: metadata_filter
+retrieval_for_candidates: false
+abstract_query_generator_model: gpt-5.4
+abstract_query_generator_api_base_url: https://ai-openwebui.gesis.org/api
+abstract_query_generator_api_key_env: OPENWEBUI_API_KEY
+abstract_query_cache_path: output/shared_query_cache/random_100_v6_abstract_queries.csv
+openwebui_web_search_mode: tool_ids
+openwebui_tool_choice: none
+request_timeout_connect_seconds: 30
+request_timeout_read_seconds: 600
+request_max_retries: 4
+request_retry_backoff_seconds: 15

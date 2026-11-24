@@ -1,0 +1,69 @@
+{
+  "query_id": 209,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Duisburger Bürgerumfrage (Herbst 2000)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3469\",\n      \"justification\": \"A GESIS survey dataset examining social attitudes, living conditions, local policy evaluation, and satisfaction with the living environment in Duisburg during Autumn 2000.\"\n    },\n    {\n      \"title\": \"Duisburger Bürgerumfrage (Herbst 2001)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4345\",\n      \"justification\": \"A dataset archived at GESIS covering citizen attitudes towards living conditions, local politics, economic climate, and municipal services in Duisburg in Autumn 2001.\"\n    },\n    {\n      \"title\": \"Duisburger Bürgerumfrage (Herbst 2005, deutsche Befragte)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4516\",\n      \"justification\": \"A dataset from the GESIS Data Archive measuring social attitudes, political satisfaction, economic expectations, and municipal life among Duisburg residents in Autumn 2005.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 878,
+          "candidatesTokenCount": 316,
+          "totalTokenCount": 2941,
+          "cachedContentTokenCount": 193,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 878
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 193
+            }
+          ],
+          "thoughtsTokenCount": 1747,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "P1OEaqu8E7aWvdIPrfXl2A4"
+      }
+    }
+  ]
+}

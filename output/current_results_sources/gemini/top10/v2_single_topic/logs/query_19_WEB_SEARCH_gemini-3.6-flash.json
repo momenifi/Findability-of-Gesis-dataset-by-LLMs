@@ -1,0 +1,69 @@
+{
+  "query_id": 19,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Environment and conservation in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The role of the Port of Hamburg for biodiversity: 11008 faunistic records for the survey sites (2020-2021)\",\n      \"url_or_doi\": \"https://doi.org/10.1594/PANGAEA.975527\",\n      \"justification\": \"Provides 11,008 faunistic survey records collected between 2020 and 2021 to examine urban biodiversity and habitat conservation within Hamburg, Germany.\"\n    },\n    {\n      \"title\": \"Butterfly abundance data from lower mountain range regions in southwest Germany\",\n      \"url_or_doi\": \"https://doi.org/10.1594/PANGAEA.971783\",\n      \"justification\": \"Contains butterfly abundance and monitoring data collected in 2020 across protected and mountain regions (e.g., National Park Hunsrück-Hochwald) in Germany.\"\n    },\n    {\n      \"title\": \"Spatially explicit distribution of hedgerows across German agricultural landscapes\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.15654506\",\n      \"justification\": \"High-resolution geospatial dataset mapping hedgerows across German farmland based on 2022 satellite imagery to support nature conservation and climate policy.\"\n    },\n    {\n      \"title\": \"Forest condition anomaly index values covering Germany for 2016-2024\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.17597682\",\n      \"justification\": \"Provides satellite-derived forest canopy condition and disturbance anomaly index maps across Germany covering the period from 2016 through 2024.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 391,
+          "candidatesTokenCount": 446,
+          "totalTokenCount": 3442,
+          "cachedContentTokenCount": 125,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 391
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 125
+            }
+          ],
+          "thoughtsTokenCount": 2605,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "CbenasDsLaCckdUP5YiFyQY"
+      }
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "query_id": 1,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1970s, matching this research need: Survey data on West German federal election behavior and political attitudes, including party preference and identification, candidate evaluations, issue competence, democracy attitudes, vote splitting, economic expectations, social class, and family political socialization.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_04af0adfdbcbbbcb006b046f5ea91087d28443ef2428631f16",
+        "created_at": 1795452766.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_04af0adfdbcbbbcb006b046f5fbe6087d2a45d8831bd52fd56",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German Longitudinal Election Study 1972 1976 Bundestag election study ZA attitudes candidate competence",
+                "GESIS 1970s German federal election studies 1969 1972 1976 1980 political socialization family vote splitting"
+              ],
+              "query": "GESIS German Longitudinal Election Study 1972 1976 Bundestag election study ZA attitudes candidate competence",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04af0adfdbcbbbcb006b046f62c1d887d28eddd60e1fa6c266",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA \"Federal Parliament Election 1972\" \"2nd Wave\"",
+                "site:search.gesis.org/research_data/ZA \"Election Study 1976\"",
+                "site:search.gesis.org/research_data/ZA \"Federal Parliament Election 1972\" panel"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA \"Federal Parliament Election 1972\" \"2nd Wave\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04af0adfdbcbbbcb006b046f64938887d2b4322b877746dbc5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Federal Parliament Election 1972\" \"2nd Wave\" site:search.gesis.org",
+                "\"Election Study 1972\" \"ZA0635\" gesis",
+                "\"Election Study 1976\" \"ZA0823\" site:search.gesis.org/research_data"
+              ],
+              "query": "\"Federal Parliament Election 1972\" \"2nd Wave\" site:search.gesis.org",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_04af0adfdbcbbbcb006b046f66722087d2afdccc4edc4042f7",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 – January 1972)\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA0633\",\"justification\":\"An exceptionally close match to the research requirements. This West German federal election panel survey covers party preferences and identification, evaluations of chancellor candidates Willy Brandt and Rainer Barzel, perceived issue competence of parties, political participation, attitudes toward democracy, voting intentions, and vote splitting. It also includes economic expectations, subjective social class, parental social class, political discussions in the parental home, and party sympathies of parents, spouses, and other close persons. Particularly valuable for analyzing family political socialization and the relationship between socioeconomic background, political attitudes, and electoral behavior.\"},{\"title\":\"Election Study 1972 (Panel: Preliminary Investigations, September–October 1972, October–November 1972; Follow-Up Survey, December 1972)\",\"url_or_doi\":\"https://doi.org/10.4232/1.12414\",\"justification\":\"A major three-wave panel survey surrounding the November 1972 West German federal election. Provides individual-level electoral behavior and political attitudes, including party preferences, voting intentions, party membership, and electoral choices. Its repeated observations allow researchers to investigate changes in political preferences during the election campaign and compare pre-election attitudes with subsequent voting behavior. GESIS study ZA0635. Highly relevant for studying electoral decision-making and party support in 1970s West Germany.\"},{\"title\":\"German National Election Panel Study, 1972\",\"url_or_doi\":\"https://doi.org/10.3886/ICPSR07110.v2\",\"justification\":\"An ICPSR panel study specifically designed to investigate electoral behavior in the Federal Republic of Germany during the November 1972 federal election. Covers voting behavior, political attitudes, public opinion, political participation, political perceptions, economic policy, foreign policy, German reunification, and demographic characteristics. Particularly useful for examining the relationship between political preferences, policy attitudes, and electoral decisions. Its longitudinal design supports analysis of electoral preference formation and change.\"},{\"title\":\"Election Study 1976 (Panel: Initial Investigation, May–June 1976, August–September 1976; Follow-Up Survey, October–November 1976)\",\"url_or_doi\":\"https://doi.org/10.4232/1.11982\",\"justification\":\"A three-wave panel survey covering the 1976 West German federal election. GESIS study ZA0823 contains information on electoral preferences, party evaluations, government preferences, and political attitudes. Documented variables include respondents' assessments of whether election outcomes and governing parties would improve their personal financial situation. The panel structure makes it especially useful for investigating campaign-period changes in voting intentions, economic considerations in electoral choice, and the relationship between attitudes toward government and voting behavior.\"},{\"title\":\"Workbook: Occupational Mobility in the Federal Republic (Federal Parliament Election 1972, First and Second Follow-Up Survey)\",\"url_or_doi\":\"https://doi.org/10.4232/1.0646\",\"justification\":\"A dataset derived from the 1972 West German federal election survey, specifically designed for analyzing occupational mobility and its relationship to political attitudes and behavior. Includes social origins, subjective social class, occupational characteristics, party identification, party preferences, voting intentions, party sympathy scales, political interest, and attitudes toward political issues. Also contains retrospective information on voting behavior in the 1969 federal election. Particularly useful for examining social class, intergenerational socioeconomic background, political alignment, and electoral behavior. GESIS study ZA0646, with 3,448 observations and 47 variables.\"},{\"title\":\"Federal Parliament Election 1969 (Pre-Election Investigation, September 1969; Follow-Up Survey, October–November 1969)\",\"url_or_doi\":\"https://doi.org/10.4232/1.11456\",\"justification\":\"Although collected immediately before the 1970s, this West German federal election panel provides an important baseline for analyzing political attitudes and voting behavior entering the decade. Covers party sympathy, candidate evaluations, issue competence, voting intentions for first and second votes, political interest, economic perceptions, and attitudes toward major policy issues. Particularly relevant to family political socialization because it examines relationships between respondents' political attitudes and those of family members and friends. Also includes religious affiliation, organizational membership, and socioeconomic characteristics. Useful for comparisons with the 1972 and 1976 election surveys.\"},{\"title\":\"Resonance of the Population to the Election Campaign and the Result of the Federal Parliament Election 1969\",\"url_or_doi\":\"https://doi.org/10.4232/1.0789\",\"justification\":\"A supplementary historical survey examining public responses to the 1969 West German federal election campaign and its outcome. Relevant for establishing the political-attitudinal context immediately preceding the 1970s, particularly public reactions to election campaigns, political parties, and electoral results. Can complement the 1972 and 1976 election studies when investigating continuity and change in electoral attitudes across the decade.\"},{\"title\":\"Politbarometer: West German Political Opinion Surveys, 1977 Onward\",\"url_or_doi\":\"https://www.gesis.org/en/elections/politbarometer\",\"justification\":\"A collection of recurring representative surveys examining the political attitudes of the West German electorate, beginning in 1977. Covers evaluations of political parties and politicians, voting behavior in previous Bundestag elections, political preferences, and assessments of current political issues. Particularly useful for tracking political attitudes and party support during the late 1970s, including periods between federal elections. Annual cumulative datasets and harmonized time-series resources facilitate longitudinal analysis.\"},{\"title\":\"Politbarometer Time Series, 1977–2024 (ZA2391)\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA2391\",\"justification\":\"A harmonized political opinion time-series dataset containing 84 selected variables from Politbarometer surveys beginning in 1977. Relevant for studying the evolution of party preferences, political attitudes, electoral behavior, and evaluations of political actors in West Germany during the late 1970s. Particularly valuable for comparing political sentiment across survey periods and examining trends beyond individual election campaigns. Researchers can restrict the analysis to observations collected during 1977–1979.\"},{\"title\":\"West German Federal Election Studies, 1949–2005 (GESIS Historical Election Survey Collection)\",\"url_or_doi\":\"https://www.gesis.org/en/elections\",\"justification\":\"An authoritative GESIS collection of historical German federal election surveys, including studies conducted during the 1970s. Provides access to individual-level survey data suitable for comparative research on party identification, electoral preferences, candidate evaluations, political attitudes, socioeconomic characteristics, and voting behavior. Particularly useful for identifying compatible variables across the 1972 and 1976 election studies and building a broader historical analysis of West German electoral behavior. The collection also provides access to documentation and metadata needed to assess variable comparability across elections.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452782.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20673,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1650,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 22323
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

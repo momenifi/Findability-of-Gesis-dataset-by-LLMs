@@ -1,0 +1,186 @@
+{
+  "query_id": 109,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Denmark, Germany, Spain, France, Ireland, Italy, Portugal, United Kingdom, Estonia, Hungary, and Slovenia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d9b598ebbb545ca006b046150a7a087d2afc0dfa28edb575c",
+        "created_at": 1795449168.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d9b598ebbb545ca006b0461517f8087d2885de9d95a5e024a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European Social Survey data rounds 1 2 3 4 2002 2008 countries download",
+                "European Values Study 2008 1999 integrated dataset GESIS",
+                "Comparative Study of Electoral Systems modules 2 3 2001 2011 data",
+                "Eurobarometer survey data 2000 2009 GESIS archive"
+              ],
+              "query": "European Social Survey data rounds 1 2 3 4 2002 2008 countries download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d9b598ebbb545ca006b046154e42487d2988ceb762c2d0678",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:europeansocialsurvey.org data portal rounds 1 2 3 4",
+                "site:issp.org 2004 citizenship 2006 role government 2007 leisure data",
+                "site:cses.org data download module 3 2006 2011",
+                "site:gesis.org eurobarometer 2004 2009 data download"
+              ],
+              "query": "site:europeansocialsurvey.org data portal rounds 1 2 3 4",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d9b598ebbb545ca006b046157cda087d2bb20c35857e1c31b",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"European Social Survey (ESS), Rounds 1–4 (2002–2009)\",\n      \"url_or_doi\": \"https://www.europeansocialsurvey.org/\",\n      \"justification\": \"A major cross-national survey measuring political behaviour, attitudes, values, and social conditions across Europe. The 2002, 2004, 2006, and 2008 rounds provide data on political participation, voting behaviour, political trust, satisfaction with democracy, ideological orientation, immigration attitudes, and institutional confidence. Particularly relevant for comparing Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Estonia, Hungary, and Slovenia. Country participation varies by round, so coverage should be checked for each survey year.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) 2008: Integrated Dataset\",\n      \"url_or_doi\": \"https://europeanvaluesstudy.eu/surveys/surveys-evs/survey-2008/data-and-documentation-survey-2008/\",\n      \"justification\": \"A comprehensive comparative dataset examining political, social, religious, and cultural values in European societies. The 2008–2010 wave covers all 11 requested countries. Relevant variables include political interest, political participation, confidence in government and parliament, attitudes toward democracy, ideological self-placement, national identity, and social trust. Particularly useful for comparing political attitudes across Western, Southern, Northern, and Central/Eastern Europe toward the end of the 2000s.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) 1999/2000: Integrated Dataset\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation\",\n      \"justification\": \"Provides baseline observations from approximately 1999–2001, allowing comparisons with the EVS 2008 wave. Includes measures of political trust, democratic values, political engagement, authoritarian attitudes, national identity, and ideological preferences. Useful for investigating changes in political attitudes throughout the 2000s. The integrated dataset is archived by GESIS under study number ZA3811.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES), Module 2 (2001–2006)\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/3808\",\n      \"justification\": \"A cross-national electoral survey dataset focusing on political representation, accountability, voting behaviour, and democratic attitudes. Includes election studies from Denmark, Germany, Spain, France, Ireland, Italy, Portugal, the United Kingdom, Hungary, and Slovenia. Variables include electoral participation, party identification, ideological preferences, evaluations of political leaders, government performance, and satisfaction with democracy. Particularly suitable for explaining differences in electoral behaviour between countries during the early and middle 2000s.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES), Module 3 (2006–2011)\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-module-3-2006-2011-2/\",\n      \"justification\": \"A harmonized international dataset examining voting behaviour, electoral competition, and perceptions of political alternatives. Includes several relevant national election studies, such as France (2007), Germany (2009), Ireland (2007), Portugal (2009), Spain (2008), and Slovenia (2008). Measures include electoral participation, party preferences, political efficacy, satisfaction with democracy, and ideological positioning. Particularly useful for studying electoral attitudes during the late 2000s, including the period surrounding the global financial crisis.\"\n    },\n    {\n      \"title\": \"CSES Integrated Module Dataset (IMD)\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-integrated-module-dataset-imd/\",\n      \"justification\": \"Combines harmonized variables from multiple CSES election study modules into a longitudinal comparative dataset. Researchers can select observations from 2000–2009 and relevant countries to examine changes in voting behaviour, electoral participation, party identification, ideological preferences, political knowledge, and evaluations of government performance. Particularly valuable for comparing electoral behaviour across different election cycles using consistently coded variables.\"\n    },\n    {\n      \"title\": \"Standard Eurobarometer Surveys (2000–2009)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation/standard-special-eb\",\n      \"justification\": \"A series of repeated cross-sectional public opinion surveys conducted across European Union member states. Covers Denmark, Germany, Spain, France, Ireland, Italy, Portugal, and the United Kingdom throughout the 2000s, with Estonia, Hungary, and Slovenia entering the regular EU-member coverage following their 2004 accession. Relevant variables include political trust, satisfaction with democracy, confidence in national and European institutions, attitudes toward European integration, economic expectations, and perceptions of government performance. Especially useful for examining political attitudes over time.\"\n    },\n    {\n      \"title\": \"Eurobarometer Trend Files and Harmonized Eurobarometer Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/survey-series/eb-trends-trend-files\",\n      \"justification\": \"Provides harmonized longitudinal datasets derived from multiple Eurobarometer surveys. The Harmonized Eurobarometer 2004–2021 includes observations from the 2000s and covers political and policy-related attitudes across EU member states. Relevant measures include trust in political institutions, evaluations of democracy, political priorities, attitudes toward European integration, and perceptions of public policy. Particularly suitable for identifying trends and comparing the political orientations of citizens across the requested EU countries.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2004: Citizenship\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"An international survey module specifically focused on citizenship, democratic participation, political engagement, and civic attitudes. Variables include voting, political interest, participation in demonstrations, petition signing, membership in organizations, trust in political institutions, and perceptions of citizens' democratic responsibilities. It is especially relevant for comparing political participation and civic engagement across participating European countries in the middle of the 2000s. Country coverage should be verified using the module documentation.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2006: Role of Government IV\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"A comparative survey investigating citizens' expectations of government, attitudes toward public intervention, political efficacy, civil liberties, and confidence in political institutions. Useful for studying ideological differences and preferences regarding the role of the state across European societies during the 2000s. The dataset can support comparisons between Northern, Southern, Western, and Central/Eastern European countries, subject to national participation.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2003: National Identity II\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"A comparative dataset examining national identity, national pride, citizenship, immigration, and attitudes toward international integration. Relevant for understanding political nationalism, national belonging, immigration preferences, and attitudes toward globalization in European societies during the early 2000s. Particularly useful for studying how national identity relates to political attitudes and ideological preferences. Coverage of the requested countries varies.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2008: Religion III\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"An international survey examining religious beliefs, secularism, institutional confidence, and the relationship between religion and public life. Particularly useful for studying the association between religious orientation and political attitudes across European countries. Relevant measures include religiosity, religious tolerance, attitudes toward religious influence in politics, and social values. Provides an additional perspective on political and cultural differences during the late 2000s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2009: Social Inequality IV\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"A cross-national dataset investigating perceptions of economic inequality, fairness, redistribution, social mobility, and government responsibility. Particularly relevant for examining political attitudes toward economic policy and the welfare state at the end of the 2000s. Can support comparative analysis of preferences for redistribution and perceptions of inequality across participating countries, including differences between established Western European democracies and post-communist societies.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) Trend File 1981–2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation\",\n      \"justification\": \"A harmonized longitudinal dataset combining multiple waves of the European Values Study, including the 1999/2000 and 2008 waves. Enables researchers to examine changes in political trust, confidence in democratic institutions, ideological orientation, political participation, national identity, and social values. Particularly suitable for studying political attitude changes between the beginning and end of the 2000s across the 11 requested countries.\"\n    },\n    {\n      \"title\": \"District-Level Electoral Data for the Comparative Study of Electoral Systems, Modules 2 and 3 (2001–2011)\",\n      \"url_or_doi\": \"https://reshare.ukdataservice.ac.uk/851858/\",\n      \"justification\": \"A supplementary comparative electoral dataset containing district-level information associated with CSES Modules 2 and 3. Includes electoral information for several requested countries, notably France, Germany, the United Kingdom, Italy, Portugal, and Spain. Useful for connecting individual political attitudes and voting behaviour from CSES surveys to local electoral competition and political context. Particularly valuable for multilevel analyses of political participation and electoral outcomes during the 2000s.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES), Module 1 (1996–2001)\",\n      \"url_or_doi\": \"https://cses.org/data-download/download-data-documentation/\",\n      \"justification\": \"An international electoral survey dataset covering elections around the beginning of the 2000s. Focuses on electoral institutions, voting behaviour, political knowledge, political and social divisions, and evaluations of democratic institutions. Includes relevant election studies from countries such as Denmark, Hungary, Portugal, and Spain. Useful for establishing an early-period baseline when combined with CSES Modules 2 and 3, although much of its fieldwork predates 2000.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449187.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18607,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2375,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20982
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

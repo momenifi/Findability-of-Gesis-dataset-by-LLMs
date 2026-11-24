@@ -1,0 +1,69 @@
+{
+  "query_id": 61,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes and Elections in Saarland during the 2010s, matching this research need: Survey data on Saarland state election voting intentions, party and candidate evaluations, coalition preferences, regional economic perceptions, policy attitudes, and demographics around the Annegret Kramp-Karrenbauer vs. Heiko Maas contest.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS Data Archive Study ZA6948: State Election in Saarland 2017 (Forschungsgruppe Wahlen)\",\n      \"url_or_doi\": \"https://data.gesis.org/gesiskg/resource/ZA6948\",\n      \"justification\": \"This GESIS dataset contains survey data collected around Saarland state elections, covering voting intentions, party and candidate evaluations, coalition preferences, policy attitudes, and voter demographics.\"\n    },\n    {\n      \"title\": \"Forschungsgruppe Wahlen Politbarometer Archive (Saarland State Election Polls)\",\n      \"url_or_doi\": \"https://www.forschungsgruppe.de/Umfragen/Politbarometer/\",\n      \"justification\": \"Provides survey data and election analyses for Saarland state elections (including the 2012 election campaign between Annegret Kramp-Karrenbauer and Heiko Maas), capturing voter preferences, candidate popularity ratings, preferred coalition models, economic perceptions, and demographic distributions.\"\n    },\n    {\n      \"title\": \"Infratest dimap WahlREPORT Saarland 2012 Survey Data & Documentation\",\n      \"url_or_doi\": \"https://www.infratest-dimap.de/service/publikationen/\",\n      \"justification\": \"Documented survey series and exit poll datasets for the 2012 Saarland state election contest, measuring voting motives, candidate evaluations of Annegret Kramp-Karrenbauer and Heiko Maas, issue priorities, regional socio-economic assessments, and voter demographics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1905,
+          "candidatesTokenCount": 372,
+          "totalTokenCount": 4518,
+          "cachedContentTokenCount": 1551,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1905
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1551
+            }
+          ],
+          "thoughtsTokenCount": 2241,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "9ImEatiXIcHrvdIPu7KjqAc"
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "query_id": 28,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions, MEDIA, COMMUNICATION AND LANGUAGE, Working conditions, and Health care services and policies in Germany during the 2020s, matching this research need: Representative German population survey data on COVID-19 attitudes and behaviors: infection worries, perceived information, evaluations of government containment measures, work-from-home status, and demographics including region, party preference, and survey weights.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02c5609fd30d17f7006b0470f5868c87d29726e5027710fb04",
+        "created_at": 1795453173.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02c5609fd30d17f7006b0470f68ecc87d286e0b109ea633001",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS COVID-19 Snapshot Monitoring COSMO Germany dataset worries information government measures home office party preference weights",
+                "GESIS panel coronavirus Germany survey infection concern informed containment home office party preference weighting dataset",
+                "German COVID-19 survey dataset representative population infection worries government measures homeoffice party preference region weights"
+              ],
+              "query": "GESIS COVID-19 Snapshot Monitoring COSMO Germany dataset worries information government measures home office party preference weights",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02c5609fd30d17f7006b0470f9b07087d2b9bc0d3fbd943ada",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Trendfragen Corona (Woche 14/2020)\"",
+                "site:search.gesis.org/research_data/ \"Trendfragen Corona\" \"Homeoffice\" \"Gewichtung\"",
+                "site:search.gesis.org/research_data/ \"Trendfragen Corona (Woche 5/2022)\""
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Trendfragen Corona (Woche 14/2020)\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02c5609fd30d17f7006b0470fb394887d2947516e7a80f407c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Trendfragen Corona (Woche 14/2020) / Trend Questions Corona (Week 14/2020)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/187f56c3-e3c5-5244-a0f1-a325aa68cb89\",\n      \"justification\": \"Excellent match. This representative German population survey was conducted by forsa on behalf of the German Federal Government's Press and Information Office in 2020. It covers worries about personal COVID-19 infection, infection of family members and friends, and infecting others. It also measures perceived information about infection prevention, appropriate behavior when infected, federal and state government containment measures, and everyday life under restrictions. Respondents evaluate government policies and the credibility of official COVID-19 communications. Particularly suitable for studying relationships between infection anxiety, information, and evaluations of government pandemic responses.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop Population Sample – Special Survey on the Coronavirus SARS-CoV-2 Outbreak in Germany (ZA5667)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA5667\",\n      \"justification\": \"Highly relevant representative German population survey conducted March 17–29, 2020. The dataset investigates perceived infection risks, protective behaviors, evaluations of government containment measures, compliance with restrictions, political and institutional trust, changes in employment circumstances, childcare responsibilities, and media consumption. Its integration with the GESIS Panel provides opportunities to analyze demographic, regional, and political characteristics. Particularly useful for examining how working conditions, media consumption, and political attitudes relate to COVID-19 perceptions. Researchers should consult the documentation for available weighting variables and specific work-from-home measures.\"\n    },\n    {\n      \"title\": \"Trendfragen Corona (Woche 50/2021) / Trend Questions Corona (Week 50/2021) (ZA7822)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA7822\",\n      \"justification\": \"Strong match for representative German survey data on COVID-19 attitudes during late 2021. Commissioned by the German Federal Government's Press and Information Office and conducted by forsa, this survey measures concerns about contracting COVID-19, worries about infections among relatives and friends, concerns about transmitting the virus, credibility of federal government information, and evaluations of current containment policies. It allows investigation of public perceptions of government pandemic management during a later phase of the pandemic. The GESIS record provides study documentation for examining demographic variables and available weights.\"\n    },\n    {\n      \"title\": \"Trend Questions Corona (Week 5/2022)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/4843b4e5-9eb9-5a16-be18-13f15597d216\",\n      \"justification\": \"Highly relevant nationally representative German population survey from early 2022. It includes concerns about COVID-19 infection, worries about infecting others, evaluations of government information credibility, and assessments of whether containment measures are appropriate, excessive, or insufficient. Additional questions cover vaccination, booster intentions, COVID-19 warning-app usage, reactions to exposure notifications, and perceived information about appropriate protective behaviors. Especially useful for analyzing health communication, institutional trust, policy evaluations, and public health behavior. It belongs to a recurring survey series suitable for comparisons across pandemic phases.\"\n    },\n    {\n      \"title\": \"COVID-19 Snapshot Monitoring (COSMO Germany) – Full Monitoring Data Set 1–71\",\n      \"url_or_doi\": \"https://www.psycharchives.org/en/item/51a89237-8807-4a6f-a78a-2d4f6afa7132\",\n      \"justification\": \"Excellent match for studying German COVID-19 attitudes and behaviors longitudinally at the population level through repeated cross-sectional surveys. COSMO monitors infection risk perceptions, worries, protective behaviors, knowledge, misinformation, information sources, trust in institutions, and acceptance of containment policies. Its sociodemographic variables include age, gender, education, federal state, employment, political preferences, and opportunities for working from home. The surveys use demographic quotas to approximate the German adult population. Particularly useful for investigating differences in COVID-19 attitudes across regions, political groups, and employment circumstances. Researchers should verify weighting availability for individual waves.\"\n    },\n    {\n      \"title\": \"COVID-19 Snapshot Monitoring (COSMO Germany) – Harmonized Dataset of 69 Surveys, 2020–2022\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-05275-3\",\n      \"justification\": \"Very strong match providing a harmonized research dataset covering 69 German COSMO surveys conducted between March 3, 2020, and November 29, 2022, with 69,013 survey responses. The dataset contains 332 variables addressing infection risk perceptions, COVID-19 worries, preventive behaviors, government trust, acceptance and perceived effectiveness of containment measures, information sources, and pandemic-related consequences. Demographic variables include German federal state, political preferences, employment status, and opportunities for home office. Sampling was quota-representative by age, gender, and federal state for adults aged 18–74. Especially valuable for comparing pandemic attitudes and behaviors over time and across demographic and political groups.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop – Coronavirus Special Survey Data Access\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/data-access/data-access-gesis-panelpop\",\n      \"justification\": \"Official GESIS data-access landing page for the probability-based German population panel, including its March 2020 special coronavirus survey. The coronavirus component investigates infection fears, perceived risks, protective behavior, assessments of political containment measures, institutional trust, employment disruptions, and media use. The broader panel infrastructure supports research combining COVID-19 responses with demographic, political, and socioeconomic information. This resource is particularly relevant when representative population coverage and appropriate survey weights are important. Access conditions and variable availability depend on the selected data edition.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453185.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 13012,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1423,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 14435
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

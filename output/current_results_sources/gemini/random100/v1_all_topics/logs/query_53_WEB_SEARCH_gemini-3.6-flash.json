@@ -1,0 +1,69 @@
+{
+  "query_id": 53,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Diet and nutrition, General health and well-being, Medication and treatment, and Specific diseases, disorders and medical conditions in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Aids im Bewußtsein der Bevölkerung der DDR 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6658\",\n      \"justification\": \"This dataset from GESIS contains survey data collected in 1989–1990 by the GDR's Central Institute for Hygiene, Microbiology, and Epidemiology alongside the Institute for Sociology and Social Policy. It specifically measures AIDS awareness, knowledge of specific infectious diseases, and health-related behaviors in the German Democratic Republic.\"\n    },\n    {\n      \"title\": \"Sächsische Längsschnittstudie – Welle 1, 1987\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10774\",\n      \"justification\": \"Initiated in 1987 by the Central Institute for Youth Research (ZIJ) in Leipzig, GDR, this longitudinal study tracks physical and mental health, general well-being, and socio-psychological indicators of young people in East Germany through the late 1980s and 1990s.\"\n    },\n    {\n      \"title\": \"Jugend und Sport 1987\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6096\",\n      \"justification\": \"Conducted in 1987 by the ZIJ in Leipzig, GDR, this dataset captures health conditions, physical fitness, health-related life goals, and sports/lifestyle habits of youth in the German Democratic Republic during the late 1980s.\"\n    },\n    {\n      \"title\": \"Sozio-oekonomisches Panel (SOEP) - GDR Sample 1990\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v36\",\n      \"justification\": \"Expanded into the GDR in June 1990 prior to official reunification, the Socio-Economic Panel dataset offers representative longitudinal microdata on general health, satisfaction, well-being, and living conditions in East Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1129,
+          "candidatesTokenCount": 518,
+          "totalTokenCount": 3815,
+          "cachedContentTokenCount": 132,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1129
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 132
+            }
+          ],
+          "thoughtsTokenCount": 2168,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "qQyEaom8JYm1xN8P7YTqwAw"
+      }
+    }
+  ]
+}

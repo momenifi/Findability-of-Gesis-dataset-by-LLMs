@@ -1,0 +1,69 @@
+{
+  "query_id": 243,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in German Democratic Republic (1949-1990) during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Amtliche Statistik der Erwerbstätigkeit in der DDR (HISTAT ZA8078)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8078\",\n      \"justification\": \"Compiled by Wolfgang Fritz and archived at GESIS (HISTAT), this historical dataset contains official statistical time series on employment, labor participation, economic sectors, and occupational breakdowns in the German Democratic Republic (GDR) spanning 1950 to 1989, including detailed data for the 1970s.\"\n    },\n    {\n      \"title\": \"GDR-Labor Market Report: Long Term Time Series / DDR-Arbeitsmarkt: Langfristige Zeitreihen (HISTAT ZA8189)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8189\",\n      \"justification\": \"Created by Jürgen Wahse and Reinhard Schaefer and hosted on GESIS, this dataset offers 806 statistical time series from 1950 to 1989 on the East German labor market, covering employment levels, qualifications, working hours, and industry sectors throughout the 1970s.\"\n    },\n    {\n      \"title\": \"Data Fund of Societal Work Power linked with administrative data of the IAB (GAV-ADIAB)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.GAV-ADIAB7519.de.en.v2\",\n      \"justification\": \"Maintained by the Research Data Centre (FDZ) of the Institute for Employment Research (IAB), this dataset links historical administrative employment records from the East German 'Data Fund of Societal Work Power' (GAV) with longitudinal IAB employment biographies, enabling individual-level analysis of East German worker trajectories.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2272,
+          "candidatesTokenCount": 449,
+          "totalTokenCount": 5487,
+          "cachedContentTokenCount": 570,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2272
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 570
+            }
+          ],
+          "thoughtsTokenCount": 2766,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "mF-EaofvEavonsEP5fmumQs"
+      }
+    }
+  ]
+}

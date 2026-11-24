@@ -1,0 +1,187 @@
+{
+  "query_id": 43,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Crime and law enforcement, International politics and organisations, Conflict, security and peace, Political behaviour and attitudes, Government, political systems and organisations, Elections, Economic conditions and indicators, Economic policy, public expenditure and revenue, and Economic systems and development in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0593fa76b72cd1a0006b04563ce4e887d2bddfa46a08aa514e",
+        "created_at": 1795446332.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0593fa76b72cd1a0006b04563ddc4487d2a21831c47b708436",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany federal states dataset",
+                "German federal states 1990s election results dataset Bundeswahlleiterin",
+                "Regionaldatenbank Deutschland federal states historical 1990 GDP crime public finance data",
+                "GESIS German election study 1990 1994 1998 dataset ZA"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany federal states dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0593fa76b72cd1a0006b045641fc1887d2be499ac132621c75",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:destatis.de regionaldatenbank deutschland 1991 bundesländer bruttoinlandsprodukt",
+                "site:statistikportal.de kriminalstatistik bundesländer 1993 1999 polizeiliche kriminalstatistik",
+                "site:bka.de PKS Zeitreihen 1987 2023 Länder",
+                "site:gesis.org Eurobarometer 1990 1999 Germany federal states regional data",
+                "site:arbeitsagentur.de statistik arbeitslosigkeit bundesländer 1991 1999 zeitreihe"
+              ],
+              "query": "site:destatis.de regionaldatenbank deutschland 1991 bundesländer bruttoinlandsprodukt",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0593fa76b72cd1a0006b045645bf2c87d2a9c1c54bceacb736",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 1990–1998\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A major longitudinal survey covering social behaviour, social attitudes, political participation, trust in institutions, social inequality, economic perceptions, and attitudes toward government. Relevant waves include 1990, 1991, 1992, 1994, 1996, and 1998. Extended versions provide federal-state identifiers, allowing analysis of Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Particularly useful for comparing social and political attitudes across German states during the 1990s. Access to detailed regional information may be restricted.\"\n    },\n    {\n      \"title\": \"ALLBUS Cumulative Dataset, 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/allbus/daten-und-dokumentation\",\n      \"justification\": \"Combines multiple waves of the German General Social Survey into a harmonized dataset. Includes all survey years during the 1990s and supports longitudinal analysis of political attitudes, social values, religion, trust, economic conditions, social stratification, and public opinion. Particularly valuable for studying changes before and after German reunification. Federal-state-level analysis depends on the geographic variables available in the selected data version.\"\n    },\n    {\n      \"title\": \"German State Election Studies (Landtagswahlstudien), 1962–2004\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Collection of surveys examining electoral behaviour and political attitudes surrounding German state parliamentary elections. Includes studies conducted during the 1990s in various federal states. Relevant variables include voting intentions, party identification, evaluations of political leaders, government satisfaction, and political preferences. Particularly suitable for examining elections, political behaviour, state government, and political systems. Coverage varies by state and election.\"\n    },\n    {\n      \"title\": \"Politbarometer Political Opinion Surveys, 1977–Present\",\n      \"url_or_doi\": \"https://search.gesis.org/?study_group=Politbarometer&type=research_data\",\n      \"justification\": \"Regular German political opinion surveys covering voting intentions, political parties, government approval, economic expectations, policy preferences, and important political issues. Includes extensive observations from 1990–1999. Useful for examining political behaviour, political attitudes, public opinion, economic policy preferences, and perceptions of government. Geographic identifiers should be checked for state-level comparisons.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies, 1949–2005\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"GESIS research data collection covering German federal elections, including those held in 1990, 1994, and 1998. Contains election-related surveys investigating voting behaviour, political preferences, party identification, government evaluations, and economic perceptions. Relevant for examining political behaviour and attitudes, government, political systems, and elections during the 1990s. Availability of state identifiers varies between individual studies.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany, 1994–1998–2002\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/56798\",\n      \"justification\": \"Longitudinal research examining political attitudes, electoral participation, and voting behaviour in reunified Germany. The 1994 and 1998 waves fall directly within the requested period. Suitable for studying political engagement, political institutions, political trust, electoral behaviour, and differences between eastern and western Germany. Geographic detail should be verified before conducting comparisons among individual federal states.\"\n    },\n    {\n      \"title\": \"German Election Database (GERDA), 1990–Present\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"Comprehensive database of German election results at municipal and other geographic levels. Includes federal, state, and local elections beginning in 1990 for relevant election series. Provides party vote shares and harmonized geographic information, making it particularly useful for comparing electoral outcomes across the eleven requested federal states. Municipal election results can be aggregated to examine regional electoral behaviour, party competition, and political change during the 1990s.\"\n    },\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04811-5\",\n      \"justification\": \"Research publication describing the German Election Database and its harmonized collection of local, state, and federal election results. The underlying data include elections conducted during the 1990s, with municipal-level geographic information. Especially relevant for studying elections, government representation, political competition, and geographic differences in political behaviour across German federal states. The DOI provides a documented entry point to the dataset and its methodology.\"\n    },\n    {\n      \"title\": \"Historical German Election Results Since 1946 – Konrad Adenauer Foundation\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Historical electoral dataset covering German federal, European, and state elections. Provides state-specific election results for all eleven requested states, including elections during the 1990s. Variables include party vote shares, parliamentary seat distributions, voter turnout, and selected demographic breakdowns of electoral participation. Particularly valuable for studying elections, government formation, political systems, and changes in party competition.\"\n    },\n    {\n      \"title\": \"German Federal and State Election Research Data – GESIS Research Data Center Elections\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"Research data infrastructure providing access to historical German federal and state election surveys, including studies from the 1990s. Collections include German Federal Election Studies, German State Election Studies, Politbarometer, and Forsa-Bus surveys. Relevant to elections, political behaviour, political institutions, public opinion, and government policy preferences. Researchers can identify individual datasets covering the requested states and years.\"\n    },\n    {\n      \"title\": \"Eurobarometer Surveys – German Regional Data, 1990–1999\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation/standard-special-eb/population-countries-regions\",\n      \"justification\": \"European public opinion surveys covering attitudes toward European integration, international institutions, democracy, national governments, economic conditions, social issues, and political developments. Includes surveys throughout the 1990s. Relevant to international politics and organisations, political attitudes, social behaviour, economic policy, and perceptions of European institutions. Some surveys include regional identifiers, although their geographic detail varies and may not distinguish every requested federal state.\"\n    },\n    {\n      \"title\": \"German Regional Statistical Database (Regionaldatenbank Deutschland)\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/datenbanken\",\n      \"justification\": \"Official statistical database system maintained by Germany's federal and state statistical offices. Provides regional indicators covering economic activity, population, employment, public administration, government finances, social conditions, and other topics. Relevant for comparative research across Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Historical availability varies by indicator; researchers should select series containing observations from 1990–1999.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – German Federal-State National Accounts, GDP, 1991–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/82111/table/82111-0001\",\n      \"justification\": \"Official German national accounts table containing annual nominal GDP observations beginning in 1991. Relevant to economic conditions, economic development, and the economic consequences of reunification during the 1990s. The linked table provides national totals; related federal-state national accounts tables are needed for direct comparisons among the eleven requested states.\"\n    },\n    {\n      \"title\": \"German Regional National Accounts – GDP and Economic Indicators by Federal State\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/_inhalt.html\",\n      \"justification\": \"Official regional statistics entry point providing access to GDP, gross value added, and other economic indicators for Germany's federal states. Historical economic series include observations from the 1990s. Particularly relevant for comparing economic development, regional disparities, industrial restructuring, and economic performance across the requested states following reunification.\"\n    },\n    {\n      \"title\": \"Federal Employment Agency – Historical Unemployment and Labour Market Time Series, 1991–Present\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/DE/Navigation/Statistiken/Interaktive-Statistiken/Zeitreihen/Lange-Zeitreihen-Nav.html\",\n      \"justification\": \"Official German labour market statistics containing monthly unemployment figures and unemployment rates by federal state beginning in 1991. Covers all eleven requested states throughout most of the 1990s. Relevant for analyzing economic conditions, labour market performance, regional economic development, unemployment disparities, and the economic effects of reunification. Particularly suitable for constructing comparable state-level time series.\"\n    },\n    {\n      \"title\": \"German Federal Employment Agency – Historical Labour Market Statistics\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/DE/Navigation/Statistiken/Interaktive-Statistiken/Zeitreihen/Lange-Zeitreihen-Nav.html\",\n      \"justification\": \"Historical employment and unemployment datasets covering economic conditions at national, state, and subregional levels. State-level unemployment series begin in 1991, while some district-level unemployment series begin in 1998. Suitable for examining structural unemployment, labour market inequality, regional economic policy, and economic development in western Germany and Berlin during the 1990s.\"\n    },\n    {\n      \"title\": \"German Police Crime Statistics (Polizeiliche Kriminalstatistik) – Federal and State Crime Data\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/rechtspflege\",\n      \"justification\": \"Official statistical entry point for German crime and justice statistics, including police-recorded crime statistics compiled by state criminal police offices and the Federal Criminal Police Office. Relevant to crime and law enforcement, criminal justice, public security, and government administration. Historical editions and statistical series can support research on crime patterns during the 1990s across the requested federal states. Availability and comparability of individual indicators should be checked.\"\n    },\n    {\n      \"title\": \"Police-Recorded Crime Indicators by German Federal State\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/nachhaltigkeit/ergebnisse/ziel-16-frieden-gerechtigkeit-und-starke-institutionen/straftaten\",\n      \"justification\": \"Official statistical dataset presenting police-recorded crime indicators for German federal states, based on Federal Criminal Police Office crime statistics and population data. Relevant to crime, law enforcement, public security, and the effectiveness of public institutions. Useful for cross-state comparisons; however, the linked statistical series should be checked for 1990s observations because the available online presentation does not necessarily cover the entire requested decade.\"\n    },\n    {\n      \"title\": \"German Justice Administration and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/rechtspflege\",\n      \"justification\": \"Official German statistical collection covering courts, criminal prosecution, correctional institutions, justice personnel, and police-recorded crime. Relevant to crime and law enforcement, government institutions, legal systems, public administration, and security policy. Historical statistical publications may contain federal-state observations from the 1990s, allowing comparisons of criminal justice activity across the eleven requested states.\"\n    },\n    {\n      \"title\": \"German Regional Statistical Catalogue (RegioStat)\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Publikationen/regiostatkatalog-artikel.html\",\n      \"justification\": \"Official catalogue identifying standardized regional statistics available through Germany's regional statistical database. Covers economic development, employment, demographic conditions, public services, and selected administrative indicators. Useful for locating historical regional datasets relevant to economic conditions, economic systems and development, public expenditure, and government administration. The catalogue itself is a discovery resource rather than a single historical dataset, and 1990s coverage must be verified for each statistical series.\"\n    },\n    {\n      \"title\": \"German Federal and State Statistical Databases – Official Statistics Portal\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/datenbanken\",\n      \"justification\": \"Central discovery point for databases maintained by Germany's federal and state statistical offices. Provides access to official statistics concerning regional economies, public budgets, social conditions, government activity, population, employment, and development indicators. Particularly useful for identifying federal-state datasets relevant to economic policy, public expenditure and revenue, economic systems, and government administration. Historical coverage varies, so datasets must be filtered for 1990–1999.\"\n    },\n    {\n      \"title\": \"German Reunification Statistics – Historical Regional Economic Development\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Querschnitt/35-Jahre-Deutsche-Einheit/_inhalt.html\",\n      \"justification\": \"Official statistical collection examining economic, demographic, and social developments in Germany since reunification. Includes historical comparisons beginning in 1991 and references to state-level national accounts. Relevant to economic conditions and indicators, economic development, social change, and regional disparities. Particularly useful for analyzing how Berlin and the western federal states developed economically during the 1990s.\"\n    },\n    {\n      \"title\": \"German State-Level Economic Accounts and Historical Regional Indicators\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/National-Accounts-Domestic-Product/_node.html\",\n      \"justification\": \"Official national accounts resource providing economic statistics and references to regional accounting systems. Relevant indicators include GDP, economic output, investment, and structural economic change. Historical national accounts series extending back to 1991 support research on economic development and economic conditions during the 1990s. Federal-state comparisons require selecting the appropriate regional accounts datasets.\"\n    },\n    {\n      \"title\": \"German Federal-State Elections and Political Attitudes – GESIS State Elections Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Collection of historical state election studies that includes an integrated dataset covering state parliamentary elections between 1962 and 2004. Particularly relevant to political behaviour and attitudes, elections, government, political systems, and regional party competition. The collection supports analysis of electoral preferences and political attitudes during the 1990s, although survey availability differs among federal states.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446358.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19339,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3453,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 22792
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

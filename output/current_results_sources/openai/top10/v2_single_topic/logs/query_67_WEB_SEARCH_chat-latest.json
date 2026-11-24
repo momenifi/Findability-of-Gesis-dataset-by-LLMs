@@ -1,0 +1,185 @@
+{
+  "query_id": 67,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about news value theory in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00d990211f812872006b047b586cc887d2b9371f5df411f576",
+        "created_at": 1795455832.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00d990211f812872006b047b59543c87d2ac1a18427bbce4d1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany news values news factors dataset 2020 2021 2022 2023 journalism GESIS",
+                "Nachrichtenfaktoren Nachrichtenwert Datensatz 2020 2024 Deutschland",
+                "German news coverage dataset 2020 2024 GESIS media news articles"
+              ],
+              "query": "Germany news values news factors dataset 2020 2021 2022 2023 journalism GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00d990211f812872006b047b5d4ff487d2beb2c4dd2a5365ff",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:zenodo.org German news values dataset news factors journalism 2023",
+                "site:github.com taz2024full dataset",
+                "site:figshare.com geolocated dataset German news articles 49 million",
+                "site:github.com NeMig bilingual news collection migration dataset"
+              ],
+              "query": "site:zenodo.org German news values dataset news factors journalism 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00d990211f812872006b047b6090b087d2891651d5986e88b9",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"A Geolocated Dataset of German News Articles (2016–2020s)\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-05422-w\",\n      \"justification\": \"Highly relevant for studying news value theory (Nachrichtenwerttheorie) in Germany during the 2020s. Published in 2025, this dataset contains approximately 49.4 million German news articles from 3,211 domains, including extensive coverage from the 2020s. Geographic information is available for approximately 70% of articles. Researchers can investigate news values such as geographic proximity, relevance, prominence, frequency, and regional significance. Particularly useful for testing whether geographic proximity influences the selection and prominence of news stories. News value factors would need to be operationalized by the researcher.\"\n    },\n    {\n      \"title\": \"NeMig: A Bilingual News Collection and Knowledge Graph about Migration\",\n      \"url_or_doi\": \"https://zenodo.org/records/7908392\",\n      \"justification\": \"A dataset published in 2022 containing German and American online news coverage of migration. It includes textual information, metadata, sentiment annotations, political orientation information, and extracted entities. Particularly relevant for examining news values such as negativity, conflict, elite actors, personalization, and cultural proximity in German migration reporting. The dataset also enables comparisons between German and American news selection and framing. Access restrictions apply to some data.\"\n    },\n    {\n      \"title\": \"DIE WELT (welt.de): A Corpus of German News Articles\",\n      \"url_or_doi\": \"https://huggingface.co/datasets/SinclairSchneider/welt_de\",\n      \"justification\": \"A German-language news corpus containing articles from the national newspaper DIE WELT, including articles published during the 2020s. Suitable for analyzing news selection, topic prominence, negativity, conflict, elite references, and personalization. Its publication dates enable longitudinal comparisons of news values. Particularly useful for examining how major German news organizations prioritize political, economic, and international events. The dataset excludes paywalled articles, which may introduce selection bias.\"\n    },\n    {\n      \"title\": \"taz2024full: A German Newspaper Corpus (1980–2024)\",\n      \"url_or_doi\": \"https://arxiv.org/abs/2506.05388\",\n      \"justification\": \"A corpus containing approximately 1.83 million articles published by the German newspaper taz between 1980 and 2024. It includes material from 2020–2024 and supports research on news values, editorial selection, gender representation, personalization, and the visibility of political and social actors. Researchers can examine how the frequency and characteristics of newsworthy events change over time. The linked research paper describes the dataset and its availability. The corpus represents one newspaper rather than the entire German news landscape.\"\n    },\n    {\n      \"title\": \"Topics of Tagesschau: German Television News Salience Dataset (2014–2022)\",\n      \"url_or_doi\": \"https://felixgruenewald.net/projects/tagesschau/\",\n      \"justification\": \"Particularly relevant because it directly supports analysis of news salience, a central outcome examined in news value theory. The dataset covers Germany's major public television news program Tagesschau between 2014 and 2022, including 2020–2022. Researchers can investigate which topics, individuals, institutions, and events receive attention. It is especially useful for studying prominence, continuity, frequency, and the changing newsworthiness of political and social issues. The available dataset focuses on nouns and proper names rather than complete transcripts.\"\n    },\n    {\n      \"title\": \"useNews: News Content, Audience Preferences, and Facebook Engagement (2018–2020)\",\n      \"url_or_doi\": \"https://osf.io/uzca3/\",\n      \"justification\": \"A research dataset combining approximately three million news items from 81 sources across 12 countries with audience preferences from the Reuters Digital News Report and Facebook engagement information. It includes observations from 2020 and supports comparative analysis involving German news media. Particularly useful for distinguishing journalistic news selection from audience engagement, an important question in contemporary news value theory. Researchers can examine whether factors associated with newsworthiness also predict social media visibility, sharing, and audience reactions. Its coverage of the 2020s is limited to 2020.\"\n    },\n    {\n      \"title\": \"Babel Briefings: A Multilingual News Headlines Dataset (2020–2021)\",\n      \"url_or_doi\": \"https://github.com/felixludos/babel-briefings\",\n      \"justification\": \"Contains approximately 4.7 million news headlines collected between August 2020 and November 2021 across 30 languages and 54 locations. German-language and Germany-related observations can support research on newsworthiness and international differences in editorial priorities. Particularly suitable for testing news value factors such as negativity, relevance, conflict, prominence, and unexpectedness through headline analysis. Its international structure enables comparison of German news selection with that of other countries. Researchers should distinguish German-language content from news actually selected for German audiences.\"\n    },\n    {\n      \"title\": \"Dataset of Quotation Attribution in German News Articles (2024)\",\n      \"url_or_doi\": \"https://arxiv.org/abs/2404.16764\",\n      \"justification\": \"A dataset introduced in 2024 containing 1,000 German news documents with approximately 250,000 annotated tokens. It provides detailed quotation attribution annotations that can support investigations of elite prominence, personalization, and the visibility of political and institutional actors. These characteristics connect to established news value factors concerning elite persons and influential organizations. Particularly useful for studying whose statements are selected and emphasized in German journalism. It is a specialized linguistic annotation dataset rather than a dataset explicitly coded for news values.\"\n    },\n    {\n      \"title\": \"German Regionalized Press Releases Database\",\n      \"url_or_doi\": \"https://github.com/burcuozgun/grpr\",\n      \"justification\": \"A geographically structured database of German press releases, with a publicly available subset covering May 2016 through May 2020. It contains information about press release topics, geographic locations, publication dates, and issuing organizations. Useful for investigating geographic proximity, regional relevance, and the influence of institutional actors on potential news coverage. Researchers can compare the geographic and topical distribution of press releases with published news to investigate selection processes. Its direct coverage of the 2020s is limited to the first five months of 2020, and press releases should not be treated as equivalent to independently selected news articles.\"\n    },\n    {\n      \"title\": \"A Multidimensional Dataset for Analyzing and Detecting News Bias Based on Crowdsourcing (2020)\",\n      \"url_or_doi\": \"https://zenodo.org/records/3885351\",\n      \"justification\": \"Published by researchers affiliated with Karlsruhe Institute of Technology and Kyoto University in 2020. The dataset contains 2,057 sentences from 90 news articles, with approximately 44,500 annotations covering bias, subjectivity, hidden assumptions, and representation tendencies. It can support methodological research on evaluating how news stories portray conflict, negativity, and political actors. However, it concerns international coverage of the Ukraine crisis rather than German domestic news during the 2020s. It is therefore an indirect methodological resource, not a direct dataset of German news values.\"\n    },\n    {\n      \"title\": \"GDELT News Reconstructions: Multilingual News Observations from 2020 Onward\",\n      \"url_or_doi\": \"https://github.com/openalphalab/GDELT-News\",\n      \"justification\": \"A multilingual collection of reconstructed news observations based on GDELT Web News NGrams records, with historical coverage extending toward January 2020. It includes publication information, languages, source URLs, and reconstructed text. German-language observations and sources can potentially be filtered to study news frequency, topic selection, international attention, conflict, and geographic proximity. Particularly useful for large-scale computational investigations of newsworthiness. Historical coverage is incomplete, and the dataset does not provide ready-made annotations of news value factors.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455850.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18840,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1845,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20685
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

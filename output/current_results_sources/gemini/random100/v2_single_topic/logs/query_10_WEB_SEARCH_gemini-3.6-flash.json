@@ -1,0 +1,69 @@
+{
+  "query_id": 10,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic systems and development in Berlin during the 1950s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The Economics of Density: Evidence from the Berlin Wall (Dataset)\",\n      \"url_or_doi\": \"https://doi.org/10.3982/ECTA10876\",\n      \"justification\": \"This dataset provides spatial economic data, employment numbers, and land values across thousands of city blocks in Berlin before, during (including the post-WWII division in the 1950s), and after reunification to analyze economic activity in East and West Berlin.\"\n    },\n    {\n      \"title\": \"HISTAT - Historical Time Series on German Economic and Social History\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/\",\n      \"justification\": \"HISTAT (maintained by SAFE and GESIS) hosts historical time-series datasets on post-war German economic development, labor markets, industrial production, and price indexes covering the 1950s across West Germany, East Germany, and Berlin.\"\n    },\n    {\n      \"title\": \"National Accounts of the GDR (1950–1989) - Deutschland in Daten\",\n      \"url_or_doi\": \"http://www.deutschland-in-daten.de/en/national-accounts\",\n      \"justification\": \"This historical statistical dataset compiled by Gerhard Heske and the Federal Statistical Office reconstructs national accounts, sector outputs, and GDP metrics for East Germany and East Berlin under central planning from 1950 to 1989.\"\n    },\n    {\n      \"title\": \"The Two Germanies: Planning and Capitalism - GDP Per Capita (1950–1989)\",\n      \"url_or_doi\": \"https://ourworldindata.org/grapher/the-two-germanies-planning-and-capitalism-gdp-per-capita\",\n      \"justification\": \"Derived from the Total Economy Database, this dataset provides comparative macroeconomic time-series data on real GDP per capita and economic growth trajectories for the capitalist market economy (West) versus the socialist planned economy (East) starting in 1950.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 495,
+          "candidatesTokenCount": 490,
+          "totalTokenCount": 2264,
+          "cachedContentTokenCount": 150,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 495
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 150
+            }
+          ],
+          "thoughtsTokenCount": 1279,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "3ySEatyWFdHAxN8PmZSc8AM"
+      }
+    }
+  ]
+}

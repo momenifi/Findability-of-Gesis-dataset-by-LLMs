@@ -1,0 +1,183 @@
+{
+  "query_id": 98,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Prevention Survey Rhineland-Palatinate (2006 and 2010)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_060072cb8a8fd3b8006b046f39c6cc87d285664afb18343c17",
+        "created_at": 1795452729.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_060072cb8a8fd3b8006b046f3acc4c87d2afc124185043bc3f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Prevention Survey Rhineland-Palatinate\" 2006 2010 dataset",
+                "\"Präventionssurvey Rheinland-Pfalz\" 2006 2010 Datensatz"
+              ],
+              "query": "\"Prevention Survey Rhineland-Palatinate\" 2006 2010 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_060072cb8a8fd3b8006b046f3c258c87d29242d433773b5ac4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org \"Präventionssurvey Rheinland-Pfalz\"",
+                "\"Präventionssurvey Rheinland-Pfalz\" \"2010\" dataset",
+                "site:access.gesis.org/dbk/ \"Präventionssurvey\""
+              ],
+              "query": "site:search.gesis.org \"Präventionssurvey Rheinland-Pfalz\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_060072cb8a8fd3b8006b046f3d938087d28c70bf94c8803874",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Prevention Survey Rhineland-Palatinate (2006) / Präventionssurvey Rheinland-Pfalz (2006)\",\"url_or_doi\":\"https://access.gesis.org/dbk/66467\",\"justification\":\"Official GESIS repository record containing the methodological documentation for the 2006 Prevention Survey Rhineland-Palatinate. The survey was conducted in November 2006 among residents of Rhineland-Palatinate, Germany, using a postal questionnaire. It included 990 respondents and collected information on vaccination status, self-assessed health, participation in preventive healthcare programs, prevention practices, and demographics. This is a verified match for the 2006 survey. The associated 2010 survey could not be independently verified from the available search results.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452734.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 11153,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 225,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 11378
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

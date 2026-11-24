@@ -1,0 +1,69 @@
+{
+  "query_id": 28,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in South Carolina and Massachusetts during the 1730s and 1740s and 1750s and 1760s and 1770s and 1780s and 1790s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Trans-Atlantic Slave Trade Database\",\n      \"url_or_doi\": \"https://www.slavevoyages.org/voyages/about\",\n      \"justification\": \"Contains detailed historical records of trans-Atlantic slaving voyages during the 18th century (including the 1730s through 1790s), tracking disembarkations, ship registrations, and trade involvement across colonial ports in South Carolina and Massachusetts.\"\n    },\n    {\n      \"title\": \"Historical, Demographic, Economic, and Social Data: The United States, 1790-2002\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR02896.v3\",\n      \"justification\": \"Provides county- and state-level aggregate demographic, economic, and population data starting with the 1790 U.S. decennial census for states including South Carolina and Massachusetts.\"\n    },\n    {\n      \"title\": \"Sources and Uses of Funds in State and Local Governments, 1790-1915: [United States]\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR09728.v1\",\n      \"justification\": \"Offers historical financial data starting in 1790 detailing state government revenues and expenditures, covering states such as South Carolina and Massachusetts.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1014,
+          "candidatesTokenCount": 345,
+          "totalTokenCount": 2709,
+          "cachedContentTokenCount": 104,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1014
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 104
+            }
+          ],
+          "thoughtsTokenCount": 1350,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "iyqEapTDGMGgnsEP58aGyAw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 85,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment and TRADE, INDUSTRY AND MARKETS in North Rhine-Westphalia during the 1960s, matching this research need: data on shoemakers and small craft businesses in advanced industrial society, covering self-employment, business structure, mechanization, family labor, financing, competition, social prestige, class attitudes, politics, and demographic background\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS ZA0418: Schuhmacher (1962) - Befragung über die soziale Lage im Schuhmacherhandwerk\",\n      \"url_or_doi\": \"https://data.gesis.org/gesiskg/resource/ZA0418\",\n      \"justification\": \"Conducted in 1962 by the Institut für Mittelstandsforschung in Cologne (North Rhine-Westphalia), this study specifically investigates shoemakers and small craft businesses in advanced industrial society. The questionnaire covers self-employment vs. employment, social prestige, business structure, family labor, mechanization, competition, financing, politics, and demographic background.\"\n    },\n    {\n      \"title\": \"Gross Income of Workers and Employees in Industry and Commerce, Handicraft, Agriculture, Emoluments of Federal Officials and Actual Earnings, Federal Republic of Germany 1950 - 2006 (ZA8618)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13683\",\n      \"justification\": \"This historical GESIS dataset provides official statistical data on wages, gross earnings, and employment structure in handicrafts (Handwerk) and industry in West Germany (including North Rhine-Westphalia) during the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "Eq8tCqwtARFNMg9bT8p8uhl5IE6OcMr8aSAaRUzdJzQvktlDrE9uU69cJMhv0Wgm3cgR4SOX3f0hDfXC4yTck2/SorTIHJIcVBTrXaQNj4geT86rZ9nozTp8669g9AGJS1l8tRXsxYqKznY6CwvX+PeBZGaFOqVHJT6MuSE88mss09FE5aQ8tNAGIyAV2Evc+WUX1/8MI3PtJhBrMhH5OMPYweR2meMuND0yqYNspSXgmhN0PBzwTwxJmzIV+x6tHEUYDbDVvvuKw5uTvCaz8In0gaU1BZxHqmke5NfQHwB0njxtH/JFpBje+dOUdKPuCHuFS9KLa67hs8uKO89bEdbRgcFNnZI3OyYtYOBeAM3KWIpI5taAUvrNb6IDY87mYjrs5wEIOGW4g2iAE5maDHS8cawhc4x3VzJk34qE8Fs18SHKIt9eIbNadfgI79rZoq7nsPPZiQRpyPX2R0sCtC5IJ/4hMTMyYz4beSILNm2VDYIEfDACp5q3IObqwPEixn1aBt8d/rKd/Njm2s2up6cUbu6JIH5oietqkSmB+bu5GrDiBfIq9EXaV01U+CDMQJy3aAX1nbDGvZDKslDL6A3Vdeu7H9hHnJNZpgyyaw64RyUq+hKpCuuK/bUdN1bpF22DZXKSUFHdIpuyQ5fB/Ot8qWMaMT6o3xHhGXJnSfs/+akitNIMo/+o+rWTL/30zXLUZp0ZCrv1TImQyd0H4bXQFlUrlX7LBX7b4s6gYxV+RwBYgSmF4sWlvJaImXdK2v/3XxbcrH0LvuDp+sxeIBxIIAulAk0L9TrvJvODuV+ycHbLq2Z2fvn9INGHpY30GOlNl21aQKbW9BJAi9Jol2ekOnv7jywrJEUAWr5B2J2BrABm1DQa2BM9G8nuBe/ef/25vgWampnxt+k9eYbZW+oqi+nTuSgWr9Vgq8Er0CqjAER3sXDzFRSNY9InxcYRx1XDaxjfF8BGfbAQNX20NJPHYOVPbW3IGO1OhOQL+mv9scjb7t+6TttBRyOM9m0KWm0bXpOxsbH6dFDFkvxRE3REqllC9b1IFLJiJUHMCptuvUyxMmZiySyrS7b5SnbGXw8GLJQK26zW654RWRiqNAUj/Lf+t84kdS2qt27jgGvHPoBeA7qO0Y1CAWKoUgkieE98yPI4ROpepSTId6+akFIniEyyBEq33Cf4j8Sy3ijcYiay4FCvMo1bnL9I2cP/rm3490z6WanRqKYTM/AT+mtO8cpUlXGuW3oOL4qj32ffODDtr3z6GIWWHPDLUio1L7B5qZLdNI3lCECryhpoyZk/0FOh2LcKWB796KBWjbcZr6K0nwKdTCR5lfmEagdiBhDvsjn2V+/GCVnDVR5UwVIntqV4eZ0PaSLKTWNyV0yQGVdsv/wVesf2BjTd8HZYhDj6YDyJXH7hgsE5Itsv2NegeSEHrUDgeDA2LisqYTEUI2fxHhHD0EF518tGYjv6yHXXo8BvHG+SLWWob59vDrJ4OnDF7bv+U4N5kDp4xau6rXG3SfXKEhewid/G2SmxBPdDDmhBttkPlw4yoXmr76OxJwtuFKN486x/ITc3TA1hvI1gFHZTxpaHVk/4/Q/1YIJCXvCW/HEtKRQmD06+TyIaQg7zTVpbQRTVhp4G/yHKbjlIiJXiKr7CrGrrraG76LOgkqFsRBiqPzNOBZZNKLbd3466ghvh1xppQL3NTAJtQBTfWocGeykZSk9+F8FtAdxQuoKGGsS6N6XbqVZrTO4NrWov+qAlLywPqS5tWWMzXNdtBfmu959yA2oM5L/zWK8RrAsALQyMLXEUm0bWsthHKliCPon0d2hx2PABVQr47zzWC+9AnKqRIicz2AOEmOXy1Xifk1mPLcsBOMpGmim3JSZMle9yQ3tgsfEk7I1U9DaFydl3VAkENyrqd9zH0l0UJ0ld6qAYE5SlHsb2WRXid2+gKkJ6ct4jNU6UhQvSPvLCq5qMWzqrr+O1aXRPZR2hwCt/BYj+alzBjBBBiACOi55pjmTk3OXK9J2bldbk23GsnX2staX1m5JA2DIBCMmZ5DlJZf4pd3OQJHQ2ltk87WtHtx6be6yqOHKb8GfahvBFeV0uT4DKavQBtxUjFaaO2Ia/JBdXgQ0hA3EvPaUWb8YANtZ1uC84uqbXHnRWG66PTbCrDc1HF1dGjlg0Z9RYXwwkhKEu+A7rH1K/ivyXbNdMN2azFw5gcbCYIPatpjTqmNFtIHfu46b2E4VeZYB/J8JfjYTQK/qx6whJF/RefK5F3y2asrET6xic07K9o584QaEGPYYwtW9mV2B1HCey7J/rwBCqM5VYxeYSSEUg19RLZwAlJJs1DTJ/leajSbttJVBaxg7SHur+4Yh3mVIfKqw/lIvhIZaojskWVnB4WBbHkRIPEUoZhJbMrb0NQu5iT57r85v8Cj0Bwx4Zf8U9GmFutWJIWNcqg5hkNy84ukFD998hT7vRIEyVb6F53PXC4n+nD4sZeLYFSgEd1MtvZqP1pjtII6YHv4IIsV4uSic+9tvZuZ1kXjZz14HCtaT5qswEKn+hhjW0xK3yZJ0iojKAwEDbUdu07bKK2K91rq4aoq2vEESFRyM0ILZOA1eduOiSd7bd4jrveUlQipEfR4BTPm4H02+Pds7Ghrx6U2GYWluHMpn71JyomwrTchZnNjkcQ4vrZzU49DFOrZTxafpWj2M+tPdRGSAdIghgWZ7ADeKkQaa+6DJr3f5s0tC1J/yOHk/Q9i+Oyq4/m7vdE3p+15af0v6FSLBY9svgENIdy3CzYEsYCmoMHXqeQH1J0COAys6Bm72hqdBE71MG6xLrfpK8eq+vWCFY205dU0b/IBPTd0+/1qbXCCKxv1DHovZVIgtFIPIL0d7XB6cJmWr1JPPuHUg/WshasK922AqDtRTFTSKIVt9LW22SL4eii8EzK8jv3Wilen6vmQOxanrNqDXVMump9WhBV/9hKRmMmvHvRU3adgG+hIF5Bs6Q4EPIT2zyeN2Wr08PVeFKJWisOYZdUjOn/xkptRM9+kkzcn+UArTSAnWXB2y/wEiPFf049YQZHMPxDuS1PPAeCFQ+CF4GEy2EQQuH/tOxxhSaewh4SaL5PTVLtU+q5W5VVFBipudPZptG3es82FJRk8bjsg/ckNekX0JAeb1p0nTkfHx8NNCXtgY8rFCA23GzDvHu0ytqaiGIJEjhbboar/jcgtchOn+2HXKFn83C8CYax/6I0vLhnc9zMdQp6GDlDx7LoHZywyUBPy2NMxoNRhbmKkTXigfO5yayJk+GqJDAzRVwcxCnv0+E+l1iy7IRPhahllF7ck9fw7UOM3ow6i0nUx2OKzGxVrmztmieb131UUgski9p7LRooL6wP5aR3IJRDd/JlpvaXAv4LQAQzO+P5QO9FZc5ceMdD/vHAM8QlKx1jHF0odRfECkPtGYt1czM9yA3Na/Jz34Hr89FeIYhmf/FYqNuPgZE14zaUFw6y3+UOO5V40bYwk5GZh1ZBGe+ifmbPJWmqqGeC4LcJc5e4Viq6RSiVbcPqgt4kfxkIBIjv4TiKrbgvhf3rkmQxS1bmWm/W+A5VOOPga11ZgUVWhCESyxPvb5ZNbh5b8wZdTFlAMdpJW2i138giDXY4XgmrcjSi6FyTZDISSaYgsF4Rrsu7FQ1x1hUSA2idBBFnBTYHBIudXmWXxVqSiVZo6fqhBzkwy+sJYuhsclu+Cb1qucebFfwkKksfv1wFHpXeZQY0CEzVz4ZxVBdAAnV7mMYENG4R4SUwrxFtFfYXAwIunTRnk1Fwu0a3814CoNJ9YWjTdsGb2RCS0uX9ehO4NNOn3IE/L70I86zouhehOpd1GCloxdsdOTRHKarIzt+D9yVfK3sHvlxcTUNO8znu2VZjuXgAItVc3FZLcJODvPeTFQByI21lBUtM/HIpRebF48TWKw9bavKmIVDjopd+w2bIrQSr0fJE//PwrAzM7TAslNiXULw3/TOciMMZ0hUsE9ReVivebb4kXwLzD5aBQke+E009Xa6CB577ueQWINs6xALprspPnN01+ptLlfyrj885J9vSOiiFocfKwaSsIuc0NLpnARpjF86jTS+YIEN1ryV82O3JQD1/dHs05bs2hzhWnfpQu8VgLC1ieWD24TCKaLMVKvMbYxlFZDT70lYopegHJvshmNILLS7z6a6I3dpb4MA/srU1RO+78zMPHOlZGM/GajbKtMysqtS8kAUzg2/uOR4an535i0RKvwcwgQTZMplQJGgIxsB9/k4LUEbSmFqyMh79hQSuR789HRLsYet80RunVu3WLHzRU78CBO17NgdnPeQMXqOAprj84JtMTkjPlAIzoWlFNTh5rJYZFXhj+Rl8z/jU9CVNOnvp/+ywF6zliQuXAYmFFrKW/NYKtRvXTGbN0yxJIasfsTn5trBers1IpLJYNL6X2czGZaboRLeDMoPqJX03GtioBk3r1zIfX/x45/EPDOyqKYFlHjSqi6OSJtnjQ5/WhCuT34ieqpNLGEpSpYBUuDUuub8SVPOIUT0uCLe2HIqCBU+TP0u2sZqvZ+yPnsYEETWLwkLlzYPulc8gSm1I481HqZeWw8uVRmI7VQGBxmkKc6sGtWxqD0F9kq6nyynGwnNGtOo64ZmvM8+uCY4etrTvmSWa3RlXV8+VcIzJJMek9gWs6/kOYo9I9uYGUGeeQS1Y8pYGKGbKVe3LrciSTlosUObNBDHs/VsLmUxXwMxbKEALuGpduI3e72JPnJjNW8WP2nZ9see9sp+8jQJUHgrABvI09EZCtKmn9TfzzS7lN8rm1xS3vk9DuF2Y1Kf1qtXUBN6XQ0GATODfDrhJdAorIB6gSPdNZGdrjHBQqL+Bl1Qt6OdPMbsRPRTr+UL1spzXVTQk45BUGA9VCAbKDeimjIfGnHgJ7AVEnqDVNcdl5YT+BphLFukNFLzKHvPYGCvpcWJDnmWwC7FOC0mff+cuuq5skPl00RYEnGCrtqKEDn6CNbJZrzpNsDYGGn/uQHeWWpUQ5RgxDkMx5+s8zqYdV9t6d3kbMgfNw1b5BYNHLFhqiBwq4DFu3qbWQkbOg1ngM8dOHPq3ZWCXHlMGFYhRP2sv1YZ9itWhYavTH2NDYARsg/gdnR20KlvpOVntYNLlVQ3gjpFYMVTuo+2n2hXFOeEt9duOt753H99d4h9HprIkpxVA3hyoQRvRZhDMPIvL0ik2nzxUvj8YDgyulw3JLhdD32H6fuq7BhjSNdUqqnQWRtDbEq/YUL5/Ylqossk7X2MfJa/QEVgkxPqy8zpdmX9yZZkNN5l4GL85swny48QJLIOglHAT1Zjz1YWg2BH6lLeBHVqh29fxK6Y1Vy5fKiy+rRGwC7SuMN1XpyfpfBy2A7m23lm1GWFmmVsSk8332mSBXmUc3ItSpprkxjGosE129Z+J3yR2sOgubBm6YhP3FxDk2TVn82J34IiPzJITpYsFvvN/YrTt/t8/49h/3xajgEAlReaJQbBKmzwkxsZjXw9tAj4R1f3vbgJYwKtWywoEVuYTWYcyJFIJ2L3U4KWTsLIxrek8cxmXARMHzLBh0BL6jNG65bz8NcbxgFfSUtOsi26WNmxR2oav7gh5OBzkE3BEE+SRvTgPZnTeDHLevnBrU2Mv4tWuBMeoddAcN4zdT2EMaEDNMrIZMYfHKloQO0c2LgeuTyw8vsStREjKwzbDHxq6LS6U2QxcTYAuoKMiPvByaFKUT5Xp6dkbvuQU2olqBcz7jphwcUrszE+byJJwFi7rjiNqiw2nFymrnXT0qMbP3cugwNWGv8jabdGKOYy90SY7VhM/1RxCYRV6oJeIE04Y1enyY6gqWVkMakNNvjCjz1sN3zI0Ppv1wo3c9Jy7tZTjzsRDeQtkGt7RlMzLkwQRw8RCoGSaigP06zlYovXnSW0lrm2BSrnK6oJn6HuiuBR2sC1uRjJ9vniZbUXDKp/3ko+vRvW7cEkgorfkj9j/INrmy1tHGXMhniIzJA3CFyTHBeNnhDQPdqEp6LIcsEBUVS8hJuff1LFoNUaPZYbc8+lg3lsYAsHIk+C3Q0n4dz+7oO34ob1HOub5BcmIcHKP5QonM0pOTEyCmx+5TLAdnw/t+Tu/Z4kKhr43f4o57d83MJ4P4DIMNEwm0HRtsOl34jWpOLixWr3EpZMeeWhBGzgp9GyM98NfQWJAPGd+p1Qcwb/CsMgQxsISl0wlT46Bz1HhE9TZudWEOr8Euc7kkrkfslo0JAJYvg+FIikpHPHa4plyWw+MTUB84Mdh/TF7p5RT1ohxLjRpFQDGvQmbTY3gycTmwmdayzg79XsJq60P1dEuqEYJM3l58OFzsWGI2jwWKcmA2HVDN/i4TQ1rXdNFcGK50Ub283s66YMVS7W09KGGqTgcsjLgV64o8DZxAgwKjOFyE+L5jAOrrNqRN7jOx3YZ5nbG/TS3EgvMbcXED2o0uxbHcIhuRKIKfxbhWNQjFuTiIs7dg0pcvxTozPNrEqQOne8l6dG4jWuTVZUTSpJ56l5eCyHTigXR2t8GAHmOSYrgBxLbJH1cuXgUZbTVzolJ5+DlCNUVU41fjMz27XNvTiS66UnepxcY8LuqL1xdEpMlCSyqmL9Jd/D/06V0HxFHfANduKYe6Nc9rqWlWeRJxuXdPM0c1K/nRGDjwHMoJkdKz8JGSJskwp2WYggeT5XjsFS15lKGVwMX3NISAM858bbxyrZZojG36Y2c/Ord0/OUWcjxDEJi4PRfeJGtXyaNAFaGWkETofEcS54cpeEBWQYvqqsb+WdCtyF0MP0kQGHlwIFdXKrBd6Jdor23k37d83SpnjXHfHeecXPmmExWLmnA7Yd90wDSJ+BUugwETrz/+4Vcz+MFTDDaG6dp1w8Xyt4Ko7uUTQZgr5uP9rAV40XwJ7GCvgJNg2eoZ+9TrS0Dd9mMh/7Iz0tprQYTIVEXC3PclYn1BfkekrKaziDgF+47N2IDHeNPopyWBlbM6a1DjJD7zDTKKVY6b5Se7Fe6RUM2Vm9Q4p9IUl+oAQuxxxyzRLiQB17Dgr0RlbHZ/Jct5MQcunTJ/huM0aBzbQ2v0tVY4zIRWp0iln+SaPAUdJsU+gXUBxNXbkXLJ7EsuycxfCFX4MFJvbeELZQs31HsepFlBgwG9iwCShR1YH/LwwInX8m8qJX3oxdNpbuzarqVp/I97YzxxxhiHaU9WaI5FxOoYkI96fJHfVPyLbDxQQTBvTnknaoSFLCgo6AozFueHSWvvErvOsBfk5znQzVBLq058qXObkKRNOin3P0UY9eZyUWCih2rW4+PyrsM+GP8bSKPxgnMumzuWlBzhAcpltf9ARd7Mt3xG7j10BimDKFohN+lsKQwPcDZKy5tD3h8c56Bvu9Su5neasY5bySJE02ypNc6B1CgPPWh8foRCylgnUm0tpSXhVx+1F5LnCdbSQjwAU9+NCaI28VlL9lKwrPqZGGi7xtN3fZTx30ckaZYJj4Oy4oAmdi6d+EPY5BzEECF000RYZ31Tl7Xvio9nbqNiZenLaoCYi1K4yZKFVhk4e82ebuklKnY90spWaWq69c0+ZK1msxQZKGesXi1SsbndEJtKPrEhCg1n4745Z5x5SBqI+n8PL8vd38FyxiHPAvJHF4mJc4MH+MgplPZ0ZQb1AkyceOkPPt5+jyA9lwQG/scbqHKLuhjQeoIeNNKoWe66wcZXE25wM1YoMd9vZ5Ndxomf9TNsyDgm9Q2N0="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1006,
+          "candidatesTokenCount": 316,
+          "totalTokenCount": 3953,
+          "cachedContentTokenCount": 626,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1006
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 626
+            }
+          ],
+          "thoughtsTokenCount": 2631,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "nJGEau-hEdia28oP_fKq2AU"
+      }
+    }
+  ]
+}

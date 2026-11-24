@@ -1,0 +1,69 @@
+{
+  "query_id": 4,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Values Study 2017: Integrated Dataset (EVS 2017)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13897\",\n      \"justification\": \"This cross-national survey conducted between 2017 and 2021 covers European and Eurasian countries (including Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia) and captures opinions and attitudes on family life, marriage, childbearing, and gender roles.\"\n    },\n    {\n      \"title\": \"Joint EVS/WVS 2017-2022 Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14320\",\n      \"justification\": \"This harmonized dataset integrates data from the European Values Study 2017 and World Values Survey Wave 7 (2017–2022), providing comprehensive comparative data on family values, partnership perceptions, marriage, and household responsibilities across European nations during the late 2010s and early 2020s.\"\n    },\n    {\n      \"title\": \"Generations and Gender Programme Data Catalog\",\n      \"url_or_doi\": \"https://www.ggp-i.org/data/\",\n      \"justification\": \"The Generations and Gender Survey (GGS) rounds collected during the 2010s and 2020s (GGS-I and GGS-II) provide longitudinal micro-level demographic survey data on partnership dynamics, marriage, fertility intentions, and family life across European and Eurasian countries.\"\n    },\n    {\n      \"title\": \"Eurostat Crude Marriage Rate Dataset (tps00206)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/tps00206\",\n      \"justification\": \"Provides official annual statistical indicators on marriage rates across European countries throughout the 2010s and 2020s, facilitating cross-national demographical analysis of marriage trends.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 963,
+          "candidatesTokenCount": 568,
+          "totalTokenCount": 2877,
+          "cachedContentTokenCount": 330,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 963
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 330
+            }
+          ],
+          "thoughtsTokenCount": 1346,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "EranarvWEPilxN8Phrnf8Ao"
+      }
+    }
+  ]
+}

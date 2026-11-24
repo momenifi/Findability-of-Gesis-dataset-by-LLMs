@@ -1,0 +1,182 @@
+{
+  "query_id": 55,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations, International politics and organisations, and Political behaviour and attitudes in Germany during the 2020s, matching this research need: telephone survey data from 2024 on people aged 14+ covering financial situation, life satisfaction, views of federal government policies, and perceptions of European and global political conditions\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d7f6922a783e8d4006b047291a8bc87d291241da2dad6b9cb",
+        "created_at": 1795453585.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d7f6922a783e8d4006b04729281b087d2a1b31be52cee0411",
+            "action": {
+              "type": "search",
+              "queries": [
+                "2024 Germany telephone survey aged 14 and over financial situation life satisfaction federal government policies European world political situation dataset",
+                "GESIS 2024 telefonumfrage ab 14 finanzielle lage lebenszufriedenheit bundesregierung europäische weltpolitische lage datensatz"
+              ],
+              "query": "2024 Germany telephone survey aged 14 and over financial situation life satisfaction federal government policies European world political situation dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d7f6922a783e8d4006b047295b78087d2ab9d374bb9882232",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Gesellschaftliche und politische Einstellungen 2024\" doi GESIS telefon 14 europa welt",
+                "site:search.gesis.org/research_data/ \"Social and Political Attitudes 2024\""
+              ],
+              "query": "\"Gesellschaftliche und politische Einstellungen 2024\" doi GESIS telefon 14 europa welt",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d7f6922a783e8d4006b047298504087d29449a87959ed4e8e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Gesellschaftliche und politische Einstellungen 2024 (Social and Political Attitudes 2024)\",\"url_or_doi\":\"https://access.gesis.org/dbk/77383\",\"justification\":\"Excellent match for the research need. This 2024 German survey covers social and political attitudes, including respondents' satisfaction with their personal financial situation, overall life satisfaction, perceptions of federal government policies, satisfaction with democracy, and assessments of political and social conditions. The questionnaire also addresses international political issues, including European and global developments. It is particularly relevant for studying political behaviour and attitudes, government and political systems, and international politics in Germany.\"},{\"title\":\"Gesellschaftliche und politische Einstellungen 2024 – GESIS Survey Documentation\",\"url_or_doi\":\"https://search.gesis.org/\",\"justification\":\"GESIS provides access to the 2024 Social and Political Attitudes study, which closely matches the requested telephone survey of Germany's population aged 14 and older. The study includes assessments of personal finances, satisfaction with different areas of life, perceptions of federal government communications and policies, and views on European and global political developments. Search for 'Gesellschaftliche und politische Einstellungen 2024' to locate the dataset and associated documentation.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453594.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19081,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 387,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 19468
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

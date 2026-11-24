@@ -1,0 +1,69 @@
+{
+  "query_id": 50,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ALLBUS 2008 - German General Social Survey 2008\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4600\",\n      \"justification\": \"This representative survey conducted by GESIS captures social attitudes, community attachment, urban versus rural living conditions, and civic engagement across German federal states, including North Rhine-Westphalia, during the 2000s.\"\n    },\n    {\n      \"title\": \"ALLBUScompact - Cumulative Social Survey 1980-2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3704\",\n      \"justification\": \"This GESIS cumulative dataset gathers cross-sectional survey data across three decades (including the entire 2000s decade), enabling long-term analysis of community life, social structure, and living conditions in North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"Lebendgeborene insgesamt - Gemeinden - Monat (ab 2000) [Landesdatenbank NRW]\",\n      \"url_or_doi\": \"https://open.nrw/dataset/12612-30i_00\",\n      \"justification\": \"Available on the Open.NRW portal from the official State Statistical Office (IT.NRW), this dataset provides monthly demographic and birth statistics at the local municipal level in North Rhine-Westphalia starting from 2000.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpcQCpQQARFNMg8GcHncdGbaE1hMUgO377p3ROQ727KbG5eTv3cpFLy+BH8tWnMyP/aZcruGdhLeVte5DcwrNosJVpczPBknRsBAALWTDOTI5D7sVI3R1fXSg91TCaPFBLumbrjHIt0CN4TDicoW+l5XxxGor7WAKj1E+EytKb3GfxAA4LzulumRLgtzBSCFh1efcr8Zzj4qK/Vh30tVaHhWObvc0QpNQ0uQ0y//Cjs2QfcA2MtIXnwWlkde6vewOO05/ryX0eqJSAcgbM6lhD0SJp/hTYZUvteTtFtYZCWqLE0FB/qY5F3I1x1Cd64oh62UpOFlIyFgq3H1hOYJbaeJSMF7UkEZtqlclSk12ccuKqbDKa5Yb/r0YULZGJqIMpFSVnvqHtQcBj8zqwjUtaeu+vFHxcH2UQTSqkXfEPqOjNBPXdpYBz2QdVHmWp6ThXcA3KlEtRSPac2ywOCB0sbZaPCcw8azIu0Mb8wvu7syD0+pCy2oOgzt8pi4wtWVby3LJSvG+3JkJxsS2f/GvCccqUHe8AGb3OhqMh+kx/DHa4s96JoVEGmB1dsBYi4sxKku/Re57IKcjZWqUN5wKFyy8JvPlqUJmAgIbqvmL0bUwG+6FfqwQujBAbgTeTJKa1n20pVT7QPWIMLmaWe6ejGsl3IWpD3YyCntmCh2mcpwQsYB/UXv05c4OBwWX8YBBaC8ylLSkS9cj5+iiI1+Fh5UQ+2SAm9L5zJymc7saDwNWkUxL0OZx9X9wgv2GC78iXCYgwtyH60bGdfIxUlAlGDbFzOsaSUVipvlqaJclJQLJEbIFE7emgS1tOQhw+aFxHYoHoGyzIjqj+/ndfLBhyameoDsGu95dJ3xAnL0foHRKPrRT1pjK1pnoo+HDI7el56y3HYzFAtEQZNBwgvzmnqf4GyQ2lJds2kg6RlVK5QThANSkNsX8hlskR89rQNPFbVrbrVoModHYckp7oa1f4qkUDjYwi9og/3O0Hc3ywyahObfPKYuQyCxI0AebCnKlX973LvYBF4BpzpTnw+n09oOYDN2wlWjS0Z/LDZryKDNMPzTKMJXPasL2JekS4IOPzwzO5ya+0v3UlU7zHgb9P/EzEsJ8micbLeaRTBl8GvuLFqZf2LHTiqj8a79Kcc8UEEczvMPtJamqbLkcRkFxJXnSmXBmph4X0fsfowOLEdZitdZZkA3YjJIy7I5ot/i/ph0ttMkKURLQJEnu6Dt/RNcf2rute1823IweOEJmIyWV61DZRDLaZEef/ThHUtKcw77M4Yzp1Umwy5HXAp5288kRgDYRc3Y5qMzuKt14J5o+BP7UnBxyYL1jgGl9l7pg4ykbYSgAQ32+ds4j03b2NhcdYlKIuqWC+eMrbhG3dD6rDCdV4XwAWcSZBnxgFCJ6Bo6Aa+Qm7wahapU2s+Cu3Al2nnLM3r5UzJeLsOIOHlTMHp6kimvLidAWqJwxBQfSR2N8ZFzASAwFcK5oBzR4YttCXrWBYQqrSu5fcMkL2Pkyy2d8RaijPUjTn+DIZkVbVbTy0VaDF+M6wQ3jU9l3K0i22AvBzzjNYV4uqIqPsndZT8bgt4+86zEdBFUPAiUybuH84/+ynAW6koSFHyVFbgiV7Z7x0cLHq+e2+uQ1rsz3HV/HW6pdGTR9eBglQLrY5jIjcQoop13VpE99RRvgvibDhrxixPSu2licnI/ehkKkudO69qV/+o5HsUo/wTrOHvSQV670uqnASqZ/EtFcFh+j2A+peaJXA74vNpg/B1jfAbbHlGeDX962/yaXQOlgMcvrKTvILQEhiNSj5PN2eVZ+WWVIa25tla+42qA7Vdkbj06zrH33WnpisG/qt4WlpWGp5iYtwbyiiHMkXJTfsH/PPB0Tw9yJ49tDaA0IA8N/rVP0bJCIvuu9r13UYcGrayjRsIUFBr9TrKS24xIqm4H3eXH9Sb5JMu595LTvu556Gr70vlR2916ROySiQFBRXxsfXwq4EINaJq8kB4s8uxiIWdCJ2D79fVOq+Wml162wSiJFdqpgCPvIXhCLLxyHubpCFw3auJ5VujVvzIuu8EWeJyAnpErkTwe5yhYAjviKbtfweG452zI9jBf1t+TSDiagYHpiqSlkV+sgxlm75R0lfvVnt70exDrFUPhC4YhA/Hy+ucy53tt4/Kan2QrCalDW+TF0PrQ7gOFV2QBCAUpnJ78OJYNakCOoUrKAw0MRBtWVO/ukerTc7jqR/NPsaSkQKPsJZXwRqJCBCRPZGgrTPymdzZmEA3dHp+x2AFzGokkqMrAFVy+HMyN7xBaPkP0G4Jqy4hg/266FohLFnXg40fHb0cknn6cvtjghQCOI0sQKmH40VhjoNN40LmBZKSP90zEoeNSUfRZc2yk5COv+vMFxEu3pWOPMNXryP9Iac9bKe+xCGuDsb9vRN7BWOHGMiKhzyl+y/sFncqqMqoVTtpITb2yU1HDlBBIk7ha412FLp9uHiMWayK7eFXwwuxztOox0GtgW+EHCx5kr+rjZqT7JITQ5UIRYbNasMrltlcWgSh4xZjO9k1YJqExdeLhF9ABvYuTG0e0exyNJXxx2GZVvKk4t6B5hmilqTwaGMFfQj3f5zaOhyylqqL6WSee9v6dMDSMhEKO7UfL82i2WRUVPP9rMlyDpD7uP6w23nB0vzgc7R3t7M6U9MWKnBjqdcKnftgofH7p2wgcgD31IrBahuPV4yaPkii4Cvkotr3y6bijMAhCB0b1MfFrAWkgIYFM/daEEw=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1488,
+          "candidatesTokenCount": 371,
+          "totalTokenCount": 3826,
+          "cachedContentTokenCount": 939,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1488
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 939
+            }
+          ],
+          "thoughtsTokenCount": 1967,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "yC6EaoqFOcac28oPraOe6Ak"
+      }
+    }
+  ]
+}

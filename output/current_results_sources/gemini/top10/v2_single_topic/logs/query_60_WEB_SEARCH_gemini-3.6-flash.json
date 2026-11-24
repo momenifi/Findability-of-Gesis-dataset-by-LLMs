@@ -1,0 +1,62 @@
+{
+  "query_id": 60,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Gender and gender roles in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"International Social Survey Programme: Family and Changing Gender Roles V - ISSP 2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10000.2.0.0\",\n      \"justification\": \"A cross-national survey dataset including a representative German sample collected in 2022–2023, assessing attitudes toward family life, female employment, division of household labor, and gender roles.\"\n    },\n    {\n      \"title\": \"German General Social Survey – ALLBUS 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14151\",\n      \"justification\": \"A biennial population survey of Germany from 2021 providing detailed indicators on demographic trends, family life, division of labor, and changing gender roles.\"\n    },\n    {\n      \"title\": \"PUSH*BACK*LASH European Gender Attitudes Harmonized Database (1981–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2950\",\n      \"justification\": \"A harmonized database hosted on GESIS aggregating data from multiple cross-national and German social surveys (EVS, ESS, ISSP, Eurobarometer) to study longitudinal trends in gender attitudes through 2022.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel Study (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41o\",\n      \"justification\": \"A long-running longitudinal household panel in Germany tracking changes in employment, division of unpaid domestic labor, family structure, and individual gender role attitudes through the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 356,
+          "candidatesTokenCount": 458,
+          "totalTokenCount": 2128,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 356
+            }
+          ],
+          "thoughtsTokenCount": 1314,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "T7mnapzoAfOnkdUP6JGdwAM"
+      }
+    }
+  ]
+}

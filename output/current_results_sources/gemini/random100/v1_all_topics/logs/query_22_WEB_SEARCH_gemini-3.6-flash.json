@@ -1,0 +1,69 @@
+{
+  "query_id": 22,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Social Indicators System for the Federal Republic of Germany: Field of Life 'Public Safety and Crime'\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14272\",\n      \"justification\": \"A dataset maintained by GESIS containing time series indicators on crime rates, public safety perception, victimization risks, and law enforcement resources in West Germany from 1950 to 2013, covering the 1970s.\"\n    },\n    {\n      \"title\": \"Suicide, demographic, socio-structural, infrastructure and crime statistics of the German Democratic Republic, 1952 – 1990\",\n      \"url_or_doi\": \"https://doi.org/10.7802/1.2010\",\n      \"justification\": \"A GESIS dataset capturing annual crime statistics, offender counts, and convicted persons at the district and national levels in East Germany (GDR) from 1952 through 1990.\"\n    },\n    {\n      \"title\": \"Crime in Western Societies, 1945-1974\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR07769.v3\",\n      \"justification\": \"An ICPSR dataset containing historical cross-national data (including West Germany) on convictions, offenses known to police, and crime categories spanning 1945 to 1974.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1041,
+          "candidatesTokenCount": 367,
+          "totalTokenCount": 3000,
+          "cachedContentTokenCount": 594,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1041
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 594
+            }
+          ],
+          "thoughtsTokenCount": 1592,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "0vWDarvpB6uyxN8PxMfoqQo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 47,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_021cf4a1218b81df006b0479de19f487d2a127cc640202d58c",
+        "created_at": 1795455454.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_021cf4a1218b81df006b0479df339c87d298a716a2522a6d28",
+            "action": {
+              "type": "search",
+              "queries": [
+                "BAuA Arbeitszeitbefragung 2015 2017 2019 2021 2023 dataset Germany",
+                "BIBB BAuA Erwerbstätigenbefragung 2012 2018 2024 data DOI",
+                "European Working Conditions Survey Germany 2010 2015 2021 data download",
+                "SOEP German socio economic panel working conditions data 2010 2023 landing page"
+              ],
+              "query": "BAuA Arbeitszeitbefragung 2015 2017 2019 2021 2023 dataset Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_021cf4a1218b81df006b0479e2d39087d2ab68f80fc4ff4e5a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:fdz.iab.de IAB Betriebspanel data 2010 2023 working conditions",
+                "site:diw.de soep research data access SOEP core 2023 employment job satisfaction",
+                "site:destatis.de quality of employment Germany indicators data working conditions",
+                "site:gesis.org ISSP 2015 work orientations IV Germany dataset DOI"
+              ],
+              "query": "site:fdz.iab.de IAB Betriebspanel data 2010 2023 working conditions",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_021cf4a1218b81df006b0479e56e4087d2abc41a5b8ccdc89d",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2012 (Germany)\",\n      \"url_or_doi\": \"https://www.bibb.de/de/1386.php\",\n      \"justification\": \"A nationally representative survey conducted by the German Federal Institute for Vocational Education and Training (BIBB) and the Federal Institute for Occupational Safety and Health (BAuA). Contains detailed information on physical and psychological working conditions, occupational demands, workplace stress, job satisfaction, qualifications, and health complaints. Particularly useful for establishing a baseline of working conditions in Germany during the early 2010s.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2018 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.18.1.1.10\",\n      \"justification\": \"A comprehensive survey of German employees covering working conditions, occupational health, physical and psychological demands, workplace organization, job satisfaction, and employment characteristics. Provides detailed individual-level data for analyzing working conditions in the late 2010s and comparing them with earlier survey waves.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2024 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.24.1.1.10\",\n      \"justification\": \"A recent wave of Germany's major employment and working conditions survey. Covers workplace demands, occupational stress, physical and psychological working conditions, job satisfaction, and employment characteristics. Particularly valuable for examining changes in working conditions during the 2020s and comparing them with the 2012 and 2018 surveys.\"\n    },\n    {\n      \"title\": \"Harmonised BIBB/BAuA Employment Survey 2006, 2012 and 2018\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.061218.1.1.10\",\n      \"justification\": \"A harmonized dataset combining three waves of Germany's employment surveys. Standardized variables facilitate comparisons of occupational demands, working environments, employment characteristics, and job satisfaction across survey years. Especially valuable for studying changes in German working conditions throughout the 2010s.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2015 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb15.suf.2\",\n      \"justification\": \"A German national survey focusing on working hours and their relationship with employee health and well-being. Includes information on weekly working hours, overtime, shift work, flexible working arrangements, psychological and physical job demands, and work-life balance. Provides an important baseline for studying working-time conditions before the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2017 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb17.suf.2\",\n      \"justification\": \"The 2017 wave of the BAuA Working Time Survey examines working schedules, overtime, flexibility, workplace demands, and employee well-being. Its panel design supports longitudinal research on changing working conditions and working-time arrangements in Germany.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2019 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb19.suf.2\",\n      \"justification\": \"Provides detailed information about German employees' working hours, shift arrangements, flexibility, workplace demands, job satisfaction, and health. Particularly useful as a pre-pandemic reference point for analyzing changes in working conditions during the 2020s.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2021 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb21.suf.1\",\n      \"justification\": \"Captures working-time arrangements, flexibility, occupational demands, and employee well-being during the COVID-19 period. Useful for investigating changes in working conditions, work-life balance, working schedules, and workplace organization in Germany during the early 2020s.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2023 (Germany)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb23.suf.1\",\n      \"justification\": \"Provides recent individual-level evidence on working hours, flexible schedules, psychological and physical workplace demands, employment conditions, and employee well-being. Particularly valuable for assessing post-pandemic working conditions and comparing developments across the 2015, 2017, 2019, 2021, and 2023 waves.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2010\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/data/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"A European survey conducted by Eurofound that includes German respondents. Covers working hours, occupational health and safety, physical and psychosocial workplace risks, work organization, training, and job satisfaction. Useful for comparing Germany's working conditions with those of other European countries at the beginning of the 2010s.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2015\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/data/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"Provides harmonized survey data on working conditions across European countries, including Germany. Includes measures of work intensity, physical risks, psychosocial demands, working-time quality, employment conditions, and occupational well-being. Particularly valuable for international comparisons and investigating working conditions during the mid-2010s.\"\n    },\n    {\n      \"title\": \"European Working Conditions Telephone Survey (EWCTS) 2021\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/data/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"A cross-national survey examining working conditions during the COVID-19 pandemic, including Germany. Covers job quality, working arrangements, work-life balance, health, and employee well-being. Useful for studying pandemic-related workplace changes and comparing Germany with other European countries. Researchers should account for methodological differences from earlier face-to-face EWCS waves.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey (EWCS) 2024\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/data/surveys-and-data/surveys/european-working-conditions-survey\",\n      \"justification\": \"The 2024 wave of Eurofound's European Working Conditions Survey provides recent evidence about job quality and working environments across Europe, including Germany. Particularly relevant for examining working conditions in the mid-2020s, investigating post-pandemic developments, and comparing German employees' experiences with those in other European countries.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2022, Teaching Edition\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39t\",\n      \"justification\": \"A longitudinal household panel survey covering Germany over several decades. Includes detailed information on employment status, earnings, working hours, job satisfaction, occupational characteristics, health, and socioeconomic circumstances. Its annual observations make it particularly valuable for investigating trends in employment quality and working conditions throughout the 2010s and early 2020s. The teaching edition is designed for educational research and has more limited information than the full research dataset.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel), 1993–2018\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9318.de.en.v1\",\n      \"justification\": \"An annual representative survey of German establishments conducted by the Institute for Employment Research (IAB). Contains employer-level information on workforce composition, employment arrangements, personnel policies, training, working-time practices, and organizational characteristics. Particularly useful for studying structural changes in German workplaces and employer practices throughout the 2010s.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel), 1993–2023\",\n      \"url_or_doi\": \"https://fdz.iab.de/forschung/publikationen/fdz-datenreporte/\",\n      \"justification\": \"A longitudinal employer survey covering establishments throughout Germany, with observations extending into the 2020s. Provides information on employment structures, workforce management, training, organizational practices, and workplace policies. Valuable for examining changes in employment conditions from an employer perspective. The linked IAB research data documentation describes the dataset and its research access arrangements.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Work Orientations IV, 2015\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12848\",\n      \"justification\": \"An internationally harmonized survey containing a German sample. Examines job satisfaction, employment preferences, working conditions, workplace relationships, job security, work-related attitudes, and work-life balance. Particularly useful for analyzing subjective assessments of working conditions in Germany and comparing German workers with employees in other countries. Registration is required to download the data.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Work Orientations I–IV, 1989–2015, Cumulated Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14391\",\n      \"justification\": \"A harmonized longitudinal collection of repeated cross-sectional surveys examining employment attitudes and experiences, including observations from Germany. Covers job satisfaction, work preferences, employment security, and attitudes toward working life. Useful for placing working conditions in the 2010s within a longer historical context and identifying changes in workers' perceptions over time.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis): Quality of Employment Indicators\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Labour/Labour-Market/Quality-Employment/Dimension3/3_2_ExcessiveWorkingHours.html\",\n      \"justification\": \"Official German statistical indicators concerning employment quality, including excessive working hours and related employment characteristics. Provides aggregated data suitable for examining trends in German working conditions during the 2010s and 2020s. Particularly useful for descriptive analyses and supplementing individual-level survey datasets with official national statistics.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Surveys 2006–2024: Interactive Working Conditions Data\",\n      \"url_or_doi\": \"https://www.bibb.de/de/217229.php\",\n      \"justification\": \"An interactive data resource providing selected results from the German employment surveys conducted in 2006, 2012, 2018, and 2024. Includes indicators concerning working conditions, occupational demands, workplace resources, job satisfaction, and health complaints. Supports customized tables and visualizations with download options. Especially useful for quickly comparing working conditions across the 2010s and 2020s without processing the full survey microdata.\"\n    },\n    {\n      \"title\": \"International Labour Organization: Key Indicators of the Labour Market (KILM)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Countries-Regions/International-Statistics/DataSources/44_01_ILO_KILM.html\",\n      \"justification\": \"An international database providing standardized labor market indicators for Germany and other countries. Relevant variables include average working hours, part-time employment, labor costs, productivity, and employment characteristics. Provides historical time series covering the 2010s and 2020s, making it useful for examining broader changes in employment conditions and comparing Germany with other economies.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455473.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19103,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2698,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21801
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

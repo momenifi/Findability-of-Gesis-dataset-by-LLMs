@@ -1,0 +1,96 @@
+{
+  "query_id": 27,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 27,
+        "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ALLBUS/GGSS 1980-2014 (Cumulated German General Social Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"This cumulated survey series from GESIS includes bi-annual data starting in 1980 on attitudes towards marriage, family life, gender roles, and partnership dynamics in West Germany throughout the 1980s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core, v38)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38\",\n      \"justification\": \"Launched in West Germany in 1984, this multi-cohort longitudinal study annually tracks private households, marital status, family composition, child-rearing, and household economics.\"\n    },\n    {\n      \"title\": \"1. Familiensurvey (1988 West) - Deutsches Jugendinstitut\",\n      \"url_or_doi\": \"https://www.dji.de/ueber-uns/projekte/projekte/familiensurveys.html\",\n      \"justification\": \"Conducted in late 1988 by the German Youth Institute (DJI), this landmark West German survey specifically analyzed the structure, changes, and individual experiences of family life, partnership, and marriage in the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1151,
+          "candidatesTokenCount": 367,
+          "totalTokenCount": 3365,
+          "cachedContentTokenCount": 393,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1151
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 393
+            }
+          ],
+          "thoughtsTokenCount": 1847,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ASqEao-iFNHAxN8PmZSc8AM"
+      }
+    }
+  ]
+}

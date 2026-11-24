@@ -1,0 +1,187 @@
+{
+  "query_id": 41,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about SOCIAL STRATIFICATION AND GROUPINGS in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b2528a157c9a0dd006b04796a62b887d29a9f3336b7f53fc1",
+        "created_at": 1795455338.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b2528a157c9a0dd006b04796b68d487d2b6ebcaaeff193335",
+            "action": {
+              "type": "search",
+              "queries": [
+                "SOEP German socio economic panel data research data center social inequality 2010 2023",
+                "GESIS ALLBUS German general social survey social structure 2010 2023 dataset",
+                "German Microcensus research data center social stratification dataset 2010 2024",
+                "Germany National Educational Panel Study NEPS data 2010 2024 social origin"
+              ],
+              "query": "SOEP German socio economic panel data research data center social inequality 2010 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b2528a157c9a0dd006b04796fe50c87d2a35c7bc505c2febf",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP data access SOEP core dataset 2023",
+                "site:paneldata.org soep core dataset",
+                "site:gesis.org GESIS Panel data access 2014 2024",
+                "site:iza.org pairfam data 2008 2022 family panel",
+                "site:fdz.iab.de SIAB sample integrated labour market biographies 1975 2023"
+              ],
+              "query": "site:diw.de SOEP data access SOEP core dataset 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b2528a157c9a0dd006b047973668887d28dedc84e9716b5ed",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42r\",\n      \"justification\": \"One of the most comprehensive longitudinal datasets for studying social stratification in Germany during the 2010s and 2020s. Conducted annually by DIW Berlin, it covers household income, wealth, education, occupational status, employment, migration background, family structure, and social mobility. Particularly useful for examining class differences, intergenerational inequality, income distribution, and changes in socioeconomic status over time. The dataset includes observations through 2025, with access subject to research data agreements.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14695\",\n      \"justification\": \"A major repeated cross-sectional survey of the German population, administered by GESIS. Particularly relevant for examining subjective social class, occupational prestige, educational attainment, income inequality, social mobility, religious affiliation, and attitudes toward social inequality. The cumulative dataset allows researchers to compare social stratification patterns throughout the 2010s and early 2020s. It also provides information about perceived social standing and attitudes toward redistribution.\"\n    },\n    {\n      \"title\": \"German Microcensus (Mikrozensus), 2010s–2020s\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/en/household/microcensus\",\n      \"justification\": \"Germany's largest annual household survey, conducted by the Federal Statistical Office and state statistical offices. It provides detailed information about education, occupational groups, employment, household composition, nationality, migration background, and socioeconomic characteristics. Its large sample makes it especially valuable for analyzing differences between social classes, demographic groups, regions, and migrant populations. Multiple survey years from the 2010s and 2020s are available, although access to detailed microdata is restricted.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS), Scientific Use Files\",\n      \"url_or_doi\": \"https://www.lifbi.de/en-us/Start/Data-Services/Data-and-Documentation/SUF-Overview\",\n      \"justification\": \"A large German longitudinal education study that follows individuals across different educational stages and into adulthood. Particularly useful for investigating educational stratification, intergenerational social mobility, family socioeconomic background, and inequalities in educational opportunities. The dataset includes information on parental education, occupational status, migration background, educational achievement, and transitions into employment. Data collected throughout the 2010s and 2020s support research on how social origins influence educational and occupational outcomes.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop, 2013–2020s\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/data-access/data-access-gesis-panelpop\",\n      \"justification\": \"A longitudinal survey of the German-speaking adult population, established in 2013. It provides repeated observations on socioeconomic characteristics, social attitudes, political preferences, and demographic group membership. Relevant for studying differences between social groups, changes in social identities, perceived inequalities, and socioeconomic influences on attitudes. The dataset contains multiple recruitment cohorts, enabling comparisons across the 2010s and 2020s. Standard scientific datasets are available for secondary research.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Social Inequality V, 2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"A comparative international survey that includes Germany and focuses specifically on social inequality and stratification. The 2019 Social Inequality module examines perceptions of income differences, social mobility, occupational prestige, distributive justice, and attitudes toward inequality. It is particularly appropriate for analyzing how different socioeconomic groups perceive Germany's class structure. The GESIS data catalog provides access to the dataset and its documentation.\"\n    },\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies (SIAB), 1975–2023\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/publication/?id=14740214\",\n      \"justification\": \"A longitudinal administrative dataset produced by the Institute for Employment Research (IAB), documenting employment histories and labor market trajectories in Germany. It supports analysis of occupational stratification, earnings differences, unemployment, labor market segmentation, and socioeconomic mobility. Particularly valuable for examining inequalities between occupational groups, educational categories, and demographic populations during the 2010s and early 2020s. The linked page describes the 1975–2023 data release; access to individual-level records requires authorization.\"\n    },\n    {\n      \"title\": \"IAB-SOEP Migration Samples, 2013–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-soep-mig.2025\",\n      \"justification\": \"A longitudinal survey component of the German Socio-Economic Panel designed to improve the representation of individuals with migration backgrounds. It contains information about employment, educational qualifications, income, integration experiences, and household socioeconomic conditions. Particularly relevant for researching ethnic and migration-related stratification, labor market inequalities, social integration, and differences in economic opportunities between migrant and nonmigrant populations in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"IAB-BAMF-SOEP Survey of Refugees, 2016–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-bamf-soep-mig.2025\",\n      \"justification\": \"A longitudinal survey focusing on refugees who arrived in Germany, particularly during the migration movements of the mid-2010s. It collects information about educational backgrounds, occupational experience, labor market participation, household income, language proficiency, and social integration. The dataset is especially useful for studying socioeconomic stratification among refugee populations and comparing their educational and employment trajectories with those of other groups in Germany throughout the late 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact), 2023\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/79642\",\n      \"justification\": \"A more accessible, anonymized version of the 2023 German General Social Survey. It contains information about social structure, demographic characteristics, occupational categories, education, income, values, and attitudes. Particularly relevant for studying contemporary social groupings, class identification, and perceptions of inequality in Germany. Its standardized structure also makes it suitable for comparisons with earlier ALLBUS survey waves.\"\n    },\n    {\n      \"title\": \"German Microcensus, 2018 Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.21242/12211.2018.00.00.1.1.3\",\n      \"justification\": \"A specific research dataset from the German Microcensus that is particularly useful for examining social stratification in the late 2010s. It includes detailed socioeconomic and demographic information suitable for investigating occupational class, employment, education, household characteristics, and regional social inequalities. Researchers have used German Microcensus data to study spatial differences in social class and residential patterns. This release provides a useful pre-pandemic reference point for comparisons with data from the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop: Longitudinal Population Survey, 2013–Present\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel\",\n      \"justification\": \"A continuing German population panel containing repeated measurements of attitudes, behavior, and social characteristics. Its multiple recruitment cohorts allow researchers to explore how socioeconomic position relates to political attitudes, group identification, social trust, and perceptions of social divisions. Particularly useful for investigating emerging social groupings and changes in social attitudes across the 2010s and 2020s. The panel also includes research addressing social experiences during the COVID-19 period.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), International and EU Editions\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.357906.en/soep_order_form.html\",\n      \"justification\": \"The official data access page for the German Socio-Economic Panel, offering different editions of the longitudinal dataset. These files provide detailed information on income, employment, educational background, household composition, migration, and socioeconomic circumstances. They are particularly suitable for analyzing income classes, poverty, social mobility, and inequalities across population groups during the 2010s and 2020s. The available editions differ in geographic detail and access conditions.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455357.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18849,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2025,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20874
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

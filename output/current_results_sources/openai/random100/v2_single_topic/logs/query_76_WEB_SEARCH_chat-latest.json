@@ -1,0 +1,186 @@
+{
+  "query_id": 76,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0c248b46e7130610006b045f09eccc87d2a223751e0afc3a61",
+        "created_at": 1795448585.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0c248b46e7130610006b045f0af21487d2874d3695b081f8cf",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany health atlas diabetes prevalence district 2022 dataset Gesundheitsatlas",
+                "RKI SurvStat infectious diseases Germany downloadable data 2020 2024",
+                "Germany cancer registry incidence data 2020 2022 ZfKD database",
+                "Germany mental health depression prevalence 2021 2023 dataset RKI GEDA"
+              ],
+              "query": "Germany health atlas diabetes prevalence district 2022 dataset Gesundheitsatlas",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0c248b46e7130610006b045f0fa1c887d29c9ebb5b7c5792be",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesundheitsatlas-deutschland.de/erkrankung/ depression asthma COPD coronary heart failure Germany",
+                "site:github.com/robert-koch-institut COVID-19-Faelle_Deutschland dataset",
+                "site:gesundheitsatlas-deutschland.de/erkrankung/ demenz deutschland",
+                "site:ecis.jrc.ec.europa.eu cancer incidence database data explorer"
+              ],
+              "query": "site:gesundheitsatlas-deutschland.de/erkrankung/ depression asthma COPD coronary heart failure Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0c248b46e7130610006b045f13111087d2811aa997da383c86",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"AOK Gesundheitsatlas Deutschland – Type 2 Diabetes\",\n      \"url_or_doi\": \"https://www.gesundheitsatlas-deutschland.de/erkrankung/diabetes_t2\",\n      \"justification\": \"Provides disease-specific prevalence estimates for type 2 diabetes in Germany, including data from the 2020s. Includes breakdowns by federal state, district, age, and sex, as well as historical trends. Based on statutory health insurance claims data and statistical extrapolation. Particularly useful for investigating geographic differences and trends in diabetes prevalence.\"\n    },\n    {\n      \"title\": \"AOK Gesundheitsatlas Deutschland – Dementia\",\n      \"url_or_doi\": \"https://www.gesundheitsatlas-deutschland.de/erkrankung/demenz\",\n      \"justification\": \"Contains prevalence estimates for dementia, including Alzheimer's disease and vascular dementia, across Germany. Provides annual time series covering 2017–2024, including the 2020s, with regional, age-specific, and sex-specific statistics. Includes downloadable data tables and visualizations. Useful for studying dementia prevalence and regional patterns among older adults.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – SurvStat Infectious Disease Surveillance Database\",\n      \"url_or_doi\": \"https://survstat.rki.de/\",\n      \"justification\": \"Official German infectious disease surveillance database maintained by the Robert Koch Institute (RKI). Provides reported cases of notifiable infectious diseases, including tuberculosis, measles, hepatitis, salmonellosis, and other infections. Users can select reporting years within the 2020s and filter observations by disease, geographic region, age, and other characteristics. Supports customized data extraction and epidemiological trend analysis.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – SARS-CoV-2 Infections in Germany\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland\",\n      \"justification\": \"Official open dataset documenting reported SARS-CoV-2 infections in Germany during the COVID-19 pandemic. Contains surveillance information submitted by local public health authorities under Germany's Infection Protection Act. Suitable for analyzing COVID-19 incidence, geographic distribution, demographic differences, and temporal patterns during the 2020s.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – COVID-19 Deaths in Germany\",\n      \"url_or_doi\": \"https://github.com/robert-koch-institut/COVID-19-Todesfaelle_in_Deutschland\",\n      \"justification\": \"Official dataset documenting COVID-19-associated deaths in Germany. Includes aggregated mortality statistics by reporting date, age group, and federal state. Covers the COVID-19 period of the 2020s and provides downloadable CSV files. Useful for examining mortality trends, regional differences, and the demographic distribution of COVID-19 fatalities.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Seven-Day Incidence of COVID-19 Cases in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7129007\",\n      \"justification\": \"A versioned open dataset from the Robert Koch Institute providing seven-day COVID-19 incidence measures for Germany. Includes observations at national, federal-state, and district levels. Particularly relevant for analyzing the geographic and temporal progression of COVID-19 during the 2020s. Archived dataset versions support reproducible epidemiological research.\"\n    },\n    {\n      \"title\": \"European Cancer Information System – Cancer Data Explorer\",\n      \"url_or_doi\": \"https://ecis.jrc.ec.europa.eu/data-explorer\",\n      \"justification\": \"European Commission cancer statistics platform providing incidence, mortality, prevalence, and survival indicators for multiple cancer types, including breast, colorectal, lung, and prostate cancers. Germany can be selected for country-specific analysis. Includes historical cancer registry observations extending into the 2020s and estimates for 2024. Supports comparisons by cancer type, age, sex, and geographic area.\"\n    },\n    {\n      \"title\": \"European Cancer Information System – Historical Cancer Registry Data\",\n      \"url_or_doi\": \"https://ecis.jrc.ec.europa.eu/database-description\",\n      \"justification\": \"Provides access information for population-based cancer registry data collected across Europe, including German federal states. Several German registries contribute incidence observations through 2023 or 2024. Data include cancer diagnoses and mortality indicators, with stratification by cancer type, demographic characteristics, and reporting period. The platform offers a CSV dataset download after completion of a download form.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Centre for Cancer Registry Data\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Institute/Organisation/Departments/Department-2/German-Centre-for-Cancer-Registry-Data/german-centre-for-cancer-registry-data-node.html\",\n      \"justification\": \"Official national source for epidemiological cancer registry information in Germany. Integrates data from federal-state cancer registries to estimate cancer incidence and analyze disease trends. Since 2023, the center has also received clinical cancer registration information beginning with diagnosis year 2020, including treatment and disease progression data. Particularly suitable for identifying national cancer datasets and research-access procedures.\"\n    },\n    {\n      \"title\": \"Cancer in Germany 2019/2020 – Robert Koch Institute\",\n      \"url_or_doi\": \"https://doi.org/10.25646/11842\",\n      \"justification\": \"Official epidemiological cancer statistics publication based on German population-based cancer registry data through diagnosis year 2020. Reports incidence, mortality, survival, and tumor-stage distributions for approximately 30 cancer types. Although primarily a statistical report rather than a raw-data repository, its detailed tables provide structured quantitative information suitable for secondary analysis and comparisons of cancer patterns during the early 2020s.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Health Update (GEDA)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/geda-german-health-update.html\",\n      \"justification\": \"National population health survey program collecting information on health status, chronic diseases, risk factors, and health-related characteristics among adults in Germany. Survey waves conducted during the 2020s support research on conditions such as obesity, diabetes, depression, and other chronic health problems. Provides access to study documentation and research publications; availability of individual-level survey data depends on the specific wave and access arrangements.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Mental Health and Mental Disorders in Germany\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Themen/Nichtuebertragbare-Krankheiten/Psychische-Gesundheit/Psychische-Gesundheit-und-Stoerungen/themenschwerpunkt-psych-gesundheit.html\",\n      \"justification\": \"Official RKI resource presenting epidemiological findings on mental health conditions in Germany, including depression and anxiety disorders. Incorporates evidence from population surveys and statutory health insurance claims during the 2020s, including observations from 2021–2024. Useful for locating mental health datasets, prevalence estimates, and longitudinal analyses. This is a research information portal rather than a single directly downloadable dataset.\"\n    },\n    {\n      \"title\": \"AOK Gesundheitsatlas Deutschland – Regional Disease Prevalence Database\",\n      \"url_or_doi\": \"https://www.gesundheitsatlas-deutschland.de/\",\n      \"justification\": \"Comprehensive German regional health database covering numerous specific diseases and medical conditions, including asthma, chronic obstructive pulmonary disease, coronary heart disease, heart failure, stroke, hypertension, rheumatoid arthritis, Parkinson's disease, depression, anxiety disorders, obesity, and several cancers. Provides disease-specific prevalence estimates, regional comparisons, and time series extending into the 2020s. Downloadable statistics and regional breakdowns make it particularly valuable for comparative disease epidemiology.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Infectious Disease Epidemiology Annual Reports\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Infektionsepidemiologisches-Jahrbuch/jahrbuch_inhalt.html\",\n      \"justification\": \"Official annual collection of German infectious disease surveillance statistics. Covers multiple notifiable diseases and provides disease-specific case counts, incidence measures, and epidemiological characteristics. Includes reports for years within the 2020s. Although published as annual reports rather than a unified machine-readable dataset, the underlying surveillance information is accessible through the RKI SurvStat database.\"\n    },\n    {\n      \"title\": \"European Cancer Information System – German Cancer Registry Coverage\",\n      \"url_or_doi\": \"https://ecis.jrc.ec.europa.eu/list-registries-contributing-ecis-historical-data\",\n      \"justification\": \"Documents cancer registry datasets contributing to European cancer statistics, including registry data from Bavaria, Baden-Württemberg, Hamburg, Hesse, Lower Saxony, and other German federal states. Several registries provide cancer incidence data through 2024 and mortality observations through 2023. Particularly useful for identifying regional cancer datasets, assessing their temporal coverage, and selecting sources for research on specific malignancies during the 2020s.\"\n    },\n    {\n      \"title\": \"Germany Infectious Disease Surveillance Data – Global Infectious Disease Database\",\n      \"url_or_doi\": \"https://globalinfectiousdisease.com/countries/de/\",\n      \"justification\": \"Provides a consolidated collection of German infectious disease surveillance observations derived from RKI SurvStat reporting. Includes a dedicated 2020–2025 dataset containing thousands of records and additional observations for 2026. Offers downloadable CSV, JSON, and Excel formats. Particularly useful for researchers seeking machine-readable time series covering multiple infectious diseases without manually extracting each series from the original surveillance interface.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448606.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18909,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2214,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21123
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

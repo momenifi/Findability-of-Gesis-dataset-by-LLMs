@@ -1,0 +1,69 @@
+{
+  "query_id": 69,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Czech Republic during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Social Survey Round 1 (2002)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS1-2002\",\n      \"justification\": \"Fielded in 2002, this dataset includes sample data from the Czech Republic measuring political attitudes, institutional and social trust, democratic evaluations, and political participation in the early 2000s.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 2 (2001-2006)\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/3808\",\n      \"justification\": \"Covers the 2002 Czech Republic parliamentary election as part of CSES Module 2, collecting individual survey data on voting behavior, party preference, political efficacy, and evaluations of democratic and governmental institutions.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 3 (2006-2011)\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module3.2015-12-15\",\n      \"justification\": \"Includes post-election survey data for the 2006 Czech parliamentary election, focusing on voter turnout, political attitudes, perception of party options, and evaluations of government performance.\"\n    },\n    {\n      \"title\": \"Candidate Countries Eurobarometer 2002.2 (ICPSR 4062)\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/4062\",\n      \"justification\": \"Surveyed respondents across EU candidate countries, including the Czech Republic, in late 2002 regarding political participation, trust in political and state institutions, democracy satisfaction, and political attitudes.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 652,
+          "candidatesTokenCount": 474,
+          "totalTokenCount": 3404,
+          "cachedContentTokenCount": 312,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 652
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 312
+            }
+          ],
+          "thoughtsTokenCount": 2278,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "2QSEarvUJ4bhnsEPw8HBkQk"
+      }
+    }
+  ]
+}

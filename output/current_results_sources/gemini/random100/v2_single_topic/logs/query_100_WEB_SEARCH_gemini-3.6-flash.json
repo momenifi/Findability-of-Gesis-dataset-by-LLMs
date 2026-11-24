@@ -1,0 +1,69 @@
+{
+  "query_id": 100,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Vocational education and training in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Qualification and Course of Employment 1985/86 (BIBB/IAB Employment Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12563\",\n      \"justification\": \"A representative survey conducted by the Federal Institute for Vocational Education and Training (BIBB) and the IAB in West Germany (including Hesse) during 1985–1986, providing microdata on vocational training, dual education trajectories, and occupational qualifications in the 1980s.\"\n    },\n    {\n      \"title\": \"Qualification and Course of Employment 1979 (BIBB/IAB Employment Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1243\",\n      \"justification\": \"A dataset archived at GESIS covering vocational education, completed training programs, and career trajectories across German federal states (including regional coverage of Hesse) leading into the 1980s.\"\n    },\n    {\n      \"title\": \"Hessen: Berufsschulen (Teilzeitform) seit 1980\",\n      \"url_or_doi\": \"https://www.bildungsserver.de/ressource.html?ressourcen_id=31604\",\n      \"justification\": \"An entry on the German Education Server indexing official statistical time series data from the Hessian Statistical Office (Hessisches Statistisches Landesamt) regarding part-time vocational schools and student statistics in Hesse beginning in 1980.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 884,
+          "candidatesTokenCount": 378,
+          "totalTokenCount": 2831,
+          "cachedContentTokenCount": 384,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 884
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 384
+            }
+          ],
+          "thoughtsTokenCount": 1569,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "7TaEasUc0cDE3w-ZlJzwAw"
+      }
+    }
+  ]
+}

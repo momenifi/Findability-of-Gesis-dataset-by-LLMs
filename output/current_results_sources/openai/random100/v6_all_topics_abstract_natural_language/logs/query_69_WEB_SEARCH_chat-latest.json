@@ -1,0 +1,186 @@
+{
+  "query_id": 69,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Religion and values in Algeria, Ghana, Indonesia, Jordan, Kenya, Cambodia, Sri Lanka, Mongolia, Malawi, Malaysia, Nigeria, Nepal, Singapore, and Viet Nam during the 2010s, matching this research need: Cross-national survey data on religiosity, beliefs, religious practices, attitudes toward gender roles, sexuality, science, state-religion relations, interreligious tolerance, social distance, trust, and demographics including family religious background and political behavior.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02651255beb33b78006b04735d728087d2a605e8d05f757653",
+        "created_at": 1795453789.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02651255beb33b78006b04735e739887d29cd1b2c27d26d28f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Pew Research Center 2012 the world's Muslims unity diversity dataset 2013 attitudes religion survey countries",
+                "World Values Survey wave 6 2010 2014 countries Algeria Ghana Indonesia Jordan Malaysia Nigeria Singapore",
+                "Pew Research Center 2019 religion and living arrangements 2010s survey dataset Cambodia Mongolia Nepal Sri Lanka",
+                "Afrobarometer round 6 7 data religion gender trust Ghana Kenya Malawi Nigeria"
+              ],
+              "query": "Pew Research Center 2012 the world's Muslims unity diversity dataset 2013 attitudes religion survey countries",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02651255beb33b78006b0473622af487d2a1fef5483f8e45d8",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:pewresearch.org/dataset/ 2019 religion survey Indonesia Cambodia Sri Lanka Nepal Mongolia Malaysia Singapore",
+                "site:pewresearch.org/dataset/ 2012 world's muslims beliefs politics society dataset",
+                "site:worldvaluessurvey.org wave 7 2017 2022 Indonesia Vietnam Mongolia Nepal",
+                "site:asianbarometer.org survey wave 4 2014 2016 Cambodia Indonesia Malaysia Mongolia Nepal Singapore Vietnam data"
+              ],
+              "query": "site:pewresearch.org/dataset/ 2019 religion survey Indonesia Cambodia Sri Lanka Nepal Mongolia Malaysia Singapore",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02651255beb33b78006b04736581bc87d2841a8a56b2d4df1b",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"World Values Survey (WVS) – Wave 6 (2010–2014)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/AJDocumentationSmpl.jsp?CndWAVE=6\",\n      \"justification\": \"One of the strongest matches for the research need. Provides nationally representative, cross-national survey microdata on religious affiliation, importance of religion, religious attendance, beliefs, gender roles, attitudes toward homosexuality, trust, tolerance, science, political participation, and demographics. Includes Algeria (2014), Ghana (2012), Jordan (2014), Malaysia (2012), Nigeria (2012), and Singapore (2012). Particularly useful for comparing religious values and social attitudes using standardized questions across countries.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS) – Wave 7 (2017–2022)\",\n      \"url_or_doi\": \"https://worldvaluessurvey.org/AJDocumentation.jsp?COUNTRY=&CndWAVE=7\",\n      \"justification\": \"Cross-national survey covering religious beliefs, practices, morality, gender equality, sexuality, attitudes toward science, social trust, political behavior, and demographic characteristics. Includes relevant countries such as Indonesia, Mongolia, and Viet Nam, although some interviews occurred after 2019. Particularly valuable for examining changes in religious values and comparing late-2010s attitudes with earlier WVS waves. Country-specific survey years should be checked before restricting analyses to the 2010s.\"\n    },\n    {\n      \"title\": \"World Values Survey – Longitudinal Multiple-Wave Dataset (1981–2022)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/AJDocumentationSmpl.jsp?CndWAVE=-1&INID=&SAID=-1\",\n      \"justification\": \"Harmonized cross-national survey dataset combining seven WVS waves, including observations collected during the 2010s. Contains measures of religious identification, religious practices, moral attitudes, interpersonal trust, family values, political participation, and demographic characteristics. Useful for studying differences across the target countries and examining changes in religiosity, tolerance, gender attitudes, and political values over time. Researchers can filter survey observations by country and interview year.\"\n    },\n    {\n      \"title\": \"Pew Research Center – The World's Muslims Survey Dataset (2011–2012)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/international-religion-survey-data/\",\n      \"justification\": \"Highly relevant cross-national survey of Muslim populations conducted between October 2011 and November 2012 in 26 countries and territories. Includes questions on religious affiliation, religious practices, prayer, fasting, religious identity, beliefs, gender roles, marriage, divorce, sexuality, science, religious law, democracy, and tolerance toward other faiths. Particularly relevant to Indonesia, Malaysia, and Jordan, among other countries. The survey provides detailed individual-level information on relationships between religion, social values, and political attitudes. Its Muslim-focused sampling must be considered when making comparisons with general-population surveys.\"\n    },\n    {\n      \"title\": \"Pew Research Center – The World's Muslims: Unity and Diversity (2012)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/dataset/the-worlds-muslims/\",\n      \"justification\": \"Research collection based on large-scale surveys examining religious beliefs and practices among Muslim populations across Africa, Asia, and the Middle East. Covers religious identity, prayer, fasting, religious commitment, interpretation of religious teachings, and differences in religious practices. Especially useful for studying religious diversity and variation in religiosity across Muslim communities in the target regions. Associated survey microdata and documentation are available through Pew Research Center's religion datasets.\"\n    },\n    {\n      \"title\": \"Pew Research Center – The World's Muslims: Religion, Politics and Society (2013)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/2013/04/30/the-worlds-muslims-religion-politics-society-overview/\",\n      \"justification\": \"Report and associated survey dataset examining relationships between religion and political or social attitudes among Muslim populations, primarily using 2011–2012 fieldwork. Covers support for religious law, democracy, women's rights, divorce, polygamy, moral judgments, science, and religious freedom. Relevant to research on state-religion relations, sexuality, gender roles, and interreligious tolerance. The underlying survey data can support cross-national comparisons involving Muslim populations in several target countries.\"\n    },\n    {\n      \"title\": \"Afrobarometer – Round 5 Survey Data (2011–2013)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/surveys-and-methods/survey-resources/\",\n      \"justification\": \"Cross-national public opinion survey covering African countries, including Ghana, Kenya, Malawi, and Nigeria. Contains individual-level information on religious affiliation, trust, social identities, gender equality, political participation, democratic attitudes, institutional confidence, and demographic characteristics. Particularly valuable for analyzing relationships between religion, social trust, political behavior, and gender attitudes in sub-Saharan Africa during the early 2010s.\"\n    },\n    {\n      \"title\": \"Afrobarometer – Round 6 Survey Data (2014–2015)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/surveys-and-methods/survey-resources/\",\n      \"justification\": \"Large-scale comparative survey with coverage of Algeria, Ghana, Kenya, Malawi, and Nigeria. Includes information on religious affiliation, political attitudes, democracy, institutional trust, gender equality, social tolerance, political participation, and socioeconomic characteristics. Especially useful for comparing religious identity and social or political values across North and sub-Saharan Africa using standardized survey instruments. Provides broader African geographical coverage than the World Values Survey for the same period.\"\n    },\n    {\n      \"title\": \"Afrobarometer – Round 7 Survey Data (2016–2018)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/surveys-and-methods/survey-resources/\",\n      \"justification\": \"Cross-national African survey conducted during the late 2010s, including Ghana, Kenya, Malawi, and Nigeria. Measures religious affiliation, social tolerance, interpersonal and institutional trust, gender equality, democratic values, political participation, and demographic characteristics. Particularly relevant for studying social distance, acceptance of different social groups, trust, and relationships between religion and political attitudes. Complements earlier Afrobarometer rounds for examining changes during the decade.\"\n    },\n    {\n      \"title\": \"Pew Research Center – Sub-Saharan Africa Survey Dataset (2008–2009)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/international-religion-survey-data/\",\n      \"justification\": \"A closely related baseline dataset preceding the requested decade. Contains more than 25,000 interviews across 19 sub-Saharan African countries, including relevant target countries such as Ghana, Kenya, Malawi, and Nigeria. Provides detailed measures of religious beliefs, religious practices, knowledge of other religions, interreligious tolerance, and attitudes toward Christianity and Islam. Especially useful for analyzing religious coexistence, social distance, and religious identity. Although fieldwork predates 2010, it complements surveys conducted during the 2010s.\"\n    },\n    {\n      \"title\": \"Pew Research Center – Religion Datasets Collection\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/\",\n      \"justification\": \"Official repository providing access to individual-level datasets, questionnaires, codebooks, and methodological documentation from Pew Research Center's religion surveys. Relevant collections include international surveys on religious identity, beliefs, religious practices, political attitudes, gender roles, and interreligious relations. Particularly useful for locating comparable survey variables and identifying which target countries participated in specific surveys conducted during the 2010s.\"\n    },\n    {\n      \"title\": \"World Values Survey – Wave 6 Data Archive, Association of Religion Data Archives\",\n      \"url_or_doi\": \"https://thearda.com/data-archive?fid=WVS2010&tab=3\",\n      \"justification\": \"Alternative research archive for World Values Survey Wave 6 data collected during 2010–2014. Provides access to survey materials relevant to religion, religious practices, moral beliefs, social trust, gender attitudes, and political values. Includes several target countries, notably Algeria, Ghana, Jordan, Malaysia, Nigeria, and Singapore. Particularly convenient for researchers seeking to examine religion-related variables through a specialized social science religion data archive.\"\n    },\n    {\n      \"title\": \"World Values Survey – Wave 6 International Household Survey Network Catalog\",\n      \"url_or_doi\": \"https://datacatalog.ihsn.org/catalog/8838\",\n      \"justification\": \"Dataset catalog record for the World Values Survey 2010–2014, covering approximately 60 countries and societies and more than 85,000 respondents. Includes Algeria, Ghana, Jordan, Malaysia, Nigeria, and Singapore. Documents internationally comparable measures of religious beliefs, religious identity, social values, tolerance, gender roles, interpersonal trust, political attitudes, and demographic characteristics. Useful for establishing country coverage and identifying relevant survey documentation.\"\n    },\n    {\n      \"title\": \"Pew Research Center – South and Southeast Asia Survey Dataset (2022)\",\n      \"url_or_doi\": \"https://doi.org/10.58094/rf31-hd47\",\n      \"justification\": \"A highly relevant thematic match, although fieldwork occurred after the requested 2010s period. Covers Cambodia, Indonesia, Malaysia, Singapore, Sri Lanka, and Thailand. Based on 13,122 adult respondents, it measures religious affiliation, religious beliefs and practices, religious identity, nationalism, and attitudes toward religious pluralism. Particularly useful for cross-national comparisons of Buddhism, Islam, religious tolerance, and religious identity. It can complement 2010s datasets but should not be treated as evidence collected during that decade.\"\n    },\n    {\n      \"title\": \"Pew Research Center – International Religion Survey Data Collection\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/international-religion-survey-data/\",\n      \"justification\": \"Centralized collection of cross-national religion survey microdata covering religious beliefs, worship, morality, interreligious tolerance, religious identity, and political attitudes. Includes 2010s survey datasets as well as earlier and later studies. Particularly valuable for identifying detailed questionnaire items concerning religious practices, family religious background where available, religious diversity, and religion's relationship with politics and society. Country coverage and fieldwork dates vary by survey.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453809.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18893,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2371,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21264
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

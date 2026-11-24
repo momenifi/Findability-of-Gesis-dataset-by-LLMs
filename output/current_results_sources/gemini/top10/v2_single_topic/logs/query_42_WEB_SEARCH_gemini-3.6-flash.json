@@ -1,0 +1,69 @@
+{
+  "query_id": 42,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about General health and well-being in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"SOEP is a long-running representative panel study conducted in Germany by DIW Berlin. It collects annual data on individual and household living conditions, including self-rated health, life satisfaction, mental well-being, and health indicators throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA 2019/2020-EHIS)\",\n      \"url_or_doi\": \"https://doi.org/10.25646/8559\",\n      \"justification\": \"GEDA is a nationwide health interview survey administered by the Robert Koch Institute (RKI). It measures population health status, health-related quality of life, chronic conditions, and health determinants among adults in Germany.\"\n    },\n    {\n      \"title\": \"Survey of Health, Ageing and Retirement in Europe (SHARE)\",\n      \"url_or_doi\": \"https://share-eric.eu/\",\n      \"justification\": \"SHARE is a cross-national panel dataset including representative cohorts in Germany. It tracks physical health, mental health, healthcare utilization, and subjective well-being across multiple waves in the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS)\",\n      \"url_or_doi\": \"https://doi.org/10.1007/s00103-012-1498-z\",\n      \"justification\": \"DEGS is part of the nationwide health monitoring system by the Robert Koch Institute (RKI), providing comprehensive epidemiological data on general physical health, mental health, disease risk factors, and overall well-being in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 539,
+          "candidatesTokenCount": 469,
+          "totalTokenCount": 2517,
+          "cachedContentTokenCount": 112,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 539
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 112
+            }
+          ],
+          "thoughtsTokenCount": 1509,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "U7inaobiNfvj7M8PlsPK6Ao"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 70,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations and Conflict, security and peace in France, Great Britain, Germany, and Italy during the 1960s, matching this research need: Public opinion survey data on Cold War security, Cuban Missile Crisis, nuclear war and disarmament, NATO, West Berlin, attitudes toward the US, USSR and China, and support for European Common Market integration.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Public Opinion and Foreign Policy: A Continuity Dataset (1952–1970)\",\n      \"url_or_doi\": \"https://doi.org/10.1016/j.dib.2025.112232\",\n      \"justification\": \"This dataset pools United States Information Agency (USIA) survey data from 1952 to 1970 across France, Great Britain, West Germany, and Italy. It tracks individual-level public attitudes on Cold War security, nuclear disarmament, NATO, West Berlin, perceptions of the US, USSR, and China, and European Common Market integration.\"\n    },\n    {\n      \"title\": \"European USIA Report Collection\",\n      \"url_or_doi\": \"https://ropercenter.cornell.edu/european-usia-report-collection\",\n      \"justification\": \"Hosted by the Roper Center for Public Opinion Research, this archive contains 1950s and 1960s USIA survey reports and datasets measuring public opinion in France, Great Britain, West Germany, and Italy on international conflict, NATO, Cold War crises, nuclear capabilities, and European integration.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1273,
+          "candidatesTokenCount": 286,
+          "totalTokenCount": 3536,
+          "cachedContentTokenCount": 427,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1273
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 427
+            }
+          ],
+          "thoughtsTokenCount": 1977,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "MY2EauTWMPXinsEPusSZ0QU"
+      }
+    }
+  ]
+}

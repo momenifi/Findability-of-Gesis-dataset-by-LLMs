@@ -1,0 +1,69 @@
+{
+  "query_id": 35,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Statistics Finland: Historical Series of National Accounts 1860–2011\",\n      \"url_or_doi\": \"https://www.stat.fi/til/vtp/vtp_2013-02-08_uut_001_en.html\",\n      \"justification\": \"Provides long-term historical national accounts datasets for Finland spanning 1860–2011, covering GDP, population, and key macroeconomic measures throughout the 1960s.\"\n    },\n    {\n      \"title\": \"FRED: OECD based Recession Indicators for Finland\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/series/FINRECD\",\n      \"justification\": \"Tracks OECD-defined business cycle contractions and recession period indicators for Finland starting from February 1960.\"\n    },\n    {\n      \"title\": \"World Bank Open Data: Finland\",\n      \"url_or_doi\": \"https://data.worldbank.org/country/finland\",\n      \"justification\": \"Offers multi-decade economic time-series data for Finland starting in 1960, including annual GDP, GDP per capita, inflation, trade, and labor indicators.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 740,
+          "candidatesTokenCount": 304,
+          "totalTokenCount": 2360,
+          "cachedContentTokenCount": 349,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 740
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 349
+            }
+          ],
+          "thoughtsTokenCount": 1316,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "aiyEaoLzBJmhnsEP--LigQk"
+      }
+    }
+  ]
+}

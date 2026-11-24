@@ -1,0 +1,69 @@
+{
+  "query_id": 214,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic policy, public expenditure and revenue in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat: Government Revenue, Expenditure and Main Aggregates (gov_10a_main)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_main\",\n      \"justification\": \"This Eurostat dataset provides annual non-financial general government accounts according to ESA 2010, including total public expenditure, revenue, tax receipts, and budget deficits/surpluses for EU member states, including Germany, covering the 2010s.\"\n    },\n    {\n      \"title\": \"Destatis: Expenditure, Revenue and Financial Balance of Public Budgets\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Topics/Government/Public-Finance/Expenditure-Revenue/_node.html\",\n      \"justification\": \"Official dataset maintained by the Federal Statistical Office of Germany (Destatis), offering detailed annual and quarterly cash statistics on German public revenue, expenditures, and financial balances across central, state, local, and social security levels during the 2010s.\"\n    },\n    {\n      \"title\": \"World Bank: World Development Indicators - Germany Fiscal & Public Sector Data\",\n      \"url_or_doi\": \"https://databank.worldbank.org/source/world-development-indicators\",\n      \"justification\": \"Provides comprehensive annual time-series data for Germany on general government final consumption expenditure, tax revenue percentage of GDP, and total government revenue (excluding grants) throughout the 2010s.\"\n    },\n    {\n      \"title\": \"OECD Global Revenue Statistics Database\",\n      \"url_or_doi\": \"https://data-explorer.oecd.org\",\n      \"justification\": \"The OECD Global Revenue Statistics dataset contains standardized annual data on 63 tax categories, overall tax revenues, tax-to-GDP ratios, and government receipts for Germany spanning the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 802,
+          "candidatesTokenCount": 454,
+          "totalTokenCount": 2862,
+          "cachedContentTokenCount": 313,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 802
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 313
+            }
+          ],
+          "thoughtsTokenCount": 1606,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "FFWEaqLWJNXWxN8Pw_K78Q4"
+      }
+    }
+  ]
+}

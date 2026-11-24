@@ -1,0 +1,69 @@
+{
+  "query_id": 141,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Vocational education and training in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Amtliche Berufsbildungsstatistik NRW (Landesdatenbank NRW, EVAS 21211)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de/ldbnrw/online?operation=tables&code=21211\",\n      \"justification\": \"Official state statistical dataset maintained by IT.NRW tracking vocational education and training in North Rhine-Westphalia annually from 1976 through the 1980s, including apprentice numbers, new contracts, and completed qualifications.\"\n    },\n    {\n      \"title\": \"BIBB/IAB Qualifikation und Berufsverlauf 1985/1986 (GESIS ZA1790)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1790\",\n      \"justification\": \"Nationwide survey conducted in 1985–1986 by the Federal Institute for Vocational Education (BIBB) and the IAB, containing microdata on vocational training, trade types, and career outcomes with regional identifiers for West German states including North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"ALLBUS 1980-1986 Kumulation (GESIS ZA1335)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1335\",\n      \"justification\": \"Cumulative dataset of the German General Social Survey for 1980–1986, which includes respondents from North Rhine-Westphalia and records vocational training levels, dual-system apprenticeship completions, and employment demographics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 524,
+          "candidatesTokenCount": 411,
+          "totalTokenCount": 2468,
+          "cachedContentTokenCount": 118,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 524
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 118
+            }
+          ],
+          "thoughtsTokenCount": 1533,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zD2EarXJMub1xN8P-6qiiAE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "query_id": 187,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in France, Great Britain, Germany, and Italy during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"SIPRI Military Expenditure Database\",\n      \"url_or_doi\": \"https://doi.org/10.55163/CQGC9685\",\n      \"justification\": \"Maintains annual time series data on military spending and defense expenditures from 1949 onward, covering France, Great Britain, Germany, and Italy throughout the 1960s.\"\n    },\n    {\n      \"title\": \"Correlates of War (COW) Militarized Interstate Dispute (MID) Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR24386.v1\",\n      \"justification\": \"Tracks conflict incidents, threats, military force displays, and interstate disputes involving sovereign states including France, Great Britain, Germany, and Italy during the 1960s.\"\n    },\n    {\n      \"title\": \"UCDP/PRIO Armed Conflict Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/index.html#armedconflict\",\n      \"justification\": \"Provides comprehensive historical data on state-based armed conflicts and security incidents globally from 1946 to the present, including Western European powers during the Cold War 1960s.\"\n    },\n    {\n      \"title\": \"World Handbook of Political and Social Indicators II: Cross-National Aggregate Data, 1950-1965\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR05027.v1\",\n      \"justification\": \"Contains empirical data on political stability, domestic conflict events (such as riots, armed attacks, and political violence), and security indicators across France, Great Britain, Germany, and Italy during the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 826,
+          "candidatesTokenCount": 437,
+          "totalTokenCount": 2987,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 826
+            }
+          ],
+          "thoughtsTokenCount": 1724,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "skqEapi5M-PpnsEP7LTzuQw"
+      }
+    }
+  ]
+}

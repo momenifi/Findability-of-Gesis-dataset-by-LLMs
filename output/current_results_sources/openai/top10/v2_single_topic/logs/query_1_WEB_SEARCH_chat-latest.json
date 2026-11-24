@@ -1,0 +1,186 @@
+{
+  "query_id": 1,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LABOUR AND EMPLOYMENT in Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0eebec1233217060006b047627291c87d29d5365c5a8cc0e97",
+        "created_at": 1795454503.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0eebec1233217060006b047627f3f487d28e7c4299e61c4f00",
+            "action": {
+              "type": "search",
+              "queries": [
+                "ILOSTAT data explorer employment unemployment country annual 2010 2025",
+                "Eurostat labour force survey database employment unemployment EU candidate countries",
+                "World Bank WDI employment to population ratio unemployment Albania Armenia Azerbaijan Europe data",
+                "UNECE statistical database employment labour force countries Europe"
+              ],
+              "query": "ILOSTAT data explorer employment unemployment country annual 2010 2025",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0eebec1233217060006b04762b65bc87d2899d87ffe0bb9776",
+            "action": {
+              "type": "search",
+              "queries": [
+                "OECD data explorer labour market employment unemployment earnings dataset OECD",
+                "UNECE statistical database labour force unemployment annual country",
+                "World Bank unemployment total modeled ILO estimate indicator SL.UEM.TOTL.ZS",
+                "Eurostat data browser employment rates lfsi_emp_a unemployment une_rt_a"
+              ],
+              "query": "OECD data explorer labour market employment unemployment earnings dataset OECD",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0eebec1233217060006b04762f585087d28f0088b3b81ec707",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"ILOSTAT – International Labour Organization Labour Statistics Database\",\n      \"url_or_doi\": \"https://ilostat.ilo.org/data/\",\n      \"justification\": \"One of the most comprehensive international datasets on labour and employment, covering all 36 requested countries, including Albania, Armenia, Azerbaijan, Belarus, Georgia, the Russian Federation, Ukraine, and European Union countries. Provides annual and, where available, quarterly statistics for the 2010s and 2020s on employment, unemployment, labour force participation, working hours, wages, occupations, employment by economic sector, youth employment, and gender inequalities. Particularly suitable for cross-country comparisons because it includes internationally harmonized indicators and ILO modelled estimates.\"\n    },\n    {\n      \"title\": \"ILOSTAT – Employment and Social Trends 2026\",\n      \"url_or_doi\": \"https://www.ilo.org/wesodata/\",\n      \"justification\": \"International Labour Organization dataset containing historical labour market statistics and modelled estimates for countries worldwide. Includes employment, unemployment, labour force participation, and labour market trends. Relevant for comparing employment developments across the requested European and Eurasian countries during the 2010s and 2020s, including changes associated with the COVID-19 pandemic and subsequent recovery.\"\n    },\n    {\n      \"title\": \"Eurostat – European Union Labour Force Survey (EU-LFS)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/lfs/information-data\",\n      \"justification\": \"Major harmonized European labour market dataset providing annual and quarterly employment and unemployment statistics throughout the 2010s and 2020s. Covers EU member states such as Austria, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Hungary, Italy, Latvia, Lithuania, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, and Sweden. Also includes selected EFTA and candidate countries. Variables include employment status, occupation, industry, working hours, educational attainment, age, sex, and regional labour market characteristics.\"\n    },\n    {\n      \"title\": \"Eurostat – European Union Labour Force Survey Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/collections-research/european-union-labour-force-survey\",\n      \"justification\": \"Provides access to individual-level labour force survey microdata for European countries, subject to research access conditions. Useful for detailed employment analyses during the 2010s and 2020s, including employment inequalities, occupational segregation, temporary employment, part-time work, educational differences, and gender employment gaps. Particularly valuable for econometric research requiring individual and household characteristics rather than aggregated national indicators.\"\n    },\n    {\n      \"title\": \"Eurostat – Employment and Labour Force by Sex and Age, Annual Data (lfsi_emp_a)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/lfsi_emp_a\",\n      \"justification\": \"Harmonized annual labour market dataset covering European countries throughout the requested period. Provides employment and labour force indicators disaggregated by sex and age. Especially useful for comparing employment rates among young workers, prime-age workers, and older workers in EU countries, as well as Iceland, Norway, Switzerland, and other reporting European countries. Supports analysis of demographic differences in labour market participation between 2010 and the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Unemployment Rates by Sex and Age, Annual Data (une_rt_a)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/une_rt_a/default/table?lang=en\",\n      \"justification\": \"Annual unemployment statistics derived from harmonized labour force surveys. Covers EU countries and additional reporting European economies, with historical observations during the 2010s and 2020s. Provides unemployment rates by age and sex, enabling comparative analysis of youth unemployment, gender disparities, changes following the European sovereign debt crisis, the COVID-19 pandemic, and subsequent labour market developments.\"\n    },\n    {\n      \"title\": \"Eurostat – Unemployment Rate (tps00203)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tps00203/default/table?lang=en\",\n      \"justification\": \"Official Eurostat dataset providing comparable unemployment rates across European countries. Offers an accessible source for analysing annual labour market developments during the 2010s and 2020s. Particularly useful for constructing country-year panels comparing unemployment across Austria, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Hungary, Italy, Latvia, Lithuania, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, and Sweden.\"\n    },\n    {\n      \"title\": \"UNECE Statistical Database – Employment by Country and Quarter\",\n      \"url_or_doi\": \"https://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__20-ME__3-MELF/30_en_MEEmpTotQ_r.px/\",\n      \"justification\": \"United Nations Economic Commission for Europe dataset containing quarterly employment statistics compiled from national statistical offices and international organizations. Particularly relevant because UNECE covers European countries alongside Eastern European and Caucasus economies, including countries not consistently represented in Eurostat. Supports analysis of quarterly employment developments during the 2010s and 2020s, subject to country-specific availability.\"\n    },\n    {\n      \"title\": \"UNECE Statistical Database – Unemployment Rate by Country and Year\",\n      \"url_or_doi\": \"https://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__20-ME__3-MELF/40_en_MEUnRateY_r.px/\",\n      \"justification\": \"Annual unemployment dataset compiled by UNECE from official national and international statistical sources, including Eurostat, OECD, and CIS statistics. Particularly useful for comparing labour market outcomes across Western Europe, the Western Balkans, Eastern Europe, and the Caucasus. Relevant to the 2010s and 2020s and valuable for examining differences between EU and non-EU labour markets.\"\n    },\n    {\n      \"title\": \"UNECE Statistical Database – Unemployment by Age, Sex, Country and Year\",\n      \"url_or_doi\": \"https://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__30-GE__03-WorkAndeconomy/012_en_GEWEUnEmploy_r.px/\",\n      \"justification\": \"UNECE gender statistics dataset providing unemployment indicators disaggregated by sex, age, country, and year. Relevant for investigating gender inequalities and youth unemployment across European and Eurasian economies during the 2010s and 2020s. Particularly helpful for comparative studies involving Eastern European and Caucasus countries alongside EU member states. Researchers should account for documented methodological breaks in some national series.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators – Employment-to-Population Ratio, Ages 15+, ILO Modelled Estimates\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.EMP.TOTL.SP.ZS\",\n      \"justification\": \"Global annual employment dataset covering the requested 36 countries, including countries outside the European Union. Contains internationally comparable employment-to-population ratios from 1991 through 2025, encompassing the entire 2010s and most of the 2020s. Particularly suitable for constructing a balanced international country-year panel and analysing long-term employment trends.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators – Employment-to-Population Ratio, National Estimates\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.EMP.TOTL.SP.NE.ZS\",\n      \"justification\": \"Annual employment-to-population statistics based on national data sources. Covers European and Eurasian economies, with country-specific availability during the 2010s and 2020s. Useful for analysing official national employment trends and comparing them with internationally harmonized ILO estimates. Particularly relevant when researchers want to distinguish national statistical measurements from modelled international indicators.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators – Total Unemployment Rate, ILO Modelled Estimates\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS\",\n      \"justification\": \"Internationally comparable annual unemployment dataset covering all 36 requested countries, including Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Montenegro, North Macedonia, the Russian Federation, Serbia, Ukraine, and EU member states. Contains observations from 1991 through 2025, providing extensive coverage of the 2010s and 2020s. Especially suitable for statistical comparisons, panel regression models, and studies of economic crises and unemployment.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators – Total Unemployment Rate, National Estimates\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.UEM.TOTL.NE.ZS\",\n      \"justification\": \"Annual unemployment dataset using national statistical estimates rather than internationally modelled figures. Covers many requested European and Eurasian economies during the 2010s and 2020s, although data availability varies by country. Useful for examining domestic unemployment trends, assessing differences between national and international measurement approaches, and validating labour market indicators reported by national statistical agencies.\"\n    },\n    {\n      \"title\": \"World Bank – World Development Indicators DataBank\",\n      \"url_or_doi\": \"https://databank.worldbank.org/id/743b6438\",\n      \"justification\": \"Multicountry database containing labour market indicators alongside economic, demographic, educational, and social variables. Relevant indicators include unemployment, employment-to-population ratios, and labour force participation. Particularly useful for research on employment determinants across the requested countries during the 2010s and 2020s because labour market outcomes can be analysed together with GDP growth, inflation, education, population structure, and other explanatory variables.\"\n    },\n    {\n      \"title\": \"World Bank World Development Indicators – Unemployment Rate, ILO Estimates, Dataset Metadata\",\n      \"url_or_doi\": \"https://databank.worldbank.org/metadataglossary/world-development-indicators/series/SL.UEM.TOTL.ZS\",\n      \"justification\": \"Official World Bank indicator documentation for the internationally comparable annual unemployment series. Identifies the ILO modelled estimates as the underlying source and confirms historical coverage from 1991 to 2025. Useful for researchers constructing unemployment datasets for the 36 requested countries because it provides information on indicator definitions, measurement methods, data sources, and comparability.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454522.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19216,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2399,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21615
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

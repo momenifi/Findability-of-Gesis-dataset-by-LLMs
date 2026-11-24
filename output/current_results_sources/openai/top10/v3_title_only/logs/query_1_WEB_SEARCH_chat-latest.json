@@ -1,0 +1,167 @@
+{
+  "query_id": 1,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled German General Social Survey - ALLBUS 2023?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_067eb08356808317006b047c34107087d2ac7d2500dbbe5981",
+        "created_at": 1795456052.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_067eb08356808317006b047c3526e487d2b6083694c237d22c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "German General Social Survey ALLBUS 2023 dataset DOI GESIS"
+              ],
+              "query": "German General Social Survey ALLBUS 2023 dataset DOI GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_067eb08356808317006b047c371ad487d29b8ddf06cadda339",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"German General Social Survey - ALLBUS 2023\",\"url_or_doi\":\"https://doi.org/10.4232/1.14571\",\"justification\":\"Exact title match found in the CESSDA Data Catalogue. The dataset is archived by GESIS Data Archive for the Social Sciences under study number ZA8832, Version 1.0.0. ALLBUS 2023 is part of a long-running German population survey monitoring social attitudes, behaviors, and societal change. The DOI provides a persistent identifier for the dataset.\"},{\"title\":\"German General Social Survey ALLBUS 2023\",\"url_or_doi\":\"https://doi.org/10.4232/1.14544\",\"justification\":\"Official GESIS dataset record for ALLBUS 2023, study number ZA8830, Version 1.2.0. This dataset covers the 2023 survey conducted from April to September 2023. It includes information on lifestyle, social inequality, religion, political attitudes, and demographic characteristics. This is the full version of the survey dataset.\"},{\"title\":\"German General Social Survey - ALLBUS 2023 (CESSDA Data Catalogue)\",\"url_or_doi\":\"https://datacatalogue.cessda.eu/detail/118617bcb1765cc41b38f7863c381855d10336841f9b608289243994744be6a6?lang=en\",\"justification\":\"Direct catalogue landing page matching the requested dataset title exactly. The record provides dataset metadata, contributing researchers, study identifiers, an abstract, access information, and the persistent DOI. CESSDA is a European research data catalogue that indexes social science datasets from trusted archives.\"},{\"title\":\"German General Social Survey ALLBUScompact 2023\",\"url_or_doi\":\"https://doi.org/10.4232/1.14545\",\"justification\":\"Official GESIS record for the ALLBUScompact 2023 dataset, study number ZA8831, Version 1.3.0. This is a more anonymized version of the 2023 German General Social Survey, intended for scientific research. It is a useful alternative for researchers seeking access to the survey data without the additional restrictions associated with the full version.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795456057.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10811,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 465,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 11276
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

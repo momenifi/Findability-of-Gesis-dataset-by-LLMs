@@ -1,0 +1,69 @@
+{
+  "query_id": 10,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Partnership Conflicts and Psychosomatic Gynecological Illnesses 1988/89 (Additional Survey: Sterile Women)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Partnership Conflicts and Psychosomatic Gynecological Illnesses 1988/89 (Additional Survey: Sterile Women)\",\n      \"url_or_doi\": \"https://edoc.hu-berlin.de/\",\n      \"justification\": \"This study/dataset (originally conducted in 1988/89 by J. Begenau and M. Rauchfuß at Humboldt University of Berlin / Charité under the German title 'Partnerschaftskonflikte und psychosomatische gynäkologische Erkrankungen') investigated partnership conflicts, sexuality, and psychosomatic symptoms among women in gynecological outpatient clinics in East Berlin, including an additional survey on sterile women.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2531,
+          "candidatesTokenCount": 171,
+          "totalTokenCount": 5556,
+          "cachedContentTokenCount": 2060,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2531
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2060
+            }
+          ],
+          "thoughtsTokenCount": 2854,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "VEW-arayEsSJvdIPi9qQmAU"
+      }
+    }
+  ]
+}

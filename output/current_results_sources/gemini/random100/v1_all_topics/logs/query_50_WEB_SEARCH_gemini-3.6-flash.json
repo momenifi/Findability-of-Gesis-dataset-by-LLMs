@@ -1,0 +1,69 @@
+{
+  "query_id": 50,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education, Political behaviour and attitudes, and Government, political systems and organisations in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Studium und Berufsweg ehemaliger Studenten der Soziologie (1961)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0173\",\n      \"justification\": \"This GESIS survey dataset collected in 1961 addresses higher and further education in West Germany, capturing data on university graduates, study pathways, and educational attitudes in the 1960s.\"\n    },\n    {\n      \"title\": \"Politische und ökonomische Haltungen der Berliner Bevölkerung (Februar 1964)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0711\",\n      \"justification\": \"This GESIS study measures political behaviour and attitudes of the West Berlin population in February 1964, evaluating political interest, public opinion on government policy, and civic engagement.\"\n    },\n    {\n      \"title\": \"German Post-War Election Database (GPWED)\",\n      \"url_or_doi\": \"https://doi.org/10.17605/OSF.IO/RT83Y\",\n      \"justification\": \"This dataset covers government, political systems, and organisations by compiling disaggregated municipal-level federal election results across West Germany for elections spanning 1949 through 1969.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 860,
+          "candidatesTokenCount": 335,
+          "totalTokenCount": 2887,
+          "cachedContentTokenCount": 234,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 860
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 234
+            }
+          ],
+          "thoughtsTokenCount": 1692,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Fv6DapGaKo--vdIP--7cwQo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 23,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d66b7b23fe3f1d1006b047820454487d2adca4b3996e4cd74",
+        "created_at": 1795455008.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d66b7b23fe3f1d1006b047822745887d28b35b9284b2ddef1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis tourism Germany 2020 2024 overnight stays GENESIS database",
+                "Eurostat tourism Germany dataset nights spent tourist accommodation 2020 2025",
+                "Germany sport participation 2021 2023 dataset survey sport leisure",
+                "Germany time use survey 2022 leisure sport dataset Destatis"
+              ],
+              "query": "Destatis tourism Germany 2020 2024 overnight stays GENESIS database",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d66b7b23fe3f1d1006b0478273ac487d2b6c0f2c585841caa",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:dosb.de bestandserhebung 2024 2025 mitglieder sportvereine daten",
+                "site:ec.europa.eu/eurostat/databrowser sport physical activity Germany dataset 2022",
+                "site:ec.europa.eu/eurostat/databrowser tourism trips residents tour_dem_tttot Germany",
+                "site:destatis.de tourism camping 2024 data Germany tables"
+              ],
+              "query": "site:dosb.de bestandserhebung 2024 2025 mitglieder sportvereine daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d66b7b23fe3f1d1006b04782b23f087d294ea7c9aacd6e4b8",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis – German Tourism Statistics (2020–2026)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Accommodation-Food-Services-Activities-Tourism/_node.html\",\n      \"justification\": \"Official German Federal Statistical Office (Destatis) data covering tourism, accommodation establishments, overnight stays, and hospitality activities. Includes statistics from the 2020s, making it useful for studying tourism trends in Germany, including the effects of COVID-19 and subsequent recovery.\"\n    },\n    {\n      \"title\": \"Eurostat – Nights Spent at Tourist Accommodation Establishments\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/tour_occ_ninat\",\n      \"justification\": \"Provides annual statistics on overnight stays in hotels, holiday accommodation, and campsites across European countries, including Germany. Covers 2020–2025 and allows comparisons between domestic and international tourism, accommodation categories, and changes in tourism demand.\"\n    },\n    {\n      \"title\": \"Eurostat – Monthly Nights Spent at Tourist Accommodation Establishments\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tour_occ_nim/default/table?lang=en\",\n      \"justification\": \"Monthly tourism accommodation statistics for Germany during the 2020s. Particularly useful for analyzing seasonal tourism patterns, pandemic-related disruptions, recovery trends, and differences between domestic and foreign visitors.\"\n    },\n    {\n      \"title\": \"Destatis – Time Use Survey 2022: Leisure Activities by Sex\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Time-Use/Tables/leisure-time-activities-sex-zve.html\",\n      \"justification\": \"Official dataset based on Germany's 2022 Time Use Survey. Provides information about time spent on leisure activities among individuals aged 10 and older, with breakdowns by sex. Relevant for studying leisure behavior, recreation, and demographic differences in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"Destatis – German Time Use Survey 2022\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Time-Use/_node.html\",\n      \"justification\": \"Comprehensive survey measuring how people in Germany allocate their daily time to different activities, including leisure, recreation, media consumption, and other personal activities. The 2022 survey provides detailed evidence about leisure habits and work-life balance during the 2020s.\"\n    },\n    {\n      \"title\": \"OECD – Time Use Database\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/time-use-database.html\",\n      \"justification\": \"Internationally comparable time-use statistics covering leisure, personal care, paid work, and unpaid work. Includes updated German data from 2022, allowing researchers to compare leisure time in Germany with other OECD countries during the 2020s.\"\n    },\n    {\n      \"title\": \"German Olympic Sports Confederation (DOSB) – Annual Sports Club Membership Statistics (2020–2026)\",\n      \"url_or_doi\": \"https://www.dosb.de/service/bestandserhebung\",\n      \"justification\": \"Official annual statistics from the German Olympic Sports Confederation covering organized sports participation through club membership registrations. Provides information on sports associations, membership numbers, and regional distribution. Includes annual reports from 2020 through 2026, making it particularly valuable for analyzing sports participation trends before, during, and after the pandemic. Membership counts represent registrations rather than unique individuals.\"\n    },\n    {\n      \"title\": \"German Olympic Sports Confederation – Sports Club Membership Survey 2024\",\n      \"url_or_doi\": \"https://www.dosb.de/service/bestandserhebung\",\n      \"justification\": \"The 2024 edition of the DOSB annual membership survey provides detailed statistics on organized sport in Germany, including sports federations, clubs, membership categories, and regional differences. Useful for examining participation in different sports and changes in organized recreational activities during the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Tourism Trips by Detailed Country or World Region of Main Destination\",\n      \"url_or_doi\": \"https://doi.org/10.2908/tour_dem_ttw\",\n      \"justification\": \"Eurostat dataset measuring tourism trips by destination country and world region. Includes data relevant to German residents' travel behavior during the 2020s. Useful for examining domestic versus international travel patterns, holiday destinations, and changes in tourism preferences.\"\n    },\n    {\n      \"title\": \"Eurostat – Tourism Trips of EU Residents: Annual Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/tour_dem_esms.htm\",\n      \"justification\": \"Official Eurostat tourism survey data covering travel participation, trip duration, purpose, destination, and expenditure. Includes German tourism statistics for the 2020s. Particularly relevant for studying holiday travel, leisure tourism, and changes in travel behavior following COVID-19. The linked page provides dataset documentation and access information.\"\n    },\n    {\n      \"title\": \"Eurostat – Tourism Trips by EU Residents (Annual Data)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tour_dem_tttot/default/table?lang=en\",\n      \"justification\": \"Annual dataset measuring the number of tourism trips taken by residents of European countries, including Germany. Includes personal tourism and travel-related breakdowns. Suitable for analyzing domestic and outbound leisure travel trends during the 2020s and comparing Germany with other European countries.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Camping Sites and Camping Capacity by German Federal State\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/45412/table/45412-0024\",\n      \"justification\": \"Official German statistical dataset covering the number of operating campsites, available camping pitches, and occupancy indicators across Germany's federal states. Includes annual observations from 2020 through 2025. Particularly useful for researching outdoor recreation, camping tourism, regional tourism infrastructure, and leisure travel trends.\"\n    },\n    {\n      \"title\": \"Statistikportal – Tourism Statistics by German Federal State\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/tourismus-und-gastgewerbe/tourismus\",\n      \"justification\": \"Regional tourism statistics published through Germany's official statistical portal. Includes data on tourist arrivals, overnight stays, and accommodation activities across German federal states, with observations covering the 2020s. Valuable for comparing tourism development between regions and identifying geographical differences in leisure travel.\"\n    },\n    {\n      \"title\": \"Destatis – Overnight Stays in Germany: Short-Term Tourism Indicators\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/Short-Term-Indicators/Accomodation-Foodservice-Activities-Tourism/ktou911.html\",\n      \"justification\": \"Official short-term statistics tracking overnight stays in Germany's tourism accommodation sector. Provides observations during the 2020s and supports analysis of tourism growth, seasonal patterns, and fluctuations in visitor activity. Particularly relevant for monitoring tourism recovery and recent changes in accommodation demand.\"\n    },\n    {\n      \"title\": \"Eurostat – German Time Use Survey 2022: National Metadata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/EN/tus_20_simstu_de.htm\",\n      \"justification\": \"Official documentation for Germany's 2022 Time Use Survey, conducted between January and December 2022. Describes the survey methodology, population coverage, and availability of microdata through research data centers. Relevant for researchers seeking detailed individual-level information about leisure, physical activity, and recreational behavior. This is a metadata and access-information page rather than a direct microdata download.\"\n    },\n    {\n      \"title\": \"Eurostat – Tourism Participation and Accommodation Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/tourism/information-data\",\n      \"justification\": \"Official Eurostat tourism data portal providing access to datasets on tourism participation, travel expenditure, trips, overnight stays, and accommodation establishments. Includes German observations covering the 2020s. Particularly useful for locating multiple harmonized datasets and comparing Germany's tourism sector with other European countries.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455028.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 17369,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1951,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 19320
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

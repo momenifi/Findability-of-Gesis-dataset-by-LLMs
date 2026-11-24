@@ -1,0 +1,69 @@
+{
+  "query_id": 129,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Manifesto Project Main Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"Maintained by the WZB Berlin Social Science Center, this dataset provides content-analytical data on party policy positions—including foreign policy, international relations, and international organisations—across elections in Germany throughout the 1990s, covering German federal states including Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein.\"\n    },\n    {\n      \"title\": \"Politbarometer Cumulative Dataset (1977-2023)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14527\",\n      \"justification\": \"Available via GESIS, this longitudinal dataset covers German public opinion and political attitudes on international relations, foreign policy, and international organisations throughout the 1990s across all German Bundesländer.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) Cumulation 1980-2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13774\",\n      \"justification\": \"Archived at GESIS, ALLBUS includes representative survey data covering political attitudes, international relations, and international institutions in Germany during the 1990s with regional indicators across German federal states.\"\n    },\n    {\n      \"title\": \"Government Declaration Dataset (GDDS)\",\n      \"url_or_doi\": \"https://manifesto-project.wzb.eu/datasets/gdds\",\n      \"justification\": \"Hosted by WZB Berlin, this dataset contains content-analytical data from government declarations in Western European countries, including Germany up to 1998, focusing on official political positions on international politics and international organisations.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1187,
+          "candidatesTokenCount": 484,
+          "totalTokenCount": 4130,
+          "cachedContentTokenCount": 696,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1187
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 696
+            }
+          ],
+          "thoughtsTokenCount": 2459,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "vTuEapuZItOgxN8Pj_vFwAw"
+      }
+    }
+  ]
+}

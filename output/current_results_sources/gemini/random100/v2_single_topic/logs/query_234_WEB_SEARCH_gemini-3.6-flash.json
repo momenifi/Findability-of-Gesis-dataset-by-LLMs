@@ -1,0 +1,69 @@
+{
+  "query_id": 234,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurobarometer 34.1: Health Problems (Nov 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10893\",\n      \"justification\": \"This survey dataset, deposited at GESIS Data Archive and collected on behalf of the European Commission in November 1990, covers self-reported health problems, medical conditions, and diseases across European Community nations (including Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, and Great Britain/Northern Ireland).\"\n    },\n    {\n      \"title\": \"Health Survey for England Time Series Dataset, 1991-2009\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-7025-1\",\n      \"justification\": \"Hosted by the UK Data Service, this repeated cross-sectional time-series dataset covers Great Britain (England) starting in 1991 throughout the 1990s. It captures health status, chronic illness, and clinical measures, classified under the CESSDA topic 'Specific diseases, disorders and medical conditions'.\"\n    },\n    {\n      \"title\": \"European Health for All Database (HFA-DB)\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/datasets/european-health-for-all-database/\",\n      \"justification\": \"Managed by the WHO Regional Office for Europe, this database provides comparative health statistics, disease incidence, mortality, and prevalence data for European countries (including Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, United Kingdom, Austria, Sweden, and Finland) throughout the 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 729,
+          "candidatesTokenCount": 434,
+          "totalTokenCount": 2893,
+          "cachedContentTokenCount": 341,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 729
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 341
+            }
+          ],
+          "thoughtsTokenCount": 1730,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "e1yEaon7K-_zvdIP36OS-Ak"
+      }
+    }
+  ]
+}

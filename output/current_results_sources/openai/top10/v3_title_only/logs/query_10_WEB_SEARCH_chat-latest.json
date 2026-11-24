@@ -1,0 +1,167 @@
+{
+  "query_id": 10,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0934bc09c6e38a6b006b047c6c7ce887d28ba2dbd160649cb6",
+        "created_at": 1795456108.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0934bc09c6e38a6b006b047c6d5c7087d2b95ba7c7349e8f78",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\" dataset DOI"
+              ],
+              "query": "\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\" dataset DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0934bc09c6e38a6b006b047c6f6f4c87d297fe14538a85481f",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023 (Version 2.0.0)\",\"url_or_doi\":\"https://doi.org/10.7802/2863\",\"justification\":\"Exact match for the requested dataset. Published in 2025 by Wedel, Mayer, Batzner, and Hendrickx and hosted by the GESIS Data Archive. The dataset contains 8,623 TikTok videos published in 2023 by 18 major German-speaking news outlets from Germany, Austria, and Switzerland. It includes video metadata and human-coded annotations covering visual and audio characteristics, interactive elements, and journalistic news values. Version 2.0.0 is the current version listed by GESIS. The repository provides downloadable CSV data, a codebook, and a data report. The dataset is freely accessible without registration.\"},{\"title\":\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023 (GESIS Dataset Landing Page)\",\"url_or_doi\":\"https://search.gesis.org/research_data/SDN-10.7802-2863?lang=de\",\"justification\":\"Official GESIS research data catalog entry for the exact requested dataset. Provides bibliographic information, authors, dataset description, licensing information, version history, and links to the archived research data. Confirms DOI 10.7802/2863 as the current dataset version and identifies the associated 2025 research publication.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795456113.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10446,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 329,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 10775
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

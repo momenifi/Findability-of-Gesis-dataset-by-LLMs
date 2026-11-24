@@ -1,0 +1,69 @@
+{
+  "query_id": 55,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Business/industrial management and organisation, and PSYCHOLOGY in Germany during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2006 (BIBB/BAuA-Erwerbstätigenbefragung 2006)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.06.1.1.40\",\n      \"justification\": \"Conducted in Germany in 2006 with 20,000 employed individuals, this dataset covers employment conditions, workplace organisation, and psychological workload, stress, and job satisfaction.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9320.de.en.v1\",\n      \"justification\": \"An annual representative survey conducted across Germany throughout the 2000s, focusing on business and industrial management, work organisation, HR management, and labor demand.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36eu\",\n      \"justification\": \"A longitudinal study in Germany covering all waves in the 2000s, integrating detailed data on individual employment status, workplace settings, and psychological measures such as Big Five personality traits, life satisfaction, and mental health.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EogaCoUaARFNMg+kXlx1sTtI2kX6ooYJ5gSeXysvDcnia0ABoZF/M9nJQswzsBoxfqy1uEGJgA+TQqxeyQ6pIEEAW23p1VMH6tRIMm9kIig6kL1eNjiDVTElRjeq+GGs3edB4pUdwIJimjmkDJsokAJuUX+UBOz4R7BBY9fzd+Ouw5lcfiFqyMU0nrZkpoFPgsc2P2VJfOSl88M7MCoOmH9tvJEnXbOvEgCVKoTzlTdV+5EBexQvFT0pgI5ilCLbpN4XSD8wub7iSpa4RYVo8O1AhSVMZuApcPUjeSl7rr9xD8wohsuSqFUdwp3qKUkhckwXz9bRgUcu78phwIS38oNqLvU2LztAQC8rTfvNsbHfH7puBEMx7NO0PrQ85WpiV4D4a7qlbN2tabBAhkHSqBaxxRtO1674Y3IvoSHqeGCoI+xwf3kuLznEKSCHIuMGqoluJNmZsBYj14jjZtkInhS1xKWx1sMEi5fovW89rr57EnRBG3LLX7thqk0/HrGreqUm+z5h3pUh2qtm0CcJ5aXRKpfyJFmSOxf5LpV5HC5oHuZng348/RB2tQC3Iy4DlqHkKwA7cVydzMuKADC35LUSOEzsIKooaQrD8yIMrxUu7ls/cpO86DIaXVT1mg25Sp8NxticPcF4V9LhdLs0mfv0r0ouxmVDPGAVQwbAH6jVxYPQ/g3C1svqgUUtUSML4ARdPlZ/TGZgyF3ymYQA6m2DF2QlsOjvrMs6LDfrNbkSqip1hyQgLXaEEWYy8R50oNWL641Q28K/bWkuq/Ypax2jbNLB9R9jS4OIol+5Ekj6VSiEsGe/Mtx4BJg5ql78rV7gJhL4pSI/XWYu9i8PxoInFmXOLqm6yhgrApjxojSZSkkfhotKt8kmV4u3iXEs1+yb66vYBnf0vF9Md6BPfCaOJr/FbRDpF7lU5FLg/+4KrcXeiG5S2HLqUjpzz9YKAzM3pHxQ9hFuNPO61I6dUc2Q2JZ0ziduICn0q2k7htB3pzp+9RQYSOZ4t5R2CzTFwd4j7hQ9qSYL+Lq71BbJ+jUMEqVUW6t6pF+v3sUGBAks7CHKAccJ3hUXy4csuJ6/4imCydbbO4erhZ6dCVw/iVjMQyjiK+j/SpM13PM9cXFwI0Iv9aArd519T8gSyyLn2uZRpGZl4U3H7uvG2bSmsQa/NcBmM+PKOeif1NaVULlph8TjfKnu6PWEf21MH/3G+XCDMbwk3xEFGQ9UOMOHD7U5ZrJNLVzQnsNs4pX5dEM+Q+mUQT8r1H5MF5SbwmyXzlBPWZu+bkzy5uYLwsRX8V1XwVORG3T2A+CR3SXFwZKDuO40CDxPW+MlkjzBrMMxk5hn2vPqbAH+lXLay7X7ktXQFnCqc0ZZzQxCwBIWE6T2hwmywX9DjxdAXAl8noQmKU2XWkVnuUK/vDbsEfs2Cl0hJ4VRrIhG42O3/ywaXZZqe2huYU9W2XVigarjESW1MvAPJGKSC2R7GMjSnCdIyByt8icw8bNm7Cx7NeBQul2N/TflEg/Y9ge8J6x8YrBFT7YnxiPJCHEndsL7qUukc935p3nCA+p3VAdiHWEQhfjjbPyK7Tdfub/+xlWHAyJQmu2x7jmLhQXzxJsagCzwuwQB9HCOwJBbH3swbn/hJ9iCOe3Ve2n73cphopTAqRhrQXtHvWCrVg9WtR6xH/CAygbkqu1K/k1AZQbiwVFfYq5M4BwqatP9UwO/KvPkVarbpPSH/Ths9Zm4nCtdYSE2p0PzirfKrnw3u023bOKN39xL3RiiBefrax6qJ0UJN9F5/s9eC/a0/DVPFX4fMkLJgeUvH9UBC7u+yZQe1wwKcPvtIKvSAjPG0F0wdISqwU44IvkqP/nI67GR+gUiXuw9GXoDXIxwbtbCa5kOD+vndvQRshrTqrjEHXqqAi6coVOtfaGG9eVpo4jYblTNhUIU+yMnZtNVxgOmXDAz9mvbJP7E7pIvXoXqC794Y19z1V6y8Kc8kzAy4CsvDKmICPNyWGw6/DPowzbv5mB6T5ITAzLegEX6IorkIxuj27DNq+1LFbh83E07d0i+hmtO47C2Gue3h6mmayxb5NuPPydFnJgsWkeq3NIbk9UJsbyO+qJNnaZOjITfJaSkix0mMGInDjUmc3M887CMs0r4oyqwkS1dztZ2GWs6kZWTxPOQfXjouIqkG64PmsYoEiIyX6z3nGzfgYopriMr3iPdzSodj+0WKdN1aOB1QkIOF0A8rKMwq7pmolz9y/86//ONShOn0Kb21sCBCEY5ccjoJGflS10c5a/MCyxv357snN40ICeed4ohzWfVvS2sjJAXJ/4sFVQwPzH8/RyzXqr/F+cfSKh+Fs9vjfhz9lN4vt6wbnUyxpFEzmJYdTCX9lAfjJXcTohQwRnFSQadXSSN4SsE0dyEkQedTM5L7lfc1rdZC5R2ONJBmnWmTe+LD7bQ3kVdCIWQPewMD3bOwVWw0bK4Aje6psBHPytnlaLzbaTTeN2LKEnCh5na0Fisiq9WwLoZzuG2pmwb9q/IGi4ObpEIRGAIF9cwrDKKmSNqQvPhEz9JLlcOuBH805p/j6ynzBDwu7Toy0tH+bzjh3HhV9N0c31iG9EV8kQmbiwjZ2jUn/qAJ0v2XH5F+4FkbVKRcmouubBrENbzvLsOfaKHGZYYrTOzJClTGPszCkCJT6lzbEukziu9bMa/OWCCnOzjNty3Jdektt6W64U6sF95M2TQvmP7U075NC8Xwabp8LDx3gCfF4V7fdUz9bPn+acPEg3cBBixe5vpQHoUPmYls4Sr98aiUmcU9HW3IrS40sBy776dXfC+I0IQ6F4sS+aNvHT9mYa6+waP9bU+ljiIeuxgCzYRKYrNd820cLvl0fL1YHP0RMYdooRGnjD0zvfPTflbceTf6v3YeLR3XWCXMO4wf7VSlYCaV89aoUobykBYa4gEBXhyAaeJsOLPpMQrpSobUFReffO3od4oIRGVetKJcDKvOBfu9ROvjIxeGiFlTBJzGciFwCQhdAMU2Yjy4lV5JfDD3MKTJb2DMe4DIZ8kYxjcamAUn2954tnvCuwc+ZD2O6n13RreRiYA35aY8vaFl8kPbWDYBSBNkRoOgd79fhpscxgIuzKr/vvFmKesv+RGlWHqU8VMmhiqGAnCzZwQ8ZDjBkJAA1OD+nSne7VPM3C+q21uuAJmiNGo6UB0L8THUnwUK5evTB4Kkaqi/HzKrglVNTUARsb42uOhLRSnvXAT97mjE5VP2ccKmoMTaaxajpvb1l/vJ3WWf9dq9Klg6/q88c96C/z07iFu/rMx6M2aaA5xJuC11Ht3WbCkPVAa8YIWXZ4/XYwqAuS3p9BVRXOibVhq6pC0GnkO6NgBdNCjR41qASuqJ0uTj4GWa2IvOXe+jGh7qKoN3tLx6xuFv46HjoRPXc56ZYRistH9Ulp3ISHbAnre8FuqgZF73++Q3cR+5O/lJ5u3dxazB/V40K/RgZ1mL/sHDuiBcoKtkYwqxYNpPgouEDPRXZFyGoN3GPvCIjXt14wTXgaNwm9SlO7j1LH0xR65LdTGpaZIIFIcBhycSZqZoOF55/QrpWICSbYkOUGQZRkcyDnuouSDZ2XJBgzwp9WBQ068MP28wucnZ1vzT/zvW9fBBiZg7/fMbPf8OLZAYf/cNAZBIElSQfEekkSiI6HJC6hOgnx03n4RnPLtaMdJhi/pSrQVwN7xKNxsaVQr6h8D+54Ve/JaZaEEHaefCiMVy9sZOCzWpyK5ZM+Zm22ZoPodI6UfpGjbTm6HLTIg/XtOe7DMqEfjDcKbHpaOJEP4VR3QvaQg61pZe7XKoKZylhEgJJ4sVuoh8Kd1vOvqhWcGjpQZjejRn+gbFjn9QEeP8i4K6HP5tBcramK44aKKLLz7yjdBA2NdX9s+LsThI4OCfWegTOyacpAFGIH67YFbJ/EbE9mzVqItR3iEhzs/WERxdtG7O/wOatJzRWzRv52RI5iMIy3TwyVPZJ3kX2hqHLUrED/3Dz0LC6FMhseYqZ30ylrpmcc5Q9bSW/WdOjXqvp1r9mYOZqnqJoMC4vDIe8B3/6xtfunDPj+5jUqc9D7s2GvQIIUbKK8VaVyI/V0L2IGHFwqQtQSOjF30xI0P5te/emxXR/c/80MxGqX+P6ElB0cX5spqeEx3O2BTyw1ZLeOMNOVjhp/X7mZK1n/kUcZFeUke425nc754XfYxIMznYH9qUUmYZSGYRHIG6pxxi9oFlqE75/+9gvSe4ag0Fqa2fcYU/ic+YNNaLQU4L3kQKLsZ+RnsBWAiN4rOXmbQYEjboDSqjmRzFLLZ/jZ0uTjC8uyTOWt7wroK3qqVRDSWqjhlNbAAcWeo4hEMwQ1N/zKS+FoSojF3/VjIZWgazsZwnmmlwunky3bd79FuKiq5zL7blkS0/MKsCosej+US2x8PHDZba+dHmHnfxMSX4bPV"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 993,
+          "candidatesTokenCount": 361,
+          "totalTokenCount": 3199,
+          "cachedContentTokenCount": 281,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 993
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 281
+            }
+          ],
+          "thoughtsTokenCount": 1845,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "k_-DasCYDoXYxN8P6b6acA"
+      }
+    }
+  ]
+}

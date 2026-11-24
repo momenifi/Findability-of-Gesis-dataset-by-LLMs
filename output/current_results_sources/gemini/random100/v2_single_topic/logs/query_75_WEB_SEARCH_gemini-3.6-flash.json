@@ -1,0 +1,69 @@
+{
+  "query_id": 75,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Compulsory and pre-school education in Schleswig-Holstein during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Verzeichnis der allgemeinbildenden Schulen in Schleswig-Holstein\",\n      \"url_or_doi\": \"https://www.statistik-nord.de/presse-veroeffentlichungen/verzeichnisse-klassifikationen-systematiken/allgemeinbildende-schulen-in-schleswig-holstein\",\n      \"justification\": \"Published by Statistikamt Nord, this dataset series provides official statistical directories and data on general education and compulsory schools in Schleswig-Holstein for the 2020s school years (2020/21 through 2024/25).\"\n    },\n    {\n      \"title\": \"Schulen - Open-Data Schleswig-Holstein\",\n      \"url_or_doi\": \"https://opendata.schleswig-holstein.de/dataset/schulen\",\n      \"justification\": \"Official open dataset series maintained by Schleswig-Holstein containing structured location, contact, and type information for primary, secondary, and compulsory educational institutions across the state in the 2020s.\"\n    },\n    {\n      \"title\": \"Kindertagesstätten - Open-Data Schleswig-Holstein\",\n      \"url_or_doi\": \"https://opendata.schleswig-holstein.de/dataset/kindertagesstatten\",\n      \"justification\": \"Contains open datasets detailing pre-school and early childhood education facilities (Kindertagesstätten) across Schleswig-Holstein updated during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 633,
+          "candidatesTokenCount": 357,
+          "totalTokenCount": 2451,
+          "cachedContentTokenCount": 181,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 633
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 181
+            }
+          ],
+          "thoughtsTokenCount": 1461,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "RTSEat6jHOKEnsEPm9OlyAk"
+      }
+    }
+  ]
+}

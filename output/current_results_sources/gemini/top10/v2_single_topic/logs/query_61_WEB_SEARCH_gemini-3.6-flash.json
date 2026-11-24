@@ -1,0 +1,69 @@
+{
+  "query_id": 61,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Physical fitness and exercise in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Gesundheit in Deutschland aktuell - GEDA 2019/2020-EHIS\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7188402\",\n      \"justification\": \"This nationwide open survey dataset collected by the Robert Koch Institute (RKI) measures self-reported health, physical activity, and exercise patterns among adults in Germany from 2019 to 2020.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS Wave 2)\",\n      \"url_or_doi\": \"https://doi.org/10.17886/RKI-GBE-2018-023.2\",\n      \"justification\": \"Conducted by the Robert Koch Institute between 2014 and 2017, this representative dataset measures physical activity levels, exercise trends, and health parameters of children and adolescents across Germany.\"\n    },\n    {\n      \"title\": \"Eurobarometer 88.4: Sport and Physical Activity (ZA6939)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14003\",\n      \"justification\": \"Archived at GESIS, this dataset includes survey data on frequency, setting, and motivations for sports and physical activity across EU member states, including representative data for Germany collected in late 2017.\"\n    },\n    {\n      \"title\": \"Health-Related Fitness in Adults From Eight European Countries (European Fitness Badge Dataset)\",\n      \"url_or_doi\": \"https://motor-research-data.de/zihniiij5pjr\",\n      \"justification\": \"Hosted by the Motor Research Data Repository at the Karlsruhe Institute of Technology (KIT), this dataset contains physical fitness test profiles and activity survey data of adults across Europe, including Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 800,
+          "candidatesTokenCount": 470,
+          "totalTokenCount": 2742,
+          "cachedContentTokenCount": 381,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 800
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 381
+            }
+          ],
+          "thoughtsTokenCount": 1472,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "WrmnavvVFZ2lvdIPjof32Qs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "query_id": 100,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Politbarometer (February 1990)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ef3c1ccf13600d3006b046f45806487d29f6721d159847a1e",
+        "created_at": 1795452741.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ef3c1ccf13600d3006b046f466a8487d299b46ffbec4c6936",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Politbarometer February 1990 dataset DOI",
+                "Politbarometer Februar 1990 GESIS dataset"
+              ],
+              "query": "Politbarometer February 1990 dataset DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0ef3c1ccf13600d3006b046f48a35887d2930a4fd5185913a2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Politbarometer (Februar 1990)\" \"1922\"",
+                "GESIS ZA1922 Politbarometer Februar 1990 DOI"
+              ],
+              "query": "\"Politbarometer (Februar 1990)\" \"1922\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ef3c1ccf13600d3006b046f4bb04487d2938610b2ae6c9869",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Politbarometer (February 1990) / Politbarometer (Februar 1990) – ZA1922\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA1922\",\"justification\":\"Exact title match. The dataset was conducted by Forschungsgruppe Wahlen, Mannheim, in February 1990 and is identified by GESIS archive study number ZA1922. It examines German political attitudes, party preferences, voting intentions, satisfaction with democracy, evaluations of political leaders, and opinions on German reunification. The study is explicitly documented in GESIS's historical archive publications. The URL points to the GESIS study identifier, although the individual landing page could not be independently verified.\"},{\"title\":\"Politbarometer 1977–2024 (Partial Cumulation) – ZA2391\",\"url_or_doi\":\"https://doi.org/10.4232/1.14611\",\"justification\":\"Verified GESIS dataset containing selected variables from Politbarometer surveys conducted between 1977 and 2024, including February 1990. This is an alternative source for analyzing the requested survey period. Unlike the original February 1990 study (ZA1922), the cumulative dataset contains only selected variables rather than the complete original questionnaire.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452749.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 16991,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 267,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 17258
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "query_id": 60,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about protest movement, agricultural policy, and nutrition policy in Germany and Berlin during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_09e493db0b3f8f07006b045783783087d2b23922ae4ce19e0f",
+        "created_at": 1795446659.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_09e493db0b3f8f07006b0457846ee487d28cffa16dc2240bd1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany protest events dataset 2020 2024 ACLED Germany download",
+                "Berlin demonstrations assemblies statistics dataset versammlungen open data",
+                "Germany agricultural policy data 2020 2024 Destatis Eurostat CAP strategic plan data",
+                "Germany nutrition policy monitoring dataset food consumption RKI 2020 2024"
+              ],
+              "query": "Germany protest events dataset 2020 2024 ACLED Germany download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_09e493db0b3f8f07006b045789879087d2817ad855de590249",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:agridata.ec.europa.eu CAP beneficiaries Germany payments data 2023 2024",
+                "site:destatis.de GENESIS online Landwirtschaft 2020 2024 agrarstatistik datenbank",
+                "site:monitoring.biooekonomie.de Germany nutrition report data food consumption 2024",
+                "site:rik.de OR site:rki.de nutrition surveillance Germany 2020 2024 dataset GEDA",
+                "site:berlin.de open data lebensmittel ernährung schulessen berlin datensatz"
+              ],
+              "query": "site:agridata.ec.europa.eu CAP beneficiaries Germany payments data 2023 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_09e493db0b3f8f07006b04578d529487d282faa8e4f09517ea",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"ACLED – Armed Conflict Location & Event Data: Protest Events in Germany (2020–2026)\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/data-export-tool\",\n      \"justification\": \"A major event-level dataset documenting protests, demonstrations, riots, and political violence across Germany, including Berlin, from 2020 onward. Records include event dates, geographic locations, actors, protest types, and descriptions. Particularly useful for examining the 2024 farmers' protests, climate activism, environmental movements, and demonstrations concerning agricultural and food policy. Data can be filtered by Germany, Berlin, date, and event category.\"\n    },\n    {\n      \"title\": \"POLIZEI STRESSI – Berlin Demonstrations and Assemblies Dataset (2021–2026)\",\n      \"url_or_doi\": \"https://polizeistressi.de/data/\",\n      \"justification\": \"An archive of official Berlin police registration data covering demonstrations and public assemblies since 2021. Includes dates, locations, demonstration topics, and geographic distributions. Particularly relevant for identifying agricultural protests, farmers' demonstrations, climate activism, and food-policy mobilization in Berlin. The dataset supports analysis of protest frequency, geographic concentration, and changes in mobilization over time.\"\n    },\n    {\n      \"title\": \"German Protest Registrations – Demonstrations in German Cities\",\n      \"url_or_doi\": \"https://github.com/davidpomerenke/german-protest-registrations\",\n      \"justification\": \"A research dataset compiling administrative records of registered demonstrations in German cities. It provides information about protest events and their characteristics, offering an alternative to media-based protest event datasets. Useful for comparing protest mobilization across German cities and investigating the geographic distribution of demonstrations related to agricultural policy, environmental regulation, and broader political movements.\"\n    },\n    {\n      \"title\": \"Berlin Open Data – Registered Public Assemblies (Versammlungen im Land Berlin)\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/versammlungen-im-land-berlin?ids=0e013066-6e31-4950-b28b-af326081c502&ids=730727c7-0144-4798-9f7f-9aee96fae017&ids=bb2aa74b-ed74-4137-8273-736b2e515681\",\n      \"justification\": \"An official German government data catalog entry for registered public assemblies in Berlin. Relevant for studying the spatial and temporal distribution of demonstrations and identifying protests concerning agricultural subsidies, farming conditions, food systems, and environmental policy. Provides an official administrative source that can complement ACLED records.\"\n    },\n    {\n      \"title\": \"FragDenStaat – Berlin Demonstrations and Assemblies, 2023–2024\",\n      \"url_or_doi\": \"https://fragdenstaat.de/anfrage/versammlungen-2023-und-2024/\",\n      \"justification\": \"A freedom-of-information request seeking detailed Berlin assembly records for 2023 and 2024, including dates, locations, and demonstration purposes where available. Particularly relevant to the major German farmers' protests in January 2024. This is a data-access request rather than a guaranteed downloadable dataset; the associated records and responses should be checked for availability.\"\n    },\n    {\n      \"title\": \"GESIS – Right-Wing Extremist Mobilization in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2774\",\n      \"justification\": \"A research dataset on right-wing extremist demonstrations and political mobilization in Germany, with data collection extending into the 2020s. Useful for studying relationships between protest movements, political radicalization, and mobilization around government policy. It can provide contextual information when examining the political environment surrounding agricultural protests, although it does not specifically measure agricultural or nutrition policy.\"\n    },\n    {\n      \"title\": \"ProLoc – German Local Protest Dataset (2000–2020)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/4b084c93-d1f6-557d-a806-2c93e8af21ad\",\n      \"justification\": \"A systematic protest-event dataset covering Bremen, Dresden, Leipzig, and Stuttgart through 2020. Includes protest forms, demands, organizers, and participating social groups. Useful for establishing historical baselines and comparing early-2020 protest activity with later agricultural and environmental movements. Geographic coverage does not include Berlin, and coverage of the 2020s is limited to 2020.\"\n    },\n    {\n      \"title\": \"Institute for Protest and Social Movement Studies – Harmonized Protest Survey Data\",\n      \"url_or_doi\": \"https://protestinstitut.eu/en/20-years-of-protest-surveys-ipb-publishes-protest-survey-data/\",\n      \"justification\": \"A collection of 31 harmonized protest surveys from Germany and Poland, announced in 2026. The surveys provide participant-level information about motivations, political attitudes, and sociodemographic characteristics. Relevant for understanding who participates in German protest movements and why. Individual survey dates and protest topics should be checked before selecting data for agricultural or nutrition-policy research.\"\n    },\n    {\n      \"title\": \"European Commission – Common Agricultural Policy 2023–2027 Performance Monitoring and Evaluation Indicators\",\n      \"url_or_doi\": \"https://agridata.ec.europa.eu/extensions/Dataportal/pmef_indicators.html\",\n      \"justification\": \"An official European Commission data portal containing indicators measuring implementation and performance of the Common Agricultural Policy (CAP) during 2023–2027. Germany-specific data can be selected to examine agricultural subsidies, environmental objectives, rural development, planned interventions, and policy outcomes. Especially useful for connecting agricultural protest movements with changes in agricultural policy and public funding.\"\n    },\n    {\n      \"title\": \"European Commission – CAP 2023–2027 Indicators and Reporting Methodology\",\n      \"url_or_doi\": \"https://agridata.ec.europa.eu/extensions/DataPortal/pmef-indicators-info.html\",\n      \"justification\": \"Official documentation and access information for CAP output, result, context, and impact indicators. Provides information on agricultural support measures, implementation years, and policy monitoring. Useful for correctly interpreting German agricultural policy datasets, including the distinction between claim years and financial years. This is primarily a methodological and data-access resource rather than a standalone dataset.\"\n    },\n    {\n      \"title\": \"European Commission – Agri-food Data Portal\",\n      \"url_or_doi\": \"https://agridata.ec.europa.eu/extensions/Dataportal/help.html\",\n      \"justification\": \"An official entry point for European agricultural and food-system datasets, including agricultural markets, food supply, agricultural income, EU financing, and CAP implementation. Germany-specific indicators can help researchers investigate the economic context of agricultural protests, food prices, agricultural production, and the relationship between farming policies and food-system outcomes.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – German Agricultural Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"Germany's official statistical database provides downloadable agricultural statistics, including farm structures, agricultural production, land use, livestock, and economic indicators. Many statistical series cover the 2020s and offer geographic breakdowns. Useful for measuring structural changes in German agriculture and assessing economic pressures associated with agricultural protests. Data can be downloaded in CSV and spreadsheet formats.\"\n    },\n    {\n      \"title\": \"Destatis – Agricultural Census 2020 (Landwirtschaftszählung 2020)\",\n      \"url_or_doi\": \"https://lz2020.statistikportal.de\",\n      \"justification\": \"The official German Agricultural Census provides detailed information on agricultural enterprises, land use, livestock, farm structures, and agricultural employment in 2020. It offers an important baseline for examining structural conditions preceding the 2023–2024 agricultural protests. Regional statistics can support comparisons between Berlin, Brandenburg, and Germany as a whole.\"\n    },\n    {\n      \"title\": \"Destatis – GENESIS-Online Open Data and API\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"An official interface for programmatically accessing German statistical datasets. Particularly useful for constructing longitudinal datasets covering agricultural production, food-related economic indicators, and regional agricultural structures during the 2020s. The REST API enables reproducible extraction of agricultural and related statistics for quantitative policy analysis.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Health Update (GEDA 2019/2020-EHIS)\",\n      \"url_or_doi\": \"https://doi.org/10.7797/31-201920-1-1-1\",\n      \"justification\": \"A nationally representative German health survey containing 22,708 observations and 310 variables, collected between 2019 and 2020. Relevant for studying nutrition-related health outcomes, overweight, obesity, and health inequalities. Scientific-use data include federal-state geographic information, enabling analysis of Berlin relative to Germany. Access to individual-level research data is subject to the institute's data-use procedures.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Scientific Use Files for German Population Health Surveys\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"An official catalog of scientific-use datasets from German population health surveys, including GEDA and other health-monitoring studies. Relevant variables can support research on dietary behavior, obesity, health inequalities, and nutrition-related policy outcomes. Geographic detail varies by dataset, and some surveys provide federal-state comparisons. This resource is especially useful for identifying appropriate microdata and access requirements.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – GEDA Health Monitoring Dataset Collection\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/GEDA/gesundheit-in-deutschland-aktuell-geda-node.html\",\n      \"justification\": \"An official collection of German Health Update surveys with methodological documentation, variable inventories, and scientific-use data information. The 2019/2020 survey provides a baseline for evaluating nutrition-related population health during the early 2020s. Relevant for comparing nutrition-associated outcomes between Berlin and other federal states and assessing health inequalities related to food-policy objectives.\"\n    },\n    {\n      \"title\": \"Berlin Senate Department for Education – Open Education and School Data\",\n      \"url_or_doi\": \"https://www.berlin.de/sen/bildung/service/daten/\",\n      \"justification\": \"Berlin's official education open-data portal provides downloadable administrative datasets related to schools and education. It is a useful starting point for identifying data relevant to school nutrition policies, school infrastructure, and the implementation context of public school meal programs. However, the availability of direct indicators on school-meal participation, food quality, or nutrition-policy outcomes must be verified within the catalog.\"\n    },\n    {\n      \"title\": \"Berlin Steglitz-Zehlendorf – Public Health Monitoring Indicator 5.3.3: Nutrition\",\n      \"url_or_doi\": \"https://www.berlin.de/ba-steglitz-zehlendorf/politik-und-verwaltung/service-und-organisationseinheiten/qualitaetsentwicklung-planung-und-koordination-im-oeffentlichen-gesundheitsdienst/artikel.1567867.php\",\n      \"justification\": \"A Berlin district-level public health monitoring resource addressing nutrition policy and institutional food standards. It documents the policy context for nutrition quality standards in daycare and school meals, including Berlin's use of German Nutrition Society standards. Particularly relevant to studying municipal nutrition-policy implementation, although it is an indicator and documentation resource rather than a comprehensive downloadable microdataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446682.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18343,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2709,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 21052
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

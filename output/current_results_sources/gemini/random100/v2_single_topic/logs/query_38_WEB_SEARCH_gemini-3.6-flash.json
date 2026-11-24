@@ -1,0 +1,62 @@
+{
+  "query_id": 38,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991 (German General Social Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"A representative cross-sectional survey conducted by GESIS that collects data on social structure, living conditions, attitudes, and demographics in reunited Germany during 1991.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core, v38eu)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"A longitudinal micro-dataset provided by DIW Berlin tracking household income, employment history, education, health, and social indicators across Germany throughout the 1990s.\"\n    },\n    {\n      \"title\": \"ALLBUScompact 1990 (German General Social Survey 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3714\",\n      \"justification\": \"A GESIS dataset capturing key social indicators, public attitudes, and demographic changes in Germany at the start of the 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 515,
+          "candidatesTokenCount": 322,
+          "totalTokenCount": 2387,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 515
+            }
+          ],
+          "thoughtsTokenCount": 1550,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ES2Eaq7_IYuIvdIPj5qFyQI"
+      }
+    }
+  ]
+}

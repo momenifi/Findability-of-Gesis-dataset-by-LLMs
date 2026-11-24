@@ -1,0 +1,185 @@
+{
+  "query_id": 134,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0bca1e861926ebf5006b0462eef2b087d28e8f58da398da754",
+        "created_at": 1795449582.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0bca1e861926ebf5006b0462efd36c87d29c41f19ce97032ec",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS regional database federal states GDP 1991 1999 Germany Länder dataset",
+                "Regionaldatenbank Deutschland Bundesländer Arbeitslosenquote 1990 1999 Daten",
+                "Statistische Ämter Länder VGR Länder Bruttoinlandsprodukt 1991 2024 download"
+              ],
+              "query": "Destatis GENESIS regional database federal states GDP 1991 1999 Germany Länder dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0bca1e861926ebf5006b0462f2c78c87d2b34317fb1ce180b2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistikportal.de/de/vgrdl/ergebnisse-laenderebene verfügbares einkommen private haushalte 1991",
+                "site:statistikportal.de/de/vgrdl/ergebnisse-laenderebene erwerbstätige 1991 1999",
+                "site:genesis.destatis.de/datenbank/online/statistic/82111/table Bundesländer Bruttoinlandsprodukt 1991",
+                "site:statistikportal.de/de/vgrdl/ergebnisse-laenderebene bruttoinlandsprodukt bruttowertschoepfung"
+              ],
+              "query": "site:statistikportal.de/de/vgrdl/ergebnisse-laenderebene verfügbares einkommen private haushalte 1991",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0bca1e861926ebf5006b0462f5d7e887d284bffa3fe2db0894",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Gross Domestic Product and Gross Value Added by German Federal State, 1991–2025\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/ergebnisse-laenderebene/bruttoinlandsprodukt-bruttowertschoepfung\",\n      \"justification\": \"Official dataset published by the Working Group on National Accounts of the German Federal States (AK VGRdL). Provides annual GDP and gross value added statistics beginning in 1991 for all 16 German states, including all 11 requested states. Contains economic output indicators by industry, nominal GDP, and inflation-adjusted measures. Particularly useful for comparing regional economic growth, industrial structure, and economic performance throughout the 1990s. Downloadable Excel files are available.\"\n    },\n    {\n      \"title\": \"Unemployment, Unemployment Rates, and Registered Job Vacancies by German Federal State, 1991–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/13211/table/13211-0007\",\n      \"justification\": \"Official dataset from the German Federal Statistical Office (Destatis), based on Federal Employment Agency statistics. Contains annual unemployment counts, unemployment rates, and registered job vacancies for all requested German states from 1991 through 1999 and beyond. Particularly relevant for studying regional labor market conditions, unemployment disparities, and economic restructuring following German reunification. Note that unemployment rates based on all civilian labor-force participants are available from 1994, while another unemployment-rate measure covers earlier years.\"\n    },\n    {\n      \"title\": \"Historical Monthly Unemployment Statistics by German Federal State, Starting in 1991\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/DE/Navigation/Statistiken/Fachstatistiken/Arbeitsuche-Arbeitslosigkeit-Unterbeschaeftigung/Produkte/Zeitreihen-Arbeitslose-Arbeitsuchende-Arbeitslosenquoten/Zeitreihen-Arbeitslose-Arbeitsuchende-Arbeitslosenquoten-Nav.html\",\n      \"justification\": \"Historical labor market dataset published by Germany's Federal Employment Agency (Bundesagentur für Arbeit). Provides monthly unemployment counts and unemployment rates beginning in 1991, with geographic breakdowns covering all requested states. Particularly valuable for examining short-term economic fluctuations, seasonal unemployment, regional labor market differences, and the effects of the early-1990s recession. Monthly observations enable more detailed historical analysis than annual statistics.\"\n    },\n    {\n      \"title\": \"National Accounts of the German Federal States: Historical Economic Indicators Since 1991\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/ergebnisse-laenderebene\",\n      \"justification\": \"Official statistical portal providing regional national accounts for Germany's federal states. Includes economic indicators relating to production, income generation, income distribution, and economic performance. The historical series include observations from the 1990s for Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Particularly useful as a central source for constructing a comparative panel of regional economic conditions.\"\n    },\n    {\n      \"title\": \"Disposable Household Income by German Federal State, Historical National Accounts\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/ergebnisse-laenderebene/einkommen/ek\",\n      \"justification\": \"Official regional income statistics from the Working Group on National Accounts of the German Federal States. Provides disposable household income indicators by federal state, with historical series extending into the 1990s. Suitable for studying regional purchasing power, household economic welfare, income differences, and economic convergence following reunification. Includes the requested federal states and complements GDP-based measures of regional economic performance.\"\n    },\n    {\n      \"title\": \"Regional Economic Accounts of Germany: GDP, Household Income, Employment, and Population, 1991 Onward\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/ugrdl/ergebnisse/wirtschaft-und-bevoelkerung\",\n      \"justification\": \"Official regional economic and environmental accounting data from the German statistical offices. Provides historical indicators including real GDP, gross value added by economic sector, employment, and population. Several downloadable datasets contain annual observations beginning in 1991, including historical series covering 1991–2019. Particularly valuable for comparing economic development, structural changes in production, labor market performance, and regional economic differences across all requested states.\"\n    },\n    {\n      \"title\": \"Employment by German Federal State: Historical Annual Employment Statistics\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/etr/ergebnisse/erwerbstaetige\",\n      \"justification\": \"Official employment statistics produced by the Working Group on Employment Accounts of the German Federal States (AK ETR). Provides state-level employment indicators, including employed persons, employees, and self-employed workers. The portal provides access to regional employment statistics and historical time series relevant to the 1990s. Useful for examining labor market development, employment growth, and differences in regional economic structure.\"\n    },\n    {\n      \"title\": \"Regional GDP and Gross Value Added at District Level in Germany, 1992 and 1994–2024\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/ergebnisse-kreisebene/bruttoinlandsprodukt-bruttowertschoepfung-kreise\",\n      \"justification\": \"Official district-level national accounts published by Germany's regional statistical offices. Contains GDP and gross value added statistics for German administrative districts, including observations for 1992 and annually from 1994. Districts can be grouped into the 11 requested federal states for regional analysis. Especially useful for studying differences within states, urban versus rural economic conditions, industrial concentration, and regional development during the 1990s. Downloadable Excel datasets are available.\"\n    },\n    {\n      \"title\": \"Disposable Household Income by German District, 1995–2024\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/veroeffentlichungen/einkommen-der-privaten-haushalte\",\n      \"justification\": \"Official German regional household income dataset containing observations for administrative districts beginning in 1995. Includes districts within all 11 requested states. Provides a detailed geographical perspective on household economic conditions during the second half of the 1990s. Useful for comparing purchasing power, income disparities, regional prosperity, and differences between urban and rural areas. An Excel dataset covering 1995–2024 is available.\"\n    },\n    {\n      \"title\": \"National Accounts of the German Federal States: GDP and Gross Value Added, 1991–2025\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/veroeffentlichungen/bruttoinlandsprodukt-bruttowertschoepfung-laenderergebnisse\",\n      \"justification\": \"Official publication landing page for comprehensive GDP and gross value added datasets covering German federal states. Provides long-run economic time series beginning in 1991, including all requested states. Particularly suitable for obtaining historical regional economic statistics in downloadable formats and comparing economic performance throughout the 1990s. The statistics support analysis of economic growth, sectoral composition, and regional structural transformation.\"\n    },\n    {\n      \"title\": \"National Accounts of the German Federal States: Economic Indicators and Historical Statistical Tables, 2025 Edition\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/publikationen\",\n      \"justification\": \"Official publications portal of the Working Group on National Accounts of the German Federal States. Provides access to statistical publications and historical economic accounts. The 2025 edition of its national accounts overview contains tables extending back to 1991 for all German federal states, including GDP and disposable household income per resident. Useful for obtaining historical economic indicators covering 1991–1999, interpreting regional economic conditions, and identifying methodological details necessary for longitudinal comparisons.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Historical Unemployment by Federal State and Gender, 1991 Onward\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/13211/table/13211-0009\",\n      \"justification\": \"Official German Federal Statistical Office dataset providing annual unemployment counts by federal state and gender, beginning in 1991. Covers all 11 requested states throughout the 1990s. Particularly useful for analyzing differences in male and female unemployment, gender-specific labor market developments, and regional economic conditions during German reunification and subsequent economic restructuring.\"\n    },\n    {\n      \"title\": \"Employment by Federal State, 1991–2022: Regional Economic and Environmental Accounts\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/ugrdl/ergebnisse/wirtschaft-und-bevoelkerung-ugrdl-bezugszahlen/et\",\n      \"justification\": \"Official dataset providing annual average employment statistics by German federal state, with a historical series starting in 1991. Covers all requested states and supports comparisons of employment levels and economic activity across regions. Relevant for studying the effects of reunification, structural labor market changes, and differences in economic development during the 1990s. The published summary displays selected years, so detailed historical availability should be checked in the associated data resources.\"\n    },\n    {\n      \"title\": \"Regional GDP in Germany: Historical GDP Statistics by Federal State\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl/ergebnisse-laenderebene/bruttoinlandsprodukt-bruttowertschoepfung/bip\",\n      \"justification\": \"Official GDP statistics from the German regional national accounts system. Provides state-level economic output indicators, including nominal GDP and related measures, with historical data available through the associated national accounts resources. Covers Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Useful for assessing comparative economic size, development trends, and state-level economic performance during the 1990s.\"\n    },\n    {\n      \"title\": \"Bavarian State Statistical Office: Historical National Accounts and Regional GDP Statistics\",\n      \"url_or_doi\": \"https://www.statistik-bayern.eu/statistik/gesamtrechnungen/vgr/\",\n      \"justification\": \"Official national accounts resources from the Bavarian State Statistical Office. Includes access to publications covering GDP and gross value added in Germany's federal states from 1991 onward. Although hosted by Bavaria's statistical authority, the referenced national accounts publications contain comparable statistics for all requested states. Particularly useful for examining Bavaria's economic development relative to other German regions throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Hesse Statistical Office: National Accounts and Historical Regional Economic Indicators\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/volkswirtschaftliche-gesamtrechnungen\",\n      \"justification\": \"Official statistical resource from the Hesse State Statistical Office containing regional national accounts information. Links to historical statistics covering GDP production, income distribution, and expenditure from 1991 onward. Suitable for analyzing economic development in Hesse during the 1990s and comparing its performance with other requested states using harmonized German regional national accounts.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449602.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18929,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2610,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 21539
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

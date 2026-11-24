@@ -1,0 +1,69 @@
+{
+  "query_id": 53,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Landesdatenbank Nordrhein-Westfalen: Thema Wahlen und Statistische Berichte\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de/\",\n      \"justification\": \"The official statistical database of North Rhine-Westphalia, offering structured historical datasets on state parliament elections (2000, 2005), municipal elections (2004, 2009), voter turnout, and political administration statistics during the 2000s.\"\n    },\n    {\n      \"title\": \"Wahlergebnisse in Nordrhein-Westfalen (Landeswahlleiter NRW / IT.NRW)\",\n      \"url_or_doi\": \"https://www.wahlergebnisse.nrw.de/\",\n      \"justification\": \"Official election data repository for North Rhine-Westphalia containing detailed election results, candidate details, constituency breakdowns, and voting statistics for Landtagswahlen and municipal elections held in the 2000s.\"\n    },\n    {\n      \"title\": \"Open.NRW Data Portal - Politik und Verwaltung\",\n      \"url_or_doi\": \"https://open.nrw/\",\n      \"justification\": \"The open data portal for North Rhine-Westphalia providing datasets on public governance, municipal council proceedings, candidate registration, and historical election records across NRW municipalities in the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 536,
+          "candidatesTokenCount": 336,
+          "totalTokenCount": 2498,
+          "cachedContentTokenCount": 157,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 536
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 157
+            }
+          ],
+          "thoughtsTokenCount": 1626,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "hC-EaoT-I5_R28oPmayRiQ0"
+      }
+    }
+  ]
+}

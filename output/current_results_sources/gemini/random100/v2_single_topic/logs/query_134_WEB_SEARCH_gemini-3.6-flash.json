@@ -1,0 +1,69 @@
+{
+  "query_id": 134,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Volkswirtschaftliche Gesamtrechnungen der Länder (VGRdL)\",\n      \"url_or_doi\": \"https://www.statistikportal.de/de/vgrdl\",\n      \"justification\": \"Official regional national accounts database produced by the joint Arbeitskreis VGRdL of the German state statistical offices, offering comprehensive economic indicators (GDP, gross value added, employment, private income) for all 16 German federal states from 1991 onwards.\"\n    },\n    {\n      \"title\": \"INKAR - Indikatoren und Karten zur Raum- und Stadtentwicklung\",\n      \"url_or_doi\": \"https://www.inkar.de/\",\n      \"justification\": \"Maintained by the Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR), INKAR provides regional indicators on economic strength, labor market conditions, public finances, and income across all German federal states and districts, with time series data dating back into the 1990s.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12774\",\n      \"justification\": \"Maintained by GESIS - Leibniz Institute for the Social Sciences, this dataset tracks long-term economic, labor market, income, and welfare indicators across German regions from 1950 through 2013, covering the post-reunification 1990s.\"\n    },\n    {\n      \"title\": \"German Index of Socioeconomic Deprivation (GISD)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6840304\",\n      \"justification\": \"Published by the Robert Koch Institute, GISD provides standardized measures of regional socioeconomic status and deprivation based on income, employment, and education data across German states and administrative districts starting from the late 1990s.\"\n    },\n    {\n      \"title\": \"Quarterly GDP Estimates for the German States (ifo Institute)\",\n      \"url_or_doi\": \"https://hdl.handle.net/10419/251987\",\n      \"justification\": \"A dataset developed by researchers at the ifo Institute providing estimated quarterly gross domestic product (GDP) time series for all 16 German federal states spanning from 1995 to 2020.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1515,
+          "candidatesTokenCount": 580,
+          "totalTokenCount": 4118,
+          "cachedContentTokenCount": 708,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1515
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 708
+            }
+          ],
+          "thoughtsTokenCount": 2023,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "czyEaqfGMpi9nsEPuc3diAo"
+      }
+    }
+  ]
+}

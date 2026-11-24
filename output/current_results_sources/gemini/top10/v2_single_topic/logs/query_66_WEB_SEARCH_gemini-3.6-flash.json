@@ -1,0 +1,69 @@
+{
+  "query_id": 66,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about news in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"A geolocated dataset of German news articles\",\n      \"url_or_doi\": \"https://doi.org/10.22029/jlupub-19573\",\n      \"justification\": \"Provides metadata, geographic coordinates, and text embeddings for approximately 50 million German news articles extracted from Common Crawl News through the early 2020s.\"\n    },\n    {\n      \"title\": \"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2819\",\n      \"justification\": \"An annotated dataset hosted on GESIS containing over 8,600 TikTok videos published in 2023 by 18 major German-speaking news outlets, capturing media variables and journalistic news values.\"\n    },\n    {\n      \"title\": \"German News Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.34740/KAGGLE/DSV/1679751\",\n      \"justification\": \"A dataset published on Kaggle in 2020 containing crawled German news articles from over 15 major publishers (such as Der Spiegel and Die Welt) with titles, full text, dates, and tags.\"\n    },\n    {\n      \"title\": \"Dataset of Quotation Attribution in German News Articles\",\n      \"url_or_doi\": \"https://aclanthology.org/2024.lrec-main.394/\",\n      \"justification\": \"A 2024 dataset with fine-grained annotations across 1,000 German news documents designed for natural language processing tasks such as identifying speakers, quotes, and contexts in news coverage.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 373,
+          "candidatesTokenCount": 441,
+          "totalTokenCount": 2435,
+          "cachedContentTokenCount": 82,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 373
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 82
+            }
+          ],
+          "thoughtsTokenCount": 1621,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "rrmnasD6FvG6nsEPjbf84Ac"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 45,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Migration in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"IAB-SOEP Migration Sample (IAB-SOEP MIG)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-soep-mig.2024\",\n      \"justification\": \"A longitudinal household survey conducted jointly by the Institute for Employment Research (IAB) and the Socio-Economic Panel (SOEP) tracking immigrants in Germany since 2013, covering migration and integration dynamics during the 2010s.\"\n    },\n    {\n      \"title\": \"German Emigration and Remigration Panel Study (GERPS) 2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13942\",\n      \"justification\": \"A GESIS dataset capturing individual-level survey data on German citizens who emigrated or remigrated between 2018 and 2019, providing insights on international mobility in late 2010s Germany.\"\n    },\n    {\n      \"title\": \"Destatis: Migration between Germany and foreign countries (1950 to 2025)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Population/Migration-Integration/Tables/migration-germany-foreign-countries.html\",\n      \"justification\": \"Official time-series dataset from the German Federal Statistical Office (Statistisches Bundesamt) tracking yearly arrivals, departures, and net migration across German borders throughout the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat Immigration Flows Dataset (TPS00176)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/TPS00176\",\n      \"justification\": \"Eurostat dataset providing open statistics on annual international immigration flows into European countries, including detailed yearly entries for Germany across the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 378,
+          "candidatesTokenCount": 473,
+          "totalTokenCount": 2222,
+          "cachedContentTokenCount": 125,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 378
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 125
+            }
+          ],
+          "thoughtsTokenCount": 1371,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "EC6EarSTPLuuxN8P6petqAo"
+      }
+    }
+  ]
+}

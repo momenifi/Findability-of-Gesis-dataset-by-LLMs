@@ -1,0 +1,69 @@
+{
+  "query_id": 121,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university policy in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The Student Survey in Germany (2021)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:ssg2021:1.0.0\",\n      \"justification\": \"A nationwide integrated survey dataset collected in 2021 by the German Centre for Higher Education Research and Science Studies (DZHW) evaluating higher education policy, student living conditions, and the impact of COVID-19 pandemic measures on German university students.\"\n    },\n    {\n      \"title\": \"National Academics Panel Study (Nacaps) 2020\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:nacaps2020:1.0.0\",\n      \"justification\": \"A longitudinal study dataset covering doctoral candidates across 65 German higher education institutions from 2018 to 2021, tracking working conditions, governance, and academic policy outcomes for early-career researchers in Germany.\"\n    },\n    {\n      \"title\": \"EUROSTUDENT 8 Dataset (2021–2024)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:es8:1.0.0\",\n      \"justification\": \"A comparative dataset published by DZHW collecting data on higher education policies, student socio-economic status, digital learning, and university conditions across European countries, including Germany, during the early 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 962,
+          "candidatesTokenCount": 377,
+          "totalTokenCount": 3382,
+          "cachedContentTokenCount": 453,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 962
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 453
+            }
+          ],
+          "thoughtsTokenCount": 2043,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "fzqEaqDDBoqExs0PnICAwQw"
+      }
+    }
+  ]
+}

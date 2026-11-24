@@ -80,6 +80,6 @@ def audit(source):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", type=Path, default=ROOT / "output/random100_openai_gemini_comparison/openai")
+    parser.add_argument("--source", type=Path, default=ROOT / "output/archive/openai_optional_search_random100/openai")
     arguments = parser.parse_args()
     print(json.dumps(audit(arguments.source.resolve()), indent=2))

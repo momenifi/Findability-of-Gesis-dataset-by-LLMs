@@ -1,0 +1,62 @@
+{
+  "query_id": 62,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LAW, CRIME AND LEGAL SYSTEMS in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Wahrnehmung von Kriminalität in Deutschland 2020\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14068\",\n      \"justification\": \"A survey dataset hosted at GESIS Leibniz Institute for the Social Sciences (ZA7946) that measures public perceptions of crime, safety concerns, and victimization experiences in Germany in late 2020.\"\n    },\n    {\n      \"title\": \"Open Legal Data: Court Decisions Germany\",\n      \"url_or_doi\": \"https://huggingface.co/datasets/openlegaldata/court-decisions-germany\",\n      \"justification\": \"An open legal dataset providing structured metadata and text for thousands of German court decisions across various legal domains and jurisdictions collected during the late 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Legal Entity Recognition Dataset (german-ler)\",\n      \"url_or_doi\": \"https://huggingface.co/datasets/elenanereiss/german-ler\",\n      \"justification\": \"A dataset created in 2020 consisting of sentences from German federal court decisions annotated for fine-grained legal entities (judges, laws, courts, contracts, etc.) for NLP analysis of the German legal system.\"\n    },\n    {\n      \"title\": \"Polizeiliche Kriminalstatistik (German Police Crime Statistics)\",\n      \"url_or_doi\": \"https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html\",\n      \"justification\": \"The official annual statistical database published by the German Federal Criminal Police Office (BKA) tracking recorded criminal offenses, suspect demographics, cleared cases, and victimization across Germany throughout the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 670,
+          "candidatesTokenCount": 448,
+          "totalTokenCount": 2877,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 670
+            }
+          ],
+          "thoughtsTokenCount": 1759,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "bLmnau77C5-d3boPk_D86A0"
+      }
+    }
+  ]
+}

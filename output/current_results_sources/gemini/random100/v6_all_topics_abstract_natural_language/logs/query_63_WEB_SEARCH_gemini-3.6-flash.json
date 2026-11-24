@@ -1,0 +1,69 @@
+{
+  "query_id": 63,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about protest movement, agricultural policy, and nutrition policy in Germany and Berlin during the 2020s, matching this research need: survey data on participants in Germany’s food justice and agrifood movement protests, including 2020 and 2024 Berlin demonstration respondents, with demographics, political practices, justice demands, and household or farming food practices\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Food for Justice: Power, Politics, and Food Inequalities in a Bioeconomy (Berlin, 2020)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2802\",\n      \"justification\": \"This GESIS dataset provides survey data collected from participants at the 2020 'Wir haben es satt!' demonstration in Berlin, covering sociodemographic details, political participation practices, food justice demands, and household food consumption behaviors.\"\n    },\n    {\n      \"title\": \"Food for Justice: Power, Politics, and Food Inequalities in a Bioeconomy (Berlin, 2024)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2783\",\n      \"justification\": \"This GESIS dataset contains survey data on respondents at the 2024 'Wir haben es satt!' protest in Berlin (including demonstration walkers and tractor drivers/farmers), focusing on participant demographics, political attitudes, agricultural justice demands, and food production and consumption practices.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 599,
+          "candidatesTokenCount": 264,
+          "totalTokenCount": 2237,
+          "cachedContentTokenCount": 313,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 599
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 313
+            }
+          ],
+          "thoughtsTokenCount": 1374,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "fYqEapMTx5TE3w-Tp6ORBQ"
+      }
+    }
+  ]
+}

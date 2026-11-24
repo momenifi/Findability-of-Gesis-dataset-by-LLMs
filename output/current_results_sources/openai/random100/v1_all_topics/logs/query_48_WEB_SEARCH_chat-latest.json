@@ -1,0 +1,185 @@
+{
+  "query_id": 48,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about parliamentary debate and Croatia in Croatia during the 2000s and 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0cd44daba490385b006b0456a89a2487d289026a656cfc07f7",
+        "created_at": 1795446440.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0cd44daba490385b006b0456a97ef087d28baf586ff963ebdf",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Croatian parliament debate corpus dataset 2000 2020 speeches",
+                "ParlaMint Croatian parliamentary proceedings dataset Croatia 1990 2022",
+                "Croatian parliament parliamentary debates dataset speeches download"
+              ],
+              "query": "Croatian parliament debate corpus dataset 2000 2020 speeches",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0cd44daba490385b006b0456acb9d087d288249b49fab600db",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:clarin.si ParlaMint-HR 5.0 dataset",
+                "site:repo.clarin.eu ParlaMint-HR Croatian corpus 2024",
+                "ParlaSent BCS dataset zenodo Croatian parliamentary sentiment",
+                "ParlEE plenary speeches v2 10.7910/DVN/VOPK0E Croatia"
+              ],
+              "query": "site:clarin.si ParlaMint-HR 5.0 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0cd44daba490385b006b0456afc05087d2b9eeda0758dcb691",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"CROCorp: Corpus of Parliamentary Debates in Croatia (2003–2020)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6521372\",\n      \"justification\": \"One of the most directly relevant datasets for studying parliamentary debates in Croatia during the 2000s, 2010s, and early 2020s. Contains over 500,000 speeches from the Croatian Parliament (Hrvatski sabor), covering five complete parliamentary terms between 2003 and 2020. Includes cleaned and preprocessed speech texts, debate dates, parliamentary sessions, speakers, political party affiliations, and metadata on elected representatives. Particularly suitable for longitudinal analysis of parliamentary discourse, political polarization, party competition, and legislative debates.\"\n    },\n    {\n      \"title\": \"CROCorp: Corpus of Parliamentary Debates in Croatia — GESIS Data Archive\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2388\",\n      \"justification\": \"GESIS-hosted version of the CROCorp dataset, covering Croatian parliamentary debates from 2003 to 2020. Provides speeches and accompanying information about members of parliament and political parties. Useful for quantitative political science, computational text analysis, and research on parliamentary behavior. This is an alternative archival release of CROCorp rather than an independent collection.\"\n    },\n    {\n      \"title\": \"ParlaMint 5.0: Multilingual Comparable Corpora of Parliamentary Debates\",\n      \"url_or_doi\": \"http://hdl.handle.net/11356/2004\",\n      \"justification\": \"A multilingual collection of parliamentary debates from European countries, including Croatia. Particularly relevant for examining Croatian parliamentary discourse during the late 2010s and 2020s. Provides harmonized parliamentary transcripts, speaker information, party affiliations, and linguistic annotations. Supports cross-national comparisons of political rhetoric, legislative priorities, and parliamentary discourse. The Croatian component can be extracted for country-specific research.\"\n    },\n    {\n      \"title\": \"ParlLawSpeech: Linked Parliamentary Speeches, Bills, and Laws\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2824\",\n      \"justification\": \"A comprehensive dataset linking parliamentary speeches with legislative bills and enacted laws across several European legislatures, including Croatia. Its Croatian component covers 2003–2020 and contains approximately 405,000 parliamentary speeches, 3,676 bill records, and 2,972 law records. Especially valuable for studying how parliamentary debates influence legislation, legislative agenda setting, and policy development across the 2000s and 2010s.\"\n    },\n    {\n      \"title\": \"ParlEE Plenary Speeches V2: Annotated Full-Text Parliamentary Speeches\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/VOPK0E\",\n      \"justification\": \"Contains sentence-level parliamentary speech data from Croatia and five other European legislative chambers, covering 2009–2019. Includes speech text, dates, speaker identities, political party affiliations, classifications distinguishing European Union politics from domestic politics, and policy-topic annotations based on the Comparative Agendas Project. Particularly useful for investigating Croatia's parliamentary discussions surrounding European Union accession in 2013 and subsequent European integration.\"\n    },\n    {\n      \"title\": \"ParlEE Plenary Speeches V3: Annotated Full-Text Parliamentary Speeches\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/IETNNB\",\n      \"justification\": \"A subsequent release in the ParlEE parliamentary speeches dataset series, which includes research on European legislative chambers. Relevant for comparative analysis of parliamentary communication and policy debates. Researchers interested in Croatia should examine the country coverage and available files in this version before selecting it, since the precise Croatian coverage has not been independently verified.\"\n    },\n    {\n      \"title\": \"ParlLawSpeech: Parliamentary Speeches, Bills, and Laws — Project Dataset Portal\",\n      \"url_or_doi\": \"https://parllawspeech.org/\",\n      \"justification\": \"Official project landing page for the ParlLawSpeech collection. Provides access to linked parliamentary texts and documentation, including the Croatian Parliament component covering 2003–2020. Particularly useful for obtaining data documentation, understanding the relationships between speeches and legislative proposals, and constructing research datasets on Croatian legislative policymaking. This is an access point for the ParlLawSpeech dataset listed above.\"\n    },\n    {\n      \"title\": \"ParlaSent-BCS: Sentiment-Annotated Parliamentary Debates from Bosnia and Herzegovina, Croatia, and Serbia\",\n      \"url_or_doi\": \"https://www.clarin.si/repository/xmlui/handle/11356/1585\",\n      \"justification\": \"A specialized corpus containing manually annotated parliamentary debate sentences from Croatia, Bosnia and Herzegovina, and Serbia. Includes sentiment classifications that distinguish positive, negative, and neutral political statements, with more detailed annotation categories also available. The Croatian material originates from parliamentary proceedings covering 2003–2020. Particularly suitable for studying emotional language, political negativity, polarization, and sentiment in Croatian parliamentary debates.\"\n    },\n    {\n      \"title\": \"ParlaCAP: Dataset for Tracking Political Agenda-Setting Across European Parliaments\",\n      \"url_or_doi\": \"https://doi.org/10.23669/1ZTELP\",\n      \"justification\": \"A multilingual parliamentary dataset extending the ParlaMint collection with automatically generated political-topic and sentiment classifications. Includes Croatian parliamentary material alongside comparable data from other European legislatures. Particularly valuable for studying policy attention, changes in legislative priorities, party differences, and political sentiment in Croatian parliamentary debates during the 2010s and 2020s. Its standardized structure facilitates cross-country comparisons.\"\n    },\n    {\n      \"title\": \"ParlaSpeech: Parliamentary Speech Corpus\",\n      \"url_or_doi\": \"https://clarinsi.github.io/parlaspeech/\",\n      \"justification\": \"A collection of parliamentary speech datasets incorporating Croatian parliamentary proceedings. Combines parliamentary speech transcripts with corresponding audio recordings and automatically generated linguistic annotations. The newer ParlaSpeech releases include word-level alignment, linguistic analysis, and sentiment-related annotations. Especially useful for studying spoken parliamentary communication, political rhetoric, pronunciation, speech delivery, and linguistic characteristics of Croatian parliamentary debates.\"\n    },\n    {\n      \"title\": \"CROCorp: Corpus of Parliamentary Debates in Croatia — University of Luxembourg Repository\",\n      \"url_or_doi\": \"https://orbilu.uni.lu/handle/10993/58371\",\n      \"justification\": \"Institutional repository record for CROCorp, developed by Michal Mochtak, Josip Glaurdić, and Christophe Lesschaeve. Covers more than 500,000 parliamentary speeches from Croatia between 2003 and 2020. Provides an additional authoritative access point for the corpus and its documentation. Particularly useful for locating methodological details, metadata descriptions, and citation information. This record refers to the same underlying corpus as the Zenodo and GESIS CROCorp releases.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446456.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20839,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1606,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22445
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

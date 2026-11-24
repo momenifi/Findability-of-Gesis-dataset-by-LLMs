@@ -1,0 +1,69 @@
+{
+  "query_id": 41,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GERDA: German Election Database\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04811-5\",\n      \"justification\": \"Comprehensive database providing turnout and party vote share data for local, state, and federal elections in Germany from 1990 onwards at the municipality and county levels.\"\n    },\n    {\n      \"title\": \"Vorwahlstudie zur Bundestagswahl 1994: Politik- und Partei-Präferenz (ZA2600)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2600\",\n      \"justification\": \"A pre-election survey dataset hosted by the GESIS Data Archive for the 1994 German federal election, capturing party preferences, candidate evaluations, and political attitudes.\"\n    },\n    {\n      \"title\": \"Recall - Bundestagswahl 1998 (ZA4917)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4917\",\n      \"justification\": \"A GESIS survey dataset capturing post-election voter recall and voting behavior for the 1998 German federal election.\"\n    },\n    {\n      \"title\": \"Landtagswahlen in den neuen Bundesländern 1990 (ZA1966)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11238\",\n      \"justification\": \"A GESIS dataset examining voter behavior, party preferences, and political attitudes during the historic October 1990 state parliament elections in the new federal states of Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1028,
+          "candidatesTokenCount": 431,
+          "totalTokenCount": 3269,
+          "cachedContentTokenCount": 593,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1028
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 593
+            }
+          ],
+          "thoughtsTokenCount": 1810,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jy2Easn9Oq2svdIPuszkgQE"
+      }
+    }
+  ]
+}

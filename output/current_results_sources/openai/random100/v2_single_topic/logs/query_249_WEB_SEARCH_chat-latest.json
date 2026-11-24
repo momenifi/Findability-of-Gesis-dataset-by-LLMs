@@ -1,0 +1,216 @@
+{
+  "query_id": 249,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in German Democratic Republic (1949-1990) during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_081f36d15e56041e006b046a1d56c087d288f03aa7644eaad3",
+        "created_at": 1795451421.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_081f36d15e56041e006b046a1e32c487d2b2520b76028e9aab",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1970 familien ehe datensatz survey",
+                "East Germany 1970s marriage fertility family historical statistics dataset GDR",
+                "DDR 1970er Partner Familie Ehe Umfrage Daten ZA GESIS"
+              ],
+              "query": "GESIS DDR 1970 familien ehe datensatz survey",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_081f36d15e56041e006b046a21accc87d29fc8f5da56c4ec4f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Partner I\" \"1972\" DDR",
+                "site:search.gesis.org/research_data \"Partner II\" \"1979\"",
+                "site:search.gesis.org/research_data \"Ehe und Familie\" \"1977\" DDR",
+                "site:search.gesis.org/research_data DDR \"Familie\" \"1975\""
+              ],
+              "query": "site:search.gesis.org/research_data \"Partner I\" \"1972\" DDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_081f36d15e56041e006b046a2364c087d28602584b17a5ff5c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS \"Partner I\" \"1972/73\" dataset",
+                "GESIS \"Partner II\" \"1979/80\" ZA",
+                "GESIS DDR Ehe Familie 1977 ZA0968 westdeutsch",
+                "GESIS DDR 1970 familienbefragung 1970 datensatz"
+              ],
+              "query": "GESIS \"Partner I\" \"1972/73\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_081f36d15e56041e006b046a267a0087d28d6e47ff686d2f58",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Partnerstudie I\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Partnerstudie\"",
+                "site:histat.safe-frankfurt.de \"Bevölkerung in der ehemaligen DDR, 1946 bis 1989\""
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Partnerstudie I\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_081f36d15e56041e006b046a29863c87d2965f861095deb656",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Partner Study I (1972/1973) – Young Workers in the German Democratic Republic\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6143\",\n      \"justification\": \"A highly relevant historical survey conducted in the GDR during 1972–1973 by the Central Institute for Youth Research (ZIJ) in Leipzig. The Partner I research program investigated young people's attitudes toward love, sexuality, romantic relationships, marriage, and family formation. It is particularly useful for examining how young East Germans understood marriage, gender roles, and family planning during the early 1970s. The dataset belongs to the GESIS archive of historical East German social research.\"\n    },\n    {\n      \"title\": \"Partner Study I (1972/1973) – Young People and Partnership\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6144\",\n      \"justification\": \"Part of the original Partner I research program conducted in East Germany during the early 1970s. This dataset provides survey evidence concerning young people's experiences and expectations regarding romantic relationships, sexuality, and future partnerships. It is especially relevant for understanding changing attitudes toward marriage and family life during the GDR's socialist family-policy reforms.\"\n    },\n    {\n      \"title\": \"Partner Study II (1979/1980) – Love, Sexuality, Partnership, Marriage and Family in the GDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6145\",\n      \"justification\": \"One of the most directly relevant datasets for investigating marriage and family life in East Germany at the end of the 1970s. Conducted by the Central Institute for Youth Research, Partner II examined attitudes and behaviors concerning love, sexuality, partnerships, marriage, and family formation. Its relationship to the earlier Partner I survey makes it particularly valuable for studying changes in family values and relationship expectations throughout the decade.\"\n    },\n    {\n      \"title\": \"Population in the Former German Democratic Republic, 1946–1989 (Bevölkerung in der ehemaligen DDR, 1946 bis 1989)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/86F04B58A5C016B5722B17111A8E8BC2\",\n      \"justification\": \"A historical statistical dataset archived in the HISTAT database, identified as study ZA8267 and compiled by Gabriele Franzmann. It contains extensive demographic time series covering the entire existence of the GDR, including the 1970s. Particularly relevant variables include marriages, average age at marriage, divorces, marital status before marriage, fertility rates, and births within and outside marriage. This is one of the strongest sources for quantitative analysis of marriage and family formation in 1970s East Germany.\"\n    },\n    {\n      \"title\": \"Historical Marriage and Divorce Statistics in the GDR, 1946–1989\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/86F04B58A5C016B5722B17111A8E8BC2\",\n      \"justification\": \"A particularly useful subset of the HISTAT population dataset ZA8267. Tables B02a and B02b contain historical marriage statistics, including marriage counts, average marriage ages, divorce figures, and the previous marital status of spouses. The series cover 1946–1989, allowing researchers to isolate the years 1970–1979 and investigate changes in marriage practices, divorce, and remarriage during the GDR's socialist period.\"\n    },\n    {\n      \"title\": \"Fertility and Birth Statistics in East Germany, 1950–1979\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/4851C4B78822CEB7737B25E8743775B8\",\n      \"justification\": \"A historical demographic data collection containing age-specific fertility rates for the German Democratic Republic between 1950 and 1979, particularly table B2.02. These figures are valuable for examining family formation, reproductive behavior, and the timing of childbirth throughout the 1970s. They can help assess demographic developments associated with the GDR's pronatalist family policies and changing expectations surrounding motherhood and marriage.\"\n    },\n    {\n      \"title\": \"Population Census of the German Democratic Republic, 1971 (Volkszählung der DDR 1971)\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/haushalte/volkszaehlung\",\n      \"justification\": \"The 1971 East German population census provides an important statistical foundation for studying family and household structures at the beginning of the decade. The Federal Statistical Office's Research Data Centre identifies the GDR censuses of 1971 and 1981 as sources containing information about household composition, employment, occupations, buildings, and housing. These records are relevant for examining household arrangements, family living conditions, and women's participation in employment. Availability of detailed historical census data should be checked with the research data centre.\"\n    },\n    {\n      \"title\": \"Population Census of the German Democratic Republic, 1981 (Volkszählung der DDR 1981)\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/haushalte/volkszaehlung\",\n      \"justification\": \"Although collected in 1981, this census provides a valuable comparison point for the 1971 census and can help researchers examine how East German households and family structures changed during the 1970s. The census includes information on household composition, employment, occupational structures, and housing. Comparing the two census years can illuminate changes in household arrangements and the relationship between family life and women's employment under socialism.\"\n    },\n    {\n      \"title\": \"Students Interval Study, 1970–1985 (Studenten-Intervallstudie, SIS 3)\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6174\",\n      \"justification\": \"A longitudinal study of East German students from the 1970 university-entry cohort, with this wave collected in 1972. The research followed students at universities and other higher education institutions in the GDR. Although broader than marriage and family research, the dataset provides contemporary evidence about the attitudes and life circumstances of young adults during the 1970s. It may be useful for studying the social context of partnership decisions and the transition to adulthood, subject to verification of the available questionnaire variables.\"\n    },\n    {\n      \"title\": \"Students Interval Study, 1970–1985 (Longitudinal Research Series)\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6174\",\n      \"justification\": \"The broader longitudinal research series followed East German students entering higher education in 1970, with additional survey waves in 1973, 1974, 1976, and 1979. This makes the series potentially useful for investigating how young adults' circumstances and expectations developed across the 1970s. Its longitudinal design offers an advantage over single-year surveys, although the precise relevance of individual variables to marriage and family life requires checking the study documentation.\"\n    },\n    {\n      \"title\": \"Historical Population, Marriage, Fertility and Household Statistics in Germany\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/4851C4B78822CEB7737B25E8743775B8\",\n      \"justification\": \"A HISTAT historical demographic compilation covering German population trends, marital behavior, births, fertility, and household structures across different historical periods. It includes specific East German series, notably population development from 1950 to 1995 and age-specific GDR fertility rates from 1950 to 1979. It is useful for placing marriage and family developments in the GDR within a longer demographic history and comparing selected trends with West Germany. Researchers should distinguish GDR-specific series from those covering only the Federal Republic.\"\n    },\n    {\n      \"title\": \"Life in the Former GDR – Retrospective Survey Data (Leben in der ehemaligen DDR, 2018)\",\n      \"url_or_doi\": \"https://www.diw-berlin.de/de/diw_01.c.758986.de/edition/leben_in_der_ehemaligen_ddr__daten_2018.html\",\n      \"justification\": \"A retrospective survey conducted in 2018 among individuals who were born before 1972 and lived in the GDR until 1989. The dataset provides information about experiences and perceptions of life in socialist East Germany. Although collected decades after the 1970s, it offers an additional source for investigating how former GDR citizens remember their living conditions and social experiences. It is best used as supplementary evidence rather than a substitute for contemporary marriage and family surveys.\"\n    },\n    {\n      \"title\": \"Family, Society and Reproduction in the GDR, 1982 (Familie, Gesellschaft, Reproduktion)\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6989\",\n      \"justification\": \"An East German sociological survey conducted in 1982 that examined family life, relationships between spouses, children, employment, and leisure. The study interviewed marriage partners separately, providing potentially valuable information about household responsibilities and marital relationships. Although conducted shortly after the 1970s, it is closely related to family arrangements established during that decade and can help contextualize the effects of GDR family policy.\"\n    },\n    {\n      \"title\": \"Early Careers and Family Formation: Life Courses of the 1971 Birth Cohort in East and West Germany\",\n      \"url_or_doi\": \"https://search.gesis.org/\",\n      \"justification\": \"A retrospective life-course research project comparing individuals born in 1971 in East and West Germany. Its focus on family formation and life transitions makes it potentially useful for studying how growing up under the GDR influenced subsequent partnership and marriage decisions. However, the respondents were children during the 1970s, so the dataset is better suited to examining the longer-term consequences of East German family environments than marriage practices during the decade itself. The GESIS catalogue can be used to locate the relevant life-course study.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451446.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 31236,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2481,
+          "output_tokens_details": {
+            "reasoning_tokens": 256
+          },
+          "total_tokens": 33717
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 4
+          }
+        }
+      }
+    }
+  ]
+}

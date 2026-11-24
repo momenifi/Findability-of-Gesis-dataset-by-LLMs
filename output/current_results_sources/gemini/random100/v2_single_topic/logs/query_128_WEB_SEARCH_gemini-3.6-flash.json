@@ -1,0 +1,69 @@
+{
+  "query_id": 128,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The development of delinquency in the Federal Republic of Germany from 1955 to 2003. Selected indicators of delinquency statistics\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8210\",\n      \"justification\": \"This GESIS Data Archive study (ZA8210) provides historical time series and indicators derived from police crime statistics (PKS) and criminal prosecution statistics across German federal states from 1954/1955 through 2002/2003, covering the entire 1990s.\"\n    },\n    {\n      \"title\": \"Socio-economic and Demographic Factors of Crime in Germany: Evidence from Panel Data of the German States\",\n      \"url_or_doi\": \"https://doi.org/10.1016/S0144-8188(00)00022-3\",\n      \"justification\": \"Contains state-level panel data on police crime statistics (PKS) and law enforcement indicators (such as clear-up rates and conviction certainty) across German states, including Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, NRW, Rhineland-Palatinate, Saarland, and Schleswig-Holstein, from 1975 to 1996.\"\n    },\n    {\n      \"title\": \"Suicide, demographic, socio-structural, infrastructure and crime statistics of the German Democratic Republic, 1952 – 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6302\",\n      \"justification\": \"This GESIS dataset (ZA6302) preserves regional crime and demographic statistics for Eastern German districts (including Berlin and surrounding regions) up through 1990 at the onset of German reunification.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1578,
+          "candidatesTokenCount": 457,
+          "totalTokenCount": 3937,
+          "cachedContentTokenCount": 510,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1578
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 510
+            }
+          ],
+          "thoughtsTokenCount": 1902,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "QTuEaqP7EOTkxN8P0N7OOQ"
+      }
+    }
+  ]
+}

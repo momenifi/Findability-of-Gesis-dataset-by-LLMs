@@ -1,0 +1,201 @@
+{
+  "query_id": 234,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05fb7a5453b279ae006b046920a6e487d2a9a0c425c8733ced",
+        "created_at": 1795451168.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05fb7a5453b279ae006b046921878887d29345f2809772c3f1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European health for all database WHO 1990 disease incidence mortality European countries dataset",
+                "Eurostat causes of death 1990 1999 dataset European countries",
+                "IARC CI5 cancer incidence volumes 1990 1994 1995 1999 registry data Europe",
+                "European cardiovascular disease statistics 1990 dataset WHO mortality European countries"
+              ],
+              "query": "European health for all database WHO 1990 disease incidence mortality European countries dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05fb7a5453b279ae006b0469257f1087d2817c6747cb951559",
+            "action": {
+              "type": "search",
+              "queries": [
+                "WHO mortality database country cause of death 1950 1990 data explorer",
+                "IHME GBD results tool 1990 2023 causes countries data",
+                "WHO Europe European mortality database 1990 dataset",
+                "Eurocat prevalence congenital anomalies 1990 Europe data registry"
+              ],
+              "query": "WHO mortality database country cause of death 1950 1990 data explorer",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05fb7a5453b279ae006b046928b10087d2bb8b09c2519d91e5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:healthdata.org/gbd-results GBD results tool",
+                "site:eu-rd-platform.jrc.ec.europa.eu/eurocat eurocat prevalence data tables",
+                "site:ci5.iarc.who.int CI5 volume VII 1988 1992 VIII 1993 1997 IX 1998 2002"
+              ],
+              "query": "site:healthdata.org/gbd-results GBD results tool",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05fb7a5453b279ae006b04692c4b2087d29bad83db2194a1eb",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"WHO European Health for All Database (HFA-DB)\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/datasets/european-health-for-all-database/\",\n      \"justification\": \"One of the most comprehensive historical health datasets for European countries. Contains indicators on specific diseases, morbidity, mortality, disability, hospital discharges, and infectious diseases. Historical data extend back to the 1980s and earlier for some indicators, making it suitable for studying 1990–1999. Covers Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, the United Kingdom, Austria, Sweden, and Finland. Particularly useful for comparing disease prevalence, incidence, and mortality across European countries. Availability varies by disease, country, and year.\"\n    },\n    {\n      \"title\": \"WHO European Mortality Database (MDB)\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/datasets/european-mortality-database/\",\n      \"justification\": \"Provides historical mortality statistics for European countries, including the entire 1990s. Contains age- and sex-specific mortality data for broad disease categories and 67 specific causes of death. Relevant conditions include cardiovascular diseases, cancers, respiratory diseases, infectious diseases, and diabetes. Particularly useful for comparing disease-specific mortality between European countries during 1990–1999. Historical coverage and completeness differ across countries.\"\n    },\n    {\n      \"title\": \"WHO Mortality Database – Cause-Specific Mortality Statistics\",\n      \"url_or_doi\": \"https://www.who.int/data/data-collection-tools/who-mortality-database\",\n      \"justification\": \"International dataset containing registered deaths classified by disease or medical condition, country, year, sex, and age. Historical coverage extends back to 1950, including the 1990s. Includes the requested European countries, subject to national reporting availability. Disease categories follow the International Classification of Diseases (ICD), enabling investigation of specific cancers, cardiovascular disorders, neurological diseases, infectious diseases, and other medical conditions. Particularly valuable for historical comparisons of disease-related mortality.\"\n    },\n    {\n      \"title\": \"Global Burden of Disease (GBD) Results Tool – Historical Disease Estimates\",\n      \"url_or_doi\": \"https://vizhub.healthdata.org/gbd-results/\",\n      \"justification\": \"Provides annual estimates of disease burden beginning in 1990, allowing direct selection of the 1990–1999 period. Includes hundreds of diseases, disorders, and injuries, with measures such as incidence, prevalence, mortality, years lived with disability (YLDs), years of life lost (YLLs), and disability-adjusted life years (DALYs). Covers all requested countries, including the United Kingdom. Particularly suitable for comparing specific medical conditions across European countries using standardized estimates. Some subnational UK estimates may also be available. Results are modeled estimates rather than exclusively observed clinical records.\"\n    },\n    {\n      \"title\": \"Eurostat – Causes of Death: Absolute Number (hlth_cd_anr)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/hlth_cd_anr/default/table?lang=en\",\n      \"justification\": \"Official European statistical dataset reporting the number of deaths attributable to specific diseases and medical conditions. Historical records begin in 1994 for the dataset, making it relevant to the second half of the 1990s. Includes European Union countries and the United Kingdom, with geographic and temporal availability varying. Data can be filtered by cause of death, sex, age, country, and year. Useful for studying cancers, circulatory diseases, respiratory disorders, digestive diseases, and other causes of death. Does not provide comprehensive disease prevalence or incidence.\"\n    },\n    {\n      \"title\": \"International Agency for Research on Cancer – Cancer Incidence in Five Continents (CI5), Volumes I–XII\",\n      \"url_or_doi\": \"https://ci5.iarc.who.int/previous/\",\n      \"justification\": \"Major international collection of population-based cancer registry data, including European cancer incidence during the 1990s. Historical volumes VII, VIII, and IX are particularly relevant to the period surrounding 1990–1999. Provides cancer incidence statistics by anatomical site, age, sex, and registry population. Includes registries from numerous requested countries, such as Belgium, Denmark, Germany, Spain, France, Ireland, Italy, Netherlands, Sweden, Finland, and the United Kingdom. Particularly useful for studying specific cancers, including breast, lung, colorectal, prostate, and cervical cancer. Geographic coverage is often regional rather than national.\"\n    },\n    {\n      \"title\": \"IARC Cancer Incidence in Five Continents Plus (CI5plus) – Historical Cancer Incidence\",\n      \"url_or_doi\": \"https://ci5.iarc.who.int/ci5plus/download/\",\n      \"justification\": \"Downloadable international cancer incidence dataset containing annual historical observations from population-based cancer registries. Includes cancer incidence rates and case counts for major cancer types, with historical series extending into the 1990s for eligible European registries. Data can be analyzed by cancer type, age, sex, year, and registry population. CSV downloads support longitudinal comparisons of cancer patterns during 1990–1999. Particularly valuable for assessing changes in individual cancer types over time, although not all requested countries have equivalent registry coverage.\"\n    },\n    {\n      \"title\": \"NORDCAN 2.0 – Nordic Cancer Statistics\",\n      \"url_or_doi\": \"https://nordcan.iarc.who.int/en/database\",\n      \"justification\": \"Specialized cancer database covering Nordic countries, including Denmark, Sweden, and Finland. Provides historical cancer incidence, mortality, prevalence, and survival statistics, including observations from the 1990s. Users can select individual cancer types, calendar years, age groups, and sex. Particularly suitable for studying breast cancer, prostate cancer, lung cancer, colorectal cancer, leukemia, and other malignancies. Offers detailed historical comparisons among the three requested Nordic countries.\"\n    },\n    {\n      \"title\": \"EUROCAT – European Surveillance of Congenital Anomalies: Prevalence Charts and Tables\",\n      \"url_or_doi\": \"https://eu-rd-platform.jrc.ec.europa.eu/eurocat/eurocat-data/prevalence\",\n      \"justification\": \"European congenital anomaly surveillance dataset containing historical records extending into the 1980s and 1990s for participating registries. Includes specific medical conditions such as congenital heart defects, neural tube defects, spina bifida, cleft lip and palate, chromosomal abnormalities, and limb malformations. Relevant participating countries include Belgium, Denmark, Germany, Spain, France, Ireland, Italy, Netherlands, Portugal, Austria, Finland, and the United Kingdom. Data can be explored by congenital anomaly category, country or registry, and year. Coverage is not uniform across countries, and access to certain historical or registry-specific results may require a data request.\"\n    },\n    {\n      \"title\": \"EUROCAT – European Congenital Anomalies Surveillance Data Portal\",\n      \"url_or_doi\": \"https://eu-rd-platform.jrc.ec.europa.eu/eurocat/eurocat-data_en\",\n      \"justification\": \"Central portal for European congenital anomaly surveillance statistics. Historical EUROCAT data include observations from 1990–1999 for participating registries. Provides access to prevalence statistics and surveillance resources concerning specific congenital disorders and structural birth defects. Particularly useful for comparing the prevalence of congenital heart disease, chromosomal disorders, neural tube defects, and other congenital conditions across European populations. Data availability depends on registry participation and historical reporting periods.\"\n    },\n    {\n      \"title\": \"Eurostat – Causes of Death Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/EN/hlth_cdeath_sims.htm\",\n      \"justification\": \"Official Eurostat dataset documentation and access point for European cause-of-death statistics. Describes harmonized mortality information categorized using ICD disease classifications. Historical datasets include observations beginning in the 1990s, although availability varies by statistical table and country. Relevant to all requested EU countries and historical UK data. Useful for identifying appropriate datasets for specific diseases, including cancer, cardiovascular diseases, respiratory conditions, infectious diseases, and neurological disorders. Especially valuable for understanding differences in national classification and reporting practices during the 1990s.\"\n    },\n    {\n      \"title\": \"WHO European Health Information Gateway – Indicators Explorer\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/hfa-explorer/\",\n      \"justification\": \"Interactive data explorer integrating WHO Europe's Health for All database and European mortality datasets. Supports searching for specific disease indicators, selecting European countries, and filtering historical observations by year. Includes indicators related to infectious diseases, childhood leukemia, cardiovascular diseases, cancer, and other medical conditions. Particularly useful for locating disease-specific data from 1990–1999 across the requested European countries. Allows data visualization and export, although individual indicators have different historical coverage.\"\n    },\n    {\n      \"title\": \"WHO European Health Information Gateway – Deaths from Diseases of the Circulatory System\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/indicators/hfamdb_260-deaths-diseases-of-the-circulatory-system/\",\n      \"justification\": \"Specific historical mortality indicator covering diseases of the circulatory system, including observations for every year from 1990 through 1999 where reported. Provides geographical comparisons across WHO European Region countries, including the requested countries. Relevant for historical analysis of cardiovascular disease mortality, including the broader category encompassing ischemic heart disease and cerebrovascular disorders. Particularly useful when the research focuses on cardiovascular conditions rather than all disease categories.\"\n    },\n    {\n      \"title\": \"United Nations Data – Deaths by Cause of Death, Age and Sex (WHO Data)\",\n      \"url_or_doi\": \"https://data.un.org/Data.aspx?d=POP&f=tableCode%3A105\",\n      \"justification\": \"International mortality dataset containing cause-specific death counts classified by country, year, age, and sex. Uses WHO cause-of-death classifications and national mortality reporting. Relevant to historical comparisons of specific medical conditions across European countries, including the 1990s where observations are available. Provides an additional source for verifying mortality patterns in diseases such as cancers, cardiovascular disorders, respiratory diseases, and infectious conditions. Country-year completeness should be checked before analysis.\"\n    },\n    {\n      \"title\": \"European Institute for Gender Equality – Causes of Death: Absolute Number\",\n      \"url_or_doi\": \"https://dgs-p.eige.europa.eu/data/view?code=ta_hlthmort_mort_gen__hlth_cd_anr\",\n      \"justification\": \"European mortality dataset with historical observations from 1994 through 1999, in addition to later years. Includes Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Austria, Sweden, Finland, and the United Kingdom. Allows investigation of deaths caused by particular diseases and medical conditions, including comparisons by sex. Particularly suitable for studying gender differences in disease-specific mortality during the second half of the 1990s. The underlying statistics originate from Eurostat.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451193.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 22683,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2567,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 25250
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

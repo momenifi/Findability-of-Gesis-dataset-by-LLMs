@@ -1,0 +1,69 @@
+{
+  "query_id": 191,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Czech Republic during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 2 (2001–2006)\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module2.2015-12-15\",\n      \"justification\": \"Includes cross-national survey data on political behavior, voting choices, and satisfaction with democracy in the Czech Republic during the 2002 parliamentary elections.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 3 (2006–2011)\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module3.2015-12-15\",\n      \"justification\": \"Features survey data on Czech voter attitudes, electoral choices, and political preferences surrounding the 2006 national elections.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) Round 1 (2002)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS1-2002\",\n      \"justification\": \"Contains representative survey data on political trust, civic engagement, party affiliations, and social values in the Czech Republic collected in 2002.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) Round 3 (2006)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS3-2006\",\n      \"justification\": \"Provides cross-sectional survey data measuring political participation, trust in public institutions, and political attitudes in the Czech Republic in 2006.\"\n    },\n    {\n      \"title\": \"Czech Social Science Data Archive (CSDA)\",\n      \"url_or_doi\": \"https://archiv.soc.cas.cz/en/\",\n      \"justification\": \"The primary national repository hosted by the Institute of Sociology of the Czech Academy of Sciences, containing historical Czech National Election Studies and public opinion datasets from the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EqIbCp8bARFNMg9SoM1pMrhQmrAhXXL8rY1Qh+cyPpRxCmE6kNy/9jpHBZo+LVeO8/L2FEWPP5J1UDchejS69i+05Cae4kJMv/vJZWCGvhiVrp7tp3QVvuRI/IHZwJKRR/uDo3zIlJFZgYFT5RskilG91SkbJvJnKgoT5DcNDr15pYchgG7vnHpjjgXUiu0ax7WgNHykkxj1O05acvwYCz7JxvsGFjAtuzI8X3XFshIYYZgkqZhdjuIa3LOHUOKLIocq/JpD2BSpY5VVlt2QR4WV4Wuv7wDaiXPXyAQ1bOx3ml/isoO5t3TZQQqp8JBGpKAQ8sBPkyQObMliNemoFmCREgUPj6mS4sQaPC7huy6fc19awF5gTwwLsXwgAtdKZhZYZgjLJ4CL8pT5p2gNCLM7VgsrbMuV+uTQKcMgF4P+nT/ha30FKJ7ob/FBfuHWJS46/rzXP/AJlkqzhWRw6/4DieCe+nsincURiv5KvDCUxsXjwUqN4Z3LeKsdS95bnc0LhgtUZQsQUuzD65JgY592qWh75veM1BsElWtJ6aReCCHHeYn6H+Ktbxh5ICS5QtdaJDLpaa/1K1crR16OYRGBG58KVfKtXvAe2diYea9RkrBAQbgeCcEi73o8wsbbi9zQqIhsvHlVquCB9nsH411yT0X+3BGP3WoMqX1/O2LmY0MJV/qnGTfRcSRGqigmR7xf84tGI71z5w9DXFv+l+l007zfdPm/9XUsoRBnEfeO6E4TjFdm9C30BPUGE2LdRw5DoHBQMjlfWhVPtOcJHHEnxa6IhQzxiJNiBVGQ5pGyR8M4ga7ZKBAiPGV6vyrC8HXydg6BeXd+ywA9ux1GyEuXKdWjKlhq5U/3fdOavuZkrRON3+n3fdR0/pX1jI8RajApeGyNu5bBy4vAIoP3LjLzjkILj4YEm4OFP8YClbV+tF6yLwMo3ZlbhFPnFX5THN/E+TYMGw4LLvXaToMKYoutP2iA3GM1KUW6UzKkFEgQN9hPxnVD51sZ0hJ0ndBM6VjFJBs5YLCnhezJGtcZ8WhFILhkQp93KB1NP9l+0DtAwOhSqHts418BuioTrPAxCogP3ugwlzJGIAiMRUHJFaGl2yCSsLS1LiWqy5ZfqMrT1GOv5LrFQjjGOqSVQOphrlkQ8bZlbVdtRd9qy/gH6yUoUGmIW+sDlJ8PPxSruLf82efKqaVur/9zR5xARAQL3THmTuitLX6+1GScJCPO9eC85Az+IiNUbYoyZcGpEjYiEyJbj3gF7InzJG+wH6mz7LjLJfHh6eRudL65S41uMg+5ldPwJOnccLnyevosX3IJoF5Cv54q5eqOX9dGBYwFpMoVOZ8SuVBwO2uG133cAEi2jfWZMxjvKQKJk/+wEYMDR0PCQkOtCWHvNk4q7MwO+PrbM2xKo2zCwtb9dX5IeexhoWuDksdgFFy8hHnhwbpAw/53Du9wtQkmePX7YusfeIUqr4829nBuNAAee/BBSu2qU3hDi4A0gN9cGCP8sJ6mc6Ld4UPSad9QMZOCGfAoYlruS28DIZfICD0GB5Dg7oQv1XY+j7+ox4f3zUOGbOtabJxfMIkEm560TVWwp5Vf0tQPzCi7eTV+ubEFZDJQLW4hueqlJ5z2ObQG/80dDBvIxYEiIHsr4s8P1AuVS92Z/d1P0a2Gf8XYBRo2yJuItykzLVieFipz39g2gQ+laCBx0LU3V0npSKw2/t38WXRFid8i83BLjoHXJEBOmOWSA+1+Dl8l9EalrnrwBl6b25feIqL11aHQlJWGGjknvdHGMItFcRF9MyHKjw/F4SuRD3hYg0fQuF3Aw2z2Xq+qmndJFgZT6whAFab9/F3BD4sIRZRqxstMpZkAIyyZR8kIl98c+8PweQ7TSLyvJQmiQzaVTt7WQeuxfsTNL6VHMiNvjsEwjwUZ1OXRR9ZhJYeq4Gyc+6KamQcBjqgmkHLhRXqploZVLr/bVG8yxadhaiIeDjybdvx/wyRO6P/mutKnWr4tdqLGVXAc6SI/0U++oDdMHpXiiPZw7w1tvy1GkSJJYLPYFKYdUUkPkuR3xWt1iqGT+DMfeziBm5cesQ7xWXgZUKd4A1ToyzqsT+EvKOlXPF6eAZ1NNTXH+Oe6GGacoR2xNKqiIxftufeIF2Uahsl8ewljibsnTTm/izHo6gWXZLH4vkzEUO0AjBgkLWHNNkghoLkVBBre1EI2BURs55q3bxxOgeIK8tBra7fT38O3BF/Qgyg/mpm8Ms5cwKiYflLaj/zXs5yG3c6tfXvTPM9oJ/g8JncnGr4bVAPkPGPcbve7m+X0OLjEvZxMljbDN/CoJLxuKSVrr6F/D+vWslMaKlC9NXMRufr0GLB31UrV4o9OFch3oSeZKe7+7kqb062S3ow40UDlfAX/28f4VZ02WgRy8ZuLSfd1cZoC8IO3OaVR/tUaH9npABANYSckid2az3SJXKBQNrbz7TDbdBB/NB0tcE0Ayp3GNzkHDQP/pqXdNX2SLXHjs4XZNKrPkxj6JNwK/b56JEPaFafVK9LF8ByMSLNTVSL2X2dGj2TxtS80AvhPhDE9Csf+e28ExFi2gOM9xkBFG6YdEwxpHomtXKntJdN1VYXSaj7sLPCuOH0VkMOUqttrv97BsyLZfgg/NJNJ1Zgn34AXlUqLSxszzxrkWTtC9kxcpjRDtICDfJK2SJEoJrLnzTsXu9g26cWSxHxQ2omgm/TCjJthV7qI+lCQcT+3pNRqIeSD/X4MAWDWzj3vNST9XcxlogeNTpNXBlUx0P8OExBmK4mywUdhM6dB89eDE7X+Hc96rK8YPHCS4z0oGhWAzDvXvyw0g8zM069F1fFZJNMjYeFwN7HObm2RNZxU06Y6QHK47nmiZNKFHMrEoHJi8lwHlaleklxucU5wL9l82NjS1+dGcpxydkC99eIckrL8O0NVNod2nPxCdDEZJDPPPumFDZKOdtBEoyEMqq6L7IthGykzY8RHSfMwqm38tsytc67VRE+2ZgsZpKV2hlp/c9CzZ/ETODVMLD8uiRI9zstW/VCduOOsR560WkXQmhZT1q5vfCvf6aXagyDpsW3NPdxjBAZb0wApwlfJaIK4x2dsngRt3OqojofBp5uOQZkvaJdenFg2QnkztcxMMx/4nKoE7U7FisGDI7jfmZJIKMyKD/3Uu+QRBJsBXzssMOtYGO66e1KbhhosmcrztWQm/GqtnNE8tiRd5RvhTJcbzViM5YNztg7C6E0MictGrkLvINdmgLCpQzXgenRzdXXuw+locIZKR2xwKEbkwOH/nsP2TbsoRUMCJOP6GVb4mmR4RemGAsuG+EpQNw2SSfXTvk9KiBOUgx+GGWnLAYZVBciyalfGe5jwvwXlSg2spxy9/0MCrCvq/Q03hKmY9EejY3kkDnblwqY2OhTNTamG9hXX4efc7GvXaf/ssdDFOIfnJ1RJvqb/SDNNdc73scunw914Wskq2sKwNQQ8Dh4NMyubXVtPqKwZTpT1fA5LySXO25Aslr82O/N8xyIUUcsGYlceKFa9yi65M3IVdUd27ND49DkvEUqR9fdSdvEP0RdsODdnlaSRZYh9Dq++Jhoe8+cox5O39OzSA3tVY1SLaAgSJ/zmkGeWNIN0ea/0qALOiUtzpCgQxnyL+A8JJrmz3FlcOvbZkM1ddfHwlhI9YdMs077Y78vpOj5cgkGUU3SN59DcylfvawuwMzDOyhM5IRH18iMcmvpK/XWHkYJUXwJkRrlz1MOdNuJl//u0WcUPPZDRxzmyCS9EO3RISRJZXvpYdi1cVzo2XYJROfAxVICEVaCBkDfAAQKCOqt7tPc2X8gyV66ZV18NP43dgA2bcgSV2A7SVhz8F3PbvqI/WfEAgxi3szsQygkhIeuFU9QPKVED/+KhEXbcRfYFz9Lqm/GLUNh4sa+CVeAm7u94pSI+mkAEFSZbE+ZuZDtrdt9nRZgVY97yFAZ9F+ASUg8MMxrP/Jzp2t7sEAGLgw9K2WGYi8uWEw+oky33Ty6SW+Gapt2PsCa2ob10daizc13i3He9sNehcy3lc2IAByD9DP5SxP3yXrhFqWU4bnxLjCkBlge1AIG+bvCOKKPBrLN2hvgoMCW7He5bvGYpyNeo69uSaLWKQebdswpffcnw75/2E4p+mgeWpT5GVLXZ+T6BOEEs7kxhup/5ZoWtpld3kEoC7dmcykburvSNg05kdBViq+d08VyQXxgqDUe65vZGAjvZ1tcCAn0wo8sJHyT2EiNpdjkPwr4TBxzbDkhFVjKtfcXnAUXa2J4VY8MWZ7WiMpzDOBGGJoSs3i5kxtRxrArx0kTNIA6s+wmxtpGTooOlozyTMNi/HbjvKtFGBlPK85wQXX7SHxH9jb8wDvJjsnX0VLNB+rSxprw+cSYDuETxW0e3ua4nAeNURxDgIMQZXcZWm/yhdVTv0n7/ucGbh2jXP3vaRcRLaGmFucYjL1JUW0d37jpGcv6HYCtfQJum0+IUAC5dmFFzV6uFFa5Bqi3+ycuPiOvMRkOnw3RPlyV10jYMVeXF7/dCxgml6Gb0zJIKvIz3oZB/z3PaSiZzv7VhrvcpQcCiFACAzhRWE3gwuOrlIN6CKxCKwFvtSa1jZAvdH6RfxRz4QVk0v1SemzgbPcuA0LLH3ruCWQ=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 613,
+          "candidatesTokenCount": 522,
+          "totalTokenCount": 2749,
+          "cachedContentTokenCount": 175,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 613
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 175
+            }
+          ],
+          "thoughtsTokenCount": 1614,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "K0yEauWUINuZvdIP_4q0sQE"
+      }
+    }
+  ]
+}

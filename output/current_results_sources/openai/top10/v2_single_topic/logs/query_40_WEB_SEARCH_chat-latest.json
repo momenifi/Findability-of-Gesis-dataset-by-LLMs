@@ -1,0 +1,186 @@
+{
+  "query_id": 40,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about PSYCHOLOGY in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_050851cb97a6bd47006b047959d92887d2b73f8a9d1f85bb69",
+        "created_at": 1795455321.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_050851cb97a6bd47006b04795b23ac87d28cd2e120980db1a2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German General Social Survey ALLBUS psychological wellbeing dataset 2010 2020",
+                "SOEP German Socio Economic Panel mental health psychological wellbeing data 2010 2023 DOI",
+                "Germany DEGS mental health survey dataset Robert Koch Institute 2010 2020",
+                "German National Cohort NAKO mental health psychological data access dataset"
+              ],
+              "query": "GESIS German General Social Survey ALLBUS psychological wellbeing dataset 2010 2020",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_050851cb97a6bd47006b04795e65ac87d2ad71b8da97fdbac5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP-Core v40 data 1984 2023 mental health DOI",
+                "site:gesis.org pairfam dataset 2008 2022 psychology DOI",
+                "site:gesis.org German Ageing Survey DEAS psychological wellbeing data",
+                "site:uni-leipzig.de LIFE adult depression dataset Germany data access"
+              ],
+              "query": "site:diw.de SOEP-Core v40 data 1984 2023 mental health DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_050851cb97a6bd47006b0479613ca487d2993cac8af824a819",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40i\",\n      \"justification\": \"A nationally representative longitudinal dataset covering Germany throughout the 2010s and early 2020s. Particularly valuable for psychological research on mental health, subjective well-being, life satisfaction, personality, stress, and social relationships. Annual observations allow researchers to investigate psychological changes over time and associations with employment, income, education, and family circumstances. Research access is subject to data-use conditions.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14695\",\n      \"justification\": \"A large-scale German population survey covering social attitudes, values, beliefs, interpersonal trust, social integration, and subjective evaluations of society. Includes multiple survey waves from the 2010s and 2020s. Particularly useful for social psychology, political psychology, attitude formation, and research on psychological differences between population groups. Data are distributed through GESIS.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam), Waves 1–14, 2008–2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.11.0.0\",\n      \"justification\": \"A longitudinal German study focusing on intimate relationships, family dynamics, parenting, and individual development. Covers almost the entire 2010s and the beginning of the 2020s. Particularly relevant to developmental psychology, family psychology, attachment, relationship satisfaction, emotional well-being, and intergenerational relationships. Includes information from respondents and, in various waves, their partners, parents, and children.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA), 2010, 2012, 2014/2015, and 2019/2020\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"A series of nationally representative health surveys conducted by Germany's Robert Koch Institute. Provides information on population health, including indicators relevant to mental health, psychological distress, perceived health, and health-related quality of life. The 2010, 2012, 2014/2015, and 2019/2020 datasets are especially useful for investigating psychological health trends before and during the COVID-19 pandemic. Scientific-use files are available through the institute's research data center.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS1), 2008–2011\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/DEGS/degs_content.html\",\n      \"justification\": \"A nationally representative German adult health study containing information relevant to psychological health, mental disorders, depressive symptoms, health behaviors, and psychosocial risk factors. Data collection continued into 2011, making it a useful baseline for psychological research focused on the early 2010s. The dataset supports investigations of associations between mental health, physical health, demographic characteristics, and social conditions.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS), Waves 1 and 2\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"A major German population health study covering children and adolescents aged 0–17. Wave 1 was conducted during 2009–2012, with Wave 2 conducted during the 2010s. Particularly relevant for developmental psychology, child and adolescent mental health, emotional and behavioral difficulties, psychosocial development, and family-related influences on psychological well-being. Scientific-use datasets are available through the Robert Koch Institute.\"\n    },\n    {\n      \"title\": \"German National Cohort (NAKO Gesundheitsstudie)\",\n      \"url_or_doi\": \"https://transfer.nako.de/transfer/index\",\n      \"justification\": \"A large German population-based longitudinal health study that collects psychological, cognitive, behavioral, and mental health information. Its observation period includes the 2010s and 2020s. Particularly useful for investigating depression, psychological distress, cognitive functioning, health-related behaviors, and relationships between mental and physical health. Researchers can request access to study data through the NAKO data access system.\"\n    },\n    {\n      \"title\": \"Transitions and Old Age Potential (TOP), Waves 1–3\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13206\",\n      \"justification\": \"A German longitudinal survey examining individuals approaching or entering retirement, initially focusing on people aged 55–70. Covers multiple observations during the 2010s. Includes information on psychological well-being, attitudes toward aging, life transitions, employment, retirement, and subjective health. Particularly relevant for lifespan developmental psychology, gerontopsychology, retirement adjustment, and psychological adaptation to aging.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Individual Surveys and Historical Cumulations\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The official GESIS dataset collection provides individual ALLBUS survey waves from the 2010s and 2020s, alongside cumulative datasets. Individual waves can contain psychological and social-attitudinal measures omitted from cumulative files. Relevant research themes include social identity, prejudice, interpersonal trust, subjective social position, values, and attitudes toward migration. Particularly useful for examining psychological and social changes in Germany across survey years.\"\n    },\n    {\n      \"title\": \"SOEP-Core v40.1, Updated German Socio-Economic Panel Data, 1984–2023\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.683942.en/data_editions_soep-core.html?id=diw_01.c.683942.en&von=20\",\n      \"justification\": \"An updated edition of Germany's major longitudinal household survey, providing observations throughout the 2010s and into the 2020s. Relevant psychological variables include subjective well-being, health, life satisfaction, and individual characteristics associated with psychological development. The dataset is particularly suitable for studying long-term changes in mental health and well-being, including differences across generations and socioeconomic groups. Several access editions are available.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455337.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18968,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1574,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20542
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

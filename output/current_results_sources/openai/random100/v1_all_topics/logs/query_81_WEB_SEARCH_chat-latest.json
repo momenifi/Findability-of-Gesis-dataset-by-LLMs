@@ -1,0 +1,185 @@
+{
+  "query_id": 81,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Medication and treatment, Specific diseases, disorders and medical conditions, Language and linguistics, International politics and organisations, and Political behaviour and attitudes in Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_086fb1a1fe2f8267006b0458f5316c87d29240d5d2978d4f66",
+        "created_at": 1795447029.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_086fb1a1fe2f8267006b0458f60eb887d29fe51026c402936f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurobarometer 1990s dataset GESIS health medication language political attitudes EU countries",
+                "GESIS Eurobarometer 1997 1998 health treatment diseases language political behaviour dataset",
+                "ICPSR Eurobarometer 1990 1999 countries Northern Ireland Great Britain Luxembourg dataset"
+              ],
+              "query": "Eurobarometer 1990s dataset GESIS health medication language political attitudes EU countries",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_086fb1a1fe2f8267006b0458f90c6487d29f3dd3c43e1d10b4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA \"1997\" \"Medication and treatment\" \"Social behaviour\" Eurobarometer",
+                "site:search.gesis.org/research_data/ZA \"1998\" \"Language and linguistics\" \"Sweden\" \"Finland\"",
+                "site:search.gesis.org/research_data/ZA \"1996\" \"Specific diseases\" \"Austria\" \"Sweden\"",
+                "site:search.gesis.org/research_data/ZA \"1999\" \"Social behaviour and attitudes\" Eurobarometer"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA \"1997\" \"Medication and treatment\" \"Social behaviour\" Eurobarometer",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_086fb1a1fe2f8267006b0458fbaa9087d2a3bb9b0be80db3ec",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurobarometer 44.3 (February–April 1996): Health Care Issues and Public Security\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10920\",\n      \"justification\": \"An exceptionally strong match for the requested topics, particularly medication and treatment, specific diseases and medical conditions, health care services, and political attitudes. The survey examines public evaluations of national health systems, personal health practices, health conditions, and political interests. Data were collected in 1996 across all 16 requested geographic areas: Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, the Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland. Contains 16,235 observations.\"\n    },\n    {\n      \"title\": \"Eurobarometer 34.0 (October–November 1990): Perceptions of the European Community, Employment Patterns and Child Rearing\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1960\",\n      \"justification\": \"Relevant to language and linguistics, international politics and organisations, political behaviour and attitudes, and broader social attitudes. The survey investigates perceptions of European integration, political preferences, employment patterns, and family responsibilities. Conducted in 1990, it covers Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, the Netherlands, Portugal, Great Britain, and Northern Ireland. Austria, Sweden, and Finland were not included in this wave.\"\n    },\n    {\n      \"title\": \"Eurobarometer 41.1 (June–July 1994): European Elections and European Integration\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10910\",\n      \"justification\": \"Highly relevant to international politics and organisations, political behaviour and attitudes, and social attitudes. The dataset examines trust in European populations, interest in politics, attitudes towards European unification, perceived benefits of EU membership, and satisfaction with democracy. It includes a cumulative dataset combining relevant questions from four Eurobarometer surveys conducted between October 1993 and December 1994. Covers Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, the Netherlands, Portugal, Great Britain, and Northern Ireland, with 52,634 observations.\"\n    },\n    {\n      \"title\": \"The Mannheim Eurobarometer Trend File 1970–2002\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3521\",\n      \"justification\": \"A particularly valuable longitudinal dataset for investigating changes in social and political attitudes throughout the 1990s. It combines repeated Eurobarometer surveys into a harmonised dataset suitable for cross-national and longitudinal comparisons. Relevant subjects include political orientations, European integration, public opinion, and social attitudes. It covers all 16 requested geographic areas during relevant portions of the 1990s, although country participation and available variables vary by survey wave. Particularly useful for comparing attitudes before and after the 1995 EU enlargement.\"\n    },\n    {\n      \"title\": \"Euro-barometer 33.0: The Single European Market and Eastern Europe, Spring 1990\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/9518\",\n      \"justification\": \"Relevant to international politics and organisations, political behaviour and attitudes, and social behaviour. Conducted between March 19 and April 16, 1990, this survey examines satisfaction with life, national priorities, awareness of the European Community, attitudes towards European integration, political developments in Eastern Europe, nationalism, and nuclear energy. It includes respondents from the 12 European Community member states at the time, including the United Kingdom. Austria, Sweden, and Finland are not included.\"\n    },\n    {\n      \"title\": \"Euro-barometer 39.0: European Community Policies and Family Life, March–April 1993\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/06195\",\n      \"justification\": \"Relevant to social behaviour and attitudes, international politics, and political behaviour. The survey examines European Community policies, family life, political party preferences, previous voting behaviour, and future voting intentions. Data were collected between March 13 and April 16, 1993. Geographic coverage includes Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, the Netherlands, Portugal, and the United Kingdom, with Great Britain and Northern Ireland distinguishable in the data.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Religion II – ISSP 1998\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3190\",\n      \"justification\": \"Highly relevant to social behaviour and attitudes and political behaviour and attitudes. This international comparative survey examines religious beliefs, values, social orientations, and their relationship with political attitudes. Fieldwork was conducted between 1998 and 2000, with country-specific collection dates. Among the requested geographic areas, coverage includes Denmark, Germany, France, Great Britain, Northern Ireland, Ireland, Italy, the Netherlands, Austria, and Portugal. It is particularly useful for examining relationships between religion, social values, and political behaviour during the late 1990s.\"\n    },\n    {\n      \"title\": \"European Values Study 1999: Northern Ireland\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11541\",\n      \"justification\": \"A strong match for social behaviour and attitudes and political behaviour and attitudes. The dataset examines moral, religious, social, political, employment, and family values. Specific topics include interpersonal trust, tolerance towards minorities and immigrants, happiness, civic participation, organisational membership, and political orientations. Its geographic focus is Northern Ireland, making it particularly useful for investigating social and political attitudes in this region during the late 1990s.\"\n    },\n    {\n      \"title\": \"European Values Study 1999: Portugal\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11549\",\n      \"justification\": \"Relevant to social behaviour and attitudes, political behaviour and attitudes, religion, social participation, and family values. The survey measures interpersonal trust, tolerance, happiness, civic involvement, political orientations, and attitudes towards social institutions. This Portuguese dataset belongs to the wider European Values Study programme, enabling comparisons with other participating European countries during the late 1990s.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977–2024: Partial Cumulation\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2391\",\n      \"justification\": \"Relevant to political behaviour and attitudes and social behaviour and attitudes in Germany. This longitudinal dataset contains repeated surveys measuring electoral preferences, voting intentions, political party evaluations, satisfaction with democracy, political leadership, and attitudes towards major social and economic issues. It includes observations from throughout the 1990s, allowing researchers to investigate political attitudes before and after German reunification. The dataset is geographically limited to Germany.\"\n    },\n    {\n      \"title\": \"GESIS Eurobarometer Data Service: Standard and Special Eurobarometer Surveys\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service\",\n      \"justification\": \"A comprehensive research data collection containing individual Eurobarometer datasets from the 1990s. Particularly relevant to international politics and organisations, political behaviour and attitudes, social behaviour, language-related questions, and selected health-related topics. The surveys cover European Community and European Union member states, with Austria, Sweden, and Finland joining the standard geographic coverage following the 1995 enlargement. Individual survey datasets can be selected by year and subject. This is a collection landing page rather than a single dataset.\"\n    },\n    {\n      \"title\": \"GESIS Eurobarometer Data and Documentation Catalogue\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\n      \"justification\": \"A useful entry point for locating original 1990–1999 survey microdata, questionnaires, and codebooks. The collection includes Standard Eurobarometer and Special Eurobarometer datasets addressing social attitudes, political participation, European institutions, health policy, medical treatment, and other specialised subjects. Researchers can identify individual waves with the required geographic coverage and examine their variables before downloading data. This resource is particularly useful for finding complementary datasets across the six requested subject categories.\"\n    },\n    {\n      \"title\": \"GESIS Eurobarometer Survey Series Overview\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/overview\",\n      \"justification\": \"Provides an overview of the Eurobarometer survey programmes and their historical coverage, including expansion during the 1990s. It is useful for identifying Standard Eurobarometer waves and specialised modules addressing political attitudes, European integration, public health, social behaviour, and related subjects. It also helps establish which countries participated in particular survey periods, especially before and after Austria, Sweden, and Finland entered the European Union in 1995. This is a survey-series reference page rather than an individual dataset.\"\n    },\n    {\n      \"title\": \"GESIS Eurobarometer Trend Files and Time Series\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/survey-series/eb-trends-trend-files\",\n      \"justification\": \"Provides access to information about harmonised Eurobarometer longitudinal datasets suitable for analysing developments in political and social attitudes during the 1990s. Relevant subjects include support for European integration, attitudes towards EU institutions and policies, political identification, and participation. The trend-file approach is particularly useful for cross-national comparisons and identifying changes across multiple survey years. Geographic coverage depends on the constituent datasets and can include all requested locations. This is a collection landing page.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447046.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18058,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2292,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 20350
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

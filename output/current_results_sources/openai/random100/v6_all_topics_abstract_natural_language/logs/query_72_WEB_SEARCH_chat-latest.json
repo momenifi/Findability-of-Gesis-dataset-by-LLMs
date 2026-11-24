@@ -1,0 +1,197 @@
+{
+  "query_id": 72,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Czech Republic during the 2000s, matching this research need: Monthly 2000 Czech public opinion survey data on party preferences, election participation and vote choice, trust in political leaders and institutions, democracy and EU attitudes, economic perceptions, religiosity, household living standard, region, and community size\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f7aaed0405bb74f006b04739c144087d2afa583a586848225",
+        "created_at": 1795453852.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f7aaed0405bb74f006b04739d0f5c87d29431a38570c4ce49",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Czech Republic public opinion research monthly 2000 survey party preferences trust democracy EU religiosity CVVM dataset",
+                "Czech Social Science Data Archive public opinion 2000 monthly surveys IVVM dataset"
+              ],
+              "query": "Czech Republic public opinion research monthly 2000 survey party preferences trust democracy EU religiosity CVVM dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f7aaed0405bb74f006b0473a0684c87d29ecf2252cee7346d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:doi.org/10.14473/CSDA/ \"2000\" \"Kontinuální měsíční výzkum\"",
+                "site:access.gesis.org/dbk/ \"Party Preferences Czech Republic 2000\"",
+                "site:archivdv.soc.cas.cz \"Leden 2000\" \"IVVM\""
+              ],
+              "query": "site:doi.org/10.14473/CSDA/ \"2000\" \"Kontinuální měsíční výzkum\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f7aaed0405bb74f006b0473a2777087d281559e56ced52288",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Party Preferences Czech Republic 2000\" GESIS",
+                "\"ZA3891\" party preferences 2000 survey"
+              ],
+              "query": "\"Party Preferences Czech Republic 2000\" GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f7aaed0405bb74f006b0473a5c33087d2aead7b9ac8ecf361",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Party Preferences Czech Republic 2000 (Trend) — GESIS Study ZA3891\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3891\",\n      \"justification\": \"Exact match and the strongest dataset for this research need. This study combines monthly Czech public opinion surveys conducted in 2000 by the Institute for Public Opinion Research (IVVM) and its successor, the Centre for Public Opinion Research (CVVM). It covers January, February, March, April, May, June, September, October, November, and December 2000, with 11,346 respondent observations in total. The dataset focuses on political party preferences, electoral participation and voting behavior, trust in political leaders and institutions, satisfaction with democracy, attitudes toward European integration, economic perceptions, and respondent characteristics. It is particularly suitable for examining changes in Czech political attitudes throughout 2000 and their relationships with religiosity, household living standards, region, and community size. Archived by GESIS with English-language documentation. This should be the primary dataset for the proposed research.\"\n    },\n    {\n      \"title\": \"Party Preferences Czech Republic 2000 (Trend) — GESIS Data Catalogue\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.3891\",\n      \"justification\": \"Alternative catalogue record for the exact 2000 monthly survey dataset. The metadata confirms coverage of the Czech Republic from January through December 2000 and identifies the study as part of the Party Preferences Czech Republic series. The surveys represent Czech residents aged 15 and older. Individual monthly samples range from approximately 1,000 respondents to 2,079 in December. The catalogue classifies the dataset under political behaviour and attitudes, government and political systems, and elections, matching all three requested subject categories. This is the same underlying dataset as the first result, rather than an independent data collection.\"\n    },\n    {\n      \"title\": \"CVVM Public Opinion Survey Archive — Czech Social Science Data Archive\",\n      \"url_or_doi\": \"https://archivdv.soc.cas.cz/dataverse/cvvm\",\n      \"justification\": \"Official repository for public opinion datasets produced by the Czech Centre for Public Opinion Research (CVVM). Its monthly survey program covers political orientation, party identification, election intentions, trust in government and political institutions, attitudes toward international organizations, economic evaluations, and household living standards. The archive provides individual survey datasets, questionnaires, and metadata, making it valuable for identifying original survey waves and verifying the variables included in the combined GESIS dataset. It also supports extending the analysis beyond 2000 to other years in the 2000s. Availability of particular historical monthly waves should be checked in the catalogue.\"\n    },\n    {\n      \"title\": \"CVVM Our Society 2002 — March (Naše společnost 2002 – březen)\",\n      \"url_or_doi\": \"https://doi.org/10.14473/CSDA/RVLEOA\",\n      \"justification\": \"Relevant supplementary dataset from the Czech monthly public opinion survey program, collected in March 2002. Conducted by CVVM at the Institute of Sociology of the Czech Academy of Sciences, it contains 1,072 observations and 184 variables. Its documented themes include domestic politics, political parties, mass media, and international relations. It provides a useful comparison with the 2000 survey series, particularly for studying party preferences and political attitudes in the period surrounding the 2002 parliamentary elections. The archive includes survey data and the original Czech questionnaire, allowing researchers to verify the availability of specific political and demographic variables.\"\n    },\n    {\n      \"title\": \"Party Preferences Czech Republic 1998 (Trend) — GESIS Study ZA3889\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/13389\",\n      \"justification\": \"Closely related predecessor to the 2000 dataset, drawn from the same Czech monthly public opinion survey series. It combines surveys conducted during 11 months of 1998 and includes political party preferences, previous voting behavior, election participation, confidence in political figures, satisfaction with democracy, attitudes toward EU membership, economic transformation, religious belief, and living standards. Although collected before the requested period, it is valuable for establishing baseline attitudes and examining changes between the 1998 parliamentary election and the political environment of 2000. Its common survey framework makes it particularly useful for longitudinal comparisons with GESIS Study ZA3891.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453867.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 22222,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1078,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23300
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

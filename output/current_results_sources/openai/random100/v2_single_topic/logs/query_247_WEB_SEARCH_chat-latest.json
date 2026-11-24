@@ -1,0 +1,184 @@
+{
+  "query_id": 247,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in German Democratic Republic (1949-1990) during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_01ec0773aeb05b37006b0469fc36d887d2ba4b5c5b7a24ae97",
+        "created_at": 1795451388.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_01ec0773aeb05b37006b0469fd1e9887d2956b5a9f902a42af",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1970er Jahre politische Einstellungen Jugend Studien Datensatz",
+                "East Germany GDR 1970s political attitudes survey dataset Zentralinstitut Jugendforschung",
+                "GESIS Datenbestand DDR 1970 1980 Einstellungen Bevölkerung Umfrage"
+              ],
+              "query": "GESIS DDR 1970er Jahre politische Einstellungen Jugend Studien Datensatz",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_01ec0773aeb05b37006b046a01b52087d2b00ae187303d07d4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA \"1977\" \"Political behaviour and attitudes\" \"GDR\"",
+                "site:search.gesis.org/research_data/ZA \"1973\" \"Political behaviour and attitudes\" \"GDR\"",
+                "site:search.gesis.org/research_data/ZA \"1979\" \"Political behaviour and attitudes\" \"GDR\""
+              ],
+              "query": "site:search.gesis.org/research_data/ZA \"1977\" \"Political behaviour and attitudes\" \"GDR\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_01ec0773aeb05b37006b046a04f4f487d2a8e970004f7b37c5",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Interval Study: Development Factors and Development Forms of Young People in the GDR (1968–1980) – IS I, 1975 (8th Wave)\",\"url_or_doi\":\"https://doi.org/10.4232/1.6156\",\"justification\":\"Highly relevant dataset collected in 1975 by the Central Institute for Youth Research (ZIJ) in Leipzig. Examines political ideology, political attitudes, social behavior, values, and the development of young people's personalities under socialism. Contains 720 respondents and 134 variables. Particularly useful for investigating political socialization and ideological identification among young East Germans during the 1970s.\"},{\"title\":\"Interval Study: Development Factors and Development Forms of Young People in the GDR (1968–1980) – IS I, 1970 (3rd Wave)\",\"url_or_doi\":\"https://doi.org/10.4232/1.6151\",\"justification\":\"Longitudinal survey wave conducted in 1970 as part of a major research project examining young people's development in the GDR. Provides evidence about political socialization, ideological orientations, social values, and attitudes toward socialist society. Particularly useful for examining political attitudes at the beginning of the 1970s and comparing changes across subsequent survey waves.\"},{\"title\":\"Youth Survey 1970 (Umfrage 70) – Central Institute for Youth Research\",\"url_or_doi\":\"https://doi.org/10.4232/1.6007\",\"justification\":\"Directly relevant survey conducted among young people in East Germany in 1970. Includes information about political behavior, political attitudes, social conditions, and young people's relationships with the GDR political system. Particularly valuable for studying differences in identification with the socialist state and political orientations among young workers.\"},{\"title\":\"Interval Study: Development Factors and Development Forms of Young People in the GDR (1968–1980) – Complete Study Series\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA6156\",\"justification\":\"GESIS catalog entry documenting a longitudinal research project consisting of 12 waves, archived under study numbers ZA6149–ZA6160. Several waves cover the 1970s. The series enables researchers to investigate changes in political ideology, social values, and political attitudes among East German youth over time. Particularly useful for longitudinal analysis rather than relying on a single survey year.\"},{\"title\":\"Student and Studies 1977 (Student und Studium 1977)\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA6132\",\"justification\":\"A 1977 GDR student survey identified in the GESIS archive. Relevant for investigating university students' experiences, educational environments, and attitudes during the socialist period. May provide useful contextual evidence for research on political socialization and ideological orientations within higher education. Researchers should inspect the questionnaire to identify the precise political-attitude variables.\"},{\"title\":\"Student 1979\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA6131\",\"justification\":\"Survey of East German students from 1979, archived by GESIS as part of the Central Institute for Youth Research collection. Potentially useful for exploring students' attitudes toward society, education, and their future in the GDR near the end of the 1970s. Provides an opportunity to compare student attitudes across different years, although the availability of specific political variables should be verified in the documentation.\"},{\"title\":\"Political Attitudes and Social Participation among Young People in the GDR – GESIS Study ZA0772\",\"url_or_doi\":\"https://access.gesis.org/dbk/662\",\"justification\":\"GESIS dataset covering political attitudes, evaluations of the economic and political system, attitudes toward political participation, perceptions of opportunities for participation in the GDR, and political information sources. Especially relevant for research on political behavior and attitudes because it explicitly addresses citizens' perceptions of political participation and their relationship with state institutions. The collection date should be checked before treating it as a 1970s observation.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451401.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20846,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 965,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21811
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

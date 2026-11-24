@@ -1,0 +1,200 @@
+{
+  "query_id": 65,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Leisure, tourism and sport, Community, urban and rural life, and Housing in German Democratic Republic (1949-1990) during the 1980s, matching this research need: Survey data on urban residents’ housing conditions, neighborhood ties, local amenities, leisure activities, mobility and commuting, residential satisfaction, sense of belonging, and intentions to move within the city.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_069255d5ca10f3f8006b047323742887d2898ec09ecb158ca7",
+        "created_at": 1795453731.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_069255d5ca10f3f8006b04732480f087d2a05e03c71e02f447",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1980s survey Wohnbedingungen Wohnzufriedenheit Nachbarschaft Umzugsabsicht Stadt",
+                "DDR 1980er Stadtbewohner Befragung Wohnen Freizeit Pendeln Datensatz GESIS",
+                "GESIS DDR Zentralinstitut Jugendforschung Wohnen Wohngebiet 1988 survey dataset"
+              ],
+              "query": "GESIS DDR 1980s survey Wohnbedingungen Wohnzufriedenheit Nachbarschaft Umzugsabsicht Stadt",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_069255d5ca10f3f8006b047327bbc087d28cb974988f3909ee",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA636 \"Stadtentwicklung\" \"Wohnmilieu\"",
+                "site:search.gesis.org/research_data/ZA635 \"Stadtentwicklung\" \"Wohnmilieu\"",
+                "site:search.gesis.org/research_data/ \"Soziologische Untersuchung\" \"Gotha\" 1981"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA636 \"Stadtentwicklung\" \"Wohnmilieu\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_069255d5ca10f3f8006b047329f45487d2b8b7bfe9500d5839",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA6360 DDR Wohnmilieu",
+                "site:search.gesis.org/research_data/ZA6361 DDR Wohnmilieu",
+                "site:search.gesis.org/research_data/ZA6356 Stadt Wohn",
+                "site:search.gesis.org/research_data/ZA636 \"Magdeburg 1986\""
+              ],
+              "query": "site:search.gesis.org/research_data/ZA6360 DDR Wohnmilieu",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_069255d5ca10f3f8006b04732ce97887d28231d36593d46bcc",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Stadtentwicklung und Wohnmilieu von Halle und Halle-Neustadt 1984 (Urban Development and Residential Environment in Halle and Halle-Neustadt, 1984)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6359\",\n      \"justification\": \"Excellent match. This GESIS dataset contains a standardized survey of 360 adult residents in selected residential neighborhoods of Halle and Halle-Neustadt, German Democratic Republic, conducted in August 1984. It examines housing conditions, residential satisfaction, neighborhood relationships, attachment to residential areas, local shopping and service facilities, cultural and leisure amenities, and everyday mobility. Variables cover workplace location, commuting routes and burdens, transportation used for work and leisure, shopping destinations, recreational activities, satisfaction with housing, and reasons for dissatisfaction. Its combination of housing, neighborhood ties, local amenities, commuting, and residential belonging makes it one of the strongest matches for the research need.\"\n    },\n    {\n      \"title\": \"Jugend in Leipzig 1982 (Youth in Leipzig, 1982)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6114\",\n      \"justification\": \"Excellent match for research on younger urban residents. Conducted between March and April 1982 by the Central Institute for Youth Research in Leipzig, this survey investigates housing conditions, residential satisfaction, neighborhood environments, mobility, and attachment to Leipzig. Variables include length of residence, feelings about the residential location, intentions to remain or relocate, reasons for staying or leaving, preferred residential neighborhoods, location of housing relative to employment, commuting time, and accessibility of neighborhood facilities. It also examines housing in newly developed residential areas, apartment amenities, leisure activities, and social participation. The geographical coverage includes Leipzig and the surrounding districts of Leipzig-Land and Borna. Particularly valuable for investigating residential belonging and intentions to move.\"\n    },\n    {\n      \"title\": \"Stadtentwicklung und Wohnmilieu – Magdeburg 1986 (Urban Development and Residential Environment in Magdeburg, 1986)\",\n      \"url_or_doi\": \"https://www.da-ra.de/dara/study/web_show?detail=true&lang=&max=&mdlang=en&offset=&q=&res_id=6129&v=1&widget=&widgetclient=\",\n      \"justification\": \"Highly relevant historical urban survey conducted in Magdeburg in 1986, during the German Democratic Republic period. The study belongs to the collection of sociological investigations of urban development and residential environments undertaken by the Hochschule für Architektur und Bauwesen Weimar. It uses standardized oral interviews to investigate residents' experiences of urban living environments. It is a promising source for comparative research on housing and neighborhood conditions in an East German city during the 1980s. The detailed questionnaire should be consulted to establish coverage of specific variables such as neighborhood relationships, commuting, residential satisfaction, and relocation intentions.\"\n    },\n    {\n      \"title\": \"Soziologische Untersuchung – Gotha/Innenstadt 1981 (Sociological Investigation of Gotha City Center, 1981)\",\n      \"url_or_doi\": \"https://www.selectdataset.com/dataset/87567a84295d0168078c4de1c975604e/soziologische-untersuchung-gotha-innenstadt-1981\",\n      \"justification\": \"Excellent thematic match. This 1981 survey investigates housing conditions and everyday experiences of residents in the historic city center of Gotha, German Democratic Republic. Variables include satisfaction with apartments and residential neighborhoods, apartment size, household composition, length of residence, neighborhood relationships, feelings of belonging, and willingness to relocate during housing modernization. It also examines workplace locations, commuting burdens, transportation choices, shopping facilities, local services, cultural and recreational amenities, and leisure destinations. Additional questions address environmental disturbances, neighborhood improvement initiatives, and satisfaction with social contacts. Particularly useful for studying relationships between housing quality, neighborhood attachment, local infrastructure, and urban mobility.\"\n    },\n    {\n      \"title\": \"Freizeit und Wohnbedingungen Jugendlicher im Dorf 1987 (Leisure and Housing Conditions of Young People in Villages, 1987)\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/16441\",\n      \"justification\": \"Relevant supplementary dataset for comparing urban and rural residential experiences in the German Democratic Republic. Conducted in spring 1987 by the Central Institute for Youth Research, it surveys people aged 16–27 in selected villages in the districts of Neubrandenburg, Potsdam, and Gera. Topics include housing conditions, satisfaction with local services and amenities, commuting time, employment opportunities, leisure activities, neighborhood relationships, friendship networks, attachment to one's home community, and intentions to remain or migrate. Although the population is rural rather than urban, the close overlap in survey variables makes it valuable for comparative studies of residential satisfaction, community belonging, leisure opportunities, and mobility.\"\n    },\n    {\n      \"title\": \"Leben in der DDR 1990 (Life in the German Democratic Republic, January 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6873\",\n      \"justification\": \"Relevant supplementary survey conducted in January 1990, before German reunification, covering adult residents of the DDR districts of Potsdam, Leipzig, and Schwerin. The dataset contains 1,528 observations and 350 variables examining living conditions and subjective evaluations of social and economic circumstances. Topics include housing conditions, satisfaction with everyday life, employment, social security, cultural and leisure opportunities, availability of services, and perceptions of the housing market. Although collected immediately after the 1980s and not specifically focused on urban neighborhoods, it provides valuable contextual evidence about residential living conditions and satisfaction at the end of the German Democratic Republic.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453747.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20897,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1410,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 22307
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

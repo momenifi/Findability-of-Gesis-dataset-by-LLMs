@@ -1,0 +1,69 @@
+{
+  "query_id": 207,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Duisburger Bürgerumfrage (Herbst 2000) [Citizen Survey Duisburg (Autumn 2000)]\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3469\",\n      \"justification\": \"A representative citizen survey conducted in autumn 2000 by the City of Duisburg (Amt für Statistik, Stadtforschung und Europaangelegenheiten) and archived by GESIS. It measures resident attitudes towards quality of life, local infrastructure, housing, and urban development in Duisburg.\"\n    },\n    {\n      \"title\": \"Duisburger Bürgerumfrage (Herbst 2001) [Citizen Survey Duisburg (Autumn 2001)]\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4345\",\n      \"justification\": \"A survey dataset from autumn 2001 archived by GESIS evaluating Duisburg residents' views on living conditions, housing satisfaction, waste management, municipal policy, and local urban life.\"\n    },\n    {\n      \"title\": \"Einwohnerstatistik - Open Data Duisburg\",\n      \"url_or_doi\": \"https://opendata-duisburg.de/dataset/einwohnerstatistik\",\n      \"justification\": \"Official demographic dataset at the neighborhood/district level for Duisburg provided on the city's Open Data portal, including population statistics starting at the end of the 2000s decade (2010) covering total population, nationality, and gender distributions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EuMRCuARARFNMg/O99RnNh2QlOi9RuXuLgc3vfwqzYyK8TiIUR8+kGT/PMRt3EcdIrtvPqQQN+CbKDUn+YRC2bI95C5vtSCPKeYoSn+9e3BdFhft1h1krZ6JhnNpaNZ8D69cA75rHXgcIqFqHYprTWPZfgZwpcvLvj9MMeyr+OoHeta1jr5MpS1Tn5ISdXGLJwF533r7yk2UAwzH8jUWBGRDYpNOKjfJFiIZj5AsowGONxCv40bV+IIAUwBtwsJIipRL9SursyMmKv0d4fEHJtYRCSeS4dXwK+P80WfmRkAAFLDl3PP8e9J2h5ez4TWPddWK6VB5Pp+176G6md9aWh1tkyHzVrk3KdM/j4Zv7VImXkxcknk/dPqGfmoK4fTnDGfoRa6xEQCTYI2kljPLyrFneYVqLyLf8KnW8qX+Hkj0CU4KmdaaCzzbmm7dy/Ut/THa/zcsbEIu+vR+Q+WRWoiMRJUcQ7kVTBO6sJVG6Z8I9cyzANsMnRCgsjgiScWh9Jmuy2zrzgvbzTuMarO2H3/9ZYD5tvruULZ22MsV5KepiZm5gXbuIn8unSQFEWLsncYPTNE8fX0nb4tZaYoDnZJ2g8kDllqRiRxDMvsMbnWbB0Ka7Q1JYwRNEQ6XXvyrki4z+bbOTpZqCe3aC6/RefQDCt4qOuOtgue9HnZGtaby6JyyWIpwq2yG3iVsAHCNl1UbTipJWpOcwGKGA4FG3Jer9TyoFrkgs8gIOadUIN3p2Bv9IabDF9PsyTd2U5NvF6PxjvCXnOxhQraLDFflTsaWu/HVqsXMGMhGATFIUeKAopEa/Wrw6WEG5AicTM/Q+aS7L2wiuh0u+wfHwo5OK5bjg0hYSDUnlo4TZHP5tn2h6+3WMPJd8QTv4f0KPiR/7rsEAEtlI0/NnYCoAwJWf8XEk8p7k9jo/8A2mal5QIBRau7+B0XGUe1UpQoTgmIp+t1SXroSy66JA4z2FQXcnI0kT7WjxI6ADGIM1mNdTPYObKYU+lV4aasuOhYG7dxxoJJOXpNGRHvvXUVC5TQcgfRBh32FQkIhs0IfcqOhl5bZKdMEOzGB3SnL4j/J72xhnYVqH1nsTXyBSUXSL98ipXrtf8KI6IyKPjeE805t/i0xHlIInGrwHadTr62PWAi2Apjuftv4S3bBYLbOzxoWnd/QSTKlabulYBJVHs+FtBX9dfP/sx8jxpuuBt310Ao/OV840PhyZ3E58TXjH5JmKt/t465mtmHvKn5OEfvq+iK/sHrqJ8QYuzPTJhBK/j5UBhA28TuAXrjknbun+RK9sIs/U5QxFD+j5fjMBXxYvsNNAF/vvCRUchmgPNqiqU5fhcXX+1Tk7UqQY5O0z3sqQtpxmqyQQ2UnUoLcvGMXzCYmSKOmn8F1E4Vcb8FCwuG90xhAC5wyWmcYvty2n5BTwDuk7Jy9SIASsAq/R72SlnTkfWgj5qiNU9UFvgBcmnC7L9t80FfYRXLsjGLkLNzURgNSafa65u9h2JirvGfK9qhCkd6lgNOaHYxIBePJJlt3uY170mjc4i77nsjbBLTF2pmy7o1S7qB9VLm20METNfBv0XfHCgDrHWbtzrWmkU0vYbGYSRCnPtTUlkWu5fo5B//Fl07tWS23tGSXEflDM2KB9Ar8WXNZl+3VIO8pG+kx/EnasTwI4jW3xuu33YS0qE/Jf2WynaosWg2Q0vWOsqZU1QX2FM24PXjGpav+3M9zhGgVDOonpkdk76Qfhb0C9rG8EZwBLn1F5J3dMWLq1Bxo2azGa3waS2y+vY3h2+kqEhP7UU4BeCx8KhWCdjJCoaA5D5qARD7JvFbryKbZQSCeAzjKmucRgCa05BtSv2GpN63+sBPX93P3rcKqQIDvIz0z5RUw0uyeIFbJ9/MnXWfSR3YUyV7KZcTkiGI0YuMlwcODzZrlFUDq+p7i/qD3wMADMci2C9WuDhMYCbUiYFjYXeGrgwO1rAAbhSHzg7rVloZtC9WwR3epoVuToWoKH9ojTHDODtJYM302sqYiQ/uS/THSiIQcndYVKNXj88cLID7l+EcGIQstaiJ3cmZXJqMcgCApLnbXawRb9azbnaCGPTASFh2sH5StFMHFJg3z3k1PIJe321089AnMxUXqc9UPkFoI9hFhbjyu0tHpfsb6+hRztIhQVmjzPnwQ6PizxypWfqQP/fRAClTKdweAHnmILWjxz4VwzQFRa4pBVRLt5uUz/zZZbUiP+UGxPtNcMXbvonIgsFSSYE2oXDhxB0w/CAj43wjWtYtjARD+eE8sB9Jlhfp64Gleu7bFB9HcPCKhO+/Uh7Cy82HE8mS5c4DDq2Kq2yYBtN/oiELRW7j2uoLTOyBJIakhdaOrsMM/57IV+ag55SV/E1wiCLkbkvLUz7n4QnNF2QeaXRiDonkx0Sy/VTeRHQ5kjt1taFBheO+KdNQi2jq3t8A6elEp5MRtWWzYRZ34P/O9yafp5LKNy+CpgLD1IFJqvgcpdSaNm6dIioGfi062OgDETQ2btsUXWKZ7y6VB/IQR0eA4YKID9JcpE64PMHbc7LK42gKZo9I43IF2UVy4JwXI5/4YgUwsF7vDCKcEOUOIvIc75cThYQtXRFB5AbMZb9yoSOGW8qyOM/FdA9y/CV37/0809g3V9lmFEZdNIu1jS8YZBEyuIVNQKyBqCqM+8YHWch3dMibNh0EbQY9K/7iz4xTSpSH/N+atZu6oskF5May5EJ7DhLM//4XhNyu8APA1EFlybuoYzj170O6HW6o2WYtntDd67Oexvz14IY3i+QCiyJso5+5i8hRLEXzRqg1YkmIWYGBE2dogIilOtlBq4LeG58VaWOBfGQ42kvt2nr9d/sqmuSe7dmFBx9j2nQRW2sY6PeYNOo5hEX35aay+ari/UFn7ZzlplWjlUkmgFa5DTBvr/e6so2h78ZmzkAHXk5ufjTbvzs/RILxCKjqgEZl4UIY23U+Z8fmbBrelmM6k9k20DAHmblgfm203xjqBihr9BvwnovZv94uQNk3mJoE17VkRknHb3w=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1359,
+          "candidatesTokenCount": 380,
+          "totalTokenCount": 3633,
+          "cachedContentTokenCount": 292,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1359
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 292
+            }
+          ],
+          "thoughtsTokenCount": 1894,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "alKEatLvL5ChvdIPzoeM8A4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "query_id": 50,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_07ef4535e68c6007006b045d6750c487d2afe95deef6b716df",
+        "created_at": 1795448167.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_07ef4535e68c6007006b045d68e08487d2a9e8fa767eebede2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GENESIS NRW regional database municipalities population 2000 2010 IT NRW",
+                "Regionaldatenbank Deutschland Nordrhein Westfalen 2000 municipality urban rural data",
+                "INKAR BBSR indicators 2000 Nordrhein Westfalen districts dataset",
+                "GESIS ALLBUS 2000 2008 Nordrhein Westfalen regional data community"
+              ],
+              "query": "GENESIS NRW regional database municipalities population 2000 2010 IT NRW",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_07ef4535e68c6007006b045d6e130c87d2962778ce298f4d93",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:data.gov.de/suche/daten Nordrhein-Westfalen 2000 2009 Gemeinden wohnungen gebäude",
+                "site:data.gov.de/suche/daten Nordrhein-Westfalen 2000 2009 gemeinden arbeitslose",
+                "site:inkar.de INKAR 2000 2009 Indikatoren Kreise",
+                "site:statistik.nrw landesdatenbank NRW genesis online"
+              ],
+              "query": "site:data.gov.de/suche/daten Nordrhein-Westfalen 2000 2009 Gemeinden wohnungen gebäude",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_07ef4535e68c6007006b045d71179887d2985e78358685970c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:data.gov.de/suche/daten/ \"Wohngebäude- und Wohnungsbestand\" \"Gemeinden\" \"bis2010\"",
+                "site:data.gov.de/suche/daten/ \"Zeitreihe der Schlüsselzuweisungen\"",
+                "site:data.gov.de/suche/daten/ \"Zu- und Fortzüge\" \"Gemeinden\" \"2017\"",
+                "site:data.gov.de/suche/daten/ \"Arbeitslose, Arbeitslosenquote und offene Stellen\" Dortmund"
+              ],
+              "query": "site:data.gov.de/suche/daten/ \"Wohngebäude- und Wohnungsbestand\" \"Gemeinden\" \"bis2010\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_07ef4535e68c6007006b045d73fc2487d2973460bf17a111dd",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"INKAR – Indicators and Maps for Spatial and Urban Development\",\n      \"url_or_doi\": \"https://www.inkar.de/\",\n      \"justification\": \"One of the most relevant datasets for studying urban and rural life in North Rhine-Westphalia (NRW) during the 2000s. Published by Germany's Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR), INKAR provides approximately 600 regional indicators covering demographics, housing, employment, education, transportation, economic conditions, and living standards. Historical data include observations from 2000–2009 for selected indicators. Particularly useful for comparing urban districts, rural districts, and regional inequalities within NRW. Data can be exported for statistical analysis.\"\n    },\n    {\n      \"title\": \"Population Statistics and Demographic Changes in NRW Municipalities (1962 Onward)\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/bevolkerungsstand-und-bewegung-ab-1962-gemeinden-jahr\",\n      \"justification\": \"Official population statistics provided by Information und Technik Nordrhein-Westfalen (IT.NRW). The dataset covers municipalities and includes historical demographic information extending back to 1962, encompassing the entire 2000–2009 period. Particularly relevant for analyzing population growth, demographic decline, urbanization, and differences between rural and urban communities. Municipal-level observations allow comparisons between large cities such as Cologne and Düsseldorf and smaller rural municipalities.\"\n    },\n    {\n      \"title\": \"Residential Buildings and Housing Stock by Municipality (Until 2010)\",\n      \"url_or_doi\": \"https://data.gov.de/suche?sort=title_desc&tags=gemeinden&type=dataset\",\n      \"justification\": \"The GovData catalog includes the dataset 'Wohngebäude- und Wohnungsbestand - Stichtag 31.12. - regionale Tiefe: Gemeinden (bis 2010)'. It provides municipality-level housing statistics covering the period before 2010. Particularly useful for investigating differences in housing availability, residential development, and settlement patterns between urban and rural communities. The data are available in CSV format and can support historical comparisons of housing conditions in NRW during the 2000s.\"\n    },\n    {\n      \"title\": \"Municipal Migration Statistics by Age and Gender (Until 2017)\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/zu-und-fortzuge-uber-gemeindegrenzen-nach-geschlecht-undaltersgruppen-jahressumme-bis-2017-regi01565\",\n      \"justification\": \"Official regional statistics documenting annual migration into and out of German municipalities, broken down by age group and gender. The dataset is particularly relevant for studying migration patterns between urban and rural municipalities in North Rhine-Westphalia. It can help investigate suburbanization, population redistribution, and the movement of younger and older residents. Historical observations should be checked for coverage of individual years between 2000 and 2009.\"\n    },\n    {\n      \"title\": \"Municipal Financial Allocations in North Rhine-Westphalia Since 2000\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/zeitreihe-der-schlusselzuweisungen-an-kommunen-in-nordrhein-westfalen-seit-dem-jahr-2000\",\n      \"justification\": \"An official NRW government dataset documenting financial allocations to municipalities, cities, districts, and regional authorities beginning in 2000. It provides historical information on municipal fiscal resources throughout the 2000s. Particularly useful for examining differences in public funding between urban and rural communities, local government capacity, and regional inequalities. The dataset is available in XLSX format.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"A longitudinal collection of repeated cross-sectional surveys covering German society, including survey waves conducted in 2000, 2002, 2004, 2006, and 2008. ALLBUS measures social attitudes, demographic characteristics, social relationships, political participation, values, and aspects of everyday life. It is valuable for examining social differences between urban and rural populations. Detailed identification of respondents in North Rhine-Westphalia may require access to extended or restricted regional variables.\"\n    },\n    {\n      \"title\": \"ALLBUS – Sensitive Regional Data\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/8e5e980b-9626-5afb-adbc-a50e32fca26b\",\n      \"justification\": \"A specialized regional dataset associated with the German General Social Survey. It includes geographical classifications such as federal states, administrative districts, urban and rural districts, municipalities, and settlement types. These variables make it possible to investigate community life and social attitudes specifically within North Rhine-Westphalia during the 2000s. The dataset is especially relevant for studying differences between urban and rural residents. Access to sensitive regional variables is restricted and generally requires approved on-site research access through GESIS.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2008\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11000\",\n      \"justification\": \"A cumulative social survey dataset covering repeated observations through 2008, including the survey waves conducted during the 2000s. It provides information on social structure, attitudes, values, behavior, and demographic characteristics. Particularly useful for investigating community participation, social integration, and differences in living conditions between urban and rural populations. Analysis specifically restricted to NRW may require additional regional information.\"\n    },\n    {\n      \"title\": \"Unemployment, Unemployment Rates and Job Vacancies in Dortmund (1990–2023)\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/arbeitslose-arbeitslosenquote-und-offene-stellen\",\n      \"justification\": \"Official historical labor market statistics published by the City of Dortmund, covering 1990–2023 and therefore the complete 2000–2009 period. The dataset includes unemployment statistics and labor market indicators. It is useful for examining economic conditions and urban life in one of NRW's major industrial cities during the 2000s. It can support comparisons with rural districts using equivalent regional labor market statistics. Researchers should account for changes in unemployment measurement associated with the 2005 Hartz IV reforms.\"\n    },\n    {\n      \"title\": \"Regional Labor Market Statistics – Unemployment Rates in NRW Districts\",\n      \"url_or_doi\": \"https://data.gov.de/suche?groups=econ&openness=has_open&sort=title_asc&sourceportal=ec74990f-c51f-4378-845d-132b1f75a550&tags=d%C3%BCsseldorf-krfr.-stadt\",\n      \"justification\": \"The GovData catalog provides official IT.NRW unemployment statistics at the level of independent cities and rural districts. Historical datasets include unemployment rates and labor market characteristics, with some series covering 2009 and earlier periods. These indicators are relevant for studying socioeconomic disparities, employment opportunities, and economic restructuring across urban and rural communities. Researchers should verify the historical coverage of each individual series.\"\n    },\n    {\n      \"title\": \"Historical Population Development in North Rhine-Westphalia by Region\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/bevolkerungsentwicklung-in-nrw-nach-regionen\",\n      \"justification\": \"A regional demographic dataset based on official population statistics from IT.NRW. It is relevant for exploring differences in population development across North Rhine-Westphalia, including metropolitan areas, smaller towns, and rural districts. It can support research into regional demographic change, migration, and urban-rural population patterns. The exact availability of observations for 2000–2009 should be verified before use.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The official GESIS research data portal provides access to individual ALLBUS survey waves, including 2000, 2002, 2004, 2006, and 2008, as well as cumulative datasets and regional extensions. These surveys offer information about social networks, community involvement, political attitudes, demographic characteristics, and everyday social life. They are particularly useful for research examining social differences between urban and rural communities. Some data are freely downloadable after registration, while detailed regional identifiers require restricted access.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448190.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 26707,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2040,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 28747
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

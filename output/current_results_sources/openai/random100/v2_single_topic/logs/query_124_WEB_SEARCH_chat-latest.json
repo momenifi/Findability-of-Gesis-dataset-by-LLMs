@@ -1,0 +1,186 @@
+{
+  "query_id": 124,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university research in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0402aae65652243f006b04623067b087d2a11491520b1bf9ca",
+        "created_at": 1795449392.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0402aae65652243f006b04623167e087d2a017e58ed877f4a5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis Hochschulstatistik Forschung Entwicklung Hochschulen Ausgaben 2023 2024 dataset",
+                "DFG Förderatlas 2024 data German universities research funding dataset",
+                "OpenAlex dataset institutions Germany works 2020 research",
+                "GERiT German research institutions DFG dataset universities"
+              ],
+              "query": "Destatis Hochschulstatistik Forschung Entwicklung Hochschulen Ausgaben 2023 2024 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0402aae65652243f006b046235e57887d2a91d17fe5ca63eed",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DFG GEPRIS database funded projects search Germany",
+                "OpenAlex data snapshot download official",
+                "BMFTR datenportal drittmitteleinnahmen hochschulen 2024 tabellen",
+                "European Commission CORDIS projects dataset horizon europe beneficiaries Germany university"
+              ],
+              "query": "DFG GEPRIS database funded projects search Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0402aae65652243f006b04623ad7f487d2bfdaeed499a7ad57",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"DFG Funding Atlas 2024 – Research Funding at German Universities\",\n      \"url_or_doi\": \"https://foerderatlas.dfg.de/daten/\",\n      \"justification\": \"One of the most relevant datasets for studying university research in Germany during the 2020s. Published by the German Research Foundation (DFG), it provides downloadable tables on research funding allocated to German universities from 2020 to 2022. Data include DFG grants by university, research discipline, funding instrument, and geographical region. It also covers federal research funding, EU Horizon Europe funding, university research personnel, and third-party funding. Particularly useful for comparing universities' research performance, funding concentration, and disciplinary specialization.\"\n    },\n    {\n      \"title\": \"German Federal Ministry Research Data Portal – University Research Expenditure (2001–2024)\",\n      \"url_or_doi\": \"https://www.datenportal.bmftr.bund.de/portal/de/K25.html\",\n      \"justification\": \"Official German government statistical dataset covering university expenditure on teaching and research. Includes annual observations through 2024, allowing analysis of trends throughout the 2020s. Data are disaggregated by academic discipline, teaching and research field, expenditure category, and university type. Tables are available in Excel and HTML formats. Suitable for examining research investment trends, differences between disciplines, and changes in university research funding.\"\n    },\n    {\n      \"title\": \"DFG GEPRIS – German Research Project Information System\",\n      \"url_or_doi\": \"https://gepris.dfg.de/about/recherche?lang=en\",\n      \"justification\": \"Official database maintained by the German Research Foundation containing information about ongoing and completed DFG-funded research projects. Records include research topics, participating universities, researchers, institutions, and project information. Users can identify research projects active during the 2020s and analyze research specialization and institutional collaborations. Particularly useful for project-level research analysis. Database extracts may be available for academic research upon request, subject to DFG approval.\"\n    },\n    {\n      \"title\": \"CORDIS Horizon Europe Research Projects Dataset (2021–2027)\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/cordis-eu-research-projects-under-horizon-europe-2021-2027?locale=en\",\n      \"justification\": \"Official European Commission dataset covering research and innovation projects funded through Horizon Europe between 2021 and 2027. Contains project descriptions, participating organizations, funding information, research topics, publications, and project deliverables. Researchers can filter participating organizations by Germany and identify German universities receiving EU research funding. Particularly valuable for studying international research collaboration, European research grants, and German university participation in multinational projects. Available in CSV, Excel, JSON, and XML formats, with regular updates.\"\n    },\n    {\n      \"title\": \"GERiT – German Research Institutions Dataset\",\n      \"url_or_doi\": \"https://gerit.org/en/service\",\n      \"justification\": \"Maintained by the German Research Foundation in cooperation with German higher education organizations, GERiT provides structured information about research institutions in Germany. Its downloadable Excel dataset includes institutional names, addresses, classifications, DFG institutional identifiers, and Research Organization Registry identifiers. Updated monthly, the dataset supports identifying and classifying German universities and research institutions during the 2020s. Especially useful for institutional mapping and linking university-level records across research funding and publication datasets.\"\n    },\n    {\n      \"title\": \"OpenAlex – Global Scholarly Publications and Research Institutions Dataset\",\n      \"url_or_doi\": \"https://help.openalex.org/access/snapshot/\",\n      \"justification\": \"Large-scale open scholarly database containing publication metadata, author affiliations, research institutions, citations, and research topics. Researchers can filter publications from 2020 onward and select institutions located in Germany to construct datasets of German university research output. Supports bibliometric analysis, citation impact assessment, international collaboration studies, and comparisons between German universities. The database provides downloadable snapshots suitable for large-scale quantitative research. Because it is international, German university records must be extracted using institutional identifiers and country filters.\"\n    },\n    {\n      \"title\": \"German Federal Ministry Research Data Portal – University Research Expenditure per Student (2012–2024)\",\n      \"url_or_doi\": \"https://www.datenportal.bmftr.bund.de/portal/de/K25.html\",\n      \"justification\": \"Official statistical series reporting current expenditure on teaching and research per student at German higher education institutions. Covers 2012–2024, including the first half of the 2020s. Data can be examined by academic subject group and university type. Useful for comparing resource allocation across institutions and disciplines and investigating how financial support for university teaching and research changed during the 2020s. The measures combine teaching and research expenditure rather than isolating research spending.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – University Finance Statistics (GENESIS-Online)\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/03/PD26_106_213.html\",\n      \"justification\": \"Official statistics on German university finances, including expenditure, revenue, and third-party funding associated with research and development. The linked Destatis publication identifies GENESIS-Online tables 21371-0001 through 21371-0004 and 21371-0010 through 21371-0013 as sources for historical university finance data. These tables can be used to examine research funding trends throughout the 2020s, including the distribution of financial resources among universities and academic disciplines. The linked page is an official entry point identifying the underlying statistical datasets.\"\n    },\n    {\n      \"title\": \"DFG Funding Atlas – Horizon Europe Funding by German University (2021–2022)\",\n      \"url_or_doi\": \"https://foerderatlas.dfg.de/daten/\",\n      \"justification\": \"The DFG Funding Atlas includes tables specifically covering Horizon Europe research funding allocated to German universities during 2021–2022. The information is organized by university, scientific field, and academic discipline, enabling comparisons of European research funding across German higher education institutions. Particularly useful for examining which universities attracted international research grants and which disciplines received the greatest support. This is a Germany-focused complement to the broader European Commission CORDIS dataset.\"\n    },\n    {\n      \"title\": \"DFG Funding Atlas – University Third-Party Research Funding and Academic Personnel\",\n      \"url_or_doi\": \"https://foerderatlas.dfg.de/daten/\",\n      \"justification\": \"Contains structured statistical tables on third-party research funding, university funding sources, academic personnel, and professorships. Relevant observations include university financial data for 2022 and personnel statistics for 2021. These indicators can support analyses of research capacity, institutional research intensity, and differences in external funding across German universities. Particularly useful when comparing research funding with university size and academic staffing.\"\n    },\n    {\n      \"title\": \"CORDIS – European Research Projects and Results Database\",\n      \"url_or_doi\": \"https://cordis.europa.eu/projects\",\n      \"justification\": \"Official European Commission research information platform providing access to project-level datasets for Horizon 2020 and Horizon Europe. Researchers can identify German universities involved in EU-funded research projects during 2020–2026, examine participating organizations, and investigate international research partnerships. Includes downloadable project data and associated research outputs. Useful for studying changes in German university participation across successive European research funding programmes.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449411.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19238,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1700,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20938
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

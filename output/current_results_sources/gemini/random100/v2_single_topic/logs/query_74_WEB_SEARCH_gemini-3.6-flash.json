@@ -1,0 +1,69 @@
+{
+  "query_id": 74,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS 1980\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1000\",\n      \"justification\": \"A representative survey conducted in West Germany in 1980 by GESIS capturing individual economic assessments, financial circumstances, and consumer sentiment with state-level breakdowns including North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS 1988\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1670\",\n      \"justification\": \"A representative survey from 1988 tracking personal financial evaluation, economic outlook, and consumer attitudes across West German federal states including North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core) 1984–2022\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39eu\",\n      \"justification\": \"A nationwide longitudinal study launched in 1984 by DIW Berlin collecting detailed household income, consumption expenditures, asset structure, and consumer behavior data across West German federal states, including North Rhine-Westphalia.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 919,
+          "candidatesTokenCount": 345,
+          "totalTokenCount": 2892,
+          "cachedContentTokenCount": 431,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 919
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 431
+            }
+          ],
+          "thoughtsTokenCount": 1628,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "GzSEasH4NMeUxN8Pk6ejkQU"
+      }
+    }
+  ]
+}

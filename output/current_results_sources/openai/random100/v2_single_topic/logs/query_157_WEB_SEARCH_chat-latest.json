@@ -1,0 +1,185 @@
+{
+  "query_id": 157,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about General health and well-being in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b852f4fbd196195006b0464671b3c87d2a3bb79b6c292232b",
+        "created_at": 1795449959.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b852f4fbd196195006b046468053887d28e5be2d0218d9546",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1990 health wellbeing survey dataset East Germany",
+                "German Democratic Republic 1980s health statistics dataset mortality life expectancy",
+                "German socio economic panel East Germany 1990 health dataset"
+              ],
+              "query": "GESIS DDR 1990 health wellbeing survey dataset East Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b852f4fbd196195006b04646bdc5c87d291da6e7e3e3e3c91",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Gesundheit 1990\" DDR",
+                "site:search.gesis.org/research_data DDR 1988 gesundheit lebenszufriedenheit",
+                "Human Mortality Database East Germany data 1980 1990 landing page",
+                "site:search.gesis.org/research_data Wohlfahrtssurvey 1993 ostdeutschland gesundheit"
+              ],
+              "query": "site:search.gesis.org/research_data \"Gesundheit 1990\" DDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b852f4fbd196195006b046470ea5487d296ddde4e479b2fd7",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Health 1990 (Gesundheit 1990) – German Democratic Republic\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6379\",\n      \"justification\": \"A highly relevant dataset specifically focused on health in the German Democratic Republic in 1990. Conducted by the Department of Medical Sociology at the Institute for Social Hygiene and Health Care Organization in Berlin, the survey covers individuals aged 14 and older. It provides valuable evidence about health and well-being during the GDR's final year. Available through the GESIS Data Archive.\"\n    },\n    {\n      \"title\": \"Life in the GDR 1990 (Leben in der DDR 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6873\",\n      \"justification\": \"A January 1990 survey examining living conditions, social security, health, healthy lifestyles, housing, and general life satisfaction in the GDR. Covers the districts of Potsdam, Leipzig, and Schwerin. Particularly useful for investigating subjective well-being, perceived quality of life, and social conditions immediately before German reunification.\"\n    },\n    {\n      \"title\": \"HISTAT: Basic Data on the Development of Health Conditions in Germany, 1816–2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12094\",\n      \"justification\": \"A historical statistical dataset containing official health indicators for Germany, including the German Democratic Republic. Covers mortality rates, age-specific mortality, life expectancy, and other indicators of population health. Its extensive historical coverage makes it particularly suitable for examining health developments throughout the 1980s and comparing the GDR with reunified Germany during the 1990s.\"\n    },\n    {\n      \"title\": \"Welfare Survey 1990 – East Germany (Wohlfahrtssurvey 1990 – Ost)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2121\",\n      \"justification\": \"A survey conducted between October and December 1990 examining objective living conditions and subjective quality of life among East Germans. Includes assessments of personal health, financial circumstances, employment, housing satisfaction, and general well-being. Contains 735 observations and 227 variables. Particularly relevant for studying health satisfaction and quality of life during the transition from socialism to reunification.\"\n    },\n    {\n      \"title\": \"Statistical Overview of Social Policy in Germany Since 1945: Soviet Occupation Zone / GDR\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8416\",\n      \"justification\": \"A historical statistical compilation covering social policy in the Soviet occupation zone and the GDR, with observations extending from 1939 to 1996. Draws on official GDR health statistics, including annual publications from 1965 to 1988. Useful for researching health care provision, social protection, and the institutional conditions influencing population health during the 1980s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core): Data 1984–2016\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.592053.en/edition/soep-core_v33.1__update__data_1984-2016.html\",\n      \"justification\": \"A major longitudinal household survey covering health, employment, income, living conditions, and subjective well-being. Although the study began in West Germany in 1984, it expanded to the GDR in June 1990, before reunification. Particularly valuable for tracing changes in health satisfaction, economic security, and general well-being among former GDR residents throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Life in East Germany 1993 (Leben Ostdeutschland 1993)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6600\",\n      \"justification\": \"A survey investigating social conditions and subjective well-being in eastern Germany three years after reunification. Includes questions about the importance of health, social security, employment, housing, healthy lifestyles, and overall life satisfaction. Particularly useful for comparing post-reunification experiences with the 1990 GDR survey and examining how political and economic transformation affected well-being.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for Germany: Health, 1950–2013\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14262\",\n      \"justification\": \"A comprehensive collection of health-related social indicators compiled by GESIS. Includes life expectancy, causes of death, chronic illness, disability, medical treatment, medication use, health insurance, and occupational health. Contains 201 time series covering 1950–2013. Useful for analyzing long-term changes in population health during the 1980s and 1990s, although the geographic coverage of individual indicators must be checked before using them for GDR-specific comparisons.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS): Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12574\",\n      \"justification\": \"A cumulative social survey dataset containing information on general health, physical and mental well-being, chronic illnesses, medical consultations, disability, smoking, and subjective life satisfaction. East Germany was incorporated into ALLBUS after reunification, making observations from 1991 onward useful for investigating the health and well-being of former GDR residents. Earlier waves primarily represent West Germany and are more appropriate as comparison data.\"\n    },\n    {\n      \"title\": \"Human Mortality Database: East Germany\",\n      \"url_or_doi\": \"https://www.mortality.org/\",\n      \"justification\": \"An internationally recognized demographic database containing historical mortality and population statistics for East Germany. Provides data suitable for calculating and comparing life expectancy, death rates, and age-specific mortality trends during the 1980s and 1990s. Particularly valuable for examining changes in population health before and after reunification. Unlike household surveys, this source provides objective demographic measures rather than self-reported well-being.\"\n    },\n    {\n      \"title\": \"Everyday Problems of Young People in the GDR, 1988 (Alltagsprobleme Jugendlicher in der DDR 1988)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6086\",\n      \"justification\": \"A 1988 dataset produced by the Central Institute for Youth Research in Leipzig, investigating everyday problems experienced by young people in the GDR. Relevant to research on youth living conditions and psychosocial well-being during the late socialist period. It can complement population-wide health datasets by providing a youth-specific perspective, although the available variables should be checked for direct measures of health.\"\n    },\n    {\n      \"title\": \"Social Insurance, Personal Insurance, and Property Insurance in the Former GDR, 1950–1989\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8357\",\n      \"justification\": \"A historical dataset covering insurance arrangements in the German Democratic Republic from 1950 to 1989. Relevant for studying the institutional and economic foundations of social protection and health-related security under socialism. Particularly useful for understanding the social welfare environment of the 1980s, although it does not directly measure individual physical or mental health.\"\n    },\n    {\n      \"title\": \"SOEP: Living in the Former GDR, 2018\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.758986.en/edition/living_in_the_former_gdr__data_2018.html\",\n      \"justification\": \"A supplementary SOEP dataset focused on individuals who lived in the former GDR before 1990 and were born before 1973. Although collected in 2018 rather than during the requested decades, it can support retrospective research on experiences of life in the GDR and their long-term relationships with well-being. It is most appropriate as a complementary source rather than a direct measure of health during the 1980s or 1990s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449978.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19174,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1881,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21055
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

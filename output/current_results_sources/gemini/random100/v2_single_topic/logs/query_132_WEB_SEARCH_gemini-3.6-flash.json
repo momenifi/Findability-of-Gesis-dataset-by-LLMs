@@ -1,0 +1,69 @@
+{
+  "query_id": 132,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04811-5\",\n      \"justification\": \"Contains panel data on municipal, state (Landtag), and federal elections in Germany from 1990 onward, covering local political systems and election results across German federal states including Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein.\"\n    },\n    {\n      \"title\": \"ALLBUS / German General Social Survey 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3714\",\n      \"justification\": \"Provides empirical survey data on political systems, attitudes toward political institutions, government, and political organizations in Germany during the 1990 post-reunification transition.\"\n    },\n    {\n      \"title\": \"Politbarometer 1990 (Politbarometer Ost)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1987\",\n      \"justification\": \"Longitudinal survey dataset archived at GESIS that tracks public opinion on government performance, major political issues, parties, and political organizations across German states in 1990.\"\n    },\n    {\n      \"title\": \"ParlGov: Parliaments and Governments Database\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/2VZ5ZC\",\n      \"justification\": \"Includes data on political parties, elections, cabinet compositions, and government organizations in democratic political systems, including Germany throughout the 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 691,
+          "candidatesTokenCount": 450,
+          "totalTokenCount": 2706,
+          "cachedContentTokenCount": 214,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 691
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 214
+            }
+          ],
+          "thoughtsTokenCount": 1565,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "RDyEao6PNMTFnsEPuuOvuAw"
+      }
+    }
+  ]
+}

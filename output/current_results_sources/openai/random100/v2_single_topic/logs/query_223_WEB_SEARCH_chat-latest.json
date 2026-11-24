@@ -1,0 +1,186 @@
+{
+  "query_id": 223,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in United Kingdom during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_047e48a45f1251ee006b046875eb9887d2b4c415d421399574",
+        "created_at": 1795450997.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_047e48a45f1251ee006b046876ee9c87d2813c0fa965b926fb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "UK Data Service British Election Study 1992 1997 cross section dataset",
+                "British Social Attitudes survey 1990 1999 UK Data Service dataset",
+                "British Household Panel Survey 1991 1999 political attitudes UK data service",
+                "British Election Study 1997 campaign panel study UK data archive"
+              ],
+              "query": "UK Data Service British Election Study 1992 1997 cross section dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_047e48a45f1251ee006b04687a359487d28564dd25e3bdb70c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:datacatalogue.ukdataservice.ac.uk/studies/study/ \"British General Election Study, 1992\"",
+                "site:datacatalogue.ukdataservice.ac.uk/studies/study/ \"British General Election Study, 1997\"",
+                "site:datacatalogue.ukdataservice.ac.uk/studies/study/ \"British Social Attitudes Survey, 1999\"",
+                "site:datacatalogue.ukdataservice.ac.uk/studies/study/ \"Social and Political Attitudes\" \"1991-2002\""
+              ],
+              "query": "site:datacatalogue.ukdataservice.ac.uk/studies/study/ \"British General Election Study, 1992\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_047e48a45f1251ee006b04687c5b8087d28fa7b20fd75d4077",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"British General Election Study, 1997: Campaign Panel\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-3890-1\",\n      \"justification\": \"Highly relevant dataset examining political behaviour and attitudes during the 1997 UK general election. Covers voting intentions, political trust, party preferences, political knowledge, campaign communications, media influence, and perceptions of political leaders. Includes four waves of interviews conducted between 1996 and May 1997, allowing researchers to investigate changes in political attitudes during an election campaign.\"\n    },\n    {\n      \"title\": \"British General Election Study: Campaign Panel, 1997 (ICPSR)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR02619.v1\",\n      \"justification\": \"An alternative repository for the 1997 British General Election Campaign Panel. Provides data on voting behaviour, political awareness, electoral preferences, public opinion, trust in government, and campaign dynamics. Particularly useful for studying the factors contributing to Labour's electoral victory in 1997. This is an alternative distribution of the campaign panel dataset rather than an independent survey.\"\n    },\n    {\n      \"title\": \"British Social Attitudes Survey, 1990\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/3093\",\n      \"justification\": \"National survey providing information about British public attitudes at the beginning of the 1990s. Relevant for examining political orientations, social values, public policy preferences, and attitudes towards government and social institutions. Offers a useful baseline for investigating how political attitudes changed throughout the decade.\"\n    },\n    {\n      \"title\": \"British Social Attitudes Surveys, 1983–2012: Cumulative Dataset\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/36457\",\n      \"justification\": \"Especially useful for longitudinal analysis of political attitudes throughout the 1990s. Combines multiple British Social Attitudes survey waves and includes questions about government spending, welfare, social inequality, censorship, and other political and social issues. Researchers can select observations from the 1990s to examine changes in public opinion and political ideology over time.\"\n    },\n    {\n      \"title\": \"British Household Panel Survey: Waves 1–18, 1991–2009\",\n      \"url_or_doi\": \"https://datacatalogue.ukdataservice.ac.uk/studies/study/5151\",\n      \"justification\": \"Major longitudinal household survey beginning in 1991. Includes information relevant to political preferences, social attitudes, socioeconomic circumstances, and changes in individual circumstances. The 1991–1999 waves are particularly valuable for investigating relationships between political attitudes, employment, income, social class, and demographic characteristics during the 1990s. Its panel structure allows researchers to follow individuals over time.\"\n    },\n    {\n      \"title\": \"British Household Panel Survey: Waves 1–11, 1991–2002: Teaching Dataset (Social and Political Attitudes)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/c751316a-0287-546f-9558-0b96153cc253\",\n      \"justification\": \"A focused version of the British Household Panel Survey designed for investigating social and political attitudes. Includes longitudinal observations covering the 1990s, making it suitable for analysing changes in political preferences and their relationships with socioeconomic and demographic characteristics. Particularly useful for researchers seeking a more manageable dataset for statistical analysis.\"\n    },\n    {\n      \"title\": \"British Social Attitudes Survey, 1990 (UK Data Service Metadata)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/bcba34cc-1a21-5ead-8a85-d5326f360f1a\",\n      \"justification\": \"Provides an additional catalogue record for the 1990 British Social Attitudes Survey, including information about the dataset and access conditions. Relevant for studying political values, public opinion, and social attitudes during the final years of Conservative government under Margaret Thatcher. This record refers to the same survey year as the ICPSR 1990 dataset.\"\n    },\n    {\n      \"title\": \"British Representation Study, 1997\",\n      \"url_or_doi\": \"https://pippa-norris-5b3x.squarespace.com/data\",\n      \"justification\": \"Examines the political attitudes, values, experiences, and social backgrounds of British parliamentary candidates participating in the 1997 general election. Particularly valuable for studying political elites, ideological differences, candidate characteristics, and political representation. Complements voter-focused datasets by providing information about the political attitudes of individuals seeking elected office.\"\n    },\n    {\n      \"title\": \"Social and Political Change in Britain, 1945–1991: Historical Public Opinion Surveys\",\n      \"url_or_doi\": \"https://ropercenter.cornell.edu/esrc-project\",\n      \"justification\": \"Historical public opinion data covering British political behaviour and attitudes through 1991. Relevant for investigating political identification, voting preferences, social class differences, public policy attitudes, and long-term changes in British political opinion. Particularly useful for contextualising political attitudes during the early 1990s against trends established in previous decades. Coverage within the requested period is limited to 1990–1991.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451010.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19145,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1347,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 20492
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "query_id": 83,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14238\",\n      \"justification\": \"Provides comprehensive survey data on political attitudes, trust in governmental institutions, social issues, and political participation among the adult population in Germany during 2021.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) 2021 Cross-Section\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13860\",\n      \"justification\": \"Captures pre- and post-election voter behavior, party preferences, political orientation, and attitudes towards candidates for Germany's 2021 Federal Election (Bundestagswahl).\"\n    },\n    {\n      \"title\": \"GLES Panel 2016-2021 (Waves 1-21)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14114\",\n      \"justification\": \"Longitudinal survey data tracking individual political behavior, dynamic shifts in political attitudes, and electoral participation in Germany leading up to and during 2021.\"\n    },\n    {\n      \"title\": \"2021 German Federal Election Results by Polling District\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/bundestagswahlen/2021/ergebnisse.html\",\n      \"justification\": \"Official dataset from the Federal Returning Officer (Die Bundeswahlleiterin) containing detailed voting results, party votes, direct candidate votes, and turnout across polling districts for the 2021 German Bundestag election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 555,
+          "candidatesTokenCount": 438,
+          "totalTokenCount": 2486,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 555
+            }
+          ],
+          "thoughtsTokenCount": 1493,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "HgiEaofnNYuQvdIPr9XX4As"
+      }
+    }
+  ]
+}

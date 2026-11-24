@@ -1,0 +1,69 @@
+{
+  "query_id": 144,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13748\",\n      \"justification\": \"This cumulated longitudinal survey dataset by GESIS covers representative social and demographic survey data across West German states including North Rhine-Westphalia from 1980 onward, tracking attitudes toward family, marriage, households, and social trends.\"\n    },\n    {\n      \"title\": \"GESIS-Mikrozensus-Trendfile: Harmonisierung der Mikrozensen 1962 bis 2006\",\n      \"url_or_doi\": \"https://www.ssoar.info/ssoar/handle/document/37466\",\n      \"justification\": \"Provides harmonized representative microdata from multiple Microcensus waves across the 1980s (1980, 1982, 1985, 1987, 1989), covering household structures, marital status, family forms, and employment in West Germany including North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"Landesdatenbank Nordrhein-Westfalen: Statistik der Eheschließungen (EVAS 12611)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de\",\n      \"justification\": \"Official statistical database from the state statistical office IT.NRW providing official registry-based time-series data on marriages, marriage age, and civil status in North Rhine-Westphalia.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 922,
+          "candidatesTokenCount": 404,
+          "totalTokenCount": 2743,
+          "cachedContentTokenCount": 415,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 922
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 415
+            }
+          ],
+          "thoughtsTokenCount": 1417,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "HT-EatzbGPfkxN8PgJPz8Qo"
+      }
+    }
+  ]
+}

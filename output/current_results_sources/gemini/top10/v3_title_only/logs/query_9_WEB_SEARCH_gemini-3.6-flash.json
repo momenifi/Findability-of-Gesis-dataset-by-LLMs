@@ -1,0 +1,69 @@
+{
+  "query_id": 9,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled ClaimsKG - A Knowledge Graph of Fact-Checked Claims (January, 2023)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ClaimsKG - A Knowledge Graph of Fact-Checked Claims (January, 2023)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2620\",\n      \"justification\": \"This dataset is the January 2023 release of ClaimsKG, a structured knowledge graph harvesting fact-checked claims and related metadata from popular fact-checking websites, published and hosted by GESIS - Leibniz Institute for the Social Sciences.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EoULCoILARFNMg9NDePe/1078CoHRp5UEbJZabUHVbYJxKjPHZNnevhfXB5JH1oazUT2EKWpo54F5NeDE9fhqCzAfdmEs7g5iODOAIKLaCte+zkOWvH7sq32/yRT+6txGrcdUealdi5QY6jHfW7fBKwin7JaOUj3UIQdOWfCVl8sU5MoNXzCVmtsyuAcRBvs2wlOk9Brlogq1ZAF6baD92ftw0PGwsH2xef3EVjnofwO1njT0HI4KKA24xDY22iaZ/ogSbPaOgG8l8DaYPAeINHxVr8k0tjR+f1A6dknPVp2oS3LBd7F56iWPHBz0x/F0Fev26vkszY7yOkhagPrb9XvOgAt/WrtO51fSQw2dp3Wd3+1fphGfy++UBndej/pErql/1jgzMALpQfS93Se/hO3CbKSazR8bZz1j0AftDqp5IqkQvfPIrc9aGDlP9kG2yDccslti0HITtKCBNuwxyh8ZqCiK+UdoFAXh62iIr8OAi19OuIT6rfuSKyfn2eyv+SG7ym2xl82AEiC41+yX/8eDJsMnjUhnhNdbe015gZQ4aE79BogsqLxGuB7tjXsSWkfzTLyNt89t5M2dmglOlojvkU4PnQlj2JpiWrr3Ys6pF8KfBsszrVdCQ3A0HqUGbB9MfbMWCTjwcr6OYXo6T6Hqm2DO8h1CR3pY1VAsW3m2OgUTzh/Am0/ltCH4qERd4YzdmZnnzsgJoizQq0Hd77ybKkffXca2YmIaTw+67yU4Az9z9cjTwZ0P46q/6HUMjZRsZ+o8pEm9REQSJASybkmDA2P90XPY4vjwUdlqzZdbQt+W1g0c+ZiHiNRlRZp5BMLceGkqln8spgPn0LGK2f0aM8NuWtJHNKPenW/wo9SIs/KHwwNzrK0NU79lebrnkfnQ+Hkxv7ezuzOTLlXH9Z4qlBDgunHXpuFbpfEWtpBu7sq5bI2y8ekzbEOf0xgH+Cc1Tf6Fb5x6D7c5ggw07pohBLNM1hFJUrVf0JwNsU/YfzjdPzYz1baLqlKYCkcfH/6uDBZKaXz5ev74U9DJUmOaRV5n0IFMXnUPtxnHxjfYGLd+HGo+x5IneGy1+uhqkgbaLZQ6AYzaHrjv+SBEpW382EHt1GiWDHY4uhMxdkhFViaSI6u5cZOepx4z0NPQk8KkgxE1qfP7ju8OVZhbkqytCKNwlHGyM3hwPE6Fri6xhDKq2MTxKa81KwzU16+QbEsD715S97ToaB9o/YGdkkE2KXa7wwL9zTYix+f8IOHKAnm7TRwTeWNz0PoT0VzhP7GZUo5bZwMiNOOfTaJDKhiDVwf44DJr0n4PumiJvOSdu5/FncBON79aBxSiMYl4YthhxVuPzEky+JS2UppdnSGeVK6ddzsYplLeawOCbL29AwmNKm4w1pPRzxPNkWcNQ8SNwzB+oN3QwWi2RBbLDW3MMF+kn3U5zGQMGGEMVJCz8CMRLG0wBlfWSFzOt3Yng2HGpW3F8vcvPmu4sh6DhNgjYd9eNbk9z0+JtK87tDnFsw3Epyx4SFa+/aj8ksKynkeOkMmXzmiY46rTyyCCz0Dvz5+h7694kh6VIymvQEr+mkE5Nm0EbpBNeKnaMPuqeX0GZ89pAdM7hs7co7KireIWQPusYKVTjowZEKHbkMn1walzfEZFj8UAXAJ4enizxH24H1XO6WMXevKPa0/U02S2R+sTpyPLOFttu4eWKnQsEH6cv13TjQpfDD8UY9y72zWUwsstgcDZxO05piaKjWs0GpfhbYUNuEOE5eWO9sAUSOAk9STDYpVNiao4Bw4BD2FdN+FWTKPOCztkZ6Y8LD1mJJ7bJvZJW0jViFbPpdIWU6Qpte4KO9BJoZgprzka2D1upMYxH/T7jHed7AkI0CMIg0KS9Wi"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 298,
+          "candidatesTokenCount": 133,
+          "totalTokenCount": 1016,
+          "cachedContentTokenCount": 105,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 298
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 105
+            }
+          ],
+          "thoughtsTokenCount": 585,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "sbqnap-eFebNkdUP6Yu40AY"
+      }
+    }
+  ]
+}

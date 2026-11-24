@@ -1,0 +1,69 @@
+{
+  "query_id": 68,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS Study ZA1900: Volkskammerwahl 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1900\",\n      \"justification\": \"This dataset from the GESIS Data Archive, created by Forschungsgruppe Wahlen, contains survey and electoral data covering the March 18, 1990 Volkskammer election—the first and only freely elected parliament of the German Democratic Republic.\"\n    },\n    {\n      \"title\": \"GESIS Study ZA6420: Volkskammerwahl - Ein Jahr danach 1991\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6420\",\n      \"justification\": \"Archived by GESIS, this study gathers retrospective survey data on voting choices and political attitudes regarding the 1990 GDR Volkskammer election one year after it took place.\"\n    },\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://www.german-elections.com/\",\n      \"justification\": \"GERDA provides a panel dataset of local, state, and federal election results in Germany starting in 1990, covering municipal and district-level voting data in former GDR territories during and following reunification.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1170,
+          "candidatesTokenCount": 338,
+          "totalTokenCount": 3402,
+          "cachedContentTokenCount": 649,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1170
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 649
+            }
+          ],
+          "thoughtsTokenCount": 1894,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ujKEatGzN53nnsEP34yg8Qg"
+      }
+    }
+  ]
+}

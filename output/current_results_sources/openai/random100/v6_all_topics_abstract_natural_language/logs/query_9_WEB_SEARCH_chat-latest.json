@@ -1,0 +1,210 @@
+{
+  "query_id": 9,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Leisure, tourism and sport, Reproductive health, Specific diseases, disorders and medical conditions, Family life and marriage, and Gender and gender roles in German Democratic Republic (1949-1990) during the 1980s, matching this research need: Survey data on women’s health, menstruation, contraception, fertility, sexual relationships, partnership quality, division of household and childcare, work conditions, housing, and family life, including violence, finances, and work-family balance.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b1e9ec7c59723aa006b046fe771c487d2a67efaa2d41b14a3",
+        "created_at": 1795452903.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b1e9ec7c59723aa006b046fe8957087d2aab2c4ef76a801f3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1980 frauen survey Partnerschaft Sexualität Verhütung Arbeit Familie Datensatz",
+                "GDR 1980s women survey contraception fertility partnership household division dataset",
+                "ZA DDR Frauen Gesundheit Menstruation Partnerschaft 1987 Umfrage Datensatz"
+              ],
+              "query": "GESIS DDR 1980 frauen survey Partnerschaft Sexualität Verhütung Arbeit Familie Datensatz",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b1e9ec7c59723aa006b046feb092c87d2994aad4069a2d9c3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Frauenstudie 1984\" DDR",
+                "site:search.gesis.org/research_data \"Frauen\" \"1987\" \"DDR\" Haushalt",
+                "site:search.gesis.org/research_data \"Partner II\" 1980",
+                "site:search.gesis.org/research_data \"Frauenstudie\" \"1988\""
+              ],
+              "query": "site:search.gesis.org/research_data \"Frauenstudie 1984\" DDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b1e9ec7c59723aa006b046fecadb087d2b420e16f0f56fe92",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Frauenstudie 1984\" GESIS DOI",
+                "\"Frauenstudie 1984\" \"ZA\"",
+                "site:access.gesis.org/dbk/ \"Frauenstudie\" 1984",
+                "site:access.gesis.org/dbk/ \"Partner II\" \"1980\""
+              ],
+              "query": "\"Frauenstudie 1984\" GESIS DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b1e9ec7c59723aa006b046feefa9087d28fe704709cee1d9b",
+            "action": {
+              "type": "open_page",
+              "url": "https://access.gesis.org/dbk/16576"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b1e9ec7c59723aa006b046ff0d8c087d2b530c22814ca0cf9",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Frauenstudie 1984 (Women Study 1984) — GDR\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/16576\",\n      \"justification\": \"Excellent match. Conducted in 1984 by the Central Institute for Youth Research (ZIJ) in Leipzig, this survey examines the living and working conditions of young women in the GDR, particularly in the Erfurt and Karl-Marx-Stadt districts. The dataset contains 1,635 observations and 519 variables, covering women's employment, occupational demands, shift work, household responsibilities, childcare, fertility intentions, partnership quality, gender equality, housing conditions, finances, leisure activities, and work-family balance. It also investigates decision-making within relationships, male dominance, division of household labor, and conflicts surrounding gender equality. Questionnaires were administered to young women, their partners, and some of their mothers, making this particularly valuable for studying gender roles and intergenerational differences in family life during the 1980s.\"\n    },\n    {\n      \"title\": \"Partner II 1979/80 — Sexuality, Partnership and Reproductive Health in the GDR\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/4707\",\n      \"justification\": \"Excellent match for reproductive health, menstruation, contraception, fertility, sexual relationships, and partnership quality. Conducted between autumn 1979 and autumn 1980 by the Central Institute for Youth Research and Karl Marx University Leipzig, this representative survey includes 5,448 young workers, apprentices, and university students in the GDR. Its 376 variables address age at menarche, contraceptive knowledge and use, first sexual intercourse, sexual experiences, sexual difficulties, sexual satisfaction, romantic relationships, partner characteristics, marriage attitudes, fertility preferences, and abortion experiences among student respondents. Additional information includes occupational satisfaction, shift work, income, leisure activities, family background, and relationship expectations. The survey is particularly useful for studying women's sexual and reproductive experiences at the beginning of the 1980s.\"\n    },\n    {\n      \"title\": \"Partner III — Employed 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6142\",\n      \"justification\": \"Strong complementary dataset for studying reproductive health, sexuality, employment, and partnerships at the end of the GDR period. Conducted between April and June 1990, before German reunification, this representative survey includes 876 employed respondents aged up to 44 and contains 319 variables. Topics include sexual behavior, relationship expectations, occupational conditions, physical and psychological stress at work, effects of partnership and children on occupational achievement, and personal well-being. It also addresses sexuality and health concerns in the context of AIDS. Particularly useful for comparison with the 1979/80 Partner II survey to investigate changes in sexual relationships, reproductive attitudes, and work-family experiences across the 1980s. Its collection date is 1990 rather than the 1980s.\"\n    },\n    {\n      \"title\": \"Arbeits- und Lebensbedingungen Jugendlicher in Dresden 1984 (Working and Living Conditions of Young People in Dresden 1984)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/?extras_Contributor=Zentralinstitut+Fuer+Jugendforschung%2C+Leipzig&tags=Arbeitsbedingungen\",\n      \"justification\": \"Relevant supplementary survey conducted in Dresden in 1984. It examines young people's living conditions, housing, residential mobility intentions, occupational attitudes, characteristics of employment, job satisfaction, and social and political orientations. This dataset can support research on women's housing situations, employment experiences, and socioeconomic circumstances in an urban GDR setting. It is less directly focused on reproductive health and intimate relationships than Frauenstudie 1984. The URL points to a repository results page containing the dataset rather than a dedicated study landing page.\"\n    },\n    {\n      \"title\": \"Komplexstudie 1984 (Complex Study 1984)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/?extras_Contributor=Zentralinstitut+Fuer+Jugendforschung%2C+Leipzig&tags=Arbeitsbedingungen\",\n      \"justification\": \"Relevant for investigating everyday living conditions, work, leisure, and social attitudes among young people in the GDR during 1984. The survey covers housing, occupational and leisure activities, and broader life circumstances. It provides useful contextual information for examining how employment and living conditions shaped the experiences of young women during the 1980s. Its relevance to menstruation, contraception, violence, and reproductive health is limited. The supplied URL is a repository results page listing the study.\"\n    },\n    {\n      \"title\": \"Kultur und wissenschaftlich-technischer Fortschritt 1988 (Culture and Scientific-Technological Progress 1988)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/?extras_Contributor=Zentralinstitut+Fuer+Jugendforschung%2C+Leipzig&tags=Arbeitsbedingungen\",\n      \"justification\": \"Useful supplementary dataset collected in 1988, particularly for research concerning employment, leisure, housing, and social relationships in the late GDR. Topics include leisure interests, use of recreational facilities, housing conditions, occupational requirements, and interpersonal relationships within workplaces. These variables can help investigate women's everyday activities, working environments, and opportunities for recreation. It is not specifically a women's health or reproductive health survey, but it offers relevant socioeconomic context. The URL identifies a repository results page containing the study.\"\n    },\n    {\n      \"title\": \"Jugend und Sport 1987 (Young People and Sport 1987)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/?extras_Contributor=Zentralinstitut+Fuer+Jugendforschung%2C+Leipzig&tags=Arbeitsbedingungen\",\n      \"justification\": \"Relevant for the health, leisure, sport, and employment dimensions of the research. Conducted in 1987, the study investigates sporting activities, attitudes toward physical exercise, and participation in mass sports in relation to employment and education. It also includes a supplementary questionnaire addressing respondents' health status. This makes it a potentially useful source for studying physical well-being and leisure among young women in the GDR. However, it does not directly address menstruation, contraception, intimate relationships, or household labor. The URL leads to a repository results page listing the dataset.\"\n    },\n    {\n      \"title\": \"Leben in der ehemaligen DDR (Life in the Former GDR) — Retrospective Survey 2018\",\n      \"url_or_doi\": \"https://www.diw-berlin.de/de/diw_01.c.758986.de/edition/leben_in_der_ehemaligen_ddr__daten_2018.html\",\n      \"justification\": \"Useful retrospective supplement for reconstructing everyday life in the GDR, including experiences during the 1980s. This research resource combines historical material relating to citizens' grievances between 1970 and 1989 with a retrospective survey of former GDR citizens conducted in 2018. It provides evidence concerning living conditions, social experiences, and participation in public life under socialism. It may help contextualize women's housing, finances, family circumstances, and institutional experiences, although coverage of specific reproductive-health variables is not established. Because the survey was conducted decades after the events being studied, retrospective recall must be considered when interpreting results.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452921.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 25721,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1786,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 27507
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

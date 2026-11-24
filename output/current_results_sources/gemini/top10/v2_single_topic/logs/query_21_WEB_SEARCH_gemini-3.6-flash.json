@@ -1,0 +1,69 @@
+{
+  "query_id": 21,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ARD/ZDF Medienstudie 2024\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2764\",\n      \"justification\": \"Provides national reference data on intermedia media consumption (audio, video, online, and traditional media usage) among the German population in 2024.\"\n    },\n    {\n      \"title\": \"Social Media Accounts of Candidates from the German Federal Election 2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14798\",\n      \"justification\": \"GESIS dataset collecting public social media profiles (TikTok, Instagram, X/Twitter, Facebook, Bluesky) of candidates in Germany during the 2025 federal election campaign.\"\n    },\n    {\n      \"title\": \"GLES Candidate Study European Parliament Election 2024, Social Media Accounts\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14457\",\n      \"justification\": \"Dataset documenting social media activities and platform presence of German candidates for the 2024 European Parliament election.\"\n    },\n    {\n      \"title\": \"ALLBUS 2023 - Digital Behavioral Data (DBD) Add-On\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14453\",\n      \"justification\": \"A GESIS dataset combining population survey data from the German General Social Survey with passive web tracking to analyze internet media browsing behavior in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 438,
+          "candidatesTokenCount": 398,
+          "totalTokenCount": 2143,
+          "cachedContentTokenCount": 128,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 438
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 128
+            }
+          ],
+          "thoughtsTokenCount": 1307,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "LrenaoaiCp2lvdIPjof32Qs"
+      }
+    }
+  ]
+}

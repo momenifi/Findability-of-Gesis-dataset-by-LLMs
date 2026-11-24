@@ -1,0 +1,184 @@
+{
+  "query_id": 75,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Compulsory and pre-school education in Schleswig-Holstein during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d2707343ec1df56006b045ef6122887d2a5673e849d20e3f1",
+        "created_at": 1795448566.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d2707343ec1df56006b045ef6fb8887d29740d8d6321a724b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Schleswig-Holstein Statistik allgemeinbildende Schulen Schüler Schuljahr 2023 2024 dataset",
+                "Schleswig-Holstein Kindertageseinrichtungen Kinder 2024 Statistik daten download",
+                "Regionaldatenbank Deutschland Schleswig-Holstein Kindertagesbetreuung Schulen Daten"
+              ],
+              "query": "Schleswig-Holstein Statistik allgemeinbildende Schulen Schüler Schuljahr 2023 2024 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d2707343ec1df56006b045efc0e6887d296e956d5a3cc09c4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistik-nord.de \"Kindertageseinrichtungen\" \"Schleswig-Holstein\" 2024 2023",
+                "site:genesis.destatis.de/datenbank/online/statistic/22541/table Kindertageseinrichtungen Bundesländer Jahr",
+                "site:statistik-nord.de \"Allgemeinbildende Schulen in Schleswig-Holstein\" Schüler 2024 2025 statistische berichte"
+              ],
+              "query": "site:statistik-nord.de \"Kindertageseinrichtungen\" \"Schleswig-Holstein\" 2024 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d2707343ec1df56006b045eff0ac887d29c7ba4a8f1e59e92",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"GENESIS-Online: Students by Federal State, School Year, Gender, School Type and Grade (1998/99–2025/26)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/21111/table/21111-0011\",\n      \"justification\": \"Official dataset from the German Federal Statistical Office (Destatis). Provides annual student enrollment figures for Schleswig-Holstein, including primary schools, secondary schools, grammar schools (Gymnasien), and special education schools. Data can be filtered by school year, gender, school type, and grade level. Particularly useful for examining compulsory education enrollment trends throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Statistik Nord: Directory of General Education Schools in Schleswig-Holstein (2020/21–2024/25)\",\n      \"url_or_doi\": \"https://www.statistik-nord.de/presse-veroeffentlichungen/verzeichnisse-klassifikationen-systematiken/dokumentenansicht/product/954/allgemeinbildende-schulen-in-schleswig-holstein-236\",\n      \"justification\": \"Official school directory published by the Statistical Office for Hamburg and Schleswig-Holstein. Includes school-level information for multiple academic years during the 2020s. Schools are categorized by administrative district, school type, and public or private status. Selected editions provide machine-readable XLSX files. Useful for studying the geographical distribution and institutional structure of compulsory education.\"\n    },\n    {\n      \"title\": \"Statistik Nord: General Education Schools by School Type in Schleswig-Holstein – Historical Time Series\",\n      \"url_or_doi\": \"https://region.statistik-nord.de/detail_timeline/16/1301/2/1/\",\n      \"justification\": \"Interactive statistical dataset maintained by Statistik Nord. Provides historical information about general education schools in Schleswig-Holstein, broken down by school type and academic year. Includes observations covering the 2020s and enables comparisons across years. Useful for analyzing changes in the number and composition of primary and secondary schools.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook Schleswig-Holstein 2024: Education and Culture\",\n      \"url_or_doi\": \"https://www.statistik-nord.de/fileadmin/Dokumente/JB2024_SH.pdf\",\n      \"justification\": \"Official statistical yearbook containing education datasets for Schleswig-Holstein. The education chapter includes information on general education schools in 2024/25, teaching personnel, historical student enrollment, and school-leaving qualifications. Historical tables cover the 2020s, allowing analysis of compulsory education participation, educational outcomes, and staffing. The yearbook also identifies downloadable spreadsheet tables.\"\n    },\n    {\n      \"title\": \"GENESIS-Online: Daycare Facilities by Federal State, Reference Date and Children's Age Groups (2014–2026)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541%2A/table/22541-0103\",\n      \"justification\": \"Official Destatis dataset covering the number of childcare and preschool facilities across German federal states, including Schleswig-Holstein. Provides annual observations throughout the 2020s and distinguishes facilities according to the age groups they serve. Particularly relevant for examining preschool infrastructure and changes in early childhood education provision.\"\n    },\n    {\n      \"title\": \"GENESIS-Online: Daycare Facilities by Federal State and Opening Hours (2019–2026)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541/table/22541-0102\",\n      \"justification\": \"Official dataset describing childcare facility opening and closing times across German federal states. Schleswig-Holstein can be selected independently. Annual data for the 2020s support analysis of preschool service availability, operating schedules, and the accessibility of early childhood education for working families.\"\n    },\n    {\n      \"title\": \"GENESIS-Online: Statistics of Child Daycare Facilities\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541/details\",\n      \"justification\": \"Official collection of statistical tables on early childhood education and childcare in Germany. Includes data on childcare institutions, enrolled children, approved places, staff, age groups, and characteristics of childcare provision. Tables with federal-state breakdowns can be filtered for Schleswig-Holstein. A valuable source for identifying complementary preschool education datasets covering the 2020s.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein Social Monitoring: Childcare Participation Rates, 2024\",\n      \"url_or_doi\": \"https://sogemon.schleswig-holstein.de/html/index.html?report=BETR_BETREUUNG\",\n      \"justification\": \"Official Schleswig-Holstein social monitoring dataset presenting childcare participation rates and numbers of children receiving care. The 2024 data distinguish children under 3, children aged 3–5, and children aged 6–13. They also distinguish institutional daycare from publicly funded childminding. Especially useful for measuring preschool participation and comparing childcare coverage across age groups.\"\n    },\n    {\n      \"title\": \"GovData: Childcare Facilities in Schleswig-Holstein (Kindertagesstätten)\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/kindertagesstattena9331\",\n      \"justification\": \"Open government dataset containing administrative information about childcare facilities registered in the Schleswig-Holstein KitaPortal. Includes facility identifiers, addresses, geographic coordinates, and institutional characteristics. Useful for mapping preschool facilities, analyzing geographical accessibility, and investigating the spatial distribution of early childhood education services during the 2020s.\"\n    },\n    {\n      \"title\": \"GovData: INSPIRE Schleswig-Holstein – Childcare Facility Locations\",\n      \"url_or_doi\": \"https://data.gov.de/suche/daten/inspire-sh-staatliche-dienste-kindertagesstatten-in-schleswig-holstein\",\n      \"justification\": \"Official geospatial dataset documenting childcare facility locations in Schleswig-Holstein under the European INSPIRE framework. Provides access to standardized geographic information through spatial data services. Useful for geographical analysis of preschool provision, including comparisons between urban and rural areas and assessments of facility accessibility.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein Ministry of Education: School Statistics and Teaching Conditions\",\n      \"url_or_doi\": \"https://www.schleswig-holstein.de/DE/fachinhalte/S/schulverwaltung/schulstatistik\",\n      \"justification\": \"Official state government portal providing access to Schleswig-Holstein school statistics and reports on teaching conditions, including reports for the 2023/24 and 2024/25 academic years. Relevant information includes school administration, educational staffing, and teaching provision. Useful as a supplementary source for analyzing the resources and institutional conditions of compulsory education.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein School Statistics: Student Enrollment by School Type, Gender and District, 2022/23–2023/24\",\n      \"url_or_doi\": \"https://www.landtag.ltsh.de/infothek/wahl20/umdrucke/03600/umdruck-20-03637.pdf\",\n      \"justification\": \"Official Schleswig-Holstein parliamentary publication containing statistical results from the state's school data collection. Includes comparisons of student enrollment between the 2022/23 and 2023/24 academic years, broken down by school type, gender, and administrative district. Particularly useful for examining regional differences and recent enrollment changes in compulsory schooling.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein: Development of Student Enrollment in General and Vocational Schools, 2022/23–2023/24\",\n      \"url_or_doi\": \"https://www.landtag.ltsh.de/infothek/wahl20/drucks/02700/drucksache-20-02797.pdf\",\n      \"justification\": \"Official state parliamentary statistical report comparing student enrollment across consecutive academic years. Provides detailed figures for primary schools, general education schools, community schools, and special education institutions. Includes absolute and percentage changes in enrollment. Useful for studying demographic and institutional developments affecting compulsory education in Schleswig-Holstein during the 2020s.\"\n    },\n    {\n      \"title\": \"GENESIS-Online: Childcare Personnel by Federal State, Reference Date and Area of Work\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541%2A/table/22541-0104\",\n      \"justification\": \"Official Destatis dataset reporting personnel employed in childcare facilities, classified by federal state, reference date, and area of work. Allows selection of Schleswig-Holstein and supports analysis of preschool staffing and workforce composition. Useful for examining changes in early childhood education resources during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448584.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18943,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1966,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20909
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

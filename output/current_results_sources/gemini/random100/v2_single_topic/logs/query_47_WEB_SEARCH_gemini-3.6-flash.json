@@ -1,0 +1,69 @@
+{
+  "query_id": 47,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Zeitverwendungserhebung 2012/2013 (Scientific Use File)\",\n      \"url_or_doi\": \"https://doi.org/10.21242/63911.2013.00.00.3.1.0\",\n      \"justification\": \"A comprehensive microdata collection from the Research Data Centre of the German Federal Statistical Office (Destatis) that details daily time allocation—including leisure time, sport, and recreational activities—across German households in 2012–2013.\"\n    },\n    {\n      \"title\": \"Eurostat - Nights spent at tourist accommodation establishments - monthly data (tour_occ_nim)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/tour_occ_nim\",\n      \"justification\": \"Official Eurostat dataset capturing monthly occupancy and nights spent at tourist accommodation establishments across European countries, providing detailed time-series data for Germany throughout the 2010s.\"\n    },\n    {\n      \"title\": \"ALLBUS 2018 - German General Social Survey 2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13250\",\n      \"justification\": \"A representative population survey dataset archived at GESIS covering social structure, attitudes, and behaviors in Germany in 2018, including individual participation in leisure, culture, and sports.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 710,
+          "candidatesTokenCount": 364,
+          "totalTokenCount": 2665,
+          "cachedContentTokenCount": 253,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 710
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 253
+            }
+          ],
+          "thoughtsTokenCount": 1591,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "by6Earm9BMHnnsEPjsvIiQk"
+      }
+    }
+  ]
+}

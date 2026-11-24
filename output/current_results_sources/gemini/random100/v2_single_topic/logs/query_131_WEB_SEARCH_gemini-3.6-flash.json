@@ -1,0 +1,69 @@
+{
+  "query_id": 131,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991 (German General Social Survey - Baseline Survey 1991)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"This representative survey conducted shortly after German reunification measures political attitudes, participation, and societal perspectives across all German federal states, including Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein.\"\n    },\n    {\n      \"title\": \"German National Election Study - Post-Election Study 1998 (German CSES Study)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11566\",\n      \"justification\": \"This post-election survey examines political behavior, voting choices, political knowledge, party identification, and satisfaction with democracy across German federal states following the 1998 Bundestag election.\"\n    },\n    {\n      \"title\": \"Responsiveness and Public Opinion in Germany (ResPOG)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2299\",\n      \"justification\": \"This dataset compiles public opinion and political attitudes from Politbarometer and DeutschlandTrend surveys across German federal states throughout the 1990s to evaluate political preferences and parliamentary responsiveness.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1278,
+          "candidatesTokenCount": 361,
+          "totalTokenCount": 3333,
+          "cachedContentTokenCount": 657,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1278
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 657
+            }
+          ],
+          "thoughtsTokenCount": 1694,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "LjyEapzeKNetvdIP-KrZsAI"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 123,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about artificial intelligence in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Dataset of Federal and Municipal Chatbots in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.14536729\",\n      \"justification\": \"A dataset released on Zenodo analyzing the deployment, interaction patterns, and operational features of federal and municipal AI chatbots across public administration in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Enterprises Using Artificial Intelligence Technologies by NACE Rev. 2 Activity\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_EB_AIN2\",\n      \"justification\": \"An official Eurostat dataset collecting statistical indicators on artificial intelligence adoption and usage among enterprises in European countries, including Germany, throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Global AI Adoption Trends by Industry Sector, Country, and Business Function (2017–2025): A Compiled Research Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.17632/dnm5jxgn2m.2\",\n      \"justification\": \"A research dataset published on Mendeley Data compiling multi-source indicators on artificial intelligence adoption rates, investments, and enterprise usage, including country-level data for Germany during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1060,
+          "candidatesTokenCount": 342,
+          "totalTokenCount": 3388,
+          "cachedContentTokenCount": 621,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1060
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 621
+            }
+          ],
+          "thoughtsTokenCount": 1986,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "nTqEaoyYNOrtxN8PrpzvwAw"
+      }
+    }
+  ]
+}

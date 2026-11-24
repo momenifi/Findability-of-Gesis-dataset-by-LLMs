@@ -1,0 +1,185 @@
+{
+  "query_id": 150,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b90de716b78bab4006b0463f0067c87d2b4c93c3cad66d803",
+        "created_at": 1795449840.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b90de716b78bab4006b0463f0ea9087d291bcdbc54aa32e73",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 1960s historical election results dataset Bundestag 1961 1965 1969 GESIS",
+                "Germany historical political parties government dataset 1960s ParlGov",
+                "Bundestag historical members data 1949 1960 dataset German parliament"
+              ],
+              "query": "Germany 1960s historical election results dataset Bundestag 1961 1965 1969 GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b90de716b78bab4006b0463f48db087d2bc7c4b29f66e7cd4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "ParlGov database download elections cabinets Germany 1945",
+                "Comparative Political Data Set 1960 2023 download cpds",
+                "Manifesto Project database Germany election 1961 1965 1969 download",
+                "East Germany GDR 1960s political data dataset Volkskammer elections"
+              ],
+              "query": "ParlGov database download elections cabinets Germany 1945",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b90de716b78bab4006b0463f861d487d28e088a369aec92da",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Post-War Election Database (GPWED), 1949–1969\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12559339/\",\n      \"justification\": \"Highly relevant historical dataset containing municipality-level results for West German federal parliamentary elections between 1949 and 1969, including the elections of 1961, 1965, and 1969. Enables detailed analysis of voting patterns, political party support, electoral geography, and the development of West Germany's democratic political system during the 1960s. Particularly useful for examining regional political differences and electoral changes.\"\n    },\n    {\n      \"title\": \"ParlGov – Parliaments and Governments Database\",\n      \"url_or_doi\": \"https://www.parlgov.org/data-info/\",\n      \"justification\": \"Comparative political dataset documenting political parties, parliamentary elections, government cabinets, and coalition formation in established democracies, including West Germany during the 1960s. Provides structured information on government composition, party representation, election results, and cabinet changes. Particularly valuable for studying the transition from Christian Democratic governments to the first Social Democratic-led federal government in 1969.\"\n    },\n    {\n      \"title\": \"Comparative Political Data Set (CPDS), 1960–2023\",\n      \"url_or_doi\": \"https://fis.leuphana.de/de/datasets/comparative-political-data-set/\",\n      \"justification\": \"Longitudinal dataset containing political and institutional indicators for democratic countries, including West Germany throughout the 1960s. Includes variables related to government composition, parliamentary representation, political parties, electoral systems, and political institutions. Suitable for examining West Germany's government structure and comparing its political system with other European democracies during the Cold War.\"\n    },\n    {\n      \"title\": \"Comparative Political Data Set – Historical Data Archive\",\n      \"url_or_doi\": \"https://cpds-data.org/archive/\",\n      \"justification\": \"Provides downloadable historical versions of the Comparative Political Data Set, including datasets beginning in 1960. Contains country-year observations concerning political institutions, governing parties, electoral outcomes, and government composition. Particularly useful for quantitative research on changes in West German government and political organizations throughout the 1960s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database – Political Party Election Programs\",\n      \"url_or_doi\": \"https://gitlab.manifesto-project.wzb.eu/\",\n      \"justification\": \"Extensive dataset of political party election manifestos and their coded policy positions across democratic countries since 1945. Includes German political parties participating in the federal elections of 1961, 1965, and 1969. Enables systematic investigation of ideological differences, policy priorities, and political competition between organizations such as the CDU/CSU, SPD, and FDP during the 1960s.\"\n    },\n    {\n      \"title\": \"German Bundestag Open Data – Parliamentary Records and Members Since 1949\",\n      \"url_or_doi\": \"https://www.bundestag.de/services/opendata\",\n      \"justification\": \"Official German parliamentary open-data collection providing machine-readable parliamentary documents, plenary proceedings, and biographical information about Bundestag members since 1949. Covers the parliamentary terms of the 1960s and supports research into legislative activity, political representatives, parliamentary institutions, and government-opposition relationships in West Germany.\"\n    },\n    {\n      \"title\": \"German Federal Election Results, 1949–2013 – Wahlen in Deutschland\",\n      \"url_or_doi\": \"https://www.wahlen-in-deutschland.de/abbtwalg.htm?level=1\",\n      \"justification\": \"Historical election database offering downloadable results of German federal elections at constituency, state, and national levels. Includes the 1961, 1965, and 1969 Bundestag elections, with data available in statistical formats including Stata and Excel. Useful for analyzing party competition, parliamentary seat distribution, electoral geography, and changes in political representation during the 1960s.\"\n    },\n    {\n      \"title\": \"German Bundestag – Historical Parliamentary Data Handbook\",\n      \"url_or_doi\": \"https://www.bundestag.de/dokumente/parlamentsarchiv/datenhandbuch/\",\n      \"justification\": \"Official historical statistical collection documenting the organization, membership, and activities of the German Bundestag since 1949. Includes parliamentary statistics and chronological information covering the 1960s. Particularly relevant for studying parliamentary structures, government formation, legislative activity, political representation, and institutional development in West Germany.\"\n    },\n    {\n      \"title\": \"Fraktionen im Deutschen Bundestag, 1949–2005 – Parliamentary Party Group Records\",\n      \"url_or_doi\": \"https://zenodo.org/records/20719652\",\n      \"justification\": \"Research dataset containing edited meeting records of parliamentary party groups in the German Bundestag. Includes CDU/CSU records from 1949 to 1976, SPD records from 1949 to 1980, and FDP records from 1949 to 1983, providing coverage of the entire 1960s. Particularly valuable for studying political party organizations, internal parliamentary decision-making, coalition negotiations, party leadership, and government-opposition relationships.\"\n    },\n    {\n      \"title\": \"Members of the German Bundestag Since 1949 – btmembers Dataset\",\n      \"url_or_doi\": \"https://github.com/jolyphil/btmembers\",\n      \"justification\": \"Structured parliamentary membership dataset derived from official Bundestag records. Provides information on representatives serving in the German federal parliament since 1949, including all parliamentary terms during the 1960s. Offers downloadable data in CSV and Excel formats, making it useful for examining political careers, party affiliations, parliamentary membership, and changes in political representation.\"\n    },\n    {\n      \"title\": \"REPDEM – Representative Democracy Data Archive\",\n      \"url_or_doi\": \"https://repdem.org/index.php/current-dataset/\",\n      \"justification\": \"Comparative historical dataset documenting governments, parliaments, political parties, and political institutions in parliamentary democracies from 1945 onward. Includes West Germany during the 1960s. Contains information about cabinet formation, government duration, party representation, parliamentary institutions, and election results. Particularly useful for studying coalition governments, parliamentary democracy, and political stability.\"\n    },\n    {\n      \"title\": \"Political Parties, Presidents, Elections, and Governments (PPEG)\",\n      \"url_or_doi\": \"https://www.ppeg.wzb.eu\",\n      \"justification\": \"Comparative political dataset combining information on political parties, election results, government cabinets, and political executives across democracies. Its historical coverage begins in 1942 and includes postwar West Germany. Suitable for analyzing political organizations, electoral competition, governing coalitions, cabinet composition, and changes in executive power during the 1960s.\"\n    },\n    {\n      \"title\": \"German Federal Election 1961 – Official Electoral Statistics\",\n      \"url_or_doi\": \"https://bundeswahlleiterin.de/en/bundestagswahlen/1961.html\",\n      \"justification\": \"Official historical electoral statistics published by Germany's Federal Returning Officer for the 1961 Bundestag election. Provides party vote totals, vote shares, parliamentary seat allocations, and constituency-level election results. Particularly useful for examining the political system at the beginning of the 1960s, including the electoral performance of the CDU/CSU, SPD, and FDP.\"\n    },\n    {\n      \"title\": \"German Democratic Republic – Volkskammer Elections, 1950–1989\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/wahlen-in-der-ddr/\",\n      \"justification\": \"Official German Federal Archives collection documenting elections to the East German Volkskammer between 1950 and 1989. Includes archival materials concerning the electoral system and political institutions of the German Democratic Republic during the 1960s. Particularly valuable for investigating the Socialist Unity Party's political dominance, the National Front electoral system, and the institutional differences between East and West Germany. Primarily an archival source collection rather than a ready-made statistical dataset.\"\n    },\n    {\n      \"title\": \"Members of the German Bundestag, 1946–1972 – Historical Biographical Documentation\",\n      \"url_or_doi\": \"https://kgparl.de/en/research/members-of-the-german-bundestag-1946-1972/\",\n      \"justification\": \"Historical research collection documenting members of Germany's political and parliamentary elite between 1946 and 1972. Covers political representatives active throughout the 1960s and provides biographical information relevant to the study of political leadership, parliamentary organizations, and elite recruitment. Useful for reconstructing political networks and examining continuity and change in West German political institutions. It is primarily a biographical research resource rather than a standardized quantitative dataset.\"\n    },\n    {\n      \"title\": \"German Bundestag – Parliamentary Documentation and Historical Proceedings\",\n      \"url_or_doi\": \"https://www.bundestag.de/blueprint/servlet/en/documents/parliamentary_documentation\",\n      \"justification\": \"Official collection of German parliamentary documentation, including plenary proceedings and legislative documents dating back to the first Bundestag electoral term in 1949. Contains primary-source material from the 1960s concerning government policy, legislative debates, parliamentary parties, and political institutions. Useful for analyzing the functioning of parliamentary democracy and the activities of political organizations during the period.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449858.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18970,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2140,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21110
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

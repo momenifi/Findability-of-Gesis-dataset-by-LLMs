@@ -1,0 +1,62 @@
+{
+  "query_id": 1,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LABOUR AND EMPLOYMENT in Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ILOSTAT Labour Statistics Database\",\n      \"url_or_doi\": \"https://ilostat.ilo.org/\",\n      \"justification\": \"ILOSTAT is the primary global database on labour statistics provided by the International Labour Organization (ILO). It covers comprehensive indicators on employment, unemployment, working hours, informal economy, and wages for countries across Europe and Central Asia—including Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia—throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"European Union Labour Force Survey (EU-LFS)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/lfs\",\n      \"justification\": \"Maintained by Eurostat, the EU Labour Force Survey (EU-LFS) is a large-scale household sample survey providing harmonized quarterly and annual data on employment, unemployment, and labour force characteristics across EU Member States, EFTA countries, UK, and candidate countries throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"European Working Conditions Survey Integrated Data File, 1991-2024\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-7363-10\",\n      \"justification\": \"Conducted by Eurofound and made available via the UK Data Service, the EWCS dataset provides harmonized survey data on employment status, working hours, job quality, health and safety, and work organisation across European countries (EU Member States, UK, EFTA, and candidate countries) for rounds covering the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"World Bank Open Data - Labor Force, Total\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.TLF.TOTL.IN\",\n      \"justification\": \"World Bank Open Data aggregates ILO modelled estimates and national country reports to provide annual time-series datasets on total labour force, employment rates, and participation rates for all specified European and Eurasian countries throughout the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 749,
+          "candidatesTokenCount": 592,
+          "totalTokenCount": 3114,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 749
+            }
+          ],
+          "thoughtsTokenCount": 1773,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "3rWnaoaSEJ6kkdUPnvT00AQ"
+      }
+    }
+  ]
+}

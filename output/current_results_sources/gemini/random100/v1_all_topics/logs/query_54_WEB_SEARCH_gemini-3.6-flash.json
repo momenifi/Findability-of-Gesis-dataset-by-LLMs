@@ -1,0 +1,62 @@
+{
+  "query_id": 54,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations, International politics and organisations, and Political behaviour and attitudes in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GLES Cross-Section 2021, Pre- and Post-Election\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14170\",\n      \"justification\": \"Provides comprehensive survey data on voting behavior, political participation, party candidate evaluations, and political attitudes in Germany surrounding the 2021 federal election.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14151\",\n      \"justification\": \"Tracks political orientation, trust in government institutions, civic attitudes, and social-political opinions across a representative sample of the German population in 2021.\"\n    },\n    {\n      \"title\": \"European Social Survey Round 10 (2020–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS10-2020\",\n      \"justification\": \"Includes cross-national survey data for Germany capturing public evaluations of democratic systems, trust in national and international political organizations, and political engagement during 2020–2022.\"\n    },\n    {\n      \"title\": \"GLES Panel 2024, Profilwelle A5\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14543\",\n      \"justification\": \"A longitudinal survey dataset tracking individual-level changes in political behavior, party preferences, and political attitudes among German voters in the mid-2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 542,
+          "candidatesTokenCount": 422,
+          "totalTokenCount": 2172,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 542
+            }
+          ],
+          "thoughtsTokenCount": 1208,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "h_-DatOmOr_8vdIPyee8mQo"
+      }
+    }
+  ]
+}

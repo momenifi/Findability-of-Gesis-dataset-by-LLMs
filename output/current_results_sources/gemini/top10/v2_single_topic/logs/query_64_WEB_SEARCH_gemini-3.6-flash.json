@@ -1,0 +1,69 @@
+{
+  "query_id": 64,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalist in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Die Themen 'Umwelt' und 'Corona' in der medialen Berichterstattung während der ersten Coronawelle in Deutschland 2020\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2333\",\n      \"justification\": \"Quantitative content analysis dataset archived at GESIS covering 15,038 news items from major German media outlets and journalists during the first COVID-19 wave in 2020.\"\n    },\n    {\n      \"title\": \"Journalismus in Deutschland 2023: Aktuelle Befunde zu Situation und Wandel\",\n      \"url_or_doi\": \"https://doi.org/10.21241/ssoar.89555\",\n      \"justification\": \"Representative survey dataset and research report covering 1,221 journalists in Germany surveyed between September 2022 and February 2023 as part of the Worlds of Journalism Study.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpcSCpQSARFNMg9MEJqC2PtKoNLZv975QcZLpIjTu2ppVANbP3WSps/hr11ATsf1gX+aabwkefzuk6uVbl8h5HRK4rdpAveHWdKkfQ8vPSnDBb4ZrKxrdnxEVXdx5vLIr5yJxT4id/YxAx9GaHdmDj7SZZMdRBypBEmnyP83zCybGvF7Z2A9At3ukbwca6UBWs2v7iOzrN7AE1g0zm+Pv2qh+rLkrhror2IFkElmpEpmQ/gw4Ncgdhplv9nuO/mGjWdEf2RMmDzpeffp/ny0CYj/B0FkfgzqLJe3SqgfF2DsuOd4Gs3EzA+681g/zlbmH8iXCVLI3a59YV8DgRX/VHXaLrJB83v5nsAo45Ik3rx2D3nCFsKzkVx0lBT5NqDy7vhTP1aRWsXE+Mb6rM2Ya5TFfzaKrGkmmfHwe5Yt8fxINN+ZGnlGnBPmW1poy5doANI06p/x3+HnIktPsxLfd9N4SkKCZWKjcwabvWFsi6ZB12BVF31871JdVK+6YeHHtQImj8iDl6LoYC3gHx1bSBvyAkNZC7H7wfS4s866lhH8jxfRJ2TDXvzqfxxrr4sxt2DndWadNNYShbMWEjZt4X+K5oZRKQwN+Z26tPGsunljW5hES2wb4pAx5WLDVj3/nfXfiGNPFsST22KGqDFpe9NfKjPMFA1e+XPZKVm5s6pwywK6wcpb00zY2s/aWPTumzRl+dLwhYCyCB2Anw2f/vTfEBsu7QATKGUZJMAS/QFQBQSroPkj95j4W5T3olxBcdQBuIKUjiDtBqHcpYnp8k8lwjUBLcgm9U2JR553lJ9kWunpHC3A4RiUKUcXn2lSHlZfU5fsshj8FmOJDRBgccLdYA5V8eW6omqARmTPXlPX/WklzlKrGzul7EaYFNOHo6X+nQWetomduKNGJFjeLzx9aRMtphghW4FOxXrAU/44zrJi2Haeis8xT2oB6Tycvq1iDwObb0vltKFM+3IX2JUwnICzdY0RTkk1fbS3COr1Uj/HjmPAoan2rvHCvE7rYH0ufGZWYXI7dQQ1thwudB+tlwyNSi2DR5DEOzuDZs2T/WGatF4YQ9nbwiPMwI7bvZEBJd4b3cdOXLM/9JI6YHkcdJ0YS59iNoSQcJFWP5sF50OYHJbi0oYow5yjI+hJnh98JxYsIUcjHxFINglNf6Iqs/g+GJ27pkuXJcCFlgazCof++oanbQUz+aguiyToKQmh95uhKaDH+NIGeATHyaGfDg//evlGf5CvsaGtT0d2le8YSrBPhL10jQ1oihV59GN2w3YZTDm6GIIUnsMSbvWo6dQcAr0j6/LHoI/jCoI3pHGWanqfJytcUwgP/FPq3BQ6R+NJXhyoq/2PqAUItz7acXxboH3sSCN4sdJNkajfHBwrYuBRr6T3K4vK6eKU/FRah0lmWUj/d7GPNF8qc5MEi0gCukfyEjTf97HEJpwD46+9Fhu0/wOFYuxG4L0oy9SoHsdRWjyd66NsYDOw9ux/ptHLjzlOwe2dN5Kr5WjE4u0iNu4U303DoaXUJ5RhB9REHXYZnPdDUx8T949XECmZjRW30HjGMKtnydax35Q1rcGbkZs1OSv1ovc01qBVW+u/U4hZ25mwJ7/qG+rHMm+Sxid/ZvGtQKstwD8P0uISvobLvNdUKDOLIf27PT3I7DaIZ4sx+dD6I1Ic/tSP6aIRvHFR/k+O9eaa+vR7jkMAUgcd5zfmoFpwkwRbOTKRclwP632ulPXbe6TaVoYdzVhT7k6G3iahNdDbFq+cWZYEUZppnewLErAhpYmTnaO5wpOwKUZJd05Ko6M20a84ohxNO+2oCeEhrVerNPuZ1RknYoU+NRqN2nljtbtQspFux5EyjJvOinR6gKY1j0/FKZgHtKsOcW9C26tLwieEuDy8kD4JmjIOT7G8FjA0aTSyOqJU5hugJZphabkpwqEPq2p8O6STNU4ydV4RcYSdgRXj79fGtvrLsCSnLFLXBKEILRF6+F4l64FulCWrlsMO5XQl3V4t3FKM8gi7XPuM+yd5weDY/IYsqIAIINRSKffU1xlsfn3Ydnaf1g7Obi2aAzY/HOw6/mYYGEZaBVDSlPDaySBM9Eh+mwVsNbqu8HRPuiPoOzZdefX6m7QsNCO9vVk64FZ5hxGDlAZZQlT8GZYwasX9JzTjWRWVTz7ElZJF1F8T4a4g/OcpjZteAcVWb12DdayOaJ2JbK8ATi/Qhju0v3B2biKmwounL45jNBObMpZUqf4p9pwsWwMg1bJiAO6/fkaGmFcK4gtr+eK3+DxJk242WGPN0uN2uhdeNfMRIhoL3ituBZUUcaGoNh6UUnDhUsFdFQfTjpr9wsIEgOuYGf7QRWuRMfMFaTuDTHzKgMJX8+X0obGb/eZlsH1u8aIAA6FmqasgoUkhsZV//ZBIHv9O2DguSZtWb9f8O9pCpjiTnun2vd1aAgCw+gWsZDc6hRCPvwAQ3EC19EUb5BrKInfKWVs4Trw/9M/naERJnbDZN69p//d5gWN6Ma3xCA7aaGZM8xKTJXIrav8h2M8O1Gs8Vt/9OvUkRI/Zv1wNJ5Rewde/9FXZ7snSsAwj+fGv3A+j1n0iP2oBoDiY7FKRjHa7hBdDdBqknXLFFroER7Nzi/r3Od9HIVN1GFAtk1ggz0Tmc81b8dmc+naD3gjkwFO9E7SGAHOfQAt6e9DzscjB6FJ9JCL1zs1EToeehXYb0P9kw0tgQYnzxmMnYwcYZlb8hLe7T4mHYSQeHAsEleuGu3wsiJKP4+MAPg+FI/1kJzQ4eABOMStusQGEcqmYzMGraRnSedU9Pv6R3g+66vhoMLLueQQYyNs31K6iAu3C3s/+bunFjwQwXKhFB2QEIohPBD5NvLvFZ1akdiGUX1aSTf2+MJ555AW0r4rtKit7gU2kWhsaJRfi6lFBWyGUUkuehVhLPUC4fqP4R7LNq2+/vDVmxH3H0JjT9oNzcKGZofKt3NBj9g1BsiQRgitmrEsWQnOEzUzUN49zxOkB7yrtE3yKZMx8BqjQBZQW52NRyRNI1mDFB9MtvYMrbV+5KmIW9YKjHHPCv16dCnYfBEsUmJpnCzqR1piC33V4hOFdi9pvv/WyfEs="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1088,
+          "candidatesTokenCount": 249,
+          "totalTokenCount": 2958,
+          "cachedContentTokenCount": 658,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1088
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 658
+            }
+          ],
+          "thoughtsTokenCount": 1621,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "iLmnauScFJXlxN8Pl4LsWA"
+      }
+    }
+  ]
+}

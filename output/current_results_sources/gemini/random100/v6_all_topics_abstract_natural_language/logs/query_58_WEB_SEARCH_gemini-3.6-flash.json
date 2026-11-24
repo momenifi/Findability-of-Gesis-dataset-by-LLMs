@@ -1,0 +1,69 @@
+{
+  "query_id": 58,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about digitalization, telecommuting, workaholism, and job performance in Germany during the 2010s, matching this research need: survey data on employees in Germany, 2017–2018, examining homeoffice or remote work and work addiction, including frequency of working from home, formal agreements, and ability to count homeoffice hours\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2018 (BIBB/BAuA-Erwerbstätigenbefragung 2018)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.18.1.1.10\",\n      \"justification\": \"A representative dataset of 20,012 employees in Germany surveyed in 2017–2018 by BIBB and BAuA. It covers working conditions, telecommuting, home office frequency, formal agreements, tracking of home office hours, job requirements, performance, and work overload.\"\n    },\n    {\n      \"title\": \"Personality Traits and Employment: BIBB Follow-Up Survey to the 2018 BIBB/BAuA Employment Survey\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.18.2.1.10\",\n      \"justification\": \"A follow-up dataset of 8,010 employees linked to the 2017–2018 BIBB/BAuA survey. It specifically captures work addiction (measured via Dutch Work Addiction Scale subscales for excessive and compulsive working), personality traits, and remote work arrangements.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2017 (BAuA-Arbeitszeitbefragung 2017)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb17.suf.2\",\n      \"justification\": \"A representative panel survey of employees in Germany collected in 2017 focusing on time-location flexibility, telework/homeoffice frequency, contractual agreements, ability to record and count remote working hours, and mental health/well-being indicators.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1663,
+          "candidatesTokenCount": 455,
+          "totalTokenCount": 4238,
+          "cachedContentTokenCount": 1041,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1663
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1041
+            }
+          ],
+          "thoughtsTokenCount": 2120,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "homEaujfLMGExN8P_vHhwAQ"
+      }
+    }
+  ]
+}

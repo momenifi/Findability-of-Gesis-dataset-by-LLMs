@@ -1,0 +1,69 @@
+{
+  "query_id": 83,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media in German Democratic Republic (1949-1990) during the 1980s, matching this research need: Survey data on radio listening in Berlin, including station choice, timing and frequency, evaluations of regional programs, especially the “Berliner Luft” broadcast, with demographic and employment characteristics of listeners.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Hörbeteiligung und Hörstandort April 1987 Zusatz: Berliner Rundfunk am Sonntag\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6513\",\n      \"justification\": \"Conducted by the Staatliches Komitee für Rundfunk in April 1987, this GESIS dataset includes survey data on radio listening behavior in East Berlin and the GDR. It covers station choice (focusing on Berliner Rundfunk and its regional broadcasts such as the evening magazine 'Berliner Luft'), timing, frequency, and detailed demographic and employment characteristics of listeners.\"\n    },\n    {\n      \"title\": \"Hörbeteiligung und Gesellungsform November 1984 Zusatz: Radiohören am Werktagabend\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6519\",\n      \"justification\": \"Gathered in late 1984 by the DDR's Staatliches Komitee für Rundfunk, this study evaluates weekday evening radio listening patterns, station preferences (including regional programming on Berliner Rundfunk), timing, and respondent demographic and employment profiles.\"\n    },\n    {\n      \"title\": \"Hörbeteiligung und Paralleltätigkeit Juni 1981 Zusatz: Phonotechnische Ausstattung\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6502\",\n      \"justification\": \"This 1981 GESIS dataset from the GDR's Department of Sociological Research captures day-to-day radio consumption, station selection (including regional broadcasts in East Berlin), timing and frequency of listening, and comprehensive socio-demographic and occupational data.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2449,
+          "candidatesTokenCount": 418,
+          "totalTokenCount": 6888,
+          "cachedContentTokenCount": 1701,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2449
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1701
+            }
+          ],
+          "thoughtsTokenCount": 4021,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "wJCEaoqqGpvovdIPhJbDEQ"
+      }
+    }
+  ]
+}

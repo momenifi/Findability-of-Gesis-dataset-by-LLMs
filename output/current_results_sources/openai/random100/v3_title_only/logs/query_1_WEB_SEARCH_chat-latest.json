@@ -1,0 +1,168 @@
+{
+  "query_id": 1,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ba9244773832612006b046ce6ed7c87d29038631dc2a4f1d9",
+        "created_at": 1795452135.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ba9244773832612006b046ce8cc9c87d2b4db679803c1c34e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Federal Parliament Election 1972\" \"2nd Wave\" dataset",
+                "\"Federal Parliament Election 1972\" \"October 1971\" \"January 1972\""
+              ],
+              "query": "\"Federal Parliament Election 1972\" \"2nd Wave\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ba9244773832612006b046cea1c3487d2865d946cd850eaaa",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972)\",\"url_or_doi\":\"https://datacatalogue.cessda.eu/detail?lang=en&q=5cf53920eb8bc34f4f466b5ffe2115f5ae179b1b86cba33cfd749165a92e6e67\",\"justification\":\"Exact title match. The dataset is catalogued by CESSDA and provided by the GESIS Data Archive for the Social Sciences. It covers political attitudes, party preferences, voting behavior, evaluations of political candidates Willy Brandt and Rainer Barzel, and demographic characteristics in the context of the 1972 West German federal parliamentary election. The dataset corresponds specifically to the second wave of the panel study, conducted between October 1971 and January 1972.\"},{\"title\":\"Federal Parliament Election 1972 (Panel: 2nd Wave, October 1971 - January 1972) — SelectDataset\",\"url_or_doi\":\"https://www.selectdataset.com/dataset/2d2c93b5d07f33d7b37b37fd26d30d25/federal-parliament-election-1972-panel-2nd-wave-october-1971-january-1972\",\"justification\":\"Alternative dataset discovery page containing the exact requested title. The record identifies CESSDA as its source and GESIS Data Archive for the Social Sciences as the data provider. It includes a detailed description of the survey's political, electoral, socioeconomic, and demographic variables and links to the CESSDA catalogue record.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452140.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 5582,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 349,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 5931
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

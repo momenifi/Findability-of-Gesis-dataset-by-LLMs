@@ -1,0 +1,69 @@
+{
+  "query_id": 52,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Landtagswahl in Nordrhein-Westfalen 2000 (GESIS ZA3436)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11283\",\n      \"justification\": \"This representative election survey conducted by Forschungsgruppe Wahlen examines political attitudes, party evaluations, key political issues, and voting behavior in North Rhine-Westphalia for the 2000 state election.\"\n    },\n    {\n      \"title\": \"Landtagswahl in Nordrhein-Westfalen 2005 (GESIS ZA4396)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.4396\",\n      \"justification\": \"This dataset from Forschungsgruppe Wahlen surveys voters in North Rhine-Westphalia regarding political participation, attitudes toward major candidates/parties, and voting choices during the 2005 state election.\"\n    },\n    {\n      \"title\": \"ALLBUS 2004 - German General Social Survey (GESIS ZA3762)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10977\",\n      \"justification\": \"The 2004 iteration of the German General Social Survey contains regional data for North Rhine-Westphalia, capturing political interest, trust in democratic institutions, ideology, and socio-political attitudes during the mid-2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1153,
+          "candidatesTokenCount": 370,
+          "totalTokenCount": 3627,
+          "cachedContentTokenCount": 659,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1153
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 659
+            }
+          ],
+          "thoughtsTokenCount": 2104,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Wi-EavnnDYqExs0PnICAwQw"
+      }
+    }
+  ]
+}

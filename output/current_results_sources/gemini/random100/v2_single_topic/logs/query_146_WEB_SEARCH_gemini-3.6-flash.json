@@ -1,0 +1,69 @@
+{
+  "query_id": 146,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Croatia in Croatia during the 2000s and 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"World Bank Open Data - Croatia Country Profile\",\n      \"url_or_doi\": \"https://data.worldbank.org/country/croatia\",\n      \"justification\": \"Provides comprehensive time-series datasets for Croatia covering GDP, population, labor force, health, education, and environmental indicators across the 2000s, 2010s, and 2020s.\"\n    },\n    {\n      \"title\": \"Portal otvorenih podataka Republike Hrvatske (Croatian Open Data Portal)\",\n      \"url_or_doi\": \"https://data.gov.hr\",\n      \"justification\": \"The central repository for open data published by public sector institutions in Croatia, containing datasets on public infrastructure, transportation, finance, and public administration across the 2000s, 2010s, and 2020s.\"\n    },\n    {\n      \"title\": \"Croatian Bureau of Statistics (Državni zavod za statistiku - DZS)\",\n      \"url_or_doi\": \"https://podaci.dzs.hr\",\n      \"justification\": \"Official statistical authority in Croatia providing national datasets on population censuses (2001, 2011, and 2021), economic indicators, migration, employment, and tourism spanning the 2000s, 2010s, and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 579,
+          "candidatesTokenCount": 337,
+          "totalTokenCount": 2143,
+          "cachedContentTokenCount": 70,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 579
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 70
+            }
+          ],
+          "thoughtsTokenCount": 1227,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "XD-EaovQI7jT28oP3O_SuQ0"
+      }
+    }
+  ]
+}

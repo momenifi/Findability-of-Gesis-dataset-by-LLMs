@@ -1,0 +1,69 @@
+{
+  "query_id": 212,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Landesdatenbank NRW - Beschäftigungsstatistik\",\n      \"url_or_doi\": \"https://landesdatenbank.nrw.de\",\n      \"justification\": \"The official statistical database of Information und Technik Nordrhein-Westfalen (IT.NRW) provides comprehensive regional time-series data on employment and employees subject to social security contributions for Duisburg throughout the 2000s.\"\n    },\n    {\n      \"title\": \"Regionaldatenbank Deutschland - Erwerbstätigkeit und Beschäftigung\",\n      \"url_or_doi\": \"https://www.regionalstatistik.de\",\n      \"justification\": \"Maintained by the Federal and State Statistical Offices of Germany, this database offers detailed regional historical datasets covering employment figures, workforce participation, and economic sector distribution for the city of Duisburg (Code 05112) during the 2000s.\"\n    },\n    {\n      \"title\": \"INKAR - Indikatoren und Karten zur Raum- und Stadtentwicklung\",\n      \"url_or_doi\": \"https://www.inkar.de\",\n      \"justification\": \"Provided by the Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR), INKAR contains spatial indicator time series on employment, unemployment rates, and economic activity for German municipalities including Duisburg back to the 1990s and 2000s.\"\n    },\n    {\n      \"title\": \"Statistik der Bundesagentur für Arbeit - Regionaldaten Duisburg\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de\",\n      \"justification\": \"The official statistics portal of the German Federal Employment Agency maintains historical labor market data, employee figures by workplace/residence, and unemployment statistics for the district and city of Duisburg covering the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 432,
+          "candidatesTokenCount": 431,
+          "totalTokenCount": 2350,
+          "cachedContentTokenCount": 227,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 432
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 227
+            }
+          ],
+          "thoughtsTokenCount": 1487,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jFSEatuMBuygnsEPjrvQiAk"
+      }
+    }
+  ]
+}

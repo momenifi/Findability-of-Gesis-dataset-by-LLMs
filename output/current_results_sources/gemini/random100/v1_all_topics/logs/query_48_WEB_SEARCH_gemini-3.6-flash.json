@@ -1,0 +1,89 @@
+{
+  "query_id": 48,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about parliamentary debate and Croatia in Croatia during the 2000s and 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 48,
+        "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about parliamentary debate and Croatia in Croatia during the 2000s and 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"CROCorp: Corpus of Parliamentary Debates in Croatia\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6521372\",\n      \"justification\": \"Cleaned and pre-processed corpus containing over 500,000 parliamentary speeches from the Croatian Parliament (Sabor) covering five complete parliamentary terms from 2003 to 2020, along with speaker and political party metadata.\"\n    },\n    {\n      \"title\": \"ParlaMint-HR (Multilingual Comparable Corpora of Parliamentary Debates)\",\n      \"url_or_doi\": \"https://hdl.handle.net/11356/1859\",\n      \"justification\": \"Part of the ParlaMint project, this dataset provides TEI-encoded transcripts and metadata of Croatian parliamentary sessions covering debates from 2015 through the 2020s.\"\n    },\n    {\n      \"title\": \"ParlaSpeech-HR\",\n      \"url_or_doi\": \"https://huggingface.co/datasets/classla/ParlaSpeech-HR\",\n      \"justification\": \"A speech and transcript dataset of Croatian parliamentary proceedings bootstrapped from ParlaMint-HR, featuring aligned audio recordings, sentence-level transcripts, speaker affiliations, and session metadata from 2016 onwards.\"\n    },\n    {\n      \"title\": \"ParlaSent-BCS\",\n      \"url_or_doi\": \"https://hdl.handle.net/11356/1585\",\n      \"justification\": \"A sentiment-annotated dataset featuring sampled parliamentary debate sentences from Croatia, Bosnia-Herzegovina, and Serbia for political sentiment analysis.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 948,
+          "candidatesTokenCount": 418,
+          "totalTokenCount": 2706,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 948
+            }
+          ],
+          "thoughtsTokenCount": 1340,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Wv2DaoyvAsCP28oPrYWvqQk"
+      }
+    }
+  ]
+}

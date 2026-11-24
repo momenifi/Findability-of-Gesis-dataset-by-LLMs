@@ -1,0 +1,69 @@
+{
+  "query_id": 156,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Diet and nutrition in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Statistische Übersichten zur Sozialpolitik in Deutschland seit 1945: Band Sowjetische Besatzungszone / DDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"Compiled by André Steiner and published via GESIS (ZA8416), this dataset contains historical time series on living conditions, income, social policy, and food supply and consumption in the Soviet Zone and the German Democratic Republic (1945–1990).\"\n    },\n    {\n      \"title\": \"Volkswirtschaftliche Gesamtrechnung für die ehemalige DDR, 1950 bis 1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10290\",\n      \"justification\": \"Created by Gerold Heske and archived at GESIS (ZA8017), this dataset provides reconstructed macro-economic national accounts time series for the GDR from 1950 to 1989, including private household expenditure and food consumption metrics.\"\n    },\n    {\n      \"title\": \"Die Entwicklung der deutschen Landwirtschaft und Fischerei: ausgewählte Reihen zu Nutzflächen, Tierbeständen, tierischer und pflanzlicher Produktion, 1871 - 2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10719\",\n      \"justification\": \"A GESIS historical data compilation (ZA8493) covering long-term agricultural production, crop yield, livestock, and raw food supply statistics for Germany, including specific series for the former GDR up through the 1980s and post-unification 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 848,
+          "candidatesTokenCount": 434,
+          "totalTokenCount": 3090,
+          "cachedContentTokenCount": 342,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 848
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 342
+            }
+          ],
+          "thoughtsTokenCount": 1808,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "0kGEatDxEsCP28oPrYWvqQk"
+      }
+    }
+  ]
+}

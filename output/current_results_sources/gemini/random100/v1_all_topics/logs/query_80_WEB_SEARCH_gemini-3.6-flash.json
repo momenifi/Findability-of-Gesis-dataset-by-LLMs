@@ -1,0 +1,69 @@
+{
+  "query_id": 80,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in German Reich (1871-1945) during the 1910s and 1920s and 1930s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Weimar Republic Data, 1919-1933 (ICPSR 42)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR00042.v1\",\n      \"justification\": \"This dataset contains aggregate electoral and demographic data for Germany during the Weimar Republic period (1919–1933), including Reichstag and Presidential election returns, referenda, and demographic variables from the 1925 German Census.\"\n    },\n    {\n      \"title\": \"Grunddaten der Bevölkerungsstatistik Deutschlands von 1871 bis 1939 (GESIS ZA8295)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8295\",\n      \"justification\": \"This GESIS/histat dataset compiles historical demographic statistics for the German Reich from 1871 to 1939, including detailed population structure, age, gender, and vital statistics covering the 1910s, 1920s, and 1930s.\"\n    },\n    {\n      \"title\": \"German Reichstag Election Data, 1871-1912 (ICPSR 43)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR00043.v1\",\n      \"justification\": \"This data collection provides district- and state-level election results and demographic estimates for German Reichstag elections up through 1912, capturing political history in the German Reich during the early 1910s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 629,
+          "candidatesTokenCount": 402,
+          "totalTokenCount": 2512,
+          "cachedContentTokenCount": 296,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 629
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 296
+            }
+          ],
+          "thoughtsTokenCount": 1481,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "XweEapbCKqXTvdIPh6LFuAk"
+      }
+    }
+  ]
+}

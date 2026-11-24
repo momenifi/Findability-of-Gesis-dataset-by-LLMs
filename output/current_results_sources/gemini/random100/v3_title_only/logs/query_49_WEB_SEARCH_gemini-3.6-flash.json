@@ -1,0 +1,62 @@
+{
+  "query_id": 49,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled The Growth of the German Economy since the Middle of the 19th Century. Chapter: Population and Employment?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Das Wachstum der deutschen Wirtschaft seit der Mitte des 19. Jahrhunderts. Kapitel: Bevölkerung und Beschäftigung (The Growth of the German Economy since the Middle of the 19th Century. Chapter: Population and Employment)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8256\",\n      \"justification\": \"This dataset from the GESIS Data Archive contains historical economic time series corresponding to the 'Population and Employment' chapter of Walther G. Hoffmann's landmark study 'Das Wachstum der deutschen Wirtschaft seit der Mitte des 19. Jahrhunderts'.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 392,
+          "candidatesTokenCount": 159,
+          "totalTokenCount": 1255,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 392
+            }
+          ],
+          "thoughtsTokenCount": 704,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "GEm-avjDJeuVkdUPxPPD8QI"
+      }
+    }
+  ]
+}

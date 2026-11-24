@@ -1,0 +1,69 @@
+{
+  "query_id": 137,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany during the 1940s and 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The German Local Population Database (GPOP), 1871 to 2019\",\n      \"url_or_doi\": \"https://doi.org/10.24355/dbbs.084-202207181844-0\",\n      \"justification\": \"Contains local population statistics across all German municipalities for historical census benchmark years including 1939, 1946, 1961, 1987, 1996, 2011, and 2019, covering demographic history across East and West Germany from the 1940s through the 2000s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) Cumulation 1980-2014\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"Provides survey data capturing social, political, and economic attitudes in West and East Germany, tracking historical societal trends, German reunification, and socio-political developments across the 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"HISTAT - Historical Statistics Database for Germany\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de\",\n      \"justification\": \"Provides long-term historical time-series datasets on German economic, demographic, and social history spanning multiple decades, including the 1940s, 1950s, 1960s, 1970s, 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"Database on the Munich Central Collecting Point\",\n      \"url_or_doi\": \"https://www.dhm.de/datenbank/ccp/dhm_ccp.php?lang=en\",\n      \"justification\": \"Contains detailed archival dataset records managed by the Deutsches Historisches Museum on cultural assets, displaced art, and post-WWII restitution efforts in Germany during the 1940s and 1950s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1025,
+          "candidatesTokenCount": 544,
+          "totalTokenCount": 3674,
+          "cachedContentTokenCount": 284,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1025
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 284
+            }
+          ],
+          "thoughtsTokenCount": 2105,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Pj2EauKHGJGK7M8PxaTOqQk"
+      }
+    }
+  ]
+}

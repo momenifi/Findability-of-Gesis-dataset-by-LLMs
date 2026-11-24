@@ -1,0 +1,187 @@
+{
+  "query_id": 15,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth, EDUCATION, Higher and further education, Migration, Social behaviour and attitudes, Leisure, tourism and sport, Children, and Family life and marriage in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d4cd6f8051ae239006b045419774c87d2b3af95b5e5609476",
+        "created_at": 1795445785.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d4cd6f8051ae239006b04541a7c3487d286262e62b4f867d0",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 2018 Germany social attitudes family marriage migration dataset doi",
+                "German Youth Institute AID:A 2019 growing up in Germany dataset doi",
+                "Germany NEPS national educational panel study scientific use files 2010 2019 doi",
+                "Germany SOEP 2019 migration family leisure education dataset doi"
+              ],
+              "query": "GESIS ALLBUS 2018 Germany social attitudes family marriage migration dataset doi",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d4cd6f8051ae239006b04541db4ec87d291092ac686ed9d0f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de soep core data 2019 doi 10.5684",
+                "site:gesis.org Germany family panel pairfam dataset 2018 doi",
+                "site:gesis.org German leisure sport tourism 2015 survey dataset doi",
+                "site:lifbi.de ReGES refugees German educational system dataset doi",
+                "site:gesis.org CILS4EU Germany 2010 2013 dataset doi"
+              ],
+              "query": "site:diw.de soep core data 2019 doi 10.5684",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d4cd6f8051ae239006b0454212ce087d296cf1729e8fd3758",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Growing Up in Germany: Everyday Lives (AID:A 2019)\",\n      \"url_or_doi\": \"https://doi.org/10.17621/aida2020\",\n      \"justification\": \"A nationwide survey conducted by the German Youth Institute (DJI) in 2019, covering children, adolescents, young adults, and families in Germany. It includes information on education, leisure activities, family relationships, social participation, and everyday living conditions. Particularly relevant to Youth, Children, Education, Social Behaviour and Attitudes, Leisure, and Family Life.\"\n    },\n    {\n      \"title\": \"Growing Up in Germany: Everyday Worlds (AID:A II, 2014)\",\n      \"url_or_doi\": \"https://www.dji.de/en/about-us/projects/projekte/aida-ii-aufwachsen-in-deutschland-alltagswelten.html\",\n      \"justification\": \"A major German Youth Institute survey examining the living conditions and everyday experiences of children, adolescents, young adults, and families in 2014. It provides information on family structures, educational participation, social relationships, and leisure activities. Useful for studying changes in youth experiences and family life during the 2010s.\"\n    },\n    {\n      \"title\": \"German Youth Institute Research Database (AID:A Survey Series)\",\n      \"url_or_doi\": \"https://www.dji.de/en/about-us/research-database.html\",\n      \"justification\": \"The German Youth Institute's research database provides access to longitudinal datasets and documentation concerning children, young people, and families. It includes AID:A surveys conducted in 2009, 2014, and 2019, allowing comparisons across the 2010s. Relevant themes include education, youth development, family relationships, social behaviour, and leisure.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 1 – Newborns\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC1:9.1.1\",\n      \"justification\": \"A longitudinal German educational study following children born in the early 2010s. It collects information on early childhood development, parental involvement, family environments, childcare, and early educational experiences. Highly relevant to Children, Education, Family Life, and Social Development during the 2010s.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 3 – Grade 5 Students\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC3:12.0.0\",\n      \"justification\": \"A longitudinal dataset following students who entered fifth grade in Germany during the 2010/2011 school year. It examines educational achievement, school transitions, family background, social inequalities, and educational aspirations. Particularly useful for analysing Youth, Education, Children, and the influence of migration backgrounds on educational outcomes.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 4 – Grade 9 Students\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC4:6.0.0\",\n      \"justification\": \"A German longitudinal education dataset following students enrolled in ninth grade in 2010/2011. It provides information on educational pathways, competencies, school-to-work transitions, vocational training, and social background. Relevant to Youth, Education, Further Education, Migration, and Social Inequality.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 5 – University Students\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC5:6.0.0\",\n      \"justification\": \"A longitudinal study of students entering German higher education institutions in the 2010/2011 academic year. It investigates university experiences, educational trajectories, academic achievement, social background, and transitions into employment. Particularly relevant to Higher and Further Education, Youth, and Educational Inequality in Germany during the 2010s.\"\n    },\n    {\n      \"title\": \"National Educational Panel Study (NEPS): Starting Cohort 6 – Adults\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC6:11.0.0\",\n      \"justification\": \"A longitudinal dataset examining adult educational biographies, lifelong learning, employment histories, and social background in Germany. It includes observations from the 2010s and supports research on continuing education, vocational qualifications, intergenerational educational mobility, and the relationship between family circumstances and educational participation.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 2010s Survey Series\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"ALLBUS is a major representative survey of the German population, conducted approximately every two years. Its 2010s waves provide data on social attitudes, migration, family values, marriage, education, political participation, and social inequality. Particularly useful for studying Social Behaviour and Attitudes, Migration, Family Life, and changing social values in Germany.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core): Data 1984–2021\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38.1r\",\n      \"justification\": \"A large longitudinal household survey covering Germany, including the entire 2010–2019 period. It contains information on education, migration, household composition, family relationships, marriage, children, employment, subjective well-being, and aspects of leisure and social participation. Particularly valuable for analysing relationships between social, economic, and demographic changes during the 2010s.\"\n    },\n    {\n      \"title\": \"IAB-SOEP Migration Sample, 2013–2021\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.iab-soep-mig.2021.1\",\n      \"justification\": \"A longitudinal dataset specifically examining migrants and people with migration backgrounds living in Germany. Beginning in 2013, it includes information on migration histories, educational qualifications, labour market integration, family circumstances, and social integration. Highly relevant to Migration, Education, Family Life, and Social Behaviour during the 2010s.\"\n    },\n    {\n      \"title\": \"Refugees in the German Educational System (ReGES): Refugee Cohort 1 – Children\",\n      \"url_or_doi\": \"https://doi.org/10.5157/ReGES:RC1:SUF:3.1.0\",\n      \"justification\": \"A longitudinal study examining refugee children and their integration into the German educational system. Data collection began in 2018 and includes information on early childhood education, language development, family background, migration experiences, and educational integration. Relevant to Children, Migration, Education, and Family Life in late-2010s Germany.\"\n    },\n    {\n      \"title\": \"Refugees in the German Educational System (ReGES): Refugee Cohort 2 – Adolescents\",\n      \"url_or_doi\": \"https://doi.org/10.5157/ReGES:RC2:SUF:3.1.0\",\n      \"justification\": \"A longitudinal dataset examining refugee adolescents in Germany, with survey observations beginning in 2018. It includes information on school participation, educational aspirations, vocational transitions, social integration, migration experiences, and family backgrounds. Particularly relevant to Youth, Migration, Education, and Social Behaviour.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam): Panel Analysis of Intimate Relationships and Family Dynamics\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA5678\",\n      \"justification\": \"A major longitudinal study of intimate relationships and family dynamics in Germany, beginning in 2008 and continuing throughout the 2010s. It provides detailed information on romantic partnerships, marriage, separation, fertility intentions, parenting, intergenerational relationships, and family development. Particularly relevant to Family Life and Marriage, Children, Youth, and Social Attitudes.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam): Research Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/selected-german-research-projects/pairfam\",\n      \"justification\": \"The official GESIS research resource for the German Family Panel provides access information and documentation for longitudinal data on partnerships, marriage, parenthood, and family relationships. Its survey waves throughout the 2010s support research into changing family structures, relationship expectations, and social behaviour.\"\n    },\n    {\n      \"title\": \"Reiseanalyse (Travel Survey Germany) 2016\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13202\",\n      \"justification\": \"A nationwide tourism survey covering the travel behaviour of German-speaking residents aged 14 and older. Conducted in 2016, it includes information about holiday trips taken in 2015, travel destinations, holiday motivations, preferred recreational activities, and travel arrangements. Directly relevant to Leisure, Tourism and Sport, with opportunities to analyse differences by age and household characteristics.\"\n    },\n    {\n      \"title\": \"Reiseanalyse (Travel Survey Germany) 2016 – GESIS Dataset\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA6985?lang=en\",\n      \"justification\": \"The GESIS dataset landing page for the 2016 German Travel Survey provides detailed metadata, documentation, and access information. It covers holiday participation, tourism preferences, travel frequency, recreational activities, and demographic characteristics. Useful for examining leisure and tourism behaviour among German residents, including younger age groups and families.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Family and Changing Gender Roles, 2012\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The 2012 ISSP Family and Changing Gender Roles module contains comparative survey information on attitudes toward marriage, gender roles, employment, childcare, and family responsibilities, including German respondents. The linked GESIS ALLBUS resource provides a relevant entry point because German ISSP modules have been associated with ALLBUS surveys. Relevant to Social Behaviour and Attitudes, Family Life, Marriage, and Children. This is an access starting point rather than the specific ISSP dataset landing page.\"\n    },\n    {\n      \"title\": \"Children Growing Up in Germany: NEPS Scientific Use Files\",\n      \"url_or_doi\": \"https://www.lifbi.de/en-us/Start/Data-Services/Data-and-Documentation/SUF-Overview\",\n      \"justification\": \"The official Leibniz Institute for Educational Trajectories catalogue provides access to multiple German longitudinal education datasets covering children, adolescents, university students, and adults. The scientific-use files include survey observations from the 2010s and cover educational pathways, childhood development, family background, social inequality, and educational transitions. Particularly useful for identifying appropriate datasets for Youth, Children, Education, and Higher and Further Education.\"\n    },\n    {\n      \"title\": \"German Youth Institute: Growing Up in Germany (AID:A) Survey Series\",\n      \"url_or_doi\": \"https://www.dji.de/en/about-us/projects/projekte/aida.html\",\n      \"justification\": \"The official project page for the AID:A survey series, which includes studies conducted in 2009, 2014, and 2019. The series investigates the experiences of children, adolescents, and young adults, focusing on education, family contexts, everyday activities, social participation, and changes in living conditions. Particularly suitable for comparisons of youth and family life across the 2010s.\"\n    },\n    {\n      \"title\": \"German Youth Institute Research Data Centre: Children, Youth, and Family Datasets\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-dji/\",\n      \"justification\": \"An official research data centre catalogue describing German Youth Institute datasets on children, adolescents, families, education, childcare, and migration. It provides access information for AID:A and other empirical studies, including research relevant to the 2010s. Particularly useful for locating additional datasets on childhood experiences, youth development, educational participation, and family relationships.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795445806.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20890,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2778,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23668
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

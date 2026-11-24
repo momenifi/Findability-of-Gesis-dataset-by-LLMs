@@ -1,0 +1,62 @@
+{
+  "query_id": 115,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GDR-Labor Market Report. Long term time series (ZA8189)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8189\",\n      \"justification\": \"Compiled in 1990 by Jürgen Wahse and Reinhard Schaefer and hosted by GESIS, this dataset provides long-term time series (1950–1989/1990) on employment, occupations, qualifications, and labor market indicators in the German Democratic Republic.\"\n    },\n    {\n      \"title\": \"Structures and Determinants of Employment Participation of Women and Men in the Territory of the Former GDR (ZA2803)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2803\",\n      \"justification\": \"Created by the Institute for Employment Research (IAB) and archived by GESIS, this dataset collects survey data from 1991 on employment status, determinants of employment participation, and labor market transition in former GDR territory.\"\n    },\n    {\n      \"title\": \"Unemployment and Re-employment in the Course of Time after 1990 (1st Wave of the Course of Employment Panel) (ZA6306)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6306\",\n      \"justification\": \"Archived in the GESIS Data Archive, this panel dataset tracks labor market transitions, unemployment, and re-employment patterns in East Germany starting from 1990 following the collapse of the GDR.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 297,
+          "candidatesTokenCount": 392,
+          "totalTokenCount": 1920,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 297
+            }
+          ],
+          "thoughtsTokenCount": 1231,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "aDmEavXuGJb2vdIPkNHSyA0"
+      }
+    }
+  ]
+}

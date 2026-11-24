@@ -1,0 +1,62 @@
+{
+  "query_id": 43,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The German Family Panel (pairfam)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.14.0.0\",\n      \"justification\": \"A nationwide multidisciplinary longitudinal study conducted from 2008 to 2022, providing empirical data on partnership formation, marriage, and family dynamics in Germany throughout the 2010s and early 2020s.\"\n    },\n    {\n      \"title\": \"FReDA – The German Family Demography Panel Study\",\n      \"url_or_doi\": \"https://www.freda-panel.de\",\n      \"justification\": \"A major family demographic panel study launched in 2020 that collects representative data on relationships, marriage, separation, parenthood, and family living arrangements in Germany across the 2020s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41eu\",\n      \"justification\": \"A multi-cohort longitudinal study of private households in Germany running continuously through the 2010s and 2020s, featuring extensive data on household composition, marital status, domestic division of labor, and family life.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 479,
+          "candidatesTokenCount": 340,
+          "totalTokenCount": 2419,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 479
+            }
+          ],
+          "thoughtsTokenCount": 1600,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "YLinaqHwE63WxN8PwJzckQg"
+      }
+    }
+  ]
+}

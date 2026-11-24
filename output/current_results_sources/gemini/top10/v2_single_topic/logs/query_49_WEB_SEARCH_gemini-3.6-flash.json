@@ -1,0 +1,62 @@
+{
+  "query_id": 49,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Income, property and investment/saving in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel Study (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41o\",\n      \"justification\": \"Annual representative longitudinal survey of private households in Germany tracking household income, real estate property ownership, wealth distribution, and savings behavior across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank Panel on Household Finances (PHF)\",\n      \"url_or_doi\": \"https://doi.org/10.17616/R34H06\",\n      \"justification\": \"A representative microdataset collected by the Deutsche Bundesbank in multiple waves (2010/11, 2014, 2017, 2021, 2023) capturing detailed household balance sheets, income, real estate property, debt, and investment assets in Germany.\"\n    },\n    {\n      \"title\": \"Einkommens- und Verbrauchsstichprobe (EVS) / Sample Survey of Income and Expenditure\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/haushalte/evs\",\n      \"justification\": \"Official multi-wave survey conducted by the Federal Statistical Office (Destatis) and the Research Data Centres, capturing household income, real estate property ownership, asset accumulation, and savings behavior across Germany during the 2010s and 2020s.\"\n    }\n  ]\n}",
+                  "thoughtSignature": "EtwXCtkXARFNMg8RpxYb4a/gogWMmcuqW3PJaGh4VR2w8FBpFRDCW9mtm4Qs5yhPMqTLWgXT3PhYuVVz17R3r+l62cgrJTshvZU7XfJwWo5xnbSs8apl0mZ6TDBtvZN/NMIj7NnK50FdXhx3BKTlnbimJKKvIjCUZ2jZA2gKj03/vF1SEQW26fA1Ccj1dCSKOjC/uymuIVTwt1qmt8vjtKmJxmQmX7mbe8q0hWycYPPSpZHU39TVvhgQyMBaXLqtO8IbM0xiGLYsUDVe31u78dcNyvKxZPJPU0qtJvybgw1zjE6DFP7MVHLmbaVeJfUxcor6pVyJSoOrtMjEyvdTXNy3Lrn27RSUNxAFJCM7NUUyhfHrfUCZzFLKY5fKq6IHPYsqIWZOUI2ENrL4ugwwE+Ps+FnDHCltnXXOcBJLRdl59yKYIuWiFkr0smo0eO8Q8XQGvzbILx0qoy86aWyL6ABDv3OOqSuY+8BkA/vkIkoZjZWjX43UhbRvzQaoi416kK4fXtJs/7hMKTP/BFOGSG+ev20Om5MHju4MDcc4Y3+No2Peo/hOy34lx6B76Lziy2wa3IHqzeZP42TrX8pE2bFYlcPCkjuZXLLhqUivIOOWqy9w6Gx2ZtgHSt53Soe0GD1haeq+f11iyG0otAWKxuwUUvStg7uKDbk3UNv6BA6Z11PqC27l/o/C/PS7NU9GYR1BMeAK3DdBzgfWPxbZkriwcAhNkarN38f8ofC1SB9jIljfbEInnUWEvMQ9mg0o3sKP7rWeh6w147JXi+/plVQzB3UJvxHz98uH0muCPhs4iQ6Cb9JK+xhiUD9ozrd52D4sRAMAKrY1dPrbaC6HTvHyQ6AkV8S5xsvoZ5LYsj0kEvUN8nGzZulvyQuEkVKD2/7p2B1oqXY1ArVj1L/xMt+jR5moFxG/NMLFFK6f2COLnZgr4eqYUyh66NoRBurYTG8B3U/n2bsmpYc8IKXWekJHOz6vVjdQpiJmXYNfSEf8KUwj96DsDjhh1hU7J5wP43kq0jZ8X/mZDqEiCdO3qLD20psatXQQI/KmZklJtwvXn/rqWBj6jmroNige+viGcAvdiqxHdH1ldOLqHNyhEVT2ziapf0fYv73DYNiRg9xQBHo5WcTnir/UnaIspfOdQAc9o+YWwndiS5dgHkcxx7dnmcahguRTa7ecm9h28hM/q3cWbNuBIfShl38jAmxoGYvVaGVHu25XooZQ/yD2OyF2Cit9CjY9iy6xlc8nRfJNFonhdWKTxlilmTKiBERekER9oDgfyoIDC6Kl8vV3F17iOAGPJHfO2GexzEIQWK6JQyDHv//57DUdMiQ4mgCq85BBf1pWPidlfrkiOFwQJH4NE3HQqquPT7QW0o+4nUgLAMv08ZOEM979mmhUmlrdUNHQZU/0+mWQhaMMk+Hb/QbOaZJdKjwQW5hTfNpMOtlvcQR+M4DT+r4i9ThHQ+5W1PhZH/0GQWmY4XDwWfZlGV3qU54zSAgwDBwWfr1d7Jt5NmLS4OIbk5eFk3pmof+Z7YLnId6oWuyb1dVPW2ZHDNPgDsYI3Sr0wqL/zOYmptoHifZlCYR8KopCEcH9aS4vT2cTZyQxuP/dtgbCin0oqJpcQ4jL/7VOvNxG391XSIGMqBNtPxguvBiKEOXHh/K16X6dZT8VOQ3vQUM5wi4/wLrX08FXH5AgCiFwDTTmHz88VCUY1Xp8dcjMjyTDD2PsuX9P8O5p5Uq4G4sNlnbCs/6udSabXPRz3rUb7IXHv0vfJUtX3uSKRRbZPR7b16p7HcgrtR2ZSI5XbFvsgd9Cr5/tx6Tfeg83+Mbgx4vaLtUWJ7djhGP7/B+4srHHkut3G9ThkbBZHYnG3MHNEJT+OqAdMtg6ZnFC/E9kAx7tXQqy5cZEZ3T6GiyO+QEIGDGGwag3h32vUWYKDcss4H0BGgatyrpGGEiiWb56QPd+bWc/P6L+669GzM6dTsErC0TmuVsbcpVJuReHnMTbgwtPVYXeplBBr99tVaSjYPGn8iIhLMNHiQCA3Z5ZqzKpLcRvqEqgMqksVEMxcrnKp3bvGH6rpKTECL+k5C2K46M0cDrAgiajP2NYyTCGiTOOkkrB5c39VxyS7oAZtylwnRWK5EhAflvOTuQqe3YXoNE0y2Sqexfn8iBm7vVf70UTWwGC/ObMGXorg8iIfyC6eWAhM/l95lhcEe3pAGskF1qF2fE3I2yvJR+jluRY1ko3ZcBjp0qr2tpYbkWPQXwieTMJUYIZ4lbXinEFCOa+DR3B9d1esHEMdUFZNB57iUt8zcNSDX7SqU0au4xXHrA3wsVQFWokUmmjQo5x8T2v8tnkBZO156g+X88j3VfbV4lulvFgJpDD5z9u4nPiExcO6MLoz+0rPp9x0FDJx4xxdz7bv5RyOOruMym6d3HspZJ/YRjn4pQjqpsZaFr6vheh3zYm78awgaGXrFFq1bH7kWaXojK/MXR5AeFTxZhFzb9sZqZ5nqT6zJxLfv/k8LnhKdtwjAcuLL+DdYtK+WLTIY5gRwPDqk/Sr+PvnQ9gCY8JFYRdhiZCGiMhmOO4K7U7TwRefSvR4/tQYkcWwTxfi90QJb0wDc0XTqfAv9XU+ogMOzy1ftHA/9zS7Me2y2xHded2x+SkPz9tXrWpZSnwiWpGN+HKrlFRyj232ajDV4wJmU2bKsHIqHPvh5tIXEq6aPg05hEs8tl6TeVCcJ+jnfZefx/2yh7jx1gy2OIU/xwWYCkHJmnNy0ZBemoK8CM94iW1+Rjm0eDeR3s8qPpreOvTJq76Mz3kXJM96IRu7UxE5FI4UO7dDm8JJn6cRcZvFXeWWooaqFiLNq85v4rSfLcoNTHL8HV807/vMDGCPtQh+U1UZY0OiOE4S4ctkLwT+wq/gxqbFi/qCLRHYknvGqNfC5+w+PsCka1FteTllXXK/KlEVdv2PeGQohDX96IHhgcNrKpVq+C0ELxsOPQVNBaxKtw9Np4ltNudWcgAr+HgF247V4W9L5Czcp9mRJ9J/b/60oIYrd1DksYU/8UrSK0x9IrNWbF2J5u+LKf9M8AGTT/0fuk/+zxpeO3QPRnvpws+6zzWl0qaW3fFytfp280oKOI3b6ABiOmNO9F4bVGntq/alNfSlwneEbCz2jbsf9eDfa07Q5+nLP7rPpeH8tSbPvvIlvuRK3dGzFFhfevn4xvCgGvZlPSuYkS3m1rj1q8OK2AL8ZvCxmPOBnG+0Ze+hWgFx1hqf7sRcrCaOr9eCxefWKm2t2rWlg8hUJps9r4qDIukqJ7UY+N1FgWz0/E6moEGvPrhq79cuUtgahTjiAEdvz7gfsToF43tQGdvJknjN+TuXZv6huRSwPmqWTsLtAlyk7BEJ+iDHL5PD96NI0YhY43Xd4EppySMH/xBd0a/IBs1uf3GR+TegruEQb/EPMR4L1LqRj7C/LJF2qGUwtTbEsdxnwpUy/GZ1YIL+6p7isKx6ky10b4+exu7YhckoSGh7i4kwud7EZEVGuSy3+XfrSTvNFc8Vp06XEgYrVUsAe7YUdAILwOuN3R2vxCxvhuQTY+HOKk8mIIhMgADPLh3iKKTcV5WB7N2Ni/9KXmMKHtYQbCW1TUc0y0BO49LYAO9RoqThhoINSjpEZwNa3ip72Ex590PC4smQiMboWQT3TOLC7SwWT6rpEV+9pqVopYvOEbJ0vFLY9WCMqDZJBT3kc3W2EesAAphw6PZ0jAR/HpIOwfQLfDhebCiVl5DKdtLwPie11LXT7OIlgPXGXL5CRlHZrfEKUSHya1GtswnZO4CruAH0oDu573QjylKWGO3V+SH2Uk8yGTgIMo+ngizmOAW14RlkhQAnQfqvbh72/G9nLqFOGwTv56dxZz5sG9Eebt3DhjO/CAa90qxpowKuFKkRvr8+GrVo1Ke5LKsLzTu1yR7CHlJZkrtIZHOHtTosy8OKJDQBEHI2nVm/udh8+/cFyRyV85JTkDdWet/NLfrW/ER/rriZh7oKPF+UJzgbwwnU7Ep5uOQcrc1VGdS1yonMFz42IktgiGc4us9"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 621,
+          "candidatesTokenCount": 370,
+          "totalTokenCount": 2366,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 621
+            }
+          ],
+          "thoughtsTokenCount": 1375,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "r7inarqqAarCvdIP8eCe8QQ"
+      }
+    }
+  ]
+}

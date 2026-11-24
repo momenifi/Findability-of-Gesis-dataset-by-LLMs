@@ -1,0 +1,187 @@
+{
+  "query_id": 5,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Albania, Armenia, Austria, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Georgia, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, Sweden, Spain, Switzerland, Portugal, Ukraine, and Latvia during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_04abeeff124bd34e006b04767f212887d2a3c24ac7335054a3",
+        "created_at": 1795454591.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_04abeeff124bd34e006b0476802d0087d2b75a151317bf6354",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European Social Survey data countries rounds 2010 2024 political attitudes download",
+                "European Values Study 2017 2020 integrated dataset GESIS DOI",
+                "World Values Survey wave 7 2017 2022 data download countries",
+                "Comparative Study of Electoral Systems CSES module 5 6 data download"
+              ],
+              "query": "European Social Survey data countries rounds 2010 2024 political attitudes download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04abeeff124bd34e006b0476835c5087d291c55d3e28c8a172",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:worldvaluessurvey.org WVS wave 6 2010 2014 download",
+                "site:issp.org data citizenship 2014 role of government 2016",
+                "site:europa.eu eurobarometer data archive surveys 2010 2024",
+                "site:caucasusbarometer.org data download caucasus barometer armenia azerbaijan georgia",
+                "site:ebrd.com life in transition survey 2016 2022 data"
+              ],
+              "query": "site:worldvaluessurvey.org WVS wave 6 2010 2014 download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_04abeeff124bd34e006b047686d7f087d299003e5e33af11a6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"European Values Study (EVS) 2017: Integrated Dataset (2017–2021)\",\n      \"url_or_doi\": \"https://europeanvaluesstudy.eu/surveys/surveys-evs/evs-2017/\",\n      \"justification\": \"One of the strongest matches for the requested countries and research period. The EVS 2017 wave includes all 38 countries listed in the query, with fieldwork conducted between 2017 and 2021. It provides nationally representative individual-level survey data on political participation, political interest, trust in government and parliament, satisfaction with democracy, political ideology, social tolerance, national identity, and democratic values. The integrated dataset enables systematic cross-national comparisons of political behaviour and attitudes.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS): Rounds 5–11 (2010–2024)\",\n      \"url_or_doi\": \"https://ess.nsd.no/en/series/321b06ad-1b98-4b7d-93ad-ca8a24e8788a\",\n      \"justification\": \"A major cross-national survey providing repeated measurements of political attitudes and behaviour throughout the 2010s and 2020s. Relevant countries include Austria, Bulgaria, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Great Britain, Hungary, Iceland, Italy, Lithuania, Montenegro, Netherlands, North Macedonia, Norway, Poland, Portugal, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland, and others, depending on the round. Variables cover voting behaviour, party preferences, political participation, institutional trust, satisfaction with democracy, ideological orientation, immigration attitudes, and political efficacy. Particularly suitable for longitudinal and comparative analyses, although not every requested country participates in every round.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS): Wave 6 (2010–2014)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSDocumentationWV6.jsp\",\n      \"justification\": \"Provides nationally representative survey data on political and social values during the early 2010s. Among the requested countries, Wave 6 includes Armenia, Azerbaijan, Belarus, Estonia, Georgia, Germany, Netherlands, Poland, Romania, Russian Federation, Slovenia, Spain, Sweden, and Ukraine. Political variables include democratic legitimacy, confidence in political institutions, electoral participation, political interest, ideological self-placement, protest participation, political trust, and attitudes toward authoritarian government. Particularly valuable for investigating political attitudes in Eastern Europe and the post-Soviet region.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS): Wave 7 (2017–2022)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp\",\n      \"justification\": \"Provides comparative survey data on political attitudes, democratic values, institutional trust, political participation, nationalism, authoritarian preferences, and ideological orientations during the late 2010s and early 2020s. Includes several European and post-Soviet countries relevant to the query. Wave 7 can be combined analytically with Wave 6 to examine changes in political attitudes over time. Country availability must be checked because not all requested countries participated.\"\n    },\n    {\n      \"title\": \"Joint European Values Study and World Values Survey Dataset (2017–2022)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation/joint-evs/wvs-2017-2022-dataset\",\n      \"justification\": \"A harmonized dataset combining the fifth wave of the European Values Study with the seventh wave of the World Values Survey. It is particularly relevant because the EVS component covers all 38 requested countries. The dataset provides internationally comparable measures of political trust, democratic attitudes, political interest, social values, national identity, institutional legitimacy, and political participation. Particularly useful for comparing European political behaviour with broader international patterns using harmonized variables.\"\n    },\n    {\n      \"title\": \"World Values Survey: Longitudinal Time-Series Dataset (1981–2022)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/AJDocumentationSmpl.jsp?CndWAVE=-1&INID=&SAID=-1\",\n      \"justification\": \"Combines multiple World Values Survey waves into a longitudinal cross-national dataset, including the 2010–2014 and 2017–2022 survey periods. Provides repeated observations of political attitudes across participating countries, including several from the requested European and post-Soviet region. Relevant indicators include confidence in government, satisfaction with political institutions, support for democracy, political participation, tolerance, ideology, and national identity. Useful for investigating changes in political culture over time.\"\n    },\n    {\n      \"title\": \"Integrated Values Surveys (IVS): EVS and WVS Trend Data (1981–2022)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSEVStrend.jsp\",\n      \"justification\": \"Provides a framework for combining the European Values Study trend file and the World Values Survey longitudinal dataset. Particularly valuable for constructing a broad cross-national dataset covering the requested countries during the 2010s and 2020s. Measures include political engagement, democratic legitimacy, confidence in political institutions, ideological identification, civic participation, and social attitudes. The combined coverage is particularly useful for comparing Western Europe, Central and Eastern Europe, the Balkans, and post-Soviet countries.\"\n    },\n    {\n      \"title\": \"European Values Study: Data and Documentation Archive\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation\",\n      \"justification\": \"Official research data archive providing access to integrated and country-specific European Values Study datasets. Particularly relevant for locating the EVS 2017–2021 observations covering all 38 requested countries, including Albania, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Montenegro, North Macedonia, Russian Federation, Ukraine, and Latvia. Contains survey data and documentation on political values, democracy, institutional trust, citizenship, political engagement, national identity, and social attitudes. Supports both pooled cross-national analysis and country-level research.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES): Module 4 (2011–2016)\",\n      \"url_or_doi\": \"https://cses.org/data-download/download-data-documentation/\",\n      \"justification\": \"International comparative electoral survey dataset focusing on voter behaviour and political attitudes around national elections. Module 4 covers elections conducted between 2011 and 2016 and includes participating European countries. Relevant variables include reported voting behaviour, party choice, political knowledge, electoral participation, perceptions of government performance, party identification, ideological positioning, and political representation. Particularly useful for analysing electoral behaviour during the 2010s. Coverage varies by participating election study.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES): Module 5 (2016–2021)\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-module-5-2016-2021/\",\n      \"justification\": \"Highly relevant comparative dataset on electoral behaviour, political attitudes, and democratic representation during the late 2010s and early 2020s. It contains individual-level post-election survey data from participating countries, including European democracies. Module 5 emphasizes attitudes toward political elites, populism, political outsiders, democratic institutions, and electoral participation. Variables also cover voting choices, ideological preferences, political trust, and satisfaction with democracy. Particularly useful for comparative research on populism and electoral politics.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES): Integrated Module Dataset\",\n      \"url_or_doi\": \"https://cses.org/data-download/download-data-documentation/\",\n      \"justification\": \"Combines and harmonizes multiple CSES election-study modules, enabling longitudinal comparisons of voting behaviour and political attitudes. The dataset is relevant for studying political participation, party preferences, democratic satisfaction, electoral accountability, and ideological positioning across participating European countries. Its integrated structure facilitates comparisons between elections in the early 2010s and those conducted in the late 2010s and early 2020s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Citizenship II (2014)\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"Cross-national survey focusing on citizenship, democratic participation, political engagement, and civic responsibilities. The 2014 module contains data from participating European countries relevant to the query. Variables include voting, political participation, protest activity, political interest, institutional trust, perceptions of citizenship duties, democratic rights, and political efficacy. Particularly suitable for examining differences in political participation and civic norms across European societies during the 2010s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): Role of Government V (2016)\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"Comparative survey dataset examining citizens' expectations of government and attitudes toward state intervention. Includes participating European countries and provides measures of trust in government, attitudes toward public spending, government responsibilities, political ideology, civil liberties, and perceptions of state authority. Particularly useful for comparing political attitudes toward government across different European political systems in the mid-2010s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP): National Identity III (2013)\",\n      \"url_or_doi\": \"https://issp.org/data-download/\",\n      \"justification\": \"Provides internationally comparable survey data on national identity, patriotism, nationalism, immigration attitudes, and national belonging. Includes participating European countries during the 2010s. Relevant to political attitudes because national identity and perceptions of immigration are important dimensions of political ideology, electoral preferences, and support for nationalist political movements. Particularly useful for comparing Western, Central, and Eastern European attitudes.\"\n    },\n    {\n      \"title\": \"Caucasus Barometer: Cross-National Survey Data (2010–2024)\",\n      \"url_or_doi\": \"https://caucasusbarometer.org/en/surveys/cb/\",\n      \"justification\": \"Especially relevant for Armenia, Azerbaijan, and Georgia, which are not consistently represented in major Western European survey programmes. Provides nationally representative data on political trust, democratic attitudes, electoral participation, political interest, government performance, institutional confidence, and geopolitical preferences. Available time-series data cover Armenia and Georgia through 2024 and Azerbaijan through 2013. Particularly useful for studying political developments in the South Caucasus during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Caucasus Barometer: Armenia Time-Series Dataset (2008–2024)\",\n      \"url_or_doi\": \"https://caucasusbarometer.org/en/surveys/cb/\",\n      \"justification\": \"Provides repeated nationally representative survey observations for Armenia, including multiple waves during the 2010s and 2020s. Contains indicators of political participation, confidence in political institutions, trust in parliament, attitudes toward democracy, perceptions of government performance, and geopolitical orientations. Particularly useful for analysing changes in Armenian political attitudes before and after the political transformations of 2018.\"\n    },\n    {\n      \"title\": \"Caucasus Barometer: Georgia Time-Series Dataset (2008–2024)\",\n      \"url_or_doi\": \"https://caucasusbarometer.org/en/surveys/cb/\",\n      \"justification\": \"Provides longitudinal survey data on political behaviour and attitudes in Georgia throughout the requested period. Measures political trust, democratic preferences, institutional legitimacy, electoral engagement, political satisfaction, and attitudes toward domestic and international institutions. Particularly useful for studying changes in democratic attitudes, political polarization, and public confidence in Georgian institutions.\"\n    },\n    {\n      \"title\": \"Caucasus Barometer: Azerbaijan Time-Series Dataset (2008–2013)\",\n      \"url_or_doi\": \"https://caucasusbarometer.org/en/surveys/cb/\",\n      \"justification\": \"Provides nationally representative survey data for Azerbaijan covering the early 2010s. Includes political trust, institutional confidence, attitudes toward governance, democratic values, and political engagement. Particularly relevant because comparable individual-level political attitudes data for Azerbaijan are less widely available than for many European countries. The available time series ends in 2013, so this dataset does not cover the 2020s.\"\n    },\n    {\n      \"title\": \"EBRD Life in Transition Survey II (2010)\",\n      \"url_or_doi\": \"https://www.ebrd.com/home/what-we-do/office-of-the-chief-economist/lits/life-in-transition-survey-data.html\",\n      \"justification\": \"Large-scale cross-national household survey conducted in 2010 across transition economies and comparison countries. Covers numerous countries in the query, particularly Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Estonia, Georgia, Hungary, Latvia, Lithuania, Montenegro, North Macedonia, Poland, Romania, Russian Federation, Serbia, Slovakia, Slovenia, and Ukraine. Measures include institutional trust, perceptions of corruption, satisfaction with government, political and economic preferences, and attitudes toward democratic institutions. Provides an important baseline for the 2010s.\"\n    },\n    {\n      \"title\": \"EBRD Life in Transition Survey III (2016)\",\n      \"url_or_doi\": \"https://www.ebrd.com/home/what-we-do/office-of-the-chief-economist/lits/life-in-transition-survey-data.html\",\n      \"justification\": \"Cross-national survey conducted in 2016 across 31 EBRD economies and two comparator countries, Germany and Italy. Includes many requested Central and Eastern European, Balkan, and post-Soviet countries. Contains individual-level information on trust in public institutions, perceptions of corruption, satisfaction with government, attitudes toward democracy, economic inequality, and public services. Particularly useful for analysing how economic and social conditions relate to political attitudes during the mid-2010s.\"\n    },\n    {\n      \"title\": \"EBRD Life in Transition Survey IV (2022–2023)\",\n      \"url_or_doi\": \"https://www.ebrd.com/home/what-we-do/office-of-the-chief-economist/lits/life-in-transition-survey-data.html\",\n      \"justification\": \"Provides harmonized household survey data from 2022–2023 across 33 EBRD economies and four comparator economies. Relevant for investigating political attitudes and institutional confidence in Central and Eastern Europe, the Balkans, and parts of the post-Soviet region during the 2020s. Includes measures of trust, perceptions of governance, satisfaction with institutions, economic insecurity, and social attitudes. Particularly valuable when combined with the 2010 and 2016 Life in Transition Surveys to examine changes over time.\"\n    },\n    {\n      \"title\": \"EBRD Life in Transition Surveys: Integrated Cross-Wave Research Collection (2010, 2016, 2022–2023)\",\n      \"url_or_doi\": \"https://www.ebrd.com/home/what-we-do/office-of-the-chief-economist/lits/life-in-transition-survey-data.html\",\n      \"justification\": \"Official collection providing access to multiple comparable Life in Transition Survey waves, including data files, questionnaires, and technical documentation. Particularly useful for researchers constructing repeated cross-sectional datasets on political attitudes across Eastern Europe, the Western Balkans, and the Caucasus. Enables analysis of changes in institutional trust, perceptions of political governance, corruption, government performance, and attitudes toward democracy between 2010 and the early 2020s. Country coverage and questionnaire comparability should be checked across waves.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454615.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18933,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3429,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22362
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 35,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Spring Study 1998?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Southern Focus Poll, Combined Sample, Spring 1998\",\n      \"url_or_doi\": \"https://www.thearda.com/data-archive/browse-alphabetically\",\n      \"justification\": \"While no dataset is titled strictly 'Spring Study 1998', this dataset from the Association of Religion Data Archives (ARDA) represents the Spring 1998 wave of the Southern Focus Poll survey series.\"\n    },\n    {\n      \"title\": \"Middletown Area Study, 1998\",\n      \"url_or_doi\": \"https://doi.org/10.17605/OSF.IO/B67YG\",\n      \"justification\": \"This dataset from the Middletown Area Study series was fielded in 1998 to assess social and religious attitudes in Delaware County, Indiana.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1801,
+          "candidatesTokenCount": 216,
+          "totalTokenCount": 4688,
+          "cachedContentTokenCount": 1176,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1801
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1176
+            }
+          ],
+          "thoughtsTokenCount": 2671,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ZUi-asuhBaGB3boPkZClsAs"
+      }
+    }
+  ]
+}

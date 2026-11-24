@@ -1,0 +1,69 @@
+{
+  "query_id": 104,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about TRADE, INDUSTRY AND MARKETS in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Foreign Trade Statistics (Destatis GENESIS-Online Code 51000)\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/genesis/online?operation=statistic&code=51000\",\n      \"justification\": \"Official dataset from the Federal Statistical Office of Germany (Destatis) providing time-series data on German foreign trade, exports, imports, and trade balances broken down by country and product category throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Annual Detailed Enterprise Statistics for Industry (Eurostat)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/SBS_NA_IND_R2\",\n      \"justification\": \"Eurostat dataset providing detailed structural business statistics on industrial enterprises in EU countries including Germany, detailing market turnover, number of enterprises, and gross value added into the 2020s.\"\n    },\n    {\n      \"title\": \"German Wholesale and Retail Trade Statistics (Destatis)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Topics/Economy/Wholesale-And-Retail-Trade/_node.html\",\n      \"justification\": \"Official Destatis repository covering wholesale and retail market trends, turnover indices, employee counts, and enterprise statistics in Germany throughout the 2020s.\"\n    },\n    {\n      \"title\": \"German Industrial Manufacturing Production and Turnover Statistics (Destatis)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Topics/Economic-Sectors-Enterprises/Industry-Manufacturing/_node.html\",\n      \"justification\": \"Official statistical database landing page for German industry and manufacturing, providing monthly and annual data on industrial output, order intake, staff expenditure, and sector sales across the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 535,
+          "candidatesTokenCount": 442,
+          "totalTokenCount": 2461,
+          "cachedContentTokenCount": 252,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 535
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 252
+            }
+          ],
+          "thoughtsTokenCount": 1484,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "vDeEapqDDK_4xN8PnLwr"
+      }
+    }
+  ]
+}

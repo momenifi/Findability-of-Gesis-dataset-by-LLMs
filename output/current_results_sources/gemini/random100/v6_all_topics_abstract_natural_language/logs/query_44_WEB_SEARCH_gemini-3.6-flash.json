@@ -1,0 +1,69 @@
+{
+  "query_id": 44,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Crime and law enforcement, International politics and organisations, Conflict, security and peace, Political behaviour and attitudes, Government, political systems and organisations, Elections, Economic conditions and indicators, Economic policy, public expenditure and revenue, and Economic systems and development in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s, matching this research need: monthly German public opinion survey data since 1977 on political issues, parties, politicians, voting intentions and voting behavior, including East and West Germany comparisons and annual cumulative files with short surveys\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Politbarometer 1977-2023 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14527\",\n      \"justification\": \"The Politbarometer series (GESIS ZA2391), conducted monthly since 1977 by Forschungsgruppe Wahlen for ZDF, collects German public opinion data on political behavior and attitudes, voting intentions, evaluations of political parties and politicians, economic conditions, and social issues across all German states (including Baden-Württemberg, Bavaria, Berlin, Bremen, Hamburg, Hesse, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein). The dataset covers the 1990s extensively, featuring East and West Germany comparisons as well as annual cumulative files that integrate short surveys (Kurzbarometer).\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 559,
+          "candidatesTokenCount": 224,
+          "totalTokenCount": 2199,
+          "cachedContentTokenCount": 177,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 559
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 177
+            }
+          ],
+          "thoughtsTokenCount": 1416,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "6oWEas_5ONK7kdUPteL1gQc"
+      }
+    }
+  ]
+}

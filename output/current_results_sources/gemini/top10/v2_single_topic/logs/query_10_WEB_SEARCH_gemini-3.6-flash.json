@@ -1,0 +1,69 @@
+{
+  "query_id": 10,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Comparative Political Data Set 1960–2023 (CPDS)\",\n      \"url_or_doi\": \"https://cpds-data.org/\",\n      \"justification\": \"The Comparative Political Data Set (CPDS) provides annual political, institutional, government composition, and macro-level data for 36 democratic OECD and EU member countries (including Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, and the UK) updated through 2023.\"\n    },\n    {\n      \"title\": \"Varieties of Democracy (V-Dem) Dataset\",\n      \"url_or_doi\": \"https://www.v-dem.net/data/the-v-dem-dataset/\",\n      \"justification\": \"The V-Dem dataset provides multi-dimensional indicators of democratic governance, political institutions, state capacity, and international political engagement covering all requested European, Balkan, EU-candidate, and Eastern Partnership countries throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Main Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2026a\",\n      \"justification\": \"The Manifesto Project (MARPOR/CMP) quantifies policy positions—including internationalism, European integration, foreign policy, and domestic political stances—from party manifestos across democratic European countries (including EU members, North Macedonia, Albania, etc.) with updates covering elections in the 2020s.\"\n    },\n    {\n      \"title\": \"Parliaments and Governments Database (ParlGov)\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/2VZ5ZC\",\n      \"justification\": \"ParlGov provides linked data on political parties, national parliamentary elections, and cabinet compositions across EU and OECD democracies in Europe, with regular updates covering political developments into the 2020s.\"\n    },\n    {\n      \"title\": \"Human Rights Violations Reporting Dataset (HURIVIRE)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.17286060\",\n      \"justification\": \"HURIVIRE aggregates country reports from major international organizations (Amnesty International, Human Rights Watch, US State Department, and UN WGEID) covering human rights and international political monitoring across countries including the specified European states from 1999 to 2023.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1446,
+          "candidatesTokenCount": 634,
+          "totalTokenCount": 4079,
+          "cachedContentTokenCount": 441,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1446
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 441
+            }
+          ],
+          "thoughtsTokenCount": 1999,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "dbanasq9DKyu28oP4b6y-Ao"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 193,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Czech Republic during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Volby.cz Election Results Archive - Czech Statistical Office\",\n      \"url_or_doi\": \"https://volby.cz/\",\n      \"justification\": \"Official repository maintained by the Czech Statistical Office providing complete result data, candidate lists, and voter turnout statistics for all Czech elections during the 2000s (including 2000, 2002, 2004, 2006, 2008, and 2009 elections).\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 2\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module2.2015-12-15\",\n      \"justification\": \"Includes individual-level survey data on voter choice, political attitudes, and demographic variables for the 2002 Czech Republic parliamentary election.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 3\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module3.2015-12-15\",\n      \"justification\": \"Provides cross-national electoral survey data and turnout metrics that include coverage of the 2006 Czech Republic parliamentary election.\"\n    },\n    {\n      \"title\": \"Parliamentary Elections in the Czech Republic and the Beneš Decrees 2002\",\n      \"url_or_doi\": \"https://doi.org/10.11587/AGQ7IM\",\n      \"justification\": \"A dataset hosted on AUSSDA containing public opinion survey data collected in connection with the 2002 Czech parliamentary elections.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 366,
+          "candidatesTokenCount": 430,
+          "totalTokenCount": 1980,
+          "cachedContentTokenCount": 106,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 366
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 106
+            }
+          ],
+          "thoughtsTokenCount": 1184,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jU2Eaqu0KL3pnsEPi52h2Qs"
+      }
+    }
+  ]
+}

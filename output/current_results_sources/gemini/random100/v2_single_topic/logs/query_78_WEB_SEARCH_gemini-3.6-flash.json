@@ -1,0 +1,62 @@
+{
+  "query_id": 78,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core v41i)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41i\",\n      \"justification\": \"A representative multi-cohort longitudinal survey of private households in Germany (1984–2024) containing detailed microdata on working conditions, employment history, work hours, income, and health.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey (BAuA-Arbeitszeitbefragung 2023) Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.21934/baua:doku20251001\",\n      \"justification\": \"A representative panel survey of over 11,000 employees in Germany conducted by the Federal Institute for Occupational Safety and Health (BAuA) assessing working time flexibility, working from home, and physical/psychological job demands in 2023.\"\n    },\n    {\n      \"title\": \"European Working Conditions Telephone Survey (EWCTS) 2021\",\n      \"url_or_doi\": \"https://www.eurofound.europa.eu/en/surveys/european-working-conditions-surveys-ewcs/european-working-conditions-telephone-survey-2021\",\n      \"justification\": \"A survey by Eurofound with country-level data for Germany collected during 2021, measuring job quality, physical and psychosocial risks, work-life balance, and workplace organization during the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2023/2024\",\n      \"url_or_doi\": \"https://www.baua.de/EN/Research/Research-projects/f2548.html\",\n      \"justification\": \"A representative survey of 20,000 employed individuals in Germany covering job tasks, qualifications, work intensity, occupational safety, health, and changing working conditions in 2023 and 2024.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 506,
+          "candidatesTokenCount": 518,
+          "totalTokenCount": 2736,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 506
+            }
+          ],
+          "thoughtsTokenCount": 1712,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "mDSEavGbN62svdIPuszkgQE"
+      }
+    }
+  ]
+}

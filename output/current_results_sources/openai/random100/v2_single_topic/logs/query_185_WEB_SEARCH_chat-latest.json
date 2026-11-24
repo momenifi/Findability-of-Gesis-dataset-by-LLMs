@@ -1,0 +1,186 @@
+{
+  "query_id": 185,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Religion and values in Algeria, Ghana, Indonesia, Jordan, Kenya, Cambodia, Sri Lanka, Mongolia, Malawi, Malaysia, Nigeria, Nepal, Singapore, and Viet Nam during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_031fb1880ef43195006b04662457e087d2a40d7d6991bfe7a2",
+        "created_at": 1795450404.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_031fb1880ef43195006b046625228c87d2878d14febd4a3ceb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "World Values Survey wave 7 2017 2022 countries Algeria Ghana Indonesia Jordan Kenya Cambodia Sri Lanka Mongolia Malawi Malaysia Nigeria Nepal Singapore Vietnam data",
+                "Pew Research Center 2012 global religious landscape dataset religion countries download",
+                "Afrobarometer round 7 2016 2018 data Ghana Kenya Malawi Nigeria religion values",
+                "Asian Barometer Survey wave 4 2014 2016 data Cambodia Indonesia Malaysia Mongolia Nepal Singapore Vietnam"
+              ],
+              "query": "World Values Survey wave 7 2017 2022 countries Algeria Ghana Indonesia Jordan Kenya Cambodia Sri Lanka Mongolia Malawi Malaysia Nigeria Nepal Singapore Vietnam data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_031fb1880ef43195006b046628c32087d2895f4a8dd7ad32f5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "10.4232/1.13517 religion values 14 countries survey",
+                "World Values Survey wave 6 2010 2014 dataset official",
+                "Asian Barometer Survey official data download wave 3 wave 4",
+                "Arab Barometer wave 3 2012 2014 Algeria Jordan religion dataset"
+              ],
+              "query": "10.4232/1.13517 religion values 14 countries survey",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_031fb1880ef43195006b04662d53a087d28683d9cc67ae5162",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"ISSP 2018 Religion IV – A Cross-National and Comparative Study of Religion in 14 Additional Countries\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13517\",\n      \"justification\": \"The most directly relevant dataset because it covers exactly all 14 requested countries: Algeria, Ghana, Indonesia, Jordan, Kenya, Cambodia, Sri Lanka, Mongolia, Malawi, Malaysia, Nigeria, Nepal, Singapore, and Viet Nam. Based on the International Social Survey Programme (ISSP) Religion 2018 module, it examines religious beliefs, practices, identities, and social values. It includes 1,642 respondents from Algeria, 1,433 from Ghana, 1,418 from Indonesia, 1,539 from Jordan, 1,400 from Kenya, 1,400 from Cambodia, 1,431 from Sri Lanka, 1,280 from Mongolia, 1,598 from Malawi, 1,422 from Malaysia, 1,480 from Nigeria, 1,469 from Nepal, 1,800 from Singapore, and 1,400 from Viet Nam. This is the strongest match for comparative research on religion and values across the specified countries during the 2010s.\"\n    },\n    {\n      \"title\": \"ISSP 2018 Religion IV – International Social Survey Programme\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13629\",\n      \"justification\": \"An international comparative survey focused specifically on religion in 2018. It contains measures of religious affiliation, belief in God, religious attendance, prayer, spirituality, religious tolerance, attitudes toward religious institutions, morality, and social values. It is useful as a complementary dataset for comparing the requested countries with other societies participating in the ISSP Religion module. Country coverage differs from the supplementary 14-country dataset.\"\n    },\n    {\n      \"title\": \"World Values Survey Wave 6 (2010–2014)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/AJOnline.jsp?WAVE=6\",\n      \"justification\": \"A major international survey covering religious beliefs, religious participation, moral values, family attitudes, gender equality, interpersonal trust, tolerance, democracy, and political culture. Conducted between 2010 and 2014, it provides individual-level data for comparing religious and social values across participating countries, including several of the requested countries. Particularly useful for examining attitudes earlier in the 2010s and comparing them with findings from the 2018 ISSP study.\"\n    },\n    {\n      \"title\": \"World Values Survey Wave 7 (2017–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.18\",\n      \"justification\": \"Provides internationally comparable survey data on religion, spirituality, morality, social trust, family values, gender attitudes, and political beliefs. Relevant countries include Indonesia, Jordan, Kenya, Malaysia, Mongolia, Nigeria, Singapore, and Viet Nam. Some participating countries were surveyed in 2018 or 2019, making their observations directly relevant to the 2010s. Other participating countries were surveyed after 2019, so collection years should be checked before restricting analysis to the requested decade.\"\n    },\n    {\n      \"title\": \"World Values Survey – All Rounds Country-Pooled Dataset (1981–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.17\",\n      \"justification\": \"A longitudinal dataset combining multiple World Values Survey waves. It allows researchers to examine changes in religiosity, religious affiliation, moral beliefs, tolerance, gender norms, and social values across time. Researchers can filter observations to 2010–2019 and select the requested countries where survey data are available. Particularly useful for studying changes in values rather than relying on a single survey year.\"\n    },\n    {\n      \"title\": \"Asian Barometer Survey Wave 3 (2010–2012)\",\n      \"url_or_doi\": \"https://catalog.ihsn.org/catalog/3001\",\n      \"justification\": \"A cross-national Asian public opinion survey conducted during the early 2010s. Relevant participating countries include Indonesia, Cambodia, Sri Lanka, Mongolia, Malaysia, Singapore, and Viet Nam. The survey examines social values, traditional beliefs, political culture, interpersonal trust, democratic attitudes, and related cultural orientations. Although religion is not its exclusive focus, the dataset provides useful contextual measures for studying relationships between religious traditions and social or political values.\"\n    },\n    {\n      \"title\": \"Asian Barometer Survey Wave 4 (2014–2016)\",\n      \"url_or_doi\": \"https://asianbarometer.org/datar\",\n      \"justification\": \"Provides comparative public opinion data collected across Asian societies during the middle of the 2010s. Relevant countries include Cambodia, Indonesia, Malaysia, Mongolia, Singapore, and Viet Nam. The survey covers cultural values, traditional authority, interpersonal trust, social attitudes, and political beliefs. It is particularly useful for investigating how cultural and religious environments relate to attitudes toward democracy, authority, and social institutions.\"\n    },\n    {\n      \"title\": \"Asian Barometer Survey – Multiwave Survey Data\",\n      \"url_or_doi\": \"https://asianbarometer.org/survey.jsp\",\n      \"justification\": \"The official Asian Barometer survey portal provides access to information about successive survey waves, including those conducted during the 2010s. It is relevant to several requested Asian countries, including Cambodia, Indonesia, Sri Lanka, Mongolia, Malaysia, Nepal, Singapore, and Viet Nam, although coverage varies by wave. The data support comparisons of social values, trust, cultural orientations, and political attitudes across countries and survey periods.\"\n    },\n    {\n      \"title\": \"Arab Barometer Wave III: Public Opinion Survey (2012–2014)\",\n      \"url_or_doi\": \"https://www.icpsr.umich.edu/web/ICPSR/studies/36273\",\n      \"justification\": \"A cross-national public opinion survey covering Algeria, Jordan, and other Middle Eastern and North African countries between 2012 and 2014. It contains questions about religious beliefs, religious behavior, social norms, gender roles, Islam, political participation, democracy, and religious attitudes. Particularly relevant for comparing religion and values in Algeria and Jordan during the early 2010s.\"\n    },\n    {\n      \"title\": \"Arab Barometer Wave III – Official Survey Dataset\",\n      \"url_or_doi\": \"https://www.arabbarometer.org/surveys/arab-barometer-wave-iii/\",\n      \"justification\": \"An official source for Arab Barometer's third survey wave, covering 2012–2014. Both Algeria and Jordan are included. The survey contains information about religion, cultural values, gender relations, political attitudes, social trust, and the relationship between religion and government. It provides a useful regional complement to the global ISSP and World Values Survey datasets.\"\n    },\n    {\n      \"title\": \"Afrobarometer Round 7: Merged Cross-National Dataset (2016–2018)\",\n      \"url_or_doi\": \"https://microdata.worldbank.org/catalog/3805\",\n      \"justification\": \"A comparative African public opinion dataset covering 34 countries, including Ghana, Kenya, Malawi, and Nigeria. Conducted between 2016 and 2018, it includes information about respondents' religious affiliation, social trust, tolerance, discrimination, governance, political participation, and public attitudes. Particularly useful for examining connections between religion, social values, and political beliefs in the requested African countries.\"\n    },\n    {\n      \"title\": \"Afrobarometer Round 6: Survey Data (2014–2015)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/surveys-and-methods/survey-resources/\",\n      \"justification\": \"Provides nationally representative public opinion data from African countries, including Algeria, Ghana, Kenya, Malawi, and Nigeria. The surveys examine religious identification, community relationships, tolerance, social trust, political attitudes, and perceptions of government. Round 6 is particularly valuable for comparing religious and social values during the middle of the 2010s and examining differences between North African and sub-Saharan African societies.\"\n    },\n    {\n      \"title\": \"Afrobarometer Round 5: Survey Data (2011–2013)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/surveys-and-methods/survey-resources/\",\n      \"justification\": \"Contains public opinion surveys conducted between 2011 and 2013 across African countries, including Algeria, Ghana, Kenya, Malawi, and Nigeria. Relevant variables include religious affiliation, interpersonal trust, tolerance, community participation, political values, and social attitudes. Particularly useful for establishing an early-2010s baseline and comparing findings with Afrobarometer Rounds 6 and 7.\"\n    },\n    {\n      \"title\": \"Pew Research Center – The World's Muslims Survey Dataset (2011–2012)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/international-religion-survey-data/\",\n      \"justification\": \"A large international survey conducted between October 2011 and November 2012, involving more than 32,000 interviews across 26 countries and territories. It focuses on Muslim religious beliefs, practices, religious law, political attitudes, gender roles, and social values. Particularly relevant for studying Muslim communities in countries such as Indonesia, Malaysia, Jordan, and other participating societies. Country-specific coverage should be verified before analysis.\"\n    },\n    {\n      \"title\": \"Pew Research Center – International Religion Survey Datasets\",\n      \"url_or_doi\": \"https://www.pewresearch.org/religion-datasets/international-religion-survey-data/\",\n      \"justification\": \"A repository of international survey datasets examining religious identity, beliefs, practices, morality, social attitudes, and the relationship between religion and politics. Several surveys were conducted during the 2010s and include countries in Africa and Asia. The collection is useful for identifying complementary country-level evidence and comparing religious attitudes with the ISSP 2018 Religion dataset. Geographic coverage and collection dates vary between surveys.\"\n    },\n    {\n      \"title\": \"Pew Research Center – Global Religious Composition Estimates for 2010 and 2020\",\n      \"url_or_doi\": \"https://doi.org/10.58094/vhrw-k516\",\n      \"justification\": \"Provides internationally comparable estimates of religious population composition for 2010 and 2020. It is relevant to all 14 requested countries and supports comparisons of Christianity, Islam, Buddhism, Hinduism, other religions, and religious nonaffiliation. Although it does not directly measure personal values or attitudes, it provides important demographic context for interpreting the 2018 ISSP Religion survey and examining changes in religious composition over the decade.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450424.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19075,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2420,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21495
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

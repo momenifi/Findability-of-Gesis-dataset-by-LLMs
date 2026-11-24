@@ -1,0 +1,186 @@
+{
+  "query_id": 112,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Equality, inequality and social exclusion in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e9f9b7d54add4a0006b046180311487d284a30d2d5cbe5f52",
+        "created_at": 1795449216.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e9f9b7d54add4a0006b0461813b1c87d2af3f318c0bd2c94f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "SOEP German socio economic panel data 2010 2019 inequality dataset landing page",
+                "Destatis EU SILC Germany 2010 2019 poverty social exclusion dataset",
+                "GESIS ALLBUS Germany 2010 2018 social inequality data",
+                "Germany regional inequality social exclusion 2010 2019 INKAR dataset"
+              ],
+              "query": "SOEP German socio economic panel data 2010 2019 inequality dataset landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e9f9b7d54add4a0006b046184e16087d29a69fb624b8fb24b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/ilc_peps01/default/table at risk poverty social exclusion",
+                "site:ec.europa.eu/eurostat/databrowser/view/ilc_di12/default/table gini",
+                "site:gesis.org ISSP 2019 social inequality V doi dataset",
+                "site:bbsr.bund.de INKAR database indicators maps regional development"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/ilc_peps01/default/table at risk poverty social exclusion",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e9f9b7d54add4a0006b0461882d6087d28f79e394730ab095",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2019\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36i\",\n      \"justification\": \"One of the most comprehensive longitudinal datasets for studying social and economic inequality in Germany. Contains annual household and individual-level data on income, employment, education, health, migration, and living conditions. Covers the entire 2010–2019 period, making it particularly valuable for examining income inequality, poverty, social mobility, and exclusion across demographic groups.\"\n    },\n    {\n      \"title\": \"European Union Statistics on Income and Living Conditions (EU-SILC) – Germany, 2010\",\n      \"url_or_doi\": \"https://catalog.ihsn.org/catalog/5620/study-description\",\n      \"justification\": \"Provides household and individual-level information on income distribution, poverty, material deprivation, and social exclusion in Germany. The 2010 dataset offers a useful baseline for studying inequality throughout the decade. EU-SILC is particularly valuable for comparing Germany with other European countries using harmonized social indicators.\"\n    },\n    {\n      \"title\": \"EU-SILC – Poverty and Social Exclusion by Age and Gender in Germany\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/eu-silc-personen-in-hauptwohnsitzhaushalten-deutschland-jahre-geschlecht-altersgruppen-armut-od\",\n      \"justification\": \"Official dataset published by Germany's Federal Statistical Office (Destatis). Provides statistics on individuals experiencing poverty or social exclusion, categorized by year, gender, and age group. Particularly relevant for investigating demographic inequalities, gender differences in poverty, and social exclusion among children, working-age adults, and older people. Historical EU-SILC results can support analysis of the 2010s, although coverage should be checked.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"Nationally representative survey dataset covering social attitudes, demographic characteristics, social stratification, and societal change in Germany. Includes survey waves from 2010, 2012, 2014, 2016, and 2018. Useful for examining perceptions of inequality, social class, educational differences, political attitudes, migration, and attitudes toward marginalized groups.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584?lang=de\",\n      \"justification\": \"Historical cumulative dataset containing repeated cross-sectional surveys of German society. Includes observations from the early 2010s and supports investigations of social inequality, class structure, employment, education, and social attitudes. Particularly useful for comparing social conditions during the beginning of the decade with earlier periods.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Social Inequality V, 2019\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14009\",\n      \"justification\": \"International survey dataset that includes Germany and focuses specifically on social inequality. Contains information about perceptions of income differences, fairness, social mobility, occupational status, and opportunities for advancement. Particularly valuable for investigating how people in Germany perceived economic inequality and social stratification at the end of the 2010s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Social Inequality I–V, 1987–2019\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14226\",\n      \"justification\": \"Harmonized international dataset combining five waves of the ISSP Social Inequality survey. Includes Germany and enables comparisons between 2009 and 2019, providing valuable evidence on changing attitudes toward inequality during the 2010s. Covers perceived income inequality, social justice, class differences, opportunities, and beliefs about the fairness of economic outcomes.\"\n    },\n    {\n      \"title\": \"Eurostat – Persons at Risk of Poverty or Social Exclusion by Age and Sex\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ilc_peps01n\",\n      \"justification\": \"Official Eurostat dataset measuring the percentage of people experiencing poverty or social exclusion, disaggregated by age and gender. Includes Germany and covers 2015–2019 within the requested decade. Useful for identifying demographic inequalities and comparing social exclusion across European countries. Researchers should account for changes in EU poverty and exclusion indicators when comparing historical periods.\"\n    },\n    {\n      \"title\": \"Eurostat – Persons at Risk of Poverty or Social Exclusion (Sustainable Development Goals Indicator)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/sdg_01_10\",\n      \"justification\": \"Official European statistical dataset measuring poverty and social exclusion using indicators related to income poverty, material and social deprivation, and household employment intensity. Includes German observations from the second half of the 2010s. Particularly relevant for evaluating Germany's progress toward social inclusion and poverty reduction objectives.\"\n    },\n    {\n      \"title\": \"Eurostat – Persons at Risk of Poverty or Social Exclusion by Degree of Urbanisation\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ILC_PEPS13\",\n      \"justification\": \"European statistical dataset measuring poverty and social exclusion across cities, towns, suburbs, and rural areas under the EU 2020 indicator framework. Useful for investigating geographical inequalities in Germany during the 2010s, including differences between urban and rural populations and patterns of spatial disadvantage.\"\n    },\n    {\n      \"title\": \"Eurostat – Gini Coefficient of Equivalised Disposable Income\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ILC_DI12\",\n      \"justification\": \"Official European dataset measuring income inequality through the Gini coefficient. Includes Germany and historical observations covering the 2010s. Particularly suitable for examining whether household disposable income became more or less equally distributed between 2010 and 2019, and for comparing Germany's inequality trends with those of other European countries.\"\n    },\n    {\n      \"title\": \"GESIS – German General Social Survey (ALLBUS) Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Official research data portal providing access to individual ALLBUS survey waves, including those conducted during the 2010s. Offers detailed questionnaires, methodological documentation, and data files covering social inequality, social structure, values, attitudes, and demographic differences. Particularly useful for selecting specific years or variables related to equality and exclusion.\"\n    },\n    {\n      \"title\": \"GESIS – International Social Survey Programme Social Inequality Series\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/social-inequality\",\n      \"justification\": \"Official research data portal for international surveys specifically focused on social inequality. Provides access to the 2019 Social Inequality survey and historical waves, including 2009. Supports research on perceptions of economic fairness, social mobility, class differences, occupational inequality, and social conflict in Germany. Especially useful for understanding subjective dimensions of inequality alongside objective economic indicators.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449232.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19074,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1730,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20804
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

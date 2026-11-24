@@ -1,0 +1,69 @@
+{
+  "query_id": 13,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled A Survey of Europe Today (Finland)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"A Survey of Europe Today (Finland)\",\n      \"url_or_doi\": \"https://datacatalogue.cessda.eu/\",\n      \"justification\": \"The dataset 'A Survey of Europe Today (Finland)' (also indexed under 'A Survey of Europe Today (Finnland)'), part of the Reader's Digest cross-national consumer survey series, is available and indexed in the CESSDA Data Catalogue.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1751,
+          "candidatesTokenCount": 117,
+          "totalTokenCount": 4104,
+          "cachedContentTokenCount": 1540,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1751
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1540
+            }
+          ],
+          "thoughtsTokenCount": 2236,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "n0W-ari-JYyVkdUP8fCiqQs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 46,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LABOUR AND EMPLOYMENT in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0441fa31a502e26c006b0479c8444887d2ac97158e7bc26363",
+        "created_at": 1795455432.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0441fa31a502e26c006b0479c95b5887d2b310583d9976917b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS online employment labour market Germany dataset employment 2010 2024",
+                "Eurostat employment unemployment Germany dataset lfsi_emp_a",
+                "IAB employment history dataset Germany SIAB 2010 2023 research data centre",
+                "Federal Employment Agency Germany statistics unemployment employment time series datasets"
+              ],
+              "query": "Destatis GENESIS online employment labour market Germany dataset employment 2010 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0441fa31a502e26c006b0479ccdf6087d2ac305c4257172369",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistik.arbeitsagentur.de interaktive statistiken arbeitsmarkt statistik daten",
+                "site:fdz.iab.de/en/our-data-products IAB establishment panel 2024",
+                "site:diw.de SOEP data 1984 2024 employment Germany dataset",
+                "site:ec.europa.eu/eurostat/databrowser/view/une_rt_a unemployment annual Germany"
+              ],
+              "query": "site:statistik.arbeitsagentur.de interaktive statistiken arbeitsmarkt statistik daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0441fa31a502e26c006b0479d05a8087d2851034affb3de017",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis GENESIS-Online: Employment by Economic Sector in Germany (1991–2025)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/13311/table/13311-0001\",\n      \"justification\": \"Official dataset from Germany's Federal Statistical Office (Destatis), providing annual employment figures by economic sector. Includes employees, self-employed persons, and contributing family workers. Covers the entire 2010s and 2020–2025, making it particularly useful for analyzing long-term employment trends, structural changes in the German economy, and sectoral employment patterns.\"\n    },\n    {\n      \"title\": \"Eurostat: Employment and Labour Force by Sex and Age – Annual Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/lfsi_emp_a\",\n      \"justification\": \"Official European Union Labour Force Survey dataset containing annual employment indicators for Germany, disaggregated by sex and age group. Suitable for studying employment rates, demographic differences, female labour force participation, and changes in employment during the 2010s and 2020s. Also enables comparisons between Germany and other European countries.\"\n    },\n    {\n      \"title\": \"Eurostat: Employment and Labour Force by Sex and Age – Quarterly Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/lfsi_emp_q__custom_17928732/default/table\",\n      \"justification\": \"Quarterly Labour Force Survey dataset providing employment indicators for Germany by sex and age. Its higher temporal frequency makes it useful for studying short-term employment fluctuations, the effects of the COVID-19 pandemic, and labour market recovery during the 2020s. Particularly relevant for time-series analysis.\"\n    },\n    {\n      \"title\": \"Eurostat: Unemployment by Sex and Age – Annual Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/une_rt_a/default/table\",\n      \"justification\": \"Official Eurostat dataset providing annual unemployment rates and unemployment counts by sex and age, including Germany. Covers the 2010s and 2020s and supports analysis of youth unemployment, gender disparities, and changes in unemployment following economic shocks. Uses internationally comparable labour market definitions.\"\n    },\n    {\n      \"title\": \"Eurostat: Unemployment by Sex and Age – Quarterly Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/UNE_RT_Q/default/table?lang=en\",\n      \"justification\": \"Quarterly unemployment dataset covering Germany and other European countries, with breakdowns by demographic characteristics. Useful for examining seasonal and cyclical unemployment, the economic effects of COVID-19, and labour market developments throughout the 2010s and 2020s. DOI: 10.2908/une_rt_q.\"\n    },\n    {\n      \"title\": \"Eurostat: Unemployment Rate – Annual Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/TIPSUN20?lang=en\",\n      \"justification\": \"Harmonized annual unemployment rate dataset based on International Labour Organization definitions. Includes German observations from the 2010s through 2025. Particularly suitable for investigating long-term unemployment trends, economic cycles, and Germany's labour market performance relative to other EU member states.\"\n    },\n    {\n      \"title\": \"German Federal Employment Agency: Employment and Labour Market Statistics\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/\",\n      \"justification\": \"Official statistics portal of the German Federal Employment Agency (Bundesagentur für Arbeit). Provides extensive administrative labour market datasets, including unemployment, registered employment, job vacancies, short-time work, and regional labour market indicators. Historical time series cover the 2010s and 2020s. Particularly valuable for detailed analysis at national, federal-state, district, and local levels.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank: Employment and Labour Market Time Series\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/overview-of-the-statistical-series/-/employment-and-labour-market-808726\",\n      \"justification\": \"Official German central bank statistical collection containing employment and unemployment time series, including employed persons, employees subject to social security contributions, and registered unemployment. Offers downloadable time-series data suitable for analyzing Germany's labour market developments during the 2010s and 2020s and their relationship with macroeconomic conditions.\"\n    },\n    {\n      \"title\": \"IAB: Sample of Integrated Labour Market Biographies (SIAB 7523)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.SIAB7523.de.en.v2\",\n      \"justification\": \"Longitudinal administrative microdataset from Germany's Institute for Employment Research (IAB). Contains a 2% random sample of individuals represented in the Integrated Employment Biographies, covering 1975–2023. Records employment histories, unemployment, benefit receipt, job seeking, and labour market programme participation. Highly relevant for examining employment mobility, job stability, unemployment transitions, and individual labour market trajectories during the 2010s and early 2020s. Access is restricted to approved research arrangements.\"\n    },\n    {\n      \"title\": \"IAB: Sample of Integrated Labour Market Biographies – Regional File (1975–2023)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.SIAB-R7523.de.en.v1\",\n      \"justification\": \"Research dataset based on German administrative employment records, providing longitudinal information on employment and unemployment histories. Its regional variables make it useful for investigating geographical differences in labour market conditions, regional employment mobility, and employment inequalities across Germany during the 2010s and early 2020s. Available as a factually anonymized scientific-use dataset subject to access conditions.\"\n    },\n    {\n      \"title\": \"IAB: Establishment Panel (IAB-BP), 1993–2024\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Longitudinal establishment-level survey dataset maintained by the Institute for Employment Research. Covers German businesses and workplaces, including information about employment structures, recruitment, training, working conditions, and establishment characteristics. The 1993–2024 coverage enables analysis of employer behaviour, workforce adjustments, skill shortages, and employment trends throughout the 2010s and early 2020s. Research access restrictions apply.\"\n    },\n    {\n      \"title\": \"IAB: Establishment History Panel (BHP)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Administrative longitudinal dataset containing information on establishments employing workers covered by German social security records. Particularly useful for analyzing employment growth, establishment size, workforce composition, regional employment structures, and changes in labour demand during the 2010s and 2020s. The dataset supports detailed employer-level research but requires authorized access.\"\n    },\n    {\n      \"title\": \"IAB: German Job Vacancy Survey (IAB-SE)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Establishment survey dataset providing information on job vacancies, recruitment activity, hiring difficulties, and labour demand in Germany. Relevant for investigating labour shortages, skills mismatches, employer recruitment behaviour, and changes in hiring conditions during the 2010s and 2020s. Especially valuable for studying Germany's labour market tightness and workforce shortages.\"\n    },\n    {\n      \"title\": \"IAB: Panel Study Labour Market and Social Security (PASS)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/overview-of-available-data/central-fdz-data-products/\",\n      \"justification\": \"Longitudinal household and individual survey dataset examining employment, unemployment, social security, and economic circumstances in Germany. Includes information relevant to labour market participation, job transitions, benefit receipt, and social inequality. Particularly suitable for analyzing relationships between employment status, household conditions, and social protection during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"IAB: Linked Employer-Employee Data (LIAB)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/overview-of-available-data/central-fdz-data-products/\",\n      \"justification\": \"Linked administrative and survey dataset connecting individual employment histories with information about German establishments. Supports analysis of wages, employment mobility, worker characteristics, employer behaviour, and workplace inequality. Particularly useful for investigating how firm-level characteristics influenced employment outcomes and labour market developments during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core v41): Data 1984–2024\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41r\",\n      \"justification\": \"Major representative longitudinal household survey conducted by the German Institute for Economic Research (DIW Berlin). Contains individual-level information on employment status, occupational histories, earnings, working hours, education, and household income. The 1984–2024 coverage makes it especially valuable for investigating labour market inequality, gender wage gaps, employment transitions, and the socioeconomic consequences of labour market changes throughout the 2010s and early 2020s.\"\n    },\n    {\n      \"title\": \"Destatis: Labour Force by Sex, Age, Employment Type, and Other Characteristics\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/30303034-3131-4034-312d-303032370002?locale=en\",\n      \"justification\": \"Official German labour force dataset available through the European Data Portal and sourced from Destatis. Provides employment and labour force information disaggregated by demographic and employment-related characteristics. Useful for analyzing labour force participation, differences between population groups, and employment structures in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"IAB: Panel of Establishments in the COVID-19 Crisis (IAB BeCovid)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Specialized employer-level panel dataset examining how German establishments responded to the COVID-19 crisis. Relevant for studying changes in employment, recruitment, workplace organization, and business adjustment strategies during the early 2020s. Particularly useful for research comparing pandemic-related labour market disruptions with pre-pandemic conditions.\"\n    },\n    {\n      \"title\": \"IAB: IAB-ZEW Labour Market 4.0 Establishment Survey\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Establishment-level research dataset focusing on technological change, digitalization, and their implications for employment in Germany. Suitable for investigating how automation and digital technologies affect workforce composition, skill requirements, and labour demand. Provides valuable evidence for understanding structural labour market transformations associated with the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"IAB: IAB-ZEW Start-up Panel\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/our-data-products/establishment-data/\",\n      \"justification\": \"Research panel dataset covering German start-ups and young enterprises, including information relevant to employment creation and business development. Useful for examining entrepreneurship, job creation, hiring behaviour, and the contribution of newly established businesses to employment during the 2010s and 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455452.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18749,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2639,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21388
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

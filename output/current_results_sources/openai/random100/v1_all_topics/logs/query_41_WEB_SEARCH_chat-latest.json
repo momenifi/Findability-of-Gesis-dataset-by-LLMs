@@ -1,0 +1,186 @@
+{
+  "query_id": 41,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university, university policy, digitalization, artificial intelligence, and university research in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e43646fe6d0ca38006b04561394d087d28e452d655a624ad2",
+        "created_at": 1795446291.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e43646fe6d0ca38006b0456147bc887d295d566d8c3d67957",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany higher education statistics dataset Hochschulstatistik Destatis 2024 data",
+                "DZHW research data centre student survey digitalization Germany dataset 2021 2023",
+                "Hochschulbarometer 2024 data digitalisierung KI Hochschulen Deutschland",
+                "German university research funding DFG funding atlas data dashboard 2024"
+              ],
+              "query": "Germany higher education statistics dataset Hochschulstatistik Destatis 2024 data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e43646fe6d0ca38006b045617ad4487d2ac3c63e466da923a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:zenodo.org/records \"AI\" \"German universities\" survey data 2024",
+                "site:fdz.dzhw.eu digitalisation higher education survey dataset Germany",
+                "site:hochschuldaten.che.de monitor digitalisierung 360 daten 2024",
+                "site:destatis.de hochschulfinanzen statistischer bericht 2024 hochschulen"
+              ],
+              "query": "site:zenodo.org/records \"AI\" \"German universities\" survey data 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e43646fe6d0ca38006b04561a55e887d2992c03a4bd57ca6e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Research Funding Atlas 2024 – Deutsche Forschungsgemeinschaft (DFG)\",\n      \"url_or_doi\": \"https://foerderatlas.dfg.de/en/data/\",\n      \"justification\": \"One of the most comprehensive sources of data on university research funding and research policy in Germany during the 2020s. Provides downloadable tables on DFG grants awarded between 2020 and 2022, third-party research funding, federal government funding, European research grants, research disciplines, and individual universities. Particularly useful for comparing university research performance, institutional funding strategies, and the distribution of public research resources.\"\n    },\n    {\n      \"title\": \"The Student Survey in Germany (2021) – German Centre for Higher Education Research and Science Studies (DZHW)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:sid2021:1.0.1\",\n      \"justification\": \"A large-scale survey dataset covering the experiences, socioeconomic circumstances, educational conditions, and study environments of students at German higher education institutions in 2021. Relevant to university policy, digital learning, educational inequality, and the effects of the COVID-19 pandemic on higher education. Particularly valuable for investigating students' experiences with digitalized university teaching and institutional conditions.\"\n    },\n    {\n      \"title\": \"Generative AI in University Communication – Second Wave Survey Data (2024)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.12166389\",\n      \"justification\": \"Highly relevant open-access dataset examining the adoption and institutional governance of generative artificial intelligence at German universities in 2024. The survey contacted 318 universities and received responses from 82 institutions. Variables cover AI tool adoption, institutional guidelines, strategic objectives, AI working groups, training opportunities, and perceptions of generative AI. Particularly useful for studying university AI policies, organizational digital transformation, and institutional responses to emerging technologies. Includes downloadable CSV data, questionnaires, and processing scripts.\"\n    },\n    {\n      \"title\": \"Generative AI in University Communication – First Wave Survey Data (2023)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.10254904\",\n      \"justification\": \"First-wave dataset examining generative AI adoption and organizational responses in German university communication in 2023. Especially useful when combined with the 2024 second-wave dataset to investigate changes in university AI strategies, institutional guidelines, technological adoption, and administrative practices during the early diffusion of generative AI.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Higher Education Statistics (Hochschulstatistik)\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Hochschulen/_inhalt.html\",\n      \"justification\": \"Official German higher education statistical data covering university enrollment, graduates, doctoral students, academic personnel, institutional characteristics, and financial indicators throughout the 2020s. Provides a quantitative foundation for analyzing structural changes in German universities and evaluating higher education policies. Particularly useful for longitudinal comparisons and contextualizing AI adoption and digital transformation across institutions.\"\n    },\n    {\n      \"title\": \"Destatis – Non-Monetary Higher Education Indicators, 1980–2024\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Hochschulen/Publikationen/Downloads-Hochschulen/statistischer-bericht-kennzahlen-nichtmonetaer-2110431247005.html\",\n      \"justification\": \"Official downloadable statistical dataset containing university enrollment and graduation indicators, student-to-staff ratios, study duration, transition rates, and academic success measures through 2024. Particularly useful for evaluating university policy outcomes and identifying changes in higher education during the 2020s. The long historical coverage also enables comparisons between pre-pandemic and post-pandemic developments.\"\n    },\n    {\n      \"title\": \"Destatis – University Finances in Germany, 2024 (Finanzen der Hochschulen)\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Bildungsfinanzen-Ausbildungsfoerderung/Publikationen/_publikationen-innen-finanzen-hochschulen.html\",\n      \"justification\": \"Official university finance datasets for 2022, 2023, and 2024, with downloadable spreadsheet files. Covers revenues, expenditures, university types, academic disciplines, and teaching and research areas. Especially relevant for investigating higher education funding policies, research investment, institutional financial capacity, and resource allocation during digital transformation. Can be combined with AI adoption surveys to examine relationships between financial resources and technological change.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Third-Party Funding of German Universities\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/213%2A/table/21371-0013\",\n      \"justification\": \"Official statistical database table covering third-party funding received by German higher education institutions from 2006 through 2024. Data can be analyzed by year, federal state, university type, and academic discipline. Particularly valuable for assessing university research funding, changes in public research policy, and differences between research-intensive universities and universities of applied sciences.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Higher Education and Research Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"Official statistical database providing downloadable, structured indicators on higher education finances, university personnel, enrollment, academic performance, and research expenditure. Relevant statistical categories include university finances (21371) and higher education indicators (21381). Particularly useful for constructing longitudinal datasets covering the 2020s and examining the relationship between university policy, institutional resources, and research performance.\"\n    },\n    {\n      \"title\": \"Hochschul-Barometer – German University Leadership Surveys\",\n      \"url_or_doi\": \"https://www.hochschul-barometer.de/downloads\",\n      \"justification\": \"Recurring surveys of German university leadership conducted by the Stifterverband. The available results cover institutional development, university governance, innovation, digital infrastructure, cybersecurity, digitalization, research cooperation, and higher education policy. Particularly relevant for studying how university leaders perceive digital transformation, institutional challenges, and government policy during the 2020s. The site primarily provides survey reports and results rather than unrestricted respondent-level microdata.\"\n    },\n    {\n      \"title\": \"CHE – Artificial Intelligence in Higher Education: Student Perspectives, 2023/2024\",\n      \"url_or_doi\": \"https://www.che.de/download/check-ki-2024/\",\n      \"justification\": \"Empirical research based on student survey data collected during the winter semester of 2023/2024 as part of the CHE University Ranking. Examines student perspectives on artificial intelligence in university teaching and learning. Incorporates findings related to the Digitalisierung 360° monitoring initiative. Particularly useful for investigating generative AI adoption in university education, student experiences, digital competencies, and potential implications for institutional teaching policies. The linked publication provides aggregated survey findings rather than a verified open microdata download.\"\n    },\n    {\n      \"title\": \"DZHW – Trend Survey Research Data Infrastructures 2024\",\n      \"url_or_doi\": \"https://metadata.fdz.dzhw.eu/en/data-packages/stu-base4nfdi?page=1&size=10&type=surveys\",\n      \"justification\": \"Research dataset examining research data infrastructures among researchers working at German higher education institutions and research organizations in 2024. Especially relevant to the digitalization of university research, research data management, digital research infrastructure, and institutional support for data-intensive research. Useful for investigating the relationship between research infrastructure policies and the digital transformation of German academic research.\"\n    },\n    {\n      \"title\": \"Destatis – Statistics on Student Educational Pathways, 2024\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Hochschulen/Publikationen/Downloads-Hochschulen/statistischer-bericht-studienverlauf-5213106247005.html\",\n      \"justification\": \"Official statistical dataset tracking selected characteristics of student educational pathways through pseudonymized links between enrollment, examination, and doctoral student statistics. The 2024 edition includes information relevant to transitions between universities and degree programs and progression from bachelor's to master's studies. Useful for evaluating university policy effectiveness and changes in student pathways during the 2020s.\"\n    },\n    {\n      \"title\": \"German Council of Science and Humanities – Basic Data on Universities and Research Establishments in Germany, 2026\",\n      \"url_or_doi\": \"https://www.wissenschaftsrat.de/download/2026/Basic_data.pdf?__blob=publicationFile&v=4\",\n      \"justification\": \"Official statistical compilation covering the German university and research system, including institutional structures, student populations, university categories, and research establishments. Contains comparative indicators for several years during the 2020s. Particularly useful for examining the institutional landscape in which university digitalization, AI adoption, and research policy developments take place. Primarily an aggregated statistical reference rather than a microdata repository.\"\n    },\n    {\n      \"title\": \"German Higher Education Institutions in Figures 2024 – German Rectors' Conference (HRK)\",\n      \"url_or_doi\": \"https://www.hrk.de/fileadmin/redaktion/hrk/02-Dokumente/02-06-Hochschulsystem/Statistik/Higher_Education_Institutions_in_Figures_2024.pdf\",\n      \"justification\": \"Statistical overview of the German higher education system published by the German Rectors' Conference. Provides institutional and structural indicators relevant to university enrollment, higher education organization, and university system development. Useful for constructing a comparative picture of German universities during the 2020s and contextualizing university governance and policy reforms. The source is a statistical publication rather than an individual-level dataset.\"\n    },\n    {\n      \"title\": \"German Education Report – Data Sources for Higher Education and Educational Policy\",\n      \"url_or_doi\": \"https://www.bildungsbericht.de/de/datengrundlagen/datenquellen\",\n      \"justification\": \"Official documentation of the statistical sources used in Germany's national education reporting system. Includes university personnel statistics and other higher education indicators covering years such as 2022 and 2024. Useful for identifying consistent, authoritative datasets for evaluating higher education policy, university resources, educational participation, and structural developments during the 2020s. This is a dataset discovery and documentation resource rather than a single downloadable dataset.\"\n    },\n    {\n      \"title\": \"DZHW – The Student Survey in Germany: Research Data and Results\",\n      \"url_or_doi\": \"https://www.die-studierendenbefragung.de/forschung\",\n      \"justification\": \"Research portal providing access to information about the 2021 German Student Survey and associated research outputs. Includes findings concerning digital university teaching during the COVID-19 pandemic and students' educational experiences. Particularly useful for studying university digitalization policies, remote learning, student satisfaction, and the consequences of institutional responses to pandemic restrictions.\"\n    },\n    {\n      \"title\": \"Destatis – Official German Higher Education Statistical Publications\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Hochschulen/Publikationen/_publikationen-hochschulen.html\",\n      \"justification\": \"Central collection of official downloadable university statistics, including student enrollment, university personnel, private universities, academic progression, and higher education policy indicators. Offers multiple datasets covering the 2020s, generally in spreadsheet format. Particularly relevant for building university-level or sector-level analytical datasets and examining changes in the German higher education system.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446312.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19071,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2666,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21737
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

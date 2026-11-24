@@ -1,0 +1,62 @@
+{
+  "query_id": 5,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators, Information society, Media, Political behaviour and attitudes, Information technology, Government, political systems and organisations, Elections, Economic systems and development, SCIENCE AND TECHNOLOGY, Equality, inequality and social exclusion, PSYCHOLOGY, SOCIAL STRATIFICATION AND GROUPINGS, General health and well-being, Family life and marriage, TRANSPORT AND TRAVEL, NATURAL ENVIRONMENT, LABOUR AND EMPLOYMENT, Working conditions, Leisure, tourism and sport, Income, property and investment/saving, Consumption and consumer behaviour, Energy and natural resources, Specific diseases, disorders and medical conditions, Economic policy, public expenditure and revenue, Environment and conservation, Migration, Economic conditions and indicators, Wounds and injuries, International politics and organisations, Health care services and policies, Gender and gender roles, Physical fitness and exercise, and LAW, CRIME AND LEGAL SYSTEMS in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel, data from 1984-2023 (SOEP-Core, v40, Remote Edition)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40r\",\n      \"justification\": \"Provides comprehensive longitudinal survey data on German households covering economic conditions, income, labour and employment, working conditions, general health and well-being, psychology, family life, social stratification, migration, and consumption.\"\n    },\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften (ALLBUS 2018)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13325\",\n      \"justification\": \"Covers German social conditions, political behaviour and attitudes, information society and media usage, government systems, equality/inequality and social exclusion, and general health indicators.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES Querschnitt 2021, Vor- und Nachwahl)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14170\",\n      \"justification\": \"Captures representative empirical data on political behaviour, elections, political systems and organisations, media usage, international politics, and political attitudes in Germany during the 2021 federal election.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Environment IV - ISSP 2020\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14153\",\n      \"justification\": \"Includes data for Germany covering public attitudes toward the natural environment, conservation, energy and natural resources, economic growth versus environmental protection, transport/travel behavior, and government policy.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1595,
+          "candidatesTokenCount": 456,
+          "totalTokenCount": 4051,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1595
+            }
+          ],
+          "thoughtsTokenCount": 2000,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "qLWnauPUN_ilxN8P77nf8Ao"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 1,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1970s, matching this research need: survey data on West German voting behavior, party preferences, chancellor candidate evaluations, political attitudes, democracy, class identity, family political socialization, economic expectations, and issue priorities around environment, inflation, and peace negotiations\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Political Action: An Eight Nation Study, 1973-1976\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR07777.v1\",\n      \"justification\": \"Conducted between 1973 and 1976 across eight nations including West Germany, this dataset contains cross-sectional survey data and parent-child dyad data covering West German voting behavior, party preferences, political attitudes, satisfaction with democracy, subjective social class identity, family political socialization, economic expectations, and issue priorities regarding the environment, inflation, and protest.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977-2019 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13631\",\n      \"justification\": \"Initiated in 1977 by Forschungsgruppe Wahlen and archived at GESIS (ZA2391), this monthly time-series survey captures West German political attitudes, voting intentions, party preferences, evaluations of chancellor candidates and top politicians, economic expectations, and priorities on key political issues including inflation, environmental policy, and peace negotiations.\"\n    },\n    {\n      \"title\": \"European Communities Study 1970\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10851\",\n      \"justification\": \"Archived at GESIS (ZA0626), this 1970 survey measures West German public opinion, political attitudes toward democratic governance, party and political orientations, subjective social standing, economic expectations, and priorities on international affairs, defense, and peace policy at the beginning of the 1970s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1996,
+          "candidatesTokenCount": 432,
+          "totalTokenCount": 5454,
+          "cachedContentTokenCount": 1013,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1996
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1013
+            }
+          ],
+          "thoughtsTokenCount": 3026,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "7nKEatGyHouQvdIPr9XX4As"
+      }
+    }
+  ]
+}

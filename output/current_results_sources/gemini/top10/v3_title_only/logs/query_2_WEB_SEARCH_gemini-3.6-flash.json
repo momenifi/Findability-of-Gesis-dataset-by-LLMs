@@ -1,0 +1,62 @@
+{
+  "query_id": 2,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled International Social Survey Programme: National Identity & Citizenship - ISSP 2023?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"International Social Survey Programme: National Identity & Citizenship - ISSP 2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10010.1.0.0\",\n      \"justification\": \"This is the official persistent DOI for the ISSP 2023 dataset (Data file ZA10010) published by the GESIS Data Archive.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EtQKCtEKARFNMg8E4ZuKgOTTCNj270JxAd3kPcq3DZVnP2xhv3mTg5rb5kZNwIkxR5AwDShDhlwZq0Rn41xYB69C7y0zNgHxiGSvKKevoDg+ou6s5fmL9WMik9COOX5w2NYVB8bAHNufQpVAMfM1EmmYhNYziXkiFE1w4/lZqVsS1+gvKKh6SSldd37KcFbQw77Wu6RL+wlIapJko1VJ3wKMXApmfTyEEU1n2RO/cwyBbFvhhawdT9n49u3zW42A8TIvHVp7rQnnog4tKU/iuUlbwvWmMTVGnuhbob6aaSPGIPttqNN5WTSrq39N1Jhk67KbEtrRuywNPYyB2T3KT/62sSXY571Q5L9mA0XgWGCz5YV3YRFV9WGmkn4iDzIjptvcJxouo9VyAeDzNciRBGNSJMH3tjKxaFjReg3W56S4TMOJQi3IHxiSQURzJ8Nqkgvn0ENZ3EceId2Di8UVm6jmo1YIAm94uKzNWE1MFvHZtYqwezJWmOpoAa5qKM+7kYqx+OCu3B5Z445wWOfwU+7ZyHlrYtCXsG8Mk5jTlRNf6xx+x125MMhYDUTBwDhlaGRB3/HnDJvYWEySiD630iQmAY+65jwQU5kkxDyFV/uvCR+bmLBcHnnmw0bLChmjdC0m0arX1Nc63rocQDAIMgriUIuiND6uaRp/XH/gZY0vanPUX+G2sYI4MsJhNNCdbqSJ0YNrIv7BJjgYPK1KdBGYC8KQYA88qE5Q0/Mmtuk88mlessvy9I6pho7c5U1ITLlrxsjrBoP+6Oi2FfVptQf87ojG13BRtHjoFAU9h1xl4qt1PqVPx5S/LJk4rIlaDgfVYGzJvOLuXfvWEwg7nmvkPMk9VXZnwt+GiT6UVSV7BEJ6qQz+tOl1hEOTZa0MJ8srjMJ9DzcPOONP015nlfZRksbjvM/UTDKIm0aC2uHQT9bZ2anlYcOxmhtEVaE5yRuccOoo9Wuvt7uZxSOOCCnOedc35MX2uKS1GJNjmsE1nedtxU5mHhOhatrQ1eLC8BNZz93sYqz19LPdNfQp/12aHQlVpNVhgoRCA6rDPvFNlJpfd7Z74y3IzNYVr/aWmXnJWmffSoqKzh1yfNn9Fv430hEsP/cT8IZqLGvld3/jGmDON0WGoula1xAtpJp1zIaSB2cxbfT0XMIvviy11XuznMok6qSExnBOXFBJtYoapuz2lLVUGO+B4XWKlviq4NxmNkrAxTmLd+Ss6hwmAQYGfnHhv9YUt7l5t+HfDDzhQtE+buiydqq0Sp4NBgDB8XIyAd8niN6Q3q3PcGCQ9yUjVn6ptKqACW7n2wfjPCubzh7tHwaJIX8CpmBxJgChHwwt1x4hCGmP/qayeJsgSm8HWvHnPCv01tPtfJMDuUbdwklTAhcGNIlzn+fft6vIXxwuVchYJR6i+9g56JZ+CoyjS0JSy0Mhz5how5mmNdFxLDeZ7pdHTXemuN3ovdeSnrhbcIQNic16IYI438jACbzr44bzC0aZVETvv6friWkWcSTIOOr8cxzM2BrUrEfG1+1oyIK2LV2mJPYKNMa7U1TsHuUmg1AWFWT93gGGtNqUhw7/dwgo2HZwDj3sexd8MXJu4mEje0c/YrKJb+z1b6abYOjLeSL2XeYj7jE14lLMRLlVXLVv4TBsGktijWVqEZy6LaLD4fUayU2fudCL0s7q9mNfC9w6bPec5B1BoptnWlp5JXp4nqeypxS3zcpiWoI0ikQwIlR4U+q6mNXbhfPDSqk/TmCh6Bfk8guU2lLgUvEDpTYyWeo2q292TprtM12OIYRf0/QbCUp1Sx4TONlXkEWeSno="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 261,
+          "candidatesTokenCount": 127,
+          "totalTokenCount": 952,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 261
+            }
+          ],
+          "thoughtsTokenCount": 564,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "gbqnatzLN7Ss28oPoNbJyAI"
+      }
+    }
+  ]
+}

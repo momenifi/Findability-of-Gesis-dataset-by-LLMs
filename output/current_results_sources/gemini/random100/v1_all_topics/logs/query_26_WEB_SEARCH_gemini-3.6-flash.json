@@ -1,0 +1,69 @@
+{
+  "query_id": 26,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Compulsory and pre-school education in Schleswig-Holstein during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Kindertagesstätten - Open-Data Schleswig-Holstein\",\n      \"url_or_doi\": \"https://opendata.schleswig-holstein.de/dataset/kindertagesstatten\",\n      \"justification\": \"Official dataset published by the Ministry of Social Affairs, Youth, Family, Senior Citizens, Integration and Equality of Schleswig-Holstein, containing master data and attributes of pre-school education and daycare facilities (Kitas) in Schleswig-Holstein updated continuously throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Schulen - Open-Data Schleswig-Holstein\",\n      \"url_or_doi\": \"https://opendata.schleswig-holstein.de/dataset/schulen\",\n      \"justification\": \"Official dataset provided by Central IT Management Schleswig-Holstein, listing location, contact details, and school types (primary, secondary, special needs, etc.) for general compulsory education across Schleswig-Holstein in the 2020s.\"\n    },\n    {\n      \"title\": \"Verzeichnis der allgemeinbildenden Schulen in Schleswig-Holstein - Statistik Nord\",\n      \"url_or_doi\": \"https://www.statistik-nord.de/presse-veroeffentlichungen/verzeichnisse-klassifikationen-systematiken/allgemeinbildende-schulen-in-schleswig-holstein\",\n      \"justification\": \"Annual statistical dataset directories provided by the official statistical office (Statistikamt Nord) covering general compulsory education schools, student numbers, and facility details in Schleswig-Holstein across 2020s school years.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 620,
+          "candidatesTokenCount": 384,
+          "totalTokenCount": 2236,
+          "cachedContentTokenCount": 243,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 620
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 243
+            }
+          ],
+          "thoughtsTokenCount": 1232,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "cfeDaoorwojE3w-5hL6gAg"
+      }
+    }
+  ]
+}

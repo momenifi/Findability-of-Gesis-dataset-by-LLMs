@@ -1,0 +1,69 @@
+{
+  "query_id": 2,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections, Government, political systems and organisations, and Political behaviour and attitudes in Germany during the 2020s, matching this research need: German public opinion survey data on the 2025 federal election, voting intentions, party and candidate evaluations, coalition preferences, key policy issues, democracy and left-right attitudes, with demographic and regional variables.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GLES Cross-Section 2025, Post-Election\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10100.4.0.0\",\n      \"justification\": \"This post-election population survey from the German Longitudinal Election Study (GLES) collects comprehensive public opinion data following the 2025 German federal election, covering voting behavior, party and candidate evaluations, key policy issues, coalition preferences, democracy and left-right attitudes, alongside detailed demographic and regional variables.\"\n    },\n    {\n      \"title\": \"GLES Rolling Cross-Section 2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10101.3.0.0\",\n      \"justification\": \"This daily rolling cross-sectional survey conducted before and after the 2025 German federal election measures short-term campaign dynamics, voting intentions, candidate and party evaluations, key policy stances, democracy attitudes, and demographic characteristics across Germany.\"\n    },\n    {\n      \"title\": \"GLES Candidate Study 2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10102.1.0.0\",\n      \"justification\": \"This GESIS dataset surveys parliamentary candidates contesting the 2025 German federal election, covering campaign strategies, key policy issue stances, views on democracy and representation, party evaluations, and candidate demographic profiles.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1213,
+          "candidatesTokenCount": 379,
+          "totalTokenCount": 3462,
+          "cachedContentTokenCount": 418,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1213
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 418
+            }
+          ],
+          "thoughtsTokenCount": 1870,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "gMKnaozeCqSH28oP-qfiqQs"
+      }
+    }
+  ]
+}

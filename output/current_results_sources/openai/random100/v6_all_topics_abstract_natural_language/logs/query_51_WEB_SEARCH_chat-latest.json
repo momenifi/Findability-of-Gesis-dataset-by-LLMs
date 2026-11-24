@@ -1,0 +1,193 @@
+{
+  "query_id": 51,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education, Political behaviour and attitudes, and Government, political systems and organisations in Germany during the 1960s, matching this research need: public opinion survey data on attitudes toward student demonstrations, the government response, SDS/APO, possible SDS ban, awareness of protest aims and organizers, and expected youth participation, with demographic and party preference variables\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0194aeed1e3e8f60006b047254654887d2b44c027bb4a15904",
+        "created_at": 1795453524.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0194aeed1e3e8f60006b0472553f9c87d2a0664fb0a3823709",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS 1968 student demonstrations SDS ban APO survey Germany student protest public opinion dataset",
+                "GESIS ZA 1968 Studentenunruhen SDS Verbot Umfrage Demonstrationen Bundesregierung"
+              ],
+              "query": "GESIS 1968 student demonstrations SDS ban APO survey Germany student protest public opinion dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0194aeed1e3e8f60006b0472579dac87d2a134fe36a9d098fe",
+            "action": {
+              "type": "open_page",
+              "url": "https://www.icpsr.umich.edu/web/ICPSR/studies/7090"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0194aeed1e3e8f60006b047258e06487d2941dde185e0785ad",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:icpsr.umich.edu/web/ICPSR/studies/7090 \"student\" \"SDS\"",
+                "site:search.gesis.org/research_data/ \"SDS\" \"Verbot\" \"Demonstrationen\" 1968",
+                "\"Public Opinion Surveys: West Germany, November 1968\" student demonstrations",
+                "site:icpsr.umich.edu/web/ICPSR/studies/ \"student demonstrations\" \"SDS\" Germany"
+              ],
+              "query": "site:icpsr.umich.edu/web/ICPSR/studies/7090 \"student\" \"SDS\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0194aeed1e3e8f60006b04725b5eb487d2a74adeac82874244",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Einstellungen zu Hochschule und Politik 1969 (Attitudes to College and Politics 1969) — GESIS ZA0363\",\"url_or_doi\":\"https://doi.org/10.4232/1.0363\",\"justification\":\"Excellent match for research on West Germany's student protest movement. This 1969 survey of University of Cologne students examines attitudes toward the Socialist German Student Union (SDS), Extra-Parliamentary Opposition (APO), student demonstrations, political protest, violence, and government sanctions against students. It includes assessments of APO effectiveness, political participation, university politics, and satisfaction with Chancellor Kiesinger's government. Demographic variables include age, gender, marital status, religion, social background, and educational characteristics. Political variables include respondents' party preferences, parental party preferences, and sympathy ratings for CDU, SPD, FDP, NPD, and DFU. Particularly valuable for investigating relationships between student activism, political affiliations, and attitudes toward government intervention.\"},{\"title\":\"Student and College Politics — University of Cologne, 1967–1968 (GESIS ZA0286)\",\"url_or_doi\":\"https://doi.org/10.4232/1.0286\",\"justification\":\"Highly relevant historical student survey conducted among students enrolled at the University of Cologne during the 1967–1968 winter semester. This dataset represents the first wave of a panel study, with the second wave available as GESIS ZA0363. It offers an opportunity to investigate student political attitudes during the emergence of West Germany's protest movement and compare them with responses collected in 1969. Researchers should examine the questionnaire and variable documentation to establish which SDS, APO, demonstration, government-response, and party-preference measures are available in this earlier wave.\"},{\"title\":\"Public Opinion Surveys: West Germany, November 1968 — ICPSR 7090\",\"url_or_doi\":\"https://doi.org/10.3886/ICPSR07090.v1\",\"justification\":\"Relevant nationally oriented public opinion survey conducted in West Germany in November 1968, during the period of major student demonstrations and political controversy. Based on interviews with 666 adults, the dataset covers attitudes toward the federal government, Chancellor, President, political parties, community problems, and government responses. It provides historical public opinion evidence beyond university populations. Particularly useful for studying political evaluations during the student protest era, although the published summary does not confirm questions specifically addressing SDS, APO, student demonstrations, or an SDS ban. The German-language questionnaire should be consulted before treating it as a direct measure of protest attitudes.\"},{\"title\":\"Public Opinion Surveys: West Germany, December 1968 — ICPSR 7091\",\"url_or_doi\":\"https://doi.org/10.3886/ICPSR07091.v1\",\"justification\":\"Historical public opinion survey of 712 adults conducted in West Germany in December 1968. It examines public evaluations of government officials, political parties, economic conditions, and administrative responses to public concerns. Its timing makes it relevant for analyzing political attitudes following the major student demonstrations of 1968. It can complement the November 1968 survey when examining changes in political opinion. However, specific measures of attitudes toward SDS, APO, protest organizers, or prohibiting student organizations are not established in the published description and require verification against the questionnaire.\"},{\"title\":\"Issue-Dimensionen und Wahlentscheidung (April 1969) — GESIS ZA0395\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA0395\",\"justification\":\"Relevant West German survey examining political issues and electoral decision-making in April 1969, shortly after the peak of the 1967–1968 student protest movement. Classified by GESIS under political behaviour and attitudes, government, political systems and organisations, and elections. It is potentially useful for connecting public opinion on political controversies to electoral preferences and party identification. Researchers should inspect the questionnaire to determine whether student demonstrations, SDS/APO activities, protest restrictions, and government responses were explicitly measured. Its principal value is as a complementary dataset for analyzing the political and electoral context of the student movement.\"},{\"title\":\"Preconditions of the Formation of Public Opinion in the Federal Republic of Germany, 1964 — ICPSR 7014\",\"url_or_doi\":\"https://doi.org/10.3886/ICPSR07014.v1\",\"justification\":\"Useful historical baseline for understanding West German political attitudes before the student protest movement intensified. The collection contains four national cross-sectional surveys of the West German electorate conducted between May and July 1964. Variables cover attitudes toward the federal government, political parties, domestic and international political issues, knowledge of politicians, and evaluations of political figures. Although it predates the major SDS/APO demonstrations and therefore cannot directly measure reactions to the 1967–1968 protests, it provides comparative evidence on earlier political orientations and public trust in government.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453537.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 23933,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1075,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 25008
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "query_id": 99,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e063006cd8e8ce4006b0460a4643087d295c7dc9d18290a31",
+        "created_at": 1795448996.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e063006cd8e8ce4006b0460a50f3487d2b26080debe715511",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Hessen 1980 1989 Arbeitsbedingungen Statistik historische Daten Arbeitsunfälle Arbeitszeit",
+                "GESIS ALLBUS 1980 1982 1984 working conditions federal state Hessen dataset",
+                "Hessisches Statistisches Landesamt historische statistische berichte 1980 Beschäftigte Arbeitsstätten"
+              ],
+              "query": "Hessen 1980 1989 Arbeitsbedingungen Statistik historische Daten Arbeitsunfälle Arbeitszeit",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e063006cd8e8ce4006b0460a8116087d2a845109692c43881",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Hessian Statistical Information System (HESIS) – Historical Employment and Labor Market Statistics\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/datenbank-hesis\",\n      \"justification\": \"Official statistical database maintained by the Hessian Statistical Office. Contains regional statistics on employment, economic activity, and labor market developments. Some datasets extend back to the 1970s, making this a valuable source for examining employment structures and working conditions in Hesse during the 1980s. Data can be filtered geographically and exported to Excel. Historical coverage varies by indicator.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"Longitudinal survey dataset covering German society from 1980 onward, including surveys conducted in 1980, 1982, 1984, 1986, and 1988. Contains information on employment, occupational status, socioeconomic circumstances, and attitudes toward work. The extended version includes federal-state identifiers, enabling the selection of respondents from Hesse. Particularly useful for investigating workers' experiences and occupational characteristics during the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–1986\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.1335\",\n      \"justification\": \"Harmonized survey dataset combining the 1980, 1982, 1984, and 1986 ALLBUS surveys. Provides individual-level information about employment, occupations, social characteristics, and attitudes. Useful for studying changes in workforce composition and employment experiences during the first half of the 1980s. Geographic identifiers for isolating Hesse may require access to the restricted extended data.\"\n    },\n    {\n      \"title\": \"ALLBUS – Individual Surveys and Extended Regional Datasets, 1980–1988\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Official GESIS repository providing access to individual ALLBUS surveys from 1980, 1982, 1984, 1986, and 1988. The surveys contain demographic, occupational, and socioeconomic variables relevant to employment research. Extended datasets include federal-state identifiers, allowing researchers to focus specifically on Hesse. Access to extended regional data requires a user agreement. Particularly appropriate for comparing employment characteristics across the decade.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Office – Historical Public-Sector Employment Statistics, 1950–2025\",\n      \"url_or_doi\": \"https://statistik.hessen.de/presse/historischer-hoechststand-138755-vollzeitbeschaeftigte-des-landes-hessen-im-jahr-1981\",\n      \"justification\": \"Official historical employment statistics documenting full-time and part-time employment in Hesse's state administration. Includes historical figures covering the 1980s, with full-time public-sector employment reaching 138,755 in 1981. Relevant for analyzing public-sector employment structures, working-time arrangements, and changes in the balance between full-time and part-time positions. Does not directly measure workplace safety or employee satisfaction.\"\n    },\n    {\n      \"title\": \"Historical Statistics (histat) – Population, Economy, Employment, Working Hours, and Wages in Germany, 1950–2010\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/de/project/details/291DF3124A0BDC5C85010D0D12BF9B05\",\n      \"justification\": \"Historical statistical compilation containing time series on employment, working hours, wages, productivity, and economic conditions. Includes indicators such as average weekly working hours, contractual working time, annual leave, and full-time versus part-time employment. Covers the entire 1980s and provides national historical context for working conditions in Hesse. Researchers should verify which indicators offer state-level geographic breakdowns.\"\n    },\n    {\n      \"title\": \"Historical Statistics (histat) – German Economic and Social History Database\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/\",\n      \"justification\": \"Research database specializing in historical economic and social statistics. Provides historical datasets covering labor markets, wages, employment, industrial development, and working hours. Useful for identifying additional regional or sector-specific statistical series relevant to working conditions in Hesse during the 1980s. Dataset availability and geographic coverage vary, and registration may be required.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Office – Historical Social Insurance Employment Statistics, 1974–2016\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/HEHeft_derivate_00007853/Z2_2j16.pdf\",\n      \"justification\": \"Official historical statistical publication containing annual employment figures for workers subject to social insurance contributions in Hesse from 1974 to 2016. Includes the complete 1980–1989 period and employment breakdowns by economic sector. Particularly useful for analyzing structural changes in employment, industrial versus service-sector work, and labor market composition. These are employment indicators rather than direct measures of workplace conditions.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Office – Historical Working Hours and Labor Volume in Hesse\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/HEHeft_derivate_00003097/Stawi-Juni-08.pdf\",\n      \"justification\": \"Historical statistical analysis published in Staat und Wirtschaft in Hessen examining working hours and labor volume in the state. Discusses changes in hours worked per employed person, including developments during 1980–1991. Relevant for studying working-time reductions, part-time employment, and historical changes in labor utilization. Especially valuable because it directly addresses working hours in Hesse rather than relying exclusively on national statistics.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14695\",\n      \"justification\": \"Long-running German social survey dataset incorporating observations from the 1980s through 2023. Contains information relevant to employment, occupational status, socioeconomic position, and social attitudes. Researchers can select observations from the 1980s to examine historical labor market experiences and compare them with later periods. Analysis specifically restricted to Hesse requires checking regional identifiers and access conditions.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449007.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 12756,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1501,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 14257
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

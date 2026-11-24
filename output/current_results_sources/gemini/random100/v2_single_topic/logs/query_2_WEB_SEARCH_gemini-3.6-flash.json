@@ -1,0 +1,69 @@
+{
+  "query_id": 2,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Manifesto Project Main Dataset (MARPOR)\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"Provides quantitative content-analysis data on policy positions and party platforms from political manifestos in West Germany, including all Bundestag election campaigns during the 1970s.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977-2023 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14527\",\n      \"justification\": \"Archived at GESIS, this dataset tracks longitudinal public opinion, political orientation, party preferences, and evaluations of government performance in West Germany starting in 1977.\"\n    },\n    {\n      \"title\": \"The Mannheim Eurobarometer Trend File, 1970-2002 (ICPSR 4357)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR04357.v1\",\n      \"justification\": \"Contains multi-decade cross-national trend data on public attitudes toward government institutions, political participation, and voter behaviour in West Germany starting from 1970.\"\n    },\n    {\n      \"title\": \"Parliaments and Governments Database (ParlGov)\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/2VZ5ZC\",\n      \"justification\": \"Provides institutional data on cabinet compositions, party affiliations, government duration, and parliamentary election outcomes in West Germany throughout the 1970s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 966,
+          "candidatesTokenCount": 423,
+          "totalTokenCount": 3233,
+          "cachedContentTokenCount": 439,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 966
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 439
+            }
+          ],
+          "thoughtsTokenCount": 1844,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "0iKEas3TJPi0xN8Pof3qiAQ"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 111,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Information society in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat: Households - level of internet access (isoc_ci_in_h)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ci_in_h\",\n      \"justification\": \"This Eurostat dataset measures the percentage of households with internet access across European countries, including annual survey data for Germany throughout the 2010s as part of the EU Information Society statistics.\"\n    },\n    {\n      \"title\": \"Eurostat: Households - type of connection to the internet (2003-2021) (isoc_ci_it_h)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/isoc_ci_it_h\",\n      \"justification\": \"This Eurostat dataset provides detailed historical metrics on internet access types (such as broadband connectivity) for households in Germany and other EU countries, covering the entire 2010s decade.\"\n    },\n    {\n      \"title\": \"GENESIS-Online Database: Information Society Statistics (Destatis)\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/genesis/online\",\n      \"justification\": \"Maintained by the German Federal Statistical Office (Destatis), this database contains official statistical series on ICT usage and information society indicators in private households and enterprises in Germany during the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 809,
+          "candidatesTokenCount": 347,
+          "totalTokenCount": 2685,
+          "cachedContentTokenCount": 406,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 809
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 406
+            }
+          ],
+          "thoughtsTokenCount": 1529,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "6ziEarqAKMOF7M8PofWmkQw"
+      }
+    }
+  ]
+}

@@ -204,7 +204,7 @@ def _response_to_json_value(response):
         return {"unserializable_response": str(response)}
 
 
-def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
+def _build_openwebui_payload(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
     payload = {"model": model, "messages": messages}
     if enable_web_search:
         web_search_mode = str(cfg.get("openwebui_web_search_mode", "tool_ids")).strip().lower()
@@ -225,7 +225,11 @@ def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web
     tool_choice = str(cfg.get("openwebui_tool_choice", "none")).strip()
     if tool_choice and tool_choice.lower() != "auto":
         payload["tool_choice"] = tool_choice
+    return payload
 
+
+def _call_openwebui_chat(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
+    payload = _build_openwebui_payload(cfg, model, messages, enable_web_search)
     headers = {
         "Authorization": f"Bearer {get_api_key(cfg)}",
         "Content-Type": "application/json",
@@ -258,7 +262,7 @@ def _call_openai(cfg: dict, model: str, messages: List[dict], enable_web_search:
     return client.chat.completions.create(model=model, messages=messages)
 
 
-def _call_gemini(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
+def _build_gemini_payload(messages: List[dict], enable_web_search: bool) -> dict:
     system_parts = []
     user_parts = []
     for message in messages:
@@ -282,7 +286,11 @@ def _call_gemini(cfg: dict, model: str, messages: List[dict], enable_web_search:
         payload["system_instruction"] = {"parts": [{"text": "\n\n".join(system_parts)}]}
     if enable_web_search:
         payload["tools"] = [{"google_search": {}}]
+    return payload
 
+
+def _call_gemini(cfg: dict, model: str, messages: List[dict], enable_web_search: bool) -> dict:
+    payload = _build_gemini_payload(messages, enable_web_search)
     headers = {"Content-Type": "application/json"}
     response = requests.post(
         _gemini_generate_content_endpoint(cfg, model),

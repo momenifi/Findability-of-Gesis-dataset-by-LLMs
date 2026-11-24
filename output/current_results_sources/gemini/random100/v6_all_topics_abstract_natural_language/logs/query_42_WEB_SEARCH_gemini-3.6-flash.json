@@ -1,0 +1,69 @@
+{
+  "query_id": 42,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university, university policy, digitalization, artificial intelligence, and university research in Germany during the 2020s, matching this research need: longitudinal survey data on the status, trends, and challenges of digital teaching and learning at German universities, including higher education digitalization developments and monitoring indicators from 2022 onward\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"DZHW-Wissenschaftsbefragung 2023 (DZHW Scientists Survey 2023)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:scs2023:2.0.0\",\n      \"justification\": \"This nationwide trend study conducted in early 2023 by the German Centre for Higher Education Research and Science Studies (DZHW) surveys full-time academic staff at German universities. It provides longitudinal data on university research conditions, digital infrastructure, digital scholarly communication, and higher education policy developments post-pandemic.\"\n    },\n    {\n      \"title\": \"Die Studierendenbefragung in Deutschland (Student Survey in Germany 2021/2022)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:sid2021:1.0.0\",\n      \"justification\": \"A comprehensive longitudinal survey dataset integrating the German Social Survey and Student Survey. It monitors higher education study conditions, digital learning experiences, accessibility, and student challenges at German universities into the 2020s.\"\n    },\n    {\n      \"title\": \"Monitor Digitalisierung 360° (Hochschulforum Digitalisierung)\",\n      \"url_or_doi\": \"https://hochschulforumdigitalisierung.de/\",\n      \"justification\": \"A recurring monitoring survey series published by Hochschulforum Digitalisierung (HFD), CHE, and Stifterverband. It collects multi-perspective survey data from university leadership, support staff, instructors, and students regarding the status, trends, strategic challenges, and artificial intelligence integration in digital teaching across German higher education institutions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 612,
+          "candidatesTokenCount": 408,
+          "totalTokenCount": 2819,
+          "cachedContentTokenCount": 99,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 612
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 99
+            }
+          ],
+          "thoughtsTokenCount": 1799,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "oYWEav_zBda8kdUPovvh0Ao"
+      }
+    }
+  ]
+}

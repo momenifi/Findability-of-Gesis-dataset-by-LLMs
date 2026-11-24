@@ -1,0 +1,69 @@
+{
+  "query_id": 51,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Education and Life?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Education and Life\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1441\",\n      \"justification\": \"This dataset, titled 'Education and Life' (GESIS Study No. ZA1441), is archived in the GESIS Data Archive and contains longitudinal survey data re-interviewing former high school students on their occupational and private life outcomes.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpgKCpUKAWkUfROqTfKI8IDya80VyYKxYr+taEIAaF1Dn91sYOtvedRXmDxNLx7olI1dmNXIa4RQN7+wRzmhZDlCOv0tiUKgKlI+t4LcdASrNB0Q4EUbWbz5aFkkEId9TXW7NKmQJ1fprysvxbuslCmNmWQvV+OALCs11nKxhtTanNyt/D8YJyWxeW15HkN39ko+7xaZymijXXZ50a3yn/SsQd5d7xIUbm1j191i6GhLaHWwaKW9dXvcg+woe9PdGkdrOJWX4TzgKF8Sx63T/ICnB5XOHuKLw7jJ5aMwkmApv4Z3aY+BECsFdBOLPgM3c8VNJbq9yubdgyPDuZu/hZ2aQ6PMW6y/6vdNmCqytHO0F8Gy5+hSeRYnymvFjTl3Z9ev2kSiAwAX/AWPieknUtBuO43ydchTvjfzhj3YQkkdH9XUKeHyvXnKAGQBekIPeUIwzAXLouDxKKQ0dPi8I868tJIw5kbuATYitr1fF1f65RHNBfU8xr4KQFC2cgSgkeZwXbY7vFkLj985c9JSsjLk8rzYym563bZdfUL1EtQS5qaReDxdumutT6PntJqeKkLJDj6br5OjM17+bS0ZXDz3Djk55ovgSuhZAXVAPTGa5U3y1eW7mRd5RqmZyEXfBJC/vLc6hZOCVnWN/THG6G52lNM9P5ARu3nEX0SdIjY/5tigGOrHZWxi2Ng2ohhVcSYMYyGmNBBLh7G91Px4hfXSykQoJx/3x0pI4rZNJIpONXQD5MRokKmA7bsmnP6ofWdsZzJ+ElWk7o8ncMADvfhX3SHwELgRlmKl/2yOl7WHnnVYwjqvg5nlDaDeR9DCn/gi/vvKgQDbMIZkF82HoueFqJYGvQknrWl4lnMrIYzYZgHJDgslHyJByd/P3LAIgQrTdNY96u71M0bsBVzT9T7mu6+nNXGFpAYMWywCHjdQH7QiDl+5EhZBy8wrIrcnwO3K+kzZeNvLUna2Ki+T4KfH2+9FvqkssOljqJ10/wYlLUvsodmxCNdCAhib0wYTr8SdbblVVXlPtk9vgaOW4XpxR6cVjzPkNVUOXL6YMps2s0T4XSEo1X0kpXWp3EGIFZmKJY8oaYMB1x7tW/sB7SsWhVDPr9duOtIC3gc7g6uz2DHawS6MYh+/MRhMa52mXDdZFc8xWdiOsrIJ5Jwq48StiZ8KIqv1UszWEKrWglxDkoJxoCZPWPdu9DEKNEfIjewVMIjIKFxyB4yMda+J7CU/k3fdB0xUq21glns7LgeesonDyx0pzlV5+qcGT9g7tk/coI76JfqRcDgkNeG6lHlXUZPQDQuUy2v0R8CXgr8/fxI8MMxU0GAV09GiNax6G8y9fZe21ZPxG+wVKaX2EMXOwaL/pK1oTO4bKSBZ7VnHgb4lpe0qJliaCOxFX6xbhuNjNzcBAdwW+1YALpHYY53Yw9/J5mSiyAkJVes6eqNExsb/6Bt7n37t4ceQVN+z6s0CHybL7Kl5wHtDTQDjYKeMKi331yNp4MKVtvvbiKh5Bu/uwE/2BCIqtq6zWNaQ1D8fKqtjPIwIkOHW/KNpXPtj19ky6JzxyjkepRjXrKFEd1i/ndYpy13d7YtTUzp+PXdvurH+OswwhcXnt0y358dagaYtCM7jOlxRkg+fj70RnFssQRd56IeagttYV2+7zIpYfVVvJx34ZA1tT/oqADQdNljLHTKvKcfvHAGWtwtruwN5tBrFKjWpBritdzMXQsEipsbN9D+v3uQ="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 621,
+          "candidatesTokenCount": 121,
+          "totalTokenCount": 1585,
+          "cachedContentTokenCount": 368,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 621
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 368
+            }
+          ],
+          "thoughtsTokenCount": 843,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Dkq-apOtN_aFkdUPq-yF8Qo"
+      }
+    }
+  ]
+}

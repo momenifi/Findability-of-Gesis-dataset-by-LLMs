@@ -1,0 +1,69 @@
+{
+  "query_id": 18,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in German Reich (1871-1945) during the 1900s and 1910s and 1920s, matching this research need: historical German labor market policy data on employment services, job creation, and unemployment compensation, including unemployment rates, vacancies, union benefits, and public labor exchanges during the Kaiserreich, especially 1890–1918\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"histat - Datenkompilation online: Entwicklung der Arbeitslosigkeit in Deutschland 1887 – 2000\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13553\",\n      \"justification\": \"This GESIS histat dataset compiles historical time-series data on German unemployment rates, trade union unemployment statistics, employment participation, and labor market indicators starting in 1887 through the Kaiserreich (1890–1918) and Weimar Republic.\"\n    },\n    {\n      \"title\": \"Local Minimum Wages in Germany, 1885-1914\",\n      \"url_or_doi\": \"https://doi.org/10.5283/epub.74740\",\n      \"justification\": \"Created by Mark Spoerer, this dataset contains local customary daily wage data ('ortsüblicher Tagelohn') across 210 German municipalities between 1885 and 1914, used by Imperial health insurance funds and local labor authorities to determine baseline benefits and assess local labor market conditions.\"\n    },\n    {\n      \"title\": \"histat - Datenkompilation online: Ausgewählte Zeitreihen aus Studien zur Lohn- und Gehaltsentwicklung und der Einkommensentwicklung in Deutschland von 1850 bis 1985\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8177\",\n      \"justification\": \"Integrates empirical time series from key historical studies on German labor markets, including Toni Pierenkemper's dataset on labor supply, white-collar employees, and labor market segmentation during the German Empire (1880–1913).\"\n    },\n    {\n      \"title\": \"histat - Datenkompilation online: Soziale Sicherung in Deutschland, 1885 – 2010\",\n      \"url_or_doi\": \"https://histat.gesis.org/histat/sicht/index.xml?sn=ZA8602\",\n      \"justification\": \"Provides quantitative time series on the development of social security, public relief, and early labor policy instruments in Germany from 1885 onwards, covering public welfare expenditures and labor market relief measures during the Kaiserreich and Weimar eras.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1253,
+          "candidatesTokenCount": 561,
+          "totalTokenCount": 3583,
+          "cachedContentTokenCount": 353,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1253
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 353
+            }
+          ],
+          "thoughtsTokenCount": 1769,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "YF-FaoiaLfyyxN8Pn86bmQQ"
+      }
+    }
+  ]
+}

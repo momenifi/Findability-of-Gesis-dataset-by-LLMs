@@ -1,0 +1,185 @@
+{
+  "query_id": 53,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0a8851c2f2ae3421006b045d9fb57c87d29edc474644aef613",
+        "created_at": 1795448223.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0a8851c2f2ae3421006b045da09bb887d2afe616d15b42b6f5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "NRW Landtagswahlergebnisse 2000 2005 2010 open data Landeswahlleiter",
+                "Landtag Nordrhein Westfalen open data abgeordnete wahlperioden 2000 2005",
+                "Regionaldatenbank Deutschland NRW Gemeinden Wahlen 2000 2005 dataset"
+              ],
+              "query": "NRW Landtagswahlergebnisse 2000 2005 2010 open data Landeswahlleiter",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0a8851c2f2ae3421006b045da43e4c87d29129efd4a67e0bb7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:landesdatenbank.nrw.de 14311-11i Landtagswahlen 2000 2005",
+                "site:wahlergebnisse.nrw kommunalwahlen 2004 2009 ergebnisse",
+                "site:landesdatenbank.nrw.de 14431 Gemeinderatswahlen 2004 2009",
+                "site:landtag.nrw.de parlamentsdatenbank suche dokumente"
+              ],
+              "query": "site:landesdatenbank.nrw.de 14311-11i Landtagswahlen 2000 2005",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0a8851c2f2ae3421006b045da7a92087d2932faebc36994381",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"North Rhine-Westphalia State Parliamentary Election Results, 2000 and 2005 (Landtagswahlen)\",\n      \"url_or_doi\": \"https://www.landtag.nrw.de/home/der-landtag/die-landtagswahl-2022/wahlergebnisse-im-ruckblick.html\",\n      \"justification\": \"Official historical election data published by the Parliament of North Rhine-Westphalia (Landtag NRW). Includes results of the state parliamentary elections held on May 14, 2000, and May 22, 2005. Useful for examining political party performance, electoral competition, parliamentary representation, and changes in government during the 2000s.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Parliamentary Database (Parlamentsdatenbank NRW), 1985–Present\",\n      \"url_or_doi\": \"https://www.landtag.nrw.de/home/dokumente/dokumentensuche/parlamentsdokumente/parlamentsdatenbank-suche.html\",\n      \"justification\": \"Official searchable database documenting parliamentary activities in North Rhine-Westphalia since 1985. Contains legislative proposals, parliamentary questions, motions, committee proceedings, plenary debates, and government responses. Particularly relevant for studying political institutions, legislative decision-making, government accountability, and party activities during the 13th (2000–2005) and 14th (2005–2010) legislative periods. Primarily a searchable document database rather than a ready-made statistical dataset.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Municipal Election Results (Kommunalwahlen), Historical Series\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/kommunalwahlen?ids=0a6c899e-cdff-4ef6-839e-fcdf26731a65&ids=3083499f-e013-45d3-aeb8-ccb9b54c8d5f\",\n      \"justification\": \"Government open-data catalogue entry providing access to municipal election results in North Rhine-Westphalia. Particularly relevant for investigating local political organizations, municipal councils, political parties, and electoral representation. The historical election series can support research into the 2004 and 2009 municipal elections. The availability of individual historical years and downloadable formats should be checked on the dataset landing page.\"\n    },\n    {\n      \"title\": \"Municipal Election Results in North Rhine-Westphalia, 2004 and 2009\",\n      \"url_or_doi\": \"https://www.wahlergebnisse.nrw/kommunalwahlen/2014/aktuell/a999999.pdf\",\n      \"justification\": \"Official election statistics containing historical comparison tables for the municipal elections held on September 26, 2004, and August 30, 2009. Provides information on eligible voters, turnout, valid votes, and political party vote shares across administrative districts. Particularly valuable for studying changes in municipal political representation and the geographical distribution of party support during the 2000s. The linked statistical report includes the historical data alongside 2014 results.\"\n    },\n    {\n      \"title\": \"Historical State Parliamentary Elections in Münster, 2000 and 2005\",\n      \"url_or_doi\": \"https://www.stadt-muenster.de/wahlen/landtagswahl/vergangene-landtagswahlen\",\n      \"justification\": \"Official historical election data provided by the City of Münster in North Rhine-Westphalia. Includes the state parliamentary elections of 2000 and 2005 and references to election profiles maintained by the state statistical office, IT.NRW. These profiles summarize historical local, state, federal, and European election results, with downloadable absolute figures available through the state database. Useful for examining political participation, party competition, and regional electoral differences within North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Parliamentary Documentation Database (Landtagsdokumentation)\",\n      \"url_or_doi\": \"https://dbis.ur.de/OVNRW/resources/4857\",\n      \"justification\": \"Bibliographic database entry describing the official parliamentary documentation system of North Rhine-Westphalia. Covers parliamentary documents from 1985 onward, including legislative initiatives, government reports, parliamentary questions, plenary proceedings, and committee records. Relevant for reconstructing political decision-making, institutional relationships, legislative processes, and government oversight during 2000–2009. Provides access information for a primary-source document collection.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia State Parliamentary Election Results, Historical Party Vote Shares, 1947–2022\",\n      \"url_or_doi\": \"https://www.wahl.de/ergebnisse/nordrhein-westfalen/jahr/2000\",\n      \"justification\": \"Historical election-results dataset presenting political party vote shares across North Rhine-Westphalia's state parliamentary elections. Includes comparable figures for 2000 and 2005, allowing analysis of electoral changes involving the SPD, CDU, FDP, Greens, and smaller parties. Useful for longitudinal studies of party systems, electoral competition, and political realignment. This is a secondary compilation rather than an official government dataset.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Parliamentary Documents and Legislative Records\",\n      \"url_or_doi\": \"https://www.landtag.nrw.de/home/dokumente/dokumentensuche.html\",\n      \"justification\": \"Official document-search portal maintained by the Parliament of North Rhine-Westphalia. Provides access to historical parliamentary documents, legislative proceedings, speeches, parliamentary questions, and responses from the state government. Researchers can use records from 2000–2009 to investigate political organizations, government institutions, legislative priorities, party positions, and interactions between the executive and legislature. Suitable for constructing datasets from parliamentary records.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Municipal Elections, 2009: Statistical Results by Municipality\",\n      \"url_or_doi\": \"https://www.landtag.nrw.de/home/service/bibliothek-1/ergebnisanzeige.html?page=899\",\n      \"justification\": \"Official parliamentary library catalogue containing records for statistical publications on the 2009 municipal elections in North Rhine-Westphalia. The documented publication series includes final election results, municipality-level statistics, and electoral participation by age and sex. Covers important aspects of local political institutions, including municipal councils, mayors, and district administrators. Relevant for studying electoral representation and local political structures at the end of the 2000s. The URL leads to a catalogue-results page rather than a direct dataset download.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Statistical Yearbook 2005: Government and Election Statistics\",\n      \"url_or_doi\": \"https://webshop.it.nrw.de/gratis/Z026%20200500.pdf\",\n      \"justification\": \"Official statistical yearbook published by North Rhine-Westphalia's state statistical authorities. Contains historical statistical tables, including results of the 2000 and 2005 state parliamentary elections by administrative district. Provides a useful reference for comparing electoral outcomes and connecting political developments with the demographic and administrative characteristics of North Rhine-Westphalia. Particularly relevant for research on political systems and regional government during the early 2000s.\"\n    },\n    {\n      \"title\": \"Historical Parliamentary Terms and Political Institutions in North Rhine-Westphalia\",\n      \"url_or_doi\": \"https://www.landtag.nrw.de/home/der-landtag/geschichte-des-landtags.html\",\n      \"justification\": \"Official parliamentary historical information resource covering the institutional development of the North Rhine-Westphalia state parliament. Provides access to historical legislative periods, parliamentary composition, and important institutional developments, including the 2000–2005 and 2005–2010 periods. Useful for identifying political actors, changes in parliamentary organization, and the historical context of government transitions. This is a structured historical reference resource rather than a downloadable statistical dataset.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia Election Data Catalogue: State Parliamentary Elections\",\n      \"url_or_doi\": \"https://data.gov.de/suche?format=csv&sort=relevance_desc&tags=landtagswahl\",\n      \"justification\": \"Germany's official open-data catalogue provides discovery access to election datasets, including North Rhine-Westphalia state parliamentary election statistics. Relevant records include eligible voters, electoral participation, and valid votes by political party, with some historical datasets providing municipality-level geographical detail. Useful for locating machine-readable election data for historical comparisons, including the elections of 2000 and 2005. This is a filtered catalogue search, so individual dataset coverage and historical availability must be verified.\"\n    },\n    {\n      \"title\": \"Municipal Election Results in North Rhine-Westphalia, 2004 and 2009: Historical Comparison\",\n      \"url_or_doi\": \"https://www.wahlergebnisse.nrw/kommunalwahlen/2014/aktuell/a999999.pdf\",\n      \"justification\": \"Official statistical tables comparing municipal electoral outcomes across 2004, 2009, and 2014. The historical sections provide information on electoral participation, political party performance, and voting patterns across North Rhine-Westphalia's administrative districts. Particularly useful for examining the evolution of local party organizations, political competition, and municipal representation during the 2000s. This entry highlights the comparative time-series value of the same official source.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448242.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18884,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2096,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20980
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 19,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Migration, Community, urban and rural life, and Government, political systems and organisations in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS German General Social Survey (ALLBUS) 2008\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10110\",\n      \"justification\": \"Contains representative survey data covering political trust, government attitudes, migration views, and community life across German federal states, with regional breakdowns for North Rhine-Westphalia during the late 2000s.\"\n    },\n    {\n      \"title\": \"Landesdatenbank NRW - Ausländische Bevölkerung nach Geschlecht und Altersgruppen (Table 12521-05i)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de\",\n      \"justification\": \"Provides official statistical time-series data on foreign residents and migration patterns across municipalities and districts in North Rhine-Westphalia throughout the 2000s.\"\n    },\n    {\n      \"title\": \"Landesdatenbank NRW - Tag- und Nachtbevölkerung, Pendler und Erwerbstätige (Table 19321-211i)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de\",\n      \"justification\": \"Tracks urban-rural mobility, commuting behavior, and local workforce distribution across North Rhine-Westphalia municipalities during the 2000s.\"\n    },\n    {\n      \"title\": \"Open.NRW - Zensusatlas 2011 (Kleinräumige Daten zur Bevölkerung)\",\n      \"url_or_doi\": \"https://open.nrw\",\n      \"justification\": \"Offers grid-level demographic and spatial population data for North Rhine-Westphalia, capturing community structures and urban/rural settlement patterns built up across the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 685,
+          "candidatesTokenCount": 437,
+          "totalTokenCount": 2899,
+          "cachedContentTokenCount": 326,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 685
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 326
+            }
+          ],
+          "thoughtsTokenCount": 1777,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "X_ODaq3kHKWqkdUP2s-asAY"
+      }
+    }
+  ]
+}

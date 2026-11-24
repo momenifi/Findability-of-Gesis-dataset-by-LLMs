@@ -1,0 +1,186 @@
+{
+  "query_id": 24,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Religion and values in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0711fa464cf51f25006b0478362b4c87d2877da9c527b9ce96",
+        "created_at": 1795455030.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0711fa464cf51f25006b04783729c887d29a927d856ef2b42a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 2023 religion values Germany dataset",
+                "European Social Survey round 11 Germany religion values data download",
+                "World Values Survey wave 7 Germany 2020 dataset",
+                "Germany church membership religion survey 2023 KMU 6 data dataset"
+              ],
+              "query": "GESIS ALLBUS 2023 religion values Germany dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0711fa464cf51f25006b04783a43bc87d2975acf78ca611c4c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ess.sikt.no/en/datafile Germany ESS round 11 2023 2024",
+                "site:europeansocialsurvey.org data portal ESS round 11 Germany religion",
+                "site:gesis.org ALLBUS 2023 ZA8770 DOI religion",
+                "site:gesis.org ISSP 2022 family changing gender roles Germany dataset DOI"
+              ],
+              "query": "site:ess.sikt.no/en/datafile Germany ESS round 11 2023 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0711fa464cf51f25006b04783d66c487d2bf72a940bb0a3160",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023 – Religion and Worldview\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14544\",\n      \"justification\": \"One of the most directly relevant datasets for studying religion and values in Germany during the 2020s. The 2023 survey specifically focuses on religion and worldview (Religion und Weltanschauung). It includes religious affiliation, church attendance, prayer, belief in God, spirituality, religious fundamentalism, attitudes toward other religions, moral values, tolerance, and individual value orientations. It also covers postmaterialism, traditional values, and attitudes toward social issues. Particularly useful for examining relationships between religiosity, secularization, and social values in contemporary Germany.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A nationally representative survey of the German population conducted in 2021. ALLBUS provides information about religious affiliation, religious practices, social attitudes, political orientations, and demographic characteristics. The 2021 dataset is useful for investigating religious identities and value orientations during the COVID-19 pandemic and comparing them with subsequent survey waves. Data are available through GESIS, with registration required for downloading.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A recent wave of Germany's long-running General Social Survey. ALLBUS 2025 provides updated information on German society, including social attitudes and demographic characteristics. It can be combined with the 2021 and 2023 waves to investigate changes in religious affiliation, values, and social attitudes throughout the 2020s. The GESIS documentation provides access to available datasets and questionnaires.\"\n    },\n    {\n      \"title\": \"ALLBUS 2023 Supplementary Dataset – Measuring Religious Fundamentalism\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A specialized supplementary dataset associated with ALLBUS 2023, identified as GESIS study ZA8836. It focuses on measuring religious fundamentalism in Germany. Particularly relevant for research examining religious conservatism, fundamentalist beliefs, religious identity, and their relationships with broader social values. It can complement the main ALLBUS 2023 religion and worldview dataset.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) Round 11 – Germany, 2023–2024\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/data-builder/?rounds=11&seriesVersion=983&tab=download\",\n      \"justification\": \"A major comparative European survey containing German data collected during 2023–2024. It includes measures of religious affiliation, religiosity, religious attendance, social trust, political attitudes, national identity, perceived discrimination, and human values. The Human Values Scale measures orientations such as tradition, conformity, universalism, benevolence, and self-direction. Germany can be selected in the ESS data portal, making this dataset especially useful for comparing religious and secular value orientations across European societies.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) Round 10 – Germany, 2020–2022\",\n      \"url_or_doi\": \"https://ess.sikt.no/data-builder\",\n      \"justification\": \"A cross-national survey wave covering the early 2020s. It contains standardized indicators of religious affiliation, religious attendance, subjective religiosity, political attitudes, social trust, and human values. German observations can be selected through the ESS Data Portal. Particularly useful for examining religion and values during the pandemic period and comparing German respondents with those in other European countries. The ESS Human Values Scale supports detailed analysis of traditional, secular, and universalist orientations.\"\n    },\n    {\n      \"title\": \"Sixth Church Membership Survey (KMU 6) – Germany, 2022–2023\",\n      \"url_or_doi\": \"https://kmu.ekd.de/\",\n      \"justification\": \"A major German study examining religion, church membership, religiosity, spirituality, and the societal role of religious institutions. The sixth Kirchenmitgliedschaftsuntersuchung surveyed 5,282 respondents and published its initial findings in 2023. It covers religious orientations, relationships with churches, trust in religious institutions, secularization, social background, and expectations concerning religious organizations. Particularly valuable because it includes both religiously affiliated and unaffiliated individuals. The landing page provides extensive survey findings and documentation, although access to respondent-level microdata is not established.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS) Wave 7 – 2017–2022\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.16\",\n      \"justification\": \"An international survey dataset examining religion, morality, cultural values, social trust, political beliefs, and attitudes toward democracy. It includes indicators of religious importance, belief in God, religious participation, tolerance, family values, and moral judgments. The survey period overlaps with the early 2020s. Researchers should check the country documentation for the exact German fieldwork dates before treating observations as evidence specifically from the 2020s. Useful for international comparisons and studying relationships between religion and broader cultural orientations.\"\n    },\n    {\n      \"title\": \"Joint European Values Study / World Values Survey (EVS/WVS) 2017–2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14320\",\n      \"justification\": \"A harmonized international dataset combining the European Values Study and World Values Survey. It includes more than 156,000 respondents across 92 countries and regions, including Germany, with interviews conducted between 2017 and 2022. Variables cover religious beliefs, religious participation, traditional versus secular values, family norms, morality, social trust, and political attitudes. Particularly useful for comparing German value orientations with those in other countries and examining the relationship between religion and cultural change. Country-specific fieldwork dates should be checked when restricting analysis to the 2020s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2022 – Family and Changing Gender Roles V\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10000.2.0.0\",\n      \"justification\": \"A comparative survey dataset with German interviews conducted between May and August 2023. It focuses on family values, gender roles, marriage, parenting, household responsibilities, and attitudes toward alternative family arrangements. The data can help investigate the relationship between religious affiliation and traditional or progressive social values. Particularly relevant for examining how religious identity intersects with attitudes toward gender equality, marriage, and family structures in contemporary Germany.\"\n    },\n    {\n      \"title\": \"ISSP Family and Changing Gender Roles I–V – Cumulated Dataset, 1988–2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14750\",\n      \"justification\": \"A harmonized longitudinal collection of ISSP surveys examining family and gender values across several decades, including the 2022 module with German observations collected in 2023. It supports analysis of changing attitudes toward marriage, parenting, women's employment, gender equality, and family responsibilities. Particularly useful for assessing whether traditional values associated with religious orientations have declined or persisted in Germany over time.\"\n    },\n    {\n      \"title\": \"ALLBUS Cumulation 1980–2023 – German General Social Survey\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A cumulative dataset combining multiple waves of the German General Social Survey, including observations from the 2020s. It allows researchers to trace long-term developments in religious affiliation, church attendance, social values, moral attitudes, political orientations, and demographic characteristics. Particularly valuable for analyzing secularization, generational differences, and the evolution of religious and nonreligious values in Germany. The cumulative design makes it possible to place changes observed during the 2020s in a broader historical context.\"\n    },\n    {\n      \"title\": \"Ecumenical Church Atlas (Ökumenischer Kirchenatlas) – Germany\",\n      \"url_or_doi\": \"https://kmu.ekd.de/kirchenatlas\",\n      \"justification\": \"An open-data resource providing geographical and statistical information about Christian churches in Germany. It draws on administrative church records and presents information on religious institutions and church membership. Particularly useful for examining regional differences in Christian affiliation and institutional religious presence. It can complement individual-level surveys such as ALLBUS and ESS by providing contextual information about religion across German regions. Its primary focus is church statistics rather than individual moral or cultural values.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455047.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18795,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2023,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20818
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

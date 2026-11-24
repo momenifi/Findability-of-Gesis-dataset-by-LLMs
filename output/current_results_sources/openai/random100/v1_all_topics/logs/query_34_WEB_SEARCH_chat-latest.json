@@ -1,0 +1,186 @@
+{
+  "query_id": 34,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace, International politics and organisations, and Political behaviour and attitudes in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f7ba8c0dc368d91006b0455808c2887d2a481c78b4aec9cf6",
+        "created_at": 1795446144.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f7ba8c0dc368d91006b0455813ae487d2ac269676e3b6fc09",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German Longitudinal Election Study GLES 2021 2025 dataset DOI",
+                "Germany 2020 2024 security peace conflict attitudes survey dataset RISC",
+                "Germany foreign policy attitudes 2022 2024 dataset DeutschlandTrend security Munich Security Report data",
+                "German general social survey ALLBUS 2021 2023 dataset DOI political attitudes"
+              ],
+              "query": "GESIS German Longitudinal Election Study GLES 2021 2025 dataset DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f7ba8c0dc368d91006b045586304087d28ea75d9906fb7219",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org \"Germany´s Role in the World (April 2024)\"",
+                "site:search.gesis.org \"Security and Defence Policy\" \"2023\" Bundeswehr",
+                "site:gesis.org eurobarometer 2024 Germany datasets",
+                "site:gesis.org Politbarometer 2024 annual cumulation dataset"
+              ],
+              "query": "site:search.gesis.org \"Germany´s Role in the World (April 2024)\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f7ba8c0dc368d91006b04558a075087d29e0ed010fce78ea9",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"The Berlin Pulse – German Foreign Policy 2023\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8995\",\n      \"justification\": \"A representative survey commissioned by the Körber Foundation examining German public attitudes toward foreign policy in September 2023. Covers Germany's international role, transatlantic relations, China, EU enlargement, the Russia-Ukraine war, security threats, and preferences for military, diplomatic, or financial involvement in international crises. Highly relevant to all three requested topics.\"\n    },\n    {\n      \"title\": \"Germany's Role in the World (April 2024)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/edc54061-8f0e-5b25-96a6-a28af51095f9\",\n      \"justification\": \"A 2024 study examining German attitudes toward international politics, security, and foreign policy. Topics include NATO, European defense cooperation, military spending, arms deliveries to Ukraine, the Israel-Gaza conflict, international human rights, and Germany's global influence. Particularly relevant to conflict, security, peace, and international organisations. The archive provides study documentation, although the qualitative component's underlying data are not available.\"\n    },\n    {\n      \"title\": \"Eurobarometer 101.3 (2024)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8843\",\n      \"justification\": \"A European public opinion dataset collected in April and May 2024, including respondents from Germany. Measures attitudes toward the European Union, European institutions, economic conditions, and political priorities. Useful for studying German perceptions of international organisations and comparing political attitudes in Germany with those in other European countries.\"\n    },\n    {\n      \"title\": \"Politbarometer 2024 – Cumulated Data Set\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14517\",\n      \"justification\": \"A comprehensive collection of German political opinion surveys conducted throughout 2024 by Forschungsgruppe Wahlen. Includes voting intentions, party preferences, government approval, political leadership evaluations, and attitudes toward major political developments. Particularly valuable for analysing political behaviour, public opinion, electoral preferences, and responses to national and international political events.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977–2024 – Partial Cumulation\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14611\",\n      \"justification\": \"A longitudinal dataset containing selected variables from German political opinion surveys between 1977 and 2024. Includes voting preferences, political trust, satisfaction with democracy, political ideology, and attitudes toward government policies. Its observations from 2020 onward are particularly useful for examining how German political behaviour and attitudes changed during the COVID-19 pandemic, the Russia-Ukraine war, and subsequent political developments.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A major German electoral research programme providing survey datasets on political attitudes, voting behaviour, party identification, political participation, and electoral decision-making. Includes studies covering the 2021 and 2025 German federal elections. Particularly useful for examining political polarisation, changing voter preferences, and attitudes toward political institutions during the 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14629\",\n      \"justification\": \"A nationally focused social science survey dataset covering Germany in 2021. Provides information on social and political attitudes, demographic characteristics, and broader societal conditions. Suitable for investigating political orientations, social divisions, and relationships between socioeconomic characteristics and political attitudes in Germany during the early 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A representative German population survey from 2023, available through the GESIS ALLBUS data catalogue. Provides information on social values, political attitudes, demographic characteristics, and societal change. Useful for examining political preferences, ideological differences, social trust, and attitudes toward institutions in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"German Social Cohesion Panel 2021–2023 – Waves 1–3\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.1025848.en/german_social_cohesion_panel_2021-23__wave_1-3.html\",\n      \"justification\": \"A longitudinal panel dataset developed through cooperation between the Research Institute Social Cohesion and the German Socio-Economic Panel. Covers social cohesion, inequality, social conflict, and related attitudes among individuals and households in Germany between 2021 and 2023. Particularly relevant for studying political polarisation, societal tensions, and the social foundations of political behaviour.\"\n    },\n    {\n      \"title\": \"Research Institute Social Cohesion (RISC) – Data Portal\",\n      \"url_or_doi\": \"https://fgz-risc-data.de/en/data-portal/general-information/\",\n      \"justification\": \"A research data portal containing German survey and social science datasets, including repeated surveys conducted during the 2020s. Research topics include social cohesion, political attitudes, discrimination, ethnic diversity, social conflict, and polarisation. Provides useful sources for examining the relationship between political behaviour, social divisions, and domestic conflict in Germany.\"\n    },\n    {\n      \"title\": \"ARD-DeutschlandTrend – Political Opinion Survey Data\",\n      \"url_or_doi\": \"https://search.gesis.org/?study_group=ARD-DeutschlandTrend&type=research_data\",\n      \"justification\": \"A collection of recurring German public opinion surveys covering political attitudes, government performance, elections, international relations, and security concerns. Includes surveys conducted during 2024 and other years of the 2020s. Particularly relevant to tracking changes in German public opinion about international conflicts, political institutions, domestic security, and government policies.\"\n    },\n    {\n      \"title\": \"German Foreign and Security Policy – GESIS Thematic Data Collection\",\n      \"url_or_doi\": \"https://blog.gesis.org/data-spotlight-3/\",\n      \"justification\": \"A curated collection of German survey datasets addressing international relations, defense policy, and security attitudes. Includes studies concerning the role of Germany and the European Union in international affairs, international organisations, Russia's invasion of Ukraine, and German public attitudes toward military and security policy. Particularly relevant to conflict, security, peace, and international politics during the 2020s.\"\n    },\n    {\n      \"title\": \"Bundeswehr Center for Military History and Social Sciences – Public Opinion on Foreign and Security Policy\",\n      \"url_or_doi\": \"https://blog.gesis.org/stability-change-and-external-shocks-selected-results-for-german-public-opinion-on-foreign-and-security-policy/amp/\",\n      \"justification\": \"Research based on recurring German public opinion surveys conducted by the Bundeswehr Center for Military History and Social Sciences. Examines attitudes toward the armed forces, national defense, military spending, international security, and the consequences of Russia's 2022 invasion of Ukraine. The linked resource discusses the underlying survey series and is useful for identifying relevant security and defense datasets.\"\n    },\n    {\n      \"title\": \"Eurobarometer – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\n      \"justification\": \"A comprehensive collection of European public opinion datasets, including German samples collected throughout the 2020s. Covers trust in European institutions, attitudes toward EU policies, European integration, political priorities, and selected international issues. Particularly valuable for comparative research on German attitudes toward international organisations and European political cooperation.\"\n    },\n    {\n      \"title\": \"Flash Eurobarometer 550 – EU Challenges and Priorities (2024)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14410\",\n      \"justification\": \"A European Commission survey conducted in June and July 2024 examining public perceptions of major challenges and priorities facing the European Union. Includes German respondents and enables comparisons with other EU countries. Relevant to attitudes toward European political cooperation, international policy priorities, and the role of EU institutions in addressing contemporary challenges.\"\n    },\n    {\n      \"title\": \"Politbarometer – German Political Opinion Surveys, Including 2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/politbarometer\",\n      \"justification\": \"The official GESIS collection of monthly political opinion surveys conducted by Forschungsgruppe Wahlen. Provides annual cumulative datasets, including 2025, covering voting intentions, political parties, government evaluations, and current political issues. Especially relevant for tracking shifts in German electoral behaviour, political attitudes, and public responses to major events during the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Election Studies – Germany\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections\",\n      \"justification\": \"A central research data catalogue for German federal and state election studies, including datasets from the 2020s. Contains political opinion surveys and electoral research resources covering party preferences, voting behaviour, political participation, and attitudes toward democratic institutions. Useful for identifying additional datasets on political behaviour and attitudes, including research connected to the 2021 and 2025 federal elections.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446165.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18684,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2184,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20868
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

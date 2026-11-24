@@ -1,0 +1,69 @@
+{
+  "query_id": 26,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"WHO European Mortality Database (MDB)\",\n      \"url_or_doi\": \"https://www.who.int/europe/data-and-evidence/databases\",\n      \"justification\": \"Maintained by the WHO Regional Office for Europe, this database provides age- and sex-specific mortality data by broad disease groups and 67 specific causes of death for Germany, with continuous time-series data starting from 1980.\"\n    },\n    {\n      \"title\": \"Human Cause-of-Death Database (HCD@HMD)\",\n      \"url_or_doi\": \"https://www.mortality.org\",\n      \"justification\": \"Jointly maintained by the Max Planck Institute for Demographic Research and INED, this repository contains standardized time-series datasets of cause-specific mortality for Germany (including historical data for East and West Germany during the 1980s) categorized by ICD classifications for specific diseases and disorders.\"\n    },\n    {\n      \"title\": \"Epidemiological Survey of Substance Abuse (Epidemiologischer Suchtsurvey - ESA)\",\n      \"url_or_doi\": \"https://www.gesis.org\",\n      \"justification\": \"Archived at the GESIS Data Archive, this long-running population study has collected representative survey data on substance abuse, addiction disorders, and associated mental and physical health conditions in Germany since 1980.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute AIDS Case Registry (AIDS-Fallregister 1982-2023)\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Content/InfAZ/H/HIVAIDS/Epidemiologie/Fallregister/Fallregister_node.html\",\n      \"justification\": \"Established in 1982, this central epidemiological registry at the Robert Koch Institute tracks case reports, opportunistic disease manifestations, and mortality related to HIV/AIDS in Germany throughout the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 720,
+          "candidatesTokenCount": 461,
+          "totalTokenCount": 2687,
+          "cachedContentTokenCount": 121,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 720
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 121
+            }
+          ],
+          "thoughtsTokenCount": 1506,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "SCmEauq3K9_4vdIP4KWKwAo"
+      }
+    }
+  ]
+}

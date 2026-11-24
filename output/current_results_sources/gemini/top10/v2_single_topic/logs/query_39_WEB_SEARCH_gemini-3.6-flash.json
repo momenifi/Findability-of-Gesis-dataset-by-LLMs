@@ -1,0 +1,62 @@
+{
+  "query_id": 39,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Equality, inequality and social exclusion in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41r\",\n      \"justification\": \"A comprehensive multi-cohort panel dataset of private households in Germany, providing longitudinal data on income, labor market participation, wealth, and social inequality across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Inequality Barometer - Welle 2020\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2740\",\n      \"justification\": \"A survey dataset conducted in Germany examining public perceptions of economic and social inequality, social mobility, and related policy preferences in 2020.\"\n    },\n    {\n      \"title\": \"Social Cohesion in Germany 2020\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14165\",\n      \"justification\": \"Data collected by infas on behalf of the Bertelsmann Stiftung and archived at GESIS, capturing empirical evidence on social cohesion, integration, and social exclusion in Germany.\"\n    },\n    {\n      \"title\": \"European Union Statistics on Income and Living Conditions (EU-SILC)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/microdata/european-union-statistics-on-income-and-living-conditions\",\n      \"justification\": \"Harmonized microdata collected annually by Eurostat providing detailed cross-sectional and longitudinal statistics on monetary poverty, income distribution, material deprivation, and social exclusion in Germany throughout the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EvgbCvUbARFNMg9nN+gZHU7k94lLnGPpyPpHx7NyFX0klrum3+Fr7zMbzQkxuqp8/G9dirgXjRXvSVMB62clTmumVSg6iAVM2gjl+tw2IBRnCDLRFFJRnG7XXvLPX5Can6MgZIb3+DFkZayrIF1yhbs9DANBrKYWErbBxFYZ2vxieVhCmgmwYd9/hBv4aLE9BT+QyS10AQ3zxoV3N+tr4Ucar3IDIsb5yQvwMaka774LnK+cY/eMRLg3W3GKMAMgdu1h8Te26dPn20l2YwSsFgL4J+VXqoKFvDgl61lq29IEVcUf0yn3er6azg3z5hPQhDVxSpriP03thYiYcCXcrzVWh6tCQjkjSb2XX90zLP9+Xc3SQyE7aMMcPzAUQv5iL5iqmI/TS1IfbZNkgClYkXrJLqHCv9QzKqCFV7gu0lyhA23Sbc6xrbin6WGXKWQToSOGSFmJDVRwCARRB/1q6mssCdQVEt+5BdEMZ2Jyndf0TBvBIInJgad3ucNK13XQgfbfFvDFIN9KLt+nSMsk1Oy6zv4YifZYg7bhLCxSMZ4HMLlzPzqHfNFukmRC7mVgrWv1f8GxlbVBK5O6q8j1vhswkWhM3Aiqu5yeii8ZXDFl6+/jWXbiNRQFhwo+Gi4oS2YrpXEX3U3g5z5DewYp0i1rT2KCF+xl9zovheNIRDThOLZ0V8Nka3dxxhUnbyzqlwOG+XUdZhb42rtkiw/xtEVLYrUxEWRqqZ5t5Li4c36uXFWCl7pQUYhQFa1BjZtGogchgYHIxBhyA4PGMT4C8xExG0KJMJzWPWGj/GJRokpME0JRQCbi3i4NjjqFGTekNTfdM4YFBCmdyNAvyGoZ29iD74Z0NYZOzAp/1bKh8X4L+mZXDY8BpR/fpWFldXVKtUVfnro/jXt+pbkBt+iD+Qzx9zQ5fbdfs/VcelZplri10qKfyMlaCYaU1zv/hJDCCp+n2dJaPvDzzCoU1OKiic73HR6tqbo5GNsUjYrIDwFNmxPzghjRf0H00uFwKgQMVcXPivQLDZPGJc2fg2RP4apPOEMeHrLwHLOiYVpe0UxwB1RNn0gmu4aJ5OeQHEHCy5dv88nALq/cSHfTDfGGltBVSFDvwQpdce+chXehfzyjgS0dUtps2vL5HolQflU9DkbT+oFPLxUGE6yM4LFbU6jGU/XXQfascP9jo3xMD++eckqkAByBRIeJEPAbr5NPa424e1PEHM2KehZAB/otathqwEbd8f8LD8uuzhXLihoctjyYt3dnP1sq7SPZwZ5FpXpOLXPYWq90bAYVsoT5Uk4MqzdsYMoY/FCHP8H7pD2gVUxG9gbTE8CKP2SANHjMO91AnHrK6YhMgZ2aveuCPPuqmhM8TfBkpFEn7sf0sBf2iXIo8fivmRIdaL78TdnsIFoMN0+2o/HN5DEAoF0rKa4rv/2fzHLy4CXat+aBcnAMRjrFG+1L2N2UIIdxcwPnP9Na3vc3ZkqQDLaWmciASzKE6vXRbvVcPGTyvpV32yFeEP8RZIdi+Gjysbd1ELJtn0pvpyRDT4O1UHwvJxpfr7yQXis9uImrpXm5R0HuPzv5p0Iu/MvlPab55yVFvDajcS0aQdYibrTvsqV8OFlI9SQGrvtKCFuQRd4tYHYGoB4RSc5nIuYtngJe7CtfiYz7RsDKHPdoNQ+/SPK3I0FWIthv3xcDLdVMsALaHpIG5dKn9YAXLt4hTptAQsk1b0giU8vsbguP6vIkA0z5gM3/uDJPO2s2wIuyhkaIVfRigepTX6Tl+T9bGyZfQF5wjebEtDGiq3+0sxcEtHk6Fj6WlhxyCae9tmza8crc/1A8vge1tHJZRWEwd7NZGCw01IvOuk5jgI/AO41+jvvDwUMFQJ1AU87xY1sujNoNpgd+5lqj08sTVXOdwa+8ySuXNEAJSlrvzvo03qxONJXkFo29tAQQQNNU5dueYjhDeMApCuUhReXPUGSDBMJz5IAjS/Buh7yRzlwYHXO+lXrjeMp1IFotBrCB+E9rcgp3f6LSQGdcRQjuNUUcRZALzxOt3soNzBp09xaWXKFv8B25H2/0SsbaSB7J+z5j3e/Lq2B0xH51YnMYKYLjx3rnvxT+jHggHoSQcUYn0n3azbKJZoe0nZ2sJmrMdLFZmqkFB80hP4tpFPa50qKsmGeR4H7pQbbXcP3QPX8dFvtCfntsIkhmxvsu7O/BZx0H2RLSaZZEvk4YIHZUdiTDSeeqFpJds1xhuxNDDbPMREoK/JD9Pn/yVPUfWDT219VPqD+xlXt13IVyxRXB+6UXDtz6pIJBZTUfUedcMlnkEeGJDfBuLVKgeBMehFkl0vJsty8IAtoZwULcFoBwSx36mCwH5zeX7l04KnC2BESxzdOKVdJkzV8F9rEu0qfCXPwSQrR9WVpk+ipEnvBwHgbulWovyElGk8lwTmWgQgW9d5xK4rXmH5ZCfQeLqweWQBWNlYWuAHkdczy30OPDgRigorHHtjP6vszkyv0Or1lAnNHj9Q9ELc9gtjB3NT6/Mk+GH+nREgKGscL4uEJIPxpTxRwyR+X9F/posoiACuLFnb9RRys9OLBVgVnnNKiszESLmnrXP5DdohZKu8JYHdZy2M63Wb6e1DZBtIKX2Ls1WUN6G5B3WgjuLZU0cDXn8KHVS+GljpEpoGSoG0MfGO25CDiiJmfMM2zvl9SRGiIM6Hhj8l3QbOaeZTQeH7odblXIYdPOeveZFqxIvKOrYzzzu9SETM5NAlshP7rqb2LfE2Gmf5O3DDz28iPnRPZSXWx6BerXtBrGlDGAP/amVApd49rRQ/GzU+CZ73Z3gLkRf9e9/Isrmj4Q8OSMovyKjGfNk89I9jWWlARTW0KwKquEZGUXcknHdmHBV1nh9TvlTBDq3ZXJw3rcrxgHto4ftYibZj8sEMgg9SwivApDACSgdahyahyVxyojNAJ1VHKzMpixuV2RuwBeOUcChwLGEtTMazmEr8ICO/TXWDzHjP5PvKv/vCWhaqad2LjPE93FNkWn1TSOY2jqsGEUaVlB3HL9Xp9fQESVeWuflUBHyjuk0zyXcN+BIGeR6loUo41N8LmfZVA0WsDulVWeoqkCbqihhDifw1okZC40R/jyGovMSr5uGUNVKQzw5taTWApGVoiG+hSpHlN3cuRm18PoZXwJZMtRq6RgBojF4Wx3Sr25UtcBk4n2ON14ZH9AkQSYpqXyApClWu6bdmOjBbr0xPLEddBGKDxAiSOXUu1bKJU9Wb9J2HfWNvqA9dLiUgZzfaMfEMHG/TZtDXwbQb9lpd/lTwFkhMq5BjFzi76n5KSGa+iSmxVPWWWWHPqBUxoqbpn2e2dna9iKwwaEiStfbhw17aR5CeAbJQKzqW1iyW4S3tGQTM2b+DImbrYYdwMzpddGCU7cGEqHjPoqgMx4nhxJ5abzlo7+zJWifJgIKiR1a0iF9I5ssaZBd+XVmil9Ru8eF4kOI03orTGBMAUyiUC+KX1Bbfk9ZWglQuO57eT/NWutQVb6chx8V2si39r9DJmGi+WYr8WkNE9JLqpT7iCVWGfwMn2k/E1eaAkVLocM88Ne9m9vx+LcpEcdIQO+jKHFW6VlRmPmNzXEULjVDXra7QJSVdIhdlBJkQ60DLYlUnRrl9B4lPwcM/OGPQF/SHlvpunTX2grb7PWZq9YBigkhE989wlt+2f/zXayjV/BxtsxzA+wp3GvhvtNbhG2ERtzE7VgVogZVjo/36vb49Zx+OG1MTejNvGPd+OCrn2fLV3UNftOXZNNnVn4lYU6Z4VmvOegIa5xmOWnOgRxCq/6uaE6X+CLHrSzay8KRQK7W8GpgOrxIm9Flv68zoDx8qTaW81p6VB783/669a+x6Iwb9nRobbNIO83awM96E8mHzS+K5yywe94CBweznKmKLiteK1Ljmkppn2tXcnm1lTpJnQeiBHngcjNGPaUW5mmIZvDtjLKagsifxc+byEmixN00e3MH+gBmS7YoyQIk1lNpaxuKmBDuLzDleAm/iW/K+O0+Lf8Uj4L3asulcceNaljq0LzA6sgmg32FVfyA534djmUZKVoyTZ34H1fPh0L4cBeHE9WaqZZNbyAiv5NZhNo3pLvJTaouwuaGZ8ZC65y1rBpfwq7B27+x4ujgm8sIjtIHMQJfo7rYJhMV1F0kbI4G9wKSwUN4R81k1pR5St/mSVl67JhqqwluSFMLmCNINXv14UriksOtExaWksken6q72jUlQs21SzesCuaub4c2/XzIfVA7S+CP0sosGf7pcqyphpyB3mEadFe/+MNEVLEhhM9RiFG/IciYJ8HWbJgPDOY6oocbl3c6xIfeWW5Xag+1hV2aqxs+JoJsak5MF7XPlLtQ9E4eMfwe99HHwszYhmOnzMu69jaBtq++62fdSwpKFZA9d0/h1UEjqbdDoiyr9dpFNUT8QKXuTHsIE5/AIZ5fEZ8Jb9tU61cJNqitDtoURK6lg3IirRs3NmESiajBcvlwfxAeJCaFBgp7s2cUr266OqvbHLSOLJJUR+kBqVmqM3wr9qFjn3iwa5w0TFkPzoLr0TyK2VFBW1nbCPlap8MK6n3DQhGqNPgN7AyYb87fP4A6KSLX7xez82Q8tEjd52WnvzU+aPcf2F9BJpsciTBUwIDGAbDqwnJkFr6bQs4oyjXeLebw4jtgIykTd7HIy0mtbNBvV14N44CgkyUTy4PA6zZROKx/GHYyDQSg0Dj76+2IHY11gsPWjLGhKRZA2dqNfE157mAjy5LqUPFl1fR"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 240,
+          "candidatesTokenCount": 434,
+          "totalTokenCount": 1893,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 240
+            }
+          ],
+          "thoughtsTokenCount": 1219,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "LrinauvzE-Ce3boPu_qFoQU"
+      }
+    }
+  ]
+}

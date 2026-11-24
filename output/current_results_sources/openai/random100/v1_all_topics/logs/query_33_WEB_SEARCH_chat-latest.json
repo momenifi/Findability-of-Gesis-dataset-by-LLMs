@@ -1,0 +1,186 @@
+{
+  "query_id": 33,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00767b9cc5433db1006b0455703ddc87d2b63ab904b790fc34",
+        "created_at": 1795446128.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00767b9cc5433db1006b0455717cb887d2aa8dc52ad8b2ed62",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany dataset DOI",
+                "German Longitudinal Election Study 1990 1994 1998 election studies GESIS DOI",
+                "Germany 1990s Eurobarometer survey datasets GESIS voting political attitudes",
+                "German Socio Economic Panel SOEP 1990s data landing page"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany dataset DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00767b9cc5433db1006b045574db7087d28304e6382ac5a144",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998\"",
+                "site:search.gesis.org/research_data/ \"German National Election Study\" \"1998\"",
+                "site:search.gesis.org/research_data/ \"German General Social Survey\" \"1998\"",
+                "site:search.gesis.org/research_data/ \"Politbarometer\" \"1994\""
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00767b9cc5433db1006b04557771e087d2a45c725c6bf90a56",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994\",\"url_or_doi\":\"https://doi.org/10.4232/1.11973\",\"justification\":\"GESIS dataset ZA3065. Examines political attitudes, political participation, voting intentions, electoral behavior, satisfaction with democracy, and evaluations of government and economic conditions in reunified Germany. Includes surveys conducted in East and West Germany around the 1994 federal election. Particularly relevant to political behavior, government, political systems, and elections.\"},{\"title\":\"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA3066\",\"justification\":\"GESIS dataset ZA3066. Investigates political attitudes, electoral participation, voting behavior, and satisfaction with democracy in Germany during the 1998 federal election period. Useful for examining political change, party preferences, democratic legitimacy, and differences between East and West Germany during the 1990s.\"},{\"title\":\"Politbarometer 1977–2024 (Partial Cumulation)\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA2391\",\"justification\":\"Longitudinal German public opinion dataset maintained by GESIS, containing surveys conducted throughout the 1990s. Covers political preferences, party identification, voting intentions, evaluations of politicians, government performance, and attitudes toward political issues. Particularly useful for tracking changes in German political behavior and attitudes across the decade.\"},{\"title\":\"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\"url_or_doi\":\"https://doi.org/10.4232/1.12574\",\"justification\":\"GESIS dataset ZA4584. Includes German population surveys from 1990, 1991, 1992, 1994, 1996, and 1998. Covers social values, political participation, satisfaction with democracy, government evaluations, social inequality, and political orientations. Particularly valuable for comparing social and political attitudes before and after German reunification.\"},{\"title\":\"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\"url_or_doi\":\"https://doi.org/10.4232/1.14695\",\"justification\":\"GESIS dataset ZA8839. A harmonized longitudinal collection of representative German social surveys, including observations throughout the 1990s. Contains information about social behavior, political attitudes, democratic satisfaction, government institutions, social identity, and values. Suitable for studying long-term changes in German society and comparing the 1990s with subsequent decades.\"},{\"title\":\"ALLBUScompact/GGSScompact 1998 (German General Social Survey 1998)\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA3719\",\"justification\":\"GESIS dataset ZA3719. Representative cross-sectional survey conducted between March and July 1998, containing 3,234 respondents. Includes political behavior and attitudes, government and political organizations, elections, economic conditions, media, and social indicators. Particularly useful for analyzing public opinion and political orientations immediately before the 1998 German federal election.\"},{\"title\":\"German Federal Election Studies 1949–2005\",\"url_or_doi\":\"https://www.gesis.org/en/elections/german-federal-elections\",\"justification\":\"GESIS collection of representative election surveys covering all German federal elections since 1949, including those held in 1990, 1994, and 1998. Contains cross-sectional, panel, and cumulative studies covering voting behavior, party identification, political attitudes, and electoral participation. Provides access to individual election datasets and is particularly relevant for comparative research on German electoral politics during the 1990s.\"},{\"title\":\"Kiel Election Studies 1976–1990\",\"url_or_doi\":\"https://www.gesis.org/en/elections/german-federal-elections\",\"justification\":\"German federal election survey series archived by GESIS, including research associated with the 1990 election period. Contains information about electoral behavior, party preferences, political attitudes, and voter characteristics. Particularly valuable for investigating political behavior during German reunification and comparing the 1990 election with earlier elections in West Germany.\"},{\"title\":\"German State Election Studies, 1962 Onward\",\"url_or_doi\":\"https://www.gesis.org/en/elections\",\"justification\":\"GESIS collection of representative surveys associated with German state parliamentary elections, including elections during the 1990s. Covers voting intentions, political preferences, party support, and regional political attitudes. Useful for comparing political behavior across German federal states and analyzing differences between eastern and western regions following reunification.\"},{\"title\":\"European Election Study 1994\",\"url_or_doi\":\"https://www.gesis.org/en/eurobarometer-data-service/overview/eb-trends-trend-files/european-election-studies\",\"justification\":\"European Parliament election research dataset based on Eurobarometer 41.1 and related survey waves. Includes information on voting behavior and political attitudes surrounding the 1994 European Parliament election. Contains German respondents and enables analysis of electoral participation, European integration attitudes, and political preferences in Germany within a comparative European framework.\"},{\"title\":\"Eurobarometer Surveys – Germany, 1990–1999\",\"url_or_doi\":\"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\"justification\":\"GESIS archive providing access to Eurobarometer public opinion surveys, including surveys conducted in Germany throughout the 1990s. Covers attitudes toward European integration, political institutions, democracy, government policies, social issues, and political participation. Useful for investigating German political and social attitudes during European integration and the post-reunification period.\"},{\"title\":\"Comparative Study of Electoral Systems (CSES), Module 1\",\"url_or_doi\":\"https://www.gesis.org/en/services/finding-and-accessing-data/election-studies\",\"justification\":\"International comparative election research program beginning in 1996, incorporating national post-election surveys, including German election research. Contains individual-level measures of electoral behavior, political attitudes, and demographic characteristics alongside contextual information about political institutions and electoral systems. Relevant for studying Germany's 1998 federal election in an international comparative context.\"},{\"title\":\"Forsa-Bus Surveys, 1991 Onward\",\"url_or_doi\":\"https://www.gesis.org/en/elections\",\"justification\":\"GESIS election research collection containing the Forsa-Bus survey series, which began in 1991. Provides public opinion data on political attitudes and behavior independently of specific election dates. Relevant for examining changes in party preferences, political evaluations, and public attitudes in Germany throughout the 1990s.\"},{\"title\":\"German Election Studies and Political Opinion Data – GESIS Research Data Center Elections\",\"url_or_doi\":\"https://www.gesis.org/en/elections\",\"justification\":\"Central GESIS research data collection covering federal elections, state elections, Politbarometer, Forsa-Bus, and other political opinion surveys. Includes multiple datasets collected during the 1990s. Particularly useful for locating additional studies about German voting behavior, political participation, government evaluations, democratic attitudes, and electoral institutions.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446143.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20756,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1613,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22369
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

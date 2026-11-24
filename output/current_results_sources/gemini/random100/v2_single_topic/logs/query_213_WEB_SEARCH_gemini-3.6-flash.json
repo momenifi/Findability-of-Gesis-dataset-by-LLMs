@@ -1,0 +1,89 @@
+{
+  "query_id": 213,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 213,
+        "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GLES 2017 Post-election Cross-Section\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13235\",\n      \"justification\": \"Part of the German Longitudinal Election Study (GLES) hosted by GESIS, this dataset provides post-election cross-sectional survey data on voter behavior and attitudes for the 2017 German federal election.\"\n    },\n    {\n      \"title\": \"GERDA – German Election Database\",\n      \"url_or_doi\": \"https://www.german-elections.com/\",\n      \"justification\": \"A comprehensive open database providing harmonized electoral data at municipal, state, and federal levels across Germany, covering elections throughout the 2010s.\"\n    },\n    {\n      \"title\": \"The #BTW17 Twitter Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.847910\",\n      \"justification\": \"Hosted on Zenodo, this dataset contains over 1.2 million tweets and social media interactions associated with German politicians during the campaign phase for the 2017 German federal election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 359,
+          "candidatesTokenCount": 302,
+          "totalTokenCount": 1965,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 359
+            }
+          ],
+          "thoughtsTokenCount": 1304,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "61SEarHoKfvwnsEPwb3ckAk"
+      }
+    }
+  ]
+}

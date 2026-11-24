@@ -1,0 +1,186 @@
+{
+  "query_id": 202,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic systems and development in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_068ea98ffd9700ba006b04673bd07087d2ad280421d57fd87e",
+        "created_at": 1795450683.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_068ea98ffd9700ba006b04673ce50087d293dd77d4bf44beca",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German general social survey ALLBUS 1980 1982 dataset economic attitudes",
+                "Germany historical national accounts 1980s dataset Bundesbank time series",
+                "German Socio Economic Panel SOEP 1984 dataset DOI",
+                "East Germany GDR 1980s economic statistics historical dataset GDP employment"
+              ],
+              "query": "GESIS German general social survey ALLBUS 1980 1982 dataset economic attitudes",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_068ea98ffd9700ba006b0467403ed087d29f65d68a0f0771ce",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesis.org DDR 1980 1989 economic statistics dataset GDR",
+                "site:worldbank.org indicator Germany GDP 1980 1989 data",
+                "site:histat.gesis.org DDR Wirtschaft 1980 1989 Daten",
+                "site:destatis.de historische zeitreihe DDR 1989 1980 wirtschaft daten"
+              ],
+              "query": "site:gesis.org DDR 1980 1989 economic statistics dataset GDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_068ea98ffd9700ba006b046743225087d2b0370de3f99d15ad",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"The Economic Development of Eastern Germany, 1949–1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8382\",\n      \"justification\": \"A historical economic dataset archived by GESIS, compiled by Wilma Merkel and Stefanie Wahl. It contains 52 time series covering the economic development of East Germany (GDR), including reconstructed GDP estimates. Particularly valuable for examining economic growth, socialist central planning, and the performance of East Germany's economic system throughout the 1980s. The dataset also supports historical comparisons between East and West Germany.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank: Long Time Series on Economic Development in Germany\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/sets-of-indicators/long-time-series\",\n      \"justification\": \"An official collection of historical economic statistics from Germany's central bank, covering economic developments since 1948. Relevant indicators include monetary and macroeconomic developments. The historical series are useful for investigating West Germany's market-based economic system, monetary conditions, economic fluctuations, and long-term economic performance during the 1980s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2014\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v31.1\",\n      \"justification\": \"A longitudinal household survey administered by the German Institute for Economic Research (DIW Berlin), beginning in 1984. It provides detailed information on household income, employment, wages, education, living conditions, and socioeconomic mobility. The 1984–1989 observations are especially relevant for investigating inequality, labor-market conditions, and living standards in West Germany before reunification. Access to individual-level data may require a research agreement.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"A comprehensive survey dataset containing observations from 1980, 1982, 1984, 1986, and 1988. It measures public perceptions of economic conditions, personal financial circumstances, social inequality, political attitudes, and social structure. Particularly useful for studying how West German citizens perceived economic development, welfare policies, and the social market economy during the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14695\",\n      \"justification\": \"An extensive cumulative dataset covering German social and economic attitudes from 1980 onward. Researchers can isolate the surveys conducted during the 1980s to examine perceptions of economic performance, occupational status, income inequality, and social welfare. Its standardized questions also facilitate comparisons between economic attitudes in the 1980s and subsequent decades.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact), Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"A compact, harmonized version of the ALLBUS survey series, incorporating observations from the 1980s. It includes socioeconomic indicators such as occupational classification, educational attainment, household income, and social position. Useful for quantitative research into class structure, inequality, and socioeconomic development in West Germany during the final decade before reunification.\"\n    },\n    {\n      \"title\": \"Historical GDR Microdata: Household Income and Consumption, 1988–1989\",\n      \"url_or_doi\": \"https://www.gesis.org/gml/weitere-amtliche-daten/ddr-mikrodaten\",\n      \"justification\": \"A collection of historical microdata described by the GESIS German Microdata Lab, based on official East German statistics. It includes the 1988 income survey of workers' and employees' households, the 1988–1989 household budget statistics, and information on social benefits. Particularly valuable for studying household consumption, income distribution, living standards, and the effects of socialist economic policies in East Germany immediately before reunification.\"\n    },\n    {\n      \"title\": \"Historical Data Compilation: Energy Economy of the German Democratic Republic\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8672\",\n      \"justification\": \"A historical dataset documenting energy-sector developments in East Germany, with time series extending to 1989 and, where sources permit, beginning in 1950 or 1960. Relevant for analyzing industrial infrastructure, energy production, resource allocation, and the role of energy-intensive industries in the centrally planned East German economy during the 1980s.\"\n    },\n    {\n      \"title\": \"The Origins, Management, and Consequences of East Germany's Foreign Currency Debt\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8412\",\n      \"justification\": \"A historical research dataset concerning the foreign currency indebtedness of the German Democratic Republic. Particularly relevant to the 1980s, when East Germany experienced serious international payment difficulties, including the 1981–1982 crisis. Useful for examining foreign borrowing, trade imbalances, financial constraints, and the structural weaknesses of the socialist economic system.\"\n    },\n    {\n      \"title\": \"House Building and Retail Sales in the German Democratic Republic, 1952–1989\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/SDN-10.7802-1462\",\n      \"justification\": \"A historical dataset containing national-level information on new housing construction, housing reconstruction, and retail sales in East Germany from 1952 to 1989. The observations covering 1980–1989 provide evidence of housing investment, consumer-market activity, and domestic economic development under central planning. Especially useful for examining the relationship between socialist economic policy and material living conditions.\"\n    },\n    {\n      \"title\": \"World Bank: GDP in Constant Prices — Germany\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/NY.GDP.MKTP.KD?locations=DE\",\n      \"justification\": \"A World Bank macroeconomic time series providing inflation-adjusted GDP measurements for Germany. Historical observations can support analysis of economic growth, changes in national output, and international economic comparisons during the 1980s. Researchers should account for historical territorial definitions because Germany was divided into two states before reunification in 1990.\"\n    },\n    {\n      \"title\": \"World Bank World Integrated Trade Solution: Germany GDP, 1988–1991\",\n      \"url_or_doi\": \"https://wits.worldbank.org/CountryProfile/en/Country/DEU/StartYear/1988/EndYear/1991/Indicator/NY-GDP-MKTP-CD\",\n      \"justification\": \"A World Bank data presentation containing annual GDP figures for Germany from 1988 to 1991. It is relevant for examining economic conditions immediately before and after reunification and the transition from two separate economic systems to a unified economy. The 1988 and 1989 observations provide a late-1980s benchmark, although historical coverage and territorial definitions require careful interpretation.\"\n    },\n    {\n      \"title\": \"Vocational Training and Higher Education in the Former German Democratic Republic, 1960–1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8266\",\n      \"justification\": \"A GESIS historical dataset based on official East German statistics documenting vocational training and higher education between 1960 and 1989. Relevant to economic development because education, technical training, and workforce qualifications were important components of East Germany's centrally planned production system. The 1980s observations can be used to investigate human-capital development, workforce preparation, and the relationship between education policy and industrial development.\"\n    },\n    {\n      \"title\": \"Personal, Property, and Social Insurance in the Former German Democratic Republic, 1950–1989\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8357\",\n      \"justification\": \"A historical GESIS dataset covering insurance arrangements in East Germany from 1950 to 1989. Particularly relevant for studying the institutional structure of the socialist welfare system, social protection, and the role of state-administered insurance in economic security. Its 1980s coverage can support comparisons of social protection arrangements between East Germany's planned economy and West Germany's social market economy.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450700.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18599,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1968,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20567
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

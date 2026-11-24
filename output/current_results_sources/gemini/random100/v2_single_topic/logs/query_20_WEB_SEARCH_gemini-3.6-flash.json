@@ -1,0 +1,69 @@
+{
+  "query_id": 20,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Jugend und Sport 1987\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6096\",\n      \"justification\": \"Survey conducted in 1987 in the German Democratic Republic (GDR) by the Zentralinstitut für Jugendforschung (ZIJ) examining youth sports participation, leisure-time exercise, and sports-related value orientations.\"\n    },\n    {\n      \"title\": \"Jugend und Touristik 1983/84\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6198\",\n      \"justification\": \"Dataset from a 1983–1984 survey conducted in the GDR by the Zentralinstitut für Jugendforschung (ZIJ) focusing on youth leisure interests, vacation days, travel behavior, and attendance at sporting events.\"\n    },\n    {\n      \"title\": \"Politisches Klima und gesellschaftliche Bedingungen in der DDR 1988/89\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6008\",\n      \"justification\": \"A representative survey carried out in East Germany in 1988–1989 by the ZIJ, capturing data on living and working conditions, leisure habits, and the frequency and forms of sports activities.\"\n    },\n    {\n      \"title\": \"Alltagsprobleme Jugendlicher in der DDR 1988\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6086\",\n      \"justification\": \"Dataset from a 1988 ZIJ survey investigating East German youth life goals, frequency of leisure pursuits, satisfaction with living/leisure conditions, and interest in travel and motor vehicles.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1349,
+          "candidatesTokenCount": 452,
+          "totalTokenCount": 4044,
+          "cachedContentTokenCount": 813,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1349
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 813
+            }
+          ],
+          "thoughtsTokenCount": 2243,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "cCeEaoyKJ8KIvdIPy-a9IA"
+      }
+    }
+  ]
+}

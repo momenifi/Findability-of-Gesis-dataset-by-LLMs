@@ -1,0 +1,69 @@
+{
+  "query_id": 59,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in Lagos during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"World Bank Open Data: Labor Force, Total - Nigeria\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/SL.TLF.TOTL.IN?locations=NG\",\n      \"justification\": \"Provides historical time series data on total labor force participation, employment metrics, and workforce estimates for Nigeria, including urban centers like Lagos, spanning back to the 1980s.\"\n    },\n    {\n      \"title\": \"ILOSTAT Database: Nigeria Country Labor Statistics\",\n      \"url_or_doi\": \"https://ilostat.ilo.org/data/\",\n      \"justification\": \"Maintained by the International Labour Organization, this global data catalog provides historical labor market indicators, sector-specific employment statistics, and labor force estimates for Nigeria during the 1980s.\"\n    },\n    {\n      \"title\": \"World Bank Microdata Library: Nigeria Survey Data Catalog\",\n      \"url_or_doi\": \"https://microdata.worldbank.org/index.php/catalog/NGA\",\n      \"justification\": \"Hosts microdata catalog records and historical household/labor force survey archives for Nigeria produced by the National Bureau of Statistics (formerly Federal Office of Statistics, Lagos) covering 1980s economic and employment trends.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 539,
+          "candidatesTokenCount": 310,
+          "totalTokenCount": 2191,
+          "cachedContentTokenCount": 272,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 539
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 272
+            }
+          ],
+          "thoughtsTokenCount": 1342,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "7TCEavCPDp_6xs0Pu8X86Ak"
+      }
+    }
+  ]
+}

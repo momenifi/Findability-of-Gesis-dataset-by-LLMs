@@ -1,0 +1,169 @@
+{
+  "query_id": 45,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany during the 1940s and 1950s and 1960s and 1970s and 1980s and 1990s and 2000s, matching this research need: Time-series data on West German universities from 1949–2001, especially student enrollments by university type (technical, pedagogical, theological, art/music, applied sciences), with historical education statistics and notes on classification adjustments.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02a0a2cf3082bc6e006b0471f115bc87d2a001628679939ab0",
+        "created_at": 1795453425.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02a0a2cf3082bc6e006b0471f1d48487d2bb92985bb9572791",
+            "action": {
+              "type": "search",
+              "queries": [
+                "historische statistik hochschulen 1949 2001 studierende hochschularten pädagogische theologische kunst fachhochschulen deutschland west",
+                "GESIS histat Studierende Hochschularten 1949 2001 Bundesrepublik Hochschulstatistik dataset",
+                "Destatis lange Reihen Hochschulen Studierende 1950 2001 Hochschularten historische statistik"
+              ],
+              "query": "historische statistik hochschulen 1949 2001 studierende hochschularten pädagogische theologische kunst fachhochschulen deutschland west",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02a0a2cf3082bc6e006b0471f4c2a487d29521659d49a0beb8",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Hochschulen in der Bundesrepublik Deutschland 1949–2001 (Universities in the Federal Republic of Germany, 1949–2001) – GESIS\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8202\",\n      \"justification\": \"Excellent match and the most directly relevant dataset. Compiled by Peter Lundgreen and Gudrun Schwibbe and published through the GESIS Data Archive, this historical dataset provides longitudinal statistics on West German higher education from 1949 to 2001. It includes enrollment figures differentiated by university type: traditional universities, technical universities, comprehensive universities, theological colleges, pedagogical universities, art and music colleges, universities of applied sciences (Fachhochschulen), and administrative universities of applied sciences. Data cover individual institutions, German federal states, student gender, nationality, and institutional development. Particularly valuable are the methodological explanations of historical classification changes, including the consistent separation of technical universities from traditional universities and the retrospective reassignment of institutions to appropriate categories. An important caveat concerns pedagogical institutions: student enrollment before 1967 is missing from certain electronic time series because teacher-training institutions were not consistently included in official university statistics. Supplementary figures are available in the associated historical handbook. Geographic coverage distinguishes West Germany before reunification from the expanded Federal Republic after 1990.\"\n    },\n    {\n      \"title\": \"Berufliche Schulen und Hochschulen in der Bundesrepublik Deutschland 1949–2001 – Datenhandbuch zur deutschen Bildungsgeschichte, Band VIII (Historical Statistics / HISTAT)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/d2441e8d20a05d8b31bb73351af34df7\",\n      \"justification\": \"Excellent match. This historical education statistics collection, associated with Peter Lundgreen's research and the German educational history data handbook, provides extensive time-series tables covering vocational schools and higher education institutions between 1949 and 2001. Its university section includes the number of institutions by university category, enrollment at individual universities, and student participation by institution type. Relevant tables include student enrollments by university type and gender for 1949–2001, enrollments at technical universities for 1949–2001, theological universities for 1949–2001, pedagogical universities for 1950–2001, art and music universities for 1949–2001, and universities of applied sciences for 1972–2001. The collection is especially useful for studying the expansion and restructuring of the West German university system. Its historical documentation provides context for changing institutional definitions, the integration of teacher-training colleges, and the emergence of Fachhochschulen during the 1970s.\"\n    },\n    {\n      \"title\": \"Hochschulen in der Bundesrepublik Deutschland 1949–2001 – B2FIND Research Data Catalogue\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/fd45518a-c1c7-551a-9926-cbadae7df864\",\n      \"justification\": \"Excellent match. This catalogue record provides an alternative discovery and metadata entry for the GESIS historical university dataset covering 1949–2001. It is particularly valuable because its detailed documentation describes how different university categories were standardized across changing official statistical classifications. The dataset explicitly distinguishes technical universities, traditional universities, comprehensive universities, theological institutions, pedagogical universities, art and music universities, universities of applied sciences, and administrative universities of applied sciences. It also explains historical adjustments made to maintain comparability and identifies limitations in the electronic dataset, notably the absence of pedagogical university enrollment figures before 1967. The record documents geographical treatment of West Berlin, the former West German states, and the post-reunification federal states. This is an alternative access point to the first dataset rather than an independent statistical series.\"\n    },\n    {\n      \"title\": \"Hochschulentwicklung in der Bundesrepublik und in der DDR (1960–1990) – German History in Documents and Images\",\n      \"url_or_doi\": \"https://germanhistorydocs.org/de/zwei-deutsche-staaten-1961-1989/hochschulentwicklung-in-der-bundesrepublik-und-in-der-ddr-1960-1990\",\n      \"justification\": \"Strong supplementary match for the period 1960–1990. This historical statistical resource provides comparative quantitative evidence on university development in West Germany and East Germany. It includes institutional counts, total student enrollments, new entrants, university examinations, doctoral qualifications, and academic personnel. Its statistics help contextualize the expansion of West German higher education during the 1960s, 1970s, and 1980s and provide a comparative perspective on the two German educational systems before reunification. Although it does not offer the same detailed classification of university types as the GESIS dataset, it is useful for validating aggregate enrollment trends and examining broader structural changes.\"\n    },\n    {\n      \"title\": \"Studierende nach Hochschularten, Ländern und Geschlecht – BMFTR Data Portal, Table 2.5.22\",\n      \"url_or_doi\": \"https://www.datenportal.bmftr.bund.de/portal/de/Tabelle-2.5.22.html\",\n      \"justification\": \"Relevant official supplementary dataset from Germany's federal research ministry statistical portal. The table reports student enrollments differentiated by university type, federal state, and gender. Institutional categories include universities, pedagogical universities, theological universities, art colleges, universities of applied sciences, and administrative universities of applied sciences. It provides a useful official classification framework for comparing institutional categories and checking enrollment statistics against federal education reporting. Its historical coverage should be verified before using it as a complete 1949–2001 series. In particular, technical universities may be included within the broader university category rather than separately identified, so it is less suitable than the GESIS historical dataset for studying technical universities independently.\"\n    },\n    {\n      \"title\": \"Hochschulen nach Hochschularten und Ländern – BMFTR Data Portal, Table 2.5.1\",\n      \"url_or_doi\": \"https://www.datenportal.bmftr.bund.de/portal/de/Tabelle-2.5.1.html\",\n      \"justification\": \"Useful supplementary official dataset for studying the institutional structure of German higher education. It records higher education institutions by type and federal state, including universities, pedagogical universities, theological universities, art colleges, general universities of applied sciences, and administrative universities of applied sciences. Although it measures institutional counts rather than student enrollment, it can help explain changes in enrollment patterns associated with institutional expansion, consolidation, and reclassification. It is particularly relevant when interpreting historical transitions involving pedagogical universities and universities of applied sciences. Historical coverage must be checked before using it to reconstruct the complete 1949–2001 period.\"\n    },\n    {\n      \"title\": \"Studentinnen/Studenten sowie Gasthörerinnen/Gasthörer an Hochschulen im Wintersemester 2008/09 – Statistisches Landesamt Rheinland-Pfalz\",\n      \"url_or_doi\": \"https://www.statistik.rlp.de/fileadmin/dokumente/berichte/B/3013/B3013_200900_1j_L.pdf\",\n      \"justification\": \"Strong regional historical time-series resource covering university enrollments in Rhineland-Palatinate from winter semester 1948/49 through 2008/09. The statistical publication includes a longitudinal table of students by university type, distinguishing traditional universities, theological colleges, other academic institutions, universities of applied sciences, and administrative universities of applied sciences. Particularly relevant are its methodological footnotes concerning classification adjustments: pedagogical universities were included within university figures for specified historical periods, and the classification changed as teacher-training institutions were reorganized. This makes the resource useful for examining how administrative changes affect longitudinal comparability. Although geographically limited to one West German state, it provides an independently published official historical series covering the entire requested timeframe.\"\n    },\n    {\n      \"title\": \"Hochschulen in Nordrhein-Westfalen 2019/2020 – Historical University Enrollment Statistics\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00012825/b302201900_A.pdf\",\n      \"justification\": \"Strong supplementary regional dataset for North Rhine-Westphalia, one of West Germany's major higher education regions. The statistical publication includes a historical enrollment series by university type beginning with winter semester 1950/51 and continuing through 2019/20. It is particularly useful for reconstructing university enrollment growth during the 1950s through the 2000s. Its methodological notes document significant institutional changes, including the dissolution of pedagogical universities in 1980 and their incorporation into universities or other higher education institutions. These adjustments are important for interpreting apparent discontinuities in university-type enrollment statistics. The dataset can support regional validation of the national GESIS series and provide historical evidence of institutional restructuring.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453439.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 12559,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1968,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 14527
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

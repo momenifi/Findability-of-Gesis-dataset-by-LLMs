@@ -1,0 +1,69 @@
+{
+  "query_id": 190,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, and Croatia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Chapel Hill Expert Survey (CHES) Trend File 1999–2019\",\n      \"url_or_doi\": \"https://doi.org/10.1016/j.electstud.2021.102420\",\n      \"justification\": \"This dataset provides expert survey estimates on national political party positions regarding European integration, international politics, and EU policies across all 28 EU member states throughout the 2010s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Main Dataset (MARPOR)\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2024a\",\n      \"justification\": \"The Manifesto Project quantitatively codes party electoral programs across European countries during the 2010s, measuring political positions on internationalism, European integration, and foreign policy.\"\n    },\n    {\n      \"title\": \"Parliaments and Governments Database (ParlGov)\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/2VZ5ZC\",\n      \"justification\": \"ParlGov offers comprehensive data on political parties, national elections, and government cabinet compositions across EU member states during the 2010s.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) Round 7 - 2014\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS7-2014\",\n      \"justification\": \"This cross-national survey dataset measures public attitudes towards international politics, European integration, governance, and trust in supranational and national political organisations across European nations in 2014.\"\n    },\n    {\n      \"title\": \"Comparative Political Data Set 1960–2023 (CPDS)\",\n      \"url_or_doi\": \"https://www.cpds-data.org/\",\n      \"justification\": \"The CPDS provides country-level annual political, institutional, and governance data for 36 OECD and EU member countries, covering the entire 2010s decade.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EskZCsYZARFNMg/qnJYgJRhUSFKnQWhG1AcaDITSj6oetnjMwDYa/Uo9/+uixgSaQptjiF1HyD2pkZwQgkodVHNwPDL4hSSJIaCi4PCPZDK+HEV9PBYdz2znuVX+vih5HIlgzpTSiMznUiHvMM7wRUllj8Ef7oSRXgK0QyTKZ4xYODJwHrNk6t12I3I0aCDR6L3Psdhvi8IbKOqfXM67ZYcUyD3j2gxuzD2s9WoIY+HgBuKDGENmOIbKomc66VZv7N/AuDNgTvazGpSfjj0WiwvdvWBB2pY2t18TGzm2J+9rmLthbFKNqPP13hdzJGv49gX2Lv6YfZ1CuhgRGkytkbE1XSAxV3vb8mO4axsvKD6B7lQEwG+/FO5tDQ0Ge8zHSxTreiaLTuw0Qt5Q6C29qRe9DlxapL7acJ8TIyPwGzy2Mgw6Pmw+WCyCsJZMQ5Nz5emuV0iPcszdsAGzcthUAYJkTqrOUoP43Lca3BgsqjcqNoQH/gIhYV8tJlbRwGP/BzPSlm9fBEkjlRLfM+os8jZGfDyrMUfFOsIsoDHGeqY99OS0/8lLAOuIFXB3+V8M+A4GrAAFtScuzZ/JlUXF0lJiDLBrvwAqJTD84JriLpcubuBWs8vQHXs/SqkBK142BMjcvWIBf28E7Au1Qdt6Ab5YRnW2/8nQVkvRoqxBt4ANDdqf1jSEeEAK9+2QyNu51+CoVH33Elz/rcvuCxXasFV4imHjtzYSqEeLQsNVMnLPPWVGLu/up1Bpb/8Z/yWIavZKj+YOszKMVBRM3DU/dCYtfJjtpTDWn2MMCunDqgL53GQd3pykedRtbW5E7qk6s5tkFaupx5/ZztU8K+OxKgujN6eK+NBT6JUpUYC6xctMmOWWx4wRsizsj282J//XzsJnx54iYgU75948pZzB8gZJw73oabhfIjxKU8gSR9linKgZu/8iI4e6+jpARp74PBXAoLO6UqqvbaxF0FEbCkIQN4oO1p9Pe4La6r8dQix1/mCPKW3UptpT//BCVqvsQEXGb7kFCOjcqhl45j1sMaJH0i539jqWIcz47wVSw47XKjUsm4cCz6fi13uN+ZVwmh40Yylw6tLSTwMCxUcuBiEoGUHhwC1rwPpkPcoggwu36EwAVuMKuKefTFaYNgwH7ulcU5VMtjEBprpukeuObz4KJhlyEu8ri7X2h7fta3gyP+GLAYZYQbdReMpeU7ge3x/twadpQqwSwP2f3WkA8XrGxp0w99bBZ9kttLnL6zBiFfu1RZmdILu08Np093DHv4K8s1TBFb92QeM8IJF0lIL3177vB2OLqHGR3QYXaKPBPd4RhWJWyk1OH7TN1z6NhWJpVN4//J4SkMSrFhSchVv5TgVzuKY22vBwxT3BNAZO5uiSTrsTstRuNjGfmqAqZuXWhTxvyydJblsNwb0KWpDx9GyOGwcm5EP6P4DLMJaIPV76ylnVOtHVfIN4b/ASbk17TwlrLa4KZm/9lGkJiSVxWWNrsZt3Ym3x8RKzq/2wFl1HdqzaDa/eFRjJhrM6TjiWIVh2ChciYAQ0sbEmrOGExZHUQiLA1sDOivuC1S7vOzR6dv520B8khNAhDY2hkBiUr4728pMU0j+4ERVZBKnHiC3rj059+fGKU+WhwO1S8yJc4U3UWAmaYXOOGW47D0Bip2PkCPP8ji2JYN7RV4HVy+YciOHv4MoF6dUP6VTJ0u/aVPF1a2Gwf1L0QXg3KLAoDMp1ZZelv9pFSfHh7mhC9/mI7TevIP1wbbTKl/mgimrRiQWSOBGlgs8Xe+l1UboZjU9AH3hv5X1KfFk34mzhg1q3EnufZ6jRepuhkKF/+xqddoayAsxwn4wGHmK+5V8UIpOulKipGX8yP+m+DDFhBcPd0qAaWWF+ngZ6IhCTFCzLCkrtc++gmwlblEZ/6UgGYfcD9CCbe20AFB6R2HvUhBx83asyEKG4pYturKcsuHG4/vTVlWHZ5OepTMwn4cjjMMhVC9iJ07ziv+4GJHUMSmi+5BRjo0hoGAFgsVkW+jSShaCad/I3bf3NyBNzIyD418XdP1j4Ghk3OHjhAVUxxCOWBgrLhjP6PnXtSorLXD2B94Y0c/R0WUps3XGcC3edrYEiBSFOCoWLrqGin+gKAx4SqcwbClb97xySJ5pQTpN96VPTIvb3tDR5fLsTss6cdS9KygKr024ueP/Qe6sE+7h15Uo/n0xtx8o06kOV0B8rE5bZVToCaV/qlPiLuLUTWB4O2vOyV1MK4QQMrm0XM6K2HuleZtUKB02mpil58GKcZBNe1wH+cY4cE4c7QJhLj1Q5Z86f+eWDhTMOflXgUP6XJF4+wwudwlqxmumq6FnoCFfzlv5xy2EsLiZ9NLpOFEig/9GtzIcL3hIoFw83BLVG/dK4odAKPi1K+gNsbGN6AKA3bc3j+TAcWAPMgbp6TqeaJfnErZPdmUTs7u9VKpswuFEfIMZ7q1YqFQn6GkW1hcSF5SEun3kLbWQ0HNueRXA1CIwmwcY93/fjVmp7siOJ9pZS5293LoKe9BCZZmA+BwVm2i2fNRTtqi3XJdJoEftfax6khbKE6rlICFy5et06QdOq1aBKFEzxlUAn/1McvVcg1zspsQULgYasfvMkFhfUujIGooceaDrjImAPPqVMcuPT5BKhnF4CPa87j53m2N0GoUacHRd8+tchCx3Qg6KyHLTY/u5EPlFefOpHwy+nAndtfTlbljAWTE6XEt65ts7MT9QBcrErkasePB2c59ieTIU4aLe08txMNFZor5AKaBp2j3DekryjgEu6xrOa9pSkg6mFFygu5bvMLNPrblAzFoDQSh73t1sgr2L553oOoqsyGsrsGxQ+bpZrxiUcIED516kln1NPpIxWGzHii21dGOhWgNHshFOrrFXwSBSYYAudIp5rLf+P8RvSJo8u5XPz7E5Kf1r13n4ER9z7YwdcWEUYBSZ3MzdaXNcP186CfT3OxaLX7cOPauZHOLbFhNRGYDxyUOKFVk/1lkoi9dtWnXuPID+wcirNVVEKn4jsFcE6gOk3xcsir3BJiSdsmun7kyNhbDNiC/ti8iipAy5FPU9dY7+cam5Id0cp/E++pN0CdW5PohwUnQHGGo8ubUNKBdJqnx6OQK3jGYwYQl6Y4J8vtCGf5tblVawUfwpJODovN84EA793HkTrp4xHjklJlr5EZkrNp852pqwFSNnOnt4QdZRqSWYaXUfZtVjehYxXL93LgIGam5MhUXWvyEwzFVl0HEnyWtNpiILPXrlvWdn23SpucSkZ4n0M9T/MUD4xgj4P+I63vBVcwkuSn8BBu9Mu+tKP+TYsXarsLFui8nYcediak4Mcc719nrNTP1fie2fJK61NlzMyT+UbBP8sTMUOzM+PeYkF0SjqOnbJ5OsPboEQxJiKrK2OHRtdfsrCPqsxazYZaOht2oeOtbXi7jz4i/SieHK/89cnXoGKMfdEXHLsW/2GCYJNRgGMgsxJG298a5/6BR+KX0TDIqyVbYDUgGeeA1ZvBZNTz9Z35EpWxh8Vzr+zI9rt9jZtjzpArh6lG7yUxnOuWa2rDnlQUtsGoO5vh9Vvd6OAxYrjMGfh8tEyOxAHOTQIK8qBs4a4ZmitedK3G2zCra6LthND2H4/tU87+RVxxOeMZHZLYu4DijQ31ORGzSmvyUVGuN2OB5tPCwI+6gqNu3nVx2Qt8ALOJ5IIYDIgJWaukFawsSHsnt0XewPbiNtv06FejA212zm0KaC78pwnbD/jDeikiUMFUBct+Nc5xoJi0ioOp1gI6PyG4m8r0PJjIHrEu1OwFEHJTD7JhY6VLTnI75Wpw2XTPjhy9Yc7ULCyjvTRr9d4B8FAKBFtz74BPMu3lZnrW/Gm36/1xb/ZgXUvis/t12tpfgBesE2T0DRDNe198GJh0cOGHSnfFZbpps+v9uwZPsklFKorLO++stn8mPheVpe6H88950Tjy5Zj/0T0IOyBi/M9CmvLpsry2GICTZDShScjaFJTFyC4iWOY9czTQ4k0L+/Lo2ny/+R4g69GPibbclkNx661b0AEgl1+lsOwhmfVQTdoj8VbXuPQBp6MSYpApIBuTNeR1jxjYkSq6wGC3vjvCUZLmReOC9E8chyOrbhn9SzLcyuyYMthbwOvQFyun/RtFvLl/91FEHgujkxPbsUTmBGfnv6U0vNe9tPjPoJc9sPOBQ06Spsw0F929piY0L7JQBqVAPL/7A/buQjJJQY7ZOLjt41XGAk9rdo+UsL4q0lnLo23Ks23ncYVonVN+eWgHbr0bCWpu6+Ka+GEvuOQcY4tD8DOBtSy8mbjJ/e8NDUqqt5rjiwvVWnzs2eFGHf5kOAZYQjTchtHUXrRmleU"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 491,
+          "candidatesTokenCount": 528,
+          "totalTokenCount": 2260,
+          "cachedContentTokenCount": 100,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 491
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 100
+            }
+          ],
+          "thoughtsTokenCount": 1241,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zUuEaqoSzNiR1Q-mpLOBCQ"
+      }
+    }
+  ]
+}

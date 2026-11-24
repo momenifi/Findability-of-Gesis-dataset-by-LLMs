@@ -1,0 +1,185 @@
+{
+  "query_id": 51,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Cultural activities and participation in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_025354c4309a8456006b045d7f503087d2b495c141dc18575a",
+        "created_at": 1795448191.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_025354c4309a8456006b045d8022b487d2a48740a5502572b6",
+            "action": {
+              "type": "search",
+              "queries": [
+                "IT NRW Kulturstatistik 2000 2009 Museen Theater Bibliotheken Besucher Daten Nordrhein Westfalen",
+                "Regionaldatenbank Deutschland Kultur Museen Theater Bibliotheken Nordrhein-Westfalen 2000 Statistik",
+                "Forschungsdatenzentrum Kulturbarometer Nordrhein Westfalen 2000 2005 Kultur Teilnahme Umfrage Datensatz"
+              ],
+              "query": "IT NRW Kulturstatistik 2000 2009 Museen Theater Bibliotheken Besucher Daten Nordrhein Westfalen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_025354c4309a8456006b045d83848c87d2a55b1455f06893bb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:govdata.de/suche/daten/ \"Bibliotheken: Haupt- und Zweigstellen\"",
+                "site:govdata.de/suche/daten/ \"Theater(-unternehmen), Spielstätten\"",
+                "site:govdata.de/suche/daten/ \"Kinos, Leinwände, Sitzplätze\"",
+                "site:govdata.de/suche/daten/ \"Musikschulen\" \"Nordrhein-Westfalen\""
+              ],
+              "query": "site:govdata.de/suche/daten/ \"Bibliotheken: Haupt- und Zweigstellen\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_025354c4309a8456006b045d860d1c87d2a66dda203d4da46e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Museums, Exhibitions and Museum Visits in North Rhine-Westphalia by Year (Museen, Ausstellungen und Museumsbesuche)\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/museen-ausstellungen-und-museumsbesuche-land-jahr\",\n      \"justification\": \"Official dataset published by Information und Technik Nordrhein-Westfalen (IT.NRW) through GovData. Contains annual statistics on museums, exhibitions and museum attendance in North Rhine-Westphalia. Particularly relevant for analyzing cultural participation and museum visitation trends during the 2000s. Available in CSV and XML formats. Historical figures for 2003–2009 are also documented in the state's statistical yearbooks.\"\n    },\n    {\n      \"title\": \"Libraries: Branches, Active Users, Visits, Collections and Loans by Library Type in North Rhine-Westphalia\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/bibliotheken-haupt-und-zweigstellen-aktive-nutzerbesuche-bestande-und-entleihungen-nach-bibliot?ids=a3f0ff44-fb0f-46ef-bc09-401e80522c48\",\n      \"justification\": \"Official IT.NRW dataset providing annual statistics on libraries, active users, library visits, collections and borrowing activities. Directly relevant to measuring reading habits, access to cultural resources and public participation in library services. The dataset supports historical analysis, although the availability of individual years from 2000–2009 should be checked. Available in CSV and XML formats.\"\n    },\n    {\n      \"title\": \"Theaters, Performance Venues, Events and Attendance in North Rhine-Westphalia\",\n      \"url_or_doi\": \"https://www.govdata.de/suche?tags=kulturstatistik&tags=veranstaltungen&type=dataset\",\n      \"justification\": \"GovData provides an official IT.NRW dataset titled 'Theater(-unternehmen), Spielstätten, Plätze, Veranstaltungen und Besuche nach Trägerschaft (2) - Land - Spielzeit'. It records theater organizations, performance venues, seating capacities, performances and attendance by theater ownership category. Particularly useful for examining participation in performing arts and changes in theater attendance across the 2000s. The linked catalog search provides access to the dataset.\"\n    },\n    {\n      \"title\": \"Cinema Locations, Screens, Tickets, Revenue and Admission Prices in North Rhine-Westphalia\",\n      \"url_or_doi\": \"https://www.govdata.de/suche?tags=leinw%C3%A4nde&type=dataset\",\n      \"justification\": \"The official IT.NRW dataset 'Kinos: Standorte, Spielstätten, Leinwände, Sitzplätze, Tickets, Umsatz und Eintrittspreise - Land - Jahr' contains annual statistics on cinema infrastructure, ticket sales, revenue and admission prices. Useful for studying cinema attendance as a form of cultural participation and investigating changes in film consumption during the 2000s. The catalog provides CSV and XML resources.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of North Rhine-Westphalia 2019: Education and Culture\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWAusgabe_derivate_00000534/z021201900_A_Korrektur.pdf\",\n      \"justification\": \"Official statistical yearbook published by IT.NRW containing historical cultural statistics. Section IV, Education and Culture, includes a table on museums, exhibitions and visits covering 2003–2017. The 2003–2009 observations provide directly usable historical data on museum attendance and exhibition activity. Particularly valuable for longitudinal analysis of cultural participation in North Rhine-Westphalia. The data are published as statistical tables rather than standalone machine-readable files.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of Cologne 2008–2009: Cultural and Leisure Participation\",\n      \"url_or_doi\": \"https://www.stadt-koeln.de/mediaasset/content/pdf15/statistisches_jahrbuch_k__ln_2008-2009.pdf\",\n      \"justification\": \"Official municipal statistical yearbook containing historical data on cultural participation in Cologne, North Rhine-Westphalia. Includes annual museum attendance figures beginning in 2000, with individual statistics for major museums such as Museum Ludwig and the Wallraf-Richartz-Museum. Also documents visits to selected cultural and leisure institutions, including cinemas, theaters, the Philharmonie and public libraries. Particularly useful for detailed city-level analysis of cultural participation throughout the 2000s.\"\n    },\n    {\n      \"title\": \"German Statistical Yearbook 2007: Culture, Leisure and Sports\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEAusgabe_derivate_00000142/1010110077004.pdf\",\n      \"justification\": \"Official publication of the Federal Statistical Office of Germany (Destatis). Its Culture, Leisure and Sports section includes historical statistics on museums, theaters, public libraries and music schools. The regional comparison tables provide figures for North Rhine-Westphalia, including cultural institution counts for 2005. Useful for comparing NRW's cultural infrastructure with other German states and contextualizing cultural participation during the 2000s.\"\n    },\n    {\n      \"title\": \"Destatis Cultural Statistics: Museums, Theaters, Music and Libraries\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Kultur/Tabellen/_tabellen.html\",\n      \"justification\": \"Official cultural statistics portal maintained by Germany's Federal Statistical Office. Provides statistical tables on museums, theaters, music institutions and public and academic libraries. Includes indicators such as attendance, library holdings, borrowing and cultural infrastructure. Relevant for identifying historical datasets and comparing cultural activity in North Rhine-Westphalia with national trends. Availability of observations for 2000–2009 varies by table.\"\n    },\n    {\n      \"title\": \"Open Government Data NRW: Cultural Statistics Datasets\",\n      \"url_or_doi\": \"https://data.gov.de/suche?groups=educ&tags=kulturstatistik&tags=nordrhein-westfalen&type=dataset\",\n      \"justification\": \"Filtered German government open-data catalog containing cultural statistics datasets associated with North Rhine-Westphalia. Includes datasets covering museums, theaters, libraries, cinemas and other cultural institutions. Provides access to official statistical resources, frequently in CSV and XML formats. Particularly useful for locating complementary datasets and constructing a broader picture of cultural activities and participation during the 2000s. Historical coverage needs to be verified for each dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448205.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19046,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1536,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20582
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

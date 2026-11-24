@@ -1,0 +1,184 @@
+{
+  "query_id": 20,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0425cd85240f67ea006b045b8dcf4487d2b0d3d7bf19b952e3",
+        "created_at": 1795447693.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0425cd85240f67ea006b045b8eb0cc87d2972f5c90c068532c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DDR 1980er Tourismus Statistik Datensatz Übernachtungen Statistisches Jahrbuch DDR digital",
+                "DDR 1980 sport statistik jahrbuch datensatz sport tourismus freizeit",
+                "GESIS DDR 1980 Freizeit Urlaub Reisen Datensatz Umfrage"
+              ],
+              "query": "DDR 1980er Tourismus Statistik Datensatz Übernachtungen Statistisches Jahrbuch DDR digital",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0425cd85240f67ea006b045b9125cc87d287faf4a0a5794124",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data DDR 1988 Freizeit Urlaub Sport Jugendtouristik",
+                "site:access.gesis.org/dbk/ \"Freizeit\" \"1985\" \"DDR\"",
+                "site:search.gesis.org/research_data/ \"Jugendtouristik 1988\""
+              ],
+              "query": "site:search.gesis.org/research_data DDR 1988 Freizeit Urlaub Sport Jugendtouristik",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0425cd85240f67ea006b045b93462487d28b8842287ace6951",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Jugendtouristik 1988 – Erwartungen von Studenten an Freizeit- und Urlaubsgestaltung\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/4636\",\n      \"justification\": \"Highly relevant dataset collected in autumn 1988 by the Central Institute for Youth Research (ZIJ) in Leipzig. Contains responses from 1,306 university students in the German Democratic Republic (GDR), covering leisure interests, domestic and international tourism, holiday destinations, travel preferences, acceptable travel costs, participation in Jugendtourist trips, and tourism information sources. Includes 112 variables and is available through GESIS.\"\n    },\n    {\n      \"title\": \"Jugend und Sport 1987 (Young People and Sport 1987)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6096\",\n      \"justification\": \"Directly relevant GDR dataset collected between June and July 1987 by the Central Institute for Youth Research in Leipzig. Examines sports participation, leisure activities, organized and informal sports, time spent exercising, sporting interests, and motivations for participating or not participating in sports. Particularly valuable for studying recreational sports and physical activity among young people in East Germany during the 1980s.\"\n    },\n    {\n      \"title\": \"Erhebung zur Inanspruchnahme kultureller und sozialer Leistungen in Arbeiter- und Angestelltenhaushalten 1988\",\n      \"url_or_doi\": \"https://www.gesis.org/gml/weitere-amtliche-daten/ddr-mikrodaten/soziale-leistungen\",\n      \"justification\": \"Representative household survey conducted by the GDR's Central Statistical Administration in 1987–1988. Contains microdata on cultural and social activities among working-class and salaried households. Particularly relevant variables include holiday entitlements, recreational excursions, short trips, domestic tourism, international travel, and travel frequency. Provides valuable evidence of leisure and tourism behavior among ordinary East German households in the late 1980s.\"\n    },\n    {\n      \"title\": \"Querschnitt 1985/86 – Sportstudie – Fragebogen\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/17003\",\n      \"justification\": \"GDR schoolchildren's sports and leisure survey conducted in 1985–1986 under the direction of Wolfram Crasselt at the German University of Physical Culture in Leipzig. Covers the frequency and types of leisure activities, interest in sporting events, participation in competitions, personal sporting activities, opinions about physical education, and parental sports participation. The linked GESIS record provides documentation of the underlying research data.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1990 – Sport, Erholung, Tourismus\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1990/seite-369-816094.html\",\n      \"justification\": \"Official GDR statistical yearbook containing historical numerical data for the 1980s. Its Sport, Erholung, Tourismus section provides annual statistics on tourist accommodation capacity and overnight stays from 1985 to 1989, including breakdowns by accommodation type and administrative district. Particularly useful for quantitative analysis of tourism infrastructure, hotel occupancy, and tourism trends in the GDR during the second half of the 1980s.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1982 – Jugendtouristik\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1982/seite-330-807102.html\",\n      \"justification\": \"Official East German statistical tables covering youth tourism organized through the FDJ travel agency Jugendtourist. Includes data for 1980 and 1981 on domestic tourism, international tourism to socialist countries, educational excursions, recreational trips, numbers of travelers, total travel days, and average trip duration. Valuable for examining organized youth travel during the early 1980s.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1982 – Jugenderholungseinrichtungen\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1982/ddr-deutsche-demokratische-republik-807096.html\",\n      \"justification\": \"Historical official statistics on youth recreation facilities in the GDR. Includes the number of recreational establishments, accommodation capacity, and overnight visitors for 1980 and 1981, alongside earlier historical observations. Also provides geographic breakdowns by GDR administrative district for 1981. Useful for researching youth leisure infrastructure, organized recreation, and regional differences in access to holiday facilities.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1980 – Sporttreibende des Deutschen Turn- und Sportbundes\",\n      \"url_or_doi\": \"https://www.gvoon.de/art/dokumente/1980/statistisches-jahrbuch-ddr-1980-1/pdf/statistisches-jahrbuch-ddr-1980-1-seite_321.pdf\",\n      \"justification\": \"Official statistical tables covering participation in the German Gymnastics and Sports Federation of the GDR (DTSB). Provides figures on sports participants, referees, judges, and sports instructors, with breakdowns by sport. Although published in 1980 and primarily reflecting the preceding period, it provides an important baseline for analyzing organized sport at the beginning of the 1980s.\"\n    },\n    {\n      \"title\": \"Tourismus in Zahlen 1990 – Historical Tourism Statistics for the GDR\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00033545/Tourismus-Zahlen_1990.pdf\",\n      \"justification\": \"Statistical publication containing historical tourism tables for the German Democratic Republic. Includes annual data from 1985 to 1989 on accommodation capacity, overnight stays, accommodation types, and foreign visitors. Draws on official GDR statistical sources and is particularly suitable for constructing quantitative time series of tourism activity during the late 1980s.\"\n    },\n    {\n      \"title\": \"Statistische Übersichten zur Sozialpolitik in Deutschland seit 1945 – Sowjetische Besatzungszone / DDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"Historical statistical dataset compiled by André Steiner and archived by GESIS. Provides longitudinal statistical series on social policy and living conditions in the Soviet occupation zone and GDR, including observations from the 1980s. Although broader than leisure and tourism, it offers useful contextual data for studying the relationship between social welfare, living standards, household circumstances, and access to recreational opportunities.\"\n    },\n    {\n      \"title\": \"Alltagsprobleme Jugendlicher in der DDR 1988\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA6086?doi=10.4232%2F1.6086\",\n      \"justification\": \"1988 study of everyday problems experienced by young people in the German Democratic Republic, conducted by the Central Institute for Youth Research in Leipzig. Relevant as a complementary source for investigating youth lifestyles, everyday experiences, and the social circumstances surrounding recreational activities. Its precise leisure-related variables should be checked in the GESIS documentation before use.\"\n    },\n    {\n      \"title\": \"Freizeit und Mediennutzung 1990 (Leisure and Media Use 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6032\",\n      \"justification\": \"Survey conducted in spring 1990 among 824 school students and apprentices in the GDR districts of Berlin, Leipzig, Halle, and Cottbus. Contains 240 variables relating to leisure, cultural participation, media consumption, and youth behavior. Although collected in 1990 rather than the 1980s, it offers a valuable comparison point for studying leisure practices at the end of the GDR period.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447707.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18803,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1866,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20669
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

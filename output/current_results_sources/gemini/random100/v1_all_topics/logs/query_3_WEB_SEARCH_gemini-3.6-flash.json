@@ -1,0 +1,89 @@
+{
+  "query_id": 3,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany, England, Sweden, and United States of America during the 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 3,
+        "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany, England, Sweden, and United States of America during the 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Comparative Political Data Set 1960–2023\",\n      \"url_or_doi\": \"https://www.cpds-data.org\",\n      \"justification\": \"Provides annual country-level political, institutional, and macroeconomic history data for democratic OECD member states, including Germany, the United Kingdom (England), Sweden, and the United States, spanning from 1960 through the 2000s.\"\n    },\n    {\n      \"title\": \"IPUMS International Census Microdata\",\n      \"url_or_doi\": \"https://doi.org/10.18128/D020.V7.2\",\n      \"justification\": \"Offers harmonized census microdata and historical demographic records for Germany, the United Kingdom, Sweden, and the United States across multiple census rounds from the 1950s through the 2000s.\"\n    },\n    {\n      \"title\": \"Human Mortality Database (HMD)\",\n      \"url_or_doi\": \"https://www.mortality.org\",\n      \"justification\": \"Contains detailed demographic, population, and mortality history data for Germany, Sweden, the United Kingdom, and the United States covering the 1950s, 1960s, 1970s, 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"British Election Study (BES) Cross-Sectional and Panel Data\",\n      \"url_or_doi\": \"https://www.britishelectionstudy.com\",\n      \"justification\": \"Tracks political history, election results, and voter survey data in Great Britain (including England) for every general election from 1964 through the 1970s, 1980s, 1990s, and 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 594,
+          "candidatesTokenCount": 455,
+          "totalTokenCount": 2432,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 594
+            }
+          ],
+          "thoughtsTokenCount": 1383,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "XguEaqLSO5P-nsEP7aKfsQQ"
+      }
+    }
+  ]
+}

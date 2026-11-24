@@ -1,0 +1,69 @@
+{
+  "query_id": 48,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Children in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"NEPS Starting Cohort 2: Kindergarten (from kindergarten to elementary school)\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC2:11.0.0\",\n      \"justification\": \"A nationwide longitudinal study tracking children in Germany who entered kindergarten in 2010/2011, focusing on early educational trajectories, cognitive development, and home learning environments throughout the 2010s.\"\n    },\n    {\n      \"title\": \"NEPS Starting Cohort 1: Newborns (education from the very beginning)\",\n      \"url_or_doi\": \"https://doi.org/10.5157/NEPS:SC1:12.0.0\",\n      \"justification\": \"A national birth cohort study launched in 2012 in Germany that follows newborns through early childhood, assessing developmental milestones, early child care, and family interactions during the 2010s.\"\n    },\n    {\n      \"title\": \"KiGGS Wave 2 (German Health Interview and Examination Survey for Children and Adolescents)\",\n      \"url_or_doi\": \"https://doi.org/10.17886/RKI-GBE-2017-105\",\n      \"justification\": \"A representative nationwide survey conducted by the Robert Koch Institute between 2014 and 2017 collecting physical, psychological, and social health data for children aged 0–17 living in Germany.\"\n    },\n    {\n      \"title\": \"Aufwachsen in Deutschland: Alltagswelten (AID:A)\",\n      \"url_or_doi\": \"https://doi.org/10.17621/AIDA2023\",\n      \"justification\": \"A representative study conducted by the German Youth Institute (DJI) examining living conditions, child well-being, family environments, and everyday life for children and young people in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 562,
+          "candidatesTokenCount": 470,
+          "totalTokenCount": 2879,
+          "cachedContentTokenCount": 120,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 562
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 120
+            }
+          ],
+          "thoughtsTokenCount": 1847,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "hi6Eap_bOpfYkdUP-bmpoAw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 57,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Wounds and injuries in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_04d5f39e943e338f006b047aa93ad487d2b32851a8d86cb732",
+        "created_at": 1795455657.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_04d5f39e943e338f006b047aaa59d887d2866678c5bd7266ea",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS hospital diagnoses injuries poisoning S00 T98 Germany 2010 2023 dataset",
+                "GBE Bund injuries accidents Germany data hospital diagnoses 2010 2022",
+                "Germany road traffic accidents injuries dataset Destatis 2010 2024",
+                "DGUV statistics occupational accidents Germany dataset 2010 2024"
+              ],
+              "query": "Destatis GENESIS hospital diagnoses injuries poisoning S00 T98 Germany 2010 2023 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04d5f39e943e338f006b047aae7e9487d29b9cc0fbd50316eb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:genesis.destatis.de/datenbank/online/table/23131 hospital patients diagnosis ICD10 injury Germany 2010",
+                "site:genesis.destatis.de/datenbank/online/table/46241 injured seriously slightly Germany",
+                "site:ec.europa.eu/eurostat databrowser injuries poisoning hospital discharges hlth_co_disch2",
+                "site:gesis.org GEDA 2014 2015 EHIS accident injury dataset Germany"
+              ],
+              "query": "site:genesis.destatis.de/datenbank/online/table/23131 hospital patients diagnosis ICD10 injury Germany 2010",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_04d5f39e943e338f006b047ab2116087d280e08077988283dd",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis GENESIS-Online: Hospital Patients by Main Diagnosis (ICD-10), Germany, 2000–2024\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23131/table/23131-0001\",\n      \"justification\": \"Official German Federal Statistical Office dataset containing annual hospital discharge statistics by ICD-10 diagnosis. Covers injuries, poisoning, and other consequences of external causes (ICD-10 S00–T98), including open wounds, fractures, burns, and traumatic injuries. Covers the entire 2010s and 2020–2024, making it particularly suitable for analyzing national trends in injury-related hospitalizations.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Hospital Patients by Diagnosis, Sex, and Age Group\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23131/details\",\n      \"justification\": \"Official German hospital diagnosis statistics, including table 23131-0002, which provides annual hospital discharge data by ICD-10 diagnosis, sex, and age group. Researchers can select injury and wound diagnoses within ICD-10 S00–T98 to investigate demographic differences in injuries during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Hospital Patients by Federal State, Diagnosis, Sex, and Age\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/23131/table/23131-0011\",\n      \"justification\": \"Official dataset providing hospital diagnoses across Germany's federal states, differentiated by year, age, sex, and ICD-10 diagnosis. Includes wound and injury categories such as open wounds, fractures, and burns. Useful for identifying regional differences in injury-related hospitalizations and comparing demographic patterns over time.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Road Traffic Accidents with Serious and Minor Injuries\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/46241/details\",\n      \"justification\": \"Official German road traffic accident statistics. Table 46241-0003 provides annual information on accidents involving personal injury, fatalities, seriously injured persons, and slightly injured persons, classified by road category and location. Particularly useful for studying injury severity and changes in road traffic injuries during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Destatis: Long-Term Series of Road Traffic Accidents and Injuries in Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Traffic-Accidents/Tables/liste-traffic-accidents.html\",\n      \"justification\": \"Official longitudinal statistics reporting annual road traffic accidents, accidents involving personal injury, fatalities, and injured persons in Germany. Includes observations throughout the 2010s and into the 2020s. Suitable for studying long-term trends in traffic-related injuries and evaluating changes before, during, and after the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Police-Recorded Road Traffic Accidents, 2008–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/46241-0001\",\n      \"justification\": \"Official annual dataset covering police-recorded traffic accidents in Germany from 2008 to 2025. Distinguishes accidents involving personal injuries from accidents causing property damage and provides geographic classifications by road location. Useful for examining injury-producing accidents over both decades, although it does not provide individual medical diagnoses.\"\n    },\n    {\n      \"title\": \"Destatis Accident Atlas: Georeferenced Road Traffic Accidents in Germany\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/f433e6d0-840b-4bfe-bdc9-ba86f4245781?locale=en\",\n      \"justification\": \"Official open geospatial dataset containing police-recorded road traffic accidents in Germany. Provides accident locations and characteristics and is updated annually. Particularly valuable for geographical analysis of road accidents involving injuries during the late 2010s and 2020s. Individual-level medical information about injured persons is not included.\"\n    },\n    {\n      \"title\": \"MFDZ: Harmonized Destatis Accident Atlas Data from 2016 Onward\",\n      \"url_or_doi\": \"https://data.mfdz.de/destatis_Unfalldaten/index.html\",\n      \"justification\": \"Research-oriented dataset combining and harmonizing annual German Federal Statistical Office Accident Atlas releases beginning in 2016. Provides standardized geospatial traffic accident data suitable for longitudinal analysis. Useful for investigating geographical patterns, accident hotspots, and changes in traffic-related injury events across Germany.\"\n    },\n    {\n      \"title\": \"German Social Accident Insurance (DGUV): Occupational Accident Statistics, 2010–2025\",\n      \"url_or_doi\": \"https://publikationen.dguv.de/statistiken/arbeitsunfallgeschehen/\",\n      \"justification\": \"Official annual statistical reports on occupational accidents in Germany, with separate editions for every year from 2010 through 2025. Contains information on workplace accidents and their consequences, supporting analysis of occupational injury trends. Particularly relevant for research on injuries sustained at work. Data are published primarily in statistical PDF reports rather than as a single downloadable dataset.\"\n    },\n    {\n      \"title\": \"DGUV: Occupational Accident Statistics and Long-Term Trends\",\n      \"url_or_doi\": \"https://publikationen.dguv.de/statistiken/arbeitsunfallgeschehen/\",\n      \"justification\": \"The German Social Accident Insurance publication series provides longitudinal statistics on reportable and fatal occupational accidents. Historical editions allow comparisons across the 2010s and 2020s. Useful for identifying changes in workplace injury frequency and severity, although coverage is limited to accidents falling within the relevant statutory accident insurance system.\"\n    },\n    {\n      \"title\": \"German Federal Health Monitoring: Trauma and Injury Statistics\",\n      \"url_or_doi\": \"https://www.gbe-bund.de/stichworte/TRAUMA.html\",\n      \"justification\": \"The German Federal Health Monitoring system provides access to statistical sources concerning trauma and injuries, including hospital diagnoses, rehabilitation statistics, and inpatient diagnoses and procedures. Includes references to annual statistical series covering the 2010s and 2020s. Particularly useful for locating multiple official datasets on traumatic injuries and their treatment in Germany.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute: Accident Injuries Among Adults in Germany (GEDA 2010)\",\n      \"url_or_doi\": \"https://www.gbe-bund.de/pdf/unfallgeschehen_erwachsenen_d.pdf\",\n      \"justification\": \"Official population-health survey analysis based on the German Health Update (GEDA) 2010. Contains statistical tables on injuries among adults, including open wounds, fractures, concussions, and dislocations. Provides breakdowns by age, sex, and sociodemographic characteristics. Particularly relevant for wound-specific research because open wounds are explicitly distinguished from other injury types. The linked resource is a statistical report rather than the underlying microdata.\"\n    },\n    {\n      \"title\": \"Eurostat: Historical Hospital Discharges by Diagnosis and Region, Males, 2000–2021\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/page/HLTH_CO_DISCH1M\",\n      \"justification\": \"Eurostat dataset containing historical hospital discharge statistics by diagnosis and regional classification. Includes Germany and supports analysis of injury-related hospitalizations using diagnostic categories covering injuries, poisoning, and other consequences of external causes. Provides observations covering the 2010s and early 2020s, making it useful for comparing German injury patterns with those in other European countries. This particular table covers male patients.\"\n    },\n    {\n      \"title\": \"Eurostat: Hospital Discharges by Diagnosis\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/EN/hlth_hosd_esms.htm\",\n      \"justification\": \"Official Eurostat hospital discharge statistics covering European countries, including Germany. Diagnostic categories include injuries, poisoning, and other consequences of external causes. The current statistical framework covers data from 2023 onward, while separate historical datasets provide earlier observations. Suitable for examining injury-related hospitalization rates and comparing Germany with other European countries. The link leads to the dataset metadata and access information.\"\n    },\n    {\n      \"title\": \"Eurostat: Hospital Discharges for Injuries, Poisoning, and Other External Causes\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/health/information-data\",\n      \"justification\": \"Eurostat's official health data portal provides access to hospital discharge statistics classified by diagnosis, including injuries and poisoning. Researchers can filter relevant datasets for Germany and available years during the 2010s and 2020s. Useful for measuring hospital-treated injury burdens and conducting standardized international comparisons.\"\n    },\n    {\n      \"title\": \"Eurostat: European Health Interview Survey (EHIS), Including Germany\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gml/european-microdata/ehis\",\n      \"justification\": \"The European Health Interview Survey provides harmonized population-health survey data for participating European countries, including Germany. Survey waves during the 2010s and 2020s support research on accidents and injuries, subject to wave-specific questionnaire content and data availability. Useful for studying self-reported accidents and demographic risk factors, complementing hospital statistics that capture primarily medically treated injuries.\"\n    },\n    {\n      \"title\": \"Destatis: Annual Road Traffic Accident Statistical Reports\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/_inhalt.html\",\n      \"justification\": \"Official German Federal Statistical Office publication portal offering annual road traffic accident statistics, downloadable statistical tables, historical publications, and time-series reports. Includes information about injured road users, fatal accidents, and accident characteristics. Provides an extensive source for investigating road traffic injuries during the 2010s and 2020s, with greater detail than basic national injury counts.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455677.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18149,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2321,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20470
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

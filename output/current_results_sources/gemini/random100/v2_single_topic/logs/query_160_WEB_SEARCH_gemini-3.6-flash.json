@@ -1,0 +1,62 @@
+{
+  "query_id": 160,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in Germany during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39eu\",\n      \"justification\": \"A wide-ranging longitudinal study of private households in Germany conducted annually since 1984. It covers individual employment history, working hours, labor force participation, and wages throughout the 2000s.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-BP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9324.de.en.v1\",\n      \"justification\": \"An annual nationwide employer survey conducted by the Institute for Employment Research (IAB) since 1993 in West Germany and 1996 in East Germany, covering labor demand, employment structure, recruitment, and wages across the 2000s.\"\n    },\n    {\n      \"title\": \"Establishment History Panel (BHP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.BHP7524.de.en.v1\",\n      \"justification\": \"An administrative dataset derived from social security notifications containing annual cross-sectional and longitudinal data on all German establishments with employees, spanning from 1975/1992 onwards and fully covering the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 379,
+          "candidatesTokenCount": 360,
+          "totalTokenCount": 1608,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 379
+            }
+          ],
+          "thoughtsTokenCount": 869,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "oEKEaqblBpexnsEPupyPuQw"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 35,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions, Vocational education and training, and Occupational health in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/IAB Qualification and Course of Employment Survey 1985/1986\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12563\",\n      \"justification\": \"A representative sample of the West German labor force conducted between October 1985 and March 1986 by the Federal Institute for Vocational Education and Training (BIBB) and the Institute for Employment Research (IAB). It contains state-level geographic indicators (including Hesse) and detailed variables covering working conditions, physical loads/occupational health risks, and vocational education/training histories.\"\n    },\n    {\n      \"title\": \"BIBB/IAB Qualification and Course of Employment Survey 1979\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1243\",\n      \"justification\": \"Conducted in 1979 by BIBB and IAB, this dataset captures baseline data entering the 1980s on the West German workforce across federal states (including Hesse). It details vocational education trajectories, workplace equipment, physical/health working conditions, and job safety characteristics.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core, 1984 onwards)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40eu\",\n      \"justification\": \"Launched in 1984, SOEP is a multi-decade longitudinal study of private households and individuals in Germany containing federal state identifiers (including Hesse). It tracks occupational health, working conditions, job satisfaction, and vocational education and training paths year by year throughout the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1984\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1340\",\n      \"justification\": \"Conducted in West Germany in 1984, this representative survey includes regional indicators for Hesse and measures respondents' vocational training background, current employment status, job characteristics, and health and working condition aspects as part of its core focus on social inequality.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1560,
+          "candidatesTokenCount": 541,
+          "totalTokenCount": 4224,
+          "cachedContentTokenCount": 251,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1560
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 251
+            }
+          ],
+          "thoughtsTokenCount": 2123,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "kPmDarn_NdHmnsEP547mmAk"
+      }
+    }
+  ]
+}

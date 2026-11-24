@@ -1,0 +1,186 @@
+{
+  "query_id": 6,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalism, journalist, social media, news, and news value theory in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0dc83451ddbf27c7006b0475ee3dd087d2bf0a97ee0c0aedaa",
+        "created_at": 1795454446.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0dc83451ddbf27c7006b0475ef418887d2859d104512542e4f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany journalism journalists 2020 survey dataset GESIS",
+                "Germany news social media dataset 2022 2023 GESIS",
+                "Germany news values news factors dataset 2020 journalism content analysis",
+                "Reuters Institute digital news report Germany data download 2024"
+              ],
+              "query": "Germany journalism journalists 2020 survey dataset GESIS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0dc83451ddbf27c7006b0475f2a71887d2bfd0aa9432792f20",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data news media Germany 2023 journalism dataset",
+                "site:zenodo.org German news values dataset 2022 2024",
+                "site:gesis.org German social media news dataset 2021 2022",
+                "site:reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/resources Germany data"
+              ],
+              "query": "site:search.gesis.org/research_data news media Germany 2023 journalism dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0dc83451ddbf27c7006b0475f55f2087d283a868a28a1d2ae7",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2863\",\n      \"justification\": \"The most directly relevant dataset for the query. Published through GESIS in 2025, it contains manually annotated TikTok videos published in 2023 by major news organizations in Germany, Austria, and Switzerland. Variables include video characteristics, visual presentation, audio, and theoretically derived news values (Nachrichtenfaktoren). Particularly suitable for testing news value theory, examining journalistic content selection, and analyzing how traditional news organizations adapt their reporting to social media. Version 2.0.0 is freely accessible without registration.\"\n    },\n    {\n      \"title\": \"News on TikTok: Data Report and Documentation\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2819\",\n      \"justification\": \"The accompanying research data documentation for the News on TikTok dataset. It describes the sampling methodology, TikTok Research API collection procedures, manual content coding, and operationalization of theoretical concepts such as news values. Especially useful for researchers studying the relationship between news value theory, journalistic practices, social media engagement, and content characteristics. The documentation supports reproducible quantitative content analysis.\"\n    },\n    {\n      \"title\": \"useNews: News Content, Audience Preferences, and Facebook Engagement\",\n      \"url_or_doi\": \"https://osf.io/uzca3/\",\n      \"justification\": \"A cross-national dataset combining news content, audience preferences, and Facebook engagement indicators for the period 2018–2020. It integrates information from the Reuters Institute Digital News Report, Media Cloud, and CrowdTangle. The collection covers approximately three million news items from 81 sources across 12 countries and millions of Facebook posts. Researchers can investigate the relationship between journalistic content, news selection, audience interests, and social media engagement. The dataset is not exclusively German, so Germany-specific observations need to be identified.\"\n    },\n    {\n      \"title\": \"A Geolocated Dataset of German News Articles\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-05422-w\",\n      \"justification\": \"A large-scale dataset of German online news articles described in Scientific Data in 2025. It contains geographically relevant information, article metadata, tags, and categories from German news sources, including material from the 2020s. Particularly useful for investigating geographical proximity as a news value, regional differences in coverage, geographic concentration of journalistic attention, and topic selection. Its scale also makes it suitable for computational journalism research and longitudinal analyses of German news production.\"\n    },\n    {\n      \"title\": \"Reuters Institute Digital News Report 2026: Germany\",\n      \"url_or_doi\": \"https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/germany\",\n      \"justification\": \"Germany-specific survey findings from the 2026 Reuters Institute Digital News Report. The data cover news consumption, audience trust, news brands, online news subscriptions, and social media news use. Particularly valuable for studying contemporary German news audiences and the changing relationship between journalism and digital platforms. The landing page provides published survey indicators and comparative information, although complete respondent-level microdata are not necessarily available for direct download.\"\n    },\n    {\n      \"title\": \"Reuters Institute Digital News Report 2025: Germany\",\n      \"url_or_doi\": \"https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/germany\",\n      \"justification\": \"Germany-specific findings from the 2025 Digital News Report, including news consumption patterns, trust in journalism, news sharing, social media use, and willingness to pay for online news. Useful for analyzing audience preferences, news credibility, platform dependence, and the development of digital journalism in Germany. The survey indicators can also be compared with other annual reports to examine changes throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Reuters Institute Digital News Report 2024: Resources and Downloadable Data\",\n      \"url_or_doi\": \"https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024/resources\",\n      \"justification\": \"An official resource portal offering downloadable chart data, survey questionnaires, and supporting information from the 2024 Digital News Report. Germany is included in the international survey. Relevant variables concern news consumption, digital platforms, trust, news avoidance, and social media. Particularly useful for comparative quantitative research. Complete underlying survey tables may require a request to the Reuters Institute.\"\n    },\n    {\n      \"title\": \"Journalismus in Deutschland 2023: Worlds of Journalism Study\",\n      \"url_or_doi\": \"https://old.hans-bredow-institut.de/en/publications/journalismus-in-deutschland-2023\",\n      \"justification\": \"Results from a representative survey of 1,221 journalists working in Germany, conducted between September 2022 and February 2023. The study examines professional characteristics, working conditions, journalistic roles, and challenges affecting journalism. Particularly relevant for analyzing journalists' professional values, perceptions, and institutional environments during the 2020s. The linked page provides research findings rather than a confirmed openly downloadable microdataset.\"\n    },\n    {\n      \"title\": \"Social Media Observatory: Media and Public Communication Datasets\",\n      \"url_or_doi\": \"https://smo-wiki.leibniz-hbi.de/Datasets.html\",\n      \"justification\": \"A research data portal associated with the Leibniz Institute for Media Research, containing collections related to journalism, news organizations, social media accounts, and online public communication. It documents datasets connecting news media content with Facebook engagement and other digital communication indicators. Some collections address German public debates in 2021. Particularly useful for identifying datasets on news dissemination, public attention, and journalistic communication. Availability varies, and certain collections require contacting the researchers.\"\n    },\n    {\n      \"title\": \"NeMig: A Bilingual News Collection and Knowledge Graph about Migration\",\n      \"url_or_doi\": \"https://zenodo.org/records/7908392\",\n      \"justification\": \"A research dataset published in 2022 containing German and English news material about migration, collected from online media outlets in Germany and the United States. It includes article metadata, sentiment information, political orientation annotations, named entities, and structured knowledge graphs. Relevant for comparative news framing research, political journalism, migration coverage, and analysis of news values such as conflict, negativity, and relevance. Access to some dataset components is restricted.\"\n    },\n    {\n      \"title\": \"Measuring Variety, Balance, and Disparity: German Federal Election News Coverage in 2021\",\n      \"url_or_doi\": \"https://arxiv.org/abs/2308.03531\",\n      \"justification\": \"A research project providing a dataset of more than 26,000 unique Google Top Stories headlines from over 900 news outlets collected around the 2021 German federal election. It supports analysis of journalistic diversity, political coverage, headline selection, and news aggregation. Particularly relevant for examining prominence, political relevance, topical diversity, and the selection mechanisms determining which news stories become visible to audiences. The linked research landing page describes the dataset and its construction.\"\n    },\n    {\n      \"title\": \"Pandemic News: Facebook Pages of Mainstream News Media and the Coronavirus Crisis\",\n      \"url_or_doi\": \"https://arxiv.org/abs/2005.13290\",\n      \"justification\": \"A computational content analysis based on a large collection of Facebook posts published by German mainstream news organizations between January and March 2020. The research examines journalistic communication during the early COVID-19 pandemic. Particularly relevant for investigating negativity, crisis-related news values, public relevance, news framing, and the relationship between traditional journalism and social media. The linked page documents the underlying research collection, but independent public access to the complete raw dataset is not established.\"\n    },\n    {\n      \"title\": \"Webis-News-Bias-20: Political Bias and Unfairness in News Articles\",\n      \"url_or_doi\": \"https://zenodo.org/records/8321586\",\n      \"justification\": \"An openly available annotated news dataset associated with research on political bias and unfairness in journalistic articles. It supports computational analysis of news framing, political orientation, and linguistic characteristics of reporting. Relevant to journalism studies and investigations of how editorial decisions shape news presentation. Although useful as a methodological resource for studying news values and political reporting, it is not specifically restricted to German news or German journalism in the 2020s.\"\n    },\n    {\n      \"title\": \"DeFaktS: A German Dataset for Fine-Grained Disinformation Detection through Social Media Framing\",\n      \"url_or_doi\": \"https://caisa-lab.github.io/resources/lrec2024/LREC2024_Defakt.pdf\",\n      \"justification\": \"A German-language dataset introduced in 2024 for analyzing disinformation and framing in social media communication. It is relevant to research on misinformation, political communication, media credibility, and the relationship between social media narratives and professional journalism. The dataset can support comparisons of framing strategies in journalistic and non-journalistic communication. The linked publication describes the dataset, but it is not itself a verified dataset download landing page.\"\n    },\n    {\n      \"title\": \"GESIS Social Media Data on German Electoral Candidates\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/web-data\",\n      \"justification\": \"An official GESIS portal providing access to social media datasets covering German political candidates and election campaigns, including the 2021 German federal election and the 2024 European Parliament election. The collections include data from platforms such as Twitter/X, Facebook, and Instagram. Relevant for examining political communication, agenda-setting, media attention, and interactions between political actors and journalistic news coverage. These are primarily political communication datasets rather than datasets of journalists.\"\n    },\n    {\n      \"title\": \"German Federal Election 2021: Twitter Accounts of Candidates\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13789\",\n      \"justification\": \"A GESIS dataset concerning Twitter accounts associated with candidates in the 2021 German federal election. It provides a basis for investigating political social media communication during an important news event. Researchers can combine the data with German news coverage to study political agenda-setting, the circulation of newsworthy topics, and relationships between political communication and journalistic attention. The dataset focuses on candidates rather than journalists.\"\n    },\n    {\n      \"title\": \"European Parliament Election 2024: German Candidates' Social Media Activities\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/78303\",\n      \"justification\": \"GESIS documentation associated with data on German candidates' social media activities during the 2024 European Parliament election. The collection concerns electoral communication across social media platforms and supports research into political messaging, online attention, and media-related communication strategies. It can be combined with news datasets to examine agenda-setting and news value theory in the context of German electoral journalism. The supplied landing page is documentation rather than a confirmed direct dataset download.\"\n    },\n    {\n      \"title\": \"GESIS Web Data: Digital Behavioral and Social Media Research Collections\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/digital-behavioral-data/gesis-web-data\",\n      \"justification\": \"An official GESIS research data portal featuring digital behavioral datasets, including social media communication, Telegram channels, and German political communication. Several collections cover events and debates from the 2020s. Useful for locating additional datasets concerning public discourse, online information dissemination, disinformation, and interactions between news media and social platforms. This is a dataset discovery portal rather than a single dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454467.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19129,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2635,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21764
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

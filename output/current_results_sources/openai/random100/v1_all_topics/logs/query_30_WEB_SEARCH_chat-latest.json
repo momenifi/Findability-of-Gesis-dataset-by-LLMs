@@ -1,0 +1,187 @@
+{
+  "query_id": 30,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, Elections, and Economic systems and development in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02f5cc703a130d96006b04552b649887d295c1e4a9defe1232",
+        "created_at": 1795446059.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02f5cc703a130d96006b04552c642887d2aeda4de7721468b7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German General Social Survey ALLBUS 1990 1992 1994 1996 1998 dataset",
+                "German election study 1990 1994 1998 GESIS dataset",
+                "German Socio Economic Panel SOEP 1990s data landing page",
+                "Eurobarometer Germany 1990s survey data GESIS"
+              ],
+              "query": "GESIS German General Social Survey ALLBUS 1990 1992 1994 1996 1998 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02f5cc703a130d96006b045530207087d2b247eeec6346385a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP data 1984 1990 1999 research data",
+                "site:search.gesis.org/research_data/ZA 1998 German national election study post election",
+                "site:search.gesis.org/research_data/ZA 1990 German election study",
+                "site:gesis.org eurobarometer data 1990 1999 Germany",
+                "site:destatis.de GENESIS online historical national accounts 1991 Germany"
+              ],
+              "query": "site:diw.de SOEP data 1984 1990 1999 research data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02f5cc703a130d96006b0455339bec87d296f08357097c8582",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"A comprehensive longitudinal survey dataset covering Germany, including survey waves from 1990, 1991, 1992, 1994, 1996, and 1998. It includes political attitudes, political participation, satisfaction with democracy, trust in government, evaluations of political institutions, and perceptions of economic conditions. Particularly valuable for studying political and socioeconomic changes following German reunification in 1990.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3065\",\n      \"justification\": \"A dataset specifically examining political attitudes, political participation, and electoral behavior in reunified Germany during 1994. It is particularly relevant for analyzing voting preferences, party identification, democratic attitudes, and political participation during Germany's post-reunification transition.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11968\",\n      \"justification\": \"A survey dataset examining political attitudes, participation, and voting behavior surrounding Germany's 1998 federal election. It supports research on electoral preferences, political institutions, party competition, and changes in political behavior during the late 1990s. It is particularly useful for comparing political attitudes between eastern and western Germany.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies (1949–2005)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-federal-elections\",\n      \"justification\": \"A collection of representative election surveys covering German federal elections, including those held in 1990, 1994, and 1998. The studies provide information on electoral behavior, party preferences, political attitudes, candidate evaluations, and government formation. They are particularly relevant for examining changes in the German party system and electoral competition following reunification.\"\n    },\n    {\n      \"title\": \"Politbarometer - German Political Opinion Surveys\",\n      \"url_or_doi\": \"https://search.gesis.org/?study_group=Politbarometer&type=research_data\",\n      \"justification\": \"A series of regular public opinion surveys conducted since 1977, with coverage of eastern and western Germany during the 1990s. The surveys investigate voting intentions, political party preferences, assessments of politicians, satisfaction with democracy, government performance, economic expectations, and major political issues. Particularly suitable for examining short-term fluctuations in political attitudes throughout the decade.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2011\",\n      \"url_or_doi\": \"https://www.diw.de/de/diw_01.c.592150.de/edition/soep-core_v28.1__update__daten_1984-2011.html\",\n      \"justification\": \"A nationally representative longitudinal household panel containing annual observations throughout the 1990s. The dataset covers employment, income, household finances, economic inequality, subjective well-being, and socioeconomic conditions. Its inclusion of eastern German households beginning in 1990 makes it particularly valuable for studying economic development, reunification, and differences between eastern and western Germany.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Participation\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14270\",\n      \"justification\": \"A historical time-series dataset covering political and social participation in Germany between 1950 and 2013, including the entire 1990s. It contains indicators derived from official statistics and major survey programs. The dataset is particularly useful for analyzing long-term changes in political participation, civic engagement, and democratic involvement during the post-reunification period.\"\n    },\n    {\n      \"title\": \"Eurobarometer Surveys - Germany, 1990–1999\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\n      \"justification\": \"A collection of European public opinion surveys containing observations for Germany throughout the 1990s. Relevant topics include trust in political institutions, democratic attitudes, European integration, government policies, economic expectations, and public perceptions of economic development. These surveys enable comparisons between German citizens and populations in other European countries.\"\n    },\n    {\n      \"title\": \"European Election Studies - Eurobarometer Election Surveys, 1989, 1994 and 1999\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/overview/eb-trends-trend-files/european-election-studies\",\n      \"justification\": \"A collection of Eurobarometer election-related datasets covering European Parliament elections, including those held in 1994 and 1999. The surveys include German respondents and investigate electoral participation, political preferences, voting behavior, and attitudes toward European integration. Particularly relevant for studying German electoral behavior and the relationship between domestic politics and European institutions during the 1990s.\"\n    },\n    {\n      \"title\": \"German State Election Studies (Landtagswahlen), 1962 Onward\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/election-studies\",\n      \"justification\": \"A collection of survey datasets on German state elections, including elections held during the 1990s. These studies provide information on regional voting behavior, political party preferences, electoral participation, and political attitudes. They are useful for examining the development of political competition in Germany's federal system and comparing electoral behavior across eastern and western states following reunification.\"\n    },\n    {\n      \"title\": \"Forsa-Bus Political and Social Opinion Surveys, 1991 Onward\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections\",\n      \"justification\": \"A collection of German public opinion surveys beginning in 1991. The surveys provide information relevant to political attitudes, public opinion, government evaluations, and societal developments. Historical waves from the 1990s can support investigations of changing political preferences and public responses to political and economic developments after reunification.\"\n    },\n    {\n      \"title\": \"ARD-DeutschlandTREND Political Opinion Surveys, 1998 Onward\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/election-studies\",\n      \"justification\": \"A series of German public opinion surveys beginning in 1998. The datasets examine political attitudes, party preferences, government evaluations, and public perceptions of major political issues. The earliest surveys are particularly relevant for studying political developments surrounding the 1998 federal election and changes in public opinion at the end of the decade.\"\n    },\n    {\n      \"title\": \"German National Accounts - Federal Statistical Office (Destatis), 1991 Onward\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/National-Accounts-Domestic-Product/_node.html\",\n      \"justification\": \"Official German national accounts containing historical economic indicators from 1991 onward. These include measures of economic output, income, consumption, and sectoral economic activity. The dataset is suitable for analyzing economic development during the 1990s, especially the consequences of reunification, economic restructuring, and changes in Germany's national economic performance.\"\n    },\n    {\n      \"title\": \"GENESIS-Online - German Federal Statistical Office Economic and Social Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"The official statistical database of Germany's Federal Statistical Office, providing access to economic, demographic, and social indicators. Historical tables can be used to investigate developments during the 1990s, including employment, population changes, economic output, and government-related statistics. Particularly valuable for complementing political survey datasets with objective socioeconomic indicators, although historical coverage varies by table.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP) - Historical East German Household Data, 1990\",\n      \"url_or_doi\": \"https://www.diw.de/de/diw_01.c.592150.de/edition/soep-core_v28.1__update__daten_1984-2011.html\",\n      \"justification\": \"The SOEP longitudinal study includes an eastern German sample introduced in 1990. These observations provide a valuable baseline for examining household economic conditions at the time of reunification. When combined with subsequent annual waves throughout the 1990s, the data allow researchers to investigate changes in employment, income, living standards, economic inequality, and socioeconomic adjustment following the transition from a centrally planned to a market economy.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446078.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20969,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2035,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23004
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "query_id": 68,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05d1044c367e32f8006b045e7ba01887d2b39e036141dd2577",
+        "created_at": 1795448443.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05d1044c367e32f8006b045e7c769487d2ba4fa17c97f5f88f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset East Germany GDR 1990 Volkskammer election results constituency data",
+                "GESIS DDR Volkskammerwahl 1990 Wahldaten Datensatz",
+                "German Democratic Republic elections 1990 dataset historical election results"
+              ],
+              "query": "dataset East Germany GDR 1990 Volkskammer election results constituency data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05d1044c367e32f8006b045e80290c87d29f1cb01e3d10d0e5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:doi.org/10.4232/1 \"Volkskammerwahl 1990\"",
+                "site:search.gesis.org/research_data \"Volkskammerwahl 1990\"",
+                "site:doi.org/10.4232/1 \"DDR\" \"Wahl\" \"1990\""
+              ],
+              "query": "site:doi.org/10.4232/1 \"Volkskammerwahl 1990\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05d1044c367e32f8006b045e8282d887d2a97c4c64a54fefa7",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"GESIS – Befragung zur Wahl 1990 (Survey on the 1990 Election in the GDR)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6311\",\n      \"justification\": \"A highly relevant historical election survey conducted in the German Democratic Republic in March 1990. Contains information on electoral participation, voting preferences, election results, perceptions of free elections, and attitudes toward German reunification. Particularly useful for analyzing political behavior during the GDR's final parliamentary election.\"\n    },\n    {\n      \"title\": \"GESIS – Volkskammerwahl 1990 (East German Parliamentary Election Study)\",\n      \"url_or_doi\": \"https://www.gesis.org/wahlen\",\n      \"justification\": \"GESIS archives an election study identified as ZA 1900, conducted by Forschungsgruppe Wahlen in March 1990. The study surveyed approximately 1,450 eligible voters in the GDR and examined party preferences, voting intentions, evaluations of political leaders, attitudes toward democracy, and German reunification. The linked GESIS election research portal provides an entry point for locating the archived study.\"\n    },\n    {\n      \"title\": \"Inter-Parliamentary Union – German Democratic Republic: Parliamentary Elections, 1990\",\n      \"url_or_doi\": \"https://data.ipu.org/election-summary/HTML/2121bis_90.htm\",\n      \"justification\": \"Historical election statistics documenting the March 18, 1990 Volkskammer election, the GDR's first and only free parliamentary election. Includes registered voters, turnout, valid and invalid ballots, votes by political party, vote percentages, and parliamentary seat distribution. Particularly valuable for quantitative analysis of the 1990 election.\"\n    },\n    {\n      \"title\": \"Wahlen zur Volkskammer der DDR und Mandatsverteilung 1949–1990\",\n      \"url_or_doi\": \"https://www.wahlen-in-deutschland.de/bovk.htm\",\n      \"justification\": \"Historical electoral data covering elections to the People's Chamber of the German Democratic Republic between 1949 and 1990. Provides information about Volkskammer elections and parliamentary seat allocations across the GDR's existence. Useful for comparing the 1990 democratic election with earlier elections conducted under the socialist political system.\"\n    },\n    {\n      \"title\": \"GESIS – Social Situation and Political Orientations of the Jena Population Before the March 1990 Volkskammer Election\",\n      \"url_or_doi\": \"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6349\",\n      \"justification\": \"A historical survey examining social conditions and political orientations among residents of Jena before the March 1990 East German parliamentary election. Relevant for investigating local political attitudes, electoral preferences, and the social context of democratic transition in the GDR.\"\n    },\n    {\n      \"title\": \"Einstellungen zu aktuellen Fragen der Innenpolitik (1990) – DDR Attitudes on Current Questions of Domestic Policy\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/1b230e31-2558-5506-bbb1-de2597e31f93\",\n      \"justification\": \"A 1990 survey dataset covering political opinions and electoral behavior in the GDR. Includes party preferences, reported voting behavior in the previous election, satisfaction with democratic development, attitudes toward political parties, and opinions about German reunification. Especially useful for studying electoral behavior and political attitudes during the transition from socialism to democracy.\"\n    },\n    {\n      \"title\": \"German Federal Archives – Elections in the GDR, 1950–1989\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/wahlen-in-der-ddr/\",\n      \"justification\": \"An official German Federal Archives collection containing digitized historical election documents from the German Democratic Republic between 1950 and 1989. Includes materials associated with Volkskammer elections and evidence concerning electoral procedures and irregularities. Although primarily an archival document collection rather than a structured statistical dataset, it provides valuable primary sources for reconstructing election practices before 1990.\"\n    },\n    {\n      \"title\": \"German Federal Archives – Records of German Reunification and the 1990 Volkskammer Election\",\n      \"url_or_doi\": \"https://wiedervereinigung.bundesarchiv.de/akten-zur-wiedervereinigung.html\",\n      \"justification\": \"Official archival records documenting German reunification and the political transition of 1990. The collection includes records from the GDR election office concerning electoral legislation, constituencies, candidate nominations, and results of the March 18, 1990 Volkskammer election. It also covers elections held later in 1990. Useful for researchers seeking original administrative election data and historical documentation.\"\n    },\n    {\n      \"title\": \"Poliwave – East Germany Volkskammer Election Maps and Results\",\n      \"url_or_doi\": \"https://www.poliwave.com/elections/dd/vk/map\",\n      \"justification\": \"A historical election visualization resource containing recorded results for the 1990 East German Volkskammer election. Provides geographically organized electoral information that can support spatial comparisons of political support across the former GDR. Particularly relevant for geographic analysis of the 1990 parliamentary election.\"\n    },\n    {\n      \"title\": \"The Long-Term Costs of Government Surveillance: Replication Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/WMVC4U\",\n      \"justification\": \"A research replication dataset associated with a study of government surveillance in East Germany. The underlying research uses county-level voter turnout data from the March 1990 Volkskammer election and the December 1990 German federal election. Potentially useful for examining geographic patterns in electoral participation and their relationship to historical political conditions. Researchers should verify the replication files for the specific election variables available.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448456.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18967,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1399,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20366
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

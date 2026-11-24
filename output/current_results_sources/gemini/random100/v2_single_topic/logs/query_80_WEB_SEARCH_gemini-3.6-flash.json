@@ -1,0 +1,69 @@
+{
+  "query_id": 80,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"European Urban Population, 700 - 2000\",\n      \"url_or_doi\": \"https://doi.org/10.17026/DANS-XZY-U62Q\",\n      \"justification\": \"This historical demographic dataset hosted at DANS and indexed in CESSDA provides population data for urban settlements across Europe, including detailed settlement population figures for West and East German cities during the 1960s.\"\n    },\n    {\n      \"title\": \"Studium und Berufsweg ehemaliger Studenten der Soziologie (1961)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0173\",\n      \"justification\": \"Archived at the GESIS Data Archive, this 1961 West German survey examines social mobility, career progression, and civic attitudes among university graduates during the early 1960s.\"\n    },\n    {\n      \"title\": \"Internationale Beziehungen (Mai 1965, Deutschland)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0429\",\n      \"justification\": \"Hosted by the GESIS Data Archive, this 1965 West German survey dataset includes variables measuring satisfaction with standard of living, contentment with daily life, and broader social/political orientations in mid-1960s Germany.\"\n    },\n    {\n      \"title\": \"Internationale Beziehungen (Juni 1961, Deutschland, Form B)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0381\",\n      \"justification\": \"Available through the GESIS Data Archive, this survey conducted in June 1961 captures public opinion, social perception, and political orientations across West Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 850,
+          "candidatesTokenCount": 449,
+          "totalTokenCount": 2665,
+          "cachedContentTokenCount": 291,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 850
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 291
+            }
+          ],
+          "thoughtsTokenCount": 1366,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "yDSEaujhJdmynsEPxtz48Ag"
+      }
+    }
+  ]
+}

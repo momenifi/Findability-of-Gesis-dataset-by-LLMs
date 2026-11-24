@@ -1,0 +1,62 @@
+{
+  "query_id": 231,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in German Reich (1871-1945) during the 1910s and 1920s and 1930s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Weimar Republic Data, 1919-1933 (ICPSR 42)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR00042.v1\",\n      \"justification\": \"This dataset provides aggregate election returns for Reichstag and Reichspräsident elections, national referenda, and demographic census data (occupations, religion, population) across various administrative levels in the German Reich during 1919–1933.\"\n    },\n    {\n      \"title\": \"Abgeordnete der Reichstage der Weimarer Republik 1919-1933 (GESIS ZA8007)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8007\",\n      \"justification\": \"Hosted by GESIS, this historical dataset contains collective biographical data, career backgrounds, and parliamentary mandate information for all 1,794 members of the Weimar National Assembly and Reichstag in the German Reich between 1919 and 1933.\"\n    },\n    {\n      \"title\": \"Wahlen und Abstimmungen in der Weimarer Republik 1919–1933 (GESIS ZA8351)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8351\",\n      \"justification\": \"This GESIS dataset covers electoral outcomes and socio-structural indicators at the electoral district (Wahlkreis) level across the German Reich for all major parliamentary and presidential elections during the Weimar era.\"\n    },\n    {\n      \"title\": \"GEPRIS Historisch - Wissenschaftlicher Analysedatensatz\",\n      \"url_or_doi\": \"https://zenodo.org/records/10255530\",\n      \"justification\": \"Available on Zenodo, this dataset contains detailed historical records of research applicants, funded projects, and academic history in the German Reich from 1920 to 1945, including data on scientists dismissed or exiled after 1933.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 640,
+          "candidatesTokenCount": 505,
+          "totalTokenCount": 3283,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 640
+            }
+          ],
+          "thoughtsTokenCount": 2138,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "sluEauiVFOT-xN8PguSGiQQ"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 83,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_011fb6c2ce827fb3006b045919523887d2bd1b2f0e62b46897",
+        "created_at": 1795447065.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_011fb6c2ce827fb3006b04591a4e1887d28383ff213bc09483",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS GLES German Longitudinal Election Study 2021 2025 dataset",
+                "GESIS ALLBUS 2021 2023 Germany political attitudes data",
+                "German election results 2025 2021 Bundeswahlleiterin open data downloads",
+                "WZB Manifesto Project dataset Germany 2021 2025 party manifestos"
+              ],
+              "query": "GESIS GLES German Longitudinal Election Study 2021 2025 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_011fb6c2ce827fb3006b04591decb087d2aad4cefe12321081",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse/opendata.html",
+                "site:bundeswahlleiterin.de/europawahlen/2024/ergebnisse/opendata.html",
+                "site:bundestag.de open data DIP Bundestag API parliamentary documents",
+                "site:gesis.org GLES panel 2021 2025 data documentation"
+              ],
+              "query": "site:bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse/opendata.html",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_011fb6c2ce827fb3006b045921111087d2adf3ab8c4dca5082",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Election Surveys and Political Attitudes, 2021–2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"One of the most comprehensive sources for studying electoral behaviour and political attitudes in Germany during the 2020s. Provides survey datasets covering the 2021 and 2025 German federal elections, including voting intentions, actual voting behaviour, party identification, political trust, ideological orientations, political participation, and evaluations of political leaders. Includes cross-sectional, panel, and campaign-period surveys. Particularly useful for examining electoral change, political polarization, and voter preferences.\"\n    },\n    {\n      \"title\": \"GLES Cross-Section 2025 – Post-Election Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA10100\",\n      \"justification\": \"A nationally focused post-election survey examining German citizens' political attitudes and electoral behaviour following the February 2025 federal election. Provides individual-level information relevant to voting decisions, party preferences, political evaluations, and demographic differences. Particularly valuable for studying the emergence of new electoral coalitions, changes in party support, and the relationship between political attitudes and electoral outcomes in contemporary Germany.\"\n    },\n    {\n      \"title\": \"GLES Tracking 2009–2026 – Cumulative Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14820\",\n      \"justification\": \"A cumulative survey dataset tracking political preferences and electoral attitudes among German citizens across multiple years, including the 2020s. Suitable for analyzing changes in party support, voting intentions, political evaluations, and public opinion over time. Its longitudinal coverage makes it particularly useful for examining political developments between the 2021 and 2025 federal elections.\"\n    },\n    {\n      \"title\": \"GLES 2025 Federal Election – Panel Surveys and Election Studies\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/2025-federal-election\",\n      \"justification\": \"Provides access to multiple datasets associated with Germany's 2025 federal election, including panel surveys that repeatedly interview respondents. These datasets enable researchers to investigate individual-level changes in political attitudes, party identification, voting intentions, and electoral decisions. Particularly relevant for studying campaign effects, voter volatility, and political behaviour during the 2025 election cycle.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – 2021, 2023 and 2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A major representative social survey of the German population covering social and political attitudes. The 2021, 2023, and 2025 waves provide valuable data for investigating political trust, democratic values, political participation, social inequalities, and attitudes toward institutions. Particularly useful for understanding how political behaviour relates to demographic characteristics, social conditions, and broader societal changes in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"ALLBUS – German General Social Survey Cumulative Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus\",\n      \"justification\": \"Provides harmonized survey data covering several decades, including observations from the 2020s. Useful for comparing contemporary German political attitudes with historical trends. Researchers can examine long-term developments in political participation, ideological preferences, confidence in institutions, and attitudes toward democracy. The cumulative structure supports comparisons across different survey waves.\"\n    },\n    {\n      \"title\": \"German Federal Election 2025 – Official Election Results Open Data\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata.html\",\n      \"justification\": \"Official election results published by Germany's Federal Returning Officer. Provides machine-readable CSV and XML datasets containing party vote totals, constituency results, turnout, and electoral statistics from the 2025 Bundestag election. Particularly useful for analyzing regional voting patterns, electoral participation, party competition, and geographical differences in political behaviour. The data can also support comparisons with the 2021 federal election.\"\n    },\n    {\n      \"title\": \"German Federal Election 2021 – Archived Official Election Results\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata.html\",\n      \"justification\": \"The Federal Returning Officer's open-data portal provides access to archived results from the 2021 Bundestag election alongside 2025 election data. These records enable comparisons of party vote shares, electoral turnout, and constituency-level outcomes between federal elections. Particularly relevant for investigating changes in German electoral geography, party-system fragmentation, and shifts in political support during the 2020s.\"\n    },\n    {\n      \"title\": \"European Parliament Election 2024 – Official German Election Results\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/europawahlen/2024/ergebnisse/opendata.html\",\n      \"justification\": \"Official machine-readable results for the 2024 European Parliament election in Germany. Includes party results, turnout, and geographic breakdowns at federal, state, and district levels. Particularly suitable for studying European electoral behaviour, regional party support, differences between national and European elections, and electoral developments preceding Germany's 2025 federal election.\"\n    },\n    {\n      \"title\": \"GLES Candidate Study – European Parliament Election 2024\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A candidate-focused dataset associated with the 2024 European Parliament election, listed under study identifier ZA7960. Provides research material on political candidates and electoral representation. Relevant for investigating political recruitment, candidate characteristics, political organizations, and representation in Germany's European electoral context. Complements voter surveys and official election results.\"\n    },\n    {\n      \"title\": \"GLES Nomination Study 2025 – Candidate Selection and Political Parties\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A dataset examining candidate nomination processes associated with Germany's 2025 federal election, identified as ZA10104. Relevant for studying political party organizations, candidate selection, political recruitment, and the institutional mechanisms through which parties organize electoral competition. Particularly useful for research focused on political organizations and internal party processes.\"\n    },\n    {\n      \"title\": \"GLES Nomination Study 2021 – Federal Election Candidate Selection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A study of nomination processes surrounding Germany's 2021 federal election, identified as ZA7717. Provides an empirical basis for examining political recruitment and candidate selection within Germany's party system. Particularly useful for comparing political organizations and nomination procedures across the 2021 and 2025 elections.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database – German Political Party Programmes\",\n      \"url_or_doi\": \"https://manifesto.wzb.eu/\",\n      \"justification\": \"An internationally recognized dataset maintained by researchers associated with the Berlin Social Science Center and partner institutions. Contains systematically coded political party election manifestos, including German party programmes from elections in the 2020s. Enables quantitative analysis of party ideology, policy preferences, political competition, and changes in party positions. Particularly relevant for investigating the German party system and differences between political organizations.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset 2025a – Political Party Preferences\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"A specific version of the Manifesto Project dataset that provides structured information about political parties' policy positions and electoral programmes. Includes German political parties and the 2021 federal election. Useful for measuring ideological differences, analyzing party competition, and investigating changes in political representation. Particularly valuable when combining party-level information with German election results or voter surveys.\"\n    },\n    {\n      \"title\": \"German Bundestag – Parliamentary Open Data\",\n      \"url_or_doi\": \"https://www.bundestag.de/services/opendata/\",\n      \"justification\": \"Official open-data collection maintained by the German federal parliament. Provides machine-readable parliamentary documents, plenary proceedings, legislative records, member biographies, and recorded voting information. Includes parliamentary activity during the 2020s. Particularly relevant for research on political institutions, legislative behaviour, parliamentary representation, government-opposition relations, and the organization of Germany's political system.\"\n    },\n    {\n      \"title\": \"German Bundestag – Documentation and Information System (DIP) API\",\n      \"url_or_doi\": \"https://search.dip.bundestag.de/api/v1/swagger-ui/\",\n      \"justification\": \"An official parliamentary data interface providing structured access to legislative documentation, parliamentary activities, government bills, parliamentary questions, and related records. Enables systematic collection of data concerning the German Bundestag during the 2020s. Particularly useful for quantitative research on legislative activity, government accountability, political institutions, and parliamentary decision-making.\"\n    },\n    {\n      \"title\": \"German Agendas Project – Political Agendas and Government Policy\",\n      \"url_or_doi\": \"https://www.gpa.uni-konstanz.de/data/\",\n      \"justification\": \"A collection of datasets examining political attention and policy agendas in Germany. Includes systematically classified information derived from public opinion surveys, government speeches, parliamentary questions, legislative proposals, and laws. Some series extend through 2021, making them relevant for research on the beginning of the 2020s. Particularly useful for analyzing relationships between citizens' political priorities, political party agendas, parliamentary activity, and government policymaking.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study – Coding of the Most Important Political Problem, 2018–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"A cumulative dataset, identified as ZA7957, containing standardized coding of respondents' answers concerning Germany's most important political problem between 2018 and 2023. Relevant for studying public issue priorities, political attitudes, and the relationship between citizens' concerns and electoral competition. Particularly useful for examining changes in political attention during the COVID-19 pandemic, the 2021 federal election, and subsequent political developments.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447085.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19090,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2356,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21446
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

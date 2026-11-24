@@ -1,0 +1,69 @@
+{
+  "query_id": 223,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in United Kingdom during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"British General Election Study, 1992: Cross-Section Survey\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-2981-1\",\n      \"justification\": \"This dataset captures public voting choices, political attitudes, party preferences, and evaluations of major policy issues in Great Britain during the 1992 UK General Election.\"\n    },\n    {\n      \"title\": \"British General Election Study, 1997: Cross-Section Survey\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-3887-1\",\n      \"justification\": \"This dataset examines electoral behaviour, political trust, policy preferences, and voter attitudes in Great Britain immediately following the May 1997 UK General Election.\"\n    },\n    {\n      \"title\": \"British General Election Panel Study, 1992-1997\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-3888-1\",\n      \"justification\": \"This longitudinal panel dataset tracks changing political attitudes, party alignment, and voting behaviour across individual voters in Great Britain throughout the mid-1990s.\"\n    },\n    {\n      \"title\": \"British Social Attitudes Survey, 1995\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-3764-1\",\n      \"justification\": \"Part of the annual British Social Attitudes series by NatCen, this dataset measures British public opinion and social and political values during the 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 483,
+          "candidatesTokenCount": 425,
+          "totalTokenCount": 1738,
+          "cachedContentTokenCount": 124,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 483
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 124
+            }
+          ],
+          "thoughtsTokenCount": 830,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Y1iEau34IL_8vdIP2f6XyQY"
+      }
+    }
+  ]
+}

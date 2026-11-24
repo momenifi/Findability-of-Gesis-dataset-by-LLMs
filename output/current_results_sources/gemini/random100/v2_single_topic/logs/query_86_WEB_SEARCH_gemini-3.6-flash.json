@@ -1,0 +1,69 @@
+{
+  "query_id": 86,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social welfare policy in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core, v39eu)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39eu\",\n      \"justification\": \"A representative multi-cohort longitudinal study of private households in Germany providing microdata on income, social security transfers, employment trajectories, and welfare policy effects throughout the 2020s.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS 2021 (German General Social Survey 2021)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14002\",\n      \"justification\": \"A representative population survey dataset from GESIS capturing public attitudes in Germany during 2021 regarding social security, welfare state responsibilities, political measures, and economic inequality.\"\n    },\n    {\n      \"title\": \"GESIS Panel Special Survey on the Coronavirus SARS-CoV-2 Outbreak in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13520\",\n      \"justification\": \"A high-frequency probability-based survey dataset collected in 2020 examining social responses, public health interventions, and emergency social welfare policies in Germany during the COVID-19 pandemic.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EtUKCtIKARFNMg/lNCcJx3DFzeIgWjJOHVakRVbQFY8S7hj6mj28YklJyyqm7uTIlSiHq+5iyEPC20xzw1BXsbFLFE9jINn2tJn0mos70g7xQKdKSyuJlZJtPxDlHC+/B8BEmjzqxB8ziiduO1pQvHiXbLgeuPbKezx8FmAv1qqM8zt7KoNJUVYq+zNCgIUc80xpy+G2yfz+hcvsYqshU0bGS2J+N6+2F3OXQ8phcvzNvEGX1l6oqwiopmBS4kr25f95b2YBzseVdgHGSomETsEHIhL/bafRjD9Zgo/J2x5xIObe0bHGRgzg6wVrUE3KwqXw6w/vGUUVBFUd9q4MKGMTX04m+jnVYfSmY0r7v0CiT6NDnymP5BaDB4S8zTUPUxooI27JXPK1mt7mpKO/gFYCdy06cL0GgnB+ePE3dnXs/PTQnGHgsIu4g53+OEII45y3DLlKGb47ZbhAAgTnI/tj44pg1QxVxMuGDvfpcl5cnxn05kRBmo3L8DArE8VpV2Kq7SR8HXXGg92CKQjtMp3chlQYkP6K8ApGNtOwUNozXbdMo4pURVkukmgPM/YqDVmbBXeCG4A2WZV7jp6cxruoA/H+EKX0ak10A75BR+4qHUiaYevigPgBkwWK3kZX39u3itunvDM4GnEjCuydUoD/9OFkBtjuo9CuLFVNKJsSomeYQhXKa+4vjZ+bi8/Unke8GzNWT2vm2kZQ+kifYsechi3Uo7BGYYkoXzV+GL/q5K5gxG0P9k7Vyy88DyApsImA8MIOGxwBzKLV1CmqNoQjJp5248drMLI7IuZDC6BDMTH0MjWM7FxOzACV18aC4oXdt4N2OtfZqbwTJT3qAshcEMSMz2Kk2M1zLPhxTCkmJn8ICMOSSRQUNQrMyMmNbpXQUZJ+9fC7949+VedVGc7YkIt1pIeAv7Frp1NNUXH/WW+yYeQz/+tggd8WfAn0TlGNo6fvv0Xu2BPBoCGB6rBYAWxAjoJXeA8lYvPzOPa0LxYd7/nzfv5xjqptS0zr1ec2bO3C7oUp4zNB4pmHiyPkPina/9ZjHepcP+M2uQA24Zu8Ptn+GZHirN4W+YdWxcK1xkssJ/flHryvUg+7vdOy+sfOuFxxAQ6LBhbojEm/7ZGM/YbJVGy4Ej/eCdqDPwjiwmYlmhuEIr3o4HQVEX8vcS5EOJ93CrrwiU8SsVfRmRR9X6URw9AcsppWj3qkIVWnQTQRxywwo0Xs0VhWDjiY7q9OkV9tIze+jl8vE7IaUO/HMyhBtP8qPbtfwXJR3rB3MvwVptJ1C9zG5P0+7dFFdqC+q5ODPZQ7qdz5ZxWEpOABKcSbLeTbCOEOknSrpkv6cembJKwKSVm7jLFpmToQamK8wqymn1R49gw9uisFVw0wsz+GR8/UE8cIJvq+R1Ub2V+oSJF+/s+sy3zk6peeth2S9sZqaFmz2rCd1teP+4G05deoIL2SImxZahIseHm6u/oPNL2sjWwq7Z/dNmeC/vcd7KNlnoPN0RVnK6nDVNhAmOtzu8S1AVWKZu8BQKKAugSxydsiPTP4Rb9wsrDEJPiSdSPWJRntGRyh9lV0MiyiA8ifuDfy17UnlUtsXxmQPBauWkLWYEncvI9PGC+KRNUxfmlfLzwRr/Iz5LVp9Np/b8l/YlhqOAjKWbUzYLiT/aczYNtDCLD+QY0/U2HoK1n9zbrPOtVWe3vUiC7UGbmxhZHDMqw1YcuKxcSe7A8i+JQt7dAXhqjRR7o02EUh3qquyHDwSJXo6B0jKVRaV0/74Nigl4TW8JoAsY+XY17tLmyqNQGOzjJlozDdIuBnuwA6WJ6t"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1087,
+          "candidatesTokenCount": 339,
+          "totalTokenCount": 2756,
+          "cachedContentTokenCount": 516,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1087
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 516
+            }
+          ],
+          "thoughtsTokenCount": 1330,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "kzWEarKUAaXTvdIPh6LFuAk"
+      }
+    }
+  ]
+}

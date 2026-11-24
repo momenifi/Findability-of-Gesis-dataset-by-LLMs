@@ -1,0 +1,69 @@
+{
+  "query_id": 12,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled \"Arma sunt necessaria\" (Arms are necessary) Guns, Gun Culture and Cultural Origins of the Second Amendment to the U.S. Constitution?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"\\\"Arma sunt necessaria\\\" (Arms are necessary) Guns, Gun Culture and Cultural Origins of the Second Amendment to the U.S. Constitution\",\n      \"url_or_doi\": \"https://doi.org/10.7788/boehlau.9783412212414\",\n      \"justification\": \"This work by Michael Lenz examines 18th-century gun culture and the cultural origins of the Second Amendment to the U.S. Constitution, including the chapter titled \\\"'Arma sunt necessaria': Guns and their Meaning in Eighteenth-Century Massachusetts and South Carolina\\\" published by Böhlau Verlag.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 581,
+          "candidatesTokenCount": 168,
+          "totalTokenCount": 1840,
+          "cachedContentTokenCount": 325,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 581
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 325
+            }
+          ],
+          "thoughtsTokenCount": 1091,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jUW-apfgN8GZvdIPl9qZ4AQ"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 125,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Business/industrial management and organisation in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ifo Business Survey: Historical Time Series for Western Germany (1960-1990)\",\n      \"url_or_doi\": \"https://www.ifo.de/en/zeitreihen\",\n      \"justification\": \"This dataset from the ifo Institute offers monthly historical time series data on business climate, economic expectations, and sector-level performance across Western German manufacturing, trade, and industry from 1960 to 1990.\"\n    },\n    {\n      \"title\": \"Gross Earnings of Wage Earners and Salaried Employees in Industry, Commerce, Craft, and Agriculture in the Federal Republic of Germany 1950 to 2006\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13683\",\n      \"justification\": \"Available via the GESIS Data Archive (ZA8618), this dataset provides structured historical statistics on wage and earnings structures, labor costs, and employment conditions in West German industry and business management spanning from 1950 to 2006.\"\n    },\n    {\n      \"title\": \"HISTAT - Historical Statistics: Industry and Enterprise Time Series for Germany\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/\",\n      \"justification\": \"Maintained by the SAFE Institute in cooperation with GESIS and Destatis, HISTAT provides digitized historical time series covering German corporate structure, industrial production, business indicators, and labor organization during the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 414,
+          "candidatesTokenCount": 369,
+          "totalTokenCount": 2253,
+          "cachedContentTokenCount": 148,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 414
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 148
+            }
+          ],
+          "thoughtsTokenCount": 1470,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "8DqEarXxMcznxN8PgOyx2QQ"
+      }
+    }
+  ]
+}

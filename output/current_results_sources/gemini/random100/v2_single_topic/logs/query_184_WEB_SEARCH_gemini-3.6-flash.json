@@ -1,0 +1,69 @@
+{
+  "query_id": 184,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Equality, inequality and social exclusion in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"SOEP-Core is a representative longitudinal panel study of private households in Germany conducted continuously since 1984 (and expanded to East Germany in 1990). It is the primary empirical dataset for measuring household income dynamics, income inequality, poverty risks, employment biographies, and social exclusion in 1990s Germany.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - Cumulation 1980-2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13774\",\n      \"justification\": \"ALLBUS is a biennial survey monitoring attitudes, social structure, and societal change in Germany. The cumulation dataset includes cross-sectional waves throughout the 1990s (1990, 1992, 1994, 1996, 1998) capturing public perceptions of social inequality, economic disadvantage, and social cohesion post-reunification.\"\n    },\n    {\n      \"title\": \"EVS - European Values Study 1999 - Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11534\",\n      \"justification\": \"Conducted in late 1999, this dataset provides survey data on moral, political, social, and economic values in Germany, including public perspectives on income inequality, social justice, marginalization, and welfare provisions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1027,
+          "candidatesTokenCount": 417,
+          "totalTokenCount": 2835,
+          "cachedContentTokenCount": 112,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1027
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 112
+            }
+          ],
+          "thoughtsTokenCount": 1391,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "k0mEaovLPOTbvdIPwLHOgQo"
+      }
+    }
+  ]
+}

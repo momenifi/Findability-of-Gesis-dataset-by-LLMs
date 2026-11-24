@@ -1,0 +1,69 @@
+{
+  "query_id": 55,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations, International politics and organisations, and Political behaviour and attitudes in Germany during the 2020s, matching this research need: telephone survey data on people aged 14+ in 2024 covering social and political attitudes, personal financial situation, life satisfaction, views of federal government policies, and perceptions of global and European politics\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"ARD-DeutschlandTREND (Infratest dimap / GESIS Data Transfer)\",\n      \"url_or_doi\": \"https://www.infratest-dimap.de/service/ueber-uns/gesis/\",\n      \"justification\": \"Infratest dimap conducts regular representative telephone surveys (CATI/dual-frame) in Germany covering the population aged 14 and older. The 2024 DeutschlandTREND surveys capture social and political attitudes, evaluations of federal government policies, personal financial outlook, life satisfaction, and perceptions of European and international politics.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977-2024 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2391\",\n      \"justification\": \"Conducted by Forschungsgruppe Wahlen via computer-assisted telephone interviewing (CATI), this ongoing monthly survey series includes 2024 waves assessing public opinion in Germany regarding federal political institutions, government performance, party preferences, economic/financial situations, and major international/European policy issues.\"\n    },\n    {\n      \"title\": \"Flash Eurobarometer 553 (The Euro Area, October 2024)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14435\",\n      \"justification\": \"This dataset uses Computer-Assisted Telephone Interviewing (CATI) to survey citizens across EU Member States, including Germany, in late 2024. It measures political attitudes, perceptions of European and global politics, economic sentiment, and views on national and EU governance.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1110,
+          "candidatesTokenCount": 409,
+          "totalTokenCount": 3959,
+          "cachedContentTokenCount": 570,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1110
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 570
+            }
+          ],
+          "thoughtsTokenCount": 2440,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "nIiEarexD9iokdUP0q6f2Qg"
+      }
+    }
+  ]
+}

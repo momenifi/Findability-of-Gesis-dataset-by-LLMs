@@ -1,0 +1,69 @@
+{
+  "query_id": 21,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Community, urban and rural life, TRADE, INDUSTRY AND MARKETS, and Specific social services: use and availability in Lagos during the 1980s, matching this research need: data on women in Lagos informal sector, especially Ajegunle, covering household living conditions, migration, housing, occupations, income, savings and unions, business activities of traders and craftswomen, and unemployment\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Social Life in Nigerian Cities, 1972\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-41-1\",\n      \"justification\": \"Created by Margaret Peil and archived at the UK Data Service, this survey covers Ajegunle (Lagos) alongside other Nigerian cities. It collects empirical data on women and men regarding household living conditions, migration patterns, housing, occupations, income, business activities of traders and craftswomen, associational/union involvement, and unemployment.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1182,
+          "candidatesTokenCount": 151,
+          "totalTokenCount": 3015,
+          "cachedContentTokenCount": 800,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1182
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 800
+            }
+          ],
+          "thoughtsTokenCount": 1682,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "NnyEatHMBMeP28oPtKf6yAM"
+      }
+    }
+  ]
+}

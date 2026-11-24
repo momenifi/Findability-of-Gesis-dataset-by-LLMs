@@ -1,0 +1,186 @@
+{
+  "query_id": 27,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ed405f4abcfd95b006b04786ebbe087d2ba29258eb54a9668",
+        "created_at": 1795455086.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ed405f4abcfd95b006b04786fdc9887d2aa07782015644ef2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS online database social indicators Germany poverty housing employment 2020 2024",
+                "Eurostat database Germany living conditions EU SILC 2020 2025",
+                "SOEP German socio economic panel data 2020 2024 data landing page",
+                "Germany social indicators data dashboard 2020 2025 OECD regional wellbeing"
+              ],
+              "query": "Destatis GENESIS online database social indicators Germany poverty housing employment 2020 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0ed405f4abcfd95b006b047873fa4487d283b25b6a9921cb69",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistik.arbeitsagentur.de statistik daten arbeitsmarkt deutschland zeitreihen 2020 2025",
+                "site:gesis.org ALLBUS 2021 2023 2025 dataset Germany DOI",
+                "site:rki.de gesundheitsberichterstattung daten dashboard germany health indicators 2020 2024",
+                "site:regionalstatistik.de regionaldatenbank deutschland sozialindikatoren 2020 2025"
+              ],
+              "query": "site:statistik.arbeitsagentur.de statistik daten arbeitsmarkt deutschland zeitreihen 2020 2025",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ed405f4abcfd95b006b047877549487d2ad1e2cfa1335ba26",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42r\",\n      \"justification\": \"One of the most comprehensive longitudinal datasets for studying social conditions in Germany during the 2020s. Conducted by the German Institute for Economic Research (DIW Berlin), it follows individuals and households over time, collecting information on income, employment, education, health, household composition, and subjective well-being. The dataset includes observations through 2025 and is particularly useful for analyzing social inequality, poverty, social mobility, and changes in living standards during and after the COVID-19 pandemic. Research data access conditions apply.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – GENESIS-Online Database\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"Germany's official statistical database provides extensive national and regional indicators covering population, employment, education, housing, household income, social protection, migration, and living conditions. It contains annual and subannual observations throughout the 2020s. Data can be downloaded in CSV and Excel formats or accessed through an API. Particularly suitable for constructing comprehensive social indicator datasets and monitoring changes across German federal states.\"\n    },\n    {\n      \"title\": \"Eurostat – European Union Statistics on Income and Living Conditions (EU-SILC)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/income-and-living-conditions/information-data\",\n      \"justification\": \"A harmonized European statistical dataset containing annual observations for Germany throughout the 2020s. Key indicators include poverty risk, income inequality, material and social deprivation, housing affordability, household composition, and social exclusion. EU-SILC is particularly valuable for comparing Germany with other European countries and investigating the social consequences of inflation, economic uncertainty, and changing living standards. Aggregate indicators are publicly accessible, while detailed scientific microdata require authorized access.\"\n    },\n    {\n      \"title\": \"Eurostat – EU-SILC Public Use Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/public-microdata/statistics-on-income-and-living-conditions\",\n      \"justification\": \"Provides publicly accessible, anonymized household- and individual-level datasets for participating European countries, including Germany. Variables cover household characteristics, income, employment, and living conditions. The data are organized by country and survey year and distributed in CSV format. Useful for exploratory research on socioeconomic inequalities and household conditions. These public-use files are modified for disclosure protection, so they should not be treated as equivalent to the original scientific microdata. Availability varies by country and year.\"\n    },\n    {\n      \"title\": \"Destatis – Poverty Risk by Sociodemographic Characteristics, 2020–2025\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Lebensbedingungen-Armutsgefaehrdung/Tabellen/armutsgef-sozdem-zvgl.html\",\n      \"justification\": \"An official German statistical dataset providing poverty-risk indicators from 2020 through 2025. The data enable examination of monetary poverty across demographic and socioeconomic groups, including differences associated with age, educational attainment, and employment status. Particularly relevant for studying distributional inequality and the social effects of economic changes during the 2020s. The series is based on EU-SILC and provides a focused source for analyzing poverty trends in Germany.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Poverty or Social Exclusion by Employment Status, 2020–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/12241/table/12241-0012\",\n      \"justification\": \"An official dataset containing German statistics on poverty or social exclusion, disaggregated by predominant employment status. It covers 2020–2025 and is based on EU-SILC. Particularly useful for examining the relationship between labor market participation and social disadvantage, including differences between employed, unemployed, and economically inactive populations. The dataset supports longitudinal comparisons of social exclusion during the COVID-19 period and subsequent economic developments.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2025\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14825\",\n      \"justification\": \"A representative German population survey conducted in 2025 and distributed by GESIS. It provides detailed information on social attitudes, political orientations, social inequality, interpersonal relationships, social capital, and demographic characteristics. Particularly valuable for investigating public perceptions of inequality, social cohesion, trust, and societal change in contemporary Germany. The dataset complements official socioeconomic statistics by capturing subjective experiences and attitudes. Registration is required for downloading the data.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) 2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14545\",\n      \"justification\": \"A nationally representative social survey covering attitudes, behaviors, and social structures in Germany during 2023. It includes information on social inequality, religion, lifestyles, demographic characteristics, and public attitudes. Suitable for investigating social stratification, changing values, and differences between population groups. Its standardized survey design facilitates comparisons with earlier ALLBUS waves, making it useful for assessing social transformations during the 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulative Dataset, 1980–2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14333\",\n      \"justification\": \"A harmonized longitudinal collection of repeated cross-sectional surveys documenting German social attitudes, political orientations, demographic characteristics, and social structures through 2021. It is especially useful for establishing historical baselines and examining how social conditions and attitudes at the beginning of the 2020s differed from previous decades. Researchers can investigate long-term changes in social inequality, values, political participation, and social cohesion.\"\n    },\n    {\n      \"title\": \"Federal Employment Agency – German Labor Market Annual Time Series, 2020–2025\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/SiteGlobals/Forms/Suche/Einzelheftsuche/Einzelheftsuche_Formular.html?nn=37528&pageNo=0&queryResultId=null&topic_f=analyse-arbeitsmarkt-zeitreihen\",\n      \"justification\": \"Official labor market statistics published by Germany's Federal Employment Agency (Bundesagentur für Arbeit). Annual reports provide historical series on employment, unemployment, unemployment rates, social insurance employment, underemployment, vacancies, short-time work, and benefit receipt. Reports covering 2020–2025 are available. These indicators are essential for evaluating labor market insecurity, economic participation, and the social consequences of unemployment during the 2020s.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Health Update (GEDA 2019/2020-EHIS) Dashboard\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Themen/Nichtuebertragbare-Krankheiten/Studien-und-Surveillance/Studien/GEDA/GEDA-Dashboard.html\",\n      \"justification\": \"An official German public health indicator resource based on the GEDA 2019/2020-EHIS population survey. It includes measures of physical and mental health, health behaviors, healthcare utilization, and self-reported health conditions. Results can be examined by age, gender, and federal state. Especially relevant for investigating health inequalities and population health conditions at the beginning of the COVID-19 pandemic. The dashboard provides aggregated indicators rather than unrestricted individual-level data.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – Noncommunicable Disease Surveillance and Mental Health Indicators, 2019–2024\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Themen/Nichtuebertragbare-Krankheiten/Studien-und-Surveillance/Studien/MHS/NCD-Surveillance-Bericht.html\",\n      \"justification\": \"Provides population-based surveillance results tracking health and selected social indicators in Germany from 2019 or 2021 through February 2024. Topics include depressive symptoms, anxiety, self-rated health, healthcare utilization, loneliness, and social support. Particularly useful for examining psychological well-being, social isolation, and population health changes during and after the COVID-19 pandemic. The resource presents statistical time series and survey findings; it is not a general-purpose downloadable microdata repository.\"\n    },\n    {\n      \"title\": \"Eurostat – EU-SILC Thematic Modules, 2021–2026\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/income-and-living-conditions/database/modules\",\n      \"justification\": \"Describes specialized EU-SILC data collections addressing changing social conditions across European countries, including Germany. Modules during the 2020s examine children's living conditions, health, quality of life, housing difficulties, intergenerational disadvantage, access to services, energy efficiency, and household financial pressures. Particularly valuable for identifying datasets relevant to emerging social challenges. This is a module discovery and documentation page rather than a single downloadable dataset.\"\n    },\n    {\n      \"title\": \"Eurostat – EU-SILC Scientific Use Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/microdata/collections-research/european-union-statistics-on-income-and-living-conditions\",\n      \"justification\": \"Provides access information for detailed anonymized EU-SILC research datasets containing German household and individual observations. Cross-sectional and longitudinal files support advanced statistical analysis of poverty, inequality, social exclusion, housing conditions, household income, and socioeconomic vulnerability. Particularly appropriate for academic projects requiring individual-level analysis of social conditions during the 2020s. Access to scientific-use files is subject to Eurostat's research access requirements.\"\n    },\n    {\n      \"title\": \"German Federal Government – Wellbeing in Germany Indicator System\",\n      \"url_or_doi\": \"https://www.gut-leben-in-deutschland.de/en/\",\n      \"justification\": \"A government-developed framework containing 46 indicators organized into 12 dimensions of well-being. Topics include employment, education, health, family life, housing, environmental conditions, personal security, social cohesion, and civic participation. It offers a broad conceptual framework for measuring social conditions beyond income and employment. However, the published indicator system was last updated in March 2020, so it is more appropriate as a baseline for the early 2020s than as a source of continuously updated statistics.\"\n    },\n    {\n      \"title\": \"Destatis – Income, Living Conditions and Risk of Poverty Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Living-Conditions-Risk-Poverty/_node.html\",\n      \"justification\": \"An official statistical resource providing German indicators on income distribution, poverty risk, social exclusion, and living conditions. It brings together statistical tables, methodological information, and links to detailed GENESIS-Online datasets. Particularly useful for identifying trends in economic vulnerability, housing-cost burdens, and inequality throughout the 2020s. The resource is suitable for research requiring authoritative national statistics and consistent definitions of social indicators.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455108.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19153,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2591,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21744
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

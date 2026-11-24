@@ -1,0 +1,186 @@
+{
+  "query_id": 230,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic systems and development in Malta during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0852ebeb051000ab006b0468e95fec87d280a379d94682f158",
+        "created_at": 1795451113.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0852ebeb051000ab006b0468eaf37487d2a8168c62c1209b81",
+            "action": {
+              "type": "search",
+              "queries": [
+                "World Bank World Development Indicators Malta GDP 2000 2009 data",
+                "Eurostat Malta national accounts GDP employment 2000 2009 dataset",
+                "Malta NSO historical economic statistics 2000 2009 datasets",
+                "UNCTADstat Malta foreign direct investment 2000 2009 data"
+              ],
+              "query": "World Bank World Development Indicators Malta GDP 2000 2009 data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0852ebeb051000ab006b0468ee2fe487d2871e20ee407f81c1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/nama_10_gdp/default/table",
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1/default/table",
+                "site:ec.europa.eu/eurostat/databrowser/view/lfsa_urgan/default/table",
+                "site:data.worldbank.org/country/malta economic indicators"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/nama_10_gdp/default/table",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0852ebeb051000ab006b0468f131c087d2adceb27e060ce1b1",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"World Bank – World Development Indicators: Malta (2000–2009)\",\n      \"url_or_doi\": \"https://data.worldbank.org/country/MT\",\n      \"justification\": \"A comprehensive source for studying Malta's economic development during the 2000s. Includes historical indicators covering GDP, GDP per capita, economic growth, inflation, unemployment, foreign direct investment, trade, and other development measures. Particularly useful for examining Malta's economic transformation, its accession to the European Union in 2004, and its performance during the 2008–2009 global financial crisis. Data can be downloaded and compared internationally.\"\n    },\n    {\n      \"title\": \"Eurostat – Gross Domestic Product (GDP) and Main Components: Annual Data\",\n      \"url_or_doi\": \"https://doi.org/10.2908/nama_10_gdp\",\n      \"justification\": \"Official European statistical dataset covering Malta's national accounts throughout 2000–2009. Contains GDP, household consumption, government expenditure, investment, exports, imports, and other economic aggregates. Particularly valuable for studying changes in Malta's economic structure before and after EU accession in 2004 and euro adoption in 2008. Provides internationally comparable annual statistics.\"\n    },\n    {\n      \"title\": \"National Statistics Office Malta – Historical Statistical Publications\",\n      \"url_or_doi\": \"https://nso.gov.mt/published-publications/\",\n      \"justification\": \"Official repository of historical Maltese statistical publications, including economic reports produced during the 2000s. Relevant publications include Malta in Figures, trade statistics, household budget surveys, and national economic statistics. These sources provide detailed information on Malta's domestic economic conditions, sectoral development, household expenditure, and structural economic changes during 2000–2009.\"\n    },\n    {\n      \"title\": \"Central Bank of Malta – Real Economy Indicators\",\n      \"url_or_doi\": \"https://www.centralbankmalta.org/en/real-economy-indicators\",\n      \"justification\": \"Official historical macroeconomic statistics from Malta's central bank. Provides access to indicators concerning economic activity, national income, employment, consumption, investment, and other measures of the real economy. Useful for examining Malta's economic performance during the 2000s, identifying structural changes, and investigating economic conditions surrounding the country's transition to the euro in 2008.\"\n    },\n    {\n      \"title\": \"Eurostat – Population and Employment: National Accounts Annual Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/cache/metadata/en/nama_10_pe_esms_mt.htm\",\n      \"justification\": \"Official metadata and access information for Eurostat's annual national accounts employment dataset for Malta. Relevant to studying labour market development, employment patterns, productivity, and changes in economic activity during the 2000s. Particularly useful for investigating the relationship between employment and economic growth before and after Malta joined the European Union.\"\n    },\n    {\n      \"title\": \"World Bank – World Development Indicators: Malta GDP Historical Series\",\n      \"url_or_doi\": \"https://databank.worldbank.org/reports.aspx?country=MLT%2CEUU&series=NY.GDP.MKTP.CD&source=2\",\n      \"justification\": \"Historical annual GDP dataset comparing Malta with the European Union. Includes observations for the 2000s and supports analysis of Malta's economic growth and relative economic performance. Useful for measuring economic convergence with the EU, identifying growth trends, and examining the effects of European integration on Malta's development.\"\n    },\n    {\n      \"title\": \"Federal Reserve Bank of St. Louis – Gross Domestic Product for Malta\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/series/CPMNACSCAB1GQMT\",\n      \"justification\": \"Quarterly GDP time series for Malta sourced from Eurostat and distributed through the Federal Reserve Economic Data platform. Covers every quarter from 2000 through 2009, enabling more detailed analysis than annual datasets. Particularly useful for examining business cycles, short-term economic fluctuations, and Malta's response to the 2008 global financial crisis.\"\n    },\n    {\n      \"title\": \"National Statistics Office Malta – Statistics Portals\",\n      \"url_or_doi\": \"https://nso.gov.mt/statistics-portals/\",\n      \"justification\": \"Official statistical portals providing downloadable data across economic and social domains, including regional development, labour markets, social protection, tourism, and economic activity. Relevant for studying the relationship between Malta's economic system, public expenditure, social development, and regional inequalities. Historical coverage varies by dataset, so individual tables should be checked for observations from 2000–2009.\"\n    },\n    {\n      \"title\": \"National Statistics Office Malta – Archived Statistical News Releases (2000)\",\n      \"url_or_doi\": \"https://nso.gov.mt/archived-news-releases/?ar_year=2000\",\n      \"justification\": \"Official archive of statistical releases published in Malta during 2000. Includes historical economic and industry statistics, tourism indicators, and other measurements of economic activity. Especially useful for researchers seeking contemporary statistical evidence about Malta's economy at the beginning of the decade rather than relying exclusively on subsequently revised historical series.\"\n    },\n    {\n      \"title\": \"National Statistics Office Malta – Sustainable Development Indicators for Malta 2010\",\n      \"url_or_doi\": \"https://nso.gov.mt/published-publications/\",\n      \"justification\": \"The NSO publication archive identifies Sustainable Development Indicators for Malta 2010, covering the reference period 2000–2008. This historical statistical publication is particularly relevant for examining the relationship between economic development, social conditions, environmental sustainability, and national development policies during the 2000s. It offers a broader development perspective than GDP statistics alone.\"\n    },\n    {\n      \"title\": \"National Statistics Office Malta – Household Budgetary Survey 2008\",\n      \"url_or_doi\": \"https://nso.gov.mt/published-publications/\",\n      \"justification\": \"The NSO publication archive includes the Household Budgetary Survey covering February 2008 to February 2009. Its statistical findings are relevant for studying household consumption patterns, expenditure distribution, living standards, and economic welfare in Malta. Particularly useful for investigating how economic development translated into household-level outcomes toward the end of the 2000s.\"\n    },\n    {\n      \"title\": \"Eurostat – European Statistical Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Comprehensive official European statistics database containing historical economic and development indicators for Malta. Relevant statistical domains include national accounts, public finances, international trade, employment, business structures, income, and living conditions. Researchers can select Malta and the years 2000–2009 where observations are available. Particularly useful for studying economic integration, institutional development, and structural changes associated with EU membership.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795451129.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18880,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1581,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20461
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

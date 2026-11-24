@@ -1,0 +1,186 @@
+{
+  "query_id": 35,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic conditions and indicators in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ce6b465fb165c6a006b045c76ad9487d2b30641f6f11b5249",
+        "created_at": 1795447926.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ce6b465fb165c6a006b045c77b2b087d290511f033a335dda",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Statistics Finland historical time series 1960 GDP national accounts database",
+                "World Bank Finland GDP inflation unemployment 1960 data indicator",
+                "Maddison Project Database Finland 1960 GDP per capita dataset",
+                "OECD historical economic statistics Finland 1960 dataset"
+              ],
+              "query": "Statistics Finland historical time series 1960 GDP national accounts database",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0ce6b465fb165c6a006b045c7b836c87d2a49786204ac4f163",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:worldbank.org/indicator/FP.CPI.TOTL.ZG Finland 1960 inflation",
+                "site:worldbank.org/indicator/NE.EXP.GNFS.ZS Finland 1960",
+                "site:ggdc.net penn world table 10.01 data 1950",
+                "site:rug.nl/ggdc/historicaldevelopment/maddison/releases maddison project database 2023"
+              ],
+              "query": "site:worldbank.org/indicator/FP.CPI.TOTL.ZG Finland 1960 inflation",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ce6b465fb165c6a006b045c7ea99887d28c8f8b20bb9830ab",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Statistics Finland – Historical Series of National Accounts, 1860–2024\",\n      \"url_or_doi\": \"https://pxweb2-testi.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__vtp/129i.px/\",\n      \"justification\": \"One of the most comprehensive official datasets for studying Finland's economic conditions during the 1960s. Published by Statistics Finland, it provides annual historical economic statistics covering 1860–2024, including GDP, gross value added, imports, employment, consumption, investment, and industry-specific economic activity. Researchers can select individual years from 1960 through 1969 to investigate economic growth, structural transformation, and changes in production and employment. Particularly valuable because it provides historical national accounts reconstructed specifically for long-term economic analysis.\"\n    },\n    {\n      \"title\": \"World Bank – GDP (Current US$), Finland, 1960–Present\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=FI\",\n      \"justification\": \"Provides annual GDP figures for Finland beginning in 1960, making it directly relevant to examining the country's economic performance throughout the 1960s. The dataset allows researchers to investigate changes in nominal economic output, identify periods of economic expansion, and compare Finland's economic development with other countries. Data can be downloaded in CSV or Excel format and are suitable for statistical analysis and historical economic comparisons.\"\n    },\n    {\n      \"title\": \"World Bank – Inflation, Consumer Prices (Annual %), Finland\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=FI\",\n      \"justification\": \"Contains annual consumer price inflation data for Finland beginning in 1960. This dataset is directly useful for examining price stability, inflationary pressures, and changes in purchasing power during the 1960s. Its annual observations enable researchers to identify inflation trends and investigate relationships between price changes, economic growth, and broader macroeconomic conditions. The underlying source is the International Monetary Fund's International Financial Statistics database.\"\n    },\n    {\n      \"title\": \"Federal Reserve Bank of Dallas – Real-Time Historical Dataset for OECD Countries\",\n      \"url_or_doi\": \"https://www.dallasfed.org/research/international/oecd\",\n      \"justification\": \"A historical economic dataset constructed from OECD Main Economic Indicators publications. It includes Finland and provides quarterly historical data vintages beginning in 1962, with some underlying observations extending back to 1956. This makes it particularly useful for investigating economic conditions during the 1960s using information available to policymakers at the time. Researchers can examine historical economic indicators, compare Finland with other OECD economies, and study how economic measurements were subsequently revised.\"\n    },\n    {\n      \"title\": \"OECD Historical Statistics, 1960–1997\",\n      \"url_or_doi\": \"https://mdl.library.utoronto.ca/collections/numeric-data/oecd-historical-statistics-1960-1997\",\n      \"justification\": \"A historical statistical collection documenting economic developments across OECD countries, including Finland, beginning in 1960. It is especially relevant for studying Finland's economic performance throughout the decade in an international comparative context. The collection provides a starting point for identifying historical macroeconomic indicators and examining long-term economic changes. Access to the underlying data may depend on institutional availability.\"\n    },\n    {\n      \"title\": \"Maddison Project Database 2023 – Historical GDP and Income Estimates\",\n      \"url_or_doi\": \"https://doi.org/10.34894/INZBF2\",\n      \"justification\": \"An internationally recognized historical economic dataset produced by researchers associated with the University of Groningen. It provides long-run estimates of GDP per capita and comparative income levels across 169 countries, including Finland. Its historical coverage encompasses the entire 1960s, making it useful for investigating living standards, productivity-related economic development, and Finland's economic convergence with other European countries. Particularly suitable for research requiring internationally comparable historical income estimates.\"\n    },\n    {\n      \"title\": \"Federal Reserve Economic Data (FRED) – Finland GDP Growth, OECD Leading Indicators\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/data/LORSGPORFIQ659S\",\n      \"justification\": \"Provides historical observations of Finland's GDP growth measured as the percentage change from the corresponding period of the previous year. The series begins in 1961, covering most of the 1960s. Sourced from OECD economic indicators, it is useful for identifying fluctuations in economic activity, measuring growth performance, and investigating periods of economic acceleration or slowdown during Finland's postwar industrial development.\"\n    },\n    {\n      \"title\": \"Federal Reserve Economic Data (FRED) – Finland GDP Ratio to Trend, OECD Leading Indicators\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/data/FINLORSGPRTSTSAM\",\n      \"justification\": \"Contains monthly observations of Finland's GDP relative to its estimated long-term trend, beginning in February 1960. This provides a useful indicator of economic fluctuations throughout the decade. Researchers can use the series to examine cyclical economic conditions, identify periods when output deviated from its trend, and investigate historical business-cycle patterns. Its monthly frequency offers greater temporal detail than annual national accounts statistics.\"\n    },\n    {\n      \"title\": \"World Bank – Exports of Goods and Services (% of GDP)\",\n      \"url_or_doi\": \"https://databank.worldbank.org/metadataglossary/world-development-indicators/series/NE.EXP.GNFS.ZS\",\n      \"justification\": \"A World Development Indicators dataset measuring exports of goods and services relative to GDP, with a reference period beginning in 1960. Finland's observations can be selected to investigate the importance of international trade to its economy during the 1960s. This indicator is particularly relevant because exports and industrial production were important dimensions of Finland's economic development. The dataset supports comparisons of trade openness across years and countries.\"\n    },\n    {\n      \"title\": \"Statistics Finland – Historical National Accounts and Economic Structure\",\n      \"url_or_doi\": \"https://stat.fi/til/vtp/vtp_2013-09-05_uut_001_en.html\",\n      \"justification\": \"An official Statistics Finland entry describing the expansion of its historical national accounts database. The associated statistical series cover GDP, the national balance of supply and demand, employment, and gross value added by major industries from 1860 onward. These variables are particularly useful for examining Finland's transformation during the 1960s, including changes in industrial production, employment patterns, and the relative importance of different economic sectors. The page provides context and access information for the historical statistical collection.\"\n    },\n    {\n      \"title\": \"OECD Economic Surveys: Finland 1971 – Historical Economic Statistics\",\n      \"url_or_doi\": \"https://www.oecd.org/content/dam/oecd/en/publications/reports/1971/05/oecd-economic-surveys-finland-1971_g1g16e69/eco_surveys-fin-1971-en.pdf\",\n      \"justification\": \"A historical OECD economic survey containing statistical tables with annual observations covering 1960–1970. The tables include national accounting information and other economic indicators relevant to Finland's performance during the 1960s. Because the figures were compiled close to the period being studied, they are especially useful for historical research seeking contemporary measurements of economic conditions. Although presented in a report rather than a modern downloadable database, the statistical tables provide valuable primary historical data.\"\n    },\n    {\n      \"title\": \"OECD Economic Surveys: Finland 1970 – Historical GDP, National Income, and Sectoral Statistics\",\n      \"url_or_doi\": \"https://www.oecd.org/content/dam/oecd/en/publications/reports/1970/05/oecd-economic-surveys-finland-1970_g1g16e41/eco_surveys-fin-1970-en.pdf\",\n      \"justification\": \"An OECD publication containing detailed historical economic tables covering Finland during the 1960s. Available indicators include GDP volume indices by industry, national income, wages and salaries, and measures of activity in agriculture, forestry, manufacturing, construction, transport, and services. These data are especially relevant for investigating structural economic change, sectoral growth, and income development. The report is a valuable contemporary statistical source for reconstructing Finland's economic conditions during the decade.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447945.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18528,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1912,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20440
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

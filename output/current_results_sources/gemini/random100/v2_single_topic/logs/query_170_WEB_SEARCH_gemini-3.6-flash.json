@@ -1,0 +1,69 @@
+{
+  "query_id": 170,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Saarland during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04811-5\",\n      \"justification\": \"GERDA provides comprehensive municipality and county-level results for local, state, and federal elections in Germany, including Saarland's state elections (Landtagswahlen) in 2012 and 2017.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) 2013 Post-Election Cross-Section\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13232\",\n      \"justification\": \"A major survey dataset (GESIS ZA5701) capturing political attitudes, voting decisions, and recall vote choices for state and federal elections in Germany, including Saarland during the 2010s.\"\n    },\n    {\n      \"title\": \"GLES Long-Term Online Tracking T27 (2015)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12282\",\n      \"justification\": \"Part of the German Longitudinal Election Study (GESIS ZA5727) tracking voter behavior, party preference, and state-level political recall across German federal states, including Saarland.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 800,
+          "candidatesTokenCount": 354,
+          "totalTokenCount": 3194,
+          "cachedContentTokenCount": 435,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 800
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 435
+            }
+          ],
+          "thoughtsTokenCount": 2040,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "l0WEatDSCvytxN8PhM7BgA0"
+      }
+    }
+  ]
+}

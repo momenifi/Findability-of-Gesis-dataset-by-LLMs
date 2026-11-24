@@ -1,0 +1,69 @@
+{
+  "query_id": 105,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Business/industrial management and organisation in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Business Panel (GBP)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13731\",\n      \"justification\": \"A long-term survey panel launched in 2020 by TRR 266, periodically surveying key decision-makers and business executives across German enterprises on management choices, accounting, tax planning, and strategic responses during the 2020s.\"\n    },\n    {\n      \"title\": \"Bundesbank Online Panel - Firms (BOP-F)\",\n      \"url_or_doi\": \"https://doi.org/10.12757/BBk.BOPF.2022Q1.01\",\n      \"justification\": \"A quarterly/monthly firm-level panel dataset launched in June 2020 by the Deutsche Bundesbank, collecting survey responses from around 9,000 German companies on business operations, management expectations, price setting, and digitalization.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-BP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.FDZD.2601.en.v1\",\n      \"justification\": \"An annual nationwide survey of roughly 15,000 German business establishments that tracks human resource management, organizational structures, labor demand, and industrial relations, with documentation updated through the 2020s.\"\n    },\n    {\n      \"title\": \"Dataset of the Survey on the Digital Transformation of Business Processes at Universities in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7463583\",\n      \"justification\": \"A 2022 dataset capturing survey responses from German higher education institutions on administrative business process management, digital transformation, enterprise architecture, and organizational competence.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1236,
+          "candidatesTokenCount": 461,
+          "totalTokenCount": 3884,
+          "cachedContentTokenCount": 467,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1236
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 467
+            }
+          ],
+          "thoughtsTokenCount": 2187,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "4DeEauvsK6SCxN8Pq7H2qA8"
+      }
+    }
+  ]
+}

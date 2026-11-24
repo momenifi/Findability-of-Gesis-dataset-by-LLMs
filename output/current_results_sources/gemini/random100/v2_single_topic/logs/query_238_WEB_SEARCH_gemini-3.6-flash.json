@@ -1,0 +1,69 @@
+{
+  "query_id": 238,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in North Rhine-Westphalia during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Erwerbstätige nach Wirtschaftsbereichen auf dem Gebiet des heutigen NRW, 1850 bis 1970\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13272\",\n      \"justification\": \"This GESIS Data Archive dataset (Study ZA8685) provides historical statistics on the distribution of employed persons across economic sectors for cities and districts in North Rhine-Westphalia (NRW) from 1850 through 1970, including the full decade of the 1960s.\"\n    },\n    {\n      \"title\": \"Erwerbstätige (-personen) im Produzierenden Gewerbe (Arbeitsstättenzählungen) 1850 bis 1970\",\n      \"url_or_doi\": \"https://www.gesis.org/histat/\",\n      \"justification\": \"This GESIS HISTAT dataset (Study ZA8686) contains workplace census data on employment within manufacturing and industrial sectors for North Rhine-Westphalia from 1850 to 1970.\"\n    },\n    {\n      \"title\": \"Erwerbstätigkeitsstatistik in der Bundesrepublik Deutschland: Ausgewählte Daten von 1950 bis 2000\",\n      \"url_or_doi\": \"https://www.gesis.org/histat/\",\n      \"justification\": \"This GESIS HISTAT data compilation (Study ZA8184) presents official West German employment statistics and Microcensus time series broken down by federal states, covering employment in North Rhine-Westphalia throughout the 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2412,
+          "candidatesTokenCount": 407,
+          "totalTokenCount": 6133,
+          "cachedContentTokenCount": 1030,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2412
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1030
+            }
+          ],
+          "thoughtsTokenCount": 3314,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "KFuFaqfFKPmNvdIPkqmC0Q4"
+      }
+    }
+  ]
+}

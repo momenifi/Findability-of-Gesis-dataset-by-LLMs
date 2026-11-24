@@ -1,0 +1,186 @@
+{
+  "query_id": 25,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Reproductive health in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_006d10234a9285e3006b045bdbacf487d2b3187afa5c9621f4",
+        "created_at": 1795447771.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_006d10234a9285e3006b045bdcba1c87d2a5094d2f0d32f1a1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 1980s fertility survey dataset 1988 family fertility survey GDR West Germany data",
+                "GESIS German Life History Study reproductive fertility births 1980 dataset",
+                "Human Fertility Database Germany 1980 births fertility rates data",
+                "Germany 1980 abortion statistics dataset federal statistical office historical"
+              ],
+              "query": "Germany 1980s fertility survey dataset 1988 family fertility survey GDR West Germany data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_006d10234a9285e3006b045bdfbfa887d2a4ec7a611fc47a0e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:humanfertility.org/Country/Country?cntr=DEUTE East Germany fertility",
+                "site:search.gesis.org/research_data Germany 1988 family survey contraception fertility 1980",
+                "site:gesis.org German Life History Study 1981 1983 fertility births dataset",
+                "site:who.int/data maternal mortality Germany 1980 data"
+              ],
+              "query": "site:humanfertility.org/Country/Country?cntr=DEUTE East Germany fertility",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_006d10234a9285e3006b045be1ffe487d293efaa9242d3baf4",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Human Fertility Database – East Germany (1956–2017)\",\n      \"url_or_doi\": \"https://www.humanfertility.org/Country/Country?cntr=DEUTE\",\n      \"justification\": \"Highly relevant historical dataset covering reproductive trends in East Germany during the entire 1980s. Includes annual live births, age-specific fertility rates, total fertility rates, maternal age at childbirth, and birth-order statistics. Particularly valuable because it provides detailed fertility tables for 1986–1989, enabling analysis of reproductive behavior in the German Democratic Republic before reunification.\"\n    },\n    {\n      \"title\": \"Human Fertility Database – West Germany (1956–2017)\",\n      \"url_or_doi\": \"https://www.humanfertility.org/Country/Country?cntr=DEUTW\",\n      \"justification\": \"Provides historical fertility statistics for West Germany, including the 1980–1989 period. Contains birth counts, age-specific fertility rates, total fertility rates, and reproductive timing indicators. Particularly useful for comparing fertility patterns between East and West Germany during the Cold War.\"\n    },\n    {\n      \"title\": \"Human Fertility Database – Germany: Historical Fertility Data\",\n      \"url_or_doi\": \"https://www.humanfertility.org/\",\n      \"justification\": \"Comprehensive demographic database containing historical fertility indicators for Germany, including the 1980s. Provides standardized data on fertility rates, live births, maternal age, and birth order. Useful for investigating long-term reproductive trends and comparing Germany with other European countries. Separate East and West German series are especially important when analyzing the period before reunification in 1990.\"\n    },\n    {\n      \"title\": \"World Bank – Fertility Rate, Total for Germany (1960–2024)\",\n      \"url_or_doi\": \"https://fred.stlouisfed.org/data/SPDYNTFRTINDEU\",\n      \"justification\": \"Annual dataset sourced from the World Bank's World Development Indicators and distributed through the Federal Reserve Bank of St. Louis. Includes fertility rates for every year of the 1980s. For example, the reported fertility rate was 1.44 births per woman in 1980 and 1.42 in 1989. Suitable for quantitative analysis of reproductive trends and international comparisons, although it does not provide detailed information about contraception or maternal health.\"\n    },\n    {\n      \"title\": \"GESIS – German Fertility and Family Survey 1992 (ZA3400)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3400\",\n      \"justification\": \"German survey dataset focusing on fertility and family formation. Although collected in 1992, it is relevant to research on reproductive behavior during the 1980s because retrospective reproductive and family histories can provide information about earlier life events. Useful for examining fertility decisions, family formation, and reproductive patterns around German reunification. Researchers should check the questionnaire and variable documentation to identify which events from 1980–1989 can be reconstructed.\"\n    },\n    {\n      \"title\": \"GESIS – Population, Population Change, Households and Families in the Federal Republic of Germany, 1947–1999 (ZA8200)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8200\",\n      \"justification\": \"Historical statistical dataset covering demographic developments in West Germany from 1947 through 1999. Based on official population statistics and German microcensus results. Relevant for examining births, population changes, household structures, and family composition throughout the 1980s. Particularly useful for contextualizing reproductive health trends within broader demographic and socioeconomic developments.\"\n    },\n    {\n      \"title\": \"GESIS – Family Society Reproduction Study, German Democratic Republic, 1982\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6990\",\n      \"justification\": \"Historical social science dataset associated with family life and reproduction research in East Germany. Includes a 1982 study examining the living conditions of families with one to three children, with couples interviewed together. Valuable for understanding family structures, reproductive decision-making contexts, and social conditions influencing fertility in the German Democratic Republic during the early 1980s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Historical Abortion Statistics, 1980s\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00006930/2120300987004.pdf\",\n      \"justification\": \"Official historical statistical publication containing abortion data from West Germany. Includes recorded pregnancy terminations for years such as 1980, 1981, and 1982, with breakdowns by federal state and maternal age. Particularly valuable for studying abortion incidence, geographic differences, and reproductive health services during the early 1980s. This is a historical statistical publication rather than a machine-readable dataset.\"\n    },\n    {\n      \"title\": \"WHO European Health for All Database – Maternal Mortality and Reproductive Health Indicators\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/datasets/european-health-for-all-database/\",\n      \"justification\": \"World Health Organization regional database containing historical population health indicators for European countries, including Germany. Relevant indicators include estimated maternal mortality rates beginning in 1985 and maternal deaths based on cause-of-death statistics. Useful for investigating pregnancy-related mortality and reproductive health outcomes during the second half of the 1980s. Researchers should verify country-specific historical coverage because some German indicators have missing observations before reunification.\"\n    },\n    {\n      \"title\": \"WHO European Mortality Database – Deaths from Complications of Pregnancy, Childbirth and Puerperium\",\n      \"url_or_doi\": \"https://gateway.euro.who.int/en/indicators/hfamdb_172-deaths-females-complications-of-pregnancy-childbirth-and-puerperium/\",\n      \"justification\": \"Specialized WHO mortality indicator focusing on female deaths associated with pregnancy, childbirth, and the postpartum period. The underlying European mortality database contains historical records reaching back to 1980. Highly relevant for researching severe reproductive health outcomes and maternal mortality in Germany during the 1980s. Historical availability and differences in reporting between East and West Germany should be checked before analysis.\"\n    },\n    {\n      \"title\": \"WHO Mortality Database – Germany: Cause-Specific Mortality\",\n      \"url_or_doi\": \"https://platform.who.int/mortality\",\n      \"justification\": \"International mortality database compiled from national civil registration and vital statistics systems. Provides mortality information by country, year, sex, age, and cause of death. Potentially useful for identifying historical deaths associated with pregnancy, childbirth, and related reproductive health conditions during the 1980s. Researchers should inspect Germany's available historical records and account for changes in territorial coverage and disease classification.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Pregnancy Terminations, Germany, Annual Statistics\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/schwangerschaftsabbruche-deutschland-jahre\",\n      \"justification\": \"Official German government open-data catalog entry for annual abortion statistics, supplied by the Federal Statistical Office. Provides machine-readable resources in CSV and XML formats. Relevant for investigating abortion reporting and reproductive health trends in Germany. However, the current standardized statistical series begins in 1996, so this dataset does not directly cover the 1980s. It is best used alongside historical abortion statistics when comparing the pre- and post-reunification periods.\"\n    },\n    {\n      \"title\": \"Human Fertility Collection – Historical Fertility Statistics for West Germany\",\n      \"url_or_doi\": \"https://www.fertilitydata.org/Data/DataAvailability\",\n      \"justification\": \"Historical fertility data resource with documented coverage for West Germany beginning in 1950 and extending through 2017. Includes fertility measures suitable for investigating the entire 1980–1989 period. Useful for analyzing changes in reproductive patterns, fertility timing, and birth rates, as well as comparing West German trends with international historical fertility series.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447786.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18898,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1860,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20758
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

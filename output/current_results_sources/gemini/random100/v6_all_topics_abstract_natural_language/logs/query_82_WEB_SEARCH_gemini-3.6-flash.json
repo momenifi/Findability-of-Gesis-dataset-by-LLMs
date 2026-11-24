@@ -1,0 +1,69 @@
+{
+  "query_id": 82,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in German Reich (1871-1945) during the 1910s and 1920s and 1930s, matching this research need: data on Weimar Republic Germany parliamentary elites, including collective biographies of leading parliamentarians: education, occupations, political functions, state parliament service, organizational memberships, careers, emigration, protest, persecution, and power structures\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Data Base on Members of German National Parliaments 1848-1933\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.8008\",\n      \"justification\": \"Hosted by GESIS Data Archive for the Social Sciences (ZA8008), this dataset provides structured collective biographies and parliamentary group data for national parliamentarians in Germany up to 1933, directly covering education, occupations, political functions, careers, and power structures of Weimar Republic parliamentary elites.\"\n    },\n    {\n      \"title\": \"BIOWEIL - Kollektive Biographie der Landtagsabgeordneten der Weimarer Republik 1918-1933\",\n      \"url_or_doi\": \"https://doi.org/10.12759/hsr.trans.1.v01.2000\",\n      \"justification\": \"Created by Wilhelm Heinz Schröder, Wilhelm Weege, and Martina Zech, this dataset reconstructs collective biographical profiles of around 6,000 state parliament delegates (Landtagsabgeordnete) in the Weimar Republic, detailing education, occupations, organizational memberships, state parliament service, political functions, and persecution.\"\n    },\n    {\n      \"title\": \"German Weimar Republic Data, 1919-1933 (ICPSR 42)\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR00042.v1\",\n      \"justification\": \"Distributed via ICPSR, this dataset compiles election returns, demographic metrics, and occupational census data across Wahlkreise and regional units for Weimar Republic national and presidential elections between 1919 and 1933, serving as a key context for Weimar parliamentary power structures.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 563,
+          "candidatesTokenCount": 433,
+          "totalTokenCount": 2332,
+          "cachedContentTokenCount": 332,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 563
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 332
+            }
+          ],
+          "thoughtsTokenCount": 1336,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "lZCEatvsFuT-xN8PguSGiQQ"
+      }
+    }
+  ]
+}

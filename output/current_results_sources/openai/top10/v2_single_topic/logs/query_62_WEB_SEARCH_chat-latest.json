@@ -1,0 +1,186 @@
+{
+  "query_id": 62,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LAW, CRIME AND LEGAL SYSTEMS in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05c6db124e961e0b006b047b055d1087d2a89e97a696e4aaae",
+        "created_at": 1795455749.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05c6db124e961e0b006b047b067b7087d2a7d7b9af8c1d3f93",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:destatis.de EN Themes Society Environment Justice courts convictions Germany GENESIS database",
+                "site:bka.de Polizeiliche Kriminalstatistik PKS Zeitreihen 2010 2024 daten",
+                "site:ec.europa.eu eurostat crime criminal justice database Germany recorded offences",
+                "site:gesis.org German victimization survey SKiD dataset crime Germany"
+              ],
+              "query": "site:destatis.de EN Themes Society Environment Justice courts convictions Germany GENESIS database",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_05c6db124e961e0b006b047b09247487d2931eb9f8eb33e974",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:bka.de DE AktuelleInformationen StatistikenLagebilder PolizeilicheKriminalstatistik PKS 2025 Zeitreihen",
+                "site:genesis.destatis.de/datenbank/online/table/ 24321 Strafvollzug Gefangene Jahre",
+                "site:genesis.destatis.de/datenbank/online/statistic/24231/table/24231-0001 Zivilsachen Zeitraum",
+                "site:ec.europa.eu/eurostat/databrowser/view/crim_pris_cap prison capacity Germany"
+              ],
+              "query": "site:bka.de DE AktuelleInformationen StatistikenLagebilder PolizeilicheKriminalstatistik PKS 2025 Zeitreihen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05c6db124e961e0b006b047b0c630c87d29625ad0f626e5422",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by Offence Category (2008–2024)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_off_cat\",\n      \"justification\": \"Official Eurostat dataset containing annual police-recorded crime statistics for Germany from 2008 to 2024. Includes offences classified according to international crime categories, with absolute counts and rates per 100,000 inhabitants. Useful for analyzing crime trends throughout the 2010s and early 2020s, including homicide, robbery, assault, and other offences.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Criminal Convictions by Type of Offence (1976–2024)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/24311-0001/\",\n      \"justification\": \"Official German criminal prosecution statistics covering the number of convicted individuals by offence category. Includes annual observations from 1976 through 2024, allowing detailed analysis of the 2010s and 2020s. Categories include homicide, sexual offences, assault, theft, fraud, drug offences, and traffic crimes. Particularly valuable for examining sentencing outcomes and changes in criminal convictions.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Public Prosecution Investigations Completed by Offence Category (2018–2024)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24211/table/24211-0001\",\n      \"justification\": \"Official annual statistics on criminal investigations completed by public prosecutors in Germany between 2018 and 2024. Covers corruption, money laundering, economic crime, homicide, sexual offences, drug offences, and investigations involving public officials. Useful for analyzing prosecutorial activity, criminal justice workloads, and the handling of different types of criminal cases.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Civil Court Proceedings by Case Type and Outcome (2017–2024)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24231/table/24231-0001\",\n      \"justification\": \"Official German judicial statistics on civil proceedings concluded in local courts between 2017 and 2024. Provides information on disputes involving contracts, housing, insurance, medical liability, property, and other civil law matters. Includes case outcomes such as judgments, settlements, withdrawals, and dismissals. Useful for researching civil litigation, judicial workloads, and dispute resolution.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Prisoners and Persons in Preventive Detention (2017–2025)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/24321-0001\",\n      \"justification\": \"Official prison statistics for Germany covering annual reference dates from March 2017 through March 2025. Includes prisoners and persons in preventive detention, disaggregated by nationality, sex, age group, and type of detention. Relevant for analyzing incarceration, demographic inequalities, juvenile imprisonment, and changes in the German correctional system.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Prison Statistics Database\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/24321/details\",\n      \"justification\": \"Official collection of German prison statistics providing datasets on prison populations, correctional institutions, occupancy levels, and prison capacity. Includes national and federal-state-level information. Particularly useful for studying prison infrastructure, overcrowding, incarceration patterns, and regional differences in correctional systems during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Prison Capacity and Number of Persons Held (2008–2024)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_pris_cap\",\n      \"justification\": \"Harmonized European dataset covering official prison capacity and actual prison populations, including Germany, from 2008 to 2024. Provides annual observations in absolute numbers and population-adjusted rates. Useful for examining changes in incarceration levels, prison occupancy, and correctional capacity across the 2010s and 2020s, as well as comparing Germany with other European countries.\"\n    },\n    {\n      \"title\": \"Eurostat – Suspects and Offenders by Age\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat's crime and criminal justice database includes the dataset identified as crim_just_age, covering individuals involved in criminal justice proceedings by age and legal status. Germany is included in the European data collection, which covers the 2010s and 2020s. Useful for examining juvenile crime, adult offending, and age-related patterns in criminal justice outcomes.\"\n    },\n    {\n      \"title\": \"Eurostat – Suspects and Offenders by Citizenship\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_just_ctz provides statistics on persons involved in criminal justice proceedings, disaggregated by citizenship and legal status. Includes Germany and supports research into changes in the demographic composition of suspects, prosecuted individuals, and convicted offenders during the 2010s and 2020s. Interpretation requires attention to population composition and differences in justice-system recording practices.\"\n    },\n    {\n      \"title\": \"Eurostat – Personnel in the Criminal Justice System by Sex\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_just_job contains information on personnel employed in criminal justice institutions, including police, courts, and prisons, with breakdowns by sex. Germany is included in the European criminal justice statistical framework. Relevant for analyzing institutional staffing, gender representation, and changes in justice-system resources during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Legal Cases Processed in First-Instance Courts\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_crt_case provides annual information on legal cases processed in first-instance courts, categorized by case type and stage of proceedings. Includes Germany within the European criminal justice data collection. Useful for evaluating court workloads, judicial activity, and changes in case processing during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Persons Brought Before Criminal Courts by Legal Status\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_crt_per records individuals brought before criminal courts and their legal status, including conviction and acquittal categories. Germany is covered by the broader European criminal justice database. Useful for studying criminal trial outcomes, the operation of criminal courts, and changes in the processing of defendants during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Prisoners by Offence Category and Sex\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_pris_off provides information on incarcerated individuals classified by offence category and sex. Includes Germany in its international criminal justice statistical framework. Relevant for studying the composition of prison populations, differences between offence categories, and gender patterns in incarceration during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Prisoners by Legal Status of the Trial Process\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_pris_tri covers prisoners according to their legal status in the criminal justice process. Includes Germany and supports analysis of detention before and after conviction. Particularly relevant for research on pretrial detention, incarceration practices, and criminal procedure during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Bribery by Legal Status and Sex of the Person Involved\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat dataset crim_just_bri provides statistics on bribery-related criminal justice proceedings, differentiated by legal status and sex. Germany is included in the European crime statistics framework, although the availability of individual observations should be checked. Useful for researching corruption enforcement, prosecution, and conviction patterns in the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Human Trafficking Victims and Offenders\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime\",\n      \"justification\": \"Eurostat maintains datasets covering human trafficking victims and suspected or convicted traffickers, including crim_thb_sex, crim_thb_vctz, and crim_thb_vexp. These provide information on legal status, sex, citizenship, and forms of exploitation. Germany is included in the European reporting framework. Relevant for studying human trafficking, victim protection, and criminal justice responses during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Criminal Police Office (BKA) – Police Crime Statistics (Polizeiliche Kriminalstatistik)\",\n      \"url_or_doi\": \"https://www.bka.de\",\n      \"justification\": \"The German Federal Criminal Police Office publishes official Police Crime Statistics (PKS), including annual crime totals, offence categories, suspects, victims, and regional breakdowns. Historical time-series tables support analysis of the 2010s and 2020s. Particularly valuable for studying changes in reported crime, violent offences, theft, cybercrime, and regional crime patterns. The BKA website provides access to the official statistical publications and downloadable tables.\"\n    },\n    {\n      \"title\": \"German Federal Criminal Police Office (BKA) – Safety and Crime in Germany Survey (SKiD), 2020 and 2024\",\n      \"url_or_doi\": \"https://skid.bka.de/Hilfe.html\",\n      \"justification\": \"The Safety and Crime in Germany study (Sicherheit und Kriminalität in Deutschland, SKiD) provides population-survey evidence on victimization and perceptions of security. Its interactive dashboard includes findings from the 2020 and 2024 survey waves. Useful for examining crimes not necessarily captured by police statistics, reporting behavior, fear of crime, and public perceptions of safety. The dashboard provides aggregated survey results rather than necessarily downloadable respondent-level microdata.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Justice Statistics and GENESIS-Online\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Government/Justice/_node.html\",\n      \"justification\": \"Official German statistical portal covering the functioning of the legal and judicial system. Provides access to datasets on criminal prosecution, civil litigation, administrative courts, family courts, labor courts, social courts, prisons, and judicial institutions. Many underlying GENESIS-Online tables include annual observations from the 2010s and 2020s. Particularly valuable for comprehensive research on the German legal system beyond criminal offences.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime and Criminal Justice Statistics Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/crime\",\n      \"justification\": \"Official European statistical database covering police-recorded crime, offenders, criminal courts, judicial personnel, prisons, human trafficking, and other criminal justice indicators. Includes Germany and provides annual statistics covering substantial portions of the 2010s and 2020s, depending on the dataset. Useful as a central source for comparative research and for identifying additional specialized datasets on German criminal justice institutions.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455768.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19119,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2746,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 21865
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

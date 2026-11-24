@@ -1,0 +1,62 @@
+{
+  "query_id": 40,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Migration, Cultural activities and participation, Equality, inequality and social exclusion, and Economic conditions and indicators in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP) - East German Sample (Sample C, 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v37o\",\n      \"justification\": \"Expanded in June 1990 prior to official reunification to survey citizens of the former German Democratic Republic. The panel collects comprehensive longitudinal data on employment, household income, economic conditions, social inequality, social exclusion, and migration during the 1990 transition period.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991 (ALLBUS-Basisumfrage 1991 - ZA1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"A representative cross-sectional survey conducted in 1991 covering the territory of the former GDR. It provides data on occupational biographies, social inequality, economic indicators, cultural activities/participation, and attitudes towards East-West migration.\"\n    },\n    {\n      \"title\": \"Structures and Determinants of Employment Participation of Women and Men in the Territory of the Former GDR (ZA2803)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2803\",\n      \"justification\": \"Conducted by the Institut für Arbeitsmarkt- und Berufsforschung (IAB), this dataset focuses specifically on employment, gender equality, labor market participation, and social exclusion in the territory of the former GDR during the early 1990s.\"\n    },\n    {\n      \"title\": \"Cities and Municipalities 1990 - GDR Local Survey (ZA6302)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6302\",\n      \"justification\": \"Surveyed in March 1990 by the GDR Academy of Sciences, this dataset captures local economic conditions, employment policy, leisure and cultural opportunities, childcare, and social care infrastructure in the GDR right before reunification.\"\n    },\n    {\n      \"title\": \"Comprehensive Patent Database (CPDB) of the German Democratic Republic 1949–1990\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2448\",\n      \"justification\": \"Provides long-term economic and technological indicators covering the entire lifespan of the German Democratic Republic (1949–1990) up to the post-unification period, enabling the measurement of industrial productivity, innovation, and economic performance.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1127,
+          "candidatesTokenCount": 637,
+          "totalTokenCount": 3766,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1127
+            }
+          ],
+          "thoughtsTokenCount": 2002,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "CPuDatfDFcCP28oPrYWvqQk"
+      }
+    }
+  ]
+}

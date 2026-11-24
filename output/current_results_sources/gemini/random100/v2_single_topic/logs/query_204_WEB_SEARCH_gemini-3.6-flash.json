@@ -1,0 +1,69 @@
+{
+  "query_id": 204,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Legislation and legal systems in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Ortsrecht der Stadt Duisburg / Satzungen\",\n      \"url_or_doi\": \"https://www.duisburg.de/micro/ortsrecht/\",\n      \"justification\": \"Official digital repository of local statutes, ordinances, and municipal regulations (Ortsrecht) for the city of Duisburg, including long-standing local laws and amendments originating in or active during the 2000s.\"\n    },\n    {\n      \"title\": \"Ratsinformationssystem der Stadt Duisburg\",\n      \"url_or_doi\": \"https://www.duisburg.de/ratsinformationssystem\",\n      \"justification\": \"The municipal council information system providing searchable access to council agendas, committee meeting minutes, proposals, and municipal legislative decisions for Duisburg, including records spanning the 2000s.\"\n    },\n    {\n      \"title\": \"Open Data Portal Duisburg\",\n      \"url_or_doi\": \"https://opendata-duisburg.de/\",\n      \"justification\": \"Duisburg's official open data platform offering machine-readable municipal datasets, spatial planning statutes (Bebauungspläne), administrative designations, and city governance data.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 752,
+          "candidatesTokenCount": 287,
+          "totalTokenCount": 2212,
+          "cachedContentTokenCount": 435,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 752
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 435
+            }
+          ],
+          "thoughtsTokenCount": 1173,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "VFGEavGpIMeUxN8Pk6ejkQU"
+      }
+    }
+  ]
+}

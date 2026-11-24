@@ -1,0 +1,204 @@
+{
+  "query_id": 31,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations, POLITICS, Conflict, security and peace, Political behaviour and attitudes, and Political ideology in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, and Croatia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_020773fd3b07dc92006b045540f71887d2b6e7306f9bf558ff",
+        "created_at": 1795446081.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_020773fd3b07dc92006b045541f74487d2b26dbfeb1156f530",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European Social Survey data portal round 10 11 2020 2023 politics trust immigration Europe",
+                "Eurobarometer data archive GESIS 2020 2025 EU countries politics",
+                "V-Dem dataset country year download 2025 political ideology democracy",
+                "UCDP external support conflict dataset 2020 Europe download"
+              ],
+              "query": "European Social Survey data portal round 10 11 2020 2023 politics trust immigration Europe",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_020773fd3b07dc92006b045545aa0c87d281098a7ba19b1467",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:europa.eu eurobarometer data surveys download 2024 2025",
+                "site:chesdata.eu 2024 CHES dataset party positions EU",
+                "site:manifesto-project.wzb.eu dataset 2025 manifesto project",
+                "site:acleddata.com Europe data 2020 download explorer",
+                "site:idea.int global state democracy data 2025 voter turnout database"
+              ],
+              "query": "site:europa.eu eurobarometer data surveys download 2024 2025",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_020773fd3b07dc92006b045548c83487d2b829d93b64efa147",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:acleddata.com data export tool Europe conflict protest data",
+                "site:ucdp.uu.se downloads UCDP datasets 2025",
+                "site:europa.eu/eurobarometer/surveys/detail standard eurobarometer 2025",
+                "site:europeanelectionstudies.net 2024 voter study data",
+                "site:europa.eu/eurostat data government defence expenditure COFOG dataset"
+              ],
+              "query": "site:acleddata.com data export tool Europe conflict protest data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_020773fd3b07dc92006b04554cae9487d29da44ddeebdb6d9d",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"European Social Survey (ESS) – Round 10 (2020–2022)\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/\",\n      \"justification\": \"A major cross-national survey covering political behaviour, political ideology, institutional trust, satisfaction with democracy, political participation, immigration attitudes, and European identity. Round 10 includes 25 of the 27 requested EU countries, making it particularly useful for comparing political attitudes across Europe during the early 2020s. Individual-level survey data can be downloaded and analysed by country.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) – Round 11 (2023–2024)\",\n      \"url_or_doi\": \"https://www.europeansocialsurvey.org/\",\n      \"justification\": \"Provides individual-level data on political trust, democratic attitudes, voting behaviour, political participation, party affiliation, ideological orientations, and attitudes toward European institutions. Covers participating European countries and allows comparisons with previous ESS rounds to investigate political changes during the 2020s. Country participation varies by round.\"\n    },\n    {\n      \"title\": \"Standard Eurobarometer – European Commission (2020–2025)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\n      \"justification\": \"A particularly relevant source because Eurobarometer surveys cover all 27 requested EU member states. The surveys measure political attitudes, trust in national and EU institutions, perceptions of democracy, European integration, international relations, security concerns, and public policy preferences. Repeated surveys throughout the 2020s support longitudinal and cross-national comparisons.\"\n    },\n    {\n      \"title\": \"Standard Eurobarometer 104 – Autumn 2025\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3378\",\n      \"justification\": \"An EU-wide public opinion survey covering all 27 requested countries. Relevant for analysing contemporary attitudes toward the European Union, political institutions, EU policies, and international affairs. Provides comparable national results and contributes to understanding political behaviour and public opinion in the mid-2020s.\"\n    },\n    {\n      \"title\": \"European Parliament Eurobarometer – Autumn 2025 Survey\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3632\",\n      \"justification\": \"Covers all 27 requested EU member states and examines citizens' priorities, attitudes toward the European Parliament, perceived threats to democracy, disinformation, and expectations of EU action. Particularly relevant to political attitudes, international organisations, democratic values, and European political identity. Fieldwork was conducted in November 2025.\"\n    },\n    {\n      \"title\": \"European Parliament Eurobarometer – Winter 2025 Survey\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/s3492_103_1_eb047ep_eng?locale=en\",\n      \"justification\": \"Provides EU-wide survey results concerning European Parliament priorities, public attitudes toward EU institutions, and political concerns. Relevant to political behaviour, institutional legitimacy, European integration, and perceptions of international challenges. Processed survey data are available through the European Union's official data portal.\"\n    },\n    {\n      \"title\": \"Varieties of Democracy (V-Dem) Dataset – Version 16 (2026)\",\n      \"url_or_doi\": \"https://www.v-dem.net/data/dataset-archive/\",\n      \"justification\": \"A comprehensive country-year dataset containing hundreds of indicators relating to electoral democracy, political participation, civil liberties, political institutions, ideological polarization, party systems, and democratic governance. Includes all 27 requested EU countries and observations covering 2020–2025. Particularly suitable for comparative political science research on democratic development and political systems.\"\n    },\n    {\n      \"title\": \"Varieties of Democracy – Varieties of Party Identity and Organization (V-Party)\",\n      \"url_or_doi\": \"https://v-dem.net/data/\",\n      \"justification\": \"Provides comparative information on political party ideology, populism, political organization, party positions, and democratic commitments. Particularly relevant for studying ideological competition, nationalism, political polarization, and the characteristics of political parties across European countries. Researchers should verify the available election years and party coverage for each requested country.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey (CHES) – 2024 European Political Party Positions\",\n      \"url_or_doi\": \"https://www.chesdata.eu/ches-europe/\",\n      \"justification\": \"One of the most directly relevant datasets for political ideology. The 2024 survey provides expert assessments of 279 political parties in 31 European countries, measuring left-right ideology, European integration, populism, democracy, and policy positions. Covers 26 of the 27 requested EU countries, excluding Luxembourg. Particularly useful for comparing ideological differences between European political parties during the 2020s.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey – SPEED-CHES\",\n      \"url_or_doi\": \"https://www.chesdata.eu/speed-ches/\",\n      \"justification\": \"Provides supplementary expert survey data on European political party positions, with particular relevance to contemporary international political issues and European security. Useful for studying party-level differences in foreign policy, European integration, populism, and attitudes toward international conflicts. Can be combined with the main CHES dataset for comparative analysis.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database – Version 2026a\",\n      \"url_or_doi\": \"https://manifesto-project.wzb.eu/\",\n      \"justification\": \"Provides systematically coded election manifestos and political party policy positions. Covers European countries, including the requested EU member states, with data extending into the 2020s. Particularly useful for analysing political ideology, left-right positioning, nationalism, international cooperation, military policy, peace, European integration, and security. Researchers can select elections held between 2020 and the latest available year.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset – Version 2025a\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"An archived, citable version of the Manifesto Project's comparative political party dataset. Contains coded policy positions derived from election manifestos, including categories related to internationalism, defence, peace, democracy, national identity, and ideological priorities. Includes political parties from the requested European countries and elections conducted during the 2020s, subject to election-specific availability.\"\n    },\n    {\n      \"title\": \"International IDEA – Voter Turnout Database\",\n      \"url_or_doi\": \"https://www.idea.int/data-tools/data/voter-turnout-database\",\n      \"justification\": \"Provides comparative statistics on political participation in parliamentary, presidential, and European Parliament elections. Covers all 27 requested EU member states, including elections during the 2020s. Contains information on registered voters, voting-age populations, total votes, and turnout rates. Particularly useful for analysing electoral participation, democratic engagement, and changes in political behaviour.\"\n    },\n    {\n      \"title\": \"International IDEA – Global State of Democracy Indices\",\n      \"url_or_doi\": \"https://www.idea.int/publications/catalogue/html/global-state-democracy-indices-technical-procedures-guide-version-10\",\n      \"justification\": \"Provides internationally comparable democracy indicators covering representation, rights, rule of law, and political participation. The 2026 edition documents data extending through 2025. Relevant for analysing democratic performance, institutional accountability, political freedoms, civic engagement, and electoral participation across the requested EU member states.\"\n    },\n    {\n      \"title\": \"Uppsala Conflict Data Program (UCDP) – Georeferenced Event Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"A global event-level dataset documenting organized violence, including geographic locations, dates, actors, and fatalities. The 2026 release includes data through 2025. Particularly relevant to conflict, security, and peace research. Researchers can filter observations involving the requested European countries, although countries without qualifying conflict events may have no records.\"\n    },\n    {\n      \"title\": \"UCDP/PRIO Armed Conflict Dataset – Version 26.1\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/replication_data.html\",\n      \"justification\": \"Provides systematic country-level and conflict-level information about state-based armed conflicts, including conflict actors, intensity, and temporal characteristics. The 2026 release covers 1946–2025. Useful for examining international conflict involvement and security developments relevant to European states. Coverage is based on qualifying armed conflicts rather than providing observations for every country in every year.\"\n    },\n    {\n      \"title\": \"UCDP – Country-Year Dataset on Organized Violence\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Provides annual country-level measures of organized violence, allowing comparisons of conflict intensity and fatalities across countries and years. The dataset includes observations through 2025. Relevant for studying conflict, security, political violence, and peace conditions in the requested European countries. Particularly useful for linking security outcomes to political institutions and attitudes.\"\n    },\n    {\n      \"title\": \"UCDP – Violent Political Protest Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Documents violent political protests and related events, offering information relevant to political contention, security, and conflict research. The dataset can support studies of violent mobilization, political instability, and protest-related violence during the 2020s. Geographic coverage and event availability should be checked for individual EU countries.\"\n    },\n    {\n      \"title\": \"Armed Conflict Location & Event Data Project (ACLED) – Political Violence and Protest Data\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/data-export-tool\",\n      \"justification\": \"A highly relevant source for analysing conflict, political violence, demonstrations, protests, riots, and security events. ACLED expanded its coverage across Europe to include events from 2020. Its data export tool allows researchers to filter records by country, event type, actor, and date. Suitable for examining political mobilization and security developments across all 27 requested EU countries during the 2020s.\"\n    },\n    {\n      \"title\": \"ACLED – Aggregated Political Violence and Protest Data\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/download-data-files/aggregated-data\",\n      \"justification\": \"Provides aggregated information on political violence and protest events, including regional and temporal patterns. Relevant to comparative research on political instability, civic mobilization, demonstrations, and security. Complements ACLED's event-level data and can support comparisons between European countries during the 2020s, subject to the geographic breakdowns available.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function (COFOG)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_exp\",\n      \"justification\": \"Provides harmonized annual statistics on public expenditure by government function, including military defence, civil defence, public order, and safety. Covers all 27 requested EU countries and includes observations from the 2020s. Particularly useful for examining national security priorities, defence spending, and government policy differences across European states.\"\n    },\n    {\n      \"title\": \"European Commission – Eurobarometer Data and Surveys\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/\",\n      \"justification\": \"The European Commission's official survey portal provides access to Standard, Special, and Flash Eurobarometer surveys conducted during the 2020s. Relevant topics include political institutions, international relations, European integration, security, defence, democracy, and public attitudes. Especially valuable because surveys designed for EU-wide comparison generally cover all 27 requested countries, although individual survey coverage should be verified.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446107.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 25533,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2737,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 28270
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

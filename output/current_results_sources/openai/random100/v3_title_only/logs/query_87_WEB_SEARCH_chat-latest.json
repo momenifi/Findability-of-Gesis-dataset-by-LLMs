@@ -1,0 +1,196 @@
+{
+  "query_id": 87,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Young People and Adults '85 (Adult)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_04308720ea9b0e96006b046ef4fcb087d2814f575b40d680dd",
+        "created_at": 1795452661.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_04308720ea9b0e96006b046ef5aabc87d2ae6d7374bdee82a1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset \"Young People and Adults '85\" \"Adult\"",
+                "\"Young People and Adults '85 (Adult)\" dataset"
+              ],
+              "query": "dataset \"Young People and Adults '85\" \"Adult\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04308720ea9b0e96006b046ef7a6e487d2a8d8c6cf81175bf0",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Young People and Adults\" \"85\" dataset",
+                "\"Young People and Adults '85\" data archive",
+                "\"Young People and Adults 1985\" adult survey dataset"
+              ],
+              "query": "\"Young People and Adults\" \"85\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_04308720ea9b0e96006b046ef9583087d2a31cf23d1d3ae1a0",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"10.4232/1.1439\" \"Adults\""
+              ],
+              "query": "\"10.4232/1.1439\" \"Adults\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_04308720ea9b0e96006b046efae41087d2a252d3ede5745b65",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Young People and Adults '85 (Adult)\",\"url_or_doi\":\"https://doi.org/10.4232/1.1439\",\"justification\":\"Exact match found in the GESIS Data Archive under the English title 'Young People and Adults 85 Adult' (German: 'Jugendliche und Erwachsene 85 Erwachsene'). This dataset is part of the 1985 Shell Youth Study (Shell Jugendstudie), which examined generational differences in Germany. The survey was conducted between April and May 1984 and covers adults aged 45–54 in West Germany, including West Berlin. The dataset is archived under ZA Study No. 1439, with DOI 10.4232/1.1439. Data and documentation are available for academic research and teaching. The corresponding survey of young people aged 15–24 is archived separately under ZA Study No. 1438.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452668.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 17295,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 257,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 17552
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

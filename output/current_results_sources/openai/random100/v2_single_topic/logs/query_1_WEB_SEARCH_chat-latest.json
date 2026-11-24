@@ -1,0 +1,186 @@
+{
+  "query_id": 1,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_085fe780b23a170a006b045a62c9dc87d293fcad3fa2d57231",
+        "created_at": 1795447394.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_085fe780b23a170a006b045a64520c87d2b072819c4293ed25",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German general election study 1972 1976 1980 dataset ZA",
+                "GESIS Politbarometer 1977 1978 dataset Germany",
+                "GESIS ALLBUS 1980 German general social survey dataset",
+                "GESIS Eurobarometer 1970s West Germany datasets political attitudes"
+              ],
+              "query": "GESIS German general election study 1972 1976 1980 dataset ZA",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_085fe780b23a170a006b045a68423087d29846d94225f302d4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Election Study 1976\"",
+                "site:search.gesis.org/research_data \"Election Study 1972\"",
+                "site:search.gesis.org/research_data \"Politbarometer 1977\"",
+                "site:search.gesis.org/research_data \"Eurobarometer 3\" 1975 Germany"
+              ],
+              "query": "site:search.gesis.org/research_data \"Election Study 1976\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_085fe780b23a170a006b045a6d255887d283275004cec811d7",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Politbarometer 1977–2024 (Partial Cumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14611\",\n      \"justification\": \"Highly relevant longitudinal dataset covering political behaviour and attitudes in West Germany beginning in 1977. Conducted approximately monthly by Forschungsgruppe Wahlen for ZDF, it includes voting intentions, party preferences, evaluations of political leaders, satisfaction with government, and attitudes toward political issues. The dataset allows researchers to isolate observations from 1977–1979 and examine political opinion during the late 1970s.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977 (Cumulated Data Set)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2160\",\n      \"justification\": \"A particularly relevant dataset containing political opinion surveys conducted in West Germany in 1977. It provides information on citizens' political preferences, attitudes toward political parties and politicians, and perceptions of political developments. Useful for studying public opinion during Helmut Schmidt's chancellorship and examining political attitudes in the late 1970s.\"\n    },\n    {\n      \"title\": \"Federal Survey 1978 (Bundesumfrage 1978)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1415\",\n      \"justification\": \"An important dataset examining political behaviour and attitudes in West Germany during 1978. Conducted by the Institute of Political Science at Kiel University, it combines three survey waves collected between March and September 1978. The dataset includes 5,357 observations and 226 variables covering evaluations of political parties and politicians, political preferences, and electoral attitudes. Particularly valuable for investigating changes in political opinion within a single year.\"\n    },\n    {\n      \"title\": \"West German Federal Election Study 1972 (Wahlstudie 1972)\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/57925\",\n      \"justification\": \"A major electoral study conducted around the 1972 West German federal election. It includes pre-election and post-election survey waves from September through December 1972. Relevant for analysing voting behaviour, electoral preferences, political attitudes, and changes in party support during Willy Brandt's chancellorship. The panel structure makes it especially useful for examining how political campaigns and electoral events influenced citizens' attitudes.\"\n    },\n    {\n      \"title\": \"West German Federal Election Study 1976 (Bundestagswahlstudie 1976)\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/57475\",\n      \"justification\": \"A dataset associated with the 1976 West German federal election, providing material for investigating political behaviour and electoral attitudes during the competition between the SPD-FDP coalition and CDU/CSU opposition. Particularly relevant for studying voting decisions, political party support, and electoral dynamics during the mid-1970s. The linked GESIS record provides accompanying study documentation.\"\n    },\n    {\n      \"title\": \"Aggregate Data for the Constituencies of the Federal Republic (1976–1980)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1184\",\n      \"justification\": \"A constituency-level electoral dataset covering the 1976 West German federal election, the 1979 European Parliament election, and the 1980 federal election. It contains 248 geographical units and 38 variables, including voter turnout, invalid votes, party vote shares, and numbers of eligible voters. Particularly useful for analysing regional differences in political behaviour, electoral participation, and changes in party support during the late 1970s. Unlike survey datasets, it measures observed electoral behaviour rather than individual political attitudes.\"\n    },\n    {\n      \"title\": \"Eurobarometer 3: European Men and Women (May 1975)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10855\",\n      \"justification\": \"A cross-national public opinion survey conducted in May 1975, including respondents from West Germany. It examines attitudes toward European integration, European Community membership, European Parliament elections, gender roles, and quality of life. Particularly useful for studying the relationship between political attitudes, European identity, and broader social values in Germany during the mid-1970s. The German sample can be analysed separately or compared with other European countries.\"\n    },\n    {\n      \"title\": \"German State Election Studies 1962–2004 (Landtagswahlstudien)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"A collection of election studies covering German state elections from 1962 onward, including elections conducted throughout the 1970s. The studies provide opportunities to investigate regional political preferences, voting behaviour, party identification, and political attitudes. Particularly valuable for comparing political behaviour across West German federal states and examining differences between state-level and national electoral dynamics.\"\n    },\n    {\n      \"title\": \"Politbarometer Survey Series (Since 1977)\",\n      \"url_or_doi\": \"https://www.gesis.org/wahlen/politbarometer\",\n      \"justification\": \"The official GESIS collection of representative political opinion surveys conducted in Germany since 1977. It provides access to annual cumulative datasets and longitudinal data measuring voting intentions, party preferences, evaluations of politicians, and attitudes toward contemporary political issues. Researchers can use the collection to locate individual surveys from 1977, 1978, and 1979, making it especially useful for detailed investigations of late-1970s political attitudes.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies 1949–2005\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"A historical collection of German electoral surveys maintained by the GESIS Research Data Center Elections. It includes studies covering the 1972 and 1976 federal elections, as well as other historical election periods. The collection is particularly valuable for investigating electoral participation, party preferences, political attitudes, and changes in voting behaviour across the 1970s. It also supports comparisons between different federal election cycles.\"\n    },\n    {\n      \"title\": \"Kiel Election Studies (Kieler Wahlstudien), 1976–1990\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"A historical series of German election studies beginning in 1976 and archived through the GESIS Research Data Center Elections. Particularly relevant for studying political behaviour, attitudes toward parties and political leaders, and electoral preferences in the late 1970s. The series provides a useful complement to the national election studies and Politbarometer surveys, especially for researchers interested in historical voting patterns and political opinion formation.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447412.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18688,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1596,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20284
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

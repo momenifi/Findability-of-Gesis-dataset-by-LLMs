@@ -1,0 +1,62 @@
+{
+  "query_id": 30,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41o\",\n      \"justification\": \"A wide-ranging longitudinal dataset covering private households in Germany, capturing key social indicators, living conditions, income, employment, health, and satisfaction throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS / GGSS 2021)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14629\",\n      \"justification\": \"A survey dataset published by GESIS that tracks public attitudes, demographic trends, living conditions, and broader societal developments in Germany across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Destatis - Income, Living Conditions and Risk of Poverty (EU-SILC Germany)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Living-Conditions-Risk-Poverty/_node.html\",\n      \"justification\": \"Official statistical data portal provided by the Federal Statistical Office of Germany covering key social indicators, housing overburden, income distribution, and risk of poverty in Germany for the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EsEfCr4fARFNMg8kGWI05LCE6UIv1G+iSqLvENn4D7g+eTl9jfv3SgD5Qkge6iQEE54hbCTjMA83Jy1GbTCUjRIJOdS3lZF0WNXkIPgrWBA7xYl8Xhimfu7WNtuFPDjWUzN44pRT5COo3oxvol7ss/WA7aKMx40SyHqLZ/oxR+2hRRCE7HD1BCuqpeChQbSCDZ0fmC4EQpyTmNkgU/CEFIohljKz7GvRub3imTpxOzaGRw1rzOd1qFYZ4Li3bsmp7PS1UlHzCFw7MVgeTeaAwilkU8Gh8fhx1JiGB6CZ82s7nr9VfMwGfl0ljqEBT48nIxJee/BYrHEcV+aG/Kt7Na9L+8CeC4dOhLLPMvFu55VFd+prESdU0q3anHLVpN3s48xG8YP04ho2ART3L7HokYZpiIdGx6cUKALMzFtQi7VQbRbW3UfhC0qsCPNeHVrkxG3T/If7aV5q4N7CASd4bTj9eI2e4RrSSmIrI60kEfXxt6+95mp789ybmh5db60Df9Ok9S2u0O7KMdAICSRMcbXTTpzw5Wze510ux0IESrY2VoUHEX5/AgWDR2+LqIDf+BLB+Uf+kEjIy4K031N4fbJjMgHOY8wwixENmQVGMDcQ1f7Bn/yCJ789hZgjmCXSy63uBcAN6r4Ea364cU3z89NWImAR4WKJK4GCdE7Ysek5sqpY94B0B4CJ7FenZ1uw74F4RgEyBMwlF/jA8Ac5HBzkL4tQeQRuRlrrKQme9oazInDucNJWejXxK8VjbG66k2fxVMlAXyPgQZOmZOpmqLDAc0ACpPjmh3kf7xPAR2au5tDzs3413pD9W6kpIkfKn3OJBXdl3T48PqWxnSIie3yKUJJcF2XJkMgkcoZBqLfRlxMIdnKJsSyO+B9WgUMKtvum5O+qigfhiy6+yGZLixNodOLuDrhm4ZqcY4H6SFXMKOGOGVB3dE6k/fku/vvtCgL+SCu++4+HPD76Ln4AriwZ2jywFsuNlP/s0ikgzOGtEMSlQwfh2rTlLlFz3LHtXeJv2+AOeImCgmQeS5xiiZ8PYAspRZbfNc6fOlFgoMSmyJqP0dl7ayi3fs1NYmR8r5KNOa1cwToKwH4yANJ6DlcEndptHC7KCDMqYNS864mRoCaSlZUS+Plg7JC9cO5PxUrkD8dFxWlimKT/Wf8Mhs+URcX8eczeNEOga1rza2loFi9v5J58xMOAmeDxF/tytUsLh76QbRTdtmSHzMcWo1NBJLyEAhzB1HxFU2Vf1XnP9VGjNBXUFv0ywLE+yDn3yG3mKgitJMguHqfoRxLz9YhryO7Y1ijbOKA8XJhvytNtsfgO/hO8qYFrIg1F07MoGYOQ2K3kmOi5lLMxEP8nIArty1FHhv7pxVmGVKO31UaD6b0vdVvvKtHsyiS5ChGQUVDRB2utl5xe7WBMtn1G4pVq2GocYRNShJ+N8DBw7GaP9ggk/9snoveyUie4dLmXf0hmccG3NdJlgagHs26GymNEtiheMpY2M/oPiQS3qwAcj7MNX5IwOUow8+oApupb1BpYSe4KhA01/Kl8/diyCDZF0Qu5kbxFSq4RE67SmeR+5CwY2JgRqtmdeiRevzDdgJXW8qPcHGY1b7fKoeclaUKYKEH4rzfiDtOQ2UBK7T56l9w+hKOAHUc9ib8wr3OKxTkyTUxprTzXy8fmsdLi5huToVHXV+2SuVT3Hj3xL6CyYXS/zwzt1YLXF/Emm1bB8qc6LrgeE7V4bylIeKQsPCucqIFmCLOnBXde6sm/SLxVHzd9urjUnz5wRUx3IRPOX1rKApavs8zAM7wpgmhYkMX9WsIBcfLFZIY3HCE9bQjHKhbd7xsofm7Jlh71WGgSRq9Q7Tz4HMRKtJDdV+X7yl7dCkrpU80GTOCSAIKULRqc96sASP1Q35gr1GWIA04cDKswSBECYAEWWx3G+WPVHONElnP1TqsZLCt1qRh9Xc7TibFH+CPK3GtT/RU/0B+pAzn1iRargl/M/MhV5+/aDpIfhmfxXlEIPEoEhMvL+6GXquldZxWPFWwVXoB8O+Xz4HTgiW73xAa475HOl6xWy56qFHM/3yu/WQXmeEbYk+D4/PstnicO6+/MGXKiixN025/ehhJE18QWeZF2ohz/XM67E88ZUVTts+2iP9qIlWRaDC/ayE+ie+PaMtYAiRWwLCDXiZEmIL6t6vChNh2tYDKAvOZYnzzjX4l+jo6JUyIsaUD7Rrgay6ixp1GvsF1yWL/kEx6p2qa1/ABWNAIww05Zl0eJLBnONVjMBDfIAkuorzlTxatTmQfNTDzta3hEYe8txRClNnwrZvi2BCGnrVD/fuLx6xd1+n6PMXcLwMbgrjWbfQyD9tiu6kpzg1pq2G65fBYWhK1fIGBtwy5cbmpXufCZyj340YHh385pH/VSVJOVp+t7ZAVRpY3pqcsYy3ZnWzuOt3EJtcAsd+BLvAYZUI5hZMSTUV91tXOajl/wQRizBFtyLfrGliCj45QOc42N5CoxMZnpadY3a+HP/1w3xY3hOheXeh77xoZZ7TiEbNjdO0gC/mkSfZv4xffD8wxQKDfs0l7jVa4bxe89f3iD4vD92mIMXWKd7CFMZHllMjezj3MKtghj/05l/l/1qdorYfOikiRIn0l2IxmT2ybRKw3abmg6jnaKIq4s6LKrms8+ah53gQ0KPIpEkxVfiw9fXZylBE1KnCpe64O5fKUrW05/uBtc8nKxmoZQ36etH9gNXuc6lKCsnuDKV6LQSRDtpY/BQvxnaKVHkWZ7By8pJww2r6HeAtqVMD/ELytZaMR61CBCLqw7Cc/4aHh2aaOXj0v0UZH+YUciPqhkzGGgQf2Vop2Yi0G6TAKjUDL1jD8eosDwcaWdpLBLEmv08FqlVZ9AjIRn5ovjpchfy0a0FIfoWyw1zcdUCKmIjugrImTV+biR66a6NMbh51xw9rsIgoLxKKB2C5raNV1vEU20jlqRFpAH0eiiHrbJcJ320WOoikDdDN9oyWYvQwh0Jz6MlQale4D2X8E/QZKxvKEnEUyESHVa2pLYNj/EF0E7YdIW0RKxaoKA3+291DOKBIWV8jaq2kwWpq+spRPKo+MxkKTU0FmgyDNLFGdB8xk2biE9AxR8XoCBGstpdkHeC4pYK0kw3cgGJNktYU+Iw+0lslfxrvaEP8igdHYNatZJ3NvzdnVAS7XoF0Al68OzrYbVtP57KF+HNVSbe3ryRN2xqR11Ip3PTg3KCivfIbbutaXaxj/lSiTQmze6eZSdIncYHdvkNWxZmkMknDw2h9cvnVx366PP2DI62kWj6Mrf1ASt9+IE7735gch7XwSYxT7Ul1pP2O8HyOlL41rTA4uHhqIkXlQ2A8bKBYjhfSeM2H9cy9PZe6RLiQzT2I/aPPQmZ4Yaf00pw2Y+trRZhW8zO96Y6b145e0WDAbF2yAsupfI2allrSjy/pF0Nmb8EMEvaCf7q8dWYG1uM8ZkMSayHSJbu/pmkOcqgyg7LFW1SNkYvr1zXfrxBekXnJH90iuuketAcnblO58uUkMvlhAIEphdjYKZ/g+14heUVh61215HUrjSsbf+c/LB60MyX27EbmL7irlMZw2w+Gzw8T1QmFughSlkIuiXY6zBn681qyN6GkJG6FbDAuUFEju1Eut0yaq6ZTU+PWATnyW40PsRn+2xuBfhuazYID9hTUIwqtwvTkPwCnl0WaNRMIb5APMY/I17SjjBFKwq/kSIFaq+tEq5P8Ga9Nsu4nGLEpRPmsT9qKlt4q9ehRhBefJK/78jBWCp/Wla8qGx4/LhJwit1kArxMm6VMQVC1qszYxmQia2NRfUnQSuqITRgjnV1sl9jkr2sEQg7n2IS3Hw4Licr2jYFtMjqLFH1ONRSQfiusrpESDmakXXbS8GQ6qQ91GaBvbtvQ4r2UmkGEgXr5zGfg3M6HhfM7cVmjS59XJV3WQ1krdHSOUQn5H78bDHKuZE5xfDlwOs7OttVlufxYKuAuKlu0DFVgkLINELiWQSpgfUwmBzsaiu60kWkep8kAzyZDiciCUESFWXZz3vgAgVbNCUXrKkCiCQZeVkLPOzTUMh2jR7WIg3PI5Zpu1mW8118zEMQHVjwBhxVIp/5DsvPk5Xd/RM9wPHSBXmDwKMdSUySpLRmb4j1QxNkgX+di7PfYb3/fa4MBQ4Gh6nVqMEvW4UU4MghzFWfialRYRiSCpErIaNv7xIE4Ef78r0eB7ZyVVs2YXT8DVoPDqitO+t1WVRgoVAnm5sYrdBu7xPPBX+2ilFJPdxClmLplip+HD28ej9KhxGyi7r/n3c5rVqg6BTuWjevvxwvy7xSpbD/3bqM0Mhr8GwUmCHLBxbwEejNtpqirWJStaYtfW2MfyaQqIHDF6Cw012nvvVLJtwgMeAYyB1cX0c6FfyP2M8uZ3uhcUeqAwUKUPebAzkGGM67GV77jrMMRKn3E0hvZVFqfiS/lAIbGmDVD5DTi9RnhOjjcogVVlLaAPO/CeXAyf6iuGASSEjbcGl74H99OYfFVUgAWbvVa1iWp5GW2h8bxeaKmkdkhCAFTyUQvgqWcuq0ZfOlR2UO4QklhJsMT2rMBYgOsMN7yajEgoHFOvcFtZFpBLSiTM262NGEd9Ge4yJhTzHGerSZRa8q8KMTeryo8isfIg5Xmf+2+lrEOLAR7OkWv52cIowhXL/y8KDMJOBU1V8cixbnXow9qThUSiNFC7MSDTYKWzlX9ZAMZhWtyWcGAD+Bcwc3hDqUjf+0Fqs2LtdMujsM0ht3WxKtH5SWw26BYkYAVJ9MfrqYf1EttovTEA0SykeuUtzhQJLiWOa8mMAjUMgLGAbZRCSVwl7O6npFVvD3SAdXPNhYTk8yrcQPDwCrffizD0npjroB0YS13vb3WxWyn9flGzaY/tiCCgvufGos5+L1w1+Gby7Lmf4mbkmrHneRvrGmsQAdHxN7CQ7vmyAzoQd2aZl69U/JByVCcrwoUJDLIYNLz/xtJlVNESQwCMArLzUSdUzqTIOJbIsiRwWlji42IcQUMpN6GBjNJTD8NBb773ui+UalvVCAUk8BtgQNlXEgolCwBgDQ9Fjw0R2j0hsD8AXi4uTzO4flpqKhch11jHsbAHLZAbRYhf6uJFFEWUMd1+r/aheeifK+ynYAEfP2a22mLePxkDhXL0P1KIQstKQ8sDO1hiWLKo/KyyrKdRtkZ6yq4bfgFoUTqzjqwygYbDZ33wn4FTSy0rcaTINx6AvizrSZEUnIzjDTlelbJL/IQRgsWmDEz5FyG/Pih1kjXR6y8RXnvOvFpT12Ip5wqOxgeJIVwJ4S2ejgc5AKgSbIz3xDrj8RHcRrW5hO59BsJ9IXRQlo9ZL6Df7s2qpD13DrWA7NgFJnA=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 373,
+          "candidatesTokenCount": 362,
+          "totalTokenCount": 2217,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 373
+            }
+          ],
+          "thoughtsTokenCount": 1482,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "r7enarHXO9mZ28oP8crEiAI"
+      }
+    }
+  ]
+}

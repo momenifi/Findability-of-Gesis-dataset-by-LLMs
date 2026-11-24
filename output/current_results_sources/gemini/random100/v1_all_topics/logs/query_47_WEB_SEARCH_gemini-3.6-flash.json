@@ -1,0 +1,69 @@
+{
+  "query_id": 47,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Vocational education and training, Higher and further education, Social conditions and indicators, and Family life and marriage in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Mikrozensus 1980, Scientific Use File (SUF)\",\n      \"url_or_doi\": \"https://doi.org/10.21242/12211.1980.00.00.3.1.0\",\n      \"justification\": \"The 1980 Microcensus dataset, managed by the Research Data Center (FDZ) of the Statistical Offices (including IT.NRW for North Rhine-Westphalia), covers employment, vocational education and training, higher education, household structures, family life, and social indicators in 1980s West Germany.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core) Data 1984–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40eu\",\n      \"justification\": \"Started in 1984, the Socio-Economic Panel (SOEP) is a representative longitudinal survey covering West Germany including North Rhine-Westphalia. It tracks employment, vocational training, higher education, family life, marriage, and general social conditions across the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 1984\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1340\",\n      \"justification\": \"Conducted in 1984 in West Germany (including North Rhine-Westphalia), this ALLBUS survey covers themes of social inequality, employment, educational attainment, family structures, and general social indicators during the 1980s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - Cumulation 1980–2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14333\",\n      \"justification\": \"This cumulative dataset pools ALLBUS cross-sectional surveys starting from 1980, offering detailed regional and time-series data for West German states (including North Rhine-Westphalia) on employment, education, family/marriage, and social indicators.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 722,
+          "candidatesTokenCount": 545,
+          "totalTokenCount": 3230,
+          "cachedContentTokenCount": 232,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 722
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 232
+            }
+          ],
+          "thoughtsTokenCount": 1963,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "5_yDarK2JfuInsEP5OC88As"
+      }
+    }
+  ]
+}

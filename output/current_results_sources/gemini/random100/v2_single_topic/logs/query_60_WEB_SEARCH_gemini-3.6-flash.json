@@ -1,0 +1,62 @@
+{
+  "query_id": 60,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in Lagos during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Nigeria - National Consumer Survey 1980\",\n      \"url_or_doi\": \"https://microdata.worldbank.org/index.php/catalog/1529\",\n      \"justification\": \"Conducted by Nigeria's National Bureau of Statistics (formerly the Federal Office of Statistics), this household survey provides microdata on household composition, income, consumption patterns, and living conditions across urban and rural sectors, including Lagos State in 1980.\"\n    },\n    {\n      \"title\": \"Atlas of Urban Expansion - Lagos Dataset\",\n      \"url_or_doi\": \"http://www.atlasofurbanexpansion.org/cities/view/Lagos\",\n      \"justification\": \"Provides spatial, demographic, and density datasets documenting urban growth, land cover changes, and suburban vs. rural built-up area transitions in Lagos starting from 1984.\"\n    },\n    {\n      \"title\": \"USGS EarthExplorer - Historical Landsat Imagery for Lagos (1980s)\",\n      \"url_or_doi\": \"https://earthexplorer.usgs.gov/\",\n      \"justification\": \"Hosts Landsat satellite imagery datasets covering Lagos during the 1980s, enabling researchers to map historical urban sprawl, land use changes, and peri-urban rural transformations.\"\n    },\n    {\n      \"title\": \"IPUMS DHS - Nigeria Demographic and Health Surveys\",\n      \"url_or_doi\": \"https://dhs.ipums.org/\",\n      \"justification\": \"Provides harmonized survey data covering household demographics, urban/rural residence, fertility, and community health indicators in Nigeria, including regional coverage for Lagos.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 690,
+          "candidatesTokenCount": 395,
+          "totalTokenCount": 2399,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 690
+            }
+          ],
+          "thoughtsTokenCount": 1314,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "JVmFaoTgDbK6xN8PnqX18A4"
+      }
+    }
+  ]
+}

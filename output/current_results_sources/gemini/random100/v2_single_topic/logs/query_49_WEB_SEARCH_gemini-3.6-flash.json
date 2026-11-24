@@ -1,0 +1,69 @@
+{
+  "query_id": 49,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The German Family Panel (pairfam)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.14.2.0\",\n      \"justification\": \"A nationwide longitudinal study in Germany running from 2008 to 2022, providing extensive annual panel data on intimate relationships, marriage, family formation, parenting, and intergenerational family dynamics across the 2010s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS 2016)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12796\",\n      \"justification\": \"A nationally representative survey conducted in 2016 that includes specific topical modules on family life, attitudes toward marriage, gender roles, and the division of domestic labor in Germany.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v36eu\",\n      \"justification\": \"A representative annual longitudinal study of private households in Germany covering the 2010s, tracking marital status changes, household composition, partnership histories, and time spent on family and care work.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1204,
+          "candidatesTokenCount": 336,
+          "totalTokenCount": 3093,
+          "cachedContentTokenCount": 510,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1204
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 510
+            }
+          ],
+          "thoughtsTokenCount": 1553,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ly6EatriEPmNvdIPkqmC0Q4"
+      }
+    }
+  ]
+}

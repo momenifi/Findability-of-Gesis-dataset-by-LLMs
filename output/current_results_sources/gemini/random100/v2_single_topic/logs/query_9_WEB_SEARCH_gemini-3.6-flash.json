@@ -1,0 +1,69 @@
+{
+  "query_id": 9,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth in Berlin during the 1950s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Youth and Authority (1950-1951) / Deutsche Jugend und Autorität\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0254\",\n      \"justification\": \"A historical survey dataset conducted between August 1950 and January 1951 by Knut Pipping, Rudolf Abshagen, and Anne-Eva Brauneck (UNESCO Social Research in Germany), measuring young people's attitudes toward authority, career choices, school, and family in post-war Germany.\"\n    },\n    {\n      \"title\": \"Federal Study 1953 / Bundesstudie 1953\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11992\",\n      \"justification\": \"A 1953 representative sample dataset by Erich Reigrotzki archived at GESIS, containing individual-level demographic, occupational, and socio-political data across age cohorts, including post-war youth and displaced populations in West Berlin and West Germany.\"\n    },\n    {\n      \"title\": \"Perception of Old Age and Provision for Old Age among Workers and Employees (1955) / Altersbild und Altersvorsorge der Arbeiter und Angestellten 1955\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0146\",\n      \"justification\": \"A 1955 survey dataset preserved in the GESIS Data Archive that captures intergenerational views between youth and older generations, employment situations, and family structures in 1950s Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 820,
+          "candidatesTokenCount": 403,
+          "totalTokenCount": 2826,
+          "cachedContentTokenCount": 491,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 820
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 491
+            }
+          ],
+          "thoughtsTokenCount": 1603,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "wSSEaqPdCv2WvdIP27aWCA"
+      }
+    }
+  ]
+}

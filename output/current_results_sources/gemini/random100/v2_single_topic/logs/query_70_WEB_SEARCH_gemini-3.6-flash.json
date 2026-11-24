@@ -1,0 +1,69 @@
+{
+  "query_id": 70,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about SOCIAL STRATIFICATION AND GROUPINGS in Illinois during the 1940s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Census Tract Data, 1940: Elizabeth Mullen Bogue File\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR02930.v1\",\n      \"justification\": \"Provides tract-level demographic, economic, racial, and housing data from the 1940 U.S. Census for major U.S. urban areas, including Chicago, Illinois, enabling detailed spatial analysis of social stratification and neighborhood groupings.\"\n    },\n    {\n      \"title\": \"Census of Population, 1940 [United States]: Public Use Microdata Sample\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR08236.v1\",\n      \"justification\": \"Contains individual- and household-level microdata from the 1940 U.S. Census, covering Illinois residents with detailed variables on occupation, income, education, race, nativity, and family composition to study social class and groupings.\"\n    },\n    {\n      \"title\": \"Demographic Characteristics of the Population of the United States, 1930-1950: County-Level\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR00020.v1\",\n      \"justification\": \"Offers county-level aggregate demographic data for Illinois covering the 1940s, including population breakdowns by race, age, gender, and migration flows useful for examining regional social stratification.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 496,
+          "candidatesTokenCount": 374,
+          "totalTokenCount": 2072,
+          "cachedContentTokenCount": 177,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 496
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 177
+            }
+          ],
+          "thoughtsTokenCount": 1202,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "KzOEaovFOOLjnsEPo8uXoAw"
+      }
+    }
+  ]
+}

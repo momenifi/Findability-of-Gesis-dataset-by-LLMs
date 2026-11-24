@@ -7,7 +7,7 @@ import yaml
 
 from .config_paths import apply_variant_override, resolve_output_dir
 from .load_metadata import load_metadata
-from .match_and_eval import _extract_doi, _normalize_doi, _normalize_dois, _normalize_url
+from .match_and_eval import _extract_doi, _normalize_doi, _normalize_dois, _normalize_url, _sdn_doi_from_id
 
 OUTPUT_CSV_SEP = ";"
 RE_URL = re.compile(r"https?://[^\s\"'<>]+", re.IGNORECASE)
@@ -57,7 +57,7 @@ def build_known_link_index(metadata: pd.DataFrame) -> tuple[set[str], set[str]]:
     for _, row in metadata.iterrows():
         dataset_id = str(row.get("id", "") or "").strip()
         if dataset_id.startswith("SDN-"):
-            doi = _normalize_doi(dataset_id.replace("SDN-", "", 1))
+            doi = _sdn_doi_from_id(dataset_id)
             if doi:
                 known_dois.add(doi)
 
@@ -183,7 +183,7 @@ def audit_links(config_path: str, variant: str | None = None) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Audit returned DOI/URL validity against metadata.")
-    parser.add_argument("--config", default="config.yaml")
+    parser.add_argument("--config", required=True)
     parser.add_argument("-V", "--variant", default=None)
     args = parser.parse_args()
     audit_links(args.config, args.variant)

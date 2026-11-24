@@ -1,0 +1,186 @@
+{
+  "query_id": 167,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0743dad46048fca8006b0464f804f087d298e99e32a48009b6",
+        "created_at": 1795450104.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0743dad46048fca8006b0464f8fcc887d29a5c8976b1f2050b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 1960s tourism statistics historical dataset overnight stays 1960",
+                "Germany 1960 sport participation historical statistics dataset",
+                "GESIS historical time series leisure tourism sports Germany 1960 data",
+                "Statistisches Bundesamt historische statistik fremdenverkehr 1960 1970 daten"
+              ],
+              "query": "Germany 1960s tourism statistics historical dataset overnight stays 1960",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0743dad46048fca8006b0464fbc62487d2a85ee7f8c22200ae",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org \"Leisure Time 1969\"",
+                "site:search.gesis.org \"Freizeit 1969\" sport",
+                "site:deutschland-in-daten.de sport vereine mitglieder 1960 daten",
+                "site:histat.gesis.org sport tourism 1960 deutschland daten"
+              ],
+              "query": "site:search.gesis.org \"Leisure Time 1969\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0743dad46048fca8006b0464fe347c87d2a6b9126a89180051",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Deutschland in Daten – Historical Statistics Dataset (1834–2018)\",\n      \"url_or_doi\": \"https://www.deutschland-in-daten.de/datensatz/\",\n      \"justification\": \"A comprehensive historical dataset containing annual statistical time series on Germany, including leisure, tourism, culture, and sport during the 1960s. It provides separate data for West Germany (Federal Republic of Germany) and East Germany (German Democratic Republic). Particularly useful for examining long-term changes in tourism, sports participation, cultural consumption, and recreational activities. The dataset is available for download.\"\n    },\n    {\n      \"title\": \"Deutschland in Daten – Culture, Tourism and Sport\",\n      \"url_or_doi\": \"https://www.deutschland-in-daten.de/kultur-tourismus-und-sport/\",\n      \"justification\": \"A specialized collection of historical statistics on leisure, tourism, and sport in Germany. Includes data on sports clubs, membership numbers, tourism, cinemas, theaters, and other cultural activities. Contains observations from the 1960s, including sports club membership figures for 1963 in both East and West Germany. Particularly valuable for comparing recreational activities and sports development across the two German states.\"\n    },\n    {\n      \"title\": \"Deutschland in Daten – Historical Statistics Documentation (1834–2018)\",\n      \"url_or_doi\": \"https://doi.org/10.12759/hsr.trans.32.v01.2023\",\n      \"justification\": \"A scholarly historical statistics resource providing detailed documentation, statistical tables, and graphical representations of German historical time series. Covers tourism, leisure, culture, and sports indicators during the 1960s. Includes original sources, methodological explanations, and information about geographical coverage. Useful for researchers requiring traceable historical data and reliable citations.\"\n    },\n    {\n      \"title\": \"Deutschland in Daten – Historical Sports Clubs and Membership Statistics\",\n      \"url_or_doi\": \"https://www.deutschland-in-daten.de/kultur-tourismus-und-sport/\",\n      \"justification\": \"Contains historical statistics on the number of sports clubs and registered members in Germany, including observations for 1963. Provides information about football, athletics, and gymnastics organizations, with membership figures differentiated by sex. Includes separate figures for East and West Germany, enabling comparisons of organized sports participation during the 1960s. Particularly relevant for studying the expansion of mass sports and recreational associations.\"\n    },\n    {\n      \"title\": \"Deutschland in Daten – Culture and Tourism Historical Time Series\",\n      \"url_or_doi\": \"https://www.deutschland-in-daten.de/en/culture-and-tourism/\",\n      \"justification\": \"An English-language resource presenting historical statistical series on cultural activities, leisure, and tourism in Germany. Includes indicators covering the 1960s, such as cinema attendance, cultural institutions, tourism development, and recreational activities. Discusses differences between East and West Germany and provides historical context for the expansion of mass tourism and leisure consumption.\"\n    },\n    {\n      \"title\": \"GESIS – Reiseanalyse: Historical German Travel Survey Data\",\n      \"url_or_doi\": \"https://reiseanalyse.de/en/download-area/gesis/\",\n      \"justification\": \"Provides access information for historical German travel survey datasets preserved in the GESIS Data Archive. The surveys examine holiday behavior, travel destinations, trip duration, accommodation preferences, and other aspects of tourism. A valuable source for historical tourism research, although the availability of individual datasets from the 1960s must be checked in the archive. Some datasets may require registration or research access.\"\n    },\n    {\n      \"title\": \"Federal Statistical Office – Tourism Statistics, 1960\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/\",\n      \"justification\": \"The German Federal Statistical Office's digital statistical library preserves historical issues of Wirtschaft und Statistik, including publications from 1960. These contain numerical tables on tourist arrivals, overnight stays, domestic and international visitors, and accommodation. Particularly useful for reconstructing tourism patterns in West Germany at the beginning of the 1960s. Historical tables may require extraction from digitized publications.\"\n    },\n    {\n      \"title\": \"Federal Statistical Office – Holiday and Recreational Travel Survey, 1969\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/\",\n      \"justification\": \"Historical tourism statistics published in Wirtschaft und Statistik in November 1970 include results from a household survey covering holiday and recreational trips undertaken between October 1968 and September 1969. The survey recorded travel destinations, accommodation types, transportation methods, and expenditures. The publication also identifies comparable earlier surveys conducted in 1962 and 1966, making it especially relevant for studying changes in West German holiday behavior during the 1960s.\"\n    },\n    {\n      \"title\": \"Federal Statistical Office – Historical Tourism Accommodation Statistics, 1967–1969\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/\",\n      \"justification\": \"Historical issues of Wirtschaft und Statistik contain tourism accommodation tables covering the late 1960s. Available indicators include overnight stays in hotels, guesthouses, recreational homes, private accommodation, and health establishments. Statistics also distinguish visitors by country of origin. Useful for analyzing seasonal tourism, accommodation infrastructure, and international tourism in West Germany during 1967–1969.\"\n    },\n    {\n      \"title\": \"GESIS – Social Science Data Archive: Leisure and Tourism\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"GESIS provides access to archived German social science surveys covering leisure activities, cultural participation, tourism, and recreational behavior. The archive is a useful discovery platform for historical studies of everyday life and leisure in East and West Germany. Researchers can search for surveys conducted during the 1960s and investigate available questionnaires, documentation, and microdata. Not every collection covers the requested decade.\"\n    },\n    {\n      \"title\": \"German Democratic Republic – Statistical Yearbook 1964\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1964/seite-469-784423.html\",\n      \"justification\": \"A digitized page from the official 1964 Statistical Yearbook of the German Democratic Republic. The yearbook is a historical source for quantitative information about East German society and economic activity, with potentially relevant sections covering tourism, cultural institutions, recreation, and organized sport. It can complement West German statistical records when examining leisure and tourism in divided Germany. The linked page is part of the yearbook rather than a standalone downloadable dataset.\"\n    },\n    {\n      \"title\": \"Deutschland in Daten – Historical Statistics on Cinema, Theater and Cultural Leisure\",\n      \"url_or_doi\": \"https://www.deutschland-in-daten.de/datensatz/\",\n      \"justification\": \"The historical statistics dataset includes annual time series related to cinemas, theaters, books, libraries, and cultural participation. These indicators provide quantitative evidence about leisure opportunities and entertainment consumption in Germany during the 1960s. The distinction between East and West Germany makes the data useful for studying differences in cultural provision and recreational infrastructure during the Cold War.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450118.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18186,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1638,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 19824
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

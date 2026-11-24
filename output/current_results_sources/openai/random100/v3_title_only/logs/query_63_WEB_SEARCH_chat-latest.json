@@ -1,0 +1,183 @@
+{
+  "query_id": 63,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Young People in Organized Leisure Time?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0c96380d166e67d6006b046e638fe887d28ece7663be16ad98",
+        "created_at": 1795452515.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0c96380d166e67d6006b046e6440a487d2be7b3177b41595fe",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset \"Young People in Organized Leisure Time\"",
+                "\"Young People in Organised Leisure Time\" dataset"
+              ],
+              "query": "dataset \"Young People in Organized Leisure Time\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0c96380d166e67d6006b046e663c0c87d2b0d98b55c6ccd382",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Young People in Organized Leisure Time\" data",
+                "\"Young people in organised leisure time\" archive",
+                "\"Young People in Organized Leisure Time\" survey dataset"
+              ],
+              "query": "\"Young People in Organized Leisure Time\" data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0c96380d166e67d6006b046e68e8e087d2bf7ad70859f0957e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Young People in Organized Leisure Time\",\"url_or_doi\":\"\",\"justification\":\"An exact-match dataset with this title could not be verified in the searched sources. The following records are closely related alternatives, but neither is confirmed to be the requested dataset.\"},{\"title\":\"I Have to Do It, but I Like It: The Sense of Enjoyment and Obligation in Adolescents’ Organized Leisure-Time Activities\",\"url_or_doi\":\"https://doi.org/10.1080/01490400.2022.2155272\",\"justification\":\"Closely related research examining young people's participation in organized leisure-time activities. The study uses survey data from 664 Czech adolescents aged 10–15, covering sports, arts, youth organizations, leisure clubs, and religious activities. The underlying dataset is available upon reasonable request from the corresponding author.\"},{\"title\":\"After the Bell: Adolescents’ Organised Leisure-Time Activities and Well-Being in the Context of Social and Socioeconomic Inequalities\",\"url_or_doi\":\"https://doi.org/10.1136/jech-2020-215319\",\"justification\":\"Relevant research using data from the 2017/2018 Health Behaviour in School-aged Children (HBSC) survey. It examines participation in organized leisure-time activities among 55,429 adolescents across nine countries, including differences associated with gender, socioeconomic circumstances, and well-being. This is a related research publication rather than a verified match for the requested dataset.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452522.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 14915,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 308,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 15223
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -18,7 +18,7 @@ from src.audit_results import classify_log, safe_model_name
 from src.prompts import build_messages, format_messages
 from src.run_pipeline import ROOT, fingerprint, read_yaml, resolve_config
 
-DEFAULT_SOURCE = "output/random100_openai_gemini_comparison/openai/v3_title_only"
+DEFAULT_SOURCE = "output/archive/openai_optional_search_random100/openai/v3_title_only"
 DEFAULT_IDS = "18,22,53,69,72,94"
 
 

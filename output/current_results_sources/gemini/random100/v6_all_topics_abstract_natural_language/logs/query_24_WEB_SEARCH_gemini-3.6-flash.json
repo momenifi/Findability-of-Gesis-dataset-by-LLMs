@@ -1,0 +1,69 @@
+{
+  "query_id": 24,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life, Political behaviour and attitudes, Government, political systems and organisations, and Elections in German Democratic Republic (1949-1990) during the 1990s, matching this research need: survey data on GDR and FRG political attitudes, evaluations of politicians and parties, voting influences in municipal elections, views on government representation, and work mobility, retraining, unemployment, housing, and citizen participation\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Political Attitudes in East and West, March 1990 (Comparative Survey FRG - GDR)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1902\",\n      \"justification\": \"This GESIS comparative survey conducted in March 1990 measures political attitudes, evaluations of politicians and parties, and expected socio-economic changes across both the GDR and FRG during the transition period.\"\n    },\n    {\n      \"title\": \"Mecklenburg-West Pomerania and Saxony in Advance of the State Parliament Elections 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11396\",\n      \"justification\": \"Focuses on former East German territories (GDR) in 1990, capturing survey data on local political attitudes, party preferences, municipal election influences, and evaluations of candidate competence.\"\n    },\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://www.german-elections.com/\",\n      \"justification\": \"Provides harmonized municipality-level panel data on municipal, state, and federal elections across former GDR and FRG regions starting in the 1990s, measuring voter turnout, political representation, and party performance.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: National Identity I - ISSP 1995\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2880\",\n      \"justification\": \"Includes survey data from Germany in the mid-1990s covering work and geographic mobility, housing and living conditions, local community attachment, and citizen attitudes toward government representation.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1757,
+          "candidatesTokenCount": 432,
+          "totalTokenCount": 4918,
+          "cachedContentTokenCount": 948,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1757
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 948
+            }
+          ],
+          "thoughtsTokenCount": 2729,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jn2EapffDPvwnsEPwb3ckAk"
+      }
+    }
+  ]
+}

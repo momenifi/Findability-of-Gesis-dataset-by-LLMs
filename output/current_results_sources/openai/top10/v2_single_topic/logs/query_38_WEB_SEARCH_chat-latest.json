@@ -1,0 +1,187 @@
+{
+  "query_id": 38,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about SCIENCE AND TECHNOLOGY in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03226a3be2128275006b04792ea0bc87d2a5260d002030dfa5",
+        "created_at": 1795455278.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03226a3be2128275006b04792f98d887d29ef9786b34abfe70",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurostat research development expenditure Germany dataset GERD 2010 2024",
+                "Destatis Germany research and development personnel expenditure dataset",
+                "OECD main science technology indicators database Germany patents researchers dataset",
+                "European innovation scoreboard data download Germany 2010 2025"
+              ],
+              "query": "Eurostat research development expenditure Germany dataset GERD 2010 2024",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03226a3be2128275006b04793294ac87d29eb510b0bbe2d9d2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/ rd_p_persocc research development personnel",
+                "site:ec.europa.eu/eurostat/databrowser/view/ isoc_ci_in_h internet access households",
+                "site:ec.europa.eu/eurostat/databrowser/view/ pat_ep_tot patent applications",
+                "site:wipo.int ip statistics data center patents Germany dataset",
+                "site:ec.europa.eu/eurostat/databrowser/view/ inn_cis innovation enterprises"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/ rd_p_persocc research development personnel",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03226a3be2128275006b04793646e087d2ab64c0b1ae7af14e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"OECD Main Science and Technology Indicators (MSTI)\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/main-science-and-technology-indicators.html\",\n      \"justification\": \"One of the most comprehensive datasets for studying science and technology in Germany during the 2010s and 2020s. Contains approximately 148 indicators covering research and development (R&D) expenditure, research personnel, government R&D budgets, patents, and international trade in R&D-intensive industries. Provides longitudinal data suitable for analyzing Germany's scientific and technological development and comparing its performance with other OECD countries.\"\n    },\n    {\n      \"title\": \"Eurostat: Gross Domestic Expenditure on R&D by Sector of Performance and Source of Funds\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/rd_e_gerdfund/default/table\",\n      \"justification\": \"Official European statistical dataset covering R&D expenditure in Germany from 1980 to 2024. Includes annual spending by businesses, government institutions, higher education institutions, and other sectors, classified by funding source. Particularly useful for investigating changes in German research investment between 2010 and 2024, including public-private funding patterns and R&D expenditure as a percentage of GDP.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis): Research and Development Expenditure by Sector\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Education-Research-Culture/Research-Development/Tables/research-development-sectors.html\",\n      \"justification\": \"Official German government statistics detailing annual research and development expenditure across government institutions, universities, and private enterprises. The published table covers 2014–2024 and reports spending in millions of euros. Particularly relevant for examining Germany's domestic R&D investment trends, including changes during the COVID-19 pandemic and subsequent recovery.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Research, Technology and Space: Expenditure on Science, Research and Development\",\n      \"url_or_doi\": \"https://www.datenportal.bmftr.bund.de/portal/en/K10.html\",\n      \"justification\": \"Official German federal research statistics portal providing datasets on science and technology financing. Includes research expenditure across institutional sectors and regional distributions among Germany's federal states (Länder). Useful for examining changes in science funding during the 2010s and 2020s, identifying regional differences in research investment, and evaluating Germany's national research priorities.\"\n    },\n    {\n      \"title\": \"OECD Science, Technology and Innovation Scoreboard\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/science-technology-and-innovation-scoreboard.html\",\n      \"justification\": \"Comprehensive international database containing more than 1,000 indicators related to scientific research, technological innovation, patents, education, business innovation, and economic performance. Includes Germany and allows cross-country comparisons and analysis of historical trends. Especially valuable for studying Germany's technological competitiveness, innovation ecosystem, and scientific capabilities throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"European Innovation Scoreboard 2026: EU Countries and Neighbouring Countries Database\",\n      \"url_or_doi\": \"https://research-and-innovation.ec.europa.eu/knowledge-publications-tools-and-data/publications/all-publications/european-innovation-scoreboard-2026_en\",\n      \"justification\": \"European Commission dataset assessing innovation performance across EU member states, including Germany. The 2026 edition provides downloadable country-level data covering 32 indicators across four major innovation dimensions. Includes measures of research systems, human resources, innovation investment, intellectual assets, and economic impacts. Useful for comparing Germany's innovation performance with other European countries and examining historical developments.\"\n    },\n    {\n      \"title\": \"European Commission Regional Innovation Scoreboard\",\n      \"url_or_doi\": \"https://research-and-innovation.ec.europa.eu/statistics/performance-indicators/regional-innovation-scoreboard_en\",\n      \"justification\": \"Regional innovation dataset covering European regions, including Germany's federal states and subnational regions. The 2025 edition includes 23 innovation indicators and provides historical comparisons, while earlier editions are available for 2012, 2014, 2016, 2017, 2019, 2021, and 2023. Particularly useful for examining regional disparities in German scientific and technological innovation, identifying research-intensive regions, and tracking changes over time.\"\n    },\n    {\n      \"title\": \"Eurostat: R&D Personnel by Sector of Performance, Professional Position and Sex\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/rd_p_persocc?lang=en\",\n      \"justification\": \"European statistical dataset providing information on research and development personnel, including researchers and other R&D staff, categorized by institutional sector, professional position, and sex. Historical data include the 2010s and 2020s. Particularly relevant for analyzing Germany's scientific workforce, the expansion of research employment, gender representation in research, and changes in the distribution of researchers between universities, businesses, and government institutions.\"\n    },\n    {\n      \"title\": \"World Intellectual Property Organization (WIPO): Intellectual Property Statistics\",\n      \"url_or_doi\": \"https://www.wipo.int/en/web/ip-statistics\",\n      \"justification\": \"Official international intellectual property statistics providing patent, trademark, and industrial design indicators for Germany and other countries. Includes information on patent applications, patents in force, technological fields, and international intellectual property activity. Suitable for examining German technological invention and patenting trends during the 2010s and 2020s, particularly in engineering, manufacturing, and emerging technologies.\"\n    },\n    {\n      \"title\": \"Eurostat: Community Innovation Survey (CIS) Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/science-technology-innovation/information-data\",\n      \"justification\": \"Harmonized European business innovation statistics covering Germany and other EU countries. The Community Innovation Survey measures innovation activities among enterprises, including product innovation, business process innovation, innovation cooperation, and innovation expenditure. Multiple survey waves are available across the 2010s and 2020s. Useful for investigating technological innovation among German businesses, comparing innovation across industries, and studying relationships between R&D investment and commercial innovation.\"\n    },\n    {\n      \"title\": \"Eurostat: Households – Level of Internet Access\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/isoc_ci_in_h/default/bar?lang=en\",\n      \"justification\": \"Annual European dataset measuring household internet access, including Germany, from 2002 to 2025. Provides a consistent indicator of digital technology adoption across the 2010s and 2020s. Useful for evaluating Germany's digital transformation, identifying long-term changes in household connectivity, and comparing Germany's digital infrastructure adoption with other European countries.\"\n    },\n    {\n      \"title\": \"Eurostat: Regional Household Internet Access\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/ISOC_R_IACC_H/default/table?lang=en\",\n      \"justification\": \"Regional dataset measuring the percentage of households with internet access across European regions, including German regions, between 2006 and 2025. Particularly useful for analyzing geographic disparities in digital technology adoption within Germany, comparing urban and regional digital development, and studying how household connectivity evolved during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat: Households – Type of Connection to the Internet (2003–2021)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/isoc_ci_it_h\",\n      \"justification\": \"Historical dataset describing household internet connection technologies, including broadband and other connection types, across European countries including Germany. Covers 2003–2021, making it particularly relevant for analyzing technological transitions during the 2010s and early 2020s. Useful for investigating Germany's adoption of broadband connectivity and the evolution of digital communications infrastructure.\"\n    },\n    {\n      \"title\": \"Eurostat: ICT Usage in Households and by Individuals – Research Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/microdata/collections-research/survey-ict-use-households-individuals\",\n      \"justification\": \"European survey microdata covering information and communication technology adoption and usage, including Germany. The underlying annual surveys provide information on internet use, digital activities, online services, electronic commerce, and individual characteristics. Particularly valuable for detailed research into Germany's digital society during the 2010s and 2020s. Access to scientific-use microdata may require an application and approval.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis): Research and Development Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Education-Research-Culture/Research-Development/_node.html\",\n      \"justification\": \"Official German statistical portal providing datasets and tables on domestic R&D expenditure, research personnel, and research activities across institutional sectors. Includes historical statistical series suitable for examining developments in German science and technology during the 2010s and 2020s. Particularly useful as a primary national source for validating international statistics and investigating Germany-specific research trends.\"\n    },\n    {\n      \"title\": \"Eurostat: Total Intramural R&D Expenditure by Sector of Performance and Fields of Science\",\n      \"url_or_doi\": \"https://knowledge-for-policy.ec.europa.eu/dataset/beo-rdegerdsc_en\",\n      \"justification\": \"Historical European R&D expenditure dataset covering research spending by scientific field and performing sector, including Germany. The archived dataset provides observations extending through 2014, making it especially useful for studying the early 2010s. It supports analysis of how German research expenditure was distributed across scientific disciplines and institutional sectors.\"\n    },\n    {\n      \"title\": \"Eurostat: Enterprises by Main Types of Innovation, Economic Activity and Size Class\",\n      \"url_or_doi\": \"https://knowledge4policy.ec.europa.eu/dataset/beo-inncis8type_en\",\n      \"justification\": \"Historical Community Innovation Survey dataset describing enterprise innovation activities by industry and business size, including German companies. Particularly useful for studying the structure of German technological innovation during the early 2010s and comparing innovation patterns between small, medium-sized, and large enterprises. Provides a historical complement to more recent European innovation surveys.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office Research and Development Indicators – DESTATIS Dataset 21821BJ001\",\n      \"url_or_doi\": \"https://db.nomics.world/DESTATIS/21821BJ001\",\n      \"justification\": \"Structured time-series dataset derived from Germany's Federal Statistical Office and distributed through DBnomics. Includes annual German R&D expenditure, R&D expenditure as a percentage of GDP, expenditure per employed person, and R&D personnel measured in full-time equivalents. Covers 1995–2024, providing consistent historical observations for both the 2010s and 2020s. Particularly suitable for quantitative analysis, visualization, and statistical modeling of Germany's science and technology investment.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455298.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19226,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2597,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 21823
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

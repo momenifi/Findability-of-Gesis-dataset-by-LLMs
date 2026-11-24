@@ -1,0 +1,69 @@
+{
+  "query_id": 32,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations, POLITICS, Conflict, security and peace, Political behaviour and attitudes, and Political ideology in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, and Croatia during the 2020s, matching this research need: public opinion survey data on Europeans' views of the main challenges and policy priorities facing the European Union in 2024\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Flash Eurobarometer 550: EU Challenges and Priorities\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3232\",\n      \"justification\": \"Fielded in June and July 2024 across all 27 EU Member States, this Eurobarometer survey provides public opinion data specifically evaluating EU citizens' perceptions of the main challenges facing the EU (such as the war in Ukraine, irregular migration, and climate change) and their top policy priorities for the European Union.\"\n    },\n    {\n      \"title\": \"Standard Eurobarometer 101 (Spring 2024)\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3216\",\n      \"justification\": \"Fielded in April 2024 across the EU-27, Standard Eurobarometer 101 measures European public opinion on international politics, security and defence, satisfaction with EU democracy, and citizen priorities regarding key geopolitical and economic challenges.\"\n    },\n    {\n      \"title\": \"European Parliament Spring 2024 Eurobarometer Survey\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3208\",\n      \"justification\": \"Conducted in early 2024 in all 27 EU Member States prior to the European Parliament elections, this dataset captures public opinion on political priorities (such as fighting poverty, public health, and EU defence), political behavior, and citizens' views on the EU's position in global politics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 718,
+          "candidatesTokenCount": 387,
+          "totalTokenCount": 2906,
+          "cachedContentTokenCount": 184,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 718
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 184
+            }
+          ],
+          "thoughtsTokenCount": 1801,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "-YGEav3FObaWvdIPrfXl2A4"
+      }
+    }
+  ]
+}

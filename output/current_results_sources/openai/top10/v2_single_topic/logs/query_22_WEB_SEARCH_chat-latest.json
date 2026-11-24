@@ -1,0 +1,186 @@
+{
+  "query_id": 22,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_07d16112e95b7f58006b04780b2c3c87d2a560e74a9c17908c",
+        "created_at": 1795454987.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_07d16112e95b7f58006b04780c31c087d281f3444545cb9861",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 2020 2024 urban rural quality of life dataset regional indicators INKAR BBSR",
+                "Germany community life social cohesion survey dataset 2023 2024",
+                "Destatis regional atlas Germany municipalities dataset urban rural 2024",
+                "GESIS German general social survey ALLBUS 2021 2023 data download"
+              ],
+              "query": "Germany 2020 2024 urban rural quality of life dataset regional indicators INKAR BBSR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_07d16112e95b7f58006b04781079b887d2a329f60db7d61181",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:destatis.de regionalatlas regionaldatenbank deutschland kreise gemeinden daten",
+                "site:deutschlandatlas.bund.de daten download deutschlandatlas indikator",
+                "site:thuenen.de landatlas daten ländliche räume deutschland download",
+                "site:zenodo.org Germany urban rural quality of life survey dataset 2022 2023"
+              ],
+              "query": "site:destatis.de regionalatlas regionaldatenbank deutschland kreise gemeinden daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_07d16112e95b7f58006b047813c73087d29128ef827de410ea",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"RISC Regional Panel 2021–2023: Social Cohesion in Urban and Rural Communities in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.60532/risc_regpan.2021-23.w1-2.v1\",\n      \"justification\": \"Highly relevant dataset examining community life, social cohesion, neighborhood relationships, local infrastructure, media consumption, and social polarization in Germany during 2021–2023. Covers 12 municipalities across Bavaria, Lower Saxony, North Rhine-Westphalia, and Saxony-Anhalt. Includes large cities, medium-sized towns, and small rural communities, enabling direct comparisons between urban and rural experiences. Particularly useful for investigating local identity, community integration, and differences in everyday social life.\"\n    },\n    {\n      \"title\": \"German Social Cohesion Panel 2021–2023: Waves 1–3\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.1025848.en/german_social_cohesion_panel_2021-23__wave_1-3.html\",\n      \"justification\": \"Longitudinal household survey examining social cohesion, social inequalities, interpersonal relationships, social conflict, and community participation in Germany. Covers the early 2020s and provides repeated observations of individuals and households. Useful for studying changing social relationships, community belonging, social trust, and the effects of socioeconomic differences on everyday life.\"\n    },\n    {\n      \"title\": \"INKAR: Indicators and Maps for Spatial and Urban Development in Germany, 2021–2025\",\n      \"url_or_doi\": \"https://www.inkar.de/\",\n      \"justification\": \"Comprehensive regional statistical database maintained by Germany's Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR). Provides downloadable datasets for 2021, 2022, 2024, and 2025 covering population, housing, employment, education, infrastructure, accessibility, demographics, and regional living conditions. Particularly valuable for comparing quality of life, demographic change, and socioeconomic inequalities between urban and rural areas.\"\n    },\n    {\n      \"title\": \"Deutschlandatlas: Regional Living Conditions and Urban–Rural Development Indicators\",\n      \"url_or_doi\": \"https://deutschlandatlas.bund.de/service/daten-herunterladen\",\n      \"justification\": \"Official German government dataset providing downloadable regional indicators on living conditions, housing, employment, infrastructure, mobility, public services, and demographic development. Includes municipality-level and district-level data, with historical datasets from the 2020s available through its archive. Particularly suitable for identifying geographic inequalities and comparing everyday living conditions across metropolitan, suburban, small-town, and rural communities. Data are available in Excel and CSV formats.\"\n    },\n    {\n      \"title\": \"Germany 2022 Census: Regional Population, Housing, Households, and Demographic Data\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Zensus2022/Publikationen/publikationen-akkordeon-regionaltabellen.html\",\n      \"justification\": \"Official nationwide census conducted on May 15, 2022. Provides detailed demographic, household, family, educational, employment, housing, and building statistics at national, state, district, and municipal levels. Particularly useful for examining household composition, urban population density, rural depopulation, housing conditions, family structures, and socioeconomic differences between German communities. Regional tables are downloadable in CSV and Excel formats.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 2021–2025\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Major representative social survey documenting attitudes, values, social relationships, and social structures among Germany's population. Includes survey waves from 2021, 2023, and 2025. Useful for investigating community belonging, interpersonal trust, social participation, demographic differences, and changing social attitudes during the 2020s. Regional variables in restricted-access versions can support geographic comparisons. Registration is generally required to download the data.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact): Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"Harmonized longitudinal collection of German social survey data, including observations from the early 2020s. Supports analysis of changing community values, social attitudes, interpersonal relationships, socioeconomic circumstances, and demographic characteristics. Particularly useful for comparing social life during the 2020s with earlier decades. Geographic detail is limited in the compact version, making it more suitable for national social trends than detailed urban–rural comparisons.\"\n    },\n    {\n      \"title\": \"German Regional Atlas: Official Regional Statistics and Geographic Indicators\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Service/Statistik-Visualisiert/RegionalatlasAktuell.html\",\n      \"justification\": \"Official statistical atlas containing more than 100 indicators across German federal states, administrative districts, and urban and rural districts. Covers population, economic activity, education, employment, housing, and other dimensions of regional living conditions. Supports comparisons between cities and rural districts using official statistical data. Underlying indicators can be accessed through Germany's regional statistics database, making this resource useful for quantitative geographic research throughout the 2020s.\"\n    },\n    {\n      \"title\": \"German Municipal Directory: Population, Area, and Urban–Rural Classification\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Countries-Regions/Regional-Statistics/OnlineListMunicipalities/_inhalt.html\",\n      \"justification\": \"Official dataset identifying German municipalities and their administrative characteristics, population, geographic area, and regional classifications. Includes information supporting the classification of municipalities by degree of urbanization. Particularly useful for distinguishing urban, suburban, and rural settlements and linking community-level socioeconomic datasets through official geographic identifiers. Can serve as a geographic reference dataset for analyses of German communities during the 2020s.\"\n    },\n    {\n      \"title\": \"2022 German Census Database: Municipal and District-Level Community Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Zensus2022/Datenbank/_inhalt.html\",\n      \"justification\": \"Interactive database providing detailed results from Germany's 2022 census. Allows researchers to combine demographic, housing, household, and employment characteristics across municipalities and districts. Particularly useful for examining population composition, settlement patterns, residential circumstances, household structures, and urban–rural demographic differences. Supports customized statistical queries and programmatic access through an API.\"\n    },\n    {\n      \"title\": \"RISC Research Data Portal: German Social Cohesion and Community Research Datasets\",\n      \"url_or_doi\": \"https://fgz-risc-data.de/en/data-portal/general-information/\",\n      \"justification\": \"Research data portal containing quantitative and qualitative datasets on social cohesion and community life in Germany. Includes a representative national household panel, a regional panel comparing large cities, medium-sized cities, and rural communities, and qualitative interviews examining experiences across different German regions. Particularly relevant for researching neighborhood relationships, belonging, social infrastructure, local identity, and differences between urban and rural social environments during the 2020s.\"\n    },\n    {\n      \"title\": \"FULFILL Germany Survey 2023: Quality of Life, Sustainable Lifestyles, and Well-Being\",\n      \"url_or_doi\": \"https://zenodo.org/records/13764749\",\n      \"justification\": \"Survey dataset collected in Germany in 2023 as part of the FULFILL research project. Examines lifestyle choices, sustainability, well-being, financial security, environmental quality, health, and perceptions of comfort. Relevant for investigating how everyday living conditions and consumption practices relate to quality of life in contemporary German society. Can complement regional urban–rural datasets when examining sustainable lifestyles and community well-being.\"\n    },\n    {\n      \"title\": \"Social Cohesion in Times of Crisis: The Corona Pandemic and Anti-Asian Racism in Germany, 2024\",\n      \"url_or_doi\": \"https://doi.org/10.34882/dezim.aar-community.download.1.0.0\",\n      \"justification\": \"Research dataset from the German Center for Integration and Migration Research examining social cohesion, discrimination, and experiences of anti-Asian racism during the COVID-19 pandemic. Relevant for studying minority community experiences, social inclusion, discrimination, and changes in interpersonal relations in Germany during the early 2020s. Particularly valuable for research on how crises affect community belonging and social relationships. Access conditions apply.\"\n    },\n    {\n      \"title\": \"Deutschlandatlas Historical Regional Data Archive, 2020–2026\",\n      \"url_or_doi\": \"https://deutschlandatlas.bund.de/service/daten-herunterladen/archiv\",\n      \"justification\": \"Archive of historical German regional development datasets, including multiple releases from 2020 onward. Provides earlier versions of indicators describing demographic conditions, infrastructure, economic opportunities, mobility, housing, and regional quality of life. Particularly useful for tracing changes in urban and rural communities throughout the 2020s rather than relying exclusively on a single cross-sectional dataset. Archived data allow researchers to examine regional development across multiple reference years.\"\n    },\n    {\n      \"title\": \"Destatis Open Data: Regional Geographic Data and Statistical Maps\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Service/OpenData/karten-geodaten.html\",\n      \"justification\": \"Official German statistical open-data resource offering regional geographic boundaries and associated statistical indicators. Regional Atlas geographic data can be downloaded as GeoJSON or Shapefiles, while statistical data are available in CSV and other machine-readable formats. Particularly useful for mapping urban–rural differences, analyzing spatial inequalities, and combining community-level indicators with geographic information systems. Supports spatial research on German settlement patterns and regional living conditions during the 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455007.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19083,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2266,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21349
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

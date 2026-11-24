@@ -1,0 +1,69 @@
+{
+  "query_id": 57,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Business/industrial management and organisation, and PSYCHOLOGY in Germany during the 2000s, matching this research need: data on young entrepreneurs’ business success, startup trajectories over the first five years, prior employment and founding type, with Big Five personality, self-efficacy, motivation, procrastination, and demographic variables\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v38\",\n      \"justification\": \"The SOEP is a representative longitudinal panel study in Germany covering the 2000s. It captures individual career trajectories, transitions into self-employment and young entrepreneurship, prior employment history, founding type, and business outcomes. It integrates psychological measures including the Big Five personality traits (collected in 2005 and 2009), locus of control/self-efficacy, work motivation, self-regulation, and comprehensive demographic data.\"\n    },\n    {\n      \"title\": \"KfW/ZEW Start-up Panel (KfW/ZEW-Gründungspanel)\",\n      \"url_or_doi\": \"https://www.zew.de/en/forschungsmethoden/kfwzew-start-up-panel\",\n      \"justification\": \"Established in 2007 by ZEW Mannheim and KfW Bankengruppe, this dataset specifically follows newly founded ventures in Germany annually through their first five years of operation. It records startup trajectories, business performance and survival, founding type (solo vs. team, full-time vs. side-line), founders' prior employment, as well as entrepreneurial motivation, self-efficacy, and demographic characteristics.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1191,
+          "candidatesTokenCount": 325,
+          "totalTokenCount": 4037,
+          "cachedContentTokenCount": 677,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1191
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 677
+            }
+          ],
+          "thoughtsTokenCount": 2521,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "YImEarjdIpiVxN8P9fiZsA8"
+      }
+    }
+  ]
+}

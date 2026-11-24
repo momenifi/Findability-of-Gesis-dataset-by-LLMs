@@ -1,0 +1,69 @@
+{
+  "query_id": 44,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany during the 1940s and 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Post-War Election Database (GPWED)\",\n      \"url_or_doi\": \"https://doi.org/10.17605/OSF.IO/RT83Y\",\n      \"justification\": \"Provides fine-grained municipal-level election data for post-WWII West Germany spanning from 1949 through the 1950s and 1960s, documenting political and demographic developments.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41r\",\n      \"justification\": \"A representative multi-cohort longitudinal survey dataset tracking social structure, living conditions, income, and employment trends across East and West Germany from 1984 through the 1990s and 2000s.\"\n    },\n    {\n      \"title\": \"GERDA: The German Election Database\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/MD1E0J\",\n      \"justification\": \"A panel dataset containing municipal-level results for local, state, and federal elections in post-reunification Germany from 1990 through the 2000s.\"\n    },\n    {\n      \"title\": \"Cumulated German General Social Survey (ALLBUS 1980–2014)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"A social science dataset recording long-term trends in public opinion, political attitudes, and social structure in West and East Germany across the 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"German History in Documents and Images (GHDI)\",\n      \"url_or_doi\": \"https://germanhistorydocs.org/\",\n      \"justification\": \"A digital collection and archive of primary source documents, photos, maps, and audio-visual records detailing German history through all requested decades, including post-war occupation (1945–1961), divided Germany (1961–1989), and unified Germany (1990s–2000s).\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1993,
+          "candidatesTokenCount": 573,
+          "totalTokenCount": 5049,
+          "cachedContentTokenCount": 341,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1993
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 341
+            }
+          ],
+          "thoughtsTokenCount": 2483,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "G_yDaqDFGu_zvdIP46OS-Ak"
+      }
+    }
+  ]
+}

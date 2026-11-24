@@ -1,0 +1,187 @@
+{
+  "query_id": 50,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0e2c76edae3143e2006b047a1f912887d2a7d2aa09248d7314",
+        "created_at": 1795455519.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0e2c76edae3143e2006b047a20a29087d28c24715eafe5857a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis household budget survey Germany EVS 2013 2018 2023 data",
+                "Eurostat household final consumption expenditure Germany dataset nama_10_co3_p3",
+                "GESIS German consumer survey consumption panel data 2010 2020",
+                "Germany SOEP household consumption expenditure data 2010 2023"
+              ],
+              "query": "Destatis household budget survey Germany EVS 2013 2018 2023 data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0e2c76edae3143e2006b047a24ec6c87d2be420a4fb9b51503",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:destatis.de EN online shopping Germany households ICT survey 2010 2024 tables",
+                "site:ec.europa.eu/eurostat/databrowser online purchases individuals dataset isoc_ec_ibuy Germany",
+                "site:diw.de SOEP data access household consumption module 2010",
+                "site:destatis.de EN retail trade turnover index Germany monthly data 2010 2025",
+                "site:ec.europa.eu/eurostat/databrowser consumer confidence indicator Germany dataset"
+              ],
+              "query": "site:destatis.de EN online shopping Germany households ICT survey 2010 2024 tables",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0e2c76edae3143e2006b047a28710487d28a3e9541a86ad1e5",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis – Sample Survey of Income and Expenditure (EVS): Private Consumption Expenditure in Germany, 2013, 2018 and 2023\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Consumption-Expenditure/Tables/liste-germany.html\",\n      \"justification\": \"One of the most relevant official datasets for studying household consumption in Germany during the 2010s and 2020s. Published by the German Federal Statistical Office (Destatis), it provides household consumption expenditure for 2013, 2018 and 2023, including spending on food, housing, clothing, transport, recreation and other categories. Particularly useful for comparing changes in household budgets, spending priorities and consumption patterns across the two decades.\"\n    },\n    {\n      \"title\": \"Eurostat – Household Final Consumption Expenditure by Purpose (COICOP 1999)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/NAMA_10_CO3_P3\",\n      \"justification\": \"Official European statistical dataset providing annual household consumption expenditure by purpose, with data covering 1975–2025 and including Germany. Expenditure is classified into categories such as food, clothing, housing, transport, communications, health and recreation. Particularly useful for analyzing long-term changes in German consumption patterns between 2010 and 2025 and comparing Germany with other European countries.\"\n    },\n    {\n      \"title\": \"Destatis – Continuous Household Budget Surveys (Laufende Wirtschaftsrechnungen, LWR)\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Konsumausgaben-Lebenshaltungskosten/Tabellen/liste-private-konsumausgaben.html\",\n      \"justification\": \"Official German household budget statistics providing detailed information on private consumption expenditure across multiple years in the 2010s and 2020s. The surveys complement the larger EVS studies and provide more frequent observations of household expenditure. Useful for investigating changing spending patterns, consumption by household characteristics and the effects of economic developments on household budgets.\"\n    },\n    {\n      \"title\": \"Eurostat – Internet Purchases by Individuals, 2002–2019\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_EC_IBUY\",\n      \"justification\": \"European statistical dataset measuring online purchasing behavior among individuals, including residents of Germany. Covers 2002–2019, making it particularly valuable for examining the development of e-commerce throughout the 2010s. Includes indicators related to the frequency of online purchases and characteristics of online shopping behavior. Useful for analyzing the digital transformation of German consumer behavior before the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Eurostat – Internet Purchases by Individuals, 2020 Onwards\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_EC_IB20\",\n      \"justification\": \"Official Eurostat dataset covering online purchasing behavior from 2020 onward, including observations for Germany through 2025. Provides indicators on internet shopping participation and purchasing behavior, with demographic breakdowns. Particularly useful for examining changes in German e-commerce during and after the COVID-19 pandemic. Can be used alongside the predecessor dataset for 2002–2019, although methodological differences should be checked before combining the series.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Monthly Retail Trade Turnover Index in Germany (45212-0004)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/45212/table/45212-0004\",\n      \"justification\": \"Official German retail trade dataset providing monthly turnover indices by retail sector, with coverage extending from 1994 into the 2020s. Includes nominal and real turnover indicators for different retail activities. Particularly useful for examining changes in German purchasing activity, retail consumption trends, seasonal shopping patterns, the effects of COVID-19 and subsequent inflation-related changes in consumer spending.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Annual Retail Trade Turnover Index in Germany (45212-0003)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/452%2A/table/45212-0003\",\n      \"justification\": \"Annual German retail trade dataset covering the entire 2010s and much of the 2020s, with figures available through 2025. Provides nominal and inflation-adjusted retail turnover indices across different economic sectors. Particularly appropriate for comparing retail consumption before and after the pandemic and investigating structural changes in German shopping behavior.\"\n    },\n    {\n      \"title\": \"Destatis – Equipment of German Households with Information and Communication Technology\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Equipment-Consumer-Durables/Tables/liste-equipment-households-information-communication-technology-germany.html\",\n      \"justification\": \"Official dataset measuring ownership and availability of information and communication technology in German households. Includes EVS observations for 2013, 2018 and 2023, alongside observations from continuous household budget surveys. Covers products and technologies such as computers, laptops, tablets and internet access. Useful for examining technology adoption, durable-goods consumption and the digitalization of German households.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core v29) – Household Consumption Module\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.592149.en/edition/soep-core_v29__data_1984-2012.html\",\n      \"justification\": \"Research dataset from the German Socio-Economic Panel, administered by DIW Berlin. This release includes the HCONSUM dataset derived from the household consumption module introduced in 2010. It enables detailed analysis of household consumption in relation to income, employment, household composition and socioeconomic characteristics. Particularly useful for individual- and household-level research into the determinants of consumer behavior in Germany during the early 2010s. Access to microdata is subject to the provider's conditions.\"\n    },\n    {\n      \"title\": \"GESIS Panel – Longitudinal Survey Data on the German Population\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel\",\n      \"justification\": \"Longitudinal survey infrastructure providing repeated observations of the German-speaking adult population, with data collected from 2014 onward. The GESIS Panel covers a broad range of social attitudes and individual behaviors, with relevant variables available for selected consumption-related research questions. Particularly useful for studying consumer attitudes, preferences and behavioral changes in relation to demographic and socioeconomic characteristics. Researchers should examine the questionnaires to identify the specific consumption-related variables available.\"\n    },\n    {\n      \"title\": \"Eurostat – Quarterly Final Consumption Expenditure of Households and NPISH, Current Prices\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/teina020?category=shorties.teieuro_na.teina_pvcon\",\n      \"justification\": \"Quarterly European national accounts dataset measuring household and nonprofit institution final consumption expenditure at current prices. Includes Germany and provides a useful macroeconomic measure of consumption activity throughout the 2010s and 2020s. Particularly suitable for examining quarterly fluctuations in household consumption, the effects of the COVID-19 pandemic and subsequent changes in nominal consumption expenditure.\"\n    },\n    {\n      \"title\": \"Eurostat – Quarterly Final Consumption Expenditure of Households and NPISH, Volumes\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/teina021/default/table?lang=en\",\n      \"justification\": \"Quarterly consumption dataset providing volume-based indicators of household final consumption expenditure, including Germany. Particularly useful for analyzing changes in real consumption while reducing the influence of price inflation. Supports research on economic cycles, pandemic-related consumption shocks and the recovery of household spending during the 2020s. Complements nominal expenditure data by distinguishing real consumption developments from price effects.\"\n    },\n    {\n      \"title\": \"Destatis – Private Consumption Expenditure in Germany: Long-Term National Accounts Series\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/National-Accounts-Domestic-Product/Tables/lrvgr01.html\",\n      \"justification\": \"Official German national accounts dataset providing long-term annual private consumption expenditure statistics, including observations throughout the 2010s and 2020s. Contains expenditure indicators by consumption purpose and associated changes over time. Useful for studying long-term trends in household consumption, identifying shifts in spending across categories and placing recent consumer behavior within a broader historical context.\"\n    },\n    {\n      \"title\": \"Destatis – Internet Use and Online Shopping in Germany, 2021–2025\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/IT-Nutzung/Tabellen/nutzung-internet-onlinekaeufe-zvgl-mz-ikt.html\",\n      \"justification\": \"Official German statistical table containing data on private internet use and online shopping behavior from 2021 to 2025. Particularly relevant for studying the growing importance of digital consumption and e-commerce among German consumers. Provides a national perspective on changing internet shopping participation during the 2020s and complements Eurostat's harmonized e-commerce datasets.\"\n    },\n    {\n      \"title\": \"Destatis – Household Consumption Expenditure by Household Size\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Consumption-Expenditure/Tables/liste-size-household.html\",\n      \"justification\": \"Official German household expenditure statistics differentiated by household size. Includes information from the Sample Survey of Income and Expenditure and the Continuous Household Budget Surveys. Particularly useful for comparing consumption patterns between single-person households, couples and larger households during the 2010s and 2020s. Supports research on household composition, economies of scale and differences in spending priorities across demographic groups.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455539.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21335,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2323,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23658
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

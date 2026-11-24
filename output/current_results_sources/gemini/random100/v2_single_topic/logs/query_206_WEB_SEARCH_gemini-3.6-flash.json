@@ -1,0 +1,69 @@
+{
+  "query_id": 206,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Family life and marriage in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Statistik der Eheschließungen (EVAS 12611) - Landesdatenbank NRW\",\n      \"url_or_doi\": \"https://www.statistik.nrw/gesellschaft-und-staat/bevoelkerung/ehen-scheidungen-und-lebenspartnerschaften/eheschliessungen\",\n      \"justification\": \"Provides official annual statistical datasets on civil marriages registered in North Rhine-Westphalia municipalities, including the city of Duisburg, covering the 2000s with data on age, nationality, and marital status prior to marriage.\"\n    },\n    {\n      \"title\": \"Statistik rechtskräftiger Urteile in Ehesachen / Scheidungen (EVAS 12631) - Landesdatenbank NRW\",\n      \"url_or_doi\": \"https://www.statistik.nrw/gesellschaft-und-staat/bevoelkerung/ehen-scheidungen-und-lebenspartnerschaften\",\n      \"justification\": \"Offers official statistical series on marriage dissolutions, divorce rates, marriage duration, and minor children affected by divorce across NRW administrative districts and cities including Duisburg.\"\n    },\n    {\n      \"title\": \"Open Data Duisburg - Demografie, Familienstand und Haushalte\",\n      \"url_or_doi\": \"https://www.opendata-duisburg.de\",\n      \"justification\": \"The official municipal Open Data portal for Duisburg hosts administrative datasets on local population statistics, marital statuses, and household structures (e.g., married couples with children, cohabiting couples, single-parent families).\"\n    },\n    {\n      \"title\": \"GESIS German Microcensus Scientific Use Files (2000–2009)\",\n      \"url_or_doi\": \"https://www.gesis.org\",\n      \"justification\": \"Annual representative official household survey datasets archived by GESIS, containing microdata on family forms, cohabitation, marital status, living arrangements, and child-rearing in Germany with regional coverage.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 677,
+          "candidatesTokenCount": 481,
+          "totalTokenCount": 2982,
+          "cachedContentTokenCount": 125,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 677
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 125
+            }
+          ],
+          "thoughtsTokenCount": 1824,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "n1GEatuyD-rtxN8PrpzvwAw"
+      }
+    }
+  ]
+}

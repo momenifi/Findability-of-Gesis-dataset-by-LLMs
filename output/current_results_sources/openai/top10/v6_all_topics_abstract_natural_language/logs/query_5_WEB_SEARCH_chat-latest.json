@@ -1,0 +1,168 @@
+{
+  "query_id": 5,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalism, journalist, social media, news, and news value theory in Germany during the 2020s, matching this research need: human-coded TikTok videos from German-speaking news outlets in 2023, covering Germany, Austria, and Switzerland, with annotations on visual style, text overlays, audio presence, and journalism-related news values\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ed5b33054d580c7006b047cd6ad1487d284dda778bad32fb6",
+        "created_at": 1795456214.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ed5b33054d580c7006b047cd7952887d2980858b66e8e7025",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset TikTok news Germany Austria Switzerland 2023 human coded news values visual style text overlay audio",
+                "TikTok Nachrichten DACH 2023 Inhaltsanalyse Datensatz Nachrichtenfaktoren visuelle Gestaltung Texteinblendungen Ton"
+              ],
+              "query": "dataset TikTok news Germany Austria Switzerland 2023 human coded news values visual style text overlay audio",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ed5b33054d580c7006b047cdae0b487d293d646a3f516d2e2",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023 (Version 2.0.0)\",\"url_or_doi\":\"https://doi.org/10.7802/2863\",\"justification\":\"Exact match for the research need. Published by GESIS in 2025, this open-access dataset contains 8,623 TikTok videos published in 2023 by 18 major German-speaking news outlets across Germany, Austria, and Switzerland. It combines TikTok metadata with human-coded annotations covering 25 variables, including visual presentation styles, text overlays, audio elements, interactive features, journalistic content characteristics, and news values derived from journalism theory. Videos were collected using the TikTok Research API in January 2024 and manually annotated between September 2024 and February 2025. The dataset supports comparative journalism research, multimodal content analysis, news value theory, and the development of automated annotation methods. This is the most comprehensive and directly relevant dataset identified.\"},{\"title\":\"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023 (Version 1.0.0)\",\"url_or_doi\":\"https://doi.org/10.7802/2819\",\"justification\":\"Exact match for the requested research characteristics. This earlier version contains more than 4,000 human-coded TikTok videos published during 2023 by major news organizations in Germany, Austria, and Switzerland. The sample includes every second video published by selected news outlets during the study period. Annotations include visual style, text overlays, audio presence, and journalism-related news values. Data collection occurred in January 2024, followed by manual coding from September through December 2024. Particularly suitable for research requiring a systematically selected, manually annotated sample of German-language news videos. Researchers seeking the complete collection should use Version 2.0.0 instead.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795456220.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 12898,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 473,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 13371
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

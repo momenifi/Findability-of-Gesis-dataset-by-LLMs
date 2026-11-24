@@ -1,0 +1,200 @@
+{
+  "query_id": 53,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Diet and nutrition, General health and well-being, Medication and treatment, and Specific diseases, disorders and medical conditions in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0374a45a94fa6e08006b045703a0a087d293bf5a061e695333",
+        "created_at": 1795446531.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0374a45a94fa6e08006b04570479d487d2a9511d0251d03e4d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS DDR 1980 1990 health nutrition survey dataset",
+                "German Democratic Republic health survey 1980s data archive morbidity nutrition",
+                "DDR Gesundheitswesen Statistik 1989 Datensatz Krankheiten Ernährung"
+              ],
+              "query": "GESIS DDR 1980 1990 health nutrition survey dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0374a45a94fa6e08006b045707560087d28a75cbdca84beed5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:data.gesis.org/datasearchkg/Dataset/ \"German-Democratic-Republic-19491990\" \"Health\"",
+                "site:search.gesis.org/research_data/ \"Gesundheit 1990\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"OutPatient\" \"Goerlitz\"",
+                "site:search.gesis.org/research_data/ DDR Ernährung Gesundheit 1988 1989"
+              ],
+              "query": "site:data.gesis.org/datasearchkg/Dataset/ \"German-Democratic-Republic-19491990\" \"Health\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0374a45a94fa6e08006b045709d71887d2a799e40999cc118d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:data.gesis.org/datasearchkg/Dataset/10.4232/1.642 \"Nutrition\" \"Quedlinburg\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Ernaehrungsverhalten\" \"1985\" \"DDR\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Goerlitz\" \"1986\" \"doctor\""
+              ],
+              "query": "site:data.gesis.org/datasearchkg/Dataset/10.4232/1.642 \"Nutrition\" \"Quedlinburg\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0374a45a94fa6e08006b04570ba54c87d2ac2c950dcbb0e26c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Health 1990 (Gesundheit 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6379\",\n      \"justification\": \"Highly relevant dataset covering health and health-related behavior in the German Democratic Republic (GDR) in 1990. Conducted by the Department of Medical Sociology at the Institute for Social Hygiene and Health Care Organization in Berlin, the study examines chronic diseases, health behaviors, nutrition, physical activity, alcohol consumption, smoking, and medical treatment. The survey covers individuals aged 14 and older, with data collection beginning in June 1990. It directly addresses all four requested categories: diet and nutrition, general health and well-being, medication and treatment, and specific diseases and medical conditions. Academic access is available, although publication of results requires additional permission.\"\n    },\n    {\n      \"title\": \"Outpatient Morbidity and Utilization of Outpatient Services, Görlitz I, 1986 – Population Survey\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6385\",\n      \"justification\": \"A GDR health survey conducted in October 1986 among residents aged 18 and older in the Görlitz district. It investigates outpatient morbidity, medical consultations, healthcare utilization, and the relationship between residents and healthcare providers. Particularly relevant to medication and treatment, general health, and specific diseases and medical conditions during the 1980s. The dataset is archived by GESIS and requires written authorization from the data depositor for academic access.\"\n    },\n    {\n      \"title\": \"Eating Habits and Nutritional Status in Quedlinburg, 1985–1989: Third Substudy – Eating Habits of Pregnant Women\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6430\",\n      \"justification\": \"A specialized nutrition dataset collected in the GDR between 1985 and 1987 as part of a larger investigation conducted between 1985 and 1989. Developed by the Central Institute for Nutrition of the GDR Academy of Sciences and Quedlinburg District Hospital, it examines the dietary habits of pregnant women. It contains weekly aggregated information about individual daily meals, making it particularly valuable for studying food consumption, maternal nutrition, reproductive health, and nutritional conditions in East Germany during the late 1980s.\"\n    },\n    {\n      \"title\": \"Eating Habits and Nutritional Status in Quedlinburg, 1985–1989: Second Substudy – Sociological Survey of Non-Pregnant Women\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6429\",\n      \"justification\": \"A nutrition-related dataset from the GDR covering 1987–1988. It forms part of a ten-part investigation into the eating habits and nutritional status of pregnant women, nursing mothers, and infants. This substudy focuses on non-pregnant women aged 18–35 attending gynecological consultations at Quedlinburg District Hospital. It provides useful comparative information about women's nutritional circumstances and social conditions during the late 1980s. Particularly relevant to diet and nutrition, women's health, and general well-being.\"\n    },\n    {\n      \"title\": \"AIDS in the Consciousness of the Population of the GDR, 1989–1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6658\",\n      \"justification\": \"A GDR population survey conducted in 1990 examining public awareness and perceptions of AIDS. Developed by the Institute for Sociology and Social Policy at the GDR Academy of Sciences and the Central Institute for Hygiene, Microbiology and Epidemiology, it focuses on an important infectious disease during the final years of East Germany. The survey covers the adult residential population, with data collection between July and October 1990. It is especially relevant to specific diseases and medical conditions, health awareness, public health education, and attitudes toward infectious diseases. The dataset is available for academic research and teaching.\"\n    },\n    {\n      \"title\": \"Life in the GDR 1990 (Leben in der DDR 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6873\",\n      \"justification\": \"A January 1990 survey investigating social conditions and quality of life in the GDR during the beginning of political and economic transformation. Conducted by the Institute for Sociology and Social Policy at the GDR Academy of Sciences, it includes questions concerning health, healthy lifestyles, social security, living conditions, environmental protection, and life satisfaction. The study covers the districts of Potsdam, Leipzig, and Schwerin. It is particularly useful for understanding general health and well-being and the social determinants of health immediately before German reunification.\"\n    },\n    {\n      \"title\": \"HISTAT Online Data Compilation: Basic Data on the Development of Health Conditions in Germany, 1816–2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12094\",\n      \"justification\": \"A historical statistical dataset compiled by Jürgen Sensch and archived by GESIS. It includes official statistical information from the former GDR alongside historical data from other German territories. The dataset covers mortality, life expectancy, age-specific death rates, and the historical development of public health. Its coverage includes the 1980s and 1990s, allowing researchers to examine health conditions in East Germany before and after reunification. Particularly relevant to general health and well-being and population-level patterns of disease and mortality.\"\n    },\n    {\n      \"title\": \"Statistical Overviews of Social Policy in Germany Since 1945: Soviet Occupation Zone and GDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"A historical statistical collection compiled by André Steiner, covering social policy in the Soviet Occupation Zone and the GDR. The underlying statistical series extend from 1939 to 1996, with GDR-specific coverage ending in 1989. Sources include official GDR health statistics published in Das Gesundheitswesen der DDR between 1965 and 1988. The dataset provides historical quantitative evidence relevant to healthcare provision, social protection, and health-related public services. It is useful for examining the institutional and statistical context of general health, medical treatment, and healthcare policy during the 1980s.\"\n    },\n    {\n      \"title\": \"GDR Microdata – Official Statistics on Living Conditions, Income and Consumption\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gml/further-data-from-official-statistics/gdr-microdata\",\n      \"justification\": \"A GESIS collection of microdata from official GDR statistics, including representative surveys of household income, consumption, and social living conditions toward the end of the 1980s. These datasets are relevant for investigating household consumption patterns, material living standards, and socioeconomic determinants of nutrition and health. They may help researchers examine the relationship between household resources, consumption, and well-being in late socialist East Germany. This is a collection-level landing page rather than an individual dataset, and the availability of specific food-consumption variables should be checked in the documentation.\"\n    },\n    {\n      \"title\": \"European System of Social Indicators: Health, 1980–2013\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8691\",\n      \"justification\": \"A longitudinal statistical dataset covering health-related social indicators from 1980 to 2013 across more than 30 countries. It contains time-series information on individual well-being, quality of life, and broader societal conditions. Its historical coverage makes it potentially useful for comparing health developments in Germany during the 1980s and 1990s with developments in other European countries. However, the availability of separate GDR observations before reunification must be verified before using it for East German historical analysis.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Health\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14262\",\n      \"justification\": \"A GESIS statistical dataset containing historical health indicators covering 1950–2013. It includes measures of life expectancy, causes of death, illness, disability, sick leave, outpatient medical treatment, hospital utilization, and regular medication use. The dataset is relevant to general health and well-being, medication and treatment, and specific diseases. Its coverage extends across the 1980s and 1990s, making it potentially useful for investigating health changes around German reunification. Researchers should verify which historical observations distinguish East Germany from West Germany, as pre-1990 data may primarily describe the former Federal Republic.\"\n    },\n    {\n      \"title\": \"Personal, Property and Social Insurance in the Former GDR, 1950–1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10254\",\n      \"justification\": \"A historical statistical dataset covering insurance systems in the German Democratic Republic from 1950 to 1989. Compiled by Peter Borscheid and Anette Drees, it draws on historical insurance statistics and GDR statistical yearbooks. Although not primarily a medical or nutritional survey, it provides useful contextual information about social insurance arrangements and social protection during the 1980s. It may support research into the institutional conditions affecting healthcare access and general well-being in the GDR.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446550.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 23577,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2204,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 25781
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

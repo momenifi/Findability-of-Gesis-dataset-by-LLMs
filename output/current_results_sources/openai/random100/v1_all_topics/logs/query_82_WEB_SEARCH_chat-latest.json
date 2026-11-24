@@ -1,0 +1,185 @@
+{
+  "query_id": 82,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment and TRADE, INDUSTRY AND MARKETS in North Rhine-Westphalia during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b96d8cedaceb36a006b045907da5c87d281bcdab4dd15c89f",
+        "created_at": 1795447047.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b96d8cedaceb36a006b045908da3087d2b2c490f5db9b4325",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:histat.gesis.org Nordrhein-Westfalen 1960 Beschäftigte Industrie Handel Zeitreihe",
+                "site:statistik.nrw 1960 statistisches jahrbuch nordrhein westfalen industrie beschäftigte",
+                "site:digitale-sammlungen.de Nordrhein Westfalen statistisches jahrbuch 1965 industrie handel"
+              ],
+              "query": "site:histat.gesis.org Nordrhein-Westfalen 1960 Beschäftigte Industrie Handel Zeitreihe",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b96d8cedaceb36a006b04590b841c87d28a2d982f68e62c43",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Nordrhein-Westfalen Statistisches Jahrbuch 1964 digitalisiert wirtschaft beschäftigung",
+                "site:histat.gesis.org \"Nordrhein-Westfalen\" \"1960\" Industrie",
+                "site:archive.org \"Statistisches Jahrbuch Nordrhein-Westfalen\" 1967",
+                "NRW historische Statistik 1960 Erwerbstätige Industrie Daten Zeitreihen"
+              ],
+              "query": "Nordrhein-Westfalen Statistisches Jahrbuch 1964 digitalisiert wirtschaft beschäftigung",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b96d8cedaceb36a006b04590f363c87d28213b1bb4c7c42eb",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Employment by Economic Sector in North Rhine-Westphalia, 1850–1970 (GESIS ZA8685)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13272\",\n      \"justification\": \"Highly relevant historical dataset covering employment in North Rhine-Westphalia, including the 1960s. Compiled by Harald Klaudat, it contains 3,934 historical time series on employment by economic sector, including industry, agriculture, and services. It provides regional information for cities, districts, and their historical predecessors. Particularly useful for analyzing industrial employment, structural economic changes, and the transition from manufacturing to services during the 1960s.\"\n    },\n    {\n      \"title\": \"Employment by Economic Sector in North Rhine-Westphalia, 1850–1970 — GESIS Data Catalogue\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8685?lang=en\",\n      \"justification\": \"Official GESIS catalogue entry for historical employment statistics in North Rhine-Westphalia. The dataset includes employment figures from the 1961 occupational census and provides historical comparisons across economic sectors. Particularly useful for studying employment distribution, industrialization, and regional labor market differences during the 1960s. The catalogue provides dataset documentation and access information.\"\n    },\n    {\n      \"title\": \"Statistical Pocketbook of North Rhine-Westphalia, 1961 (Statistisches Taschenbuch 1961)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018373/Z069%20196100_A.pdf\",\n      \"justification\": \"Official historical statistical publication containing quantitative data on employment, industrial production, wages, salaries, working hours, and industrial turnover in North Rhine-Westphalia. Includes industrial employment and turnover statistics for 1952–1961 and an industrial production index for 1950–1960. Particularly valuable for establishing baseline economic and labor market conditions at the beginning of the 1960s. Data are presented in historical statistical tables.\"\n    },\n    {\n      \"title\": \"Industry in North Rhine-Westphalia, 1962 (Die Industrie in Nordrhein-Westfalen 1962)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018008/Die%20Industrie%20in%20NRW%201962%20Beitrag%20173_A.pdf\",\n      \"justification\": \"Official statistical publication documenting the industrial economy of North Rhine-Westphalia in 1962. Contains industry-specific statistical information, including major manufacturing and mining sectors. Relevant for researching industrial structure, economic activity, and employment in traditional sectors such as iron and steel, mining, and manufacturing during the early 1960s.\"\n    },\n    {\n      \"title\": \"Industry in North Rhine-Westphalia, 1964 (Die Industrie in Nordrhein-Westfalen 1964)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018010/Die%20Industrie%20in%20NRW%201964%20Beitrag%20207_A.pdf\",\n      \"justification\": \"Historical industrial statistics published by the Statistical Office of North Rhine-Westphalia. Includes data on industrial establishments and employment by establishment size for 1955–1963. Particularly useful for studying industrial employment trends, manufacturing structure, business size distribution, and economic development during the early and middle 1960s.\"\n    },\n    {\n      \"title\": \"Industrial Statistics of North Rhine-Westphalia, 1966 (Beiträge zur Statistik des Landes Nordrhein-Westfalen, No. 231)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018032/Beitrag%20231_A%20.pdf\",\n      \"justification\": \"Detailed official statistical publication based on industrial reporting for 1966 and a survey of smaller industrial establishments conducted in September 1966. Contains information on industrial employment, sales, wages, working hours, energy consumption, and production. Particularly valuable for examining manufacturing activity, industrial markets, employment patterns, and regional industrial development in North Rhine-Westphalia during the mid-1960s.\"\n    },\n    {\n      \"title\": \"Industrial Statistics of North Rhine-Westphalia, 1959–1960 (Beiträge zur Statistik des Landes Nordrhein-Westfalen, No. 144)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00018026/Beitrag%20144_A.pdf\",\n      \"justification\": \"Official historical industrial statistics covering North Rhine-Westphalia around 1960. Includes industrial employment information and coal consumption statistics for 1959 and 1960, broken down by major industrial groups. Particularly useful for analyzing industrial energy demand, manufacturing activity, and employment conditions at the beginning of the decade.\"\n    },\n    {\n      \"title\": \"Statistical Yearbook of North Rhine-Westphalia, 1964 (Statistisches Jahrbuch Nordrhein-Westfalen)\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/NWHeft_derivate_00017362/Beitrag%20192_A.pdf\",\n      \"justification\": \"Official statistical yearbook providing a broad quantitative overview of North Rhine-Westphalia's economic, political, and social conditions in 1964. Relevant as a historical source for investigating employment, industrial development, economic structure, and related market conditions. Especially useful for placing sector-specific industrial statistics within the wider regional economy.\"\n    },\n    {\n      \"title\": \"Historical Statistics of the Ruhr Area: Population, Employment, Mining, and Iron and Steel Industry (GESIS ZA8073)\",\n      \"url_or_doi\": \"https://data.gesis.org/gesiskg/resource/ZA8073\",\n      \"justification\": \"Historical statistical dataset focusing on the Ruhr industrial region, which forms a major part of North Rhine-Westphalia. Includes historical series relating to employment, population, coal mining, and the iron and steel industry. Its coverage of mining and heavy industry extends through 1980, making it particularly relevant for studying industrial employment, structural transformation, and the changing importance of traditional industries during the 1960s.\"\n    },\n    {\n      \"title\": \"Historical German Economic Statistics, 1950–1997: National Accounts, Industry, Prices, Wages, and Employment (GESIS ZA8406)\",\n      \"url_or_doi\": \"https://data.gesis.org/gesiskg/resource/ZA8406\",\n      \"justification\": \"Comprehensive historical economic dataset containing 1,822 time series covering employment, industrial production, domestic and foreign trade, prices, wages, and other economic indicators. Many series begin in 1960, while others extend back to 1950. Although primarily focused on Germany rather than North Rhine-Westphalia specifically, it provides useful national benchmarks for comparing the state's industrial performance and labor market developments during the 1960s.\"\n    },\n    {\n      \"title\": \"Historical German Statistics: Population, Economy, Employment, Production, Working Hours, Consumption, and Prices, 1950–2010 (GESIS ZA8612)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/de/project/details/291DF3124A0BDC5C85010D0D12BF9B05\",\n      \"justification\": \"Historical economic time-series collection covering labor markets, industrial production, working hours, consumption, and prices. Includes employment statistics and industrial working-time data extending through the 1960s. Although its principal geographical coverage is Germany as a whole, it provides comparative economic indicators useful for assessing North Rhine-Westphalia's industrial employment and market development against broader national trends.\"\n    },\n    {\n      \"title\": \"Historical Agricultural Statistics of North Rhine-Westphalia, 1960 Onward (Zeitreihen zur Landwirtschaft in NRW)\",\n      \"url_or_doi\": \"https://landwirtschaftskammer.de/landwirtschaft/beratung/veroeffentlichungen/zeitreihen.htm\",\n      \"justification\": \"Official historical agricultural statistics published by the North Rhine-Westphalia Chamber of Agriculture. Covers agricultural developments from 1960 onward, including farm sizes, agricultural land use, crop production, yields, and livestock. Useful for examining the agricultural industry, production markets, and long-term structural changes in North Rhine-Westphalia's economy. Provides an important complement to manufacturing and industrial employment statistics.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447064.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18782,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1976,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20758
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

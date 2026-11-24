@@ -1,0 +1,69 @@
+{
+  "query_id": 9,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Leisure, tourism and sport, Reproductive health, Specific diseases, disorders and medical conditions, Family life and marriage, and Gender and gender roles in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Living Conditions and Moral Orientations of Students 1989 (ZA6070)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6070\",\n      \"justification\": \"Conducted by the Central Institute for Youth Research (ZIJ) in the GDR in 1989, this survey dataset covers student living conditions, family life and marriage goals, partner relations, gender role orientations, leisure activities, and future employment plans in the late German Democratic Republic.\"\n    },\n    {\n      \"title\": \"Querschnittstudie: Physische Entwicklung der jungen Generation (DDR) 1985/86 (ZA6231)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6231\",\n      \"justification\": \"Conducted in 1985–1986 by the Deutsche Hochschule für Körperkultur (DHfK) Leipzig, this study provides detailed quantitative data on physical development, health status, leisure time use, and sports participation among youth in the GDR during the 1980s.\"\n    },\n    {\n      \"title\": \"Zur sozialen Entwicklung im Konsumgüterbinnenhandel der DDR 1982 (ZA6866)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6866\",\n      \"justification\": \"Conducted in 1982 by the Institute for Sociology and Social Policy at the Academy of Sciences of the GDR, this survey dataset examines working conditions, female labor force participation, shift work, family care responsibilities, childcare access, and leisure time among trade workers in the GDR.\"\n    },\n    {\n      \"title\": \"Schülerintervallstudie Fähigkeiten 1986-1995 (ZA6121)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6121\",\n      \"justification\": \"A longitudinal study initiated in 1986 by the Central Institute for Youth Research (ZIJ) in Leipzig that captures empirical data on GDR youth, covering health, leisure behavior, family background, gender role attitudes, and educational/occupational pathways.\"\n    },\n    {\n      \"title\": \"The Potsdam Grievance Statistics File 1970–1989 (ZA6413)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12916\",\n      \"justification\": \"Provides administrative data on citizen petitions (Eingaben) submitted in the GDR, capturing public grievances and institutional metrics on working conditions, healthcare, family support, housing, and social conditions during the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2012,
+          "candidatesTokenCount": 667,
+          "totalTokenCount": 6300,
+          "cachedContentTokenCount": 980,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2012
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 980
+            }
+          ],
+          "thoughtsTokenCount": 3621,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "fQuEaoCWKMrkxN8P1en5sAI"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 31,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, Elections, and Economic systems and development in Germany during the 1990s, matching this research need: daily representative telephone omnibus survey data of eligible voters since 1991 on political attitudes, party and candidate preferences, and past voting behavior in elections\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Forsa-Bus 1992\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10247\",\n      \"justification\": \"This dataset consists of daily representative CATI telephone survey data of eligible voters in Germany collected throughout 1992 by the FORSA polling institute. It covers individual political attitudes, candidate and party preferences, voting behavior in past elections, and economic expectations.\"\n    },\n    {\n      \"title\": \"Forsa-Bus 1995\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2983\",\n      \"justification\": \"Part of the ongoing FORSA daily omnibus survey series in Germany, this 1995 annual accumulation captures around 500 telephone interviews per day of eligible voters on political preferences, past voting behavior, government competence, and economic development.\"\n    },\n    {\n      \"title\": \"Research Data Center Elections at GESIS - Forsa-Bus Data Series\",\n      \"url_or_doi\": \"https://www.gesis.org/wahlen\",\n      \"justification\": \"The Research Data Center Elections at GESIS archives and provides academic access to the entire Forsa-Bus collection (available from 1991 onwards), which tracks political attitudes, party and chancellor preferences, and voting behavior of eligible voters in Germany on a daily basis.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "Eu0PCuoPARFNMg/P/7aWoteNJPo6K+FY7xtPSImzc7SHpyayKSpxt9WpmFF1xzqI5FHeocOOqliG1IsZE/B2Su9NUNVceaRPLwxs50I5V82NLihbtSXIsTkyy3dQbh+FutEC3XYearHN2+MniLHiyYZi8G3oUWWgb3DW2t4hG30jR8uPXPgWXb+cT+Bx6wnObmWttWElgsEIP1X6cNllEVoLAuHgk0jTE86SlD5ycZ8Fcr1un1saMe0ND+Zh/RGweVgaj+24kOBhXgEvvLUTSu27Xp3uHokpYvw3YtGA0I3B8tb4chmhTumLh7W808sjYuB4BBs4ecG7BeNp/5SHZY6j3EHobdl7+DTQvHoj9b2gJlpS1zigGb7/8qNG8LVmv5/rY58/A2KqqcYmuL7rOnTouI0urDvlW38xRji6uJs6zosJRVNBbhwyFs9tS/Ja1iUnsXHsdzaYWJ0By73Um1Cm9IuvrlgmCmkNGJnGacCRE6Fx2f+wBi7UWJXUAYP+RNfrEIk2uIKSjrG/tJl8SfbeJoFpZwJ1IVwycEckVMp4/vJ0L8mKzwim6gx06YFQieZkbpl+oTz2g1FNOVdmylQkC0k/ongTJK3pv7UxvCw/scXxtBHp5hThxBhbMpyKeJiDJdGqDivvpHjKukQAtzOnTzuP3chewMndbEahSgWFmZnD8fssHDkrQNrrfxH7e9Awgd9Fd7bnjC+exDxa8GfJGLRd+Nmq+aH6WZqkNvIbw/pIwm9z1TsRyLCF2HFF/WsKmy4tIKjmXqEn7oJh62SS26vDBVAo/RqeXNPaQz9hMtWcZUpgdetjE3TeEG+DVnw566sGYop+fS8a76DT5/ns/0chUWg0D5QusTs5n1bIx/qyft8fWnOvBcTmKUqiruyh5nCx5ONVlBZcggyu46wVJDPhfBlwvrZsVIQymwqTBmZPIk02ce8xbg6rNIwQ8l90xXgVj2RMyQghq6awI1k8LncHdVZOLii5/dH9wkZ0TCfbOE7k2h07MXrP5BTpNHocaFC9USu4LwYtm4HYN870nisl3hO8ehZtZn8lVC5lbEi1eL36BWBjn3TVeFyTppjLMIrcTrQs7sotcQkCJnjh9dog8bd/W8EbbAKabhzQWdNf8DrIFmIFl8LxS7BVc0wFHceCBJ0Y8cdB97yM+3WH9eIKvCTBmyoyXh56kdSwIIIL3ymeIp3+MQhAmZMUhzd2PA0aNBSy1gXcYuxHS+mv2XkcOM0YXBRuII/MIGXvqIXUNx3rP46j6cB4mrJGz57w7ePKujcFzoV04ZLCxNxCTDnL1wYqiu/mbhH1Lsey30kWBykOIh8LX984MgOiNWyd5Pi78PoetwhVo8x5F3wR5RJKIQ9F1mDzSiEOyVBtnDhxJkOXMNL38T9DVjYWLfPi8YUrX7B/R0URcCUhb8ZIGQ6gIEVFFq/NgDJtXnwzLKNztXV848TuajYBHAUhdErI+iwb7gILAsbl+HCQ7krYSeFHD5NFx1AmeAMR5lJ13waieyaYEr7Vs8ebhfVPq/MgLJsuY9cExIM49OHrm7BSQ9ASuF8TLey+1GeD0v+XSgd2atcUqQCMipzl8dY/p+4z8Ny+fGMR16YBTY7LTgojrNwpcRWcGOcrnl/h58DQ1m31vwXNnNkpHCFBxiBzmv378AbaIRVw370JqbBGcCfCzU4oEY/zL+YJSIgMpy7AhFlEicmroQNSrjp4l6wI6g7mCmroydYZOjAaMUxrJuMfbI82HXYTlPyye3yhac1Nk5ukCtI0rBd3xwW3ui/kzS4sYxlawKH8wZxgOrpgV0DtSJurAame9dIXECihuLqspds+NArZtQs0GZ1sMrtHZ55VvECf1J/Qxqmy8LhXVHeb7QqFPMfl/fdldhZrQ0GM2NK86VfqrwEQ0nRvLpKRuMCrTuhTKYEdpo945dkoe8xXmHYi2n1D0fPQYBracjEB3O+RCouY6K1Hf+2IEgVnLHMotkajU09E5vS7dQYWRuwJh3uZIAc+j5PD6HUK8r09F0mTUys8TE7Pa0oOvOEOA8BVp3z8BSOjvWJ66dGVIVnxQEsONSkN5L4o3OXijNjzeAGMBBlE1C5YGdh/HU7P15Kd5MK4UrqWrYPR4cmlbuFrSFfP6SzTxXtVlKw7NZ2RahQ5bu0WkFWvePej1SGMLr0XDWtYgsmhRghTkw0TBP9rPcSyq8BmMDqd0U+ko84xvxYu04EfQoe0qZKY6tu9SkUD9e0W2Q14RGhYTeiUl6tvtNIml2xlBwM3E7DZcEDyRRWxwvkQUR//nXLPJiq/ZS2NV0dblIg+jaPSBUyyw2Axx4ah2NeDbBpkJWLDL1+dodAxNODHHyYBmNfWrVuNsHxbatANBYdCtRrnPakM3mhyDhJ5OE7WCh5DTOAqFqcOHrqebslRWgybHXPv4OPp5UPvbffQtN+470o8iPgiHr14ppvZqJb5ENZW+wMy5Kz6BeHfLmUFvj4jc15JImVsWyB7v3J+uQLmMBNu5VUnWgSpfFmAVRGrYig4o/xzo3ujQxDQGuFv5OlXZFILPVMgGGVNPdlvcayYZ4dXS5sPsJmSCzzZBfwT/sOEcVQiqkeqi4UC1U+hyL2+FpS+u6DtWsrVwHIKhOH13x9m3WhdShSCfSrmsRekRspbqouW4y/3r06fIDRhYsld4iXcyH/IOCTUiqxFNZ0l6AXBuXGDcw=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 645,
+          "candidatesTokenCount": 348,
+          "totalTokenCount": 2016,
+          "cachedContentTokenCount": 374,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 645
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 374
+            }
+          ],
+          "thoughtsTokenCount": 1023,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "5oGEatr3LPy2kdUPjNzV-Qg"
+      }
+    }
+  ]
+}

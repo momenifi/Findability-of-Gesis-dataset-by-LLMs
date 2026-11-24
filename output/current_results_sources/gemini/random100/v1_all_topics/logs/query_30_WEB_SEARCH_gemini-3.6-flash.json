@@ -1,0 +1,69 @@
+{
+  "query_id": 30,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, Elections, and Economic systems and development in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1800\",\n      \"justification\": \"Provides survey data on political attitudes, trust in political systems and government institutions, and social/economic perspectives in Germany around the time of reunification in 1990.\"\n    },\n    {\n      \"title\": \"Wahlstudie 1998 (Politbarometer)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3160\",\n      \"justification\": \"Captures political behavior, party preferences, government evaluation, and voter attitudes leading up to the 1998 German federal election.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v39eu\",\n      \"justification\": \"A wide-ranging longitudinal study tracking economic development, income, labor market participation, and social changes across East and West Germany throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Blitzumfrage zur Bundestagswahl 1998\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3161\",\n      \"justification\": \"Focuses on elections, party standings, candidate evaluations, and immediate political attitudes surrounding the 1998 Bundestag election.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 603,
+          "candidatesTokenCount": 395,
+          "totalTokenCount": 2127,
+          "cachedContentTokenCount": 190,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 603
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 190
+            }
+          ],
+          "thoughtsTokenCount": 1129,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Z_iDau2_HqSZkdUPmtHUoAY"
+      }
+    }
+  ]
+}

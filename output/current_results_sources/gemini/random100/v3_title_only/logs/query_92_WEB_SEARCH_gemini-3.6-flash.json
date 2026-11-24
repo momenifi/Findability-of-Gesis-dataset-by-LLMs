@@ -1,0 +1,89 @@
+{
+  "query_id": 92,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Auditory Participation February 1989 Supplement: „Berliner Luft“?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Deadline expired before operation could complete.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 92,
+        "query_variant": "V3_TITLE_ONLY",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Auditory Participation February 1989 Supplement: „Berliner Luft“?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Auditory Participation February 1989 Supplement: „Berliner Luft“\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6543\",\n      \"justification\": \"This dataset is archived in the GESIS Data Archive under DOI 10.4232/1.6543, covering radio audience participation and listening habits for the broadcast 'Berliner Luft' in February 1989.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EpoKCpcKAWkUfROJV5a2AnbCfgw0UnVpgUwETANe8NaRw89+ez5jNKq7yHb9H9uJvnYOs79up+XoXaIMU+/Ai238r61iHwf8fGZHKRxV1QSNUw+xabUNt0UvQYL087ZDnxpGy4XOOw7zdCDcvju8bSGXsRD2FUm/mBqohQWszwv17n1X958mwPlRg1yhUzyomgzzQ4a9fKdh8u/xWr1iWt4l5PPkssGUdgB4ZHGmFePlqqOqkzBKuQxMvS4NL3sVy2cK43dDX08/O/hbHPvgaPZ1sVerwzA2nd4wsmeX1j/diC/6/F95skYX4JX+RA6rXogKDpxv5hUP47i3XVdD4h9r7O6NuAcbLEOAf/rEfV7RzHpnJv1IXYde+4tn1GiI3hQY/e6MKsFANpKtGv1luyl+k1WS5GYBDg4yYm5ZKF6tF87aIJ9jqi0f4gXZkUMpx38H48GC3ExsOT6dlscRA458JwNX9r1hYoWuimkT32rrNjWExpSO7wiKiLwtIvPwBmBXK6oJZAvpR8eQp9kreuBd5FcIGtBPDRqnqOxEAMLjz4CsX0KG4ZMaJjrAsjAsRrytOFSLuwwyrs/FNDXeMkYWHTEQaj+sTpuCgD11nXalvZGTzafZGBu3DVbNunDaXReJ6B+Qk/0tYsJtxDlDlma5QNwZNzWFgXP5oM40IF++gL3WlPgmV2V7E/aBBUQ+3cYQxQTJqYxSRkoUhaz7iQ8hrGp7C092it3wBXR2EJ1mSuxZRP2C6XpkG/Bqf7Kq3bRVbdq8bfnT42UiOoFcV3Qiez8Ruec0LZi++EBRYpgk9uezSRG6PS7ZxlRzMCascjfsNQ8Bg033UYD8j+3DxK2nCXXMljJhM9IS+uITaAcY4F7mCT4uYvrs6Op/nVWke5vFP3DdWXuCvEB2iiAOQEE6m1CXzycyyJyEcEpkurFGV5KYm1lFGyV0YtY2npX45WjND2/BFswY8SEafD6idBLNoDlFKoic1hg/ypJ08JPv879FbFHXiYoKHJVistK1Qe96sg3d0kInDoy4J69RYDLAhUjj2KGfi7Y1zsjiWJMZOOip8kswSQeVDwMd/mDMYFJMSbUFy2gW9LElhh5eqw6JJ+UvHMbCk/kG0I60h2FlnZYMFPewzU9zoyOSeKCv1YenOOgvtFoZStyWXGEnMyauX6EyMJPpHpStEP/G7PtHGqs+yAi8Mf1k6hE5Vc1Ef2qUcwGcPkDxYfkVC+wx0KNxCNfjuifprg+wUE26GQA2P+rM/RnXz0B6uPWKU4n8TxzDWsBR9LfxDLtO/rmT/ExNrJULiagrfB+73o/+84V3lHe48kXVU9vQzi+BUGWpJa6bQeIFUGLUqgIgsl9ETublzPmhaG9SvHHFjzY/kKadYnrNMQLZjC/wmQZ73Jhtkq0mWhrq0LT6rmuRbRoMlkhoQ9/MXtRtqbE3HG/WRle7YIePnDbiTuuj5jFVjLL+FAnuaPmWWi5456mri7Js8RJn+dJqfypDJOWV7phukhRQC9lpYxYpHxyenPfB1zMzWh7zqLfRIsB9vWIP3TZ+n/Rnqfz2pTp+PGX4a+g7bUNbXe0/Eob+VSFitHaeY7pW8F/CwYvWwBB/o6ppl43pksMjgxQUSE6iuzbX1f19BTtkOEE2WZZLmxpm1qKMjIEIzZgQnodgMMg7xdAIHit0/zWBPKm9BYVwvsLrrYiADP8vk7iUFda2bF/Oe3HmON36z2vE0E8Fz4ZupKUMqQ=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 278,
+          "candidatesTokenCount": 135,
+          "totalTokenCount": 953,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 278
+            }
+          ],
+          "thoughtsTokenCount": 540,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "vEy-asKVMM_-nsEPu9yUiAI"
+      }
+    }
+  ]
+}

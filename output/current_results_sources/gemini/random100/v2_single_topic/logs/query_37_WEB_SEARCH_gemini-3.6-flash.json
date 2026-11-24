@@ -1,0 +1,69 @@
+{
+  "query_id": 37,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education in Bavaria during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"RWI-UNI-SUBJECTS: Complete records of all subjects across German HEIs (1971-1996)\",\n      \"url_or_doi\": \"https://doi.org/10.7807/studi:buch:suf:v1\",\n      \"justification\": \"This dataset provides comprehensive records of academic study programs offered across higher education institutions in Germany—including Bavaria—from 1971 to 1996, incorporating official municipality codes for regional and historical analysis of higher education expansion.\"\n    },\n    {\n      \"title\": \"GENESIS-Online Bayern - Hochschulstatistik\",\n      \"url_or_doi\": \"https://www.genesis.bayern.de/\",\n      \"justification\": \"GENESIS-Online Bayern is the official statistical database operated by the Bavarian State Office for Statistics (Bayerisches Landesamt für Statistik), providing historical regional time series and statistical data on Bavarian higher education institutions, student enrollments, and examinations.\"\n    },\n    {\n      \"title\": \"GENESIS-Online Bund - Hochschulstatistik\",\n      \"url_or_doi\": \"https://www-genesis.destatis.de/\",\n      \"justification\": \"Operated by the Federal Statistical Office of Germany (Destatis), GENESIS-Online contains official higher education statistics disaggregated by federal state (including Bavaria), covering historical data on higher education institutions, study programs, and graduate examinations from the 1970s onward.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1057,
+          "candidatesTokenCount": 349,
+          "totalTokenCount": 3308,
+          "cachedContentTokenCount": 616,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1057
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 616
+            }
+          ],
+          "thoughtsTokenCount": 1902,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "7yyEauHVHq_4xN8PnLwr"
+      }
+    }
+  ]
+}

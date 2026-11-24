@@ -1,0 +1,182 @@
+{
+  "query_id": 81,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Crime in the Modern City 2007?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0733d47ebc874b77006b046ed0c92887d2af3971731a85c98d",
+        "created_at": 1795452624.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0733d47ebc874b77006b046ed1a3e087d29997cd3b09f746fc",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Crime in the Modern City\" \"2007\" dataset",
+                "\"Crime in the Modern City 2007\" data"
+              ],
+              "query": "\"Crime in the Modern City\" \"2007\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0733d47ebc874b77006b046ed3b88087d28001ada3c25ad44a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org \"Kriminalität in der modernen Stadt\" \"2007\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Crime in the Modern City\" \"2007\""
+              ],
+              "query": "site:search.gesis.org \"Kriminalität in der modernen Stadt\" \"2007\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0733d47ebc874b77006b046ed5e27087d2bf1e9c09b65626a1",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Crime in the Modern City (CrimoC) – Duisburg Longitudinal Study, 2007 (Wave 6)\",\"url_or_doi\":\"https://www.bmi.gv.at/104/wissenschaft_und_forschung/siak-journal/internationaledition/files/pollich_ie_2012.pdf\",\"justification\":\"The Crime in the Modern City (CrimoC) longitudinal study investigates juvenile delinquency and criminal behavior in Duisburg, Germany. The study began in 2002, and its sixth survey wave was conducted in 2007, when participants were approximately 18 years old. The linked publication confirms the existence of the 2007 data collection. However, this is a supporting publication rather than a verified dataset landing page, and a DOI specifically for the 2007 dataset could not be confirmed.\"},{\"title\":\"Crime in the Modern City: A Longitudinal Study of Juvenile Delinquency in Münster – Panel Study in 4 Waves (2000–2003)\",\"url_or_doi\":\"https://doi.org/10.4232/1.13287\",\"justification\":\"This is a verified dataset archived by GESIS Data Archive, produced by Klaus Boers and Jost Reinecke. It belongs to the Crime in the Modern City research project and contains longitudinal data on juvenile delinquency. Although its data collection covers 2000–2003 rather than 2007, it is a closely related dataset with an official DOI. The associated research was also documented in a 2007 publication by Boers and Reinecke. Access requires authorization for academic research.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452632.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 15854,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 402,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 16256
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 57,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Wounds and injuries in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BURDEN 2020 – Krankheitslast in Deutschland und seinen Regionen\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.14750006\",\n      \"justification\": \"Published by the Robert Koch Institute (RKI), this dataset quantifies disease and injury burden across Germany and its regions from 2010 to 2020, explicitly including indicators for physical injuries and wounds.\"\n    },\n    {\n      \"title\": \"Gesundheit in Deutschland aktuell - GEDA 2019/2020-EHIS\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7214473\",\n      \"justification\": \"A nationwide health survey conducted in Germany between April 2019 and September 2020 by the Robert Koch Institute, containing self-reported population data on physical injuries, chronic conditions, and health status.\"\n    },\n    {\n      \"title\": \"Traumatic events, post-traumatic stress disorder, and proxy measures for central sensitization in chronic pain patients of a German university outpatient pain clinic\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7498710\",\n      \"justification\": \"Collected at Hannover Medical School in Germany between 2019 and 2020, this clinical dataset tracks physical trauma types, injury severity, body pain maps, and health outcomes in 914 patients.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1117,
+          "candidatesTokenCount": 382,
+          "totalTokenCount": 3571,
+          "cachedContentTokenCount": 656,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1117
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 656
+            }
+          ],
+          "thoughtsTokenCount": 2072,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "I7mnap3hC8iLvdIP--WZsQs"
+      }
+    }
+  ]
+}

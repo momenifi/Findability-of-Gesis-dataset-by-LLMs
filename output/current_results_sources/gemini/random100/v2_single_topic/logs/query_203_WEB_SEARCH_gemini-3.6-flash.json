@@ -1,0 +1,69 @@
+{
+  "query_id": 203,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Duisburg during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BKA - Polizeiliche Kriminalstatistik (PKS)\",\n      \"url_or_doi\": \"https://www.bka.de/DE/IhreSicherheit/PKS/pks_node.html\",\n      \"justification\": \"Official annual police crime statistics datasets and reports published by the German Federal Criminal Police Office (BKA), including city-level crime rates, offense breakdowns, and suspect demographics for Duisburg during the 2000s.\"\n    },\n    {\n      \"title\": \"Polizeiliche Kriminalstatistik - Polizei Duisburg Portal\",\n      \"url_or_doi\": \"https://duisburg.polizei.nrw/artikel/polizeiliche-kriminalstatistik\",\n      \"justification\": \"Official repository and publication portal of the Duisburg Police Department, providing local annual police crime statistics, clearance rates, and crime reports for the city of Duisburg.\"\n    },\n    {\n      \"title\": \"Open Data Portal Duisburg\",\n      \"url_or_doi\": \"https://offenedaten.duisburg.de/\",\n      \"justification\": \"The municipal open data platform of Duisburg, hosting official statistics, demographic datasets, and public administrative data for the city.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1090,
+          "candidatesTokenCount": 298,
+          "totalTokenCount": 3252,
+          "cachedContentTokenCount": 347,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1090
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 347
+            }
+          ],
+          "thoughtsTokenCount": 1864,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "1FCEat6jIPi0xN8Pof3qiAQ"
+      }
+    }
+  ]
+}

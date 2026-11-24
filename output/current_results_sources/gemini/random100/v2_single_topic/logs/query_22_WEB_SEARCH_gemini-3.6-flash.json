@@ -1,0 +1,69 @@
+{
+  "query_id": 22,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sociological Problems of a Special Epidemiology of HIV Infections 1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6890\",\n      \"justification\": \"This GESIS dataset (ZA6890) contains survey and epidemiological research data on HIV/AIDS in the German Democratic Republic (GDR), collected in 1989 by the Institute for Sociology and Social Policy and the Central Institute for Hygiene, Microbiology, and Epidemiology of the GDR.\"\n    },\n    {\n      \"title\": \"Suicide, demographic, socio-structural, infrastructure and crime statistics of the German Democratic Republic, 1952 – 1990\",\n      \"url_or_doi\": \"https://doi.org/10.7802/1.2010\",\n      \"justification\": \"This dataset provides official, previously confidential annual statistics on suicides—a major cause of death and mental health indicator—along with demographic and socio-structural data in the German Democratic Republic, covering the period from 1952 to 1990 including the entire 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1061,
+          "candidatesTokenCount": 285,
+          "totalTokenCount": 2908,
+          "cachedContentTokenCount": 152,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1061
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 152
+            }
+          ],
+          "thoughtsTokenCount": 1562,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "UViFavDjO8CP28oP7ti58AY"
+      }
+    }
+  ]
+}

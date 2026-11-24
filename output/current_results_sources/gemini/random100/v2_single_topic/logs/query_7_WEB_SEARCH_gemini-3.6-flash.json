@@ -1,0 +1,69 @@
+{
+  "query_id": 7,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators in Berlin during the 1950s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Kreisdaten (Volkszählungen 1950-1987)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2472\",\n      \"justification\": \"Provided by GESIS Data Archive, this dataset contains district-level historical census data starting from the 1950 census for West Germany and West Berlin, covering social indicators such as age structure, displaced persons, households, housing, and employment structure.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14272\",\n      \"justification\": \"Maintained by GESIS, this dataset offers quantitative time-series indicators measuring social conditions, welfare, and quality of life across key living domains in West Germany and West Berlin from 1950 onward.\"\n    },\n    {\n      \"title\": \"Berlin in Zahlen (1950)\",\n      \"url_or_doi\": \"https://digital.zlb.de/viewer/image/16320524_1950/\",\n      \"justification\": \"Digitized by the Zentral- und Landesbibliothek Berlin (ZLB), this historical statistical volume published by the Statistisches Landesamt Berlin provides official statistics and social indicators on demography, housing, and living conditions in Berlin around 1950.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 493,
+          "candidatesTokenCount": 356,
+          "totalTokenCount": 2237,
+          "cachedContentTokenCount": 161,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 493
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 161
+            }
+          ],
+          "thoughtsTokenCount": 1388,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "3SOEar-JLpiVxN8P9fiZsA8"
+      }
+    }
+  ]
+}

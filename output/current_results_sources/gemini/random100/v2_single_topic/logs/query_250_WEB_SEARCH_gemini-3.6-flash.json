@@ -1,0 +1,62 @@
+{
+  "query_id": 250,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Youth in German Democratic Republic (1949-1990) during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Intervallstudie: Entwicklungsfaktoren und Entwicklungsformen von Jugendlichen in der DDR (1968-1980) IS I - 1970 (3. Welle)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6151\",\n      \"justification\": \"A longitudinal survey dataset collected in 1970 in the German Democratic Republic by the Zentralinstitut für Jugendforschung (ZIJ) Leipzig, examining personality development, social behavior, and life goals among East German youth.\"\n    },\n    {\n      \"title\": \"Intervallstudie: Entwicklungsfaktoren und Entwicklungsformen von Jugendlichen in der DDR (1968-1980) IS I - 1975 (8. Welle)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6156\",\n      \"justification\": \"Survey data collected in 1975 in East Germany by the Zentralinstitut für Jugendforschung (ZIJ), focusing on youth career choices, work satisfaction, and socialization factors.\"\n    },\n    {\n      \"title\": \"Parlamentsstudie in Vorbereitung des X. Parlaments der FDJ 1975\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6078\",\n      \"justification\": \"Survey dataset conducted in 1975 by the GDR's Zentralinstitut für Jugendforschung examining socio-political attitudes and participation of young people ahead of the Free German Youth (FDJ) parliament.\"\n    },\n    {\n      \"title\": \"Young People and Health 1973 (Jugend und Gesundheit 1973)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6068\",\n      \"justification\": \"Empirical survey dataset from 1973 conducted by the GDR's Zentralinstitut für Jugendforschung investigating health habits, lifestyle, and living conditions of East German youth.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 489,
+          "candidatesTokenCount": 500,
+          "totalTokenCount": 2432,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 489
+            }
+          ],
+          "thoughtsTokenCount": 1443,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "DWKEas_VE9K7kdUP0fb1gQc"
+      }
+    }
+  ]
+}

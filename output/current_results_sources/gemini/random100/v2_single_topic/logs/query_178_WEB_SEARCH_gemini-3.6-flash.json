@@ -1,0 +1,69 @@
+{
+  "query_id": 178,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Housing in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The Potsdam Grievance Statistic File (PGSF) - Eingabestatistiken der DDR zwischen 1970 und 1989\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12993\",\n      \"justification\": \"Archived in the GESIS Data Archive (ZA6413), this dataset captures administrative petition statistics ('Eingaben') across East Germany from 1970 to 1989, detailing citizen complaints and quality of life issues including housing allocations and urban living conditions during the 1980s.\"\n    },\n    {\n      \"title\": \"Leben in der ehemaligen DDR (SOEP)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.ddr18\",\n      \"justification\": \"A retrospective survey module integrated into the German Socio-Economic Panel (SOEP) covering former GDR citizens who lived in East Germany prior to 1990, collecting data on life satisfaction, employment status, and housing conditions during the 1980s.\"\n    },\n    {\n      \"title\": \"DOCOMOMO International Mass Housing Archive: Photographic Record of Divided Berlin (1982)\",\n      \"url_or_doi\": \"https://doi.org/10.7488/ds/8062\",\n      \"justification\": \"Hosted on Edinburgh DataShare, this visual architectural research dataset documents mass housing projects, urban planning, and infrastructure across East Berlin (GDR) and West Berlin during the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 902,
+          "candidatesTokenCount": 390,
+          "totalTokenCount": 2497,
+          "cachedContentTokenCount": 184,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 902
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 184
+            }
+          ],
+          "thoughtsTokenCount": 1205,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "MUiEapnrN4--vdIP--7cwQo"
+      }
+    }
+  ]
+}

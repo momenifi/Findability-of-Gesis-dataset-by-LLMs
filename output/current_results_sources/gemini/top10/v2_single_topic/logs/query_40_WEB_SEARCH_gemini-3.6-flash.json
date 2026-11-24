@@ -1,0 +1,69 @@
+{
+  "query_id": 40,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about PSYCHOLOGY in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The ZPID Lockdown Measures Dataset for Germany\",\n      \"url_or_doi\": \"https://doi.org/10.23668/psycharchives.4485\",\n      \"justification\": \"Created by the Leibniz Institute for Psychology (ZPID), this dataset tracks daily lockdown and public health measures across all 16 German federal states during 2020 to facilitate psychological and behavioral research during the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Self-Evaluations Across Life Study: Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.23668/psycharchives.21799\",\n      \"justification\": \"A multi-wave longitudinal research dataset covering 2013–2021 that tracks the stability and development of self-esteem, personality traits, and psychological well-being among German adults across an eight-year period.\"\n    },\n    {\n      \"title\": \"Database of Expert-Coded German PSE Stories\",\n      \"url_or_doi\": \"https://doi.org/10.23668/psycharchives.2738\",\n      \"justification\": \"Published on PsychArchives in 2020, this dataset consists of expert-coded narrative text from 4,570 German participants used for psychological assessment of implicit motives (power, achievement, affiliation) via Picture Story Exercises.\"\n    },\n    {\n      \"title\": \"FReDA – The German Family Demography Panel Study\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14698\",\n      \"justification\": \"A multi-actor longitudinal panel dataset started in 2021 and archived at GESIS, capturing psychological, demographic, and relational variables regarding partnership, family dynamics, and well-being in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 781,
+          "candidatesTokenCount": 450,
+          "totalTokenCount": 2896,
+          "cachedContentTokenCount": 313,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 781
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 313
+            }
+          ],
+          "thoughtsTokenCount": 1665,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "OrinapLvFNnbxs0PzK3_8AM"
+      }
+    }
+  ]
+}

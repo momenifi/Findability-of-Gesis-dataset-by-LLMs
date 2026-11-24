@@ -1,0 +1,186 @@
+{
+  "query_id": 13,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00b92524ea9d73be006b045b1a016887d2bfec3b64d6592ed5",
+        "created_at": 1795447578.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00b92524ea9d73be006b045b1ae7a887d2b2f4fb6d4b09f82e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German Longitudinal Election Study GLES 2009 2013 2017 dataset landing page",
+                "German General Social Survey ALLBUS 2010 2012 2014 2016 2018 GESIS data",
+                "European Social Survey Germany rounds 5 6 7 8 9 data download",
+                "SOEP German socio economic panel political attitudes party identification 2010 2019 data"
+              ],
+              "query": "GESIS German Longitudinal Election Study GLES 2009 2013 2017 dataset landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00b92524ea9d73be006b045b1ee80887d29612ed8d599116ea",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:europeansocialsurvey.org data download rounds Germany 2010 2018",
+                "site:gesis.org Politbarometer data 2010 2019",
+                "site:gesis.org GESIS Panel data 2014 2019 politics",
+                "site:diw.de SOEP data access politics political attitudes"
+              ],
+              "query": "site:europeansocialsurvey.org data download rounds Germany 2010 2018",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00b92524ea9d73be006b045b22272c87d2bd4e0beaaeeaf478",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Longitudinal Election Study (GLES), 2009–2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"One of the most relevant datasets for studying political behaviour and attitudes in Germany during the 2010s. The GLES provides comprehensive survey data on German federal elections, particularly the 2013 and 2017 elections. It covers voting behaviour, party identification, political preferences, electoral participation, political trust, campaign effects, and attitudes toward political candidates. Its cross-sectional and longitudinal components allow researchers to examine changes in electoral behaviour and political attitudes over time.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 2010–2018\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"ALLBUS is a nationally representative survey conducted approximately every two years in Germany. The 2010, 2012, 2014, 2016, and 2018 waves provide extensive information on political attitudes, democratic values, political participation, social trust, immigration attitudes, and ideological orientations. The dataset is especially useful for investigating changes in German political culture, differences between eastern and western Germany, and relationships between socioeconomic characteristics and political preferences.\"\n    },\n    {\n      \"title\": \"Politbarometer, 1977–2024 (Partial Cumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14611\",\n      \"justification\": \"The Politbarometer is a recurring public opinion survey conducted by Forschungsgruppe Wahlen for German public broadcaster ZDF. Its cumulative dataset includes observations throughout 2010–2019, covering voting intentions, party preferences, political interest, satisfaction with democracy, evaluations of political leaders, and perceptions of government performance. Its frequent measurements make it particularly valuable for analysing short-term changes in political opinion and longer-term trends during the Merkel era.\"\n    },\n    {\n      \"title\": \"Politbarometer 2019 (Cumulated Data Set)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13603\",\n      \"justification\": \"This dataset combines Politbarometer surveys conducted throughout 2019. It contains detailed information on voting intentions, party evaluations, political satisfaction, public perceptions of immigration and asylum policies, climate change, European integration, and attitudes toward the Alternative for Germany (AfD). It is especially relevant for studying political polarisation, populism, and party competition in Germany at the end of the 2010s.\"\n    },\n    {\n      \"title\": \"GLES Tracking Surveys, 2009–2026 (Cumulation)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA6832\",\n      \"justification\": \"The GLES Tracking Surveys provide repeated measurements of political opinions and electoral preferences in Germany. Researchers can select observations from 2010–2019 to investigate changes in party support, voting intentions, political evaluations, and issue preferences. The dataset is particularly useful for analysing the development of German electoral competition between federal elections and examining shifts in political attitudes surrounding the emergence of the AfD.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS), Germany, Rounds 5–9 (2010–2019)\",\n      \"url_or_doi\": \"https://www.europeansocialsurvey.org/\",\n      \"justification\": \"The European Social Survey provides high-quality comparative survey data on political and social attitudes across European countries, including Germany. Rounds 5–9 cover the 2010s and contain measures of political interest, institutional trust, satisfaction with democracy, electoral participation, immigration attitudes, ideological self-placement, and social values. German observations can be analysed independently or compared with other European countries to understand developments in political trust, democratic legitimacy, and political polarisation.\"\n    },\n    {\n      \"title\": \"ARD-DeutschlandTREND, Surveys from 2010–2019\",\n      \"url_or_doi\": \"https://search.gesis.org/?study_group=ARD-DeutschlandTrend&type=research_data\",\n      \"justification\": \"ARD-DeutschlandTREND is a recurring German public opinion survey that provides information on voting intentions, evaluations of government performance, political leadership, and public attitudes toward major political issues. Surveys conducted during the 2010s are particularly useful for examining reactions to the Eurozone crisis, the 2015 refugee crisis, changes in support for established political parties, and the rise of right-wing populism. The GESIS catalogue provides access to individual survey datasets.\"\n    },\n    {\n      \"title\": \"GESIS Panel, Longitudinal Core Studies, 2014–2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/documentation/longitudinal-core-studies-gppop\",\n      \"justification\": \"The GESIS Panel is a probability-based longitudinal survey infrastructure that began collecting data during the 2010s. Its 2014–2019 waves include measures relating to social and political participation, attitudes, and demographic characteristics. The panel structure enables researchers to investigate changes in individual political opinions over time and assess relationships between social characteristics, political engagement, and political attitudes.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop, Longitudinal Survey Data\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/52787\",\n      \"justification\": \"GESIS Panel.pop provides longitudinal survey data from a probability-based sample of the German population. Its historical waves include studies conducted during the 2010s that address political participation, populism, democratic attitudes, and perceptions of political elites. Particularly relevant are survey components concerning populist attitudes in Germany in 2017 and attitudes toward political elites, immigrants, and democratic decision-making. The dataset supports individual-level analyses of political opinion formation.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES), Integrated Module Dataset\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-integrated-module-dataset-imd/\",\n      \"justification\": \"The CSES combines nationally representative election surveys from multiple countries, including Germany. Its integrated dataset includes German election studies from the 2010s and provides measures of electoral participation, party choice, political attitudes, democratic satisfaction, ideological positioning, and evaluations of political institutions. It is especially useful for comparing German voting behaviour and political attitudes with those of voters in other democracies.\"\n    },\n    {\n      \"title\": \"GLES Candidate Studies, 2013 and 2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"The GLES Candidate Studies collect survey information from candidates participating in German federal elections. The 2013 and 2017 datasets provide opportunities to examine political ideology, policy preferences, political representation, and differences between political parties. Unlike general population surveys, these datasets focus on political elites and candidates, making them valuable for studying ideological congruence between voters and representatives and changes in German party politics.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES), 2013 Candidate Study\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13089\",\n      \"justification\": \"This study surveys candidates associated with major political parties competing in the 2013 German federal election. It provides information relevant to political representation, candidates' attitudes, party differences, and political positioning. The dataset is particularly useful for analysing ideological differences among candidates and exploring relationships between political elites, party competition, and the electoral environment in Germany during the early 2010s.\"\n    },\n    {\n      \"title\": \"Moderner Staat und lebendige Demokratie (Modern State and Living Democracy), 2016\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12786\",\n      \"justification\": \"This German survey, conducted in October 2016, examines attitudes toward government, public administration, digitalisation, and democracy. It includes political and demographic variables such as party sympathy and attitudes toward political institutions. The dataset is relevant for studying perceptions of democratic governance, public-sector modernisation, and the relationship between political preferences and attitudes toward the state during the mid-2010s.\"\n    },\n    {\n      \"title\": \"Politbarometer Annual Surveys, 2010–2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/politbarometer\",\n      \"justification\": \"GESIS provides annual cumulative Politbarometer datasets covering each year of the 2010s. These contain more detailed year-specific questions than the partial cumulative time-series dataset. Researchers can investigate political attitudes toward the Merkel government, party preferences, satisfaction with democracy, immigration policy, European integration, and other contemporary political issues. The annual datasets are especially suitable for studying public responses to specific events and policy debates.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulative Dataset\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus\",\n      \"justification\": \"The cumulative ALLBUS dataset harmonises repeated survey questions across multiple years, including surveys conducted between 2010 and 2018. It facilitates longitudinal comparisons of political attitudes, trust in institutions, democratic values, ideological orientations, and social attitudes. Researchers interested in the 2010s can restrict the dataset to the relevant survey years, making it particularly useful for studying political and social change in Germany.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447596.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19105,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2146,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21251
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

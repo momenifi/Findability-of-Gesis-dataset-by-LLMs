@@ -1,0 +1,185 @@
+{
+  "query_id": 95,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Business/industrial management and organisation in Rhineland-Palatinate and North Rhine-Westphalia during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_01cb144497ba719a006b046062917087d2a7309c15438d2934",
+        "created_at": 1795448930.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_01cb144497ba719a006b0460636c2c87d2885ee2c09966078b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesis.org dataset IAB establishment panel 1990s North Rhine Westphalia Rhineland Palatinate",
+                "site:fdz.iab.de IAB establishment panel 1993 1999 regional federal states dataset",
+                "site:destatis.de regionaldatenbank 1990s Betriebe Unternehmen Nordrhein-Westfalen Rheinland-Pfalz"
+              ],
+              "query": "site:gesis.org dataset IAB establishment panel 1990s North Rhine Westphalia Rhineland Palatinate",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_01cb144497ba719a006b046065ba0487d2be48d6bb7550169b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:fdz.iab.de/en/betriebsdaten/ establishment history panel 1975 2023",
+                "site:fdz.iab.de/en/ linked employer employee data LIAB 1993 1999",
+                "site:gesis.org \"Business/industrial management and organisation\" \"North Rhine-Westphalia\" 1990",
+                "site:search.gesis.org \"Rhineland-Palatinate\" \"Business/industrial management\""
+              ],
+              "query": "site:fdz.iab.de/en/betriebsdaten/ establishment history panel 1975 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_01cb144497ba719a006b046067e45887d296ea66c57f785abc",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel), 1993–2019\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9319.de.en.v1\",\n      \"justification\": \"Highly relevant dataset for studying business management, industrial organisation, and employment practices in Rhineland-Palatinate and North Rhine-Westphalia during the 1990s. Conducted annually since 1993, the survey covers establishments across industries in western Germany. Variables include employment development, personnel management, business investment, vocational training, wages, working hours, and organisational characteristics. Researchers can examine developments from 1993 to 1999 and compare establishments across the two federal states, subject to regional identification and data-access restrictions. Available through the Research Data Centre of the Institute for Employment Research (IAB).\"\n    },\n    {\n      \"title\": \"Establishment History Panel (Betriebs-Historik-Panel, BHP), 1975–2019\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.BHP7519.de.en.v1\",\n      \"justification\": \"Particularly useful for examining industrial structure, establishment characteristics, and organisational changes in Rhineland-Palatinate and North Rhine-Westphalia throughout the 1990s. The dataset contains annual administrative records of establishments with employees covered by German social security. Variables include industrial classification, establishment location, workforce size, occupational structure, employee qualifications, demographic composition, and wages. Its longitudinal structure supports analysis of establishment growth, contraction, and employment restructuring between 1990 and 1999. Regional identifiers enable geographical analysis, subject to access restrictions.\"\n    },\n    {\n      \"title\": \"Linked Employer-Employee Data of the IAB (LIAB), Cross-Sectional Model, 1993–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.LIABQM9323.de.en.v1\",\n      \"justification\": \"An important resource for investigating the relationship between business organisation, management practices, and workforce characteristics during the 1990s. The dataset combines information from the IAB Establishment Panel with administrative employment records. It supports research on personnel policies, organisational structures, workforce composition, wages, and employment relationships. Data from 1993 to 1999 can be selected to examine establishments in Rhineland-Palatinate and North Rhine-Westphalia. Access is restricted and requires an application to the IAB Research Data Centre.\"\n    },\n    {\n      \"title\": \"Linked Employer-Employee Data of the IAB (LIAB), Longitudinal Model, 1975–2024\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.LIABLM7524.de.en.v1\",\n      \"justification\": \"Useful for longitudinal research into industrial organisation, employment relationships, and workforce restructuring in the two German federal states. The dataset links establishment survey information with individual employment histories. Its 1993–2000 establishment selection period is particularly relevant for studying organisational and employment changes during the 1990s. Researchers can investigate employee mobility, employment stability, wage structures, and establishment-level characteristics. The linked establishment sample is selective, and access to detailed regional information is restricted.\"\n    },\n    {\n      \"title\": \"IAB Employee Sample 1975–1997: Regional File\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3348\",\n      \"justification\": \"A historical employment dataset archived by GESIS that explicitly covers the 1990s and includes business and industrial management and organisation among its subject classifications. It contains employment information reported by companies to German social security institutions. Its regional component makes it relevant for examining workforce structures, industrial employment, and employment relationships in Rhineland-Palatinate and North Rhine-Westphalia. The dataset covers 1975–1997, allowing comparisons of regional industrial employment patterns during much of the 1990s. It is particularly suitable for studying the employment side of industrial organisation rather than internal management practices.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel, 1993–2018\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9318.de.en.v1\",\n      \"justification\": \"An earlier documented version of the IAB Establishment Panel that includes the entire 1993–1999 period. It provides establishment-level information on employment, business investment, personnel policies, vocational training, wages, and working arrangements. The dataset is suitable for historical comparisons of industrial management and organisational practices between Rhineland-Palatinate and North Rhine-Westphalia. It may also be useful for reproducing research conducted using earlier versions of the establishment panel. This is an alternative version of the same underlying survey rather than an independent data collection.\"\n    },\n    {\n      \"title\": \"Linked Employer-Employee Data of the IAB (LIAB), Cross-Sectional Model 2, 1993–2019\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.LIABQM29319.de.en.v1\",\n      \"justification\": \"A historical version of the linked employer-employee dataset covering the complete 1990s period from 1993 onward. It integrates establishment survey responses with employee-level administrative records, making it suitable for studying the connections between organisational characteristics and workforce outcomes. Potential applications include comparisons of industrial employment structures, personnel management, occupational composition, and wage patterns between Rhineland-Palatinate and North Rhine-Westphalia. The dataset is particularly useful for research requiring both establishment-level and employee-level observations.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448943.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18974,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1335,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20309
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

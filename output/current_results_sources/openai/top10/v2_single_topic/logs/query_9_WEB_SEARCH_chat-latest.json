@@ -1,0 +1,206 @@
+{
+  "query_id": 9,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about POLITICS in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0fe59a689823901a006b0476e5462887d2bea98306e3cb7b2a",
+        "created_at": 1795454693.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0fe59a689823901a006b0476e66cfc87d2aab35fc8d6657dd7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "European Social Survey data portal round 10 11 countries politics trust 2020 2023",
+                "European Election Database national parliamentary elections data Europe 2020 2025",
+                "V-Dem dataset country year download 2025 democracy",
+                "Manifesto Project dataset 2024 political parties Europe download"
+              ],
+              "query": "European Social Survey data portal round 10 11 countries politics trust 2020 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0fe59a689823901a006b0476ebd01887d289d78c87d6f3e87c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Freedom House nations in transit 2025 data download Balkans Moldova Georgia",
+                "European Commission Eurobarometer data portal 2024 political trust",
+                "OSCE ODIHR election observation reports election results database Europe",
+                "World Bank worldwide governance indicators data 2024 2025",
+                "Chapel Hill Expert Survey 2024 dataset political parties Europe",
+                "International IDEA voter turnout database elections data"
+              ],
+              "query": "Freedom House nations in transit 2025 data download Balkans Moldova Georgia",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0fe59a689823901a006b0476f2f38487d29940eb279289d7ac",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:freedomhouse.org/report/nations-transit/2025 data download",
+                "site:europa.eu/eurobarometer surveys data download",
+                "site:chesdata.eu candidate countries expert survey Albania Bosnia Kosovo Montenegro Serbia",
+                "site:idea.int global state democracy indices data download 2025",
+                "site:ess.sikt.no data portal european social survey",
+                "site:worldvaluessurvey.org wave 7 data download 2022"
+              ],
+              "query": "site:freedomhouse.org/report/nations-transit/2025 data download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0fe59a689823901a006b0476f76ed087d2a81c60d583f883be",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Varieties of Democracy (V-Dem) Dataset – Democracy and Political Institutions, 2020–2025\",\n      \"url_or_doi\": \"https://www.v-dem.net/en/data/archive/previous-data/v-dem-dataset/\",\n      \"justification\": \"A comprehensive cross-national dataset measuring electoral democracy, liberal democracy, political participation, civil liberties, political corruption, and institutional accountability. Its country-year observations cover the 2020s and nearly all requested European countries, including EU members, Turkey, the Western Balkans, Moldova, and Georgia. Particularly valuable for comparing democratic development and political change across countries.\"\n    },\n    {\n      \"title\": \"International IDEA – Global State of Democracy Indices, 2020–2025\",\n      \"url_or_doi\": \"https://www.idea.int/gsod-indices/\",\n      \"justification\": \"Provides internationally comparable indicators of democratic performance, political representation, rights, rule of law, and political participation. The dataset includes European Union countries and non-EU countries such as Albania, Bosnia and Herzegovina, Georgia, Kosovo, Moldova, Montenegro, North Macedonia, Serbia, Turkey, and the United Kingdom. Suitable for longitudinal analysis of democratic developments during the 2020s.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey (CHES) – 2024 European Political Party Positions\",\n      \"url_or_doi\": \"https://www.chesdata.eu/ches-europe/\",\n      \"justification\": \"Contains expert assessments of 279 political parties in 31 European countries, collected in 2024. Variables measure left-right ideology, European integration, populism, democracy, immigration, and policy positions. Covers all EU member states except Luxembourg, alongside Turkey and the United Kingdom, among other countries. Particularly useful for comparing political polarization and party ideology in the 2020s.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey – 2019 Candidate Countries Survey, Fielded in 2020\",\n      \"url_or_doi\": \"https://www.chesdata.eu/ches-europe/\",\n      \"justification\": \"Provides expert evaluations of 58 political parties in Albania, Bosnia and Herzegovina, Kosovo, Montenegro, North Macedonia, and Serbia. Although labeled the 2019 Candidate Survey, the data were collected between July and September 2020. Includes political ideology, European integration, and policy positions. Especially relevant for Western Balkan countries that are not comprehensively represented in EU-focused political datasets.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database – Political Party Manifestos and Election Programs\",\n      \"url_or_doi\": \"https://manifestoproject.wzb.eu/\",\n      \"justification\": \"Provides coded political party election manifestos, party policy positions, and electoral information across numerous European countries. Includes elections held during the 2020s and allows analysis of political priorities, ideological shifts, party competition, European integration, environmental policy, and immigration. Particularly useful for comparing party platforms across elections and countries.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset – Version 2024a\",\n      \"url_or_doi\": \"https://manifesto.wzb.eu/datasets/MPDS2024a\",\n      \"justification\": \"An identifiable release of the Manifesto Project's comparative party-preference dataset. Contains standardized coding of electoral programs for political parties across Europe, including elections from the early 2020s. Useful for reproducible research on ideological positioning, political competition, electoral platforms, and changes in party priorities.\"\n    },\n    {\n      \"title\": \"European Social Survey – Round 10, 2020–2022\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/\",\n      \"justification\": \"Provides individual-level survey data on political trust, political participation, voting behavior, satisfaction with democracy, institutional confidence, and social attitudes. Round 10 includes data collected during 2020–2022 from numerous European countries, including Belgium, Bulgaria, Croatia, Czechia, Estonia, Finland, France, Germany, Hungary, Lithuania, Slovakia, Slovenia, and others. Useful for comparing citizens' political attitudes during the COVID-19 period.\"\n    },\n    {\n      \"title\": \"European Social Survey – Round 11, 2023–2024\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/\",\n      \"justification\": \"Offers harmonized cross-national survey data on political attitudes, democratic satisfaction, institutional trust, political interest, electoral participation, and related social characteristics. Particularly relevant for studying political developments following the COVID-19 pandemic and comparing political behavior across participating European countries.\"\n    },\n    {\n      \"title\": \"European Commission – Eurobarometer Survey Database, 2020s\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer\",\n      \"justification\": \"Official European Union public-opinion survey repository covering all 27 EU member states, including Belgium, Bulgaria, Cyprus, Czechia, Denmark, Estonia, Ireland, Greece, Spain, France, Croatia, Italy, Latvia, Lithuania, Luxembourg, Hungary, Malta, the Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, and Germany. Contains 2020s survey data on trust in government, democracy, European institutions, political priorities, and EU integration.\"\n    },\n    {\n      \"title\": \"European Parliament – Autumn 2025 Eurobarometer Survey\",\n      \"url_or_doi\": \"https://europa.eu/eurobarometer/surveys/detail/3632\",\n      \"justification\": \"Official European Parliament public-opinion survey conducted in November 2025 and published in February 2026. Covers all 27 EU member states and examines political priorities, citizens' expectations of European institutions, EU-related attitudes, and major policy concerns. Includes country-level results and downloadable survey documentation, making it valuable for contemporary comparative European politics research.\"\n    },\n    {\n      \"title\": \"European Parliament – 2024 European Election Results Dataset\",\n      \"url_or_doi\": \"https://results.elections.europa.eu/en/tools/download-datasheets/\",\n      \"justification\": \"Official downloadable electoral statistics for the 2024 European Parliament elections across all 27 EU member states. Includes voter turnout, electoral results, political party performance, and distribution of parliamentary seats by national parties and European political groups. Particularly useful for studying voting behavior, Euroscepticism, political representation, and electoral change during the 2020s.\"\n    },\n    {\n      \"title\": \"European Election Studies – Electoral Behavior and Political Attitudes\",\n      \"url_or_doi\": \"https://search.gesis.org/?lang=en&source=%7B%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%7B%22match_all%22%3A%7B%7D%7D%2C%22filter%22%3A%5B%7B%22term%22%3A%7B%22type%22%3A%22research_data%22%7D%7D%2C%7B%22term%22%3A%7B%22study_group.keyword%22%3A%22European+Election+Studies%22%7D%7D%5D%7D%7D%7D\",\n      \"justification\": \"GESIS hosts European Election Studies research datasets, including materials associated with the 2024 European Parliament elections. Available studies cover European electoral behavior, party competition, political attitudes, and election manifestos. Geographic coverage includes numerous EU countries such as Austria, Belgium, Bulgaria, Czechia, Denmark, Estonia, France, Germany, Greece, Hungary, Ireland, Italy, Lithuania, Luxembourg, Latvia, Malta, the Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, and Finland.\"\n    },\n    {\n      \"title\": \"International IDEA – Voter Turnout Database\",\n      \"url_or_doi\": \"https://www.idea.int/data-tools/data/voter-turnout-database\",\n      \"justification\": \"A comprehensive international election participation dataset containing parliamentary, presidential, and European Parliament election turnout statistics. Includes registered voters, voting-age population, total votes, invalid votes, and turnout percentages. Covers elections during the 2020s across EU countries and non-EU European states. Particularly suitable for comparing political participation and electoral engagement across the requested countries.\"\n    },\n    {\n      \"title\": \"World Bank – Worldwide Governance Indicators, 2020–2025\",\n      \"url_or_doi\": \"https://datacatalog.worldbank.org/search/dataset/0038026/worldwide-governance-indicators\",\n      \"justification\": \"Provides annual country-level indicators measuring voice and accountability, political stability, government effectiveness, regulatory quality, rule of law, and control of corruption. Includes the requested European countries and permits consistent comparisons of political institutions and governance performance during the 2020s. Particularly useful for analyzing political stability, institutional effectiveness, and governance quality.\"\n    },\n    {\n      \"title\": \"World Bank DataBank – Worldwide Governance Indicators\",\n      \"url_or_doi\": \"https://databank.worldbank.org/reports.aspx?Type=TABLE&source=worldwide-governance-indicators\",\n      \"justification\": \"Interactive database offering country-year governance statistics that can be filtered and exported for comparative political analysis. Supports cross-country comparisons of democratic accountability, corruption control, political stability, and government effectiveness throughout the 2020s. Useful for constructing comparative political indicators across EU countries, the Western Balkans, Turkey, Moldova, Georgia, and the United Kingdom.\"\n    },\n    {\n      \"title\": \"European Observatory of Political Trust – Political Trust and Democratic Participation Data\",\n      \"url_or_doi\": \"https://trustobservatory.eu/wp/?page_id=394\",\n      \"justification\": \"Combines political trust information from multiple international survey programs with contextual political and institutional indicators. Topics include trust in political institutions, voter turnout, democracy, electoral systems, corruption, political fragmentation, and perceptions of electoral integrity. Useful for comparative European political research, although the temporal coverage of individual variables should be checked before restricting analysis to the 2020s.\"\n    },\n    {\n      \"title\": \"OSCE ODIHR – Election Observation Database and Election Reports, 2020s\",\n      \"url_or_doi\": \"https://odihr.osce.org/odihr/elections\",\n      \"justification\": \"Official repository of election observation findings and election-related documentation from the Organization for Security and Co-operation in Europe. Covers elections during the 2020s in countries including Albania, Bosnia and Herzegovina, Bulgaria, Georgia, Moldova, Montenegro, North Macedonia, Poland, Romania, Serbia, Slovakia, Turkey, and other European states. Particularly useful for research on electoral integrity, political competition, campaign conditions, election administration, and democratic standards. Reports are primarily documentary rather than a single harmonized statistical dataset.\"\n    },\n    {\n      \"title\": \"World Values Survey – Wave 7, 2017–2022\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.17\",\n      \"justification\": \"Cross-national individual-level survey dataset covering political trust, confidence in government, democratic values, political participation, ideological orientations, and attitudes toward political authority. Wave 7 includes surveys conducted between 2017 and 2022, making its observations collected in 2020–2022 relevant to the requested period. European country coverage varies, so participating countries and fieldwork dates must be checked before analysis.\"\n    },\n    {\n      \"title\": \"World Values Survey – Data and Documentation Portal\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Documentation\",\n      \"justification\": \"Official repository providing cross-national survey datasets, questionnaires, methodological documentation, and country-specific files. Supports research on political legitimacy, democracy, civic participation, political institutions, national identity, and public attitudes. Relevant for analyzing early-2020s political values in participating European countries and comparing them with previous survey waves.\"\n    },\n    {\n      \"title\": \"European National Parliamentary Elections Dataset – Harmonized Subnational Election Results, 1983–2025\",\n      \"url_or_doi\": \"https://github.com/schallmeinera/National-Elections-Data-Europe\",\n      \"justification\": \"Research dataset containing national parliamentary election results for 32 European countries, with coverage extending through 2025. Harmonizes election outcomes across multiple territorial aggregation levels, including NUTS regions. Includes post-2020 elections and supports geographical analysis of party voting patterns, regional political differences, and changes in electoral support. Country coverage and the availability of fine-grained geographic results vary.\"\n    },\n    {\n      \"title\": \"Chapel Hill Expert Survey – European Political Party Position Trends, 1999–2024\",\n      \"url_or_doi\": \"https://www.chesdata.eu/ches-europe/\",\n      \"justification\": \"Longitudinal expert-survey data tracking European political parties' ideological positions and policy preferences across multiple survey waves, including 2024. Enables comparison of contemporary political developments with earlier periods. Particularly useful for studying changes in party ideology, European integration, nationalism, populism, and political polarization among European democracies.\"\n    },\n    {\n      \"title\": \"International IDEA – Global State of Democracy Indices, Version 10 (2026)\",\n      \"url_or_doi\": \"https://www.idea.int/publications/catalogue/html/global-state-democracy-indices-codebook-version-10-2026\",\n      \"justification\": \"Official documentation for the 2026 release of International IDEA's democracy indices, covering democratic developments through 2025. Describes the dataset's political indicators, classifications, and measurement framework. Relevant for systematic comparative analysis of political representation, rights, institutional checks, and democratic performance across the requested European countries, including Kosovo, Moldova, Georgia, and Western Balkan states.\"\n    },\n    {\n      \"title\": \"International IDEA – Global State of Democracy Indices Data and Methodology\",\n      \"url_or_doi\": \"https://www.idea.int/democracytracker/gsod-indices-faqs\",\n      \"justification\": \"Official resource explaining access to International IDEA's comparative democracy indicators and their interpretation. The underlying dataset provides country-level measures of democratic development across European states during the 2020s. Useful for identifying relevant variables, understanding country coverage, and conducting reproducible comparisons of political institutions and democratic performance.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454727.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 27259,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3230,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 30489
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

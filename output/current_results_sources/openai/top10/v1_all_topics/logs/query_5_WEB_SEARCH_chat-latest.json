@@ -1,0 +1,209 @@
+{
+  "query_id": 5,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators, Information society, Media, Political behaviour and attitudes, Information technology, Government, political systems and organisations, Elections, Economic systems and development, SCIENCE AND TECHNOLOGY, Equality, inequality and social exclusion, PSYCHOLOGY, SOCIAL STRATIFICATION AND GROUPINGS, General health and well-being, Family life and marriage, TRANSPORT AND TRAVEL, NATURAL ENVIRONMENT, LABOUR AND EMPLOYMENT, Working conditions, Leisure, tourism and sport, Income, property and investment/saving, Consumption and consumer behaviour, Energy and natural resources, Specific diseases, disorders and medical conditions, Economic policy, public expenditure and revenue, Environment and conservation, Migration, Economic conditions and indicators, Wounds and injuries, International politics and organisations, Health care services and policies, Gender and gender roles, Physical fitness and exercise, and LAW, CRIME AND LEGAL SYSTEMS in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0a22b66da85390f2006b0475c6edd087d2b82ff4e6a6eded74",
+        "created_at": 1795454406.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0a22b66da85390f2006b0475c7ced087d28b7d9b544b59ea16",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS German General Social Survey data 2010 2023 landing page",
+                "SOEP German Socio Economic Panel data 1984 2023 DIW landing page",
+                "Destatis GENESIS Online database Germany official statistics",
+                "GESIS German Longitudinal Election Study GLES data landing page"
+              ],
+              "query": "GESIS ALLBUS German General Social Survey data 2010 2023 landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0a22b66da85390f2006b0475cb15b487d298de6b379981ee97",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de/en/diw_02.c.222516.en/soep.html SOEP data",
+                "site:destatis.de EN Service Statistics genesis online database",
+                "site:rki.de health monitoring Germany GEDA data",
+                "site:umweltbundesamt.de/en data environmental indicators Germany",
+                "site:bundesnetzagentur.de energy data SMARD Germany",
+                "site:ec.europa.eu/eurostat data database Germany",
+                "site:gesis.org pairfam FReDA data family panel"
+              ],
+              "query": "site:diw.de/en/diw_02.c.222516.en/soep.html SOEP data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0a22b66da85390f2006b0475ce600087d2892d200821da62be",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:destatis.de/EN/Service/Statistics genesis online database",
+                "site:arbeitsagentur.de statistik daten arbeitsmarkt deutschland",
+                "site:bundeswahlleiterin.de/en bundeswahl elections results data",
+                "site:smard.de/en electricity market data Germany",
+                "site:bundeskriminalamt.de EN police crime statistics data",
+                "site:diw.de/en/diw_02.c.222516.en/soep.html SOEP",
+                "site:gesis.org/en/gesis-panel data",
+                "site:mobilitypanel.de German Mobility Panel data"
+              ],
+              "query": "site:destatis.de/EN/Service/Statistics genesis online database",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0a22b66da85390f2006b0475d1b4e887d28beff29d0f60f954",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8839?lang=en\",\n      \"justification\": \"One of the most comprehensive longitudinal sources for studying social conditions, political attitudes, social stratification, inequality, family life, gender roles, employment, migration, and social values in Germany. The cumulative dataset includes observations from the 2010s and 2020s and supports analysis of changes in German society over time.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Provides access to individual survey waves, cumulative datasets, questionnaires, and variable documentation. Particularly useful for investigating social indicators, political behaviour, media consumption, economic attitudes, social exclusion, family relationships, and gender differences in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP)\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.601584.en/data_access.html\",\n      \"justification\": \"A major longitudinal household panel covering income, wealth, employment, working conditions, health, subjective well-being, education, migration, family relationships, housing, and social inequality. Its repeated observations are particularly valuable for studying economic and social developments in Germany throughout the 2010s and 2020s. Research access requires an agreement.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles\",\n      \"justification\": \"A major German election research programme collecting data since 2009. Covers voting behaviour, party identification, political preferences, electoral participation, political trust, campaign communication, media influence, and political attitudes. Particularly relevant for studying German federal elections and changes in political behaviour during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"Provides access to GLES cross-sectional surveys, panel studies, campaign tracking surveys, and candidate studies. Suitable for analysing electoral behaviour, political communication, government evaluations, party competition, and political attitudes across multiple election cycles in Germany.\"\n    },\n    {\n      \"title\": \"GESIS Panel – Population and Digital Behavioural Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel\",\n      \"justification\": \"A longitudinal survey infrastructure covering the German population, including social attitudes, psychology, political behaviour, information society, media use, health, economic circumstances, and social relationships. Its population panel and digital behavioural data sample support research on social change and digital behaviour during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Panel.pop – Documentation and Survey Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gesis-panel/documentation/documentation-gesis-panelpop\",\n      \"justification\": \"Provides documentation for repeated population surveys in Germany. Relevant for investigating psychological attitudes, digital communication, social inequality, political opinions, family relationships, health, and social conditions. The longitudinal structure supports comparisons between survey waves.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/selected-german-research-projects/pairfam\",\n      \"justification\": \"A national longitudinal study launched in 2008 that investigates intimate relationships, marriage, fertility, parenting, child development, intergenerational relationships, and family dynamics. Particularly useful for examining family life, gender roles, psychological well-being, social stratification, and demographic changes in Germany during the 2010s and early 2020s.\"\n    },\n    {\n      \"title\": \"FReDA – German Family Demography Panel\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/german-survey-data\",\n      \"justification\": \"A German family demographic research programme covering family relationships, fertility, partnerships, demographic behaviour, and changing family circumstances. Particularly relevant for research on marriage, gender roles, social inequalities, family formation, and demographic developments in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Social Science Data Archive\",\n      \"url_or_doi\": \"https://www.gesis.org/en/landingpage/data-gesis\",\n      \"justification\": \"A major repository containing thousands of social science studies. Particularly useful for discovering German datasets on political behaviour, media, migration, employment, gender, psychology, consumption, social inequality, health, science and technology, and social attitudes. Includes studies conducted during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Thematic Data Catalogue\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"Provides thematic access to social science datasets covering gender relations, health, labour markets, leisure and tourism, media and communication, migration, science and technology, consumption, and social inequality. Useful for identifying specialized German surveys from the requested decades.\"\n    },\n    {\n      \"title\": \"GESIS Research Data Center Elections\",\n      \"url_or_doi\": \"https://www.konsortswd.de/en/services/research/all-datacentres/fdz-wahlen/\",\n      \"justification\": \"Provides access to German election research datasets, including GLES, Politbarometer, DeutschlandTREND, and surveys commissioned by the federal government. Useful for studying political behaviour, government evaluations, party preferences, democratic attitudes, and electoral participation in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – GENESIS-Online\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Germany's official statistical database provides extensive time-series data on population, migration, employment, economic conditions, income, consumption, prices, government expenditure, taxation, health, transport, energy, environmental conditions, and other indicators. Particularly valuable for quantitative analysis of Germany throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online – Open Data and API\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"Provides programmatic access to German official statistical datasets through a REST-based interface. Suitable for retrieving historical series on economic development, labour markets, public finances, migration, transport, energy, health, consumption, and demographic conditions.\"\n    },\n    {\n      \"title\": \"Destatis Open Data\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/opendata-einleitung.html\",\n      \"justification\": \"Provides reusable official statistics covering German social, demographic, environmental, and economic developments. Relevant for research on employment, income, household consumption, public expenditure, economic indicators, population structure, and social conditions during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – European Statistical Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides harmonized statistical datasets for Germany and other European countries. Covers income inequality, poverty, social exclusion, employment, working conditions, health, migration, information society, science and technology, government finances, energy, transport, tourism, and economic indicators. Germany can be selected for analyses covering the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Data Access and Statistical Indicators\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data\",\n      \"justification\": \"A comprehensive entry point to European statistical datasets, including German data on economic development, gender equality, social inclusion, household conditions, digital technologies, research and development, health care, labour markets, and environmental sustainability. Useful for comparing Germany with other European countries.\"\n    },\n    {\n      \"title\": \"Eurostat – Statistical Data Web Services\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/data/web-services\",\n      \"justification\": \"Provides machine-readable access to Eurostat datasets. Researchers can extract German observations from statistical series covering the 2010s and 2020s, including labour market indicators, government finances, income inequality, health, migration, information technology, transport, and energy.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Health Update (GEDA)\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Themen/Nichtuebertragbare-Krankheiten/Studien-und-Surveillance/Studien/GEDA/geda_gesamt.html?nn=16782108\",\n      \"justification\": \"A repeated population health survey providing information on health status, health behaviour, medical care, chronic diseases, physical activity, obesity, smoking, and health inequalities in Germany. Includes survey waves from the 2010s and 2020s, making it particularly useful for studying health trends and differences between population groups.\"\n    },\n    {\n      \"title\": \"Robert Koch Institute – German Population Health Surveys\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/health-surveys-node.html\",\n      \"justification\": \"Provides access to information about Germany's major health monitoring studies, including GEDA, DEGS, and KiGGS. Relevant for general health, specific diseases, psychological well-being, physical fitness, injuries, health care utilization, and social inequalities in health. Includes studies covering the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/health-surveys-node.html\",\n      \"justification\": \"A population health study focused on adult health in Germany. Provides information on chronic conditions, health risks, physical and mental health, medical care, and socioeconomic differences. Particularly useful for examining health inequalities and disease prevalence during the 2010s, although its coverage does not extend continuously through the 2020s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS)\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/health-surveys-node.html\",\n      \"justification\": \"A major German health study focused on children and adolescents. Relevant for physical fitness, exercise, mental health, specific medical conditions, injuries, family circumstances, and socioeconomic health inequalities. Its follow-up data are useful for investigating child and adolescent health during the 2010s.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Environmental Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data/environment-indicators/report\",\n      \"justification\": \"Provides downloadable environmental indicators for Germany, including greenhouse gas emissions, air pollution, water quality, biodiversity, waste, recycling, energy consumption, renewable energy, transport emissions, and sustainable consumption. Particularly relevant for analysing environmental conditions and conservation policies during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Environmental Data\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data\",\n      \"justification\": \"An official source of environmental statistics and trends for Germany. Covers natural resources, energy, climate change, air and water quality, land use, waste management, environmental protection, and sustainable development. Suitable for studying environmental changes and related policy indicators across the requested decades.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Environmental Core Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/daten/umwelt-indikatoren\",\n      \"justification\": \"Provides thematic indicators on climate, energy, air pollution, ecosystems, water resources, resource efficiency, transport, agriculture, and household consumption. Particularly useful for assessing Germany's environmental performance, sustainability, and conservation trends during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Electricity Market Data – SMARD\",\n      \"url_or_doi\": \"https://www.smard.de/en/datennutzung\",\n      \"justification\": \"Provides publicly accessible German electricity market data, including electricity generation, consumption, renewable energy production, electricity prices, and cross-border electricity flows. Particularly relevant for studying Germany's energy transition, energy markets, renewable resources, and electricity-related economic developments during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Elections – Official Open Data\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/bundestagswahlen/2025/ergebnisse/opendata.html\",\n      \"justification\": \"Provides official downloadable results for Germany's 2025 federal election in machine-readable formats. Includes geographical election results and party vote totals. Relevant for studying elections, political parties, regional voting patterns, electoral participation, and Germany's political system during the 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Returning Officer – Historical Election Records\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/en/service/wahltermine/fruehere-wahlen.html\",\n      \"justification\": \"Provides access to historical election information for Germany, including elections conducted during the 2010s and 2020s. Useful for locating official electoral results and studying political competition, voting behaviour, regional electoral differences, and changes in party support.\"\n    },\n    {\n      \"title\": \"German Federal Returning Officer – Electoral Statistics\",\n      \"url_or_doi\": \"https://bundeswahlleiterin.de/en/service/glossar/w/wahlstatistik.html\",\n      \"justification\": \"Describes official electoral statistical data on eligible voters, turnout, valid and invalid votes, political party results, and demographic differences in participation. Relevant for studying voting behaviour, gender differences, age-related electoral participation, and election outcomes in Germany.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Consumer Price Index and Economic Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"The GENESIS-Online database includes official German consumer price statistics, producer prices, foreign trade, and other economic indicators. These datasets support research on inflation, household purchasing power, consumption, economic conditions, and economic development throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Government Finance and Tax Revenue Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides official German statistical tables on government finances, tax revenue, public-sector accounts, and related economic indicators. Particularly relevant for examining economic policy, public expenditure, government revenue, and fiscal developments during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Migration Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides German official statistics on population movements, immigration, emigration, demographic composition, and migration trends. Particularly useful for analysing Germany's changing population structure and migration developments during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Transport Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Contains official statistical tables covering transport activities and passenger and freight movements, including inland waterway transport and other transport sectors. Useful for investigating transport infrastructure, mobility-related economic activity, and changes in German transport systems during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Employment and Labour Market Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides official statistical data on employment, unemployment, labour market participation, occupations, and demographic characteristics. Relevant for studying labour market conditions, gender employment differences, economic inequality, and structural changes in Germany throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Household Income and Consumption Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides statistical tables relevant to household income, expenditure, consumption, living conditions, and economic inequality. Useful for examining household purchasing power, consumer behaviour, economic conditions, and social stratification in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Health and Health Care Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides official German statistical data on health-related topics, including health care services and demographic indicators. Useful for investigating health system developments, health care provision, and population-level health conditions during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office – Research, Development and Technology Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/\",\n      \"justification\": \"Provides access to official statistical tables relevant to science, technology, economic sectors, and innovation-related activity. Suitable for investigating technological development and the economic role of science and research in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Information Society and Digital Economy Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Eurostat's database includes information society datasets covering household internet access, digital skills, online activities, e-commerce, and business use of information technologies. Germany-specific observations support analysis of digital transformation and changing technology adoption during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Income, Living Conditions and Social Exclusion Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides harmonized indicators related to household income, poverty, material deprivation, inequality, social exclusion, and living conditions. Particularly suitable for studying inequality in Germany and comparing German social conditions with those of other European countries across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Labour Force and Working Conditions Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Contains datasets on employment, unemployment, working hours, labour market participation, occupations, temporary employment, and demographic differences in labour market outcomes. Useful for investigating German employment trends, gender disparities, youth employment, and changing working conditions.\"\n    },\n    {\n      \"title\": \"Eurostat – Tourism and Travel Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Includes statistical datasets on tourism accommodation, travel participation, tourist arrivals, overnight stays, and tourism-related economic activity. Germany-specific data are useful for analysing leisure, tourism, and travel patterns during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Science, Technology and Innovation Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides harmonized statistics on research and development expenditure, research personnel, innovation, high-technology industries, and science-related economic activities. Relevant for studying scientific and technological development in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Energy and Natural Resources Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Includes energy production, energy consumption, renewable energy, electricity generation, energy dependence, and energy efficiency indicators. Germany-specific time series allow examination of energy markets, natural resource use, and the energy transition during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Government Expenditure, Revenue and Public Finance Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides harmonized government finance statistics, including public expenditure, government revenue, taxation, deficits, debt, and expenditure by function. Suitable for studying Germany's fiscal policies, economic governance, and changes in public expenditure during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Health and Health Care Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Includes datasets on population health, health care resources, medical services, causes of death, health expenditures, and health inequalities. Useful for investigating specific diseases, health care systems, and German public health developments throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Migration and Population Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides harmonized data on immigration, emigration, foreign-born populations, citizenship, asylum, and demographic change. Particularly relevant for investigating migration patterns, population composition, and integration-related demographic indicators in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Includes statistical data on police-recorded offences, criminal justice systems, and related public safety indicators. Germany-specific observations can support research on crime, law enforcement, and criminal justice developments during the 2010s and 2020s, subject to comparability limitations.\"\n    },\n    {\n      \"title\": \"Eurostat – Gender Equality and Labour Market Inequality Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Provides sex-disaggregated statistics on employment, earnings, education, economic participation, and social conditions. Particularly useful for studying gender roles, gender pay differences, employment inequality, and structural differences between women and men in Germany.\"\n    },\n    {\n      \"title\": \"Eurostat – Transport and Mobility Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Includes harmonized datasets on road, rail, air, and maritime transport, passenger mobility, freight movements, and transport infrastructure. Germany-specific historical series support research on mobility, transport systems, and transport-related economic development.\"\n    },\n    {\n      \"title\": \"Eurostat – Environmental Protection and Conservation Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/data/database\",\n      \"justification\": \"Contains environmental accounts and indicators covering environmental protection expenditure, resource productivity, waste, emissions, and environmental economic activity. Relevant for investigating Germany's environmental policies, resource conservation, and sustainable economic development during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Transport and Environmental Sustainability Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data/environment-indicators/report\",\n      \"justification\": \"Provides indicators on transport energy consumption, exposure to traffic noise, environmentally friendly passenger transport, and freight transport. Useful for connecting transport behaviour with environmental impacts, energy consumption, and sustainability policies in Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Sustainable Consumption and Resource Use Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data/environment-indicators/report\",\n      \"justification\": \"Includes indicators related to sustainable consumption, household environmental footprints, raw material productivity, waste generation, recycling, and resource conservation. Relevant for analysing consumer behaviour, natural resource use, environmental awareness, and sustainability in Germany.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Renewable Energy and Climate Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data/environment-indicators/report\",\n      \"justification\": \"Provides German indicators on renewable energy shares, greenhouse gas emissions, primary and final energy consumption, energy productivity, and energy-related environmental impacts. Particularly useful for evaluating environmental and energy policy developments during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Environmental Employment and Green Economy Indicators\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/en/data/environment-indicators/report\",\n      \"justification\": \"Contains indicators concerning employment in environmental protection, renewable energy employment, environmental goods, and environmental economic activity. Useful for examining relationships between economic development, labour markets, environmental policy, and Germany's transition toward a lower-carbon economy.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"A cumulative survey dataset covering German social attitudes, demographic characteristics, and social behaviour, including observations from the 2010s and 2020s. Particularly relevant for political attitudes, inequality, social stratification, migration, employment, family life, gender roles, and broader social indicators. The compact version provides coarsened sensitive variables for improved confidentiality.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454444.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 27232,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 5962,
+          "output_tokens_details": {
+            "reasoning_tokens": 320
+          },
+          "total_tokens": 33194
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 30,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Migration, Physical fitness and exercise, Specific diseases, disorders and medical conditions, Government, political systems and organisations, Political behaviour and attitudes, Social welfare policy, Specific social services: use and availability, and Employment in Germany during the 2020s, matching this research need: panel survey data on individual attitudes and preferences relevant to political and economic decision-making, especially internet-based data from Germany\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Internet Panel (GIP)\",\n      \"url_or_doi\": \"https://www.uni-mannheim.de/gip/\",\n      \"justification\": \"The German Internet Panel (GIP) is a long-term, probability-based online panel study operated by the University of Mannheim in cooperation with GESIS. Running bi-monthly through the 2020s, it collects internet-based survey data from Germany on individual attitudes and preferences relevant to political and economic decision-making, covering employment, social welfare policy, political behaviour, health, migration, and government policy reforms.\"\n    },\n    {\n      \"title\": \"GESIS Panel Standard Edition\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14285\",\n      \"justification\": \"The GESIS Panel is an open probability-based mixed-mode (predominantly web-based) longitudinal survey of the general population in Germany running through the 2020s. It regularly measures political attitudes and behaviour, economic decision-making, employment status, social welfare preferences, health conditions, and views on migration and social service availability.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) Panel\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/gles-panel\",\n      \"justification\": \"The GLES Panel is a primary web-based longitudinal survey tracking political and societal attitudes, political behaviour, voting choices, government system evaluations, and economic preferences among eligible voters in Germany throughout the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Panel Special Survey on the Coronavirus SARS-CoV-2 Outbreak in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13520\",\n      \"justification\": \"Conducted in 2020 using the GESIS Panel online infrastructure, this high-frequency panel dataset collects individual data in Germany regarding specific diseases and medical conditions (COVID-19), health behaviors, trust in government, political attitudes, employment changes, and social welfare support.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1482,
+          "candidatesTokenCount": 509,
+          "totalTokenCount": 3921,
+          "cachedContentTokenCount": 419,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1482
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 419
+            }
+          ],
+          "thoughtsTokenCount": 1930,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "aIGEaqSaHJ2mnsEP7OCHsAk"
+      }
+    }
+  ]
+}

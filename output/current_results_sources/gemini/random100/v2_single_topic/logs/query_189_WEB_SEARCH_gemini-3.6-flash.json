@@ -1,0 +1,62 @@
+{
+  "query_id": 189,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, and Croatia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat - Crime and Criminal Justice Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime/database\",\n      \"justification\": \"Eurostat compiles official statistical data on police-recorded offences, law enforcement personnel, court proceedings, and prison populations across EU Member States (including all 28 requested European countries) for the 2010s.\"\n    },\n    {\n      \"title\": \"UNODC Data Portal - Crime and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://dataunodc.un.org\",\n      \"justification\": \"The United Nations Office on Drugs and Crime provides comparative global and regional datasets on intentional homicide, violent offences, law enforcement resources, prosecutions, and prison populations across European nations for the 2010s.\"\n    },\n    {\n      \"title\": \"European Sourcebook of Crime and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://wp.unil.ch/europeansourcebook\",\n      \"justification\": \"Maintained by an international team of criminological experts at the University of Lausanne, this comparative dataset provides structured data on police statistics, prosecution, convictions, and correctional statistics across European countries covering the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 611,
+          "candidatesTokenCount": 309,
+          "totalTokenCount": 2106,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 611
+            }
+          ],
+          "thoughtsTokenCount": 1186,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "d0uEatTmDdHAxN8PmZSc8AM"
+      }
+    }
+  ]
+}

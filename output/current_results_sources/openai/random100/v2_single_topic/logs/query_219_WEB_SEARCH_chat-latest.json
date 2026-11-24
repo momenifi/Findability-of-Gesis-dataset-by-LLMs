@@ -1,0 +1,186 @@
+{
+  "query_id": 219,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Turkey during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_053812df5babee8e006b046837a9fc87d2b338a901ca71b4a8",
+        "created_at": 1795450935.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_053812df5babee8e006b046838af1487d2b2e51043de0fb65d",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Turkey 2010s political attitudes survey dataset World Values Survey wave 6 Turkey",
+                "Turkey election study 2015 2018 survey dataset political behavior",
+                "European Social Survey Turkey 2010 data political trust",
+                "Comparative Study of Electoral Systems Turkey 2015 dataset"
+              ],
+              "query": "Turkey 2010s political attitudes survey dataset World Values Survey wave 6 Turkey",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_053812df5babee8e006b04683c004887d2affe5c36cc8749d1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:cses.org/datacenter/module4 Turkey 2015 CSES",
+                "site:cses.org/datacenter/module5 Turkey 2018 CSES",
+                "site:gesis.org eurobarometer Turkey candidate countries 2013 2018 data",
+                "site:worldvaluessurvey.org wave 7 Turkey 2018 data"
+              ],
+              "query": "site:cses.org/datacenter/module4 Turkey 2015 CSES",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_053812df5babee8e006b04683eac0c87d2b56c232b9685aa0e",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"World Values Survey (WVS) Wave 6 – Turkey, 2012\",\n      \"url_or_doi\": \"https://datacatalog.ihsn.org/catalog/9035\",\n      \"justification\": \"A nationally representative survey of 1,605 Turkish adults conducted in 2012. Covers political attitudes, trust in institutions, democratic values, political participation, national identity, religion, and social tolerance. Particularly useful for studying political culture, support for democracy, and ideological divisions in Turkey during the early 2010s.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS) Wave 7 – Turkey, 2017–2022\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Documentation\",\n      \"justification\": \"Provides cross-national survey data on political values, institutional trust, democratic preferences, political engagement, and social attitudes. The seventh wave includes Turkey and enables comparisons with earlier waves. Researchers can select Turkish observations and examine changes in political attitudes during the late 2010s. The precise Turkish fieldwork dates should be checked in the country documentation.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 4 – Turkey, 2015\",\n      \"url_or_doi\": \"https://doi.org/10.7804/cses.module4.2018-05-29\",\n      \"justification\": \"Contains individual-level survey data associated with Turkey's June 2015 parliamentary election. Includes voting behavior, party identification, political interest, evaluations of political leaders, democratic attitudes, and socioeconomic characteristics. Particularly valuable for investigating electoral choices, political polarization, and attitudes toward representative democracy during a pivotal Turkish election.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 5 – Turkey, 2018\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-module-5-2016-2021/\",\n      \"justification\": \"Includes a Turkish election study from 2018, covering voting behavior, party preferences, political attitudes, perceptions of representation, and evaluations of political institutions. Especially relevant for examining voter behavior during Turkey's transition to an executive presidential system and comparing electoral attitudes between 2015 and 2018.\"\n    },\n    {\n      \"title\": \"Comparative Study of Electoral Systems (CSES) Module 3 – Turkey, 2011\",\n      \"url_or_doi\": \"https://cses.org/data-download/download-data-documentation/\",\n      \"justification\": \"Includes Turkish electoral survey data from the 2011 parliamentary election. Provides information on voting decisions, political preferences, party evaluations, and attitudes toward democratic representation. Useful for examining political behavior at the beginning of the decade and establishing a baseline for comparisons with the 2015 and 2018 elections.\"\n    },\n    {\n      \"title\": \"CSES Integrated Module Dataset – Turkey, 2011, 2015, and 2018\",\n      \"url_or_doi\": \"https://cses.org/data-download/cses-integrated-module-dataset-imd/\",\n      \"justification\": \"A harmonized cross-national electoral dataset combining selected variables from multiple CSES modules. Includes Turkish election studies from 2011, 2015, and 2018. Particularly useful for longitudinal analysis of voting behavior, party preferences, political participation, leader evaluations, and changes in electoral alignments. Its standardized variables facilitate comparisons across elections.\"\n    },\n    {\n      \"title\": \"Middle Eastern Values Study (MEVS) – Comparative Panel Survey on Political Engagement in Egypt, Tunisia, and Turkey\",\n      \"url_or_doi\": \"https://mevs.umd.edu/node/1089\",\n      \"justification\": \"A comparative panel survey examining belief formation, political engagement, and changing social and political attitudes in Egypt, Tunisia, and Turkey. Includes a Turkish survey wave from 2013 and provides access to panel data and questionnaires. Particularly useful for studying political participation, democratic orientations, and attitudinal changes in Turkey within a broader Middle Eastern context.\"\n    },\n    {\n      \"title\": \"Turkey 2014–2015 Microlevel Experimental Survey Dataset – Kerem Yildirim\",\n      \"url_or_doi\": \"https://www.keremyildirim.com/data\",\n      \"justification\": \"An online panel survey involving 1,045 respondents recruited through Facebook, tracking political attitudes and clientelistic relationships across four Turkish elections in 2014–2015. Particularly valuable for investigating vote buying, political clientelism, electoral preferences, and individual-level political behavior. Some data may require contacting the researcher, and the online recruitment method limits population representativeness.\"\n    },\n    {\n      \"title\": \"Post-Coup Attempt Twitter Dataset – Turkey, July–December 2016\",\n      \"url_or_doi\": \"https://www.keremyildirim.com/data\",\n      \"justification\": \"Contains Twitter posts, mentions, and network information concerning political discourse following Turkey's attempted military coup in July 2016. Suitable for studying online political participation, political polarization, political communication, and public reactions to major political events. The dataset offers behavioral evidence from social media rather than representative public opinion measurements. Access may require contacting the researcher.\"\n    },\n    {\n      \"title\": \"Turkish MPs and Candidates on Twitter, 2015–2018\",\n      \"url_or_doi\": \"https://www.keremyildirim.com/data\",\n      \"justification\": \"Contains information about social media activity by Turkish politicians and election candidates between 2015 and 2018. Useful for analyzing elite political communication, digital campaigning, political networks, and the relationship between politicians and voters during a period of significant institutional change. Particularly relevant to research on digital political behavior.\"\n    },\n    {\n      \"title\": \"Turkish District-Level Mayoral Elections Dataset – 2009 and 2014\",\n      \"url_or_doi\": \"https://www.keremyildirim.com/data\",\n      \"justification\": \"Provides biographical information on candidates competing in Turkish municipal elections in 2009 and 2014. Useful for examining local electoral competition, candidate characteristics, political recruitment, and patterns of political representation. The 2014 observations are directly relevant to political behavior during the 2010s. This is a candidate-level rather than an individual voter survey dataset.\"\n    },\n    {\n      \"title\": \"Replication Data for Presidents Shaping Public Opinion in Parliamentary Democracies: A Survey Experiment in Turkey\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/6IRW0N\",\n      \"justification\": \"A Harvard Dataverse replication dataset associated with research by Selim Erdem Aytaç and collaborators on presidential influence over public opinion in Turkey. Contains survey-experimental evidence useful for studying political persuasion, executive leadership, opinion formation, and the relationship between presidential communication and citizens' attitudes during the 2010s.\"\n    },\n    {\n      \"title\": \"Turkish Electoral Data – 2017 Constitutional Referendum and 2018 Elections\",\n      \"url_or_doi\": \"https://doi.org/10.1371/journal.pone.0204975\",\n      \"justification\": \"Election data made available as supporting information for the research article 'Forensic Analysis of Turkish Elections in 2017–2018.' Covers the 2017 constitutional referendum and 2018 presidential and parliamentary elections. Useful for studying aggregate voting behavior, turnout patterns, electoral geography, and statistical irregularities. Unlike survey datasets, these records describe observed electoral outcomes rather than individual political attitudes.\"\n    },\n    {\n      \"title\": \"European Commission Eurobarometer Surveys – Turkey, 2010s\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/data-and-documentation\",\n      \"justification\": \"The GESIS Eurobarometer Data Service provides access to European public opinion survey datasets, including relevant survey series with Turkish observations. Suitable datasets can provide measures of political trust, attitudes toward European integration, institutional confidence, satisfaction with democracy, and perceptions of economic and political conditions. Researchers should verify Turkey's participation in each specific survey wave before downloading.\"\n    },\n    {\n      \"title\": \"World Values Survey Longitudinal Data – Turkey\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=DataDoc\",\n      \"justification\": \"Provides harmonized survey data from multiple World Values Survey waves, including Turkish observations relevant to the 2010s. Particularly suitable for examining long-term changes in trust in government, support for democracy, political participation, authoritarian attitudes, religiosity, and social values. Enables comparisons between political attitudes observed during the 2010s and those recorded in earlier periods.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450952.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19003,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1971,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20974
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

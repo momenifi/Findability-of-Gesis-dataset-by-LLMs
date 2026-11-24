@@ -1,0 +1,186 @@
+{
+  "query_id": 87,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific social services: use and availability in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_07bec6cb2a9c5d1f006b045fbc677087d2a138d468fcc13e1a",
+        "created_at": 1795448764.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_07bec6cb2a9c5d1f006b045fbd934087d29ce005a2eb6da4b5",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS Germany youth welfare child day care facilities children 2023 2024 dataset",
+                "Germany social services data 2020 2024 long term care statistics Destatis facilities recipients",
+                "Germany 2020 2024 social assistance recipients facilities statistics GENESIS",
+                "Germany social services availability use dataset 2022 2023 2024 Jugendhilfe Statistik Forschungsdatenzentrum"
+              ],
+              "query": "Destatis GENESIS Germany youth welfare child day care facilities children 2023 2024 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_07bec6cb2a9c5d1f006b045fc22fbc87d2baf33773d4c00506",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:genesis.destatis.de/datenbank/online/statistic/22412/table Jugendhilfe Hilfen zur Erziehung 2023",
+                "site:genesis.destatis.de/datenbank/online/statistic/22541/table Kindertageseinrichtungen Plätze Personal 2024",
+                "site:genesis.destatis.de/datenbank/online/statistic/22411/table Einrichtungen Jugendhilfe 2022",
+                "site:statistik.arbeitsagentur.de Grundsicherung SGB II Daten Zeitreihen Leistungsberechtigte 2024"
+              ],
+              "query": "site:genesis.destatis.de/datenbank/online/statistic/22412/table Jugendhilfe Hilfen zur Erziehung 2023",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_07bec6cb2a9c5d1f006b045fc60c8887d28da7937a3d98ba12",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Destatis GENESIS-Online: Child Daycare Facilities, Staff, Children and Approved Places in Germany (2014–2026)\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541/table/22541-0001\",\n      \"justification\": \"Official German Federal Statistical Office dataset measuring both the availability and utilization of childcare services. Includes annual counts of daycare facilities, pedagogical staff, enrolled children, approved childcare places and groups. Covers 2020 onward, making it particularly useful for examining childcare capacity, service uptake and changes in provision during the 2020s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Childcare Facilities, Enrolled Children and Approved Places by Federal State\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541/details\",\n      \"justification\": \"Official statistical dataset collection containing table 22541-0100, which reports daycare facilities, children receiving care and approved places across Germany's federal states. Particularly relevant for investigating regional differences in childcare accessibility, service availability and utilization during the 2020s.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Childcare Facilities and Capacity by Provider Type\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/22541-0002\",\n      \"justification\": \"Provides annual statistics on childcare facilities, personnel, enrolled children and approved places, categorized by provider type. Covers 2014–2026, including the 2020s. Useful for comparing the role of public, nonprofit and other childcare providers in delivering social services and assessing differences between available capacity and actual enrollment.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Childcare Facility Opening Hours\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22541/table/22541-0005\",\n      \"justification\": \"Official dataset documenting daycare facilities by opening hours, with observations throughout the 2020s. Particularly useful for assessing childcare availability beyond facility counts, including whether service schedules accommodate working families and how the provision of childcare hours changes over time.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Children Receiving Publicly Funded Daycare by Childminders and Migration Background\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/https%3A-genesis.destatis.de-genesisws-downloads-00-tables-22543-0021_00?locale=en\",\n      \"justification\": \"Dataset available through the European Data Portal and originating from Germany's official statistical system. Reports children receiving publicly funded daycare by federal state, reference date, gender and migration background. Relevant for studying the utilization of publicly supported childcare services and differences in access across demographic groups and geographic areas.\"\n    },\n    {\n      \"title\": \"Destatis: Childcare Attendance Rates by Age Group\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Social-Statistics/Day-Care-Children/Tables/attendance-rates-children-daycare-year.html\",\n      \"justification\": \"Official German statistics on childcare participation rates among children of different ages. Includes measures of attendance at daycare centers and publicly supported childcare provided by childminders. Useful for studying how extensively available childcare services are used and comparing participation across age groups during the 2020s.\"\n    },\n    {\n      \"title\": \"Destatis: Children Receiving Publicly Funded Childcare by Federal State, 2024\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Social-Statistics/Day-Care-Children/Tables/Children-receiving-publicl-funded.html\",\n      \"justification\": \"Official dataset reporting children receiving publicly funded daycare from childminders across Germany's federal states as of March 1, 2024. Directly measures utilization of a specific publicly supported family service and supports regional comparisons in childcare uptake.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Child and Youth Welfare Facilities, Staffing, Approved Places and Occupied Places\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22542%2A/table/22542-0018\",\n      \"justification\": \"Highly relevant official dataset measuring the supply and actual utilization of child and youth welfare services in Germany. Includes the number of youth welfare facilities, groups, staffing positions, approved places and occupied places, categorized by provider type. Especially valuable because approved and occupied places allow comparisons between service capacity and actual use.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Youth Welfare Providers and Facilities Statistics\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistics\",\n      \"justification\": \"The official GENESIS statistical catalogue includes statistics 22542 on youth welfare providers and facilities. Available indicators include welfare institutions, staffing, provider characteristics, approved places and occupied places. Useful for identifying changes in social service infrastructure and institutional capacity across Germany and its federal states during the 2020s.\"\n    },\n    {\n      \"title\": \"Destatis: Public Expenditure on Child Daycare Centers by Federal State\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Social-Statistics/Public-Children-Youth-Welfare/Tables/ausgaben-kindertagesbetreuung-nach-laendern.html\",\n      \"justification\": \"Official dataset documenting public expenditure on childcare services across German federal states. Provides a financial perspective on service availability and government investment. Useful for studying regional differences in childcare funding and connecting spending patterns with measures of childcare capacity and utilization.\"\n    },\n    {\n      \"title\": \"Destatis: Long-Term Care Statistics in Germany\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Health/Long-Term-Care/_node.html\",\n      \"justification\": \"Official statistical data collection covering long-term care services and people requiring care in Germany. Provides access to statistics on care recipients and long-term care provision, including information relevant to residential and home-based care. Particularly useful for analyzing elderly care service utilization, care demand and service availability during the 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Ministry of Health: Long-Term Care Insurance Beneficiaries by Benefit Type and Care Level, 2024\",\n      \"url_or_doi\": \"https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/Statistiken/Pflegeversicherung/Leistungsempfaenger/2024_Leistungsempfaenger-nach-Leistungsarten-und-Pflegegraden.pdf\",\n      \"justification\": \"Official administrative statistics reporting recipients of social long-term care insurance benefits in 2024, classified by benefit type and care level. Enables analysis of how people use different forms of publicly financed long-term care support. Particularly useful for distinguishing financial assistance from specific care services and examining patterns of care utilization.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Recipients of Social Assistance under Chapters 5–9 of Social Code Book XII\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22131/table/22131-0003\",\n      \"justification\": \"Official annual dataset covering recipients of specific social assistance benefits, including health-related assistance and other support under Germany's Social Code Book XII. Distinguishes services provided inside and outside institutions and includes observations for 2020–2025. Useful for measuring utilization of targeted social assistance services and examining changes in institutional versus community-based provision. Changes in benefit classifications around 2020 should be considered when constructing longer time series.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Recipients of Subsistence Assistance by Age, Gender and Service Location\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22121/table/22121-0001/table-toolbar\",\n      \"justification\": \"Official dataset on recipients of Hilfe zum Lebensunterhalt, a German social assistance benefit supporting basic living expenses. Provides demographic breakdowns and distinguishes support delivered within and outside institutions. Includes observations from the 2020s and is relevant for studying the utilization of means-tested social assistance among different population groups.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Basic Income Support in Old Age and Reduced Earning Capacity\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/22151/table/22151-0004\",\n      \"justification\": \"Official dataset documenting recipients of basic income support for older people and individuals with reduced earning capacity. Provides quarterly observations during the 2020s, with demographic characteristics and information on whether benefits are provided inside or outside institutions. Useful for analyzing take-up of income-support services among vulnerable groups and changes in social assistance demand.\"\n    },\n    {\n      \"title\": \"Destatis GENESIS-Online: Asylum Seekers' Benefits by Gender and Accommodation Type\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/39c7dc01\",\n      \"justification\": \"Official dataset reporting recipients of basic benefits and subsistence assistance under Germany's Asylum Seekers' Benefits Act. Includes annual observations for 2020–2024 and distinguishes beneficiaries by gender and accommodation type. Useful for studying the utilization of social support for asylum seekers and how service delivery varies across accommodation arrangements.\"\n    },\n    {\n      \"title\": \"German Federal Employment Agency: Basic Income Support for Jobseekers (SGB II), Monthly and Annual Time Series\",\n      \"url_or_doi\": \"https://statistik.arbeitsagentur.de/DE/Navigation/Statistiken/Fachstatistiken/Grundsicherung-fuer-Arbeitsuchende-SGBII/Ueberblick/Ueberblick-Nav.html\",\n      \"justification\": \"Official German Federal Employment Agency statistical portal providing monthly and annual data on recipients of means-tested basic income support for jobseekers. Includes beneficiaries, benefit-recipient households, recipient rates and regional breakdowns at national, federal-state and district levels. Time series extend through the 2020s, making the data valuable for examining the utilization and geographic distribution of income-support services.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448786.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19017,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2428,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 21445
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 15,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media in German Democratic Republic (1949-1990) during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0eddc626cbfb36d8006b045b3880a087d2a5bba28818b29673",
+        "created_at": 1795447608.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0eddc626cbfb36d8006b045b39946c87d2b5f012f8ad6303c7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DDR 1980er Jahre Zeitungen digitalisierte Bestände dataset ZEFYS",
+                "DDR Fernsehen Archiv 1980er Jahre Metadaten Datenbank",
+                "GDR 1980s media newspaper corpus dataset East Germany",
+                "DDR Rundfunk 1980er Jahre Archiv Datenbank Sendungen"
+              ],
+              "query": "DDR 1980er Jahre Zeitungen digitalisierte Bestände dataset ZEFYS",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0eddc626cbfb36d8006b045b3d06f887d29c39d455988ebdc4",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Radiohoeren\" \"DDR\" 1987",
+                "site:search.gesis.org/research_data \"Sofortresonanzen\" \"1988\"",
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Radiohoeren\" \"DDR\"",
+                "site:gesis.org \"Fernsehen in der DDR 1984\" Datensatz"
+              ],
+              "query": "site:search.gesis.org/research_data \"Radiohoeren\" \"DDR\" 1987",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0eddc626cbfb36d8006b045b3f80b887d2a6f6c6d42884d8f6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"GESIS Data Archive: Television Viewing Behavior in the German Democratic Republic (1982–1990)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA7147\",\n      \"justification\": \"Part of a collection of 466 studies investigating television viewing behavior in East Germany between 1982 and 1990. The studies were conducted by the sociological research department of the GDR's State Television Committee. They contain information on audience participation, program evaluations, viewing preferences, and demographic characteristics. The linked 1984 study provides an entry point into this collection. Particularly valuable for quantitative research on television consumption and media reception during the 1980s.\"\n    },\n    {\n      \"title\": \"GESIS: Sofortresonanzen DDR Fernsehen, 46th Week of 1984 (ZA7147)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.7147\",\n      \"justification\": \"An empirical dataset measuring television viewing and audience reactions in East Germany in November 1984. It includes 1,150 observations and 143 variables covering program ratings, viewer preferences, awareness of television programming, and demographic information. Useful for studying television audiences, media influence, and the reception of state-controlled broadcasting.\"\n    },\n    {\n      \"title\": \"GESIS: Sofortresonanzen DDR Fernsehen, 14th Week of 1984 (ZA7115)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.7115\",\n      \"justification\": \"A television audience research dataset collected in April 1984 by the GDR's State Television Committee. It belongs to the extensive collection of weekly television audience surveys archived by GESIS. Relevant for investigating television consumption patterns, program reception, and audience behavior during the 1980s.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Listening Among Young People Aged 12–28, March 1983 (ZA6508)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6508\",\n      \"justification\": \"A dataset examining radio consumption among young people aged 12–28 in East Germany in March 1983. It is particularly relevant for analyzing youth media habits, generational differences in broadcasting consumption, and the role of radio in GDR society. Part of a collection of 51 radio audience studies covering 1980–1989.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Audience Participation and Social Listening Contexts, November 1984 (ZA6519)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6519\",\n      \"justification\": \"A 1984 dataset investigating radio audience participation and the social circumstances of listening, with additional questions about weekday evening radio consumption. Useful for studying everyday media practices, listening habits, and radio's role in the daily routines of East German citizens.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Audience Participation and Listening Contexts, June 1985 (ZA6523)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6523\",\n      \"justification\": \"A quantitative dataset examining radio listening behavior in the GDR during June 1985, including weekday afternoon listening and social listening contexts. Relevant for analyzing radio consumption patterns, audience characteristics, and the place of broadcasting in everyday life under socialism.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Audience Participation and Listening Locations, June 1986 — Youth Radio DT64 (ZA6530)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6530\",\n      \"justification\": \"A particularly relevant dataset for research on youth-oriented broadcasting in the GDR. Collected in June 1986, it examines radio audience participation, listening locations, and the youth radio station DT64. Useful for analyzing youth culture, state broadcasting strategies, and media consumption among younger East Germans.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Listening Behavior in the GDR, 1989 (ZA6549)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6549\",\n      \"justification\": \"A dataset documenting radio listening behavior between October 27 and November 3, 1989, immediately before the fall of the Berlin Wall. Particularly valuable for examining media consumption during the political crisis of late 1989 and comparing listening patterns with earlier periods of the 1980s.\"\n    },\n    {\n      \"title\": \"GESIS: Radio Listening Among Young People Aged 12–30, December 1989 (ZA6550)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6550\",\n      \"justification\": \"A survey of radio consumption among East German young people aged 12–30, conducted in December 1989. Provides evidence about youth media behavior during the political transformation following the fall of the Berlin Wall. Especially useful for comparing late-socialist and transitional media consumption.\"\n    },\n    {\n      \"title\": \"ZEFYS: DDR-Presse — Digitized Newspapers of the German Democratic Republic\",\n      \"url_or_doi\": \"https://zefys.staatsbibliothek-berlin.de/ddr-presse/\",\n      \"justification\": \"A major digitized newspaper collection maintained by the Berlin State Library. It includes Neues Deutschland (1946–1990), Berliner Zeitung (1945–1993), and Neue Zeit (1945–1994), providing extensive coverage of the 1980s. The collection offers digitized newspaper pages and searchable full text. Particularly valuable for historical content analysis, propaganda studies, political communication research, and comparisons of newspaper coverage before and during the 1989 revolution. Some access restrictions may apply.\"\n    },\n    {\n      \"title\": \"ZEFYS: Neues Deutschland Digital Newspaper Archive (1946–1990)\",\n      \"url_or_doi\": \"https://zefys.staatsbibliothek-berlin.de/ddr-presse/neues-deutschland/\",\n      \"justification\": \"Digitized historical issues of Neues Deutschland, the principal newspaper of East Germany's ruling Socialist Unity Party. Its coverage includes the entire 1980s through German reunification in October 1990. An important primary-source corpus for analyzing official political narratives, government messaging, socialist ideology, censorship, and changing media discourse during the final decade of the GDR.\"\n    },\n    {\n      \"title\": \"Staatsbibliothek zu Berlin: DDR Newspaper Digitization Project\",\n      \"url_or_doi\": \"https://staatsbibliothek-berlin.de/die-staatsbibliothek/projekte/ddr-zeitungsportal-i-2009\",\n      \"justification\": \"Documentation and access information for a large-scale digitization project covering three important East German daily newspapers. The project digitized approximately 393,654 newspaper pages, including extensive material from the 1980s. Useful for identifying the scope, provenance, and research potential of digitized GDR newspaper collections.\"\n    },\n    {\n      \"title\": \"Deutsches Rundfunkarchiv: GDR Radio and Television Collections (1945–1991)\",\n      \"url_or_doi\": \"https://www.dra.de/de/bestaende/ddr-rundfunk/\",\n      \"justification\": \"A major archival collection documenting East German radio and television broadcasting. It contains audiovisual recordings, broadcasting documentation, program records, photographs, and administrative materials covering the entire 1980s. Especially relevant for studying state television, broadcast news, entertainment programming, political communication, and the transformation of East German media in 1989–1990. This is an archival research collection rather than a single downloadable statistical dataset.\"\n    },\n    {\n      \"title\": \"Deutsches Rundfunkarchiv: Historical GDR Radio Broadcasting Collection\",\n      \"url_or_doi\": \"https://www.dra.de/de/bestaende/ddr-rundfunk/hoerfunk/\",\n      \"justification\": \"An archival collection of East German radio broadcasts and related materials spanning 1945–1991. Includes documentation of radio programming during the 1980s and information about surviving recordings. Useful for qualitative research on broadcast content, cultural programming, radio journalism, and the development of socialist broadcasting. Access to individual recordings may require archival arrangements.\"\n    },\n    {\n      \"title\": \"DEFA Foundation: East German Film and Television Research Collections\",\n      \"url_or_doi\": \"https://www.defa-stiftung.de/filme/filme-sehen/recherche/\",\n      \"justification\": \"A research portal providing information about East German film production and relevant archival collections. It includes references to a dataset documenting DEFA feature-film studio productions commissioned for GDR television between 1959 and 1990. Relevant for investigating television films, cultural production, media institutions, and audiovisual narratives during the 1980s. Some archival materials require a research application.\"\n    },\n    {\n      \"title\": \"Kalliope: Fernsehen der DDR (1972–1989) Archival Records\",\n      \"url_or_doi\": \"https://kalliope.staatsbibliothek-berlin.de/de/eac?eac.id=2182673-0\",\n      \"justification\": \"An archival catalog record associated with East German television during 1972–1989. It provides structured descriptions and references to archival holdings, including manuscripts and related documentation. Useful for locating primary sources about television production, broadcasting institutions, and media professionals during the 1980s. Primarily a discovery resource rather than a downloadable dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447625.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19139,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2164,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21303
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

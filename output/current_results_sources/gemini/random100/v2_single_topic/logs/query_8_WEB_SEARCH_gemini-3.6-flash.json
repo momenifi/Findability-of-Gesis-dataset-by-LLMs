@@ -1,0 +1,96 @@
+{
+  "query_id": 8,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Berlin during the 1950s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 8,
+        "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Berlin during the 1950s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Berliner Wahlen von 1930-1963 (GESIS Study ZA8081)\",\n      \"url_or_doi\": \"https://www.gesis.org/\",\n      \"justification\": \"This dataset from GESIS contains district-level election results and socio-demographic census data for Berlin, covering West Berlin parliamentary elections in 1950, 1954, and 1958 to analyze political behavior and voting determinants during the 1950s.\"\n    },\n    {\n      \"title\": \"USIA Public Opinion Surveys on International Relations and Political Attitudes (GESIS ZA0381)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.0381\",\n      \"justification\": \"This dataset archived at GESIS contains USIA survey data mapping political attitudes, international alignment, and public opinion across West Germany and West Berlin during the Cold War era.\"\n    },\n    {\n      \"title\": \"European USIA Report Collection and Surveys (Roper Center for Public Opinion Research)\",\n      \"url_or_doi\": \"https://ropercenter.cornell.edu/\",\n      \"justification\": \"The Roper Center dataset collection includes United States Information Agency (USIA) surveys and reports conducted in West Berlin during the 1950s (such as the 1958 West Berlin Morale and Political Factors studies) to track political behavior, attitudes, and Cold War public opinion.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 732,
+          "candidatesTokenCount": 359,
+          "totalTokenCount": 2508,
+          "cachedContentTokenCount": 198,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 732
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 198
+            }
+          ],
+          "thoughtsTokenCount": 1417,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "kiSEapalMv2WvdIP27aWCA"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 103,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Economic policy, public expenditure and revenue in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f126ffb5ff0f83c006b0460dc6dac87d2b74ab1b7310c100c",
+        "created_at": 1795449052.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f126ffb5ff0f83c006b0460dd95c887d2b6445c85ebb7b4bb",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS online Germany government revenue expenditure dataset 2020 2025",
+                "Eurostat gov_10a_main Germany government revenue expenditure dataset",
+                "OECD Germany general government spending revenue dataset explorer",
+                "Bundesbank public finances Germany time series government revenue expenditure data"
+              ],
+              "query": "Destatis GENESIS online Germany government revenue expenditure dataset 2020 2025",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f126ffb5ff0f83c006b0460e0ccf887d281191c4c5f95b51f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10a_exp government expenditure by function COFOG",
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10q_ggnfa quarterly government revenue expenditure",
+                "site:ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1 deficit debt",
+                "site:bundeshaushalt.de data federal budget Germany 2025 open data"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/gov_10a_exp government expenditure by function COFOG",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f126ffb5ff0f83c006b0460e3d2b087d29f6ad3eb2df31a70",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Government Revenue, Expenditure and Main Aggregates (gov_10a_main)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_main\",\n      \"justification\": \"A comprehensive official European dataset covering Germany's annual government revenue, expenditure, fiscal balances, taxes, social contributions, subsidies and other fiscal indicators. Includes data from 2020 to 2025, with historical observations extending to 1975. Particularly useful for examining German fiscal policy, government spending trends, and the economic consequences of the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function (COFOG)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10a_exp\",\n      \"justification\": \"Provides detailed annual government expenditure data classified by policy function, including education, healthcare, defense, social protection, infrastructure, environmental protection and economic affairs. Covers Germany during 2020–2025, with earlier historical data. Especially valuable for analyzing how German public spending priorities changed throughout the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Quarterly Non-Financial Accounts for General Government\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10q_ggnfa\",\n      \"justification\": \"Contains quarterly statistics on government revenue, expenditure, taxation, social transfers and fiscal deficits or surpluses. Allows researchers to examine short-term developments in Germany's public finances during the 2020s. Particularly relevant for studying fiscal responses to COVID-19, inflation, energy price shocks and changes in economic policy.\"\n    },\n    {\n      \"title\": \"Eurostat – Government Deficit/Surplus, Debt and Associated Data\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10dd_edpt1\",\n      \"justification\": \"Official European government finance dataset providing annual statistics on public debt, government deficits and surpluses, and related fiscal indicators. Includes Germany and supports analysis of fiscal sustainability, public borrowing, debt management and compliance with European fiscal rules during the 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – National Accounts: Government Revenue, Expenditure and Fiscal Balance\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/statistic/81000/table/81000-0031/search/s/ODEwMDA%3D\",\n      \"justification\": \"Official German national accounts dataset containing annual government revenue, expenditure and fiscal balance statistics. Includes observations for 2020–2025. Particularly useful for studying changes in Germany's fiscal position, the relationship between government income and expenditure, and the effects of major economic policy interventions.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Tax Revenue by Tax Type\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/url/ccfa4350\",\n      \"justification\": \"Provides annual German tax revenue statistics disaggregated by tax category, including observations from 2020 through 2025. Useful for investigating the composition of public revenue, changes in taxation, and the effects of economic developments on government tax receipts. Particularly relevant to research on fiscal capacity and the financing of public expenditure.\"\n    },\n    {\n      \"title\": \"Deutsche Bundesbank – Public Finances Statistics\",\n      \"url_or_doi\": \"https://www.bundesbank.de/en/statistics/public-finances\",\n      \"justification\": \"Official Bundesbank statistical resource providing time-series data on Germany's public finances. Covers government revenue, expenditure, fiscal deficits, public debt and other fiscal indicators. Includes national accounts measures and budget-based financial statistics. Particularly valuable for examining fiscal policy developments during the 2020s and comparing different measures of government finances.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) – Expenditure, Revenue and Financial Balance of Public Budgets\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Government/Public-Finance/Expenditure-Revenue-And-Financial-Balance-Of-Public-Budgets/_node.html\",\n      \"justification\": \"Official German statistical resource covering public budget revenue, expenditure and financial balances. Provides access to information about government finances at different administrative levels, including federal, state and municipal budgets. Particularly relevant for analyzing public expenditure trends, fiscal decentralization and budget deficits in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat – Quarterly Financial Accounts for General Government\",\n      \"url_or_doi\": \"https://doi.org/10.2908/gov_10q_ggfa\",\n      \"justification\": \"Provides quarterly financial accounts for government, including financial assets, liabilities, financial transactions and government financial positions. Covers Germany throughout the 2020s, with observations extending into 2026. Useful for examining government financing, debt accumulation, changes in public sector financial assets and the financial implications of fiscal policy.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function: Social Protection, Health and Education\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/tepsr_sp110\",\n      \"justification\": \"A focused dataset reporting government expenditure on social protection, healthcare and education as a percentage of GDP. Includes annual observations for Germany from 2020 to 2025. Particularly useful for examining welfare spending, social policy priorities and changes in the allocation of public resources following the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Eurostat – Total General Government Expenditure\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tec00023/default/bar?lang=en\",\n      \"justification\": \"Provides standardized government expenditure indicators suitable for comparing Germany with other European countries. Particularly useful for analyzing changes in the overall scale of public spending relative to economic activity during the 2020s. Supports research into fiscal expansion, expenditure restraint and cross-country differences in government economic intervention.\"\n    },\n    {\n      \"title\": \"OECD – OECD Data Explorer\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/oecd-DE.html\",\n      \"justification\": \"Official OECD statistical platform providing access to internationally comparable economic and public finance datasets. Researchers can locate indicators covering government revenue, taxation, public expenditure, fiscal balances and debt for Germany during the 2020s. Particularly useful for comparative research evaluating Germany's economic and fiscal policies relative to other OECD economies. This is a dataset discovery platform rather than an individual dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449067.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18500,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1564,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20064
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

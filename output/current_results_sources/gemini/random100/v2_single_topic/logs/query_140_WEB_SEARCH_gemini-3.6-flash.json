@@ -1,0 +1,69 @@
+{
+  "query_id": 140,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies Regional File (SIAB-R) 1975–2021\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.FDZD.2307.en.v1\",\n      \"justification\": \"Maintained by the Institute for Employment Research (IAB), this dataset provides individual administrative employment biographies and regional labor market statistics across German federal states, including North Rhine-Westphalia, covering the entire 1980s decade.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) - Cumulation 1980–2018\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13774\",\n      \"justification\": \"Published by GESIS, this cumulation dataset contains survey data on individual employment status, occupation, and socio-economic metrics in West Germany (including regional breakdowns for North Rhine-Westphalia) starting from 1980.\"\n    },\n    {\n      \"title\": \"Landesdatenbank Nordrhein-Westfalen (Statistical Database NRW)\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de\",\n      \"justification\": \"The official statistical database operated by Information und Technik Nordrhein-Westfalen (IT.NRW) provides historical time-series microdata and aggregate statistics on employment, sector employment, and labor force figures in North Rhine-Westphalia during the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 450,
+          "candidatesTokenCount": 382,
+          "totalTokenCount": 2519,
+          "cachedContentTokenCount": 241,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 450
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 241
+            }
+          ],
+          "thoughtsTokenCount": 1687,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "nz2Eap3YFPqYkdUPmsjOsAc"
+      }
+    }
+  ]
+}

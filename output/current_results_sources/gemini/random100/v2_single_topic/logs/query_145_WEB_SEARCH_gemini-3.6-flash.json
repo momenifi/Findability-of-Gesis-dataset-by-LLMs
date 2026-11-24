@@ -1,0 +1,69 @@
+{
+  "query_id": 145,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about parliamentary debate in Croatia during the 2000s and 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"CROCorp: Corpus of Parliamentary Debates in Croatia (v1.1.1)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6521372\",\n      \"justification\": \"A repository containing a cleaned and pre-processed corpus of parliamentary debates from the Croatian Parliament (Sabor) spanning 2003 to 2020 (five complete terms), featuring over 500,000 speeches alongside representative and party metadata.\"\n    },\n    {\n      \"title\": \"ParlaMint.ana 4.1 - Linguistically Annotated Multilingual Comparable Corpora of Parliamentary Debates (ParlaMint-HR)\",\n      \"url_or_doi\": \"http://hdl.handle.net/11356/1912\",\n      \"justification\": \"Hosted on CLARIN.SI, this dataset includes the Croatian subcorpus (ParlaMint-HR) of parliamentary debates spanning the 2010s and 2020s, complete with speaker metadata, structural markup, and Universal Dependencies linguistic annotations.\"\n    },\n    {\n      \"title\": \"ParlaSent-BCS v1.0: Sentiment Corpus of Parliamentary Debates from Bosnia-Herzegovina, Croatia, and Serbia\",\n      \"url_or_doi\": \"http://hdl.handle.net/11356/1585\",\n      \"justification\": \"A dataset hosted on CLARIN.SI containing sentiment-annotated sentences from parliamentary proceedings in Croatia, Bosnia and Herzegovina, and Serbia, paired with speaker, date, and party metadata.\"\n    },\n    {\n      \"title\": \"ParlaSpeech-HR: A Freely Available ASR Dataset for Croatian Bootstrapped from the ParlaMint Corpus\",\n      \"url_or_doi\": \"https://aclanthology.org/2022.parlaclarin-1.16/\",\n      \"justification\": \"A dataset and publication landing page providing aligned spoken audio recordings and textual transcripts of Croatian parliamentary debates derived from the ParlaMint corpus.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 678,
+          "candidatesTokenCount": 497,
+          "totalTokenCount": 2684,
+          "cachedContentTokenCount": 179,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 678
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 179
+            }
+          ],
+          "thoughtsTokenCount": 1509,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "Oz-Eas2XNdv5xN8Pjs32wA4"
+      }
+    }
+  ]
+}

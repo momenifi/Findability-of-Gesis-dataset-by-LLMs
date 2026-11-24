@@ -1,0 +1,186 @@
+{
+  "query_id": 47,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Vocational education and training, Higher and further education, Social conditions and indicators, and Family life and marriage in North Rhine-Westphalia during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02a940f835332d5c006b045692fd9c87d2b710d0bda0d1cd4b",
+        "created_at": 1795446419.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02a940f835332d5c006b04569400d487d299357b5042a680b1",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesis.org ALLBUS 1980 1982 1984 1986 1988 dataset federal state Nordrhein Westfalen",
+                "site:fdz.iab.de historische Beschäftigtenstatistik 1975 1980 regional Nordrhein Westfalen dataset",
+                "site:destatis.de GENESIS Nordrhein Westfalen 1980 berufliche Bildung Eheschließungen Hochschulen",
+                "site:search.gesis.org 1980 Nordrhein-Westfalen Familie Berufsausbildung soziale Lage Datensatz"
+              ],
+              "query": "site:gesis.org ALLBUS 1980 1982 1984 1986 1988 dataset federal state Nordrhein Westfalen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02a940f835332d5c006b04569730a087d28ca7b45b78fc312a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:fdz.iab.de SIAB 1975 2021 1980 berufsausbildung employment region",
+                "site:gesis.org German Socio Economic Panel 1984 dataset federal state NRW",
+                "site:statistik.nrw 1980 1989 Eheschließungen Hochschulen Berufsbildung Zeitreihe",
+                "site:search.gesis.org/research_data/ZA \"Nordrhein-Westfalen\" \"1985\" \"Familie\""
+              ],
+              "query": "site:fdz.iab.de SIAB 1975 2021 1980 berufsausbildung employment region",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02a940f835332d5c006b04569b420887d28ff05efe2ecab172",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Establishment History Panel (BHP), 1975–2024 – Institute for Employment Research (IAB)\",\n      \"url_or_doi\": \"https://fdz.iab.de/betriebsdaten/betriebs-historik-panel-bhp-version-7524-v1/\",\n      \"justification\": \"Highly relevant for studying employment in North Rhine-Westphalia during the 1980s. This administrative panel contains annual establishment-level employment data for West Germany beginning in 1975. Variables include establishment location, industry, number of employees, gender, age, employment status, qualifications, and nationality. Researchers can identify establishments in North Rhine-Westphalia and examine changes in employment, industrial restructuring, and workforce composition throughout 1980–1989. Research data access is subject to IAB conditions.\"\n    },\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies (SIAB), 1975–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.SIAB7523.de.en.v2\",\n      \"justification\": \"Provides individual-level longitudinal employment histories covering the entire 1980s. The dataset includes employment spells, unemployment benefit receipt, occupational characteristics, educational qualifications, and regional information. It is particularly useful for examining employment transitions, vocational qualifications, unemployment, and regional labor-market developments in North Rhine-Westphalia. Detailed geographic identifiers may require restricted research access.\"\n    },\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies – Regional File (SIAB-R), 1975–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.SIAB-R7523.de.en.v1\",\n      \"justification\": \"A regional version of the IAB employment-history dataset covering the 1980s. It supports research on regional employment patterns, occupational mobility, unemployment, and qualifications. It is especially relevant for comparing North Rhine-Westphalia with other West German regions during the industrial restructuring of the 1980s. Geographic information is anonymized or aggregated, so researchers should verify whether the available regional detail meets their requirements.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS/GGSS) 1980–1986 – Cumulated Dataset\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Combines survey observations from 1980, 1982, 1984, and 1986. It provides information on employment, education, occupational status, social inequality, family circumstances, marriage, and social attitudes. The surveys cover West Germany, including North Rhine-Westphalia. The extended ALLBUS datasets contain federal-state identifiers that allow researchers to select North Rhine-Westphalia respondents. Access to detailed regional variables requires a data-use agreement.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS/GGSS) 1984\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1340\",\n      \"justification\": \"A representative survey conducted between March and June 1984, containing 3,004 respondents from West Germany. Particularly relevant topics include social inequality, economic circumstances, perceived social class, welfare-state attitudes, family life, marriage, and social conditions. It is useful for investigating the social circumstances and attitudes of North Rhine-Westphalia residents in the mid-1980s. Federal-state identification requires an appropriate regional data version.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS/GGSS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A harmonized longitudinal collection of repeated cross-sectional surveys beginning in 1980. Researchers can select observations from 1980, 1982, 1984, 1986, and 1988 to study social conditions, employment, educational attainment, occupational status, family structures, marriage, and social attitudes. It is particularly useful for comparing changes across the decade. Selecting North Rhine-Westphalia specifically depends on access to suitable regional identifiers.\"\n    },\n    {\n      \"title\": \"ALLBUS 1980–2018 – Sensitive Regional Data (ZA5260)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Especially useful for geographically focused research. This dataset combines ALLBUS survey information with sensitive regional identifiers and covers the survey waves of 1980, 1982, 1984, 1986, and 1988. It enables researchers with authorized access to investigate employment, educational attainment, social inequality, household circumstances, and family life specifically within North Rhine-Westphalia. Regional data access is restricted for confidentiality reasons.\"\n    },\n    {\n      \"title\": \"Living Spaces (LebensRäume) – Federal Office for Building and Regional Planning Population Survey, 1985–2007 (ZA4871)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4871?lang=de\",\n      \"justification\": \"Contains survey information beginning in 1985 on living conditions, employment, economic circumstances, housing, residential environments, migration, social attitudes, and social services. It is relevant to the study of social conditions and quality of life in North Rhine-Westphalia during the second half of the 1980s. Researchers should verify the availability of the relevant early survey waves and geographic identifiers.\"\n    },\n    {\n      \"title\": \"Coping with Unemployment Over Time – Employee Panel, 1978–1982 (ZA1363)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1363?lang=de\",\n      \"justification\": \"A three-wave longitudinal survey examining employees' perceptions of working conditions and labor-market developments between 1978 and 1982. It is useful for investigating employment insecurity, unemployment expectations, working conditions, and socioeconomic experiences at the beginning of the 1980s. The dataset covers a broader population rather than North Rhine-Westphalia exclusively; geographic identifiers must be checked before conducting state-specific analysis.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS/GGSS) 1984 – Education, Social Inequality and Family Life\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1340?doi=10.4232%2F1.1340\",\n      \"justification\": \"Particularly useful for research connecting educational attainment and occupational qualifications with social inequality, household conditions, and family relationships. The 1984 survey includes demographic and socioeconomic information, alongside attitudes toward inequality and social welfare. It can complement administrative vocational-education statistics by providing individual-level information about educational backgrounds. An appropriate regional version is necessary to isolate North Rhine-Westphalia.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS/GGSS) – Survey Datasets for 1980, 1982, 1984, 1986 and 1988\",\n      \"url_or_doi\": \"https://www.gesis.org/allbus/daten-und-dokumentation\",\n      \"justification\": \"Provides access to the individual historical ALLBUS surveys, identified by GESIS study numbers ZA1000 (1980), ZA1160 (1982), ZA1340 (1984), ZA1500 (1986), and ZA1670 (1988). These datasets are useful for examining education, employment, social conditions, occupational status, family life, and marriage during particular years. Individual survey files may contain questions not retained in the harmonized cumulative dataset. Extended versions provide federal-state information, subject to access restrictions.\"\n    },\n    {\n      \"title\": \"Marriage Statistics – Federal Statistical Office (Destatis), Historical Time Series\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Eheschliessungen-Ehescheidungen-Lebenspartnerschaften/Publikationen/Downloads-Eheschliessungen/statistischer-bericht-ehescheidungen-eheschliessungen-geborene-gestorbene-zeitreihen-5126107.html\",\n      \"justification\": \"Official historical demographic statistics covering marriages, divorces, births, and deaths over an extended period that includes 1980–1989. The series is valuable for studying changes in marriage patterns, family formation, divorce, and demographic conditions. Researchers should examine the downloadable tables to determine which historical indicators are available separately for North Rhine-Westphalia, since not every time series provides state-level observations.\"\n    },\n    {\n      \"title\": \"Marriage Statistics – GENESIS-Online Table 12611-0001, 1950–2025\",\n      \"url_or_doi\": \"https://genesis.destatis.de/datenbank/online/table/12611-0001/table-toolbar\",\n      \"justification\": \"Official annual statistics reporting the number of marriages and marriages per 1,000 inhabitants. The dataset includes every year from 1980 through 1989 and provides a historical benchmark for studying changing marriage patterns. However, this particular table reports Germany-wide figures rather than a separate North Rhine-Westphalia series. It is best used as a national comparison alongside regional historical statistics.\"\n    },\n    {\n      \"title\": \"Social Indicators System for the Federal Republic of Germany – Socioeconomic Classification and Stratification\",\n      \"url_or_doi\": \"https://data.gesis.org/gesiskg/resource/ZA8184\",\n      \"justification\": \"A historical social-indicator collection containing socioeconomic and employment-related time series. Its documented indicators include employment by economic sector and federal state, extending across the 1980s. The dataset is relevant for analyzing changes in workforce composition, occupational structure, and socioeconomic stratification in North Rhine-Westphalia. Federal-state breakdowns make it particularly useful for regional comparisons over time.\"\n    },\n    {\n      \"title\": \"Linked Employer–Employee Data of the IAB (LIAB) – Longitudinal Model, 1975–2024\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.LIABLM7524.de.en.v1\",\n      \"justification\": \"Combines individual employment biographies with information about establishments participating in the IAB Establishment Panel. The longitudinal employment histories extend back to 1975, allowing retrospective analysis of employment and occupational trajectories during the 1980s. Potential applications include studying vocational qualifications, job mobility, and employment histories associated with North Rhine-Westphalia establishments. An important limitation is that the establishment survey began after the 1980s, so historical coverage is retrospective and limited to the linked sample.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446439.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 20611,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2406,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 23017
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

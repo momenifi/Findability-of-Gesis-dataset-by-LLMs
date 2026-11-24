@@ -1,0 +1,62 @@
+{
+  "query_id": 51,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Energy and natural resources in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BGR Energy Data: German and Global Energy Supplies\",\n      \"url_or_doi\": \"https://doi.org/10.25928/es-2024-tab-en\",\n      \"justification\": \"Published by Germany's Federal Institute for Geosciences and Natural Resources (BGR), this dataset provides extensive annual data on the reserves, resources, production, imports, exports, and consumption of fossil, nuclear, and renewable energy resources in Germany throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Open Power System Data - Time Series Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25832/time_series/2020-10-06\",\n      \"justification\": \"Contains open-access hourly and 15-minute time-series data for Germany's electricity system, detailing electricity load, wind and solar generation, installed capacities, and market indicators during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Bundesnetzagentur SMARD Market Data\",\n      \"url_or_doi\": \"https://www.smard.de/en/download-market-data\",\n      \"justification\": \"Maintained by the German Federal Network Agency (Bundesnetzagentur), this official platform offers downloadable market data on German power generation by energy source, grid load, wholesale electricity prices, and cross-border flows across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Open Power System Data - Conventional Power Plants Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25832/conventional_power_plants/2020-10-01\",\n      \"justification\": \"Provides detailed individual unit data on conventional power plant infrastructure in Germany, including fuel types, production capacity, CHP capabilities, and location details covering the 2010s and 2020s period.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 460,
+          "candidatesTokenCount": 493,
+          "totalTokenCount": 2868,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 460
+            }
+          ],
+          "thoughtsTokenCount": 1915,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "xrinapaILqaIvdIPsKLfoQs"
+      }
+    }
+  ]
+}

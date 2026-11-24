@@ -1,0 +1,201 @@
+{
+  "query_id": 24,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life, Political behaviour and attitudes, Government, political systems and organisations, and Elections in German Democratic Republic (1949-1990) during the 1990s, matching this research need: data on political attitudes in East and West Germany around reunification, including views of governments and parties, voting decisions in local elections, job mobility, retraining, unemployment, housing, transport, and citizen participation\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_063fe9a5c80f4a5b006b0470c3bcf087d29433aabe9b9d1af0",
+        "created_at": 1795453123.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_063fe9a5c80f4a5b006b0470c4967087d28e12edcf15b4a3ef",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS dataset East West Germany reunification political attitudes local elections retraining unemployment housing transport participation 1990",
+                "GESIS 1990 East Germany political attitudes job mobility retraining local elections survey",
+                "German social survey 1990 1991 East West political attitudes housing transport employment GESIS ZA"
+              ],
+              "query": "GESIS dataset East West Germany reunification political attitudes local elections retraining unemployment housing transport participation 1990",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_063fe9a5c80f4a5b006b0470c7446c87d2885a1ded50458158",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"retraining\" \"local elections\" \"transport\" \"housing\" GDR",
+                "site:search.gesis.org/research_data \"job mobility\" \"retraining\" \"unemployment\" \"housing\" 1990",
+                "site:search.gesis.org/research_data \"Political Attitudes in East and West, March 1990\"",
+                "site:search.gesis.org/research_data \"Political Cultures in United Germany 1992\""
+              ],
+              "query": "site:search.gesis.org/research_data \"retraining\" \"local elections\" \"transport\" \"housing\" GDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_063fe9a5c80f4a5b006b0470c91ff487d2bb35110840e818ef",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS \"Political Attitudes in East and West, March 1990\" ZA",
+                "GESIS \"Political Cultures in United Germany 1992\" ZA",
+                "GESIS \"ALLBUS Baseline Survey 1991\" DOI",
+                "GESIS East Germany 1990 survey retraining job change local election public transport housing"
+              ],
+              "query": "GESIS \"Political Attitudes in East and West, March 1990\" ZA",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_063fe9a5c80f4a5b006b0470cd19a487d295bd3467ac2115f9",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Political Attitudes in East and West, March 1990 (Comparative Survey FRG–GDR)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1902\",\n      \"justification\": \"Extremely relevant to the research need. This comparative survey examines political attitudes in East and West Germany immediately before reunification. It covers satisfaction with democracy, political and economic expectations, attitudes toward German unity, party preferences, sympathy toward major political parties (CDU, CSU, SPD, FDP, Greens, PDS and others), perceptions of social inequality, and personal economic circumstances. Particularly valuable for establishing a baseline of political attitudes before reunification.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3065?lang=en\",\n      \"justification\": \"Highly relevant comparative dataset containing surveys conducted in East and West Germany in 1994. It examines satisfaction with democracy, trust in government institutions, evaluations of political parties, voting intentions and decisions, political participation, and citizens' perceived ability to influence government. It also includes economic assessments, perceptions of East–West differences, attitudes toward the former GDR, and identification with political organizations. Particularly suitable for examining political integration after reunification.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991 (German General Social Survey)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"One of the most useful datasets for comparing East and West Germans immediately after reunification. Conducted in 1991, it covers satisfaction with federal and state governments, evaluations of the political system, voting behavior, party preferences, political participation, and attitudes toward German reunification. It also includes employment, occupational characteristics, economic circumstances, social inequality, and demographic information. Its coverage of political and socioeconomic conditions makes it especially valuable for the proposed research.\"\n    },\n    {\n      \"title\": \"Political Cultures in United Germany 1992\",\n      \"url_or_doi\": \"https://www.selectdataset.com/dataset/1227dfd7374f5dd30705cd200a1d065d/political-cultures-in-united-germany-1992\",\n      \"justification\": \"Highly relevant to political attitudes and citizen participation during the early reunification period. The survey investigates East–West differences in democratic values, political trust, evaluations of federal and state governments, party preferences, political participation, and involvement in citizens' initiatives. It also explores political experiences under the GDR, attitudes toward socialism, economic expectations, employment circumstances, and perceptions of political influence. Particularly useful for studying changes in political culture following reunification.\"\n    },\n    {\n      \"title\": \"Attitudes on Current Questions of Domestic Policy (1990) – GDR\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/1b230e31-2558-5506-bbb1-de2597e31f93\",\n      \"justification\": \"Directly relevant to political attitudes within the German Democratic Republic during its final year. The dataset includes satisfaction with democratic developments, party preferences, previous voting behavior, attitudes toward municipal voting rights, citizen participation, economic systems, and political reunification. It also examines perceptions of public safety, social conditions, and differences between East and West Germany. Particularly valuable for studying political preferences and democratic expectations during the transition from the GDR to reunified Germany.\"\n    },\n    {\n      \"title\": \"Election Study 1990 (Trend Investigation) – Politbarometer\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/ea25137c-7e41-50da-9ef4-4b2fe5756c1d\",\n      \"justification\": \"Relevant for investigating voting decisions, political party evaluations, government approval, and attitudes toward reunification during 1990. Variables include electoral preferences, party identification, voting decisions, satisfaction with government performance, expectations about reunification, employment concerns, housing-related concerns, and perceptions of economic consequences. Particularly useful for analyzing electoral behavior and changing political preferences during the reunification process.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS 1992 – German General Social Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2140\",\n      \"justification\": \"Relevant for examining political and social attitudes in reunified Germany during the early 1990s. The ALLBUS survey program provides representative social survey data that allow comparisons between residents of the former East and West Germany. It is useful for studying political orientations, participation, social conditions, employment, and demographic differences. It can also be combined with the 1991, 1994, and 1996 ALLBUS surveys to examine changes following reunification.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS 1994 – German General Social Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2400\",\n      \"justification\": \"Relevant for studying changes in political attitudes and social conditions four years after reunification. The survey provides data on social attitudes, political orientations, employment and socioeconomic characteristics, and differences between eastern and western Germany. It is particularly useful when combined with earlier ALLBUS surveys to investigate whether political and social attitudes converged or remained distinct during the 1990s.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS 1996 – German General Social Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2800\",\n      \"justification\": \"Useful for extending an analysis of East–West political and social differences into the mid-1990s. The dataset belongs to the established ALLBUS survey series and supports comparative research on political attitudes, social integration, employment characteristics, and socioeconomic differences. Combined with earlier survey waves, it allows researchers to investigate longer-term changes following reunification.\"\n    },\n    {\n      \"title\": \"Living Spaces – Public Opinion Survey of the BBR 1994 (LebensRäume – Bevölkerungsumfrage des BBSR 1994)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.5114\",\n      \"justification\": \"Especially relevant to the community, urban and rural life, housing, and residential mobility components of the research need. The survey investigates housing conditions, residential satisfaction, neighborhood characteristics, mobility, employment, household economic circumstances, and social relations in residential areas. It provides a valuable complement to political attitude surveys by documenting everyday living conditions in Germany after reunification.\"\n    },\n    {\n      \"title\": \"Structures and Determinants of Labor Force Participation of Women and Men in the Former GDR (1991)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2803\",\n      \"justification\": \"Highly relevant to the employment transition experienced by residents of the former GDR. Conducted between September and December 1991, this survey investigates employment circumstances, labor market expectations, vocational qualifications, further vocational training, occupational characteristics, and participation in employment creation programs. It is particularly suitable for studying job mobility, retraining, and labor market restructuring following reunification.\"\n    },\n    {\n      \"title\": \"Interval Study Capabilities and Courses of Occupation 1985–1995, 8th Wave 1993\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/a6af6135-ccc1-5ac2-9c40-73ddb84ae656\",\n      \"justification\": \"Particularly valuable for examining occupational mobility, vocational training, unemployment concerns, and housing changes among people experiencing the transition from the GDR to reunified Germany. The 1993 survey includes changes in living conditions since the political turning point, employment expectations, job application difficulties, training experiences, willingness to relocate for work, housing circumstances, political orientations, party preferences, and trade union participation. Its longitudinal design is useful for investigating individual experiences of reunification.\"\n    },\n    {\n      \"title\": \"Attitudes to Current Questions of Domestic Policy (1995)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2625\",\n      \"justification\": \"Relevant for examining political attitudes and evaluations of social conditions in East and West Germany five years after reunification. The survey uses samples of eligible voters from eastern and western Germany and addresses political and domestic policy issues, including perceptions of economic conditions, employment problems, and social developments. It offers a useful mid-1990s comparison of political preferences and public attitudes.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP) – Longitudinal Household Survey, East German Sample from 1990\",\n      \"url_or_doi\": \"https://www.diw.de/soep\",\n      \"justification\": \"One of the strongest complementary data sources for studying the socioeconomic consequences of reunification. The SOEP began surveying East German households in 1990, enabling longitudinal comparisons with West German respondents. Its repeated observations support research on employment transitions, unemployment, job mobility, occupational retraining, household income, housing, residential mobility, and political interest. Particularly useful for connecting changes in economic circumstances with political attitudes during the 1990s.\"\n    },\n    {\n      \"title\": \"Living in the GDR 1990 (Leben in der DDR 1990)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA6873?lang=de\",\n      \"justification\": \"Relevant for establishing the social and economic circumstances of people living in the GDR during the transition period. The dataset provides a historical source for examining everyday life in East Germany around 1990. It is potentially useful for contextualizing subsequent changes in housing, employment, social conditions, and attitudes during reunification. Its detailed variable documentation should be consulted to identify which aspects of the research need are covered.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453143.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21252,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2333,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 23585
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

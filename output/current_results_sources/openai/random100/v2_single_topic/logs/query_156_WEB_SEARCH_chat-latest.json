@@ -1,0 +1,200 @@
+{
+  "query_id": 156,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Diet and nutrition in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f901267449b3d15006b046452a05087d28d652e75b9e42f1c",
+        "created_at": 1795449938.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f901267449b3d15006b046453848c87d2963e4a382e68047e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DDR 1980 1989 Ernährung Lebensmittelverbrauch Statistik Datensatz GDR",
+                "German Democratic Republic nutrition survey 1980 1990 dataset East Germany",
+                "GESIS DDR Ernährung 1990 Datensatz Lebensmittel Konsum"
+              ],
+              "query": "DDR 1980 1989 Ernährung Lebensmittelverbrauch Statistik Datensatz GDR",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f901267449b3d15006b046456b46887d2bf92248237b61a8e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Ernährungsgewohnheiten\" \"Quedlinburg\"",
+                "site:search.gesis.org/research_data DDR Ernährung 1988 1989",
+                "site:gesis.org DDR Einkommens Verbrauchsstichprobe 1988 1989 haushalte mikrodatensatz"
+              ],
+              "query": "site:search.gesis.org/research_data \"Ernährungsgewohnheiten\" \"Quedlinburg\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f901267449b3d15006b046459fcdc87d29c4b7b59c9bfdcc9",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA6430 Ernährung Quedlinburg",
+                "site:data.gesis.org/datasearchkg/Dataset/10.4232/1.64 \"Ernaehrungsverhalten\" \"Quedlinburg\"",
+                "site:search.gesis.org/research_data \"Ernährungsverhalten\" \"Schwangerer\" DDR",
+                "site:search.gesis.org/research_data DDR Lebensmittel Ernährung 1989"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA6430 Ernährung Quedlinburg",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f901267449b3d15006b04645d2ee487d2b1305811e00163b1",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eating Habits and Nutritional Status in Quedlinburg, 1985–1989: Part 3 – Dietary Habits of Pregnant Women\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6430\",\n      \"justification\": \"Highly relevant primary dataset from the German Democratic Republic (GDR). Contains dietary information collected from pregnant women attending Quedlinburg District Hospital during the late 1980s. Records summarize individual meals and food consumption over a one-week period. Part of a ten-study research project examining nutrition among pregnant women, breastfeeding mothers, and infants. Archived by GESIS and available for academic research.\"\n    },\n    {\n      \"title\": \"Eating Habits and Nutritional Status in Quedlinburg, 1985–1989: Part 2 – Sociological Survey of Non-Pregnant Women\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6429\",\n      \"justification\": \"Primary research dataset examining nutritional status and eating habits among women aged 18–35 in the GDR. Data were collected during 1987–1988 from patients attending gynecological consultations in Quedlinburg. Particularly useful for studying dietary behavior, nutrition-related social factors, and differences between pregnant and non-pregnant women in East Germany.\"\n    },\n    {\n      \"title\": \"GDR Household Budget Statistics, 1988–1989 (Statistik des Haushaltsbudgets)\",\n      \"url_or_doi\": \"https://www.gesis.org/gml/weitere-amtliche-daten/ddr-mikrodaten/haushaltsbudget\",\n      \"justification\": \"One of the most directly relevant datasets for investigating food consumption in East Germany immediately before reunification. Contains household-level information on food expenditure, beverages, household income, and consumption of self-produced goods. Covers November 1988 through October 1989, with 40,594 household observations. Includes workers, agricultural cooperative members, and pensioners. Particularly valuable for analyzing food expenditure patterns, socioeconomic differences, and household consumption. Access to microdata is managed by GESIS.\"\n    },\n    {\n      \"title\": \"GDR Income Survey of Workers' and Employees' Households, 1988 (Einkommensstichprobe)\",\n      \"url_or_doi\": \"https://www.gesis.org/gml/weitere-amtliche-daten/ddr-mikrodaten/einkommensstichprobe\",\n      \"justification\": \"Representative household survey conducted in the GDR in 1988, covering approximately 30,000 households and 80,000 individuals. Includes household income, demographic characteristics, and socioeconomic conditions. Although not a direct dietary intake survey, it provides valuable contextual data for investigating economic determinants of food consumption and nutritional inequalities in the GDR during the late 1980s.\"\n    },\n    {\n      \"title\": \"GDR Statistical Yearbook 1986 – Per Capita Consumption of Selected Foods and Beverages\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1986/-3/seite-282-811528.html\",\n      \"justification\": \"Historical statistical tables published by the GDR's official statistical administration. Includes annual per capita consumption figures for major food categories, including meat, fish, eggs, milk, cheese, butter, margarine, vegetables, potatoes, flour, and other products. Provides observations for 1980 and several subsequent years through 1985. Especially useful for reconstructing national dietary patterns and examining changes in food availability and consumption during the 1980s. Data are presented as historical tables rather than downloadable microdata.\"\n    },\n    {\n      \"title\": \"GDR Statistical Yearbook 1984 – Historical Food Consumption Statistics\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1984/seite-282-809292.html\",\n      \"justification\": \"Official GDR statistical series containing per capita food consumption figures for 1980–1983 alongside earlier historical observations. Covers meat, dairy products, fats, cereals, vegetables, fruit, and other food categories. Useful for establishing baseline food consumption patterns in the early 1980s and comparing nutritional trends with later GDR statistical publications.\"\n    },\n    {\n      \"title\": \"Statistical Overview of Per Capita Consumption of Selected Food and Luxury Products in the GDR\",\n      \"url_or_doi\": \"https://d-d-r.de/statistik-pro-kopf-verbrauch-ausgewaehlter-nahrungsmittel-ddr.html\",\n      \"justification\": \"Historical statistical compilation presenting per capita consumption figures for selected foods and beverages in East Germany. Includes observations from the 1980s and facilitates comparisons across years. Relevant for reconstructing long-term patterns of food consumption, particularly meat, dairy products, and other staple foods. This is a secondary statistical compilation rather than an original survey dataset.\"\n    },\n    {\n      \"title\": \"Life in the GDR, 1990 (Leben in der DDR 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6873\",\n      \"justification\": \"GESIS survey dataset collected in January 1990, during the final year of the German Democratic Republic. Covers living conditions, health, healthy lifestyles, consumer goods availability, economic conditions, and satisfaction with everyday life. Includes respondents from the Potsdam, Leipzig, and Schwerin districts. Although dietary intake is not its primary focus, the survey provides important contextual information for examining nutrition-related living conditions during the transition from socialism to reunification.\"\n    },\n    {\n      \"title\": \"Statistical Overviews of Social Policy in Germany Since 1945: Soviet Occupation Zone and GDR\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10278\",\n      \"justification\": \"Historical dataset compiled by André Steiner and archived by GESIS. Contains statistical time series describing socioeconomic conditions and social policy in East Germany, covering the GDR period and extending into the 1990s. Relevant for investigating the social and economic context of nutrition, including household living standards and welfare conditions. This is a supplementary source rather than a direct dietary consumption dataset.\"\n    },\n    {\n      \"title\": \"HISTAT: Basic Data on the Development of Health Conditions in Germany, 1816–2010\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12094\",\n      \"justification\": \"Historical statistical dataset archived by GESIS, containing health indicators for Germany, including the former GDR. Its long chronological coverage allows comparisons between East Germany during the 1980s and unified Germany during the 1990s. Useful for studying population health outcomes potentially associated with nutritional conditions, although it does not directly measure individual food consumption.\"\n    },\n    {\n      \"title\": \"Nutrition Situation of the Population in the Former East Germany: Results of Household Budget Surveys in 1989\",\n      \"url_or_doi\": \"https://doi.org/10.1007/BF01611141\",\n      \"justification\": \"Research publication reporting results from representative nutritional household surveys conducted in the GDR in 1989. Contains findings on energy intake, dietary fats, carbohydrates, proteins, and eating habits. Particularly relevant because it analyzes nutritional conditions immediately before reunification. Published in 1992, it provides a direct source of quantitative findings from historical nutrition surveys. The link leads to a research article presenting survey results, not a standalone downloadable dataset.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449957.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 27128,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1796,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 28924
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

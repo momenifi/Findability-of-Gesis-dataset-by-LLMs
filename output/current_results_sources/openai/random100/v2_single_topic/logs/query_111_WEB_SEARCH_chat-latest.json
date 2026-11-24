@@ -1,0 +1,186 @@
+{
+  "query_id": 111,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Information society in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b34b2061f822253006b0461710a0c87d2830399550b5743ca",
+        "created_at": 1795449201.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b34b2061f822253006b0461722db887d2b7596a1c1e9e3d93",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Destatis GENESIS ICT usage households individuals Germany 2010 2019 dataset",
+                "Eurostat isoc_ci_in_h internet access households Germany dataset",
+                "World Bank Germany individuals using internet IT.NET.USER.ZS data",
+                "Eurostat ICT usage enterprises Germany dataset 2010 2019"
+              ],
+              "query": "Destatis GENESIS ICT usage households individuals Germany 2010 2019 dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0b34b2061f822253006b0461762f0c87d2a098cf4fad79b8dd",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/isoc_ci_ifp_iu individuals internet use",
+                "site:ec.europa.eu/eurostat/databrowser/view/isoc_ec_ibuy internet purchases individuals",
+                "site:ec.europa.eu/eurostat/databrowser/view/isoc_ci_it_h households type connection",
+                "site:ec.europa.eu/eurostat/databrowser/view/isoc_e_dii digital intensity enterprises"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/isoc_ci_ifp_iu individuals internet use",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b34b2061f822253006b046179e13087d28acbf71ab491e13c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Eurostat – Households: Level of Internet Access (2002–2025)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_CI_IN_H\",\n      \"justification\": \"Provides annual data on the percentage of households with internet access in Germany, including the entire 2010–2019 period. Data can be broken down by household type, making it useful for studying internet penetration, digital inclusion, and the development of Germany's information society.\"\n    },\n    {\n      \"title\": \"Eurostat – Households: Type of Connection to the Internet (2003–2021)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_CI_IT_H\",\n      \"justification\": \"Contains historical statistics on household internet connection types, including fixed and mobile broadband. Covers Germany throughout the 2010s and supports research into broadband adoption, telecommunications infrastructure, and the transition toward faster digital connectivity.\"\n    },\n    {\n      \"title\": \"World Bank – Individuals Using the Internet (% of Population), Germany\",\n      \"url_or_doi\": \"https://data.worldbank.org/indicator/IT.NET.USER.ZS?locations=DE\",\n      \"justification\": \"Provides annual statistics on the proportion of Germany's population using the internet, based on International Telecommunication Union data. Includes observations for the 2010s and enables comparisons with other countries. Particularly useful for examining internet adoption and Germany's progress toward a digitally connected society.\"\n    },\n    {\n      \"title\": \"Eurostat – Internet Purchases by Individuals (2002–2019)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_EC_IBUY\",\n      \"justification\": \"Contains annual data on online shopping behavior, including the percentage of individuals purchasing goods and services over the internet. Covers Germany during 2010–2019 and offers demographic breakdowns. Useful for analyzing the growth of e-commerce, digital consumer behavior, and the economic dimension of the information society.\"\n    },\n    {\n      \"title\": \"Eurostat – Digital Intensity by Size Class of Enterprise (2015–2025)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_E_DII\",\n      \"justification\": \"Measures the adoption of digital technologies among businesses, with breakdowns by enterprise size. Includes historical German data beginning in 2015. Particularly relevant for analyzing business digitalization, differences between small and large enterprises, and the development of Germany's digital economy during the second half of the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat – Individuals Who Used the Internet, Frequency of Use and Activities\",\n      \"url_or_doi\": \"https://doi.org/10.2908/ISOC_R_IUSE_I\",\n      \"justification\": \"Provides annual statistics on internet usage frequency and online activities, including participation in social networks. The dataset covers 2006–2025 and includes German regional observations. It is useful for investigating changing digital habits, online participation, regional differences, and the social dimension of Germany's information society during the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat – Individuals Who Ordered Goods or Services Over the Internet for Private Use in the Last Year by NUTS 2 Region\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/product/view/tgs00052\",\n      \"justification\": \"Provides regional statistics on the percentage of individuals ordering goods or services online. Includes German regions and supports analysis of geographical differences in e-commerce adoption. Useful for examining regional digital inequalities and the diffusion of online consumer services during the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat – Survey on ICT Usage in Households and by Individuals: Research Microdata\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/microdata/collections-research/survey-ict-use-households-individuals\",\n      \"justification\": \"Provides access information for detailed survey microdata on household internet access, individual ICT usage, and digital activities. Annual survey waves from the 2010s can support research on Germany's information society, subject to country and year availability and research access requirements. Particularly useful for studying relationships between internet usage, age, education, employment, and household characteristics.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449214.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19308,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1063,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20371
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 188,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LAW, CRIME AND LEGAL SYSTEMS in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, and Croatia during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurostat - Police-recorded offences by offence category (crim_off_cat)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_off_cat\",\n      \"justification\": \"This official Eurostat dataset provides time series data from 2008 onwards (covering the entire 2010s) on police-recorded crime categories across EU member states, including intentional homicide, assault, sexual offences, robbery, burglary, theft, and drug offences.\"\n    },\n    {\n      \"title\": \"European Social Survey Round 5 (2010) - Trust in Justice Module\",\n      \"url_or_doi\": \"https://doi.org/10.21338/NSD-ESS5-2010\",\n      \"justification\": \"European Social Survey (ESS) Round 5 fielded in 2010 across European countries features a dedicated rotating module measuring public trust in law enforcement, criminal courts, procedural justice, and legal systems.\"\n    },\n    {\n      \"title\": \"European Sourcebook of Crime and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://doi.org/10.17875/gup2021-1787\",\n      \"justification\": \"This comparative pan-European data collection covers police, prosecution, conviction, prison, probation, and victimization statistics across European nations for the 2010s (covering 2011 to 2016).\"\n    },\n    {\n      \"title\": \"Eurostat - Persons brought before criminal courts by legal status of the court process (crim_crt_per)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_crt_per\",\n      \"justification\": \"This Eurostat dataset provides comparative figures on defendants and legal proceedings processed through first-instance criminal courts across European Union member states throughout the 2010s.\"\n    },\n    {\n      \"title\": \"Eurostat - Prisoners by age and sex (crim_pris_age)\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_pris_age\",\n      \"justification\": \"This dataset delivers standardized statistics on prison populations and adult correctional systems across EU member states covering the 2010s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 903,
+          "candidatesTokenCount": 559,
+          "totalTokenCount": 3304,
+          "cachedContentTokenCount": 138,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 903
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 138
+            }
+          ],
+          "thoughtsTokenCount": 1842,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zUqEaqeUAaXTvdIPh6LFuAk"
+      }
+    }
+  ]
+}

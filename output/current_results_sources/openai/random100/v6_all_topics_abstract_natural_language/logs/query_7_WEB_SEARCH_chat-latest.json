@@ -1,0 +1,185 @@
+{
+  "query_id": 7,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions and Occupational health in Belgium, Denmark, Germany, Greece, Spain, Finland, France, Ireland, Italy, Luxembourg, Netherlands, Austria, Portugal, Sweden, United Kingdom, Bulgaria, Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia, Slovenia, Turkey, Croatia, Switzerland, Norway, Albania, Iceland, Montenegro, North Macedonia, and Serbia during the 2010s, matching this research need: European establishment-level survey data on occupational safety and health management, especially psychosocial risks like stress, violence and harassment, worker participation, risk assessments, musculoskeletal prevention, and organizational drivers/barriers across sectors and countries.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0443ec9b9487c794006b046fc8112087d299edaa6cab44056d",
+        "created_at": 1795452872.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0443ec9b9487c794006b046fc908a087d2a244cc27e4874709",
+            "action": {
+              "type": "search",
+              "queries": [
+                "EU OSHA ESENER 2 2014 dataset 36 countries establishment survey data download",
+                "EU OSHA ESENER 1 2009 dataset psychosocial risks management establishments UK Turkey Croatia",
+                "UK Data Service ESENER 2014 European survey enterprises new emerging risks dataset"
+              ],
+              "query": "EU OSHA ESENER 2 2014 dataset 36 countries establishment survey data download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0443ec9b9487c794006b046fcbcfb487d2a67dcd53beafb1f7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org ESENER-2 2014 ZA dataset doi",
+                "site:search.gesis.org \"Third European Survey of Enterprises\" 2019 doi",
+                "site:ukdataservice.ac.uk \"Second European Survey of Enterprises\" \"7808\"",
+                "site:visualisation.osha.europa.eu/esener/en/survey/overview/2019 ESENER 2019 countries"
+              ],
+              "query": "site:search.gesis.org ESENER-2 2014 ZA dataset doi",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0443ec9b9487c794006b046fceb3a087d2b2917624964c0f74",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Second European Survey of Enterprises on New and Emerging Risks, 2014 (ESENER-2) — UK Data Service\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-7808-1\",\n      \"justification\": \"Excellent match and the most directly relevant dataset. Conducted by the European Agency for Safety and Health at Work (EU-OSHA) in 2014, ESENER-2 surveyed 49,320 establishments across all 36 countries specified in the research query. It covers private and public establishments with at least five employees across economic sectors. The establishment-level data examine occupational safety and health (OSH) management, psychosocial risks including work-related stress, violence and harassment, workplace risk assessments, musculoskeletal disorders, employee participation, and organizational drivers and barriers to prevention. Variables also capture establishment size, sector, country, and management practices, supporting comparative cross-country and cross-sector research. The UK Data Service provides access to the research data and supporting documentation.\"\n    },\n    {\n      \"title\": \"Second European Survey of Enterprises on New and Emerging Risks, 2014 (ESENER-2) — GESIS Data Archive\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/79b9f02e-a609-572a-aaba-5f2ed8096289\",\n      \"justification\": \"Highly relevant alternative archival record for the same 2014 ESENER-2 dataset, indexed through B2FIND using metadata from GESIS. Its geographical coverage matches all 36 requested countries, including Albania, Iceland, Montenegro, North Macedonia, Serbia, Turkey, Switzerland, Norway, and the United Kingdom. The data include establishment-level information on occupational risks, OSH policies, psychosocial risk management, risk assessments, worker representation, and organizational factors influencing preventive action. Additional variables identify establishment size, economic activity, NACE sector classification, country, and survey weights. Particularly useful for researchers seeking structured metadata and access through European social science data infrastructures.\"\n    },\n    {\n      \"title\": \"Second European Survey of Enterprises on New and Emerging Risks, 2014 — CESSDA/B2FIND Dataset Record\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/f807718a-1625-5374-a607-6d79c7af502a\",\n      \"justification\": \"European research data catalogue record for ESENER-2, providing another discovery and access route to the 2014 establishment-level survey. Covers 49,320 establishments in the exact 36 countries requested. The survey addresses four central research dimensions: general occupational safety and health management, psychosocial risk prevention, organizational drivers and barriers to OSH management, and worker participation. Its broad sector coverage and standardized cross-national methodology make it especially suitable for comparative analyses of workplace safety practices. This record refers to the same underlying survey as the UK Data Service and GESIS entries, rather than an independent sample.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks, 2014 (ESENER-2) — EU-OSHA Official Survey Portal\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en/survey/overview/2014\",\n      \"justification\": \"Official EU-OSHA landing page for the 2014 ESENER-2 survey. Provides access routes to the underlying dataset and related survey documentation and findings. Particularly relevant for investigating how European establishments identify, assess, and manage occupational risks, including stress, harassment, workplace violence, repetitive movements, physically demanding work, and musculoskeletal hazards. Also supports analysis of employee consultation, workplace safety representation, organizational prevention measures, and factors encouraging or obstructing OSH management. Covers all 36 target countries and is an authoritative starting point for understanding the survey's methodology and comparative research applications.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks (ESENER) — EU-OSHA Interactive Results Dataset\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/\",\n      \"justification\": \"Official interactive data platform providing comparative results from successive ESENER survey waves, including 2014 and 2019. Enables exploration of occupational safety and health management, emerging psychosocial risks, organizational drivers and barriers, and worker participation. Researchers can compare results by country, economic sector, and establishment size. Particularly useful for preliminary analysis, identifying cross-national differences, exploring workplace prevention practices, and contextualizing establishment-level findings. The 2014 wave includes all 36 requested countries. The platform primarily provides aggregated survey results rather than unrestricted establishment-level microdata.\"\n    },\n    {\n      \"title\": \"Third European Survey of Enterprises on New and Emerging Risks, 2019 (ESENER-3) — EU-OSHA\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en/survey/overview/2019\",\n      \"justification\": \"Highly relevant complementary dataset collected in 2019, allowing comparisons with the 2014 ESENER-2 survey. ESENER-3 interviewed approximately 45,420 establishments across 33 European countries, covering establishments with at least five employees. It investigates occupational safety and health management, psychosocial risks such as work-related stress, violence and harassment, worker participation, risk prevention, and organizational drivers and barriers. Particularly valuable for examining changes in establishment-level OSH practices during the 2010s. Its questionnaire and methodology were designed to maintain substantial comparability with ESENER-2. However, its geographical coverage differs from the 2014 wave, so it does not provide complete coverage of all 36 requested countries.\"\n    },\n    {\n      \"title\": \"European Survey of Enterprises on New and Emerging Risks, 2009 (ESENER-1) — EU-OSHA\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/esener/en/survey/overview/2009\",\n      \"justification\": \"Relevant historical baseline for studying developments in European occupational safety and health management during the 2010s. Conducted in 2009, ESENER-1 involved approximately 36,000 interviews with managers and occupational safety and health representatives across 31 countries. It examines workplace safety policies, psychosocial risks, stress, violence, harassment, employee participation, and organizational factors affecting risk management. Although its fieldwork predates the requested decade, it provides valuable baseline information for comparison with the 2014 and 2019 waves. Coverage is narrower than ESENER-2, and the survey focused on establishments with at least ten employees. It is therefore best suited to longitudinal comparisons using harmonized country and establishment-size samples.\"\n    },\n    {\n      \"title\": \"EU-OSHA Occupational Safety and Health Barometer — European OSH Indicators and Survey Data\",\n      \"url_or_doi\": \"https://visualisation.osha.europa.eu/osh-barometer/\",\n      \"justification\": \"Useful supplementary European occupational safety and health data resource integrating indicators from surveys, statistics, and public administrative sources, including information extending back to 2010. Covers workplace risks, working conditions, occupational health outcomes, prevention policies, and national OSH systems. Its country-level indicators can contextualize findings from ESENER-2 by examining differences in regulatory environments, occupational safety outcomes, and prevention frameworks. Particularly valuable for constructing contextual country-level measures to accompany establishment-level survey analyses. Unlike ESENER-2, this resource is primarily an aggregated indicator platform rather than a single establishment-level microdata survey.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452887.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19281,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1721,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21002
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

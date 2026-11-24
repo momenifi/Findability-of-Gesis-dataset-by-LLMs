@@ -1,0 +1,186 @@
+{
+  "query_id": 162,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about PSYCHOLOGY in Germany during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_06fa6d8ab3e34a40006b0464b8532c87d2a75557e96af1a2b6",
+        "created_at": 1795450040.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_06fa6d8ab3e34a40006b0464b9a6e887d2b1205bfadf838330",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 2000 2008 psychological wellbeing Germany dataset",
+                "SOEP German Socio Economic Panel 2002 2009 mental health personality dataset landing page",
+                "Germany DEGS mental health 2008 2011 dataset RKI",
+                "pairfam German family panel 2008 psychology dataset GESIS"
+              ],
+              "query": "GESIS ALLBUS 2000 2008 psychological wellbeing Germany dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_06fa6d8ab3e34a40006b0464be299487d293a363914dd6d488",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP core data 2000 2009 personality 2005 mental health",
+                "site:paneldata.org soep-core 2005 big five personality mental health",
+                "site:rki.de KiGGS baseline 2003 2006 mental health SDQ dataset",
+                "site:gesis.org 2002 2006 European Social Survey Germany wellbeing data"
+              ],
+              "query": "site:diw.de SOEP core data 2000 2009 personality 2005 mental health",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_06fa6d8ab3e34a40006b0464c1938487d291339c0e4cf165d9",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2009\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v26\",\n      \"justification\": \"A major longitudinal dataset covering individuals and households in Germany, including the entire 2000–2009 period. Particularly valuable for psychological research because it includes life satisfaction, subjective well-being, mental health, personality traits, and behavioral attitudes. The 2005 and 2009 surveys include Big Five personality measures covering openness, conscientiousness, extraversion, agreeableness, and neuroticism. Suitable for studying psychological changes over time and relationships between personality, employment, income, and well-being.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS), Baseline Study 2003–2006\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/KiGGS/kiggs_english_start.html\",\n      \"justification\": \"A nationally representative German health survey conducted between 2003 and 2006, covering children and adolescents aged 0–17. Includes psychological and mental health measures, emotional and behavioral difficulties, subjective health, and social determinants of mental well-being. The Strengths and Difficulties Questionnaire (SDQ) provides indicators relevant to developmental and clinical psychology. Particularly useful for research on adolescent mental health, behavioral problems, and psychological development in Germany during the 2000s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Adults (DEGS1), 2008–2011\",\n      \"url_or_doi\": \"https://www.rki.de/EN/Topics/Noncommunicable-diseases/Health-surveys/Studies/DEGS/degs_content.html\",\n      \"justification\": \"A nationwide survey conducted by the Robert Koch Institute between November 2008 and November 2011. Covers adult mental health, psychological well-being, psychosocial risk factors, protective factors, and health-related behaviors. Particularly relevant to clinical psychology, health psychology, and psychiatric epidemiology. Although data collection extends into the 2010s, the study began during the requested decade and provides valuable evidence about psychological conditions in Germany at the end of the 2000s.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam), 2008–2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.13.0.0\",\n      \"justification\": \"A longitudinal German study beginning in 2008, with its first wave conducted in 2008–2009. Contains psychological and social information about romantic relationships, attachment, partnership satisfaction, parenting, child development, and intergenerational relationships. The initial sample included more than 12,000 individuals from three birth cohorts. Especially useful for developmental psychology, relationship psychology, family psychology, and research on psychological well-being within intimate relationships. Scientific-use data are available to researchers through GESIS.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584?lang=de\",\n      \"justification\": \"A cumulative dataset containing nationally representative German social surveys, including waves conducted in 2000, 2002, 2004, 2006, and 2008. Provides information about social attitudes, values, trust, beliefs, interpersonal relationships, and social behavior. Useful for social psychology, political psychology, and research on attitudes and psychological correlates of social change in Germany. Its repeated cross-sectional design supports comparisons across the 2000s, although it is not primarily a clinical psychology dataset.\"\n    },\n    {\n      \"title\": \"German Health Update (GEDA), 2009\",\n      \"url_or_doi\": \"https://www.rki.de/EN/News/Publications/Research-data/Scientific-Use-Files/Data-records/data-records-node.html\",\n      \"justification\": \"A nationwide health survey conducted in Germany in 2009 by the Robert Koch Institute. The scientific-use dataset contains 21,262 observations and 316 variables. It is relevant to health psychology and mental health research because the GEDA survey program covers subjective health, psychological well-being, health-related stress, and behavioral risk factors. Particularly useful for investigating relationships between mental health, demographic characteristics, and health behaviors at the end of the 2000s. Access is provided through the Robert Koch Institute's research data infrastructure.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2008\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.740796.en/edition/soep-core_v25__data_1984-2008.html\",\n      \"justification\": \"A historical release of Germany's longitudinal household panel covering the period through 2008. Particularly relevant to developmental and personality psychology because it includes adult psychological characteristics and information about children's socio-emotional development. The 2008 release introduced measures of personality and socio-emotional behavior among preschool-aged children, including a modified Strengths and Difficulties Questionnaire. Useful for examining family environments, child development, personality, and psychological well-being during the 2000s.\"\n    },\n    {\n      \"title\": \"German Health Interview and Examination Survey for Children and Adolescents (KiGGS), Wave 1, 2009–2012\",\n      \"url_or_doi\": \"https://www.rki.de/DE/Aktuelles/Publikationen/Forschungsdaten/FDZ/Datenangebot/KiGGS/studie-zur-gesundheit-von-kindern-und-jugendlichen-in-deutschland-kiggs-node.html\",\n      \"justification\": \"A follow-up to the German KiGGS baseline survey, beginning in 2009. Contains information relevant to children's and adolescents' mental health, psychological development, behavioral difficulties, and health-related quality of life. Particularly valuable when combined with the 2003–2006 baseline study to examine changes in psychological outcomes over time. Although most data were collected after 2009, the study offers longitudinal research opportunities for individuals initially observed during the 2000s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2008\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11000\",\n      \"justification\": \"A cumulative historical dataset containing German population surveys conducted through 2008, including all five biennial survey waves from 2000 to 2008. Relevant to social psychology because it examines values, attitudes, social trust, political orientations, social relationships, and behavioral patterns. Especially useful for studying psychological aspects of social attitudes and their evolution during the 2000s. Unlike later cumulative releases, this historical version ends within the requested decade.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2006\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.740779.en/edition/soep-core_v23_-_changes_in_the_dataset.html\",\n      \"justification\": \"A historical release of the German Socio-Economic Panel containing observations through 2006. Particularly relevant for psychological research because SOEP introduced a revised health questionnaire module in 2002, repeated every two years, enabling analysis of health-related quality of life and psychological well-being. The dataset also includes personality-related measures, subjective life satisfaction, and social circumstances. Suitable for examining relationships between mental health, personality, employment, and living conditions in Germany during the first half of the 2000s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450058.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18805,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1802,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20607
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 3,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GESIS Election Study 1972 (Wahlstudie 1972)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12414\",\n      \"justification\": \"Survey dataset from the GESIS Data Archive containing pre-election and post-election panel survey data on voting behavior and political attitudes for the 1972 West German federal election.\"\n    },\n    {\n      \"title\": \"GESIS Election Study 1976 (Wahlstudie 1976)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11982\",\n      \"justification\": \"Survey dataset from the GESIS Data Archive containing multi-wave panel survey data examining political choices and public opinion during the 1976 West German federal election.\"\n    },\n    {\n      \"title\": \"PSoGA: Sentence-level and manifesto-level social group appeals in party election manifestos across eight European democracies, 1970–2025\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/FVI3QW\",\n      \"justification\": \"Dataset hosted on Harvard Dataverse containing coded party election manifestos from 1970 to 2025 across eight European democracies, including German election campaign manifestos from the 1970s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 975,
+          "candidatesTokenCount": 360,
+          "totalTokenCount": 3034,
+          "cachedContentTokenCount": 356,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 975
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 356
+            }
+          ],
+          "thoughtsTokenCount": 1699,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "-CKEaoriDMKknsEP_qe3-Qg"
+      }
+    }
+  ]
+}

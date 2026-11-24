@@ -1,0 +1,186 @@
+{
+  "query_id": 60,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Gender and gender roles in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0be70fc14e22db54006b047adeab1487d2a57313c4d9683660",
+        "created_at": 1795455710.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0be70fc14e22db54006b047adf87c487d288ab3738924ce761",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS gender roles Germany 2012 2022 dataset DOI",
+                "GESIS German family panel pairfam gender role attitudes data 2010 2022",
+                "SOEP gender role attitudes Germany dataset 2010 2023",
+                "European Values Study Germany 2017 gender roles dataset GESIS"
+              ],
+              "query": "GESIS ALLBUS gender roles Germany 2012 2022 dataset DOI",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0be70fc14e22db54006b047ae2efb087d2b73679ef69316fb8",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data \"Family and Changing Gender Roles IV\" 2012",
+                "site:search.gesis.org/research_data \"Family and Changing Gender Roles V\" 2022",
+                "FReDA German Family Demography Panel dataset GESIS ZA7777",
+                "Germany time use survey 2012 2013 2022 2023 research data destatis"
+              ],
+              "query": "site:search.gesis.org/research_data \"Family and Changing Gender Roles IV\" 2012",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0be70fc14e22db54006b047ae764a887d28220480dbeb5ab89",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2022: Family and Changing Gender Roles V\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA10000?lang=en\",\n      \"justification\": \"One of the most directly relevant datasets for studying gender roles in Germany during the 2020s. The survey examines attitudes toward gender equality, women's employment, marriage, family responsibilities, childcare, and the division of paid and unpaid labor. It includes Germany and other participating countries, enabling international comparisons and analysis of contemporary gender norms.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2012: Family and Changing Gender Roles IV\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The 2012 ISSP module examines traditional and egalitarian gender-role attitudes, employment expectations for mothers, family responsibilities, and the division of household labor. German responses are particularly useful for studying gender norms during the early 2010s. Comparing this wave with ISSP 2022 can reveal changes in attitudes toward gender roles over approximately a decade. The linked GESIS page provides access to German ALLBUS survey data, which incorporate ISSP modules.\"\n    },\n    {\n      \"title\": \"German Family Panel (pairfam): Panel Analysis of Intimate Relationships and Family Dynamics, 2008–2022\",\n      \"url_or_doi\": \"https://doi.org/10.4232/pairfam.5678.14.2.0\",\n      \"justification\": \"A longitudinal German dataset covering partnerships, family formation, parenting, household responsibilities, and gender-role attitudes. Its repeated observations allow researchers to investigate how gender ideologies and the division of domestic labor evolved throughout the 2010s and into the early 2020s. Particularly useful for studying differences between traditional and egalitarian family arrangements, motherhood, fatherhood, and employment decisions. Scientific-use data require an application.\"\n    },\n    {\n      \"title\": \"FReDA: The German Family Demography Panel Study, 2021 Onward\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA7777\",\n      \"justification\": \"A longitudinal survey of family life and demographic behavior in Germany beginning in the 2020s. It covers partnership arrangements, fertility intentions, family responsibilities, employment, and attitudes toward family and gender. Particularly relevant for examining changing expectations of mothers and fathers, work-family reconciliation, and gender inequalities within households. FReDA also provides continuity with the earlier pairfam study.\"\n    },\n    {\n      \"title\": \"ALLBUS: German General Social Survey, 2010–2023\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A major repeated cross-sectional survey of the German population, providing information on social attitudes, demographic characteristics, employment, family structures, and gender-related values. Selected waves include questions about gender equality and traditional family roles. The cumulative datasets allow researchers to examine changes in attitudes throughout the 2010s and early 2020s, including differences by age, education, religion, and East versus West Germany.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) 2017: Integrated Dataset\",\n      \"url_or_doi\": \"https://europeanvaluesstudy.eu/surveys/surveys-evs/evs-2017/\",\n      \"justification\": \"A cross-national survey containing German observations collected in 2017–2018. It includes questions about family values, gender equality, women's employment, motherhood, marriage, and the perceived responsibilities of men and women. Particularly valuable for investigating traditional versus egalitarian gender-role attitudes and comparing Germany with other European countries during the late 2010s.\"\n    },\n    {\n      \"title\": \"Joint European Values Study and World Values Survey (EVS/WVS), 2017–2022\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation/joint-evs/wvs-2017-2022-dataset\",\n      \"justification\": \"A harmonized international dataset covering social values, family expectations, employment, and gender-related attitudes. The German EVS observations provide information about attitudes toward women's roles, gender equality, marriage, and family responsibilities. Useful for comparing German gender norms with those in other countries and placing late-2010s German attitudes within a broader international context.\"\n    },\n    {\n      \"title\": \"Families in Germany (Familien in Deutschland), 2019\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13891\",\n      \"justification\": \"A highly relevant German survey conducted in 2019 with approximately 3,000 adult respondents. It explicitly investigates family norms, gender roles, the division of household labor, and expectations surrounding family responsibilities. The dataset distinguishes respondents with and without parental responsibilities, making it especially suitable for analyzing attitudes toward motherhood, fatherhood, domestic work, and traditional family arrangements immediately before the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"German Time Use Survey (Zeitverwendungserhebung), 2012/2013\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/10-21242-63911-2013-00-00-4-1-0\",\n      \"justification\": \"An official German time-use dataset documenting how individuals allocate time among paid employment, housework, childcare, leisure, and other activities. Its gender-disaggregated information makes it particularly valuable for measuring gender roles through actual behavior rather than stated attitudes. Researchers can investigate the unequal distribution of unpaid labor between women and men in Germany during the early 2010s. The linked record describes the Public Use File.\"\n    },\n    {\n      \"title\": \"German Time Use Survey (Zeitverwendungserhebung), 2022\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/haushalte/zve\",\n      \"justification\": \"An official German dataset measuring daily activities and the distribution of paid and unpaid work in 2022. It provides evidence about gender differences in housework, childcare, employment, and leisure. Particularly useful for evaluating the persistence of traditional gender roles in the 2020s. Comparison with the 2012/2013 survey makes it possible to examine changes in the gender division of domestic labor over approximately ten years. Microdata access is available through Germany's official statistical research data centers.\"\n    },\n    {\n      \"title\": \"OECD Time Use Database\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/time-use-database.html\",\n      \"justification\": \"An internationally harmonized dataset containing gender-disaggregated time-use statistics for Germany, including observations from the 2010s and 2022. It measures time spent on paid employment, unpaid work, personal care, and leisure. Particularly relevant for comparing German women's and men's domestic responsibilities and assessing whether gender differences in unpaid work have narrowed. It also enables comparisons between Germany and other OECD countries.\"\n    },\n    {\n      \"title\": \"German Federal Statistical Office (Destatis): Time Use Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Time-Use/_node.html\",\n      \"justification\": \"An official statistical data source providing German time-use indicators and access information for the underlying surveys. It includes gender-disaggregated evidence on household work, childcare, employment, and leisure, with relevant observations from 2012/2013 and 2022. Particularly suitable for studying the gender care gap, unequal domestic responsibilities, and changes in everyday gender roles between the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"OECD Time Use Database: Gender Differences in Unpaid and Paid Work\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/time-use-database.html\",\n      \"justification\": \"A useful source for constructing comparative indicators of gender inequality in Germany. The database distinguishes paid work from unpaid household and care activities and allows researchers to compare women's and men's time allocation. It is particularly appropriate for quantitative research on the relationship between traditional gender expectations, domestic responsibilities, and women's labor-market participation. This is the same underlying OECD dataset listed above, highlighted for its specific relevance to unpaid labor.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455729.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19304,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1930,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21234
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

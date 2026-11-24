@@ -1,0 +1,69 @@
+{
+  "query_id": 75,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Crime and law enforcement, Legislation and legal systems, PSYCHOLOGY, Family life and marriage, Community, urban and rural life, Leisure, tourism and sport, Social behaviour and attitudes, Time use, Vocational education and training, and Employment in Duisburg during the 2000s, matching this research need: Longitudinal panel-cohort survey data on youth delinquency in a modern city, tracking students from adolescence into adulthood with measures of victimization, self-reported offending, school experiences, crime attitudes, lifestyles, and life-course transitions.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Kriminalität in der modernen Stadt – Panel (ZA8867)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14608\",\n      \"justification\": \"The 'Crime in the Modern City' (CrimoC) prospective panel study started in Duisburg in 2002, tracking a cohort of 7th-grade students from early adolescence into adulthood across 13 waves. It provides extensive longitudinal data on self-reported offending, crime victimization, school experiences, criminal attitudes, lifestyle, leisure time use, family background, and subsequent vocational education and employment transitions.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "EvYXCvMXARFNMg8N8IKJ0o7+9AC2H7GQxHYA7J9yqdC5ceaL52vW9zJSPg+JwtAk4zRWvgTayyWAHRjYMK842YHS2WgUZxVrlZ68JPkznD7+PGXqjk4SH+gCP2szlmFGgYEhaP8yRH72H7IdlbnmBnJiiiyssSTHn/fRIh4Z2jvRaFtngZTbvMYWkaHV4z7m5Hg3PeuJWs827m2t2jtaSUhcaSXsUPVgPhrvbpq2kR8XpS6BLAgeBusfMvQWs6JH5l/iKmYOaqwh2Cv6hJn2upLVN//cuz+K2dR8VQPEWhBFKBHPJJxB2GAd+tPaxnO0AY6IB+rJq3nDFptXZAs/cAjhK4jb8BxaCY4/wj60+PUgELtLZtVapkrWqV4WgIuPSkXo5cAQwQpruMyCUxNskKvXjcjc1ysH7EsXxSMRh+DpPY6gZr36HcEpZCriJXTNNTyLU2y8ClVPrQaWOUK03tQvg92QJCcLClhnM5HXh2noqsb49ja9K7a0KGrijzvCsYsx8VO68DjbOFnooIh9V1qi6bj2s4dXRzkQz9yF4fxmKAkV5Ac/rZghcnMXzwk5o6gS4wPF+qs+uwgs7uXL01zdf6zqrE79ekthTV4sYy1hhIdj6pMxraUioF85MoBc1WnhAK4CRc2ROP9ld6hfrXMRWBybZvRSU/ntM3gO4C1bR9jDfTEX8TQAqxR+8tu78Qme00kf8ETmCokM+x8sbL9IL/sxeR6H0nHVuVSS6cle7Jq2O0aoxUUPkYf+2qtPLlSPJG/KclxBPDzYKqr/EnUmAx4/ojgSnqFL6p7GAORw5aWLKIcRND2rklmgjySbHKzdShkZt6qHkW01RRr7dxy2mKiz/8mTEe29ob5+yCNZaMuyWOBdxHhD9UEKxlBQNsxhdRFvBjFElnsp8RQu9U5FkCwsuV/gnrO0NDWYr/ep/YaIm5FmMX4VYSiteOldiDFGRD3kEPu8qDpKdPKioZTxhBuikSs0jXHGrT/IQPesh85BP0UDij0FKTbD/ZVYXT9WeiWTdCLyJbQ5gX5rrJoFGSSxI9rcW/Afvyl7UtImnY53pB6dL3jMtan8JgS1KATytDpswm0YpePFkeDnXsN1mJ0NEKnCcuDgNZT573hJmn82bdD/bMFbU67B+FmrLoQJCysO5nQyNuzHz3d8LR/9CpMM+i4pBObfK3wbcAH+yariHoRQHded366RlgDIqfX6Ky678e4KL55ojlMc9SELrpBfmOU3nO3Wj2schG+gflHKbhMk92v9iRhqH7iy49TGZYLwsS8La0HOwlydl5qet5tU6ybjGwuuT615UdybMqOqyloYyxiHCQjKcG5Sgfn4y5l1Q+F+oEbi9zgxfFYvc3CuJ+ESPuRoC9An1jdP6Gt6jh6qQN9Neyvz+A0rUquYXm2o2N/jtqyiMIk5cEcHVuzJl416C33TWfqkmMXCrENlVFZdQeU3blxe32wDHx0ikxK8Y8Y5XwNe39Ya973QsFJQJxrJ7IwZmy4/HopBhsThYhVkot0yOauNQ4bW3VfbLmxsdBItFFuu7ClPxJesSuZEd4FFTDfrtu+SSDLLE6i2WsWifcSmlzsDyo86ETNG9/fM/eEyYadVHe1xSpicStZoIDKETg04NxZQ0GONYXk2fxqQ+Ch337+LLIXlJqsQW2yt016cXMWpufJ5lvJmDsWF1HGlj9eAw5ngANhFzPzO7suPiRI8TQkVErHxbbwJkw7+TWg4YFe6Xfgjed+J6vEwUb/vPrB9MFbKFu0RzCamhBAAaWSPaEAHsT74fe7GH41Wizd/WG0MXVIUezdPvBQhoM40xt+Lik/rLbG7jqNUUu/c9CdQ/BNNFS9zt+Tcy8+QGN1xy5DpH+VVtId6ZaToAjzrwVpkrmu+3cm4lhenJEaKfabWSDo8gasd4UhCN/++jWOia7gPkq0p6cLJsjUPSao+1N331v8AFkE66P5FM3rD3MpDFlBXrlsmdaWJPAw064g4y7gXdByL9BHK7zkhy2H70tFdE7OMkLITt7tpVcAD8LAImPDHWn4jjAKyZUKygnt8pO/vczQqJhgf+rPaVkmMs51KW1NGmn45m/KiMTSEe9vn8BLHnHx7+u2A0z8t2Nb3uc0/cXgLfoc5XcW+X7jjBI2ZFPg2EYS71BXX8JphLGhGOzlcTHKsHY2v3AsxDedJX+Ly+MxU12YU3RKyvq7HYFOMmTUjiV+l/52wWxoe5XxwPRbQa3fogCwGdMtIDgbMQzFUKjeoFvH7NMuyOWmnKilk7efC27LtXHP5GKRHGN60NuaqKBKX3nsd6YLWCsf1njQcjbEE5RIkuVUr2thJoZYlYvdi/cn3k3ZmOTXCzEI+9YyuhhYcjrFc2jkiIgHBBEJEI3RzZvodAFLNBo518ZK8jyx/5i2pXNTQaxMbgqQmxvenm9tAKO8eCRHXEeNmMJd7BFF+y+g5+4M3ufJJn5rDm9U7W7FCQtc91EcAnJ0YPEPoEJ3uxdOUn7K+QXFi1IKg2GOFK81Cfuz5Z4XKl+1XYOcF1EYNchsegeNq/n42NqIHkWnr7VvxQ2Bkqn+/atB/l5mFVahldipVLN/nhJwbbBemkN6ncjwt3OZ/KqgIO2ZCGl5F9/ty2IwkSgpqXq2O3VVr8xAtubOQ4coEMo3hnIE9XoeWnFzFwgflRopxQxfCUw1pV+ncjy6hRWCg3trcXN5aJpKNf+gDloBPhayRhhC5reifdl5Oe0W1C1kHNs1sUBkwaZACP+ZkfHZvl5Tvn8/rPzZZ1zV5m+N8tJ86xQGkQWQuKnNSJadxAaEnvWxdRP8Up+Cy7oGhe6t6MwrDg2Ema4vlFgX2ZaPXGJLkxybb9dVtVVDpzDZ2TSFxX88LGr3IbANq+d4jkk6mEQS4i4L4n+8EvW8ujBHKpQcXTdDUqoJSR5S3H+5JNP+ltPWeoToTqdzz3mmWMqABn+i21u7w0tMvFeyqyil1aV24bxzaU1I+64AJ38vY8yek2I+L8S+QvdFplICCdpymHGUDhyRhIgz/PfsySSDd7ziDh+tswy7CioFimhyXKPUc9L1l6TOFtS4zuiqMl1yppOvXo1MF5ZtWCdhADOmw5CXpghhVbJKREcTbddp85DtcnO0ruS+hCXw1XQByJ9EiiF1Aut2n+lgU8/MrrYQqKQuatgqTTm9XMhaaOGd0qUj9xbfimI+HoGOqzX9+nGXYaMN+S+y4obR/DI4Fnp8niMifaSrQ302sAldpgKl3C/gp4Eex1RsU3E08JxX6LmWVwMsqIUJ9XYImaNo4jdYyvv1Um5EbuzfrXp9iKyRbSRoIOU2bhean/FeFWM+gA5jzpZVuIq1et53Ra4H9Vp3mD9LhYnINZkDKIe3KdSGYlGCDc/xcU+nW/XaOhhy+o8WyLpDtar5Rp7i5vp2p7464IcgwHsq2qM3aK+sJnFrD6os0H4VPUt6zf7qOPLfpjFHAL8sQ27Emvwk5Dy4WdLy7Kxgv9cIqnnfBkZ8OKY+IE+Fhby72tOud1IU6oxz8H1KUZ5V0/qhv77VLNYGI5hTBjjQw1Xyv4FZjVgzT2wrqjUmXYVC/3xGX64KPLKiXt1p/nmrU3USTd6fG44q5OTytlTG5TGUPg8VLh4LCvqQr8HfCjktAd8135OdsyosYPT5ZdzeFJaATEtzXQecEZOXG25TCpxR0fErx0UjNMEB2pXi7CMmU6IL3WWjANJjX2u42ITB974OKPN0OuA1A5Zbky/drd0PouxqP1KkesoyCF4pjaBVad1EBYcU8iF7E+jwui08QN77FhHIAG/KAeMlCoH4cEiVwLJIDlIULw780iYgbfXVtvg3gSXU72WwBhxbeujhTbMqXnzsPyscLUYgslGq8ClSVL2a7VIGDVujZWxqCJjr3gkpo5Xhl2uHLs3MRK0b69giTIpfXcanlBa53YmfRg3A4X90X4N10y/88BsHy7h1jjw8QO3jnQPIRKoxW8IfaubU8x5g2mzHPdRnRhXC8A6bMPsGez23BGI0FpSENSwh0YRuaNR0msgK3Hmemr3vsqIR2fIViI/z4Vs0bgJSqFhik9rjGGf74HBMvNWQ="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 699,
+          "candidatesTokenCount": 168,
+          "totalTokenCount": 2141,
+          "cachedContentTokenCount": 289,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 699
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 289
+            }
+          ],
+          "thoughtsTokenCount": 1274,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "2o6Earv4O-_pnsEPjJWHyAY"
+      }
+    }
+  ]
+}

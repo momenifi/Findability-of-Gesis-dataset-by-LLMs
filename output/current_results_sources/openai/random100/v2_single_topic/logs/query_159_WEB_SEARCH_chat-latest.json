@@ -1,0 +1,178 @@
+{
+  "query_id": 159,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Specific diseases, disorders and medical conditions in German Democratic Republic (1949-1990) during the 1980s and 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0dcb3954dc34c072006b04648a866087d290ed41329286c902",
+        "created_at": 1795449994.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0dcb3954dc34c072006b04648ba6dc87d2991930d0e9c1b873",
+            "action": {
+              "type": "search",
+              "queries": [
+                "DDR 1980 1990 Krebsregister Daten Datensatz DDR epidemiologie",
+                "German Democratic Republic 1980s mortality cause of death dataset GDR",
+                "DDR Gesundheitsdaten 1989 Krankheiten Statistik Datensatz"
+              ],
+              "query": "DDR 1980 1990 Krebsregister Daten Datensatz DDR epidemiologie",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0dcb3954dc34c072006b04648da4fc87d282a3ee7e10c7e32f",
+            "action": {
+              "type": "open_page",
+              "url": "https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0dcb3954dc34c072006b04648f834487d2aa2d27808804e0d3",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"AIDS in the Consciousness of the Population of the GDR 1989/1990 (AIDS im Bewusstsein der Bevölkerung der DDR 1990)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6658\",\n      \"justification\": \"Highly relevant GESIS dataset examining awareness, knowledge, and attitudes toward HIV/AIDS among the adult population of the German Democratic Republic. Data were collected between July and October 1990. The dataset directly matches the geographic, temporal, and subject requirements. It is available for academic research and teaching.\"\n    },\n    {\n      \"title\": \"National Cancer Registry of the German Democratic Republic (Nationales Krebsregister der DDR), 1954–1989\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/nationales-krebsregister-der-ddr/\",\n      \"justification\": \"Historical cancer registry containing approximately 1.8 million archived patient reports covering cancer diagnoses between 1954 and 1989. Records include cancer type, diagnosis, treatment, and disease progression. The registry provides extensive information on specific cancers during the 1980s in East Germany. Historical records are preserved by the German Federal Archives, with additional digitized registry information. Individual-level data are not necessarily publicly downloadable.\"\n    },\n    {\n      \"title\": \"Historical Statistics: Reported Cases of Selected Notifiable Infectious Diseases in the Former GDR, Absolute Numbers (1950–1989)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D\",\n      \"justification\": \"Historical statistical dataset containing 12 time series on selected notifiable infectious diseases in the former German Democratic Republic. Covers 1950–1989, including the entire 1980s. Particularly useful for examining disease incidence, infectious disease trends, and epidemiological patterns. Available through the Historical Statistics database (table C.01c).\"\n    },\n    {\n      \"title\": \"Historical Statistics: Reported Cases of Selected Notifiable Infectious Diseases in the Former GDR per 100,000 Inhabitants (1950–1989)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D\",\n      \"justification\": \"Dataset providing 12 historical time series of infectious disease incidence rates per 100,000 inhabitants in East Germany. Includes observations from the 1980s and enables population-adjusted comparisons of infectious disease frequency. Particularly relevant for epidemiological research investigating specific communicable diseases. Listed as table C.01d.\"\n    },\n    {\n      \"title\": \"Historical Statistics: Deaths by Selected Causes of Death in the Former GDR (1947–1989)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D\",\n      \"justification\": \"Historical mortality dataset containing 22 time series categorized by selected causes of death in the former German Democratic Republic. Covers the 1980s and allows researchers to investigate mortality associated with specific diseases and medical conditions. Useful for analyzing historical patterns of disease-related mortality before German reunification. Available as table C.02c.\"\n    },\n    {\n      \"title\": \"Historical Statistics: Cause-Specific Mortality by Sex in the Former GDR per 100,000 Inhabitants (1947–1989)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D\",\n      \"justification\": \"Dataset containing 23 historical time series on mortality from selected causes of death, differentiated by sex and standardized per 100,000 inhabitants. Includes the 1980s in the German Democratic Republic. Particularly valuable for studying sex-specific differences in mortality associated with particular diseases and disorders. Listed as table C.03c.\"\n    },\n    {\n      \"title\": \"Statistics of Notifiable Communicable Diseases: From the Beginning of Records to December 31, 1989 (Statistik meldepflichtiger übertragbarer Krankheiten)\",\n      \"url_or_doi\": \"https://doi.org/10.25646/86\",\n      \"justification\": \"Historical epidemiological statistics published by the Robert Koch Institute, incorporating infectious disease records from the former German Democratic Republic through December 1989. The publication compiles and contextualizes official statistics on notifiable communicable diseases. Particularly relevant for investigating infectious disease occurrence and historical surveillance during the 1980s. This is a statistical report containing historical data rather than a standalone machine-readable dataset.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1989: Reported Infectious Diseases\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1989/-3/seite-389-814958.html\",\n      \"justification\": \"Official historical statistical table documenting annual reported cases of infectious diseases in the German Democratic Republic, including observations from 1980 through 1988. Covers tuberculosis, measles, diphtheria, scarlet fever, poliomyelitis, meningitis, hepatitis, salmonella poisoning, typhoid, and other communicable diseases. Includes absolute case counts and population-based rates. Highly relevant for research on specific infectious diseases in East Germany during the 1980s.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1989: Deaths by Cause, Sex, and Age Group\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1989/seite-392-814947.html\",\n      \"justification\": \"Official GDR mortality statistics presenting deaths categorized by specific diseases, sex, and age group for 1987. Includes malignant neoplasms, diabetes mellitus, ischemic heart disease, cerebrovascular disease, hypertension, pneumonia, asthma, chronic liver disease, tuberculosis, and other conditions. Provides disease-specific mortality counts with ICD classifications. Particularly useful for detailed analysis of disease-related mortality in East Germany during the late 1980s.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch der Deutschen Demokratischen Republik 1984: Disease-Specific Causes of Death\",\n      \"url_or_doi\": \"https://www.gvoon.de/statistisches-jahrbuch-ddr-1984/-3/seite-379-814958.html\",\n      \"justification\": \"Historical official statistics containing mortality information for specific diseases and medical conditions in the German Democratic Republic. Includes tuberculosis, malignant neoplasms, diabetes mellitus, circulatory diseases, cerebrovascular diseases, pneumonia, gastrointestinal ulcers, and other causes of death. Includes observations from 1980 and provides a useful source for examining disease-specific mortality trends in the early 1980s.\"\n    },\n    {\n      \"title\": \"Historical Cancer Registry Data of East Germany, 1961–2022\",\n      \"url_or_doi\": \"https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/nationales-krebsregister-der-ddr/\",\n      \"justification\": \"Digitized historical cancer registry information covering eastern German states from 1961 through 2022, including the 1980s and 1990s. Originating from the GDR National Cancer Registry and subsequent regional cancer registration systems, these records enable investigation of cancer occurrence across the transition from socialism to reunification. The data are especially relevant for longitudinal studies of specific cancers. The linked archival description confirms the existence of the digitized records but does not establish unrestricted public access.\"\n    },\n    {\n      \"title\": \"Historical Statistics: Infant Mortality in East and West Germany (1946–2010)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/tables/9E144475640037A32F7836A83781DF7D\",\n      \"justification\": \"Historical demographic dataset presenting infant mortality trends in East and West Germany from 1946 to 2010, covering both the 1980s and 1990s. Useful for researching infant health outcomes and mortality differences before and after German reunification. Although not organized by individual diseases, the data provide relevant contextual evidence for research on neonatal and infant medical conditions. Available as table B.03.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450008.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 17761,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1905,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 19666
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

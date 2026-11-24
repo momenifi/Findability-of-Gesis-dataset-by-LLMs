@@ -1,0 +1,69 @@
+{
+  "query_id": 59,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Health care services and policies in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Gesundheit in Deutschland aktuell (GEDA 2019/2020-EHIS)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.7214473\",\n      \"justification\": \"A major health survey dataset collected by the Robert Koch Institute (RKI) providing population-level data on healthcare service utilization, health status, and health determinants in Germany during 2019–2020.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel Study (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41o\",\n      \"justification\": \"A longitudinal panel dataset covering Germany across the 2010s and 2020s, including detailed variables on healthcare service usage, health insurance status, individual health outcomes, and the impact of health policy changes.\"\n    },\n    {\n      \"title\": \"Health and Health Care in Germany (GESIS ZA6610)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12433\",\n      \"justification\": \"A population survey dataset hosted by GESIS measuring public attitudes towards healthcare policies, statutory versus private health insurance, and personal healthcare service usage in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1077,
+          "candidatesTokenCount": 345,
+          "totalTokenCount": 2827,
+          "cachedContentTokenCount": 210,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1077
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 210
+            }
+          ],
+          "thoughtsTokenCount": 1405,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "QrmnaoKzKvaJxN8P7eK7uQg"
+      }
+    }
+  ]
+}

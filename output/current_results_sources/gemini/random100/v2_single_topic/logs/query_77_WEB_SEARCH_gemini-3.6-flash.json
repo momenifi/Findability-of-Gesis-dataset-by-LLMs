@@ -1,0 +1,69 @@
+{
+  "query_id": 77,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about MEDIA, COMMUNICATION AND LANGUAGE in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"A geolocated dataset of German news articles\",\n      \"url_or_doi\": \"https://doi.org/10.22029/jlupub-19573\",\n      \"justification\": \"Provides structured metadata and text embeddings for approximately 50 million German news articles extracted from Common Crawl, geolocated across Germany to enable research on regional and national media communication.\"\n    },\n    {\n      \"title\": \"A German Language Labeled Dataset of Tweets\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.10053509\",\n      \"justification\": \"Contains 8,048 annotated German-language social media posts from 2019 through 2022, designed for analyzing online discourse, hate speech, and communication patterns in Germany.\"\n    },\n    {\n      \"title\": \"Characteristics of ChatGPT users from Germany: Implications for the digital divide from web tracking data\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2745\",\n      \"justification\": \"Hosted on GESIS, this dataset combines web tracking data and survey responses from German participants in the 2020s to analyze digital media literacy, communication skills, and generative AI adoption.\"\n    },\n    {\n      \"title\": \"German Abusive Language Dataset with Focus on COVID-19\",\n      \"url_or_doi\": \"https://aclanthology.org/2021.konvens-1.26/\",\n      \"justification\": \"Contains 4,960 annotated German social media posts from the pandemic era (2020-2021) to study online abusive language, toxicity, and digital communication trends in Germany.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 701,
+          "candidatesTokenCount": 435,
+          "totalTokenCount": 2448,
+          "cachedContentTokenCount": 108,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 701
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 108
+            }
+          ],
+          "thoughtsTokenCount": 1312,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "dTSEav25BJP-nsEP7aKfsQQ"
+      }
+    }
+  ]
+}

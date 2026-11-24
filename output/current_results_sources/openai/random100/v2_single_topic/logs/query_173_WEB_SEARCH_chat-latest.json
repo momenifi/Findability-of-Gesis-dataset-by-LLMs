@@ -1,0 +1,186 @@
+{
+  "query_id": 173,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about protest movement in Germany and Berlin during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f32db4856a89bed006b04655a018087d2a0961bef35376bd9",
+        "created_at": 1795450202.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f32db4856a89bed006b04655b216c87d2906360e714c07130",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany protest events dataset 2020 2024 Berlin protest data download",
+                "Berlin Versammlungen Demonstrationen Datensatz 2020 2024 open data",
+                "Germany protest event data ACLED Germany 2020 dataset",
+                "German protest survey dataset 2020 2023 protest movements"
+              ],
+              "query": "Germany protest events dataset 2020 2024 Berlin protest data download",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f32db4856a89bed006b04655e67c487d29dd2390d13653d08",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:daten.berlin.de/datensaetze/ \"Versammlungen im Land Berlin\"",
+                "site:acleddata.com data export tool protest Germany download",
+                "site:gesis.org protestbefragungen 2003 2023 dataset DOI",
+                "site:zenodo.org far right activism panel Germany 2013 2024 protests"
+              ],
+              "query": "site:daten.berlin.de/datensaetze/ \"Versammlungen im Land Berlin\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f32db4856a89bed006b046561053487d297f4d8e3c8e1d636",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"The German Protest Registrations Dataset (2012–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.10094245\",\n      \"justification\": \"One of the most relevant datasets for studying protest movements in Germany during the early 2020s. Compiled by David Pomerenke, it contains approximately 57,000 records of registered demonstrations across 16 German cities, including Berlin. Variables include protest dates, organizers, issues, expected participant numbers, and, where available, observed attendance. It provides a consistent subset covering 2018–2022 for five cities and a broader dataset for 2022. Particularly useful for examining changes in protest frequency, mobilization, and political demands during the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"Versammlungen im Land Berlin — Berlin Open Data\",\n      \"url_or_doi\": \"https://daten.berlin.de/datensaetze/simple_search_wwwberlindepolizeiserviceversammlungsbehoerdeversammlungenaufzuege\",\n      \"justification\": \"Official dataset published by the Berlin Police concerning registered public assemblies and demonstrations in Berlin. The data service was established in 2021 and provides information about protest events, including dates, locations, and demonstration topics. Data can be accessed through several formats, including CSV, JSON, XML, and Excel. Particularly valuable for detailed research on Berlin's protest landscape during the 2020s. The dataset's licensing conditions and availability of historical records should be checked before use.\"\n    },\n    {\n      \"title\": \"POLIZEI STRESSI — Berlin Demonstrations and Protest Statistics (2021–Present)\",\n      \"url_or_doi\": \"https://polizeistressi.de/data/\",\n      \"justification\": \"A Berlin-specific protest data platform compiling official registration information for demonstrations, rallies, and public assemblies since February 2021. Provides interactive statistical analyses of protest frequency, geographical distribution, protest themes, and temporal patterns. Especially useful for examining the evolution of protest mobilization in Berlin, identifying frequently used demonstration locations, and comparing movements across different political issues. Because the source concerns registered assemblies, it should not be treated as a complete record of every protest that occurred.\"\n    },\n    {\n      \"title\": \"ACLED — Armed Conflict Location & Event Data: Germany Protest Events (2020–Present)\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/data-export-tool\",\n      \"justification\": \"An international event-level dataset documenting demonstrations, riots, political violence, and other contentious events. ACLED provides coverage of Germany beginning in 2020 as part of its expanded European data collection. Researchers can filter observations by country, location, event category, and date to construct datasets specifically covering Germany or Berlin. Variables include event dates, locations, participating actors, event descriptions, and reported fatalities. Particularly useful for longitudinal analysis, geographical comparisons, and investigations of protest policing.\"\n    },\n    {\n      \"title\": \"ProtestData — Protest Events in Germany and German Cities (2009–2020)\",\n      \"url_or_doi\": \"https://protestdata.eu\",\n      \"justification\": \"A research platform associated with the Institute for the Study of Protest and Social Movements and researchers at the University of Bremen. It provides systematically collected information about protest events and campaigns in Germany, including coverage of 18 German cities between 2009 and 2020. Although its coverage of the 2020s is limited to 2020, it is valuable for establishing historical baselines and examining how protest patterns changed at the beginning of the decade.\"\n    },\n    {\n      \"title\": \"GESIS / Institute for Protest and Social Movement Research — Protest Surveys in Germany and Poland (2003–2023)\",\n      \"url_or_doi\": \"https://protestinstitut.eu/en/20-years-of-protest-surveys-ipb-publishes-protest-survey-data/\",\n      \"justification\": \"A harmonized collection of 31 protest surveys conducted between 2003 and 2023, including demonstrations in Germany. Unlike event-registration datasets, these surveys provide individual-level information about protest participants, including political attitudes, motivations, demographic characteristics, and forms of political engagement. Particularly suitable for investigating who participates in protest movements, why individuals mobilize, and how different political movements compare. The collection includes surveys conducted during the 2020s and provides access information for the underlying research data.\"\n    },\n    {\n      \"title\": \"Protest Surveys: Polarizing Peace? Peace Rallies on the First Anniversary of the Ukraine War (Berlin, 2023)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14648\",\n      \"justification\": \"An individual-level survey dataset archived at GESIS examining participants in peace demonstrations held in Berlin in 2023. The research investigates protesters' political attitudes, motivations, perceptions of the Russia–Ukraine war, and opinions about the German government's response. The dataset contains 124 observations and 191 variables. Particularly relevant for studying peace activism, anti-war mobilization, and political polarization in Berlin during the 2020s.\"\n    },\n    {\n      \"title\": \"Comparative Far-Right Protest Database — FARPO\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/T7BZ5I\",\n      \"justification\": \"A comparative dataset documenting far-right protest mobilization across European countries, including Germany. Developed by the Far-Right Protest Observatory, it is particularly useful for investigating far-right political activism, protest events, and cross-national patterns of mobilization. Researchers interested in German far-right movements can use the German observations to examine contentious political activity in a broader European context. The precise temporal coverage of the available version should be checked before selecting observations from the 2020s.\"\n    },\n    {\n      \"title\": \"Far-Right Music Events, Protests, and Violence: A County-Level Dataset for Germany (2013–2024)\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC13538395/\",\n      \"justification\": \"A research dataset covering far-right mobilization across German counties between 2013 and 2024. It combines records of far-right demonstrations, music events, and extremist violence with geographical and temporal information. Available research files include event-level protest records, monthly county-level protest indicators, and a harmonized panel dataset. Particularly relevant for examining the geographical distribution of far-right activism, regional differences in mobilization, and developments during the 2020s. Berlin can be analyzed within the nationwide county-level framework.\"\n    },\n    {\n      \"title\": \"Farmers' Voices in European Protests: Diverse Complaints, Emotional Tones, and Policy Responses (2024)\",\n      \"url_or_doi\": \"https://zenodo.org/records/17435986\",\n      \"justification\": \"A research dataset accompanying a comparative study of the 2024 farmers' protests in Germany, France, Belgium, and the Netherlands. It provides data relevant to understanding agricultural protest movements, protesters' grievances, emotional expressions, and political responses. Particularly useful for studying the large wave of farmers' mobilization in Germany in 2024 and comparing German protest dynamics with those in neighboring European countries.\"\n    },\n    {\n      \"title\": \"Climate Summits and Protests Have a Strong Impact on Climate Change Media Coverage in Germany — Research Data and Code\",\n      \"url_or_doi\": \"https://zenodo.org/records/10993773\",\n      \"justification\": \"A research data and replication package investigating relationships between climate protests, international climate summits, and German media coverage of climate change. Relevant for examining how environmental movements influence public attention and political communication. It provides a useful resource for studying climate activism and the media visibility of protest movements in Germany, including the broader context of Fridays for Future and other climate campaigns.\"\n    },\n    {\n      \"title\": \"ProLoc — Protests in Germany, 2000–2020: Local Protest Event Data for Bremen, Dresden, Leipzig, and Stuttgart\",\n      \"url_or_doi\": \"https://doi.org/10.1080/09644008.2026.2671890\",\n      \"justification\": \"A local protest-event dataset constructed using newspaper reporting from four German cities between 2000 and 2020. It documents protest activities and provides a foundation for comparing different urban protest environments. Although its coverage of the 2020s is limited to 2020 and does not include Berlin, it is useful for examining longer-term changes in German protest movements and establishing pre-pandemic patterns against which subsequent mobilization can be compared. The DOI points to the dataset's associated research publication.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450218.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19275,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1960,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21235
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

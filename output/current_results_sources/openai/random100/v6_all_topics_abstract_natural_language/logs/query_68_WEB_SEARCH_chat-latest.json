@@ -1,0 +1,186 @@
+{
+  "query_id": 68,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Political behaviour and attitudes, Government, political systems and organisations, and Equality, inequality and social exclusion in Germany during the 1990s, matching this research need: survey data on political attitudes and participation in Germany, including voting behavior, party preferences, trust in institutions, democratic values, political efficacy, media use, social welfare views, and differences between East and West\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0f0c0b66f61ea375006b04734891d887d298ad336f3bc84ea5",
+        "created_at": 1795453768.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0f0c0b66f61ea375006b047349964487d2ae47c598e6f42c7f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany political attitudes east west dataset",
+                "German Longitudinal Election Study 1990 1994 1998 election study GESIS dataset",
+                "World Values Survey Germany 1990 1997 data political trust democracy",
+                "German social survey 1990s ISSP role government social inequality Germany dataset"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 Germany political attitudes east west dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0f0c0b66f61ea375006b04734f175c87d280247bbb640eb6d7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Political Attitudes, Political Participation and Voting Behavior\" 1994 1998",
+                "site:search.gesis.org/research_data/ \"Politbarometer\" \"1998\"",
+                "site:search.gesis.org/research_data/ \"German National Election Study\" \"1998\"",
+                "site:search.gesis.org/research_data/ \"ISSP 1999\" \"Social Inequality\""
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Political Attitudes, Political Participation and Voting Behavior\" 1994 1998",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0f0c0b66f61ea375006b047352114887d2a889322042592342",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994 (ZA3065)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11973\",\n      \"justification\": \"Excellent match. This GESIS dataset contains pre-election and post-election surveys conducted in East and West Germany around the 1994 federal election. It covers voting intentions, electoral participation, previous voting behavior, political interest, satisfaction with democracy, economic evaluations, and political attitudes. Its separate East and West German samples make it particularly valuable for examining political differences following reunification.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998 (ZA3066)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3066\",\n      \"justification\": \"Excellent match. This survey examines political attitudes, electoral participation, and voting behavior surrounding Germany's 1998 federal election. It belongs to the same research series as the 1994 study, enabling comparisons across elections and between East and West Germany. Particularly relevant for investigating party preferences, democratic satisfaction, political engagement, and electoral change during the 1990s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014 (ZA4584)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"Excellent match for longitudinal research on political and social attitudes. The cumulative dataset includes German surveys conducted in 1990, 1991, 1992, 1994, 1996, and 1998. It contains measures of political participation, satisfaction with democracy, evaluations of government performance, political orientations, socioeconomic conditions, and social values. From 1991 onward, its coverage of both East and West Germany makes it especially useful for studying political integration and changing attitudes after reunification.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977–2024 (Partial Cumulation, ZA2391)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2391\",\n      \"justification\": \"Highly relevant longitudinal survey series covering every year of the 1990s. Politbarometer provides repeated observations of German public opinion, including party preferences, voting intentions, evaluations of political parties and politicians, and attitudes toward current political developments. It is especially valuable for tracking shorter-term fluctuations in political attitudes and electoral preferences. The cumulative dataset supports comparisons over time, although the availability of individual variables and regional distinctions should be checked.\"\n    },\n    {\n      \"title\": \"German National Election Study – Post-Election Study 1998 / German CSES Study (ZA3073)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3073\",\n      \"justification\": \"Strong match for electoral behavior and democratic attitudes in Germany during the 1998 federal election. This German election study contributes to the Comparative Study of Electoral Systems and supports research on voting decisions, political parties, electoral participation, and evaluations of democratic institutions. It is particularly useful for investigating the relationship between citizens' political orientations and electoral choices in reunified Germany.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Role of Government III – ISSP 1996 (ZA2900)\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2900\",\n      \"justification\": \"Excellent match for attitudes toward government, public institutions, and social welfare responsibilities during the 1990s. The 1996 ISSP Role of Government module examines citizens' expectations of government, opinions about state intervention, public spending, and the division of responsibilities between government and individuals. The German component includes East and West German respondents, making it useful for studying regional differences in welfare preferences and political values.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Social Inequality III – ISSP 1999 (ZA3430)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3430\",\n      \"justification\": \"Strong match for the equality, inequality, and social exclusion dimension of the research. The 1999 ISSP module includes Germany and investigates perceived social inequality, fairness, social mobility, income differences, and attitudes toward economic redistribution. It is particularly useful for understanding how socioeconomic position and perceptions of inequality relate to political values and expectations of government at the end of the 1990s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Social Inequality Cumulation 1987, 1992, 1999, 2009, and 2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Useful for studying changes in attitudes toward inequality and redistribution across the 1990s. The cumulative ISSP series combines comparable questions from several survey waves, including 1992 and 1999. Researchers can select German respondents and examine developments in beliefs about economic fairness, social mobility, income inequality, and government responsibility. It complements electoral surveys by providing a detailed socioeconomic perspective on political attitudes.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Role of Government Cumulation 1985, 1990, 1996, 2006, and 2016\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Highly relevant for comparing attitudes toward state institutions and government responsibilities over time. The cumulative dataset includes the 1990 and 1996 survey waves, with German observations available for relevant participating waves. It supports research into public expectations of government, welfare provision, economic intervention, and political values. Researchers should verify German participation and geographic coverage for each wave before undertaking East–West comparisons.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies 1949–2009\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/overview\",\n      \"justification\": \"A valuable collection of historical German election surveys, including studies associated with federal elections in 1990, 1994, and 1998. These surveys are useful for investigating reported voting behavior, party identification, political participation, electoral preferences, and attitudes toward political institutions. The collection provides an important starting point for identifying individual election studies and comparing democratic behavior before and after reunification.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany – Election Study Series 1994–2002\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/56798\",\n      \"justification\": \"Particularly relevant research series covering German federal election studies conducted in 1994, 1998, and 2002. Its repeated survey design provides opportunities to investigate political attitudes, electoral participation, party preferences, and democratic satisfaction over time. The separate East and West German survey components are particularly suitable for examining regional political differences during the 1990s. The 1994 and 1998 studies directly match the requested period, while the 2002 wave can support follow-up analysis.\"\n    },\n    {\n      \"title\": \"German State Election Studies – Elections in the New Federal States 1990 (ZA1966)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Relevant for examining electoral behavior and political orientations in eastern Germany immediately following reunification. The GESIS state election collection includes a study of the 1990 elections in the new federal states. It provides an opportunity to investigate early electoral preferences and political participation in the former East Germany. This dataset is particularly useful when combined with national election studies to assess differences between eastern and western political behavior.\"\n    },\n    {\n      \"title\": \"Integrated Dataset of German State Election Studies 1962–2004\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Useful for examining political behavior across German federal states, including elections held during the 1990s. The integrated collection combines historical state election studies and can support analyses of regional electoral preferences, political orientations, and voting behavior. Its geographic coverage is particularly relevant for exploring differences between eastern and western German states following reunification. Researchers should check the documentation for the availability of specific years and attitude measures.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Historical Individual Surveys, 1990–1998\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Excellent source for detailed individual-level surveys conducted throughout the 1990s. The ALLBUS archive provides access to separate survey waves for 1990, 1991, 1992, 1994, 1996, and 1998. Depending on the wave, these surveys address political attitudes, participation, trust and satisfaction with political institutions, social values, and socioeconomic characteristics. The 1991 survey included substantial samples from both East and West Germany, making the historical waves particularly valuable for studying the political and social consequences of reunification.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453788.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18869,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2110,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20979
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

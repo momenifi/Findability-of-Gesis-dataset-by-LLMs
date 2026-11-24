@@ -24,6 +24,7 @@ from .response_evidence import response_evidence
 
 RE_DOI = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 RE_ZA_ID = re.compile(r"\bZA\d+\b", re.IGNORECASE)
+RE_SDN_ID = re.compile(r"(?<![\w-])SDN-10\.7802-\d+(?![\w-])", re.IGNORECASE)
 OUTPUT_CSV_SEP = ";"
 IDENTIFIER_MATCH_METHODS = {"doi", "portal_url", "dataset_id"}
 TITLE_MATCH_METHODS = {"title_exact", "title_fuzzy"}
@@ -261,9 +262,15 @@ def _normalize_dois(raw: str) -> list[str]:
 
 
 def _extract_dataset_id(text: str) -> str:
-    match = RE_ZA_ID.search(text or "")
+    match = RE_SDN_ID.search(text or "") or RE_ZA_ID.search(text or "")
     if match:
         return match.group(0).upper()
+    return ""
+
+
+def _sdn_doi_from_id(dataset_id: str) -> str:
+    if RE_SDN_ID.fullmatch(dataset_id or ""):
+        return "10.7802/" + dataset_id.rsplit("-", 1)[1]
     return ""
 
 
@@ -509,6 +516,9 @@ def _query_source_identifier_aliases(
         if not did:
             continue
 
+        canonical_sdn_doi = _sdn_doi_from_id(did)
+        if canonical_sdn_doi and doi_to_id.get(canonical_sdn_doi, did) == did:
+            doi_to_id[canonical_sdn_doi] = did
         for doi in _normalize_dois(str(row.get("source_doi", ""))):
             if doi and doi_to_id.get(doi, did) == did:
                 doi_to_id[doi] = did
@@ -541,10 +551,9 @@ def match_items(
         portal = _normalize_url(str(row.get("portal_url", "")))
         dataset_id = _extract_dataset_id(did)
 
-        if did.startswith("SDN-"):
-            canonical_sdn_doi = _normalize_doi(did.replace("SDN-", "", 1))
-            if canonical_sdn_doi:
-                doi_to_id[canonical_sdn_doi] = did
+        canonical_sdn_doi = _sdn_doi_from_id(did)
+        if canonical_sdn_doi:
+            doi_to_id[canonical_sdn_doi] = did
 
         for doi in dois:
             doi_to_id.setdefault(doi, did)
@@ -982,7 +991,8 @@ def compute_metrics(
     return per_query, summary, metrics_per_query
 
 
-def match_and_eval(config_path: str, variant: str | None = None) -> None:
+def match_and_eval(config_path: str, variant: str | None = None, *,
+                   metadata: pd.DataFrame | None = None, reuse_qrels: bool = False) -> None:
     cfg = apply_variant_override(load_config(config_path), variant)
     output_dir = resolve_output_dir(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -995,10 +1005,19 @@ def match_and_eval(config_path: str, variant: str | None = None) -> None:
     queries = pd.read_csv(output_dir / "queries.csv", sep=None, engine="python")
     eval_input_path = cfg.get("qrels_input_path", cfg["input_path"])
     eval_input_format = cfg.get("qrels_input_format", cfg.get("input_format", "csv"))
-    df = load_metadata(eval_input_path, eval_input_format)
+    df = metadata if metadata is not None else load_metadata(eval_input_path, eval_input_format)
 
     qrels_strategy = str(cfg.get("qrels_strategy", "silver")).strip().lower()
-    if qrels_strategy == "metadata_filter":
+    if reuse_qrels:
+        # Only for controlled matching-only refreshes with unchanged relevance inputs.
+        saved_qrels = pd.read_csv(output_dir / "qrels.csv", sep=OUTPUT_CSV_SEP, keep_default_na=False)
+        qrels_map = {int(query_id): list(group["relevant_dataset_id"].astype(str))
+                     for query_id, group in saved_qrels.groupby("query_id", sort=False)}
+        if set(qrels_map) != set(queries["query_id"].astype(int)):
+            raise ValueError("Saved qrels do not cover the current query set")
+        if not set(saved_qrels["relevant_dataset_id"].astype(str)).issubset(set(df["id"].astype(str))):
+            raise ValueError("Saved qrels contain identifiers absent from evaluation metadata")
+    elif qrels_strategy == "metadata_filter":
         qrels_map = build_metadata_filter_qrels(df, queries)
     elif qrels_strategy == "silver":
         qrels_fields = cfg.get(
@@ -1017,8 +1036,9 @@ def match_and_eval(config_path: str, variant: str | None = None) -> None:
     else:
         raise ValueError(f"Unsupported qrels_strategy: {qrels_strategy}")
 
-    qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False, sep=OUTPUT_CSV_SEP)
-    if qrels_strategy == "metadata_filter":
+    if not reuse_qrels:
+        qrels_to_frame(qrels_map, df, queries).to_csv(output_dir / "qrels.csv", index=False, sep=OUTPUT_CSV_SEP)
+    if qrels_strategy == "metadata_filter" and not reuse_qrels:
         metadata_filter_debug_frame(df, queries, qrels_map).to_csv(
             output_dir / "qrels_debug.csv",
             index=False,

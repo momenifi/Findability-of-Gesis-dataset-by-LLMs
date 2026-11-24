@@ -1,0 +1,69 @@
+{
+  "query_id": 124,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university research in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"National Academics Panel Study (Nacaps) 2018\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:nac2018:3.0.0\",\n      \"justification\": \"A nationwide longitudinal dataset collected by the German Centre for Higher Education Research and Science Studies (DZHW) tracking doctoral candidates and doctorate holders at German universities across panel waves conducted throughout the 2020s.\"\n    },\n    {\n      \"title\": \"The Student Survey in Germany (2021)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:sid2021:1.0.1\",\n      \"justification\": \"A comprehensive nationwide survey dataset covering university student populations, academic study conditions, and higher education research across German universities during the 2021 academic period.\"\n    },\n    {\n      \"title\": \"Dataset of the survey on the digital transformation of business processes at universities in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6383770\",\n      \"justification\": \"An open dataset derived from a 2022 empirical survey across 423 German universities examining organizational and digital infrastructure changes in German higher education and university research administration.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 428,
+          "candidatesTokenCount": 340,
+          "totalTokenCount": 2015,
+          "cachedContentTokenCount": 93,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 428
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 93
+            }
+          ],
+          "thoughtsTokenCount": 1247,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "4zqEasipGdKhnsEP2pXt-Ag"
+      }
+    }
+  ]
+}

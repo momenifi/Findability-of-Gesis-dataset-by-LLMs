@@ -1,0 +1,185 @@
+{
+  "query_id": 25,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about PSYCHOLOGY in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_02ae781b4c755844006b047848f9a487d2a03d2a977a00fb8f",
+        "created_at": 1795455049.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_02ae781b4c755844006b047849e6a087d2a8843932a54d540b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany psychology mental health survey dataset 2020 2023 GESIS data",
+                "German mental health COVID-19 longitudinal dataset 2020 2022 DOI",
+                "Germany psychological wellbeing dataset 2020 2024 SOEP data access"
+              ],
+              "query": "Germany psychology mental health survey dataset 2020 2023 GESIS data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_02ae781b4c755844006b04784dc42887d2bb5c2977dbaec9b2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data GESIS Panel 2022 mental health doi",
+                "site:fdz.iab.de PASS panel labour market social security data 2022 2023",
+                "site:gesis.org German family panel pairfam data release 2022 wellbeing",
+                "\"Corona Health\" \"dataset\" 2026 figshare mental health Germany"
+              ],
+              "query": "site:search.gesis.org/research_data GESIS Panel 2022 mental health doi",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_02ae781b4c755844006b047851015c87d28d1da4f3265d9ab6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Longitudinal Mental Health Data Collected via the Corona Health Smartphone App During COVID-19 (2020–2025)\",\n      \"url_or_doi\": \"https://b2share.eudat.eu/records/cgf63-kme28\",\n      \"justification\": \"An open-access psychological health dataset collected in Germany between July 2020 and January 2025. Contains baseline assessments from 2,704 adults and 11,541 repeated assessments. Covers psychological well-being, quality of life, coping mechanisms, pandemic-related concerns, and behavioral patterns. Includes downloadable CSV files and a codebook. Particularly useful for longitudinal research on psychological changes during the 2020s.\"\n    },\n    {\n      \"title\": \"Mental Health of Adolescents During COVID-19 – Corona Health Project\",\n      \"url_or_doi\": \"https://zenodo.org/records/15101756\",\n      \"justification\": \"An openly available dataset published in 2025 by researchers at the University of Würzburg. Investigates adolescent mental health and behavioral changes during the COVID-19 pandemic. Includes baseline and follow-up questionnaires, demographic information, and, where consent was provided, location and digital behavioral data. Relevant for developmental psychology, adolescent mental health, and pandemic-related psychological research in Germany.\"\n    },\n    {\n      \"title\": \"Recognizing and Understanding Stress in Adults During COVID-19 – Corona Health App\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.15780254\",\n      \"justification\": \"A psychological stress dataset collected through the Corona Health smartphone application developed in collaboration with Germany's Robert Koch Institute. Contains longitudinal assessments collected between December 2020 and May 2025. Suitable for studying stress, psychological responses, and factors associated with adult mental health during and after the pandemic. The underlying research data are available through Zenodo.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core), Version 42 – Germany, 1984–2025\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v42r\",\n      \"justification\": \"A major representative longitudinal household dataset maintained by the German Institute for Economic Research (DIW Berlin). Its coverage includes the entire 2020–2025 period. Contains information relevant to psychology, including subjective well-being, health, life satisfaction, and social circumstances. Particularly valuable for investigating relationships between psychological well-being, employment, socioeconomic conditions, and major societal changes. Access to the remote edition is subject to research data access arrangements.\"\n    },\n    {\n      \"title\": \"Mental Health in Germany Before, During and After the COVID-19 Pandemic – Replication Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/CLUFQS\",\n      \"justification\": \"A research replication dataset associated with an investigation of psychological health in Germany using nationally representative Panel Study Labour Market and Social Security (PASS) observations from 2018 to 2022. The research examines changes in mental health before, during, and after the pandemic, including differences across socioeconomic groups. Useful for reproducing statistical analyses and investigating psychological health inequalities. The repository contains replication material rather than necessarily providing unrestricted access to the underlying individual-level PASS data.\"\n    },\n    {\n      \"title\": \"FReDA – The German Family Demography Panel\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA7777?lang=de\",\n      \"justification\": \"A German longitudinal population survey beginning in 2021, archived through GESIS. Contains information about family relationships, partnerships, household circumstances, and related social and personal experiences. Relevant for family psychology, relationship psychology, subjective well-being, and the psychological consequences of changing family structures. Includes multiple survey waves throughout the 2020s, allowing researchers to investigate changes over time.\"\n    },\n    {\n      \"title\": \"The German Family Panel (pairfam) – Release 14.2\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA5678\",\n      \"justification\": \"A longitudinal German dataset examining intimate relationships, family development, and interpersonal dynamics. Its later survey waves cover the early 2020s, and Release 14.2 was published in 2024. Particularly relevant to relationship psychology, attachment, family functioning, emotional well-being, and developmental psychology. Scientific-use data are available to eligible researchers through GESIS.\"\n    },\n    {\n      \"title\": \"Panel Study Labour Market and Social Security (PASS) – Version 0622\",\n      \"url_or_doi\": \"https://fdz.iab.de/pd_hd/panel-arbeitsmarkt-und-soziale-sicherung-pass-version-0622-v1/\",\n      \"justification\": \"A German longitudinal dataset maintained by the Institute for Employment Research (IAB). Includes survey information relevant to psychological health, socioeconomic stress, employment, and social inequalities. Its observations extend into the 2020s, making it suitable for investigating the psychological consequences of unemployment, financial insecurity, and changing living conditions. Access to detailed microdata is regulated by the research data center.\"\n    },\n    {\n      \"title\": \"Longitudinal Development of Depression and Anxiety During COVID-19 in Germany – Population-Based Probability Sample\",\n      \"url_or_doi\": \"https://doi.org/10.3389/fpsyt.2022.1000722\",\n      \"justification\": \"A 2022 research publication describing a longitudinal psychological survey of German adults conducted in May and November 2020. The first assessment included 1,412 respondents, while the second included 743. Focuses specifically on depressive symptoms and anxiety. Relevant for clinical psychology, psychiatric epidemiology, and population mental health research. The DOI leads to the research publication describing the underlying survey; it is not a dedicated dataset download page.\"\n    },\n    {\n      \"title\": \"Mental Health Across Two Years of the COVID-19 Pandemic – Five-Wave Longitudinal Study in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.3389/fpsyt.2023.1229700\",\n      \"justification\": \"A German longitudinal psychological study covering May 2020 through April 2022. Includes five assessment waves involving 636 adults from the general population. Investigates changes in psychological health throughout different stages of the COVID-19 pandemic. Particularly relevant for studying mental health trajectories, psychological distress, and individual differences in responses to prolonged societal stress. The DOI identifies the study publication rather than an independently verified public dataset repository.\"\n    },\n    {\n      \"title\": \"One Year After the COVID-19 Outbreak in Germany – Longitudinal Mental Health Survey\",\n      \"url_or_doi\": \"https://doi.org/10.1007/s00406-022-01400-0\",\n      \"justification\": \"A longitudinal psychological study based on 1,388 adults in Germany initially assessed between April and May 2020, with follow-up measurements after six and twelve months. Examines depression, anxiety, loneliness, psychological distress, and life satisfaction. Particularly relevant for understanding changes in mental health during the first year of the pandemic and identifying psychologically vulnerable populations. The DOI links to the research article, and access to its underlying participant-level data is not established by this record.\"\n    },\n    {\n      \"title\": \"Health Behaviors and Mental Health During the COVID-19 Pandemic – Longitudinal Population-Based Survey in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.1016/j.socscimed.2021.114333\",\n      \"justification\": \"A longitudinal German population survey conducted during the first months of the COVID-19 pandemic in 2020, involving approximately 3,500 randomly selected participants. Measures anxiety, depression, loneliness, physical activity, screen time, and eating behaviors. Particularly useful for health psychology, behavioral psychology, and research examining associations between lifestyle behaviors and mental health. The DOI identifies the research publication rather than a verified standalone dataset.\"\n    },\n    {\n      \"title\": \"Longitudinal Changes in Anxiety and Psychological Distress During the First Three Months of COVID-19 in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.1002/brb3.1964\",\n      \"justification\": \"A German longitudinal psychological survey conducted across four waves between March 27 and June 15, 2020. Examines anxiety, psychological distress, and associated risk and protective factors. Relevant for clinical psychology, stress research, and the psychological consequences of public health emergencies. The survey uses a convenience sample, which should be considered when interpreting population-level findings. The DOI links to the study publication, not a confirmed downloadable dataset.\"\n    },\n    {\n      \"title\": \"Psychological Burden Over 1.5 Years of the COVID-19 Pandemic in Germany – Nine-Wave Longitudinal Community Study\",\n      \"url_or_doi\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9507788/\",\n      \"justification\": \"A German longitudinal psychological investigation covering nine survey waves from March 2020 through October 2021. Examines psychological burden and changes in mental health across different pandemic phases. Particularly relevant for longitudinal clinical psychology, psychological stress, and understanding adaptation to prolonged uncertainty. The linked landing page provides the research article and study methodology; unrestricted access to the underlying participant-level dataset is not confirmed.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455067.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18858,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2102,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20960
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

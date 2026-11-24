@@ -1,0 +1,69 @@
+{
+  "query_id": 164,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about telecommuting in Germany during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2018 (BIBB/BAuA-Erwerbstätigenbefragung 2018)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.18.1.1.10\",\n      \"justification\": \"A representative dataset of over 20,000 employed individuals in Germany conducted in 2018 by BIBB and BAuA, containing detailed measures on access to, frequency of use, and contractual regulations surrounding home office and telecommuting.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2019 (BAuA-Arbeitszeitbefragung 2019)\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb19.suf.2\",\n      \"justification\": \"A representative microdata panel study of workers in Germany collected in 2019 by the Federal Institute for Occupational Safety and Health (BAuA), tracking working-time flexibility, telecommuting, and home office usage prior to the COVID-19 pandemic.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2012 (BIBB/BAuA-Erwerbstätigenbefragung 2012)\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.12.1.1.60\",\n      \"justification\": \"A representative nationwide survey of 20,000 employees in Germany conducted in 2011/2012, offering empirical data on early 2010s working conditions, work locations, and telecommuting prevalence.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38eu\",\n      \"justification\": \"A multi-decade longitudinal panel survey of private households in Germany with annual waves throughout the 2010s, recording individual-level employment details, working hour arrangements, and frequency of working from home/telecommuting.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1038,
+          "candidatesTokenCount": 551,
+          "totalTokenCount": 3754,
+          "cachedContentTokenCount": 321,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1038
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 321
+            }
+          ],
+          "thoughtsTokenCount": 2165,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "yUOEapPsFJ2mnsEP7OCHsAk"
+      }
+    }
+  ]
+}

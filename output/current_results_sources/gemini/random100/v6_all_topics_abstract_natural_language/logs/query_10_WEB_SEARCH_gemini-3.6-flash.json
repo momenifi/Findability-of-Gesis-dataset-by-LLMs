@@ -1,0 +1,69 @@
+{
+  "query_id": 10,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Reproductive health, Specific diseases, disorders and medical conditions, and Family life and marriage in Germany during the 1980s, matching this research need: survey data on sexuality attitudes, sexual behavior, AIDS knowledge and prevention, condom use, partnerships, heterosexual and homosexual experiences, prostitution contacts, sexual practices, and effects of HIV/AIDS on sexual life\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sexualverhalten von Männern und Frauen in der Bundesrepublik Deutschland 1988\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2234\",\n      \"justification\": \"This representative GESIS dataset from 1988 covers sexual behavior, attitudes toward sexuality and AIDS, condom use, partner relationships, and sexual practices among men and women in West Germany during the 1980s.\"\n    },\n    {\n      \"title\": \"Einstellungen zu Sexualität und AIDS (Attitude to Sexuality and AIDS)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1818\",\n      \"justification\": \"Archived at the GESIS Data Archive, this survey investigates public attitudes toward sexuality, HIV/AIDS knowledge, risk perception, prevention behaviors, and partner relationships in Germany during the late 1980s.\"\n    },\n    {\n      \"title\": \"AIDS im öffentlichen Bewußtsein der Bundesrepublik 1991-1992 (Kumulierter Datensatz)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2687\",\n      \"justification\": \"Part of the long-running annual survey series commissioned by the Federal Centre for Health Education (BZgA) starting in 1987, this dataset measures knowledge, attitudes, condom use, risk behaviors, and the social impact of HIV/AIDS in Germany.\"\n    },\n    {\n      \"title\": \"Partner III - Studenten 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.6147\",\n      \"justification\": \"Conducted around 1990 by the AG Sexualität (Forschungsstelle Partner- und Sexualforschung), this survey collects data on partnership development, sexual behavior, first sexual contacts, contraceptive choices, sexual practices, and attitudes regarding AIDS.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1331,
+          "candidatesTokenCount": 478,
+          "totalTokenCount": 3772,
+          "cachedContentTokenCount": 864,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1331
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 864
+            }
+          ],
+          "thoughtsTokenCount": 1963,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "uneEapXlGOTbvdIPwLHOgQo"
+      }
+    }
+  ]
+}

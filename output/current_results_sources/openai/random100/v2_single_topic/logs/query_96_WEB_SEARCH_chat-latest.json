@@ -1,0 +1,186 @@
+{
+  "query_id": 96,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0cd46b8624af7596006b0460700f7c87d2b77017d08038f0c4",
+        "created_at": 1795448944.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0cd46b8624af7596006b046070fab087d2811d40f548b3325f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 German general social survey data",
+                "German Socio Economic Panel SOEP 1990s data landing page",
+                "World Values Survey Germany 1990 1997 data download",
+                "ISSP Germany 1990s social attitudes data GESIS"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 German general social survey data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0cd46b8624af7596006b046073937c87d2b015b2966a55ff67",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP core data 1984 1990 1999 access",
+                "site:gesis.org European Values Study 1990 1999 Germany data",
+                "site:search.gesis.org Wohlfahrtssurvey 1993 1998",
+                "site:gesis.org German Longitudinal Election Study 1990 1994 1998 election study data"
+              ],
+              "query": "site:diw.de SOEP core data 1984 1990 1999 access",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0cd46b8624af7596006b046075d65487d2a0b391a969fc03e3",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"One of the most comprehensive sources for studying social behaviour and attitudes in Germany during the 1990s. Includes surveys conducted in 1990, 1991, 1992, 1994, 1996, and 1998. Covers political attitudes, social inequality, religion, family relationships, immigration, trust in institutions, economic perceptions, and social participation. Particularly valuable for examining changes following German reunification and comparing East and West Germany.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) 1990 – Integrated Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10790\",\n      \"justification\": \"Provides survey data on social, cultural, religious, moral, and political values in Germany in 1990. Includes questions about family, work, religion, social trust, tolerance, political participation, and attitudes toward social institutions. The German sample covers West Germany before reunification. Useful for establishing a baseline of German social attitudes at the beginning of the decade and comparing them with other European countries.\"\n    },\n    {\n      \"title\": \"European Values Study (EVS) 1999 – Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11534\",\n      \"justification\": \"A nationally focused dataset examining German social attitudes and values in 1999. Covers family relationships, gender roles, religion, employment, political preferences, interpersonal trust, tolerance toward minorities and immigrants, civic participation, and life satisfaction. Particularly useful for studying social change during the decade following reunification and comparing attitudes with the 1990 European Values Study.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) – Data 1984–2020\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v37i\",\n      \"justification\": \"A longitudinal household panel survey that includes annual observations throughout the 1990s. Covers household composition, family relationships, employment, education, income, health, subjective well-being, and social and economic attitudes. Its longitudinal design enables researchers to examine how individuals' circumstances and attitudes changed over time. Particularly valuable for investigating social mobility, inequality, and differences between East and West Germany following reunification.\"\n    },\n    {\n      \"title\": \"World Values Survey (WVS) – Time-Series Dataset 1981–2022\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/AJDocumentationSmpl.jsp?CndWAVE=-1&INID=&SAID=-1\",\n      \"justification\": \"An international survey dataset incorporating waves from 1990–1992 and 1995–1998. Covers social values, political beliefs, religion, interpersonal trust, gender attitudes, family values, tolerance, and civic engagement. German observations can be selected where available. Useful for examining social and cultural attitudes in Germany within an international comparative framework and exploring value changes during the 1990s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Religion Cumulation 1991, 1998, 2008, 2018\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Combines international survey data on religion and related social attitudes, including German observations from 1991 and 1998. Examines religious beliefs, religious practices, attitudes toward religious institutions, and the relationship between religion and society. Particularly useful for investigating secularization and religious differences between East and West Germany during the 1990s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Social Inequality Cumulation 1987, 1992, 1999, 2009, 2019\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Provides internationally comparable survey data on public perceptions of social inequality and economic justice. Includes survey waves from 1992 and 1999, allowing investigation of German attitudes toward income differences, social mobility, class structures, economic opportunities, and government redistribution. Particularly relevant for studying perceptions of inequality during Germany's economic and social transformation following reunification.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Family and Changing Gender Roles Cumulation 1988, 1994, 2002, 2012, 2022\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Contains comparative survey data on family structures, gender expectations, marriage, employment, and household responsibilities. The 1994 wave is particularly relevant for investigating attitudes toward women's employment, traditional family roles, and the division of domestic labour in 1990s Germany. The longitudinal compilation also allows comparisons between the 1990s and subsequent decades.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Work Orientations Cumulation 1989, 1997, 2005, 2015\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Provides survey data on work-related values and employment attitudes across multiple countries, including Germany. The 1997 wave is especially useful for studying job satisfaction, employment preferences, perceptions of job security, work-life priorities, and attitudes toward working conditions during the 1990s. Supports comparative analysis of German workplace attitudes and longer-term changes.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – National Identity Cumulation 1995, 2003, 2013\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Contains survey measures of national identity, patriotism, national pride, and attitudes toward immigration and international relations. The 1995 wave offers a valuable opportunity to examine German national identity and social attitudes during the period immediately following reunification. It is particularly relevant for investigating belonging, nationalism, and public perceptions of foreigners.\"\n    },\n    {\n      \"title\": \"European Values Study – Trend File 1981–2017\",\n      \"url_or_doi\": \"https://www.gesis.org/en/european-values-study/data-and-documentation/evs-trend-file-1981-2017\",\n      \"justification\": \"A harmonized longitudinal dataset combining multiple European Values Study waves, including 1990 and 1999. Contains comparable indicators relating to religion, family, work, political values, social trust, civic engagement, tolerance, and personal well-being. Especially useful for analyzing changes in German social attitudes between the beginning and end of the 1990s while controlling for longer-term European trends.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies – Historical Election Survey Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-federal-elections\",\n      \"justification\": \"A collection of representative surveys examining German electoral behaviour, political preferences, and public attitudes. Includes historical studies associated with federal elections in 1990, 1994, and 1998. Relevant variables include party identification, voting behaviour, political trust, evaluations of government, and political participation. Particularly useful for investigating political and social attitudes in reunified Germany throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Politbarometer – German Political Opinion Survey Series\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/election-studies\",\n      \"justification\": \"A recurring German public opinion survey series covering political attitudes and electoral preferences, with historical data available for the 1990s. Includes information on political trust, party preferences, government evaluations, and perceptions of political and social issues. Particularly valuable for tracking short-term fluctuations in public opinion during reunification, economic restructuring, and political change.\"\n    },\n    {\n      \"title\": \"World Values Survey – Eastern Europe and Germany 1995–1997\",\n      \"url_or_doi\": \"https://access.gesis.org/dbk/13377\",\n      \"justification\": \"A comparative survey dataset specifically covering Germany and Eastern European countries during 1995–1997. Includes measures of political values, social attitudes, family expectations, and individual beliefs. Particularly relevant for comparing German social values with those of societies undergoing political and economic transitions during the post-Cold War period.\"\n    },\n    {\n      \"title\": \"European Election Study 1994\",\n      \"url_or_doi\": \"https://www.gesis.org/en/eurobarometer-data-service/overview/eb-trends-trend-files/european-election-studies\",\n      \"justification\": \"Provides survey data collected around the 1994 European Parliament elections, including German respondents. Covers electoral participation, political preferences, European integration, and attitudes toward political institutions. The dataset is useful for understanding German political behaviour, European identity, and changing public attitudes toward European integration during the 1990s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Role of Government Cumulation 1985, 1990, 1996, 2006, 2016\",\n      \"url_or_doi\": \"https://www.gesis.org/en/issp/data-and-documentation/data-cumulations\",\n      \"justification\": \"Contains survey data on public expectations of government and attitudes toward state intervention, public spending, welfare provision, and political responsibilities. The 1990 and 1996 waves provide opportunities to examine changing German attitudes toward government during reunification and its aftermath. Particularly useful for studying welfare-state preferences, economic policy attitudes, and perceptions of government responsibility.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448961.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19139,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2271,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21410
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

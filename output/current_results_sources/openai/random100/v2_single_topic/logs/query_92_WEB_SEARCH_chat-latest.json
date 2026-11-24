@@ -1,0 +1,187 @@
+{
+  "query_id": 92,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Conflict, security and peace in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, and Croatia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_00e324b32c79758a006b04601ee4fc87d2b5b316003b16e38d",
+        "created_at": 1795448862.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_00e324b32c79758a006b04602007c487d29ecbe6979aa7ce11",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurostat crime and criminal justice database recorded offences EU countries dataset",
+                "UCDP georeferenced event dataset 2024 2025 download",
+                "ACLED data export Europe political violence protests dataset",
+                "Global Terrorism Database download dataset START"
+              ],
+              "query": "Eurostat crime and criminal justice database recorded offences EU countries dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_00e324b32c79758a006b046023cd4087d2897debedbd0d8c5c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/ crim prisoners personnel criminal justice dataset",
+                "site:ec.europa.eu/eurostat/databrowser/view/ gov_10a_exp defence public order safety",
+                "site:ec.europa.eu/eurostat/databrowser/view/ ilc_mddw crime violence vandalism area",
+                "site:sipri.org databases military expenditure database 2025",
+                "site:ec.europa.eu/eurostat/databrowser/view/ crim_hom_soff homicide victims"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/ crim prisoners personnel criminal justice dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_00e324b32c79758a006b046027195487d2804b449e7dd880f6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"ACLED – Armed Conflict Location & Event Data: Political Violence and Protests in Europe\",\n      \"url_or_doi\": \"https://www.acleddata.com/data/\",\n      \"justification\": \"One of the most relevant datasets for studying conflict, security and peace across all 27 specified EU countries during the 2020s. ACLED provides georeferenced, event-level information on political violence, protests, riots, violence against civilians and other security-related events. European coverage includes events from January 2020 onward. Records contain dates, locations, actors, event classifications and reported fatalities. Particularly useful for comparing political instability, civil unrest and conflict dynamics across European countries.\"\n    },\n    {\n      \"title\": \"ACLED – Aggregated Political Violence and Demonstration Data\",\n      \"url_or_doi\": \"https://acleddata.com/conflict-data/download-data-files/aggregated-data\",\n      \"justification\": \"Provides aggregated statistics on political violence, demonstrations, civilian targeting and reported fatalities. Data are available by country and year or month, with additional subnational aggregations for Europe and Central Asia. Suitable for examining trends in political unrest, protest activity and internal security across the specified EU countries throughout the 2020s. Particularly useful for comparative statistical analysis and longitudinal research.\"\n    },\n    {\n      \"title\": \"Eurostat – Police-Recorded Offences by Offence Category\",\n      \"url_or_doi\": \"https://doi.org/10.2908/crim_off_cat\",\n      \"justification\": \"Official European statistical dataset covering police-recorded criminal offences across all 27 specified EU countries. Includes annual observations from 2008 through 2024, covering the first half of the 2020s. Offence categories include intentional homicide and other forms of criminal activity classified according to the International Classification of Crime for Statistical Purposes. Useful for comparing domestic security, violent crime and public safety, although differences in national reporting practices must be considered.\"\n    },\n    {\n      \"title\": \"Eurostat – Intentional Homicide Victims by Victim-Offender Relationship and Sex\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/crim_hom_vrel/default/table\",\n      \"justification\": \"Provides annual statistics on intentional homicide victims, disaggregated by sex and victim-offender relationship. Includes observations from 2020 through 2024 for numerous EU countries, although reporting coverage varies. Particularly relevant for studying interpersonal violence, domestic violence, gender-related security risks and physical safety. Supports comparative analysis of lethal violence within European societies.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime, Violence or Vandalism in the Local Area\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/ilc_mddw03/default/table\",\n      \"justification\": \"Measures the proportion of people reporting crime, violence or vandalism in their residential area. Based on the EU Statistics on Income and Living Conditions survey, this dataset covers the specified EU countries and includes observations during the 2020s. Particularly useful for examining perceived security, neighbourhood safety and differences between objective crime statistics and citizens' experiences of insecurity.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime, Violence or Vandalism by Degree of Urbanisation\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/ilc_mddw06/default/table\",\n      \"justification\": \"Provides comparative indicators of perceived crime, violence and vandalism across cities, towns, suburbs and rural areas. Covers the EU member states during the 2020s. Useful for investigating geographical inequalities in public safety, urban security challenges and differences in perceived insecurity between urban and rural populations.\"\n    },\n    {\n      \"title\": \"Eurostat – General Government Expenditure by Function\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table\",\n      \"justification\": \"Provides annual government expenditure data classified by function, including defence and public order and safety. Covers all 27 specified EU countries and includes observations during the 2020s. Public order and safety expenditure can be broken down into categories such as police services, courts, prisons and fire protection. Particularly useful for analysing national security priorities, defence spending, institutional capacity and government responses to security challenges.\"\n    },\n    {\n      \"title\": \"Eurostat – Regional Crime Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/crim_gen_reg/default/table\",\n      \"justification\": \"Contains regional statistics on police-recorded criminal offences, including intentional homicide. Provides geographical detail beyond national averages for EU countries with available regional observations during the 2020s. Useful for studying regional disparities in violence, urban security, territorial inequalities and geographical concentrations of criminal activity.\"\n    },\n    {\n      \"title\": \"Eurostat – Crime and Criminal Justice Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/web/crime/information-data\",\n      \"justification\": \"Official statistical collection containing datasets on criminal offences, police personnel, criminal justice institutions, prison populations, prosecution and judicial systems. Includes data reported by EU member states throughout the 2020s. Relevant for evaluating security governance, criminal justice capacity, institutional effectiveness and national differences in responses to crime. Provides access to several complementary datasets suitable for cross-country comparisons.\"\n    },\n    {\n      \"title\": \"SIPRI Military Expenditure Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/milex\",\n      \"justification\": \"Internationally recognised dataset providing annual military expenditure statistics for countries worldwide, including the 27 specified EU member states. The database covers 1949–2025, allowing detailed analysis of military spending during the 2020s. Indicators include expenditure in national currencies, US dollars, constant prices, expenditure per capita and military spending as a percentage of GDP. Particularly relevant for studying European defence policy, military preparedness, security investment and spending changes following Russia's invasion of Ukraine.\"\n    },\n    {\n      \"title\": \"SIPRI Arms Transfers Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases\",\n      \"justification\": \"Provides information on international transfers of major conventional weapons, including transactions involving European countries during the 2020s. Relevant for investigating arms imports, military exports, European defence cooperation, strategic dependencies and changes in military capabilities. Particularly useful for examining how EU countries have adjusted arms procurement and defence partnerships in response to evolving European security threats.\"\n    },\n    {\n      \"title\": \"SIPRI Multilateral Peace Operations Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases\",\n      \"justification\": \"Contains information on multilateral peace operations conducted since 2000, including United Nations and non-UN missions. Records include mission locations, deployment periods, participating countries, personnel contributions, budgets and fatalities. Relevant for analysing the participation of the specified EU countries in international peacekeeping, conflict prevention and post-conflict stabilisation during the 2020s. Particularly valuable for examining European contributions to international peace and security.\"\n    },\n    {\n      \"title\": \"SIPRI National Budget Archive\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/national-budget-archive\",\n      \"justification\": \"Provides access to national budget documents used to compile SIPRI's military expenditure statistics. The archive includes budgetary sources from 2021 onward and is updated annually. Useful for investigating how European governments allocate financial resources to defence, examining national spending priorities and validating cross-country defence expenditure comparisons.\"\n    },\n    {\n      \"title\": \"Uppsala Conflict Data Program – Georeferenced Event Dataset\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/\",\n      \"justification\": \"Research dataset documenting organised violence, including state-based conflicts, non-state conflicts and one-sided violence against civilians. Includes georeferenced information on violent events, actors, locations and estimated fatalities. Data covering the 2020s can be used to identify organised violent incidents affecting European countries where such events meet UCDP inclusion criteria. Especially useful for studying armed conflict and lethal organised violence, although coverage of EU countries is more limited than ACLED because UCDP applies stricter definitions of organised violence.\"\n    },\n    {\n      \"title\": \"Uppsala Conflict Data Program – Historical Georeferenced Event Dataset Releases\",\n      \"url_or_doi\": \"https://ucdp.uu.se/downloads/olddw.html\",\n      \"justification\": \"Provides archived versions of UCDP's georeferenced conflict event datasets, including releases covering different years of the 2020s. Useful for reproducible research, comparing successive conflict data releases and examining changes in the coding of organised violence. Particularly relevant for historical analysis of security incidents and conflict-related fatalities, subject to the programme's inclusion criteria.\"\n    },\n    {\n      \"title\": \"Global Terrorism Database – National Consortium for the Study of Terrorism and Responses to Terrorism\",\n      \"url_or_doi\": \"https://www.start.umd.edu/download-global-terrorism-database\",\n      \"justification\": \"International database documenting terrorist attacks, including incidents affecting European countries. Contains information on attack dates, locations, methods, targets, perpetrators and casualties. The downloadable historical dataset extends through 2020, making it useful for studying terrorism at the beginning of the decade and establishing historical baselines. It does not provide comprehensive coverage of the subsequent 2020s and should therefore be combined with more recent sources for longitudinal research.\"\n    },\n    {\n      \"title\": \"Eurostat – Population Reporting Crime, Violence or Vandalism in Their Area by Poverty Status\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/sdg_16_20/default/table\",\n      \"justification\": \"Official EU Sustainable Development Goal indicator measuring the proportion of people reporting crime, violence or vandalism in their neighbourhood, with breakdowns related to poverty status. Covers the EU member states and includes observations from the 2020s. Directly relevant to SDG 16 on peace, justice and strong institutions. Useful for analysing perceived insecurity, social vulnerability and inequalities in exposure to neighbourhood safety problems.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795448882.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 21071,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2359,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 23430
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

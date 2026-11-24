@@ -1,0 +1,69 @@
+{
+  "query_id": 120,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about university in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Dataset of the survey on the digital transformation of business processes at universities in Germany\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.6383770\",\n      \"justification\": \"This open dataset contains results from a 2022 national survey covering digital transformation, administrative processes, and maturity levels across German higher education institutions.\"\n    },\n    {\n      \"title\": \"The Student Survey in Germany (2021)\",\n      \"url_or_doi\": \"https://doi.org/10.21249/DZHW:sid2021:1.0.1\",\n      \"justification\": \"A comprehensive data package published by the German Centre for Higher Education Research and Science Studies (DZHW) covering the economic, social, and academic conditions of students at German universities during the 2021 summer semester.\"\n    },\n    {\n      \"title\": \"Data for From principles to practices: Open Science at European Universities. 2020-2021 EUA Open Science Survey Results\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.5062982\",\n      \"justification\": \"A dataset from the European University Association covering Open Science implementation, policies, and practices in higher education institutions across Europe, including German universities, during 2020–2021.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 608,
+          "candidatesTokenCount": 353,
+          "totalTokenCount": 2273,
+          "cachedContentTokenCount": 211,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 608
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 211
+            }
+          ],
+          "thoughtsTokenCount": 1312,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "XTqEasjtFM6insEP18qe-Qs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 65,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Political behaviour and attitudes, Government, political systems and organisations, and Equality, inequality and social exclusion in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep-core.v35\",\n      \"justification\": \"SOEP is a longitudinal survey of private households in Germany collected continuously since 1984, spanning the entire 1990s. It covers income inequality, social exclusion, living conditions, and political/social attitudes across unified Germany.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme: Social Inequality III - ISSP 1999\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3430\",\n      \"justification\": \"Fielded in Germany in 1999 as part of the ISSP cross-national program, this dataset focuses specifically on public attitudes toward social inequality, social mobility, government responsibilities, and social exclusion.\"\n    },\n    {\n      \"title\": \"ALLBUS/GGSS Baseline Survey 1991\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11922\",\n      \"justification\": \"The German General Social Survey (ALLBUS) baseline survey in 1991 captures representative population data on social structure, political attitudes, government systems, family, and inequality in Germany immediately following reunification.\"\n    },\n    {\n      \"title\": \"Politbarometer (Cumulated Datasets)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12372\",\n      \"justification\": \"Politbarometer captures monthly survey data throughout the 1990s on German political behavior, attitudes toward political parties and leaders, evaluation of government policies, and key political systems.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 748,
+          "candidatesTokenCount": 442,
+          "totalTokenCount": 2606,
+          "cachedContentTokenCount": 418,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 748
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 418
+            }
+          ],
+          "thoughtsTokenCount": 1416,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "JwSEasnqJpyNxN8Ph9ypiA8"
+      }
+    }
+  ]
+}

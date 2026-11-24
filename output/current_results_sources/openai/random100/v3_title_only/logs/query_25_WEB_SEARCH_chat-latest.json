@@ -1,0 +1,222 @@
+{
+  "query_id": 25,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Social Situation and Political Orientations of the Jena Populace before the Municipal Election in May 1990?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0bb3ce5808be57cf006b046d78e21c87d2a94081202b63626e",
+        "created_at": 1795452280.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0bb3ce5808be57cf006b046d79db3887d2ae73af090e895d15",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Social Situation and Political Orientations of the Jena Populace\" dataset",
+                "Jena populace municipal election May 1990 social situation political orientations dataset"
+              ],
+              "query": "\"Social Situation and Political Orientations of the Jena Populace\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0bb3ce5808be57cf006b046d7c103c87d280c12e69e9d4296f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:data.gesis.org/datasearchkg/Dataset/ \"Jena\" \"Municipal Election\" \"May 1990\"",
+                "\"Social Situation and Political Orientations\" \"Municipal\" Jena 1990"
+              ],
+              "query": "site:data.gesis.org/datasearchkg/Dataset/ \"Jena\" \"Municipal Election\" \"May 1990\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "rs_0bb3ce5808be57cf006b046d7de1a087d2954438bd9d3f5e71",
+            "summary": [],
+            "type": "reasoning",
+            "content": [],
+            "encrypted_content": "gAAAAABrBG2Gd_a4kuYP6FFGSj98ZMeN9dTQCQhz-otvs0fPU7X5UEd5eD_q3y4eFnULlZlcUnMx160BuQxa9nZ9UUZn4dLPugXazEMnnDhPWzPgZxEqwccILMZVOnZNO_Q-YyxWxk98JcPHXdDj_bAgACFbdRNyF890rQ-RnSGHEKxxfXwaob82oSs16wQWjx-6D52mdRLpLGLY97PNMZYxLUceMjMzuEi30iz5rqSbwz5oRwN1mV15vn4GFrq1wzdxxb87CvxyHnGUWkj-ZdMqKNPbUsPmu9Bw7Rv-PIW2KsY5FquZGhTqIEGGPeVzE2dsuYGx6z_5PCOxZn2wk5JbpCMNicQGrT2jmiXsq4C62lfRLb51Kbox9zPlo9sMklhX_Wo3ltqcCjGKJHc4X44J5NcKaUfJEynPAj7cr5_8U_RDtOWtlZ4DImOtM0IXXVaWC784CHk-0h2Zda6-6otEpcSUfpoyvYWijXOizbJYgwLTmqlDxNxOi9gKaiF0nNmgJa6--gXUtIaEIUVmFJ8brzqt25vexWXPU4eaUv0YDH5DKDx86fVoy5dGjTK5hzOMZ9Hmo0pdPTNrey0bvYbejlQyw7xe6zpG-UzAtU65CHV15A__h0ZVDG7BFycGikUi-gsXXeBLtsAzXcImYhcH7hYv1_3weLTNfHH5dhAEWHr1yWjhuss76_8ASihwyk2zR_IOekt6_ZBB_wne7sWmJzEwgIzZT2PJDxx4p9xn2v-f6R2CIWeD_P2pDq07mmyBZmi_DZp74DkdpcoKbD1fSKPfuC5yhXTEVd0oT8QkFWqSMgqtKZl7q-F1jP-5_hLCnB_5izGi_CW5L2jKW8P9ucaEKSfnDf53epxgMokX8qoYRZ7tuS7vvlX-TnFG91-ka90HhBAyGvBDC3z7bs4RcXDZG_js71zIZKrMCEPFxEUJ4nLa0JifAEl0-qmrzrlcruk334mWhfEPoTEDoSKhxvXhVX7Iw5n8CuiWX5BbmMoZSH5G2OG_BktDe3h3aFQwI_i_7EdB-Y8xaPNfjYOpTcdtI28sFCy8nKYUOSQ6u5mNcoGM7uPOInqanw9wdAbffT1drUOoqxS5xUQjRnMCJ8OJPZwVmGYADK-9MeKbp73ep1ixJ7Ob1vS0whMx5JgbdlJAR8ESAZVU3yYh3m6wPQSk2WAmsAJyA9mSuFwdDL2umbFadV8-4I43GqCjICyqICW4vGMsZotXDyJsS22C7MRIWvD9X9LIVQWa3I2kYVXQyyYoBYy6PDosA7NgsQG-cP441fOAa9hdWphIZMQoLiVvzRTi32hwbQii6Req3NaDUILJRj8xr7p8jFXvBqPiKiZ_wUnNOZkvRV99yfUi2_ZpFx7gr6MaaZ5BYfqkWubUtFBZYIuefXfoa-staGV74CIr9vgiXDenhYZqxezRUnxSgbltwxYYnIoveoWpFQYgPJsPvhA_m9NEQMNWVkArx1uHcBdmwH3O7366lhpwMURcuMkbaxEkcD_VZHf8lVdm70yQ0jr1GlfSiU1KDGHdi6PRZvKHKnbYks_Vmh1XOvDVf3uLVx5dDzN7bCs9PQDEOFoV96fmQb8M82k8GLqdLishk3Mu6Ibt3zW1Qf2biwOolezKuMscSTPGqmh13ehkH1loPDBArlwpuNzwZcLo7GWQzTQgNICh2c3lCcXL7lwQkBltUzI2PwO5JELYPKQvkchWxnde1--z5C84WJyGG_0YUEmUU-gsVI_4WxpPyKn_7XbvwT1MgV2ZEwER2MjwBJAE6B0=",
+            "status": null
+          },
+          {
+            "id": "ws_0bb3ce5808be57cf006b046d7dfe3c87d2b2730f5f2c8b629a",
+            "action": {
+              "type": "open_page",
+              "url": "https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6349"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0bb3ce5808be57cf006b046d81696487d2892c5b4d4fa55efa",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"10.4232/1.6350\" Jena",
+                "\"10.4232/1.6351\" Jena"
+              ],
+              "query": "\"10.4232/1.6350\" Jena",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0bb3ce5808be57cf006b046d82b89887d29f6dcb7f78d4ea59",
+            "action": {
+              "type": "open_page",
+              "url": "https://doi.org/10.4232/1.6350"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0bb3ce5808be57cf006b046d843bf487d2b46ba56627c1b39b",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Social Situation and Political Orientations of the Jena Populace before the Municipal Election in May 1990\",\"url_or_doi\":\"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.6350\",\"justification\":\"Potential match in the GESIS Data Archive. GESIS identifies studies ZA6348–ZA6351 as a collection of election surveys conducted in Jena in 1990. Study ZA6349 concerns the March 1990 East German parliamentary election, while ZA6348 concerns the October 1990 state parliamentary election. Study ZA6350 is a plausible candidate for the requested May 1990 municipal election survey, but its exact title and DOI could not be independently verified because the dataset page was inaccessible.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452293.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 22452,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 311,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22763
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

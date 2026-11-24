@@ -1,0 +1,168 @@
+{
+  "query_id": 53,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Crisis Monitor (Week 8/2024)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_05eb633c5082e83e006b046e23b11487d2808c39a92d4a6935",
+        "created_at": 1795452451.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_05eb633c5082e83e006b046e25021887d2a1ca2ea20bcae0a6",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Crisis Monitor\" \"Week 8/2024\" dataset",
+                "\"Crisis Monitor (Week 8/2024)\""
+              ],
+              "query": "\"Crisis Monitor\" \"Week 8/2024\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_05eb633c5082e83e006b046e26904887d2aca5378e98bcef50",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Crisis Monitor (Week 8/2024)\",\"url_or_doi\":\"https://doi.org/10.4232/1.14353\",\"justification\":\"Exact match for the requested dataset. Published in 2024 by the GESIS Data Archive for the Social Sciences, with study identifier ZA8738 and version 1.0.0. The dataset contains results from a representative telephone survey conducted by forsa on behalf of the Press and Information Office of the German Federal Government between February 19 and February 21, 2024. It examines public concerns about crises in Germany, political disagreements, social conflicts, democratic attitudes, and perceived threats to democracy. The DOI provides a persistent identifier for the dataset.\"},{\"title\":\"Crisis Monitor (Week 8/2024) - GESIS Data Catalogue\",\"url_or_doi\":\"https://search.gesis.org/research_data/ZA8738?lang=de\",\"justification\":\"Official dataset landing page at GESIS, the institution responsible for archiving and distributing the data. The record corresponds to study ZA8738 and provides access to the dataset's metadata and associated research materials. This is an authoritative source for locating the requested dataset.\"},{\"title\":\"Crisis Monitor (Week 8/2024) - B2FIND\",\"url_or_doi\":\"https://b2find.eudat.eu/dataset/86168a1c-51c7-5399-a5d3-206519a07ded\",\"justification\":\"Exact title match in the B2FIND research data discovery portal, indexed through CESSDA. The record identifies the dataset's creator as the Press and Information Office of the German Federal Government, its publication year as 2024, and its DOI as 10.4232/1.14353. It includes detailed descriptions of the survey methodology, research topics, population, and demographic variables. The metadata also indicates that the dataset is openly accessible.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452456.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 8423,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 409,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 8832
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

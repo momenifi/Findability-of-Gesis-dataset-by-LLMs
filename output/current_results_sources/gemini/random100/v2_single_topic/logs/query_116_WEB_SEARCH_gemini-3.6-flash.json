@@ -1,0 +1,69 @@
+{
+  "query_id": 116,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Migration in German Democratic Republic (1949-1990) during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core) - GDR Sample\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v34\",\n      \"justification\": \"In June 1990, ahead of official German reunification, the SOEP incorporated a representative sample of households from the German Democratic Republic (GDR). The dataset tracks former GDR residents, capturing their socio-economic transition, mobility, and East-West migration patterns throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Living in the Former GDR Dataset (SOEP-DDR18)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.ddr18\",\n      \"justification\": \"This dataset targets individuals who lived in the German Democratic Republic prior to 1990, collecting microdata on life in the GDR, retrospective experiences, and post-1990 migration and socio-economic integration.\"\n    },\n    {\n      \"title\": \"Destatis East-West Internal Migration Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Wanderungen/_inhalt.html\",\n      \"justification\": \"Provided by the Federal Statistical Office of Germany (Destatis), this dataset contains official registry-based figures on internal migration flows between the former GDR territories (new federal states) and western federal states throughout the 1990s and beyond.\"\n    },\n    {\n      \"title\": \"Population and Population Movement in Germany 1947 to 1999 (GESIS histat)\",\n      \"url_or_doi\": \"https://histat.gesis.org\",\n      \"justification\": \"Hosted by GESIS, this historical data compilation compiles official demographic and movement statistics across Germany (including both the FRG and GDR) to analyze long-term population movement, internal migration, and demographic changes through 1999.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 807,
+          "candidatesTokenCount": 485,
+          "totalTokenCount": 3225,
+          "cachedContentTokenCount": 375,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 807
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 375
+            }
+          ],
+          "thoughtsTokenCount": 1933,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "oDmEaoiZK536nsEP49ya-As"
+      }
+    }
+  ]
+}

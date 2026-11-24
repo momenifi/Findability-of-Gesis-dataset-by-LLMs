@@ -1,0 +1,184 @@
+{
+  "query_id": 35,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Working conditions, Vocational education and training, and Occupational health in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0233e7f8077aa961006b0455969dc487d288a6c6f8587201dd",
+        "created_at": 1795446166.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0233e7f8077aa961006b045597bf5c87d28857b02626e88858",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Hessen 1980er Arbeitsbedingungen Arbeitsunfälle Statistik historische Daten",
+                "Hessen Berufsbildungsstatistik 1980 1989 Auszubildende historische Daten",
+                "GENESIS Hessen Zeitreihe 1980 berufliche Bildung Arbeitsunfälle"
+              ],
+              "query": "Hessen 1980er Arbeitsbedingungen Arbeitsunfälle Statistik historische Daten",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0233e7f8077aa961006b04559ab14887d2bf65313b6ef06ac8",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:statistik.hessen.de/unsere-zahlen arbeit arbeitszeit verdienste 1980 hessen",
+                "site:statistik.hessen.de gesundheit arbeitsunfälle berufskrankheiten hessen 1980",
+                "site:statistischebibliothek.de Hessen statistisches jahrbuch 1985 arbeitsunfälle arbeitszeit"
+              ],
+              "query": "site:statistik.hessen.de/unsere-zahlen arbeit arbeitszeit verdienste 1980 hessen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0233e7f8077aa961006b04559da3d887d2bbefc4c61af67baf",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Hessian Statistical Office – Vocational Education and Training in Hesse (1980–Present)\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/bildung\",\n      \"justification\": \"Highly relevant official statistical source containing historical datasets on vocational education and training in Hesse. Includes apprentices and examinations since 1980, vocational schools since the 1980/1981 school year, and different types of vocational institutions. Particularly useful for examining participation in vocational training, educational pathways, and changes throughout the 1980s.\"\n    },\n    {\n      \"title\": \"Historical Development of Population and Economy in Hesse, 1945–2016\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/HEHeft_derivate_00007853/Z2_2j16.pdf\",\n      \"justification\": \"Official historical statistical compilation from the Hessian Statistical Office. Contains annual vocational training statistics for every year from 1980 to 1989, including numbers of apprentices across industry, commerce, crafts, agriculture, public administration, and professional services. Also includes historical public-sector employment statistics distinguishing full-time and part-time workers. Particularly valuable because it provides complete annual observations for the requested decade.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Information System (HESIS) – Historical Regional Statistics\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/datenbank-hesis\",\n      \"justification\": \"Official statistical database providing access to more than 50 statistical subject areas for Hesse. Some historical series extend back to the 1970s, covering the requested 1980–1989 period. Data can be filtered by federal state, district, and municipality and exported to Excel. Potentially useful for investigating employment structures, working conditions, vocational education, and regional economic differences. Availability of specific occupational-health indicators for the 1980s requires verification.\"\n    },\n    {\n      \"title\": \"Vocational Training in Hesse, 1995 – Historical Apprenticeship Statistics\",\n      \"url_or_doi\": \"https://starweb.hessen.de/cache/hessen/451_BAB_1995.pdf\",\n      \"justification\": \"Historical vocational education report containing statistical observations from 1980 and annually from 1985 through 1994. Includes newly concluded apprenticeship contracts by occupational training sector, total apprenticeships, and changes in vocational training participation. The underlying statistics originate from the Hessian Statistical Office and the Federal Institute for Vocational Education and Training. Particularly useful for reconstructing developments in the second half of the 1980s.\"\n    },\n    {\n      \"title\": \"Vocational Training in Hesse, 1996 – Employment and Apprenticeship Trends\",\n      \"url_or_doi\": \"https://starweb.hessen.de/cache/hessen/490_BAB_1996.pdf\",\n      \"justification\": \"Official Hessian report examining vocational training in relation to employment structures. Includes historical comparisons indexed to 1980 and developments across the 1980s and early 1990s. Provides information on apprentices, employees subject to social insurance contributions, manufacturing occupations, and service-sector occupations. Useful for understanding the relationship between vocational education, occupational restructuring, and changing employment conditions.\"\n    },\n    {\n      \"title\": \"Hessian State Vocational Education Report 1988 (Landes-Berufsbildungsbericht 1988)\",\n      \"url_or_doi\": \"https://www.fachportal-paedagogik.de/literatur/vollanzeige.html?FId=2192731\",\n      \"justification\": \"Bibliographic record for a contemporary Hessian vocational education report published in 1989. Covers vocational education, continuing training, apprenticeship opportunities, youth unemployment, and education statistics in Hesse during the late 1980s. Particularly valuable as a historical primary source documenting conditions during the requested period. The landing page identifies the report, but access to its underlying statistical tables may require obtaining the publication.\"\n    },\n    {\n      \"title\": \"Historical Statistics of Germany (histat) – Economic, Employment and Education Time Series\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/\",\n      \"justification\": \"Historical statistical database maintained through the German historical social and economic research infrastructure. Provides long-term statistical series on German economic and social development, including employment and education-related subjects. Potentially useful for reconstructing occupational structures, employment trends, and vocational education during the 1980s. Users should verify which series offer Hesse-specific geographic breakdowns. Registration may be necessary to access or download data.\"\n    },\n    {\n      \"title\": \"Historical Statistics – German Vocational Education and Schooling\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/d2441e8d20a05d8b31bb73351af34df7\",\n      \"justification\": \"Historical statistical project documenting the development of German education, including vocational schools and non-academic occupational training. Associated with the historical German education statistics research program. Relevant for investigating structural changes in vocational education during the 1980s. Geographic coverage and the availability of Hesse-specific observations should be checked before use.\"\n    },\n    {\n      \"title\": \"Development of Occupational Accidents in Germany Since 1960 – GovData\",\n      \"url_or_doi\": \"https://www.govdata.de/suche/daten/entwicklung-der-arbeitsunfalle-absolut-und-je-1-000-vollarbeiter-ab-1960\",\n      \"justification\": \"Official open-data catalog entry providing historical occupational accident statistics beginning in 1960. Includes reportable workplace accidents, newly awarded occupational accident pensions, fatal occupational accidents, and accident rates per 1,000 full-time-equivalent workers. Covers the entire 1980s and provides useful occupational-health indicators. However, the geographic scope is Germany rather than specifically Hesse; state-level breakdowns would need to be verified.\"\n    },\n    {\n      \"title\": \"German Social Report 1985 – Occupational Accidents and Occupational Diseases\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00090435/Datenreport_1985.pdf\",\n      \"justification\": \"Historical statistical publication from the German Federal Statistical Office containing quantitative tables on occupational accidents and occupational diseases. Includes accident observations for 1980 and 1983 and occupational disease statistics for 1982. Disease categories include hearing loss, respiratory illnesses, skin diseases, and illnesses caused by chemical or physical exposures. Useful for studying occupational health during the early 1980s, although the identified statistics concern Germany overall rather than Hesse specifically.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Office – Historical Employment and Labor Market Statistics\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/erwerbstaetigkeit\",\n      \"justification\": \"Official statistical portal covering employment and labor market developments in Hesse. Relevant indicators include employment structures and occupational participation, which can provide context for working conditions during the 1980s. The portal also directs researchers toward related official employment statistics. Historical coverage varies by dataset, so the availability of observations from 1980–1989 must be verified.\"\n    },\n    {\n      \"title\": \"Hessian Statistical Office – Earnings and Wage Statistics\",\n      \"url_or_doi\": \"https://statistik.hessen.de/unsere-zahlen/verdienste\",\n      \"justification\": \"Official source for earnings statistics in Hesse, including wages, salaries, and wage differences between demographic groups. Earnings are an important quantitative indicator of working conditions. The portal provides statistical reports and archival material that may assist with historical research. However, the availability of downloadable Hesse-specific earnings data for the 1980s has not been confirmed.\"\n    },\n    {\n      \"title\": \"Hessian State Parliament – Historical Labor Market Statistics Archive\",\n      \"url_or_doi\": \"https://starweb.hessen.de/elbib/statistik/statistikarbeitsmarkt.htm\",\n      \"justification\": \"Official Hessian parliamentary electronic library cataloging labor market statistics and historical employment-related publications. Covers employment, unemployment, vocational continuing education, apprenticeship vacancies, and other labor market indicators. Includes references to historical statistical series and regional data from employment agencies. Useful for locating additional working-condition and vocational-training datasets, although many directly listed downloadable series begin after the 1980s.\"\n    },\n    {\n      \"title\": \"Hessian Municipal Statistics – Historical Regional Data Since 1980\",\n      \"url_or_doi\": \"https://statistik.hessen.de/publikationen/hessische-gemeindestatistik\",\n      \"justification\": \"Official annual statistical publication series established in 1980. Provides municipal, district, and state-level statistics for Hesse, including municipal employment, manufacturing, public finances, and other socioeconomic indicators. Particularly useful for analyzing geographical differences in employment structures and the economic context of working conditions during the 1980s. It is not a dedicated occupational-health or vocational-training dataset.\"\n    },\n    {\n      \"title\": \"Historical Development of Population and Economy in Hesse – Supplementary Employment Statistics\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/HEHeft_derivate_00007852/Z2_2j16_A.pdf\",\n      \"justification\": \"Supplementary historical statistical compilation from the Hessian Statistical Office containing labor force and employment statistics. Includes historical employment figures by occupational status extending through 1989. Relevant for analyzing changes in employment composition, labor market participation, and occupational structures throughout the requested decade. Provides contextual working-condition indicators rather than direct measurements of workplace hazards.\"\n    },\n    {\n      \"title\": \"Federal Statistical Office – German Social Report 1983: Occupational Accidents and Diseases\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00090434/Datenreport_1983.pdf\",\n      \"justification\": \"Historical statistical report containing occupational accident and disease statistics, including observations for 1980 and occupational disease classifications for 1979. Provides indicators of occupational accidents, fatalities, and recognized occupational illnesses. Useful as a baseline for studying workplace safety and occupational health at the beginning of the 1980s. The available tables are national rather than confirmed Hesse-specific data.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446185.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19099,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2343,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21442
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

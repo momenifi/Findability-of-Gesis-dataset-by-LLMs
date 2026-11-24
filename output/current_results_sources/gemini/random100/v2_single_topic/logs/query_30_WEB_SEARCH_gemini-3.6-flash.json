@@ -1,0 +1,69 @@
+{
+  "query_id": 30,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in Finland during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Young Male Crime Survey 1962 (FSD2345)\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2345\",\n      \"justification\": \"Survey conducted in 1962 examining Finnish young men's self-reported criminal behavior, alcohol usage, social background, and attitudes toward law enforcement and offences.\"\n    },\n    {\n      \"title\": \"Jyväskylä Longitudinal Study of Personality and Social Development (JYLS): Teacher Ratings, Peer Nominations and Personality Tests of 8-Year-Olds 1968 (FSD2059)\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2059\",\n      \"justification\": \"Initiated in 1968, this longitudinal study tracked Finnish children born in 1959, documenting their socioemotional behavior, peer relationships, self-control, and personality development during primary school.\"\n    },\n    {\n      \"title\": \"Homosexuality in Finland in the 1940s and the 1960s: Partial Data, Gathered 1994-1998 (FSD2308)\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2308\",\n      \"justification\": \"Qualitative interview dataset exploring societal attitudes, social acceptance, media coverage, and everyday living conditions of sexual minorities in mid-20th-century Finland (1940s–1960s).\"\n    },\n    {\n      \"title\": \"Significance of the Disco Club \\\"Kåren Kellari\\\" 2006-2007: Weblog Data (FSD2333)\",\n      \"url_or_doi\": \"https://doi.org/10.60686/t-fsd2333\",\n      \"justification\": \"Qualitative weblog data capturing retrospective accounts of youth culture, leisure activity, alcohol use, and social interactions among young people who frequented Finnish dance clubs beginning in the late 1960s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1240,
+          "candidatesTokenCount": 531,
+          "totalTokenCount": 3638,
+          "cachedContentTokenCount": 642,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1240
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 642
+            }
+          ],
+          "thoughtsTokenCount": 1867,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "eSuEavynHcuEvdIPvfKsoQw"
+      }
+    }
+  ]
+}

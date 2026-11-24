@@ -1,0 +1,204 @@
+{
+  "query_id": 131,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0dcd65d4722e6602006b0462af14c887d2acc531dbe411a386",
+        "created_at": 1795449519.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0dcd65d4722e6602006b0462b023f887d280812a6bdf57f055",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 1990 1992 1994 1996 1998 German general social survey federal states political attitudes dataset",
+                "GESIS Politbarometer 1990 1999 cumulative dataset federal states Germany",
+                "German election study 1990 1994 1998 dataset GESIS Bundestagswahl political attitudes"
+              ],
+              "query": "GESIS ALLBUS 1990 1992 1994 1996 1998 German general social survey federal states political attitudes dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0dcd65d4722e6602006b0462b31fe487d2a05515f9bf526e0f",
+            "action": {
+              "type": "open_page",
+              "url": "https://www.gesis.org/en/elections/german-state-elections"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0dcd65d4722e6602006b0462b4a83887d29ff5ee8a05a2d596",
+            "action": {
+              "type": "open_page",
+              "url": "https://www.gesis.org/en/elections/german-state-elections"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "rs_0dcd65d4722e6602006b0462b6ab5487d2be4491f1cc41945a",
+            "summary": [],
+            "type": "reasoning",
+            "content": [],
+            "encrypted_content": "gAAAAABrBGLJdqSpvpKjDQp6wchvx_soBiu5ogsJXM-x3kuGKrq1UT8vce8k9RnYC9N-4081Oqd4U77cs5wQQws98Sab0kdUQBPOm0CQ2Egal7q24rRZV2PWi9qccmBOh98sqCL8P0ocI6l0tqW14RwH6KVrKbGusatxhs4JYE5EhRNymdisvkXirmpcQSZHf66T-IQRrzcCk9RUxSEmeqQEUK0Nr3vgscG_D_rOfpQndlb1iwFxr4NFtMt9POz19lPEIVF3dOhqzzRltFGjX8yAPUNZEYYvPuUjngYK5fraDaIO4EesrhtrNTWYVZuin9CylV46gwWPlUmHvEN0vK6TT0KyWAokZOVAKzKvazMSEc4gHACueBo3PR_lyHiIKLc1USgFgatHfhmDpTCitfdXuLbQ54B_z-crOAtM3m1ojNwGfQp0r8aRdNY79J4Eo40iEc_Uy3AyFu74blRVr3pYFYpClnzMRpA8RnIz-tw51iwQEgXLezUx1OgVB7RNz97IGLEb-OdNUbjat0cbQpifRAwkdawM4Enq6Eu8K3cFce3WjkrQ057tuioAvEG-L1g30-ldM1wdQuPQfOyhVhu3_C5EyjWOecFkxFv06pNRIatc0BS5pTSfnqCXGLpPrJXx9fFJoX-0CKQc_EIYlA4TcZo6egRzNOt-E6hPvjsEuPE76jGoC9nJaggZALMRDSn9LTtnaNjaade5w5UTSKXj7zG9HKL9aXyBjGRRl-TxTd_ncgfwHZ2p_haZb4k4Kx76YkkCnKH2RZB6CyOfAEVAhiYI4sYwt__o_maf3lleOYDNmakbD-Kdf973ILzxN7CEVG52wl_Vkl2pzEEUJjKcmzXu14LQWaWzXKxAmBzHGvWOfb-xpJ3cPS2U0XUQb3Atkhj5HVmmyayvby8hocD21lotWaT7DPygtuEGKsJfC4of5lV4Fj_yTpGz2bow158OVGTTppsEAOXKmkPhIwq9ur04MqTemjsgdxoYvKoKNopMsNsoLQf94m8aKFoI-Z67YxJXEYbic_ZI-M2bc08qbJFdx4cNAngQYWHCcvbZY8P2F3PFLtrktlok9rIm1bLTMrRMVQnTe6lXlbS-wjRFMZ6pEnWOKmQaQhihpHgninb5RmADGdqDvZqnn_YD9mqvY-HXhfchHVG-8CN0-FUC_JRSWhDwdMejkphmArV-JqYFogTzmt1jkPbSsQJjzg-_CfqvB18Cc8q5l_yEJSr0urhVq0sQuIo8DWdj_cH2zoYgkHCwVuqhXd7QqTRX0DIvsQYuOG5vK7cMkWqq0N82UCuxuqvGJuwcGlE_69wDOoHshutQqQSyYaS9epHzW_OCcnjgKCVmPcdIQ-VxEHbbIsKnAiIJZ-FarPpAv28qbdkYe8s8Pp6xRFtW4zHdv5y_VAzXHiOugkfz5EBPRX9jhswPP2NclJqDP7Rm5t3X-9fKQAIw7kPlX3Ou3-X0xxGA2Ahzs-pxxSPZkxDpC3muKKUD4xfya0M9mJaWP27-mYVnEPzj2i5MeKg3XalGbGW86gc_HHEWjWCcPXU1Qj9OA1SFCQWKc5DFHy5LeElHivfSAm-UEvo4jCup8ZcRN1BNl1F8-killOWnzfzZUcRJ3EKFi_dq3aZA82Uk3ubQQVE3p29jo6ntNsfny5JEWgiEyDFu_-qweUN6bEuwiOoij3z3G3oAxETX1zQspLlBBLi-FqgwWlsO1akSK4b1N7sfP2vOBCgG8eTkOLH7E0fLYQgBfVBOmS3tlz8_3tf8DcquasfiCrbb7a04igy0IDsCQLVt1ziQ",
+            "status": null
+          },
+          {
+            "id": "ws_0dcd65d4722e6602006b0462b6cb6087d2bf8fce0c7499454b",
+            "action": {
+              "type": "open_page",
+              "url": "https://www.gesis.org/en/elections/german-state-elections"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0dcd65d4722e6602006b0462b8637c87d29adff33b3ad57857",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"One of the most comprehensive datasets for studying political behaviour and attitudes across German federal states. Includes surveys from 1990, 1991, 1992, 1994, 1996, and 1998. Covers political participation, party identification, political interest, satisfaction with democracy, trust in government, and social attitudes. Includes respondents from the requested states. Federal-state identification may require access to the ALLBUS Extended version.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Extended Datasets\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"Particularly suitable for state-level comparisons because the Extended datasets contain federal-state identifiers and additional regional classifications. Historical surveys from the 1990s allow comparisons of political attitudes and participation across Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Access to extended regional variables is subject to additional conditions.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) – Cumulation 1980–2008\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4573\",\n      \"justification\": \"A harmonized collection of German population surveys covering the entire 1990s. Includes measures of political behaviour, political attitudes, social values, government evaluations, and political participation. Useful for examining long-term changes in political orientations, although the compact version has more limited regional information.\"\n    },\n    {\n      \"title\": \"German State Elections – Integrated Dataset 1962–2004\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12389\",\n      \"justification\": \"Highly relevant integrated dataset combining German state election surveys, including elections conducted during the 1990s. Supports comparative analyses of electoral behaviour, party preferences, political orientations, and the influence of federal politics on state elections. Particularly useful for comparing political behaviour across the eleven requested federal states.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1994\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11973\",\n      \"justification\": \"National election study examining political attitudes, participation, and voting behaviour surrounding Germany's 1994 federal election. Includes evaluations of political parties and politicians, electoral preferences, and attitudes toward political developments after reunification. Relevant for comparing political orientations across German regions during the 1990s.\"\n    },\n    {\n      \"title\": \"Political Attitudes, Political Participation and Voting Behavior in Reunified Germany 1998\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11968\",\n      \"justification\": \"Comprehensive federal election survey covering political preferences, voting decisions, political participation, party evaluations, and democratic attitudes in 1998. Especially valuable for studying the political changes associated with the 1998 federal election and comparing them with the 1994 survey.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Baden-Württemberg 1992\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11245\",\n      \"justification\": \"State-specific election survey examining political behaviour and electoral preferences surrounding Baden-Württemberg's 1992 state election. Suitable for analysing political party support, voting behaviour, and regional political attitudes during the early 1990s.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Baden-Württemberg 1996\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2913\",\n      \"justification\": \"Election study focused on Baden-Württemberg's 1996 state election. Provides material for investigating political preferences, electoral behaviour, and attitudes toward political parties. Can be compared with the 1992 study to identify changes during the decade.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Bavaria 1990\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1963\",\n      \"justification\": \"Survey associated with Bavaria's 1990 state election. Relevant for examining party preferences, political attitudes, and electoral behaviour at the beginning of the decade.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Bavaria 1990 – Post-Election Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1947\",\n      \"justification\": \"Post-election study of the 1990 Bavarian state election. Particularly useful for analysing reported voting behaviour and retrospective evaluations of electoral choices and political parties.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Bavaria 1994\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2506\",\n      \"justification\": \"State election survey documenting electoral behaviour and political preferences during Bavaria's 1994 election. Useful for assessing changes in party support and regional political orientations.\"\n    },\n    {\n      \"title\": \"State Parliament Election in Bavaria 1998\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3167\",\n      \"justification\": \"Survey of Bavaria's 1998 state election, relevant for analysing party support, political attitudes, and electoral behaviour toward the end of the 1990s.\"\n    },\n    {\n      \"title\": \"Berlin House of Representatives Election 1995\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11268\",\n      \"justification\": \"Election study focused on Berlin's 1995 House of Representatives election. Particularly relevant for investigating political preferences and electoral behaviour in reunified Berlin, including the political divisions between former East and West Berlin.\"\n    },\n    {\n      \"title\": \"Berlin House of Representatives Election 1999\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3894\",\n      \"justification\": \"Survey associated with Berlin's 1999 state election. Relevant for studying political attitudes, party preferences, and voting behaviour nearly a decade after German reunification. Enables comparisons with the 1995 Berlin election study.\"\n    },\n    {\n      \"title\": \"Bremen State Parliament Election 1991\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2119\",\n      \"justification\": \"Election survey covering Bremen's 1991 Bürgerschaft election. Provides data relevant to electoral behaviour, political preferences, and party support during the early post-reunification period.\"\n    },\n    {\n      \"title\": \"Bremen State Parliament Election 1995\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2581\",\n      \"justification\": \"Survey associated with Bremen's 1995 Bürgerschaft election. Useful for analysing changes in political preferences, party support, and voting behaviour during the middle of the 1990s.\"\n    },\n    {\n      \"title\": \"Bremen State Parliament Election 1999\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3169\",\n      \"justification\": \"Election survey documenting political behaviour surrounding Bremen's 1999 Bürgerschaft election. Can be compared with the 1991 and 1995 Bremen studies to examine changes in electoral preferences.\"\n    },\n    {\n      \"title\": \"Hamburg State Parliament Election 1991\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2118\",\n      \"justification\": \"Survey of Hamburg's 1991 Bürgerschaft election. Relevant for analysing political behaviour, electoral preferences, and regional party competition in the early 1990s.\"\n    },\n    {\n      \"title\": \"Hamburg State Parliament Election 1993\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2398\",\n      \"justification\": \"Election study of Hamburg's 1993 Bürgerschaft election. Useful for investigating voting patterns, political preferences, and changes in party support between elections.\"\n    },\n    {\n      \"title\": \"Hamburg State Parliament Election 1997\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3030\",\n      \"justification\": \"Survey covering Hamburg's 1997 state election. Provides data relevant to political attitudes, electoral behaviour, and party preferences. Enables comparisons with Hamburg's 1991 and 1993 election studies.\"\n    },\n    {\n      \"title\": \"Hesse State Parliament Election 1991 – Before the Gulf War\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2115\",\n      \"justification\": \"Survey examining political orientations and electoral preferences in Hesse before the beginning of the 1991 Gulf War. Particularly valuable for studying how international political developments may have influenced regional electoral attitudes.\"\n    },\n    {\n      \"title\": \"Hesse State Parliament Election 1991 – After the Beginning of the Gulf War\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2116\",\n      \"justification\": \"Survey examining political preferences and electoral attitudes in Hesse after the Gulf War began. Can be analysed alongside the corresponding pre-war survey to investigate changes in political orientations during a major international crisis.\"\n    },\n    {\n      \"title\": \"Hesse State Parliament Election 1995\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2582\",\n      \"justification\": \"State election study focused on Hesse's 1995 election. Relevant for analysing voting behaviour, party preferences, and regional political attitudes in the middle of the decade.\"\n    },\n    {\n      \"title\": \"Hesse State Parliament Election 1999\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3120\",\n      \"justification\": \"Election study covering Hesse's 1999 state election. Useful for examining political preferences and electoral behaviour at the end of the decade, including comparisons with the 1991 and 1995 election studies.\"\n    },\n    {\n      \"title\": \"Lower Saxony State Parliament Election 1990\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1934\",\n      \"justification\": \"Survey covering Lower Saxony's 1990 state election. Relevant for analysing electoral preferences, political attitudes, and party support during the period of German reunification.\"\n    },\n    {\n      \"title\": \"Lower Saxony State Parliament Election 1994\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2509\",\n      \"justification\": \"Election study examining political behaviour in Lower Saxony during the 1994 state election. Useful for studying regional party competition and changes in electoral preferences.\"\n    },\n    {\n      \"title\": \"Lower Saxony State Parliament Election 1998 – Pre-Election Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2986\",\n      \"justification\": \"Pre-election survey investigating political preferences before Lower Saxony's 1998 state election. Particularly useful for examining voting intentions and political attitudes before election day.\"\n    },\n    {\n      \"title\": \"Lower Saxony State Parliament Election 1998 – Election-Day Survey\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2987\",\n      \"justification\": \"Election-day survey associated with Lower Saxony's 1998 state election. Useful for studying electoral decisions and comparing actual reported voting behaviour with pre-election intentions.\"\n    },\n    {\n      \"title\": \"Lower Saxony State Parliament Election 1998\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3031\",\n      \"justification\": \"Election study focused on Lower Saxony's 1998 state election. Provides additional material for examining political preferences, electoral behaviour, and regional party competition.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia State Parliament Election 1990\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1933\",\n      \"justification\": \"State election survey examining political behaviour and electoral preferences in North Rhine-Westphalia in 1990. Relevant for investigating party competition and political orientations in Germany's most populous federal state.\"\n    },\n    {\n      \"title\": \"North Rhine-Westphalia State Parliament Election 1995\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2583\",\n      \"justification\": \"Election study covering North Rhine-Westphalia's 1995 state election. Useful for examining political attitudes, electoral preferences, and changes in party support compared with the 1990 election.\"\n    },\n    {\n      \"title\": \"Rhineland-Palatinate State Parliament Election 1991\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2117\",\n      \"justification\": \"Survey covering Rhineland-Palatinate's 1991 state election. Relevant for studying voting behaviour, political preferences, and the regional political landscape after German reunification.\"\n    },\n    {\n      \"title\": \"Rhineland-Palatinate State Parliament Election 1996\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2914\",\n      \"justification\": \"State election survey examining political behaviour and electoral preferences in Rhineland-Palatinate in 1996. Can be compared with the 1991 study to investigate changes in party support.\"\n    },\n    {\n      \"title\": \"Saarland State Parliament Election 1990\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11234\",\n      \"justification\": \"Election survey focused on Saarland's 1990 state election. Useful for examining regional voting behaviour, political party preferences, and political orientations.\"\n    },\n    {\n      \"title\": \"Saarland State Parliament Election 1994\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2510\",\n      \"justification\": \"Survey covering Saarland's 1994 state election. Relevant for investigating electoral preferences, political attitudes, and changes in regional party competition during the 1990s.\"\n    },\n    {\n      \"title\": \"Saarland State Parliament Election 1999\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA3896\",\n      \"justification\": \"Election study covering Saarland's 1999 state election. Useful for analysing political behaviour and party support at the end of the decade and comparing results with the 1990 and 1994 surveys.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein State Parliament Election 1992\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2302\",\n      \"justification\": \"Election survey examining political behaviour and electoral preferences in Schleswig-Holstein during the 1992 state election. Relevant for understanding regional political attitudes and voting patterns.\"\n    },\n    {\n      \"title\": \"Schleswig-Holstein State Parliament Election 1996\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA2915\",\n      \"justification\": \"Survey covering Schleswig-Holstein's 1996 state election. Useful for examining changes in voting behaviour, party preferences, and political orientations compared with the 1992 election.\"\n    },\n    {\n      \"title\": \"German Federal Election Studies 1949–2009 – GESIS Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-federal-elections\",\n      \"justification\": \"Official collection of German federal election studies, including the elections of 1990, 1994, and 1998. Provides access to studies of electoral behaviour, political attitudes, party identification, political participation, and government evaluations. Useful for comparing the requested states within a common national electoral context, subject to the regional identifiers available in individual datasets.\"\n    },\n    {\n      \"title\": \"German State Election Studies – GESIS Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Official GESIS catalogue containing state-specific political and electoral surveys for all eleven requested German federal states. Includes numerous studies conducted between 1990 and 1999, with separate datasets for individual elections and, in some cases, pre-election, election-day, and post-election surveys. Particularly valuable for identifying additional datasets and comparing political behaviour across states.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449544.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 27784,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 3800,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 31584
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "query_id": 22,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Community, urban and rural life in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core, v41, EU Edition)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41eu\",\n      \"justification\": \"A comprehensive representative multi-cohort longitudinal dataset of private households in Germany, providing detailed data on urban and rural living conditions, household income, employment, and social dynamics covering the period through 2024.\"\n    },\n    {\n      \"title\": \"INKAR - Indikatoren und Karten zur Raum- und Stadtentwicklung\",\n      \"url_or_doi\": \"https://www.inkar.de/\",\n      \"justification\": \"Spatial monitoring dataset provided by Germany's Federal Institute for Research on Building, Urban Affairs and Spatial Development (BBSR), featuring over 600 indicators on urban and rural living conditions, housing, social infrastructure, and demography across Germany updated through the 2020s.\"\n    },\n    {\n      \"title\": \"Allgemeine Bevölkerungsumfrage der Sozialwissenschaften (ALLBUS 2021)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14002\",\n      \"justification\": \"A representative national social survey dataset archived by GESIS capturing socio-demographic data, community life, and public attitudes across urban and rural regions in Germany collected in 2021.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1147,
+          "candidatesTokenCount": 349,
+          "totalTokenCount": 3297,
+          "cachedContentTokenCount": 592,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1147
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 592
+            }
+          ],
+          "thoughtsTokenCount": 1801,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "PLenauK8JuWc3boPjceq-AU"
+      }
+    }
+  ]
+}

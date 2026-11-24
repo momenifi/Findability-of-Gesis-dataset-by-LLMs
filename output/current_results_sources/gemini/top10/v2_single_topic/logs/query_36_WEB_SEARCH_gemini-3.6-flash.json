@@ -1,0 +1,69 @@
+{
+  "query_id": 36,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"GLES Cross-Section 2021, Pre- and Post-Election\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14170\",\n      \"justification\": \"A representative cross-sectional survey dataset provided by GESIS (German Longitudinal Election Study) capturing voter attitudes, preferences, and political behavior around the 2021 German federal election.\"\n    },\n    {\n      \"title\": \"GLES Panel 2016-2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14114\",\n      \"justification\": \"A multi-wave longitudinal panel study following eligible German voters over time to analyze political dynamics across both the 2017 and 2021 federal elections.\"\n    },\n    {\n      \"title\": \"GESIS GLES Data and Documentation Portal\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/gles-data-and-documentation\",\n      \"justification\": \"The central landing page for the German Longitudinal Election Study, hosting cross-sectional, candidate, panel, and tracking election datasets for German federal elections during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"German Federal Elections 2017\",\n      \"url_or_doi\": \"https://www.kaggle.com/datasets/paultimothymooney/german-federal-elections-2017\",\n      \"justification\": \"A dataset containing regional voting figures across electoral areas in Germany for the 2017 Bundestagswahl, derived from official Federal Returning Officer data.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 574,
+          "candidatesTokenCount": 422,
+          "totalTokenCount": 2516,
+          "cachedContentTokenCount": 164,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 574
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 164
+            }
+          ],
+          "thoughtsTokenCount": 1520,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "BrinaqOPMK3jvdIPw7760AY"
+      }
+    }
+  ]
+}

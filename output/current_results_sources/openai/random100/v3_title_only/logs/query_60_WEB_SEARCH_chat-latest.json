@@ -1,0 +1,168 @@
+{
+  "query_id": 60,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Sofortresonanzen DDR Fernsehen 30. Woche 1984 (SFR 30/84?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0b244c5d6e36b893006b046e4f6fdc87d29fc99c109e2aef16",
+        "created_at": 1795452495.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0b244c5d6e36b893006b046e50a73887d288c9104a506ebb23",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Sofortresonanzen DDR Fernsehen\" \"30\" \"1984\" dataset",
+                "\"SFR 30/84\" Sofortresonanzen"
+              ],
+              "query": "\"Sofortresonanzen DDR Fernsehen\" \"30\" \"1984\" dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0b244c5d6e36b893006b046e520d9087d2844947f7955149c2",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Sofortresonanzen DDR Fernsehen 30. Woche 1984 (SFR30/84)\",\"url_or_doi\":\"https://doi.org/10.4232/1.7131\",\"justification\":\"Exact match for the requested dataset. The dataset is archived by GESIS – Leibniz Institute for the Social Sciences under study identifier ZA7131. It concerns television viewing and audience evaluations in the German Democratic Republic (DDR) during the 30th calendar week of 1984. The GESIS dataset record identifies the publication year as 2006 and provides the persistent DOI 10.4232/1.7131.\"},{\"title\":\"Sofortresonanzen DDR Fernsehen 30. Woche 1984 (SFR30/84) – GESIS Dataset Record\",\"url_or_doi\":\"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.7131\",\"justification\":\"Official GESIS DataSearch Knowledge Graph landing page for the exact dataset. Confirms the dataset title, DOI, publication year (2006), version (1.0.0), geographical coverage (German Democratic Republic), and temporal coverage beginning July 26, 1984. Provides authoritative metadata for identifying and citing the dataset.\"},{\"title\":\"ZA7131: Sofortresonanzen DDR Fernsehen 30. Woche 1984 (SFR30/84) – Codebook\",\"url_or_doi\":\"https://access.gesis.org/dbk/22972\",\"justification\":\"GESIS codebook page specifically identifying study ZA7131 and the requested dataset title. Contains variable descriptions, survey questions, response categories, and documentation of the television audience research conducted during the 30th week of July 1984. Useful for examining the dataset's structure and methodology.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452499.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10451,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 380,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 10831
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "query_id": 5,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalism, journalist, social media, news, and news value theory in Germany during the 2020s, matching this research need: human-coded TikTok videos from German-speaking news outlets in Germany, Austria, and Switzerland during 2023, with annotations on visual style, text overlays, audio, and journalism-related news values\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2863\",\n      \"justification\": \"This dataset provides human-coded annotations for TikTok videos published in 2023 by major news outlets across Germany, Austria, and Switzerland. It includes variables describing visual style, text overlays, audio presence, and theory-derived journalism concepts such as news values.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "ErgKCrUKARFNMg9jt9/ob6AQrYuxTKCMvx/AoYVpoCwKmMgJT6kVpda/JwCF1lRN1v93WtMgbFUId0dyvboIsktRAvCjjO8uf+7+gEPFrE6NPmHM4b3GOonIpYU/bOm1X4M7tymoWktp2/v+Ib5MJsCObV/t/R2FNXw01Fp202t8KRNQ4zG4QYdwp6RemRgp19+FHiRyhSvghq1CuxnSmXvQWtGHqUYylEI53tlPvBl6Yz0FxuG/fDFh9XYTc5ya8Csx2z4LRviFPs25tKprbgrQ1dd9rTi0GnXqcazOUDaQK3caFkQRXxhI1JrB2DbHSGSukaDK6lhKKS92EXcBw4JKfzIIUd/ql8xJZKSJZxy17JTctpXhKg6Z6iXP49yGN0f0iVpp0ITxIsiCrlAhJhJSJayPkOYn7j3CNZVqHjgAby2XyrNtVSOLoXpTgDer8AkYsSCQbgUKRGNsR3zNPnQ95jqKv5yps5FHIFjFQEEZ7O8d6/GSSoThHnwhudJ6e6RzFrXn+jugxD+nZMx61iXqsmJaYDTLHVHGynPoGOAYuczBsE3GuNJwq8PUdzGWnKwjY+6beKuoWwohMNvENUq+b16h9uYzfQtWOUIgPAjSX2/7nIRqnUrvnNmEgzU+dFFGpw3vfhYnUe9yEbVj6FUMeByjhzju3K3HlluVmUjs7TiXYggOefOFbQaVc02ZNKbChFq3u6nH9vgbl3REbxDV+l4IyeyCSLJpNxO1uNYyHx40DYr0CA4QagTnjFCvzlUFD8Fzg00qQtVpbGBA4MGLslLEcB/6chbKGatPGV1tQxiE3cCG15wPmiiS5SqapSRC/8FMRFSYkstDn1VR/jbCICoTDOyqxyxBFR5dBmC01TeuswMxcwyJwjtfTso626TK0StRFed2IiIY7vDVvbLZIOAjqS7xgTOpaVzvXIjNALRzojJrWWp0fOsBHQDq6BvOuRHWs4+egNIUsjrgpb82iItZPYFFb7wRDHYUTipNwfQEA7JQn9jwe4qiQq/0K3HgvEJqim210gJNTQJWo4RWI2woEQ62KbV4FLbWqxYwDJwW7h++leAzr8ukaQUTS8yPSlFgTLtuOlmAr/jzMnld9rWCMc7cRqa59h60kzrj2YhTUcM5+G+wAVM4lqNk5cI9qk8dQ9StZm2GnkKTh3teTgCW00THnuLX98NoWI8fow8ghMqXbL2VV9Dn/2yn6qODf+shQXytK5cLgrVvpJ2vJN/tn7QEIgbwg3GUSsQeyQFY2670iOmLvkfAQ5r72g3cJk+uFZIjQwkeHVNpDT22VZpBNL3iTI0tJ44WL3F8ZsZO9YQXcQ7gFuB2tGpoFpQNitwjzrR+e+zK/JTa4xXyFwln+XHl5mrEHlbksdBAQITKc6bQke/F+JbDTBknSlvHxH6qbfw+9JlsJqYwC5O82wEfw3syavbdFXtX7dQ8iQ8j6MAv9IOGa9hWtV7X2fCgTH/ZwEr2NEIQvZDkdjnmi9GT4u8XW1nUe4tEut+JPJQM/4rQxz6hWryqA73wNudquqDtTcViudjrDq9vo9MZsvbuHqZiOCgTYPbsm1P2ILlUoyQxQgnZgyXO+noCVahB+08VFc6v2ZoUogP5UUvRPeyoCurT0G29/sIC0laMysi5Slre143efKnJrGIJXu/pl1MvaOdc5dYuDVu39ZIkQRCeqPqyZbnFqaW/jpCesZsjUGumXF1ZhinXEX7fbBTxb5+QQF7ws8OCXGsTBnTdLAvsPv8A9p3Kte4HutqvnxkxMLUeTjsu7g=="
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 463,
+          "candidatesTokenCount": 142,
+          "totalTokenCount": 1286,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 463
+            }
+          ],
+          "thoughtsTokenCount": 681,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "scKnaqbzGqyW28oPk5CloAI"
+      }
+    }
+  ]
+}

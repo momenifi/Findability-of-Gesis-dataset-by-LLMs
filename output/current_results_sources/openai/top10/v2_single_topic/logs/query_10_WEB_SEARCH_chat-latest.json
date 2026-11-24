@@ -1,0 +1,187 @@
+{
+  "query_id": 10,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Belgium, Bulgaria, Czech Republic, Denmark, Germany, Estonia, Ireland, Greece, Spain, France, Italy, Cyprus, Latvia, Lithuania, Luxembourg, Hungary, Malta, Netherlands, Austria, Poland, Portugal, Romania, Slovenia, Slovakia, Finland, Sweden, Croatia, Turkey, North Macedonia, Montenegro, Serbia, United Kingdom, Albania, Bosnia and Herzegovina, Kosovo-Metohija, Moldova, Republic of, and Georgia during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_005761002a7e870a006b047709210887d28b076cea43d47119",
+        "created_at": 1795454729.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_005761002a7e870a006b04770a2d9087d2955c6ac1d7d42694",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Eurobarometer data 2020 2025 EU international relations institutions countries datasets",
+                "V-Dem dataset country year 2025 download",
+                "UN General Assembly voting data dataset country 2020 2025",
+                "European Social Survey data international institutions trust 2020 2024 countries"
+              ],
+              "query": "Eurobarometer data 2020 2025 EU international relations institutions countries datasets",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_005761002a7e870a006b04770df3a487d2b7490ebccf42ab56",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:digitallibrary.un.org/record/ UN General Assembly Voting Data dataset",
+                "site:ess.sikt.no data download rounds 10 11 European Social Survey",
+                "site:worldvaluessurvey.org WVS wave 7 data download",
+                "site:ec.europa.eu/eurostat enlargement countries database data",
+                "site:correlatesofwar.org intergovernmental organizations data membership"
+              ],
+              "query": "site:digitallibrary.un.org/record/ UN General Assembly Voting Data dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_005761002a7e870a006b047710d65887d28c2ec92c8bdadc01",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"United Nations General Assembly Voting Data (1946–2026)\",\n      \"url_or_doi\": \"https://digitallibrary.un.org/record/4060887?ln=en\",\n      \"justification\": \"Official United Nations dataset containing recorded votes on General Assembly resolutions, including votes during the 2020s. Covers nearly all requested countries, including EU member states, the United Kingdom, Turkey, Western Balkan states, Moldova, and Georgia that are UN members. Particularly useful for studying foreign policy alignment, international cooperation, diplomatic disagreements, and voting behavior within international organizations. The October 2026 version includes resolutions through September 17, 2026. Kosovo is not represented as a separate UN member.\"\n    },\n    {\n      \"title\": \"Standard Eurobarometer 105 – Spring 2026\",\n      \"url_or_doi\": \"https://data.europa.eu/data/datasets/s3613_105_2_std105_eng\",\n      \"justification\": \"European Commission survey dataset measuring public attitudes toward the European Union, EU institutions, European integration, and international political developments. Provides comparable survey results for all 27 EU member states, with additional coverage of selected non-EU European countries. Particularly relevant for examining public trust in international organizations, perceptions of EU membership, and attitudes toward international crises in 2026.\"\n    },\n    {\n      \"title\": \"Varieties of Democracy (V-Dem) Dataset, Version 16 (2026)\",\n      \"url_or_doi\": \"https://www.v-dem.net/data/\",\n      \"justification\": \"Comprehensive country-year dataset covering democratic institutions, political accountability, civil society, electoral competition, political participation, and governance. Includes observations for the 2020s across the requested European countries. Useful for comparative research on institutional development, international democracy promotion, European integration, and political transformations. Particularly valuable for comparing EU member states with EU accession candidates.\"\n    },\n    {\n      \"title\": \"V-Dem Historical Dataset Archive\",\n      \"url_or_doi\": \"https://www.v-dem.net/data/dataset-archive/\",\n      \"justification\": \"Repository of historical V-Dem dataset releases, including datasets published during the 2020s. Enables researchers to compare political institutions and democratic developments across European countries using consistent country-year indicators. Useful for studying democratic backsliding, institutional reforms, political freedoms, and changes in governance associated with international integration.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) – Round 10 and Round 11\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/data-builder/\",\n      \"justification\": \"Cross-national survey microdata covering political trust, attitudes toward European institutions, trust in the United Nations, political participation, national identity, immigration, and democratic values. Includes observations collected during the 2020s from numerous requested European countries. Researchers can select participating countries, survey rounds, and variables to construct comparable datasets on perceptions of international politics and organizations. Country participation varies by round.\"\n    },\n    {\n      \"title\": \"World Values Survey – Wave 7 (2017–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.18\",\n      \"justification\": \"International survey dataset examining political values, institutional confidence, national identity, democratic legitimacy, and attitudes toward international organizations. Includes observations from the early 2020s and covers a selection of the requested European countries. Particularly suitable for studying public confidence in the United Nations, European institutions, international cooperation, and democratic governance. Not all requested countries participated.\"\n    },\n    {\n      \"title\": \"World Values Survey – Longitudinal Dataset (1981–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.17\",\n      \"justification\": \"Harmonized longitudinal survey dataset containing political and social attitudes across multiple survey waves, including observations from the early 2020s. Provides measures of political trust, confidence in international institutions, democratic attitudes, and national identity. Useful for examining whether attitudes toward international organizations changed between earlier decades and the 2020s in participating European countries.\"\n    },\n    {\n      \"title\": \"World Values Survey – Wave 7 Country-Level Data and Documentation\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp\",\n      \"justification\": \"Official repository for country-specific survey files, questionnaires, and documentation from World Values Survey Wave 7. Researchers can identify participating European countries and extract variables related to political institutions, international organizations, national identity, geopolitical attitudes, and democratic legitimacy. Useful for constructing country comparisons covering the beginning of the 2020s.\"\n    },\n    {\n      \"title\": \"Harmonized Eurobarometer 2004–2021, Version 3.0.0\",\n      \"url_or_doi\": \"https://cris.maastrichtuniversity.nl/en/datasets/harmonized-eurobarometer-2004-2021-300\",\n      \"justification\": \"Harmonized survey dataset combining 35 Standard Eurobarometer surveys and more than 140 variables concerning EU policies, European identity, institutional trust, political attitudes, and European integration. Includes observations through 2021, making it relevant for studying the beginning of the 2020s. Particularly useful for comparing public opinion about European institutions across EU member states and examining changes associated with Brexit and European political developments.\"\n    },\n    {\n      \"title\": \"Eurostat – International Cooperation Database\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/international-cooperation/database\",\n      \"justification\": \"Official European statistical database providing access to harmonized indicators for EU member states, enlargement countries, and European Neighbourhood Policy countries. Relevant geographical coverage includes the requested EU countries and several non-EU states, including Western Balkan countries, Turkey, Moldova, and Georgia. Useful for examining the economic, demographic, and institutional context of international cooperation and European integration during the 2020s. Specific dataset selection is required.\"\n    },\n    {\n      \"title\": \"Eurostat – Enlargement Countries Statistical Overview\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Enlargement_countries_-_statistical_overview\",\n      \"justification\": \"Official Eurostat statistical collection covering Albania, Bosnia and Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, and Kosovo. Provides comparative indicators relevant to EU enlargement, economic integration, and institutional development. Especially useful for analyzing the international political context of European Union accession during the 2020s. This is a statistical overview with links to underlying data rather than a single downloadable dataset.\"\n    },\n    {\n      \"title\": \"Eurostat – Enlargement and International Cooperation Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/international-cooperation/regional-cooperation/enlargement\",\n      \"justification\": \"European Commission statistical resource focused on countries participating in the EU enlargement process. Covers Albania, Bosnia and Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, and Kosovo. Useful for identifying comparable statistical datasets relevant to European integration, accession negotiations, and institutional convergence during the 2020s. Provides access to enlargement-related statistical resources rather than a single political dataset.\"\n    },\n    {\n      \"title\": \"UN General Assembly and Security Council Voting Data – UNIndex\",\n      \"url_or_doi\": \"https://unindex.org/api-docs\",\n      \"justification\": \"Structured access to United Nations General Assembly and Security Council voting records, with country, voting-position, and date filters. The underlying data includes voting records from the 2020s. Particularly useful for studying European countries' foreign policy positions, diplomatic coalitions, support for UN resolutions, and alignment on international security issues. The API supports country-specific extraction and comparative analysis.\"\n    },\n    {\n      \"title\": \"Correlates of War – Intergovernmental Organizations Dataset\",\n      \"url_or_doi\": \"https://correlatesofwar.org/data-sets/IGOs/\",\n      \"justification\": \"Historical dataset documenting state membership in intergovernmental organizations and shared organizational memberships between countries. Relevant for investigating the institutional foundations of international cooperation among European states. Includes many of the requested countries, but the available membership data ends in 2014. Therefore, it is best used as a historical baseline for analyzing organizational relationships entering the 2020s rather than as a source of current membership observations.\"\n    },\n    {\n      \"title\": \"Central Statistics Office Ireland – Trust Survey 2025: International Comparisons\",\n      \"url_or_doi\": \"https://www-cloud.cso.ie/en/releasesandpublications/ep/p-trsic/trustsurvey2025internationalcomparisons/results/\",\n      \"justification\": \"Official statistical publication containing internationally comparable survey results on public trust in institutions, including international organizations such as the United Nations. Includes data for participating countries in 2023 and 2025. Particularly relevant for comparing perceptions of international organizations in Ireland and other participating European countries. Geographic coverage is limited to surveyed countries rather than the complete requested list.\"\n    },\n    {\n      \"title\": \"Central Statistics Office Ireland – Trust in International Organisations (TRA312)\",\n      \"url_or_doi\": \"https://data.cso.ie/table/TRA312\",\n      \"justification\": \"Official statistical dataset containing internationally comparable measures of trust in international organizations. Relevant for studying institutional confidence and public perceptions of international governance during the 2020s. Allows researchers to compare Ireland with other participating countries and investigate variation in public confidence in organizations such as the United Nations.\"\n    },\n    {\n      \"title\": \"Eurostat – European Countries Comparative Statistical Dataset (tin00127)\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/tin00127/CustomView_1/table?lang=en\",\n      \"justification\": \"Official Eurostat dataset with observations extending through the 2020s and geographic coverage that includes EU member states, the United Kingdom, Turkey, Montenegro, North Macedonia, Albania, Serbia, Bosnia and Herzegovina, and Kosovo. Useful as a supplementary source of comparable national indicators for research on European integration and international cooperation. Its subject matter is not directly international politics, so it should be combined with political or institutional datasets.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454748.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19306,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2300,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 21606
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

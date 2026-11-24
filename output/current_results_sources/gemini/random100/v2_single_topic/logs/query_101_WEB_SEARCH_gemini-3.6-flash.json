@@ -1,0 +1,69 @@
+{
+  "query_id": 101,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Occupational health in Hesse during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"BIBB/IAB Employment Survey 1985/1986 (Qualification and Course of Employment)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12563\",\n      \"justification\": \"Conducted by the Federal Institute for Vocational Education and Training (BIBB) and the Institute for Employment Research (IAB) across West Germany (including Hesse) in 1985–1986, this representative dataset includes detailed variables on working conditions, occupational health risks, physical loads, and workplace safety in the 1980s.\"\n    },\n    {\n      \"title\": \"BIBB/IAB Employment Survey 1979 (Qualification and Course of Employment)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1243\",\n      \"justification\": \"Conducted across West German federal states, including Hesse, this survey measures working conditions, occupational hazards, physical stress, and job safety factors at the turn of the 1980s.\"\n    },\n    {\n      \"title\": \"BIBB/IAB Employment Surveys 1979–1999 Cumulative Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3379\",\n      \"justification\": \"This multi-wave trend dataset harmonizes the 1979, 1985/1986, and 1991/1992 employment surveys, enabling regional analysis (including Hesse) of shifts in occupational health, job stress, and working conditions throughout the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 460,
+          "candidatesTokenCount": 407,
+          "totalTokenCount": 2683,
+          "cachedContentTokenCount": 250,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 460
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 250
+            }
+          ],
+          "thoughtsTokenCount": 1816,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "_jaEauiYJKulnsEPsISiyQs"
+      }
+    }
+  ]
+}

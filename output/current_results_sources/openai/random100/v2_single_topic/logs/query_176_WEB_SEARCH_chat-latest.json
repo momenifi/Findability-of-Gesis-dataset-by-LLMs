@@ -1,0 +1,186 @@
+{
+  "query_id": 176,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Consumption and consumer behaviour in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0df7ad379d48cd8b006b04658b872887d287cc264c66806f82",
+        "created_at": 1795450251.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0df7ad379d48cd8b006b04658ca4f087d2b8d9d76040e458af",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS Einkommens Verbrauchsstichprobe 1983 1988 dataset Germany",
+                "German Socio Economic Panel SOEP 1984 consumption expenditures data",
+                "German general social survey ALLBUS 1980 1982 1984 consumption shopping dataset",
+                "Germany 1980s household budget survey 1983 1988 EVS research data centre"
+              ],
+              "query": "GESIS Einkommens Verbrauchsstichprobe 1983 1988 dataset Germany",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0df7ad379d48cd8b006b0465904c8887d289fe3644e2e76e43",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ \"Konsummuster im Wandel\"",
+                "site:b2find.eudat.eu/dataset/ \"Einkommens- und Verbrauchsstichprobe 1988\"",
+                "site:search.gesis.org/research_data/ \"Wohlfahrtssurvey 1988\"",
+                "site:forschungsdatenzentrum.de \"EVS 1988\" dataset"
+              ],
+              "query": "site:search.gesis.org/research_data/ \"Konsummuster im Wandel\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0df7ad379d48cd8b006b046593280087d28e6138c3c1a1286c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Income and Consumption Survey (Einkommens- und Verbrauchsstichprobe, EVS) 1983\",\n      \"url_or_doi\": \"https://doi.org/10.21242/63211.1983.00.00.1.1.0\",\n      \"justification\": \"An official German household survey providing detailed information on consumption expenditures, household income, durable goods ownership, and socioeconomic characteristics in West Germany in 1983. Particularly valuable for studying household spending patterns, consumer preferences, and differences in consumption across income groups. Microdata access is restricted to approved scientific research projects.\"\n    },\n    {\n      \"title\": \"German Income and Consumption Survey (Einkommens- und Verbrauchsstichprobe, EVS) 1988\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/de/haushalte/evs\",\n      \"justification\": \"An official household consumption survey conducted in West Germany in 1988. Provides information on household expenditures, income, assets, durable consumer goods, and living conditions. Particularly useful for comparing consumption behavior between 1983 and 1988 and examining changes in household budgets during the late 1980s. Scientific-use microdata are available through the German Research Data Centres, subject to access conditions.\"\n    },\n    {\n      \"title\": \"German Income and Consumption Survey 1988 – Final Interview Data (EVS 1988, Grundfile 4 SI)\",\n      \"url_or_doi\": \"https://doi.org/10.21242/63211.1988.00.12.1.1.0\",\n      \"justification\": \"A specific component of the 1988 German Income and Consumption Survey containing household-level information collected during the final interview. Relevant for analyzing household financial circumstances, savings, assets, and other economic characteristics associated with consumption decisions. Suitable for research on the relationship between household resources and consumer behavior in West Germany.\"\n    },\n    {\n      \"title\": \"Household Panel 1984 (Haushaltspanel 1984) – GESIS Study ZA1425\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1425\",\n      \"justification\": \"A consumer behavior dataset collected in West Germany between January and February 1984, covering 7,346 respondents. Contains detailed information on ownership, purchasing, and usage of consumer electronics, including televisions, video recorders, radios, cameras, and watches. Records product brands, acquisition years, purchase prices, purchasing locations, and product characteristics. Especially relevant for studying consumer preferences, technology adoption, purchasing decisions, and durable goods consumption during the 1980s.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2018\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.v35\",\n      \"justification\": \"A longitudinal household survey beginning in West Germany in 1984. Provides annual observations on household income, employment, housing, living standards, and socioeconomic circumstances. Relevant for investigating the determinants of consumer behavior, household economic resources, and changes in living standards throughout the second half of the 1980s. Its longitudinal structure allows researchers to examine how changes in employment, income, and household composition influence economic behavior over time.\"\n    },\n    {\n      \"title\": \"Changing Consumption Patterns: Private Consumers' Household Budgets in the Federal Republic of Germany, 1952–1998 (Konsummuster im Wandel)\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/ad5a63ec-c486-5054-8e3d-ff9e1068c080\",\n      \"justification\": \"A historical dataset specifically focused on consumption patterns and household budgets in West Germany between 1952 and 1998. Includes household gross income, net income, disposable resources, consumption expenditure, and spending on individual categories of goods. Particularly suitable for analyzing long-term changes in German consumer behavior and examining how consumption patterns evolved during the 1980s. Its extended historical coverage makes it useful for comparing the 1980s with earlier and later decades.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 1980–2023 Cumulation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A repeated cross-sectional survey of the German population conducted every two years beginning in 1980. Includes demographic characteristics, income-related indicators, employment, social attitudes, values, and aspects of everyday behavior. Although not primarily a consumption expenditure survey, it provides valuable contextual information for investigating consumer attitudes, material circumstances, socioeconomic differences, and changing lifestyles in West Germany during the 1980s. Individual survey waves from 1980, 1982, 1984, 1986, and 1988 are particularly relevant.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), 1980–1986 Cumulation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"A historical subset of the ALLBUS survey series combining observations from the early and middle 1980s. Provides comparable information on socioeconomic characteristics, social attitudes, values, and living circumstances in West Germany. Useful for examining how economic position, social class, and changing attitudes may have influenced consumer behavior during the first half of the decade. Particularly appropriate for research connecting consumption culture with broader social transformations.\"\n    },\n    {\n      \"title\": \"Welfare Survey (Wohlfahrtssurvey), West Germany, 1980, 1984, and 1988\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA1839\",\n      \"justification\": \"The German Welfare Survey series examines objective living conditions and subjective quality of life. The 1980, 1984, and 1988 waves provide evidence on household financial circumstances, housing conditions, material living standards, and satisfaction with different aspects of life. Useful for investigating the relationship between consumption opportunities, perceived economic well-being, and living standards during the 1980s. The linked GESIS study is the 1988 wave, ZA1839.\"\n    },\n    {\n      \"title\": \"German Income and Consumption Survey 1988 – Detailed Household Survey Microdata\",\n      \"url_or_doi\": \"https://b2find.eudat.eu/dataset/b0ebafe7-0f0b-5473-b087-8581a113abed\",\n      \"justification\": \"A research data catalogue entry for the 1988 Income and Consumption Survey, documenting official German household microdata. The broader survey covers spending on goods and services, household income, consumer durables, savings, and financial circumstances. Particularly useful for researchers interested in reconstructing household consumption patterns immediately before German reunification. The dataset is available through controlled research access rather than unrestricted public download.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450266.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18803,
+          "input_tokens_details": {
+            "cached_tokens": 4480,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1615,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20418
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

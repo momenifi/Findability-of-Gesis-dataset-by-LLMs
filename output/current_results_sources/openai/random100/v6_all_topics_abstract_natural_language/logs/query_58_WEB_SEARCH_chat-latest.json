@@ -1,0 +1,183 @@
+{
+  "query_id": 58,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about digitalization, telecommuting, workaholism, and job performance in Germany during the 2010s, matching this research need: data on German employees in 2017–2018 examining home office/remote work and workaholism, including frequency of working from home, formal telework agreements, and whether home-office hours can be counted toward working time\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_08d712cfe6824517006b0472bf397c87d28571a3d9bc0e798a",
+        "created_at": 1795453631.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_08d712cfe6824517006b0472c0541887d2aae845a4a67e07e2",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany 2017 2018 survey workaholism home office telework agreement hours counted working time dataset digitalization",
+                "BAuA Arbeitszeitbefragung 2017 2018 Homeoffice Vereinbarung Arbeitszeit angerechnet Datensatz Arbeitssucht",
+                "Germany 2017 2018 work addiction teleworking job performance dataset survey"
+              ],
+              "query": "Germany 2017 2018 survey workaholism home office telework agreement hours counted working time dataset digitalization",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08d712cfe6824517006b0472c32e2c87d2be87db16ec517a3b",
+            "action": {
+              "type": "search",
+              "queries": [
+                "BIBB BAuA Erwerbstätigenbefragung 2018 dataset DOI Forschungsdatenzentrum BIBB",
+                "Working from Home and Workaholism in Germany Ebner van Berk Rohrbach Schmidt 2017 2018 data BIBB BAuA"
+              ],
+              "query": "BIBB BAuA Erwerbstätigenbefragung 2018 dataset DOI Forschungsdatenzentrum BIBB",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_08d712cfe6824517006b0472c6125887d2aabd014d762645a6",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"BIBB/BAuA Employment Survey 2018 (BIBB/BAuA-Erwerbstätigenbefragung 2018) – Scientific Use File\",\"url_or_doi\":\"https://doi.org/10.7803/501.18.1.1.10\",\"justification\":\"BEST MATCH. This nationally representative survey of 20,012 employed persons in Germany was conducted between October 2017 and April 2018. It provides detailed information on digitalization, working conditions, telecommuting, working hours, and occupational characteristics. Crucially, it includes variables on the frequency of working from home, contractual home-office agreements, weekly hours worked remotely, and whether hours worked at home are recognized as working time. It is the underlying dataset for the study 'Homeoffice und suchthaftes Arbeiten in Deutschland' by Christian Ebner, Beatrice van Berk, and Daniela Rohrbach-Schmidt (2023), which examines the relationship between working from home and workaholism using approximately 6,000 German employees. This makes it the strongest available match for the requested research.\"},{\"title\":\"BIBB/BAuA Employment Survey 2018 – Official Dataset Metadata and Variable Documentation\",\"url_or_doi\":\"https://metadaten.bibb.de/de/dataset/detail/123\",\"justification\":\"Official dataset landing page maintained by the German Federal Institute for Vocational Education and Training (BIBB). Provides metadata, documentation, and information about accessing the 2017–2018 employment survey. Particularly useful for identifying variables measuring home-office frequency, formal telework agreements, recognition of home-office hours as working time, occupational demands, and working conditions. The dataset supports investigations of workaholism, digitalization, and employment outcomes among German workers.\"},{\"title\":\"BIBB/BAuA Employment Survey 2018 – Special Variables Dataset (Sondervariablen)\",\"url_or_doi\":\"https://doi.org/10.7803/501.18.1.5.10\",\"justification\":\"Supplementary dataset associated with the 2017–2018 BIBB/BAuA Employment Survey. Contains additional variables that may support more detailed analyses beyond the standard Scientific Use File. Relevant for researchers investigating workplace characteristics, digitalization, telecommuting arrangements, and workaholism. Access to special variables may require an application through the BIBB Research Data Centre. Researchers should verify which additional measures are included before requesting access.\"},{\"title\":\"BIBB/BAuA Employment Survey 2018 – Campus File\",\"url_or_doi\":\"https://doi.org/10.7803/501.18.1.8.10\",\"justification\":\"An anonymized educational version of the 2018 BIBB/BAuA Employment Survey, based on approximately two-thirds of the original sample. Provides an accessible alternative for learning survey analysis methods and exploring employment conditions in Germany during 2017–2018. Potentially useful for preliminary investigations of home-office arrangements and working conditions. However, additional anonymization means that the availability of specific telework and workaholism variables must be verified. The full Scientific Use File is preferable for the proposed research.\"},{\"title\":\"BAuA Working Time Survey 2017 – Scientific Use File, Version 2\",\"url_or_doi\":\"https://doi.org/10.48697/baua.azb17.suf.2\",\"justification\":\"A highly relevant complementary dataset collected in Germany in 2017 by the Federal Institute for Occupational Safety and Health (BAuA). Covers working-time arrangements, telework, working from home, flexibility, job demands, work-life balance, and physical and mental health. The survey explicitly distinguishes employees with formal telework agreements from those performing work tasks at home without such agreements. Published analyses show that 12% of German employees had a formal telework agreement in 2017, while approximately 31% worked from home at least occasionally without an agreement. Particularly useful for examining how remote-work arrangements relate to working hours, psychological strain, and indicators associated with workaholism. It does not necessarily contain the same workaholism measures as the BIBB/BAuA Employment Survey.\"},{\"title\":\"Harmonized BIBB/BAuA Employment Survey 2006, 2012, and 2018 (H-ETB)\",\"url_or_doi\":\"https://doi.org/10.7803/501.061218.1.1.10\",\"justification\":\"A harmonized longitudinal-comparison dataset combining three waves of Germany's BIBB/BAuA Employment Surveys, including the crucial 2018 wave collected during 2017–2018. Useful for examining how digitalization, employment conditions, occupational demands, and working arrangements changed throughout the 2010s. Provides a broader historical perspective for studying the relationship between technological change, remote working, and employee well-being. Because harmonization retains variables suitable for comparisons across survey waves, researchers should verify whether the detailed telework-agreement, working-time-recognition, and workaholism measures from 2018 remain available. The original 2018 dataset is the better choice for reproducing the specific workaholism study.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795453644.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18773,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1211,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 19984
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

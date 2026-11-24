@@ -1,0 +1,69 @@
+{
+  "query_id": 63,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about journalism in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"News on TikTok: An Annotated Dataset of TikTok Videos from German-Speaking News Outlets in 2023\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2819\",\n      \"justification\": \"Provides expert-coded metadata and content annotations for over 8,000 TikTok news videos published in 2023 by 18 major German-speaking news outlets, facilitating research on social media journalism in Germany.\"\n    },\n    {\n      \"title\": \"A geolocated dataset of German news articles\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-05422-w\",\n      \"justification\": \"Contains structured metadata, geographic location annotations, and vector embeddings for tens of millions of German news articles, allowing spatial and thematic analysis of news coverage in Germany.\"\n    },\n    {\n      \"title\": \"Dataset of Quotation Attribution in German News Articles\",\n      \"url_or_doi\": \"https://aclanthology.org/2024.lrec-main.394/\",\n      \"justification\": \"A dataset published at LREC-COLING 2024 containing fine-grained annotations of quotes, speakers, and reporting context across 1,000 German news documents to study attribution practices.\"\n    },\n    {\n      \"title\": \"Awesome Tagesschau Dataset\",\n      \"url_or_doi\": \"https://huggingface.co/datasets/stefan-it/awesome-tagesschau\",\n      \"justification\": \"A dataset comprising over 56,000 news articles from Germany's public service broadcaster portal tagesschau.de, covering news reporting in the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 570,
+          "candidatesTokenCount": 439,
+          "totalTokenCount": 2524,
+          "cachedContentTokenCount": 169,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 570
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 169
+            }
+          ],
+          "thoughtsTokenCount": 1515,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ermnaseTKP3xnsEPxIHm2QY"
+      }
+    }
+  ]
+}

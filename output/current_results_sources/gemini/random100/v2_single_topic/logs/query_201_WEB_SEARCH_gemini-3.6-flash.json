@@ -1,0 +1,69 @@
+{
+  "query_id": 201,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Cumulated German General Social Survey (ALLBUS 1980-2014)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"Provides long-term survey data starting in 1980 on political attitudes, participation, trust in political institutions, and social changes in West Germany during the 1980s.\"\n    },\n    {\n      \"title\": \"Comparative Political Data Set 1960-1996 (CPDS)\",\n      \"url_or_doi\": \"https://doi.org/10.48573/z1cq-xm67\",\n      \"justification\": \"Offers annual country-level data on institutional structure, government composition, cabinet stability, and political systems across democratic nations, including West Germany throughout the 1980s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2019a\",\n      \"justification\": \"Contains quantitative content-analytical data on party manifestos, policy preferences, and political agendas of German political parties during electoral campaigns in the 1980s.\"\n    },\n    {\n      \"title\": \"Politbarometer 1977-2023 (Partielle Kumulation)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14527\",\n      \"justification\": \"Includes repeated cross-sectional survey data collecting public sentiment, party preference, and perception of political figures and government performance in West Germany through the 1980s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 631,
+          "candidatesTokenCount": 430,
+          "totalTokenCount": 2858,
+          "cachedContentTokenCount": 124,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 631
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 124
+            }
+          ],
+          "thoughtsTokenCount": 1797,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "e1CEaqmqB52ixN8P_-XQ2AM"
+      }
+    }
+  ]
+}

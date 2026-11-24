@@ -1,0 +1,62 @@
+{
+  "query_id": 88,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Federal Statistical Office (Destatis) Labour Market Statistics\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Labour/Labour-Market/_node.html\",\n      \"justification\": \"Provides official primary statistics from Destatis covering monthly, quarterly, and annual employment, unemployment rates, and employee figures in Germany throughout the 2020s.\"\n    },\n    {\n      \"title\": \"IAB Research Data Centre (FDZ-IAB) Labour Market Datasets\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/\",\n      \"justification\": \"Offers microdata and administrative datasets from the Institute for Employment Research (IAB), including establishment panels and integrated labor market biographies covering employment dynamics in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat EU Labour Force Survey: Unemployment and Employment Rates\",\n      \"url_or_doi\": \"https://doi.org/10.2908/lfsa_urgan\",\n      \"justification\": \"Contains standardized Eurostat Labour Force Survey (LFS) microdata and aggregated series on employment and unemployment indicators for EU countries, including Germany, during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 364,
+          "candidatesTokenCount": 305,
+          "totalTokenCount": 1790,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "thoughtsTokenCount": 1121,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "tDWEaoX3BL_8vdIPyee8mQo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "query_id": 58,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03937b0afd9560b0006b047abe605887d289f4d1f5d0247774",
+        "created_at": 1795455678.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03937b0afd9560b0006b047abf4c4487d2b84ad821334f2018",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany foreign policy international organizations datasets 2010 2024 Germany UN voting dataset",
+                "OECD Germany official development assistance data explorer dataset",
+                "Germany international relations treaties dataset 2010 2020 GDELT",
+                "Germany migration international protection Eurostat dataset 2010 2024"
+              ],
+              "query": "Germany foreign policy international organizations datasets 2010 2024 Germany UN voting dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03937b0afd9560b0006b047ac308f087d2a2892af1bd6a8d35",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:ec.europa.eu/eurostat/databrowser/view/migr_asyappctza/default/table asylum applicants",
+                "site:sipri.org/databases/milex military expenditure database Germany",
+                "site:gdeltproject.org data download GDELT 2.0 events",
+                "site:manifesto-project.wzb.eu dataset Germany internationalism foreign policy 2024"
+              ],
+              "query": "site:ec.europa.eu/eurostat/databrowser/view/migr_asyappctza/default/table asylum applicants",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03937b0afd9560b0006b047ac690cc87d2b80035c02829b438",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"United Nations General Assembly Resolutions: Voting Data and Issue Categories (1995–2024)\",\n      \"url_or_doi\": \"https://doi.org/10.7802/2855\",\n      \"justification\": \"Published by the German Institute for International and Security Affairs (SWP), this dataset contains UN General Assembly resolutions, voting records, and policy classifications. It enables analysis of Germany's voting behavior, diplomatic priorities, and alignment with international organizations and other countries throughout the 2010s and early 2020s. Particularly relevant for studying German foreign policy and multilateral cooperation.\"\n    },\n    {\n      \"title\": \"United Nations Voting Incidence and Coincidence Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.7910/DVN/B7XXRZ\",\n      \"justification\": \"Provides country-level voting records and voting similarity measures for United Nations bodies, including the General Assembly, Security Council, and Human Rights Council. Researchers can examine Germany's diplomatic alignment with other countries, changes in international partnerships, and voting patterns during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"International Treaty Ratification Votes Database (1990–2019)\",\n      \"url_or_doi\": \"https://doi.org/10.1093/fpa/orad023\",\n      \"justification\": \"Introduces datasets covering more than 6,000 parliamentary votes on international treaty ratification across ten countries, including Germany. The data contain parliamentary and political-party voting information, treaty characteristics, and policy classifications. Particularly useful for studying German parliamentary politics, international agreements, European integration, and domestic support for international organizations during the 2010s. The DOI leads to the dataset's accompanying research publication.\"\n    },\n    {\n      \"title\": \"OECD Development Finance Statistics: Official Development Assistance\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/development-finance-statistics-data-on-flows-to-developing-countries.html\",\n      \"justification\": \"Official OECD data covering development assistance and international financial flows from donor countries, including Germany. The database allows researchers to investigate German foreign aid, bilateral development partnerships, multilateral contributions, and financial commitments to international development organizations during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"SIPRI Military Expenditure Database (1949–2025)\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/milex\",\n      \"justification\": \"Produced by the Stockholm International Peace Research Institute, this database provides annual military expenditure statistics for Germany and other countries. Researchers can examine German defense spending during the 2010s and 2020s, including changes associated with NATO commitments, European security cooperation, and Russia's invasion of Ukraine. Particularly relevant for international security politics and defense policy.\"\n    },\n    {\n      \"title\": \"GDELT Global Database of Events, Language, and Tone\",\n      \"url_or_doi\": \"https://www.gdeltproject.org/data.html\",\n      \"justification\": \"A large-scale database documenting political events, diplomatic interactions, protests, conflicts, and international cooperation worldwide. Its historical coverage includes the 2010s and 2020s. Researchers can filter events involving Germany, German political actors, foreign governments, and international organizations. Useful for studying diplomatic relationships, international political tensions, and Germany's involvement in global affairs.\"\n    },\n    {\n      \"title\": \"GDELT Historical Global Political Events Dataset\",\n      \"url_or_doi\": \"https://data.gdeltproject.org/events/\",\n      \"justification\": \"Provides historical event records documenting international political interactions, including cooperation, conflict, diplomatic negotiations, and protests. The dataset can be filtered to identify events involving Germany and international organizations. Particularly useful for quantitative analyses of German diplomatic activity and bilateral political relationships across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Eurostat Asylum Applicants by Type, Citizenship, Age and Sex: Monthly Data\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/databrowser/view/MIGR_ASYAPPCTZM/default/table?lang=en\",\n      \"justification\": \"Official European Union statistics covering asylum applications by citizenship, demographic characteristics, and destination country, including Germany. Monthly observations are available for the 2010s and 2020s. The dataset supports research into Germany's role in European migration politics, international refugee protection, and EU asylum policy, particularly during the 2015 refugee crisis and subsequent migration developments.\"\n    },\n    {\n      \"title\": \"Eurostat Migration and Asylum Statistics\",\n      \"url_or_doi\": \"https://ec.europa.eu/eurostat/en/web/migration-asylum/asylum/information-data\",\n      \"justification\": \"Provides access to official European statistics on asylum applications, refugee protection decisions, resettlement, and related migration indicators. Germany can be selected for country-specific analysis and compared with other EU member states. Relevant for examining German participation in European migration governance and international refugee protection during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Database: Political Party Positions on International Relations and European Integration\",\n      \"url_or_doi\": \"https://manifesto-project.wzb.eu/datasets\",\n      \"justification\": \"Maintained by the Manifesto Project, this database contains systematically coded election manifestos from political parties across numerous countries, including Germany. It includes categories related to foreign policy, international cooperation, European integration, military policy, and internationalism. Researchers can examine how German political parties' positions toward the EU, NATO, and international cooperation evolved during elections in the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"United Nations Security Council Membership and Voting Datasets\",\n      \"url_or_doi\": \"https://axel-dreher.de/datasets/\",\n      \"justification\": \"The dataset collection maintained by international political economy researcher Axel Dreher includes information on temporary UN Security Council membership and voting on Security Council resolutions through 2021. These data can be used to examine Germany's participation in the Security Council, including its 2011–2012 and 2019–2020 membership periods, and compare its diplomatic positions with those of other countries.\"\n    },\n    {\n      \"title\": \"UN Voting Incidence and Coincidence: Pardee Institute\",\n      \"url_or_doi\": \"https://korbel.du.edu/pardee/un-voting-incidence-and-coincidence/\",\n      \"justification\": \"Provides access to datasets measuring individual countries' voting behavior and similarities between countries in three UN bodies. Germany can be compared with other EU countries, NATO allies, and major international powers. Particularly relevant for investigating international political alignment, diplomatic cooperation, and the evolution of Germany's multilateral relationships throughout the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Germany: United Nations Voting Records\",\n      \"url_or_doi\": \"https://unindex.org/countries/deu?body=unga&from=2006&min=20&to=2026\",\n      \"justification\": \"A Germany-specific interface for exploring United Nations voting records and political alignment with other member states. It draws on UN voting data and allows examination of German positions on international resolutions, including issues concerning security, human rights, and international justice. Particularly convenient for investigating Germany's behavior within the United Nations during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Germany: Voting Record at the UN Human Rights Council\",\n      \"url_or_doi\": \"https://lszoszk.github.io/hrc-voting/country/germany/\",\n      \"justification\": \"Provides country-specific information about Germany's voting behavior in the United Nations Human Rights Council and its predecessor, the Commission on Human Rights. Includes individual resolutions and voting positions, making it useful for studying Germany's international human rights diplomacy, multilateral cooperation, and policy disagreements with other countries during the 2010s and 2020s.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795455695.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18450,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1830,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20280
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

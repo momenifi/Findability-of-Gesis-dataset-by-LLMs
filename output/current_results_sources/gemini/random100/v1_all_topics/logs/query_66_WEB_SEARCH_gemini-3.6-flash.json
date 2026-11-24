@@ -1,0 +1,62 @@
+{
+  "query_id": 66,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Religion and values in Algeria, Ghana, Indonesia, Jordan, Kenya, Cambodia, Sri Lanka, Mongolia, Malawi, Malaysia, Nigeria, Nepal, Singapore, and Viet Nam during the 2010s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"World Values Survey Wave 6 (2010-2014)\",\n      \"url_or_doi\": \"https://www.worldvaluessurvey.org/WVSDocumentationWV6.jsp\",\n      \"justification\": \"Fielded between 2010 and 2014, WVS Wave 6 covers several target countries including Algeria, Ghana, Jordan, Malaysia, Nigeria, and Singapore. The dataset includes comprehensive modules on religious beliefs, importance of religion, moral values, and social attitudes.\"\n    },\n    {\n      \"title\": \"World Values Survey Wave 7 (2017-2022) Cross-National Data-Set\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.24\",\n      \"justification\": \"Fielded in the late 2010s, WVS Wave 7 contains survey data for countries such as Indonesia, Malaysia, Nigeria, Singapore, and Viet Nam, capturing personal religiosity, moral values, social tolerance, and secularization trends.\"\n    },\n    {\n      \"title\": \"Asian Barometer Survey (ABS) Data Releases\",\n      \"url_or_doi\": \"https://www.asianbarometer.org/data\",\n      \"justification\": \"Asian Barometer Wave 3 (2010–2012) and Wave 4 (2014–2016) cover East and South Asian countries including Indonesia, Cambodia, Sri Lanka, Mongolia, Malaysia, Nepal, Singapore, and Viet Nam, examining public attitudes toward traditional values, social norms, and religion.\"\n    },\n    {\n      \"title\": \"Pew Research Center: The World's Muslims Survey Dataset (2010-2012)\",\n      \"url_or_doi\": \"https://www.pewresearch.org/dataset/the-worlds-muslims/\",\n      \"justification\": \"Conducted between 2010 and 2012, this dataset captures public opinion from countries with major Muslim populations including Algeria, Indonesia, Jordan, Malaysia, Nigeria, Ghana, and Kenya regarding religious practices, sharia, morality, and social values.\"\n    },\n    {\n      \"title\": \"Afrobarometer Merged Datasets (Rounds 5 and 6)\",\n      \"url_or_doi\": \"https://www.afrobarometer.org/data/merged-data/\",\n      \"justification\": \"Afrobarometer Round 5 (2011–2013) and Round 6 (2014–2015) datasets cover African nations in the request, such as Algeria, Ghana, Kenya, Malawi, and Nigeria, featuring indicators on religious affiliation, trust in religious authorities, and social values.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 971,
+          "candidatesTokenCount": 650,
+          "totalTokenCount": 4007,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 971
+            }
+          ],
+          "thoughtsTokenCount": 2386,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "ZgSEarOuLNK7kdUPteL1gQc"
+      }
+    }
+  ]
+}

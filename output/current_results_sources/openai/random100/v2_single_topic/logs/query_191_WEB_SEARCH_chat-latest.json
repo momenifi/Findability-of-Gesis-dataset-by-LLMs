@@ -1,0 +1,186 @@
+{
+  "query_id": 191,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes in Czech Republic during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0acc6bce54948540006b046693b6ac87d292e3406cd9b9e636",
+        "created_at": 1795450515.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0acc6bce54948540006b046694c0bc87d2b797a896d81d232a",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Czech Social Science Data Archive CVVM public opinion surveys 2000 2009 data",
+                "Czech Republic election study 2002 2006 dataset voting attitudes",
+                "European Social Survey Czech Republic rounds 2002 2004 2006 2008 data",
+                "Czech Republic ISSP citizenship 2004 role government 2006 dataset"
+              ],
+              "query": "Czech Social Science Data Archive CVVM public opinion surveys 2000 2009 data",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0acc6bce54948540006b046697429087d2897cfc23aeadbd88",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:archivdv.soc.cas.cz/dataset.xhtml \"Naše společnost 2006\" \"politika\"",
+                "site:archivdv.soc.cas.cz/dataset.xhtml \"Naše společnost 2009\"",
+                "site:search.gesis.org/research_data \"Party Preferences Czech Republic 2000\"",
+                "European Social Survey data portal rounds download official"
+              ],
+              "query": "site:archivdv.soc.cas.cz/dataset.xhtml \"Naše společnost 2006\" \"politika\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0acc6bce54948540006b04669a97cc87d28de1ca9c4a0996ee",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Czech Social Science Data Archive (ČSDA) – Political Behaviour and Public Opinion Datasets, 2001–2009\",\n      \"url_or_doi\": \"https://archiv.soc.cas.cz/en/pristup-k-datum-2/nase-data\",\n      \"justification\": \"One of the most comprehensive sources of survey data on political behaviour and attitudes in the Czech Republic during the 2000s. The archive contains quantitative surveys dating from 2001 onward, including research on political participation, voting preferences, political trust, democratic values, and evaluations of government institutions. Particularly useful for identifying multiple datasets covering the decade.\"\n    },\n    {\n      \"title\": \"Public Opinion Research Centre (CVVM) – Our Society Survey Series, 2001–2009\",\n      \"url_or_doi\": \"https://archivdv.soc.cas.cz/dataverse/cvvm\",\n      \"justification\": \"A collection of Czech public opinion surveys conducted regularly throughout the 2000s. Topics include political orientation, party identification, electoral preferences, satisfaction with democracy, confidence in political institutions, and attitudes toward the European Union. The repeated surveys are particularly valuable for examining changes in Czech political attitudes over time. Individual datasets and questionnaires are available through the archive.\"\n    },\n    {\n      \"title\": \"Our Society 2002 – February (Naše společnost 2002 – únor)\",\n      \"url_or_doi\": \"https://doi.org/10.14473/CSDA/HELHY4\",\n      \"justification\": \"An individual-level public opinion survey conducted by the Czech Public Opinion Research Centre in February 2002. It contains 1,083 observations and 176 variables, including questions concerning domestic politics and public attitudes. Particularly relevant for studying political opinions shortly before the 2002 Czech parliamentary election. The dataset includes survey data and questionnaire documentation.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) – Czech Republic, Round 1 (2002–2003)\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/series/321b06ad-1b98-4b7d-93ad-ca8a24e8788a\",\n      \"justification\": \"A nationally representative cross-national survey containing Czech responses collected in 2002–2003. Relevant variables include political interest, voting participation, political trust, satisfaction with democracy, ideological orientation, and attitudes toward institutions. Particularly useful for establishing a baseline of Czech political attitudes at the beginning of the decade and comparing them with other European countries.\"\n    },\n    {\n      \"title\": \"European Social Survey (ESS) – Czech Republic, Round 4 (2008–2009)\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/series/321b06ad-1b98-4b7d-93ad-ca8a24e8788a\",\n      \"justification\": \"Provides individual-level survey data on Czech political attitudes and behaviour near the end of the 2000s. Includes measures of political participation, trust in parliament and politicians, satisfaction with government, political ideology, and social values. Particularly useful when combined with earlier ESS rounds to investigate changes in political attitudes during the decade, including the period surrounding the global financial crisis.\"\n    },\n    {\n      \"title\": \"Czech National Election Study (CNES) – 2002 and 2006 Parliamentary Elections\",\n      \"url_or_doi\": \"https://www.cnes.community/index.php/questionnaires/czechia-questionnaire/\",\n      \"justification\": \"The Czech National Election Study provides documentation for election surveys, including the 2006 parliamentary election. These studies are particularly relevant for research on voting behaviour, electoral participation, party choice, ideological identification, and political attitudes. The questionnaire repository helps identify relevant election-study variables, although access to the underlying microdata may require consulting the associated data archives.\"\n    },\n    {\n      \"title\": \"Party Preferences in the Czech Republic – 2000\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3891\",\n      \"justification\": \"A dataset combining monthly Czech public opinion surveys conducted during 2000. It provides information on political party preferences and electoral attitudes throughout the year. Particularly useful for examining short-term fluctuations in party support and establishing a baseline for longitudinal studies of Czech political behaviour during the 2000s. The dataset is archived through GESIS.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Citizenship 2004\",\n      \"url_or_doi\": \"https://sasd.sav.sk/en/data_katalog_det.php?id=sasd_2005001\",\n      \"justification\": \"The ISSP Citizenship 2004 study provides comparative survey measures concerning democratic citizenship, political participation, civic obligations, and attitudes toward government. Questions address what constitutes good citizenship, including obeying laws and monitoring government actions. The linked catalogue documents the international study; researchers should verify access to the Czech national sample through the ISSP or Czech Social Science Data Archive.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) – Role of Government 2006\",\n      \"url_or_doi\": \"https://archiv.soc.cas.cz/cz/pristup-k-datum/jine-zdroje-dat\",\n      \"justification\": \"The 2006 ISSP Role of Government survey is relevant to Czech attitudes toward government responsibilities, public spending, state intervention, civil liberties, and the relationship between citizens and political institutions. It offers internationally comparable measures of political and economic attitudes during the middle of the decade. The Czech Social Science Data Archive identifies the 2006 module among the available ISSP research series.\"\n    },\n    {\n      \"title\": \"European Social Survey – Multilevel Data\",\n      \"url_or_doi\": \"https://ess.sikt.no/en/series/50ebb530-c72e-4002-a7bf-5581e3fdfe21\",\n      \"justification\": \"Provides contextual information that can be linked to individual European Social Survey responses, including observations from Czechia. Relevant contextual variables cover economic conditions, political institutions, demographics, and other country-level characteristics. Particularly useful for investigating whether changes in Czech political trust, voting behaviour, or satisfaction with democracy are associated with broader institutional and socioeconomic developments. Historical multilevel data are available for ESS Round 4 (2008–2009).\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795450529.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19264,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1478,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20742
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

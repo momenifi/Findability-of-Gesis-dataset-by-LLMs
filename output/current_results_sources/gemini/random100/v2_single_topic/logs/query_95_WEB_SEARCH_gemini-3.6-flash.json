@@ -1,0 +1,69 @@
+{
+  "query_id": 95,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Business/industrial management and organisation in Rhineland-Palatinate and North Rhine-Westphalia during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel)\",\n      \"url_or_doi\": \"https://fdz.iab.de/en/establishment-data/iab-establishment-panel/\",\n      \"justification\": \"An annual representative survey conducted since 1993 in West Germany (including North Rhine-Westphalia and Rhineland-Palatinate), capturing microdata on business management, industrial organisation, investments, corporate policies, and employment structure.\"\n    },\n    {\n      \"title\": \"Establishment History Panel (Betriebs-Historik-Panel - BHP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.FDZD.2315.de.v1\",\n      \"justification\": \"Provides longitudinal microdata aggregated at the establishment level across German federal states, including North Rhine-Westphalia and Rhineland-Palatinate throughout the 1990s, focusing on establishment size, sector classification, and organizational developments.\"\n    },\n    {\n      \"title\": \"AFiD-Panel Industrial Enterprises (AFiD-Panel Industrieunternehmen)\",\n      \"url_or_doi\": \"https://www.forschungsdatenzentrum.de/\",\n      \"justification\": \"Provided by the Research Data Centre (FDZ) of the Statistical Offices of the Federation and the Federal States (including IT.NRW and the Statistical Office of Rhineland-Palatinate), containing microdata on industrial enterprise management, structure, and performance during the 1990s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1035,
+          "candidatesTokenCount": 366,
+          "totalTokenCount": 2880,
+          "cachedContentTokenCount": 398,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1035
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 398
+            }
+          ],
+          "thoughtsTokenCount": 1479,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "RjaEavOvD-TkxN8P0N7OOQ"
+      }
+    }
+  ]
+}

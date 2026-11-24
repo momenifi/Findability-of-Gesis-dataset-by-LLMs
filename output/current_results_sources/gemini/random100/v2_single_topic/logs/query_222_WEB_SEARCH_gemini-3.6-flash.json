@@ -1,0 +1,69 @@
+{
+  "query_id": 222,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes in United Kingdom during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"British Social Attitudes Survey, 1990\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-2840-1\",\n      \"justification\": \"Conducted annually in Great Britain, this dataset measures social, moral, political, and economic attitudes, covering core 1990s topics such as civil liberties, welfare, family, and public policy.\"\n    },\n    {\n      \"title\": \"British Household Panel Survey: Waves 1-18, 1991-2009\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-5151-1\",\n      \"justification\": \"Launched in 1991, this major multi-purpose longitudinal dataset tracks British households and individuals over time, capturing social change, economic behavior, and personal attitudes throughout the 1990s.\"\n    },\n    {\n      \"title\": \"Northern Ireland Social Attitudes Survey, 1990\",\n      \"url_or_doi\": \"https://doi.org/10.5255/UKDA-SN-2841-1\",\n      \"justification\": \"Part of a continuous survey series running through the 1990s designed to monitor public opinion, political views, and social attitudes across Northern Ireland.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 736,
+          "candidatesTokenCount": 343,
+          "totalTokenCount": 2328,
+          "cachedContentTokenCount": 240,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 736
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 240
+            }
+          ],
+          "thoughtsTokenCount": 1249,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "NliEatbzGOTkxN8P0N7OOQ"
+      }
+    }
+  ]
+}

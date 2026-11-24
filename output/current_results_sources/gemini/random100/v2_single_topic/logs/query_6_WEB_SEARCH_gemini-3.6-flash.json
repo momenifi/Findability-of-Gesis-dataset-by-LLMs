@@ -1,0 +1,62 @@
+{
+  "query_id": 6,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about HISTORY in Germany, England, Sweden, and United States of America during the 1950s and 1960s and 1970s and 1980s and 1990s and 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"IPUMS USA: Decennial Census Microdata (1950–2000s)\",\n      \"url_or_doi\": \"https://doi.org/10.18128/D010.V16.0\",\n      \"justification\": \"Provides harmonized public-use individual and household microdata from the United States decennial censuses spanning 1950 through the 2000s, enabling historical demographic, economic, and social analysis.\"\n    },\n    {\n      \"title\": \"British Election Study (BES) Series (1964–Present)\",\n      \"url_or_doi\": \"http://doi.org/10.5255/UKDA-Series-200003\",\n      \"justification\": \"Tracks political attitudes, social history, and electoral behavior in England/Great Britain through general election surveys conducted continuously from 1964 through the 1970s, 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"Cumulated German General Social Survey (ALLBUS 1980–2014)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12646\",\n      \"justification\": \"Offers longitudinal, representative survey data from GESIS on social changes, public opinion, and population demographics in Germany across the 1980s, 1990s, and 2000s.\"\n    },\n    {\n      \"title\": \"Swedish National Election Studies (SNES) Program\",\n      \"url_or_doi\": \"https://snd.se/en\",\n      \"justification\": \"Hosted via the Swedish National Data Service (SND), this series collects data on political attitudes, policy preferences, and electoral history in Sweden for every national election from 1956 through the 2000s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 616,
+          "candidatesTokenCount": 473,
+          "totalTokenCount": 2698,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 616
+            }
+          ],
+          "thoughtsTokenCount": 1609,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "qiOEarmYCZi9nsEPuc3diAo"
+      }
+    }
+  ]
+}

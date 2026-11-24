@@ -1,0 +1,62 @@
+{
+  "query_id": 23,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Leisure, tourism and sport in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Zeitverwendungserhebung 2022 (Time Use Survey 2022) - Destatis\",\n      \"url_or_doi\": \"https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Zeitverwendung/_inhalt.html\",\n      \"justification\": \"Conducted by the German Federal Statistical Office (Destatis), this dataset provides comprehensive microdata and tables on how people aged 10 and older in Germany spent their daily time during 2022, including detailed breakdowns for leisure, sports, and recreational activities.\"\n    },\n    {\n      \"title\": \"ALLBUS 2021 (German General Social Survey 2021)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14629\",\n      \"justification\": \"A population-representative survey dataset hosted on GESIS covering social trends, leisure behaviors, and lifestyle indicators in Germany collected in mid-2021.\"\n    },\n    {\n      \"title\": \"Situation und Entwicklung der Fußballvereine in Deutschland 2020 - Sportentwicklungsbericht 2020-2022\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.5805569\",\n      \"justification\": \"Dataset from the 8th wave of the German Sport Development Report (Sportentwicklungsbericht) published on Zenodo, surveying sports clubs and amateur athletic participation across Germany in late 2020.\"\n    },\n    {\n      \"title\": \"Destatis Short-Term Indicators and Tourism Statistics (2020s)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Economy/Short-Term-Indicators/Tourism/_node.html\",\n      \"justification\": \"Official statistical datasets from the German Federal Statistical Office tracking monthly guest arrivals, overnight accommodation stays, and tourism industry indicators across Germany during the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 617,
+          "candidatesTokenCount": 493,
+          "totalTokenCount": 3165,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 617
+            }
+          ],
+          "thoughtsTokenCount": 2055,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "T7enatvQG7epvdIP34K0yQU"
+      }
+    }
+  ]
+}

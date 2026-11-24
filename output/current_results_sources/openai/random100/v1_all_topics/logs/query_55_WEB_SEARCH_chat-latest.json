@@ -1,0 +1,186 @@
+{
+  "query_id": 55,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Business/industrial management and organisation, and PSYCHOLOGY in Germany during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0a87d5a0e656b11f006b04572efb0887d2bf311d0e0f93361c",
+        "created_at": 1795446575.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0a87d5a0e656b11f006b04572fdb9087d29b2e3f895232a72f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany SOEP dataset 2000 2009 employment job satisfaction psychological wellbeing data access",
+                "Germany IAB establishment panel 2000 2009 dataset management organisation employment",
+                "Germany BIBB BAuA employment survey 2006 working conditions psychological stress dataset",
+                "Germany German General Social Survey ALLBUS 2000 2008 work attitudes psychology dataset"
+              ],
+              "query": "Germany SOEP dataset 2000 2009 employment job satisfaction psychological wellbeing data access",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0a87d5a0e656b11f006b0457330bfc87d28f53bd19aef82e51",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:diw.de SOEP core data 1984 2023 dataset doi life satisfaction employment",
+                "site:gesis.org ALLBUS 2008 dataset DOI job satisfaction",
+                "site:fdz.iab.de linked employer employee data LIAB 2000 2009 dataset doi",
+                "site:gesis.org European Social Survey Germany 2002 2008 wellbeing work dataset"
+              ],
+              "query": "site:diw.de SOEP core data 1984 2023 dataset doi life satisfaction employment",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0a87d5a0e656b11f006b04573626f487d2b1aec04b2390d181",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core), 1984–2023\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v40.1t\",\n      \"justification\": \"A longitudinal household and individual survey covering Germany, including every year from 2000 to 2009. Particularly relevant because it combines employment, occupational characteristics, income, job satisfaction, psychological well-being, life satisfaction, health, and personality-related measures. Suitable for investigating relationships between employment conditions, organizational experiences, and psychological outcomes during the 2000s. The linked DOI identifies the teaching edition.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-Betriebspanel), 1993–2019\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9319.de.en.v1\",\n      \"justification\": \"A representative annual survey of German establishments covering the entire 2000–2009 period. Provides establishment-level information on employment, workforce composition, recruitment, organizational practices, personnel management, vocational training, working arrangements, and business development. Especially useful for research on industrial management, business organization, human resource management, and employment practices in German firms.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2006: Working Conditions and Occupational Qualifications\",\n      \"url_or_doi\": \"https://doi.org/10.7803/501.06.1.1.40\",\n      \"justification\": \"A nationally representative survey of approximately 20,000 employed individuals in Germany conducted in 2005–2006. Contains detailed information on employment, occupational qualifications, workplace organization, job requirements, working conditions, occupational stressors, and health complaints. Particularly valuable for interdisciplinary research connecting employment, organizational psychology, workplace stress, and employee well-being.\"\n    },\n    {\n      \"title\": \"Linked Employer-Employee Data of the IAB (LIAB), Longitudinal Model 1975–2017\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.LIABLM7517.de.en.v1\",\n      \"justification\": \"A German longitudinal dataset linking establishment survey information with employee administrative employment records. Includes the complete 2000–2009 period. Enables research on organizational characteristics, employment relationships, workforce structure, wages, job mobility, and employer-level personnel practices. Particularly useful for studying how business organization and management relate to employee labor-market outcomes. Access is restricted through the IAB Research Data Centre.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA4584\",\n      \"justification\": \"A cumulative dataset containing nationally representative German social surveys, including waves conducted in 2000, 2002, 2004, 2006, and 2008. Covers employment status, occupational characteristics, social attitudes, subjective perceptions, values, and socioeconomic circumstances. Relevant for social psychology, occupational attitudes, employment research, and relationships between work and broader social attitudes in Germany during the 2000s.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2006: Working Conditions and Health\",\n      \"url_or_doi\": \"https://www.baua.de/DE/Themen/Monitoring-Evaluation/Zahlen-Daten-Fakten/BIBB-BAuA/BIBB-BAuA-2006\",\n      \"justification\": \"The German Federal Institute for Occupational Safety and Health provides an official research resource for the 2006 employment survey, emphasizing occupational demands, workplace exposures, work-related strain, and health outcomes. Particularly relevant to occupational psychology, psychological stress at work, employee health, and the relationship between organizational working conditions and well-being. This is an alternative official landing page for the BIBB/BAuA 2006 survey.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Surveys, 1979–2006\",\n      \"url_or_doi\": \"https://www.bibb.de/en/14781.php\",\n      \"justification\": \"A collection of representative German employment surveys examining occupational qualifications, workplace technologies, job characteristics, and changing working conditions. The 1998–1999 and 2005–2006 waves are particularly useful for investigating changes around and during the 2000s. Relevant to organizational change, industrial management, technological transformation, occupational demands, and employee experiences.\"\n    },\n    {\n      \"title\": \"BIBB Cost-Benefit Surveys of Apprenticeship Training, 2000 and 2007\",\n      \"url_or_doi\": \"https://www.bibb.de/en/14512.php\",\n      \"justification\": \"Firm-level surveys conducted by Germany's Federal Institute for Vocational Education and Training. The 2000 and 2007 waves provide evidence about the costs and benefits of workplace apprenticeship training. Particularly relevant to business management, personnel development, organizational investment in human capital, workforce training, and industrial employment practices. The linked BIBB data catalogue provides information about accessing these surveys.\"\n    },\n    {\n      \"title\": \"BIBB Transition Survey 2006\",\n      \"url_or_doi\": \"https://www.bibb.de/en/14512.php\",\n      \"justification\": \"A representative German survey examining young people's educational and occupational transitions. The 2006 survey is relevant to employment, career development, occupational decision-making, and the transition from education into work. It can support research connecting labor-market opportunities with behavioral and psychological aspects of career choice, although the availability of specific psychological measures should be checked in the documentation.\"\n    },\n    {\n      \"title\": \"BIBB School Graduate Surveys, 2004–2008\",\n      \"url_or_doi\": \"https://www.bibb.de/en/14512.php\",\n      \"justification\": \"A collection of representative surveys of German school graduates, including the years 2004, 2005, 2006, and 2008. Examines occupational preferences, employment expectations, educational pathways, and career decisions. Relevant to vocational psychology, employment expectations, occupational aspirations, workforce entry, and human resource development. The BIBB research data catalogue provides access information.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS), Individual Surveys 2000–2008\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The official GESIS repository provides access to individual ALLBUS survey waves for 2000, 2002, 2004, 2006, and 2008. These surveys contain information on social attitudes, employment, occupational characteristics, socioeconomic background, and subjective evaluations. Useful for examining psychological and social attitudes in relation to employment and occupational position. Individual waves can be analyzed separately or combined to investigate changes throughout the decade.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel, 1993–2022\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9322.de.en.v1\",\n      \"justification\": \"A longitudinal establishment-level dataset covering Germany from 1993 through 2022, including all years from 2000 to 2009. Provides information on business structures, employment demand, personnel policies, workforce organization, training, and establishment characteristics. Well suited to analyzing organizational management decisions and their consequences for employment. This is a more recent version of the IAB Establishment Panel listed above.\"\n    },\n    {\n      \"title\": \"Harmonized BIBB/BAuA Employment Survey Dataset, 2006–2018\",\n      \"url_or_doi\": \"https://www.bibb.de/de/190900.php\",\n      \"justification\": \"A harmonized dataset combining the 2006, 2012, and 2018 German employment surveys. Although only the 2006 wave falls within the requested decade, the harmonized structure enables comparisons between working conditions in the 2000s and subsequent periods. Covers occupational tasks, employment characteristics, work demands, and related workplace experiences. Particularly useful for research on organizational changes and occupational health over time.\"\n    },\n    {\n      \"title\": \"BIBB/BAuA Employment Survey 2006, GESIS Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11072\",\n      \"justification\": \"A scientific-use version of the German 2006 employment survey distributed through GESIS. Provides individual-level information on qualifications, occupational activities, employment conditions, workplace requirements, and work-related experiences. Suitable for studying work organization, occupational stress, employee satisfaction, and relationships between work characteristics and psychological or health outcomes. This is another access route to the BIBB/BAuA 2006 survey.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795446592.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 18707,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2023,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 20730
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

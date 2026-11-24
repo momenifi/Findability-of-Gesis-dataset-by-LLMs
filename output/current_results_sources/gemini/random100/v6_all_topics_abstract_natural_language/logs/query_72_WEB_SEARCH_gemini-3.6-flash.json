@@ -1,0 +1,69 @@
+{
+  "query_id": 72,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Political behaviour and attitudes, Government, political systems and organisations, and Elections in Czech Republic during the 2000s, matching this research need: monthly 2000 Czech public opinion survey data on party preferences, voting behavior, trust in political leaders and institutions, democracy satisfaction, EU membership attitudes, economic conditions, religion, household living standards, region, and community size\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Party Preferences Czech Republic 2000 (Trend)\",\n      \"url_or_doi\": \"https://datacatalogue.cessda.eu\",\n      \"justification\": \"Conducted by the Institute for Public Opinion Research (IVVM) in 2000 and available via the CESSDA Data Catalogue and Czech Social Science Data Archive (CSDA), this dataset captures monthly public opinion survey data across the Czech Republic. It covers political party preferences, voting behavior, trust in political leaders and institutions, satisfaction with democracy, EU attitudes, economic conditions, household living standards, region, community size, and religiosity.\"\n    },\n    {\n      \"title\": \"CVVM / IVVM - Naše společnost (Our Society) 2000 Monthly Public Opinion Surveys\",\n      \"url_or_doi\": \"https://archiv.soc.cas.cz/en\",\n      \"justification\": \"The continuous public opinion research project 'Naše společnost' (Our Society) conducted by IVVM/CVVM in 2000 and archived at the Czech Social Science Data Archive (CSDA) contains monthly survey data on Czech adults' political behavior, party choices, trust in government and democratic institutions, EU accession attitudes, personal and national economic evaluations, household living standards, religion, region, and settlement size.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1476,
+          "candidatesTokenCount": 307,
+          "totalTokenCount": 3751,
+          "cachedContentTokenCount": 964,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1476
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 964
+            }
+          ],
+          "thoughtsTokenCount": 1968,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "2Y2Eap7qOfKIvdIPiryAUQ"
+      }
+    }
+  ]
+}

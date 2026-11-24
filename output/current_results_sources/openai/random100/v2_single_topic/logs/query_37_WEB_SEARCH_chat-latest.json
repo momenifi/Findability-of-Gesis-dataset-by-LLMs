@@ -1,0 +1,169 @@
+{
+  "query_id": 37,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education in Bavaria during the 1970s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_01e1a1832125cd6d006b045c99461087d2bd5355bdfe7cae46",
+        "created_at": 1795447961.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_01e1a1832125cd6d006b045c9a4e1087d2addb58eafbfafe8e",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Bayern Hochschulstatistik 1970 1975 1980 historische daten studierende statistik",
+                "Bayern berufliche Schulen 1970 1980 statistik historische Tabellen",
+                "Bayerisches Landesamt Statistik historische statistische Jahrbücher 1970 hochschulen berufsschulen digital"
+              ],
+              "query": "Bayern Hochschulstatistik 1970 1975 1980 historische daten studierende statistik",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_01e1a1832125cd6d006b045c9df21487d2baab1c0a8b1fb94c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"Berufliche Schulen und Hochschulen in der Bundesrepublik Deutschland 1949–2001 (Historical Statistics / histat)\",\n      \"url_or_doi\": \"https://histat.safe-frankfurt.de/index.php/en/project/details/d2441e8d20a05d8b31bb73351af34df7\",\n      \"justification\": \"Highly relevant historical education dataset covering vocational education and higher education in West Germany from 1949 to 2001, including the entire 1970s. Based on Volume VIII of the Datenhandbuch zur deutschen Bildungsgeschichte, it contains 535 statistical tables documenting vocational schools, universities, and educational developments. Particularly useful for examining Bavaria within the broader West German context. State-level breakdowns should be checked in the individual tables.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch für Bayern – Historical Statistical Yearbooks\",\n      \"url_or_doi\": \"https://www.statistik.bayern.de/produkte/jahrbuch/\",\n      \"justification\": \"Official statistical yearbooks published by the Bavarian State Office for Statistics since 1894. These publications contain historical statistical tables covering higher education, universities, vocational schools, student enrollment, teaching staff, and educational institutions. Yearbooks from the 1970s are particularly valuable for reconstructing educational developments in Bavaria during that decade. The website provides access to the yearbook series and information about historical editions.\"\n    },\n    {\n      \"title\": \"Statistisches Jahrbuch für Bayern 1999 – Historical Education Statistics Since 1960\",\n      \"url_or_doi\": \"https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/BYHeft_derivate_00007093/Statistisches%20Jahrbuch%201999.pdf\",\n      \"justification\": \"Official Bavarian statistical publication containing historical comparison tables beginning in 1960, including observations for 1970 and 1980. The education section includes numbers of vocational schools, students, teachers, university students, and enrollment by higher education institution type. Particularly useful for establishing long-term trends and comparing educational conditions at the beginning and end of the 1970s.\"\n    },\n    {\n      \"title\": \"Die beruflichen Schulen in München – Schuljahr 1975/76\",\n      \"url_or_doi\": \"https://www.mstatistik-muenchen.de/archivierung_historische_berichte/MuenchenerStatistik/1976/ms760801.pdf\",\n      \"justification\": \"Contemporary statistical report documenting vocational education in Munich during the 1975/76 academic year. Based primarily on the Bavarian statistical survey conducted on November 15, 1975, it contains detailed tables about vocational schools and their organizational characteristics. Provides valuable local-level evidence concerning further education in Bavaria during the 1970s, although its geographical coverage is limited to Munich.\"\n    },\n    {\n      \"title\": \"Die Entwicklung der Studierendenzahl an den Münchner Hochschulen in den letzten 40 Jahren\",\n      \"url_or_doi\": \"https://stadt.muenchen.de/dam/jcr%3A43ed8206-dbb4-498c-9547-9d29aa2f1d5e/mb140402.pdf\",\n      \"justification\": \"Historical university enrollment dataset published in Münchner Statistik in 2014, using official Bavarian statistical data. Contains annual student enrollment figures for Munich's higher education institutions beginning with the winter semester 1973/74. Includes total enrollment, female students, international students, and corresponding percentages. Especially useful for analyzing the expansion of higher education, gender representation, and internationalization during the 1970s.\"\n    },\n    {\n      \"title\": \"Bayerisches Statistisches Landesamt – Historical Catalog of Bavarian Educational Statistics\",\n      \"url_or_doi\": \"https://pure.mpg.de/rest/items/item_2103399/component/file_2103398/content\",\n      \"justification\": \"Historical catalog documenting official statistical publications issued by the Bavarian State Statistical Office. Identifies multiple education data series covering the 1970s, including Die beruflichen Schulen in Bayern (annually since 1971/72), Die Berufsschulen in Bayern (since 1972/73), Die Berufsfachschulen in Bayern (including a time-series publication covering 1971/72–1976/77), and Die Berufsoberschulen und Fachoberschulen in Bayern (since 1970/71). This is a discovery resource rather than a dataset itself, but it is particularly useful for identifying original statistical datasets and their publication identifiers.\"\n    },\n    {\n      \"title\": \"Bayerisches Landesamt für Statistik – Hochschulen\",\n      \"url_or_doi\": \"https://www.statistik.bayern.de/statistik/bildung_soziales/hochschulen/index.html\",\n      \"justification\": \"Official statistical portal for higher education in Bavaria. Provides access to Bavarian higher education statistics and publications concerning university students, higher education institutions, academic qualifications, and university personnel. Although historical data availability varies, this is an authoritative starting point for locating archived higher education statistics and requesting historical series covering the 1970s.\"\n    },\n    {\n      \"title\": \"Bayerisches Landesamt für Statistik – Amtliche Schuldaten\",\n      \"url_or_doi\": \"https://www.statistik-bayern.eu/statistik/bildung_soziales/schulen/\",\n      \"justification\": \"Official Bavarian school statistics portal covering general and vocational education. Relevant school categories include Berufsschulen, Berufsfachschulen, Fachoberschulen, Berufsoberschulen, and Fachschulen. Useful for identifying official statistics on further education, including student enrollment, schools, and teaching personnel. Historical data for the 1970s may require consultation of archived publications rather than currently displayed tables.\"\n    },\n    {\n      \"title\": \"Interregionaler Vergleich der beruflichen Ausbildungssituation – Schulstatistik 1976/77 und 1977/78\",\n      \"url_or_doi\": \"https://lit.bibb.de/vufind/Record/DS-59922\",\n      \"justification\": \"Historical statistical study published in 1980 examining regional differences in vocational education using school statistics from 1976/77 and 1977/78. Particularly relevant for investigating vocational training and further education opportunities during the late 1970s. The bibliographic record is maintained by Germany's Federal Institute for Vocational Education and Training (BIBB). Its regional comparisons may help contextualize Bavaria's vocational education system, although the availability of Bavaria-specific tables needs verification.\"\n    },\n    {\n      \"title\": \"Bavarian Vocational School Statistics and Teacher-Student Ratios, 1973–1980 – Bavarian Parliament Historical Records\",\n      \"url_or_doi\": \"https://www.bayern.landtag.de/www/ElanTextAblage_WP09/Protokolle/09%20Wahlperiode%20Kopie/09%20WP%20Plenum%20LT%20Kopie/116%20PL%20030382%20ges%20endg%20Kopie.pdf\",\n      \"justification\": \"Official Bavarian parliamentary documentation containing historical education statistics sourced from the Bavarian State Statistical Office. Includes annual observations for the 1970s, with information concerning vocational schools, student numbers, teachers, and educational staffing ratios. Useful for constructing historical time series and studying changes in vocational education resources. Researchers should account for changes in statistical definitions, particularly around 1976 and 1980.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447974.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 12674,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 1651,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 14325
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

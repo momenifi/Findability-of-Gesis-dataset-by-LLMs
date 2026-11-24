@@ -1,0 +1,69 @@
+{
+  "query_id": 81,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social behaviour and attitudes, Medication and treatment, Specific diseases, disorders and medical conditions, Language and linguistics, International politics and organisations, and Political behaviour and attitudes in Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Eurobarometer 44.3 (Feb-Apr 1996)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10920\",\n      \"justification\": \"Conducted in early 1996 across Belgium, Denmark, Germany, Greece, Spain, France, Ireland, Italy, Luxembourg, Netherlands, Portugal, Great Britain, Northern Ireland, Austria, Sweden, and Finland, this dataset measures public opinion on health systems, medication and treatment, specific diseases and disorders, language abilities, political behaviour, and attitudes toward international organisations.\"\n    },\n    {\n      \"title\": \"Eurobarometer 41.0: Trade Issues, Blood Donation, AIDS, and Smoking, March-May 1994\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.10909\",\n      \"justification\": \"Fielded in spring 1994 across EU member states, this dataset covers health care practices, medical treatments, specific diseases (such as AIDS), smoking and health behaviour, political attitudes, international trade, and social attitudes during the 1990s.\"\n    },\n    {\n      \"title\": \"Eurobarometer 43.1: International Trade and Radiation Protection, April-May 1995\",\n      \"url_or_doi\": \"https://doi.org/10.3886/ICPSR06839.v1\",\n      \"justification\": \"Fielded in 1995 across the EU member countries (including Austria, Sweden, and Finland following their accession), this study collects cross-national survey data on health protection, disease prevention, international politics, trade, social attitudes, and political behavior.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2146,
+          "candidatesTokenCount": 424,
+          "totalTokenCount": 6096,
+          "cachedContentTokenCount": 907,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2146
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 907
+            }
+          ],
+          "thoughtsTokenCount": 3526,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "jgeEaqbOI669nsEPzqjkmQw"
+      }
+    }
+  ]
+}

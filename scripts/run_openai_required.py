@@ -18,8 +18,8 @@ from src.prompts import build_messages, format_messages
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLES = {
-    "random100": ("config.yaml", "output/random100_openai_gemini_comparison/openai"),
-    "top10": ("config_top10_requested_openai.yaml", "output/top10_visibility/requested_openai"),
+    "random100": "output/current_results_sources/openai/random100",
+    "top10": "output/current_results_sources/openai/top10",
 }
 VARIANTS = ("v1_all_topics", "v2_single_topic", "v3_title_only", "v6_all_topics_abstract_natural_language")
 
@@ -27,9 +27,9 @@ VARIANTS = ("v1_all_topics", "v2_single_topic", "v3_title_only", "v6_all_topics_
 def prepare(destination):
     prepared = []
     # Validate every source before creating the new experiment.
-    for sample, (config, source) in SAMPLES.items():
-        cfg = yaml.safe_load((ROOT / config).read_text(encoding="utf-8"))
+    for sample, source in SAMPLES.items():
         for variant in VARIANTS:
+            cfg = yaml.safe_load((ROOT / source / variant / "config.yaml").read_text(encoding="utf-8"))
             path = ROOT / source / variant / "queries.csv"
             queries = pd.read_csv(path, sep=";", keep_default_na=False)
             if queries.empty or queries.query_id.duplicated().any():
@@ -79,7 +79,7 @@ def main():
     print(f"Results: {directory}\nPlanned requests: {manifest['planned_requests']}", flush=True)
     if not args.execute:
         print("Prepared only; no API calls. Run:", flush=True)
-        print(f'python -m scripts.run_openai_required --run-dir "{directory.relative_to(ROOT)}" --execute')
+        print(f'python -m scripts.run_openai_required --run-dir "{directory}" --execute')
         return
     if not os.environ.get("OPENAI_API_KEY"):
         parser.error("Set OPENAI_API_KEY in this terminal before execution")

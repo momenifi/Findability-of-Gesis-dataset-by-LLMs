@@ -1,0 +1,62 @@
+{
+  "query_id": 150,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Government, political systems and organisations in Germany during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Comparative Political Data Set (CPDS)\",\n      \"url_or_doi\": \"https://www.cpds-data.org/\",\n      \"justification\": \"Provides annual country-level political and institutional data for democratic countries, including West Germany from 1960 onwards, covering parliamentary composition, cabinet ideology, government types, and elections.\"\n    },\n    {\n      \"title\": \"GESIS Data Archive Study ZA1976: Internationale Beziehungen (Februar 1963)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.1976\",\n      \"justification\": \"A survey dataset archived at GESIS capturing public political attitudes, trust in national government leadership, and international policy orientations in West Germany during 1963.\"\n    },\n    {\n      \"title\": \"Manifesto Project Main Dataset (MARPOR)\",\n      \"url_or_doi\": \"https://manifesto-project.wzb.eu/\",\n      \"justification\": \"Maintained by WZB, this dataset provides quantitative content analysis of electoral manifestos from political parties in Germany across all federal elections in the 1960s (1961, 1965, and 1969).\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 394,
+          "candidatesTokenCount": 308,
+          "totalTokenCount": 2077,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 394
+            }
+          ],
+          "thoughtsTokenCount": 1375,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "HUCEatvmEJ_6xs0Pu8X86Ak"
+      }
+    }
+  ]
+}

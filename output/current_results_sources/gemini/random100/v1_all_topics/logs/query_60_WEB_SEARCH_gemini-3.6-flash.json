@@ -1,0 +1,69 @@
+{
+  "query_id": 60,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about protest movement, agricultural policy, and nutrition policy in Germany and Berlin during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"The German Protest Registrations Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.10094245\",\n      \"justification\": \"Provides official registration data on protest movements, topics, dates, and participant numbers across major German cities (including Berlin) during the 2020s.\"\n    },\n    {\n      \"title\": \"ACLED Germany Conflict and Demonstration Event Data\",\n      \"url_or_doi\": \"https://acleddata.com/europe/western-europe/germany/\",\n      \"justification\": \"Tracks disaggregated protest, demonstration, and civil unrest events across Germany (including Berlin and nationwide farmers' protests) continuously from 2020 onwards.\"\n    },\n    {\n      \"title\": \"FABLE Scenathon Database 2023\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.11640826\",\n      \"justification\": \"Includes country-level modeling data for Germany evaluating agricultural policy pathways, food system security, land-use change, and agricultural emissions.\"\n    },\n    {\n      \"title\": \"RKI Open Data - Gesundheitsberichterstattung: Daten zu nichtübertragbaren Erkrankungen\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.13736663\",\n      \"justification\": \"Maintained by the Robert Koch Institute, this dataset provides key indicators on public health, dietary behaviors, and nutrition policy/prevention outcomes in Germany for the 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1121,
+          "candidatesTokenCount": 402,
+          "totalTokenCount": 3442,
+          "cachedContentTokenCount": 360,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1121
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 360
+            }
+          ],
+          "thoughtsTokenCount": 1919,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "3leFatnPEtvlnsEPkvrykAM"
+      }
+    }
+  ]
+}

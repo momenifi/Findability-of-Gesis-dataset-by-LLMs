@@ -1,0 +1,184 @@
+{
+  "query_id": 45,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Reader Analysis of the Mannesmann Company Magazine, UNSER WERKTAG?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_08629e95ea874814006b046df02f3487d2b8718658e7073fc7",
+        "created_at": 1795452400.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_08629e95ea874814006b046df11f8c87d2ac73080b450d9384",
+            "action": {
+              "type": "search",
+              "queries": [
+                "dataset \"Reader Analysis\" \"Mannesmann\" \"UNSER WERKTAG\"",
+                "\"Reader Analysis of the Mannesmann Company Magazine\" dataset"
+              ],
+              "query": "dataset \"Reader Analysis\" \"Mannesmann\" \"UNSER WERKTAG\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08629e95ea874814006b046df2f8e087d2b030f7551134c712",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Mannesmann\" \"Unser Werktag\" \"Leser\" Datensatz",
+                "\"Reader Analysis of the Mannesmann\"",
+                "\"UNSER WERKTAG\" dataset GESIS",
+                "\"Leseranalyse\" \"Unser Werktag\" Mannesmann"
+              ],
+              "query": "\"Mannesmann\" \"Unser Werktag\" \"Leser\" Datensatz",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_08629e95ea874814006b046df5301c87d2b0509e73d0e5198c",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Reader Analysis of the Mannesmann Company Magazine, UNSER WERKTAG (Leseranalyse der Mannesmann-Werkszeitschrift „Unser Werktag“)\",\"url_or_doi\":\"https://doi.org/10.4232/1.0265\",\"justification\":\"Exact match for the requested dataset. The study was conducted by EMNID in Bielefeld, Germany, in 1967 and is cataloged under study number ZA0265. It examines readership of the Mannesmann company magazine 'Unser Werktag.' The DOI 10.4232/1.0265 is explicitly documented in an academic reference to the original dataset, making it the most relevant identifier for locating the study in the GESIS data archive.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452406.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 14771,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 230,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 15001
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

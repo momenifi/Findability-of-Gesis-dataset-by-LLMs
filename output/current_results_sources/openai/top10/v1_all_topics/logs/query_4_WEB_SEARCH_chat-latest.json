@@ -1,0 +1,186 @@
+{
+  "query_id": 4,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about NATURAL ENVIRONMENT, Environment and conservation, Information society, Media, Political behaviour and attitudes, Community, urban and rural life, Leisure, tourism and sport, Religion and values, PSYCHOLOGY, Social behaviour and attitudes, Social conditions and indicators, Consumption and consumer behaviour, and Employment in Germany during the 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_08a261d7c636a4b8006b0475b1883087d2ae66dc9b7a7cad8f",
+        "created_at": 1795454385.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_08a261d7c636a4b8006b0475b25b0087d2bc0770f3c08d7511",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS ALLBUS 2023 2024 Germany dataset DOI environment religion political attitudes leisure",
+                "GESIS German General Social Survey ALLBUS 2021 2023 dataset doi",
+                "SOEP 2023 data DIW Germany dataset landing page employment consumption psychology",
+                "Germany 2023 time use survey dataset Destatis leisure media religion"
+              ],
+              "query": "GESIS ALLBUS 2023 2024 Germany dataset DOI environment religion political attitudes leisure",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_08a261d7c636a4b8006b0475b5f01c87d2ba3fff67d0c31e4f",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:gesis.org ISSP Environment IV 2020 doi Germany dataset",
+                "site:gesis.org German Longitudinal Election Study GLES 2025 2021 dataset doi",
+                "site:umweltbundesamt.de umweltbewusstseinsstudie 2022 2024 datensatz",
+                "site:destatis.de tourism Germany 2024 regional database GENESIS online"
+              ],
+              "query": "site:gesis.org ISSP Environment IV 2020 doi Germany dataset",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_08a261d7c636a4b8006b0475b8b80c87d2ae721de841542ca4",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14544\",\n      \"justification\": \"A nationally representative survey conducted in Germany in 2023 by GESIS. Covers social behaviour and attitudes, political attitudes, religion and values, social inequality, lifestyle, personality, employment, and demographic characteristics. Particularly useful for studying relationships between psychological characteristics, social conditions, and political or religious beliefs in Germany during the 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) 2021\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14629\",\n      \"justification\": \"Provides population survey data collected in Germany in 2021. Relevant to political behaviour and attitudes, social relationships, religion, values, social conditions, and demographic characteristics. Enables investigation of social attitudes and changes in German society during the COVID-19 period.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14695\",\n      \"justification\": \"A harmonized longitudinal collection of repeated cross-sectional surveys covering German society through 2023. Includes information on political attitudes, social behaviour, religion, values, employment, social inequality, environmental attitudes, and community identification. Particularly valuable for comparing observations from the 2020s with earlier decades.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) – Cumulation 1980–2023\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14696\",\n      \"justification\": \"A streamlined version of the ALLBUS cumulative survey dataset. Provides harmonized indicators of social attitudes, political preferences, religious affiliation, social conditions, and demographic characteristics. Useful for examining social change in Germany, including developments during the early 2020s.\"\n    },\n    {\n      \"title\": \"International Social Survey Programme (ISSP) 2020 – Environment IV\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14153\",\n      \"justification\": \"An international survey dataset containing German observations collected in 2021. Directly relevant to natural environment, environmental conservation, environmental attitudes, and social values. Includes questions about environmental concerns, willingness to make economic sacrifices for environmental protection, environmental behaviour, and public perceptions of environmental problems. Supports comparisons between Germany and other countries.\"\n    },\n    {\n      \"title\": \"Environmental Awareness Study Germany 2024 (Umweltbewusstseinsstudie 2024)\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/themen/nachhaltigkeit-strategien-internationales/umweltbewusstsein-in-deutschland\",\n      \"justification\": \"A representative survey conducted in autumn 2024 with approximately 2,500 respondents in Germany. Examines environmental awareness, climate change perceptions, environmental behaviour, conservation attitudes, and the relationship between environmental concerns and quality of life. The German Environment Agency provides links to survey data and supporting materials. Particularly relevant to natural environment, environment and conservation, psychology, and social attitudes.\"\n    },\n    {\n      \"title\": \"Environmental Awareness in Germany 2022\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/publikationen/umweltbewusstsein-in-deutschland-2022\",\n      \"justification\": \"A representative German environmental awareness survey conducted in summer 2022 with approximately 2,000 participants. Covers climate protection, environmental behaviour, environmental engagement, sustainable economic transformation, and public perceptions of environmental problems. Provides survey results and accompanying statistical tables for studying environmental attitudes during the 2020s.\"\n    },\n    {\n      \"title\": \"Environmental Awareness in Germany 2024 – Scientific Study and Integrated Time-Series Data\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/publikationen/umweltbewusstseinsstudie-2024\",\n      \"justification\": \"A German Environment Agency study examining environmental attitudes, climate adaptation, perceived health risks, quality of life, environmental behaviour, and social differences in environmental awareness. Its associated resources include an integrated time-series dataset supporting longitudinal comparisons. Especially suitable for research on environmental conservation, public values, and environmental psychology.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Tracking 2009–2026, Cumulation\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14820\",\n      \"justification\": \"A cumulative German election survey dataset containing observations through March 2026. Covers political behaviour, party preferences, voting intentions, political interest, evaluations of political institutions, and political attitudes. Particularly valuable for studying changes in German political behaviour throughout the 2020s and relationships between political preferences and social characteristics.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Cross-Section 2025, Post-Election\",\n      \"url_or_doi\": \"https://doi.org/10.4232/5.ZA10100.4.1.0\",\n      \"justification\": \"A survey dataset examining political attitudes and electoral behaviour surrounding Germany's 2025 federal election. Provides information on voting decisions, political preferences, political participation, and characteristics of voters. Highly relevant to political behaviour and attitudes, political psychology, media-related political communication, and social divisions in contemporary Germany.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles/data-and-documentation\",\n      \"justification\": \"An official collection of German election research datasets, including surveys associated with the 2021 and 2025 federal elections and the 2024 European Parliament election. Provides access to cross-sectional surveys, panel studies, tracking surveys, and candidate studies. Relevant to political behaviour, voting, public opinion, political participation, and the relationship between media exposure and political attitudes.\"\n    },\n    {\n      \"title\": \"Socio-Economic Panel (SOEP-Core) – Data 1984–2024, Version 41\",\n      \"url_or_doi\": \"https://www.diw-berlin.de/en/diw_01.c.997321.en/edition/\",\n      \"justification\": \"One of Germany's principal longitudinal household surveys, containing annual observations through 2024. Covers employment, income, education, health, household circumstances, social conditions, and life satisfaction. Particularly relevant to employment, psychology, social indicators, consumption, and urban-rural differences. Its panel structure enables analysis of individual and household changes across the 2020s. Research data access is subject to the provider's conditions.\"\n    },\n    {\n      \"title\": \"German Time Use Survey 2022 (Zeitverwendungserhebung)\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Themes/Society-Environment/Income-Consumption-Living-Conditions/Time-Use/_node.html\",\n      \"justification\": \"An official German household survey conducted in 2022 that records daily activities through time-use diaries. Covers leisure, sport, media consumption, paid employment, unpaid work, shopping, travel time, childcare, and social activities. Particularly useful for investigating leisure, media, consumption behaviour, employment, gender differences, and social conditions. Aggregated results are publicly available, while microdata access is provided through the Federal Statistical Office's Research Data Centre.\"\n    },\n    {\n      \"title\": \"OECD Time Use Database – Germany 2022\",\n      \"url_or_doi\": \"https://www.oecd.org/en/data/datasets/time-use-database.html\",\n      \"justification\": \"An internationally harmonized dataset that includes German time-use observations from 2022. Measures time allocated to paid work, education, unpaid work, leisure, and personal care. Relevant to leisure, employment, social conditions, gender differences, and household behaviour. Particularly useful for comparing Germany with other OECD countries during the 2020s.\"\n    },\n    {\n      \"title\": \"BAuA Working Time Survey 2023 – Scientific Use File\",\n      \"url_or_doi\": \"https://doi.org/10.48697/baua.azb23.suf.1\",\n      \"justification\": \"A German employment survey dataset from the Federal Institute for Occupational Safety and Health. Covers working time arrangements and employment-related conditions among people working at least ten hours per week. Particularly relevant to employment, working conditions, occupational well-being, and relationships between work organization and social life. Provides a scientific-use dataset suitable for quantitative employment research.\"\n    },\n    {\n      \"title\": \"GENESIS-Online – German Federal Statistical Office Database\",\n      \"url_or_doi\": \"https://www.destatis.de/EN/Service/OpenData/api-webservice.html\",\n      \"justification\": \"The official statistical database maintained by Germany's Federal Statistical Office, with downloadable tables covering multiple years of the 2020s. Relevant statistical subjects include employment, population, consumption, tourism, environmental indicators, regional conditions, and socioeconomic development. Particularly suitable for combining national and regional indicators and examining urban-rural differences across Germany.\"\n    },\n    {\n      \"title\": \"GESIS Social Science Data Archive – German Survey Data\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/german-survey-data\",\n      \"justification\": \"An official discovery portal providing access to multiple German social science survey programs, including ALLBUS, GLES, the GESIS Panel, and FReDA. Relevant research areas include political attitudes, psychology, social behaviour, religion, media, community life, employment, and social conditions. Useful for locating individual survey waves collected during the 2020s.\"\n    },\n    {\n      \"title\": \"GESIS Social Science Data Archive – Thematic Dataset Collections\",\n      \"url_or_doi\": \"https://www.gesis.org/en/services/finding-and-accessing-data/browse\",\n      \"justification\": \"A thematic discovery portal for research datasets covering Germany and other countries. Includes collections concerning elections and political attitudes, leisure and tourism, religion and spirituality, environmental attitudes, and social research. Provides access to datasets such as the International Social Survey Programme, European Values Study, and German population surveys. Useful for identifying additional German observations from the 2020s.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Data and Documentation\",\n      \"url_or_doi\": \"https://www.gesis.org/en/allbus/data-and-documentation\",\n      \"justification\": \"The official dataset catalogue for ALLBUS, including survey waves from 2021, 2023, and 2025. Covers political behaviour, religion, social values, social inequality, employment, personality, and other social attitudes. Provides access to individual survey datasets, questionnaires, variable documentation, and harmonized cumulative datasets. Particularly useful for locating variables relevant to several requested topics within a common survey framework.\"\n    },\n    {\n      \"title\": \"German Longitudinal Election Study (GLES) – Survey Programme\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gles\",\n      \"justification\": \"An official German political research program providing longitudinal and cross-sectional datasets on voting behaviour, political attitudes, political participation, and electoral processes. Includes survey observations from multiple years of the 2020s. Its tracking and panel studies are particularly useful for analysing political psychology, electoral preferences, changes in political trust, and connections between social characteristics and political attitudes.\"\n    },\n    {\n      \"title\": \"German Environment Agency – Environmental Awareness Survey Data Collection\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/themen/nachhaltigkeit-strategien-internationales/umweltbewusstsein-in-deutschland\",\n      \"justification\": \"An official collection of recurring German environmental awareness studies, including the 2020, 2022, and 2024 survey rounds. Provides access to survey data resources, statistical tables, and longitudinal comparisons. Particularly relevant to environmental conservation, climate-related attitudes, sustainable consumption, social values, and public perceptions of environmental risks.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795454405.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19314,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2726,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 22040
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 2
+          }
+        }
+      }
+    }
+  ]
+}

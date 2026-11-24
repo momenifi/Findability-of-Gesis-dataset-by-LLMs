@@ -1,0 +1,62 @@
+{
+  "query_id": 67,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about International politics and organisations and Conflict, security and peace in France, Great Britain, Germany, and Italy during the 1960s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Correlates of War Formal Alliances Dataset (v4.1)\",\n      \"url_or_doi\": \"https://correlatesofwar.org/data-sets/formal-alliances/\",\n      \"justification\": \"Tracks formal mutual defense pacts, non-aggression treaties, and ententes among sovereign states from 1816 through 2012, detailing international security commitments involving France, Great Britain, Germany, and Italy during the 1960s.\"\n    },\n    {\n      \"title\": \"SIPRI Military Expenditure Database\",\n      \"url_or_doi\": \"https://www.sipri.org/databases/milex\",\n      \"justification\": \"Provides longitudinal time-series data on annual national military spending and defense expenditures for countries worldwide—including France, Great Britain, Germany, and Italy—continuously from 1949 onwards, capturing defense and security postures throughout the 1960s.\"\n    },\n    {\n      \"title\": \"Manifesto Project Dataset (MARPOR)\",\n      \"url_or_doi\": \"https://doi.org/10.25522/manifesto.mpds.2025a\",\n      \"justification\": \"Quantifies policy preferences and stances of political parties derived from electoral manifestos in democratic nations (including France, Great Britain, Germany, and Italy) during elections in the 1960s, specifically categorizing positions on international organizations, foreign affairs, peace, and military defense.\"\n    },\n    {\n      \"title\": \"Cross-National Time-Series Data Archive (CNTS)\",\n      \"url_or_doi\": \"https://doi.org/10.5683/SP3/OAH5NS\",\n      \"justification\": \"Contains longitudinal quantitative indicators on domestic conflict events, international status, and national political stability for countries including France, Great Britain, Germany, and Italy across the entire 1960s period.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1303,
+          "candidatesTokenCount": 460,
+          "totalTokenCount": 3980,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1303
+            }
+          ],
+          "thoughtsTokenCount": 2217,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "hgSEavqOPKmzxN8PtY3doQk"
+      }
+    }
+  ]
+}

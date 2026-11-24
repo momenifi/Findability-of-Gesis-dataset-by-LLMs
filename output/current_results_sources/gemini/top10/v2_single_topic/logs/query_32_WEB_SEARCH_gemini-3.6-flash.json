@@ -1,0 +1,69 @@
+{
+  "query_id": 32,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Media in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"A Geolocated Dataset of German News Articles\",\n      \"url_or_doi\": \"https://doi.org/10.22029/jlupub-19573\",\n      \"justification\": \"Provides structured metadata, vector text embeddings, and geographic locations for roughly 50 million German-language online news articles derived from Common Crawl News.\"\n    },\n    {\n      \"title\": \"German Fake News Dataset \\\"GermanFakeNC\\\"\",\n      \"url_or_doi\": \"https://doi.org/10.5281/zenodo.3375714\",\n      \"justification\": \"A annotated corpus of 490 German alternative news articles published between December 2015 and March 2018 with claim-by-claim verification labels.\"\n    },\n    {\n      \"title\": \"Germany: Bibliographical Database of German Journalism and Media Research Related to Risks and Opportunities for Deliberative Communication (2000–2020)\",\n      \"url_or_doi\": \"https://doi.org/10.23673/RE-387\",\n      \"justification\": \"Created under the EU Horizon 2020 MEDIADELCOM project, this dataset systematically compiles research and data on German journalism, media usage patterns, and media regulations from 2000 to 2020.\"\n    },\n    {\n      \"title\": \"German News Dataset\",\n      \"url_or_doi\": \"https://doi.org/10.34740/KAGGLE/DSV/1679751\",\n      \"justification\": \"A scraped collection of German news articles from major German online outlets, featuring article text, titles, publish dates, summaries, and tags.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 870,
+          "candidatesTokenCount": 429,
+          "totalTokenCount": 2589,
+          "cachedContentTokenCount": 283,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 870
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 283
+            }
+          ],
+          "thoughtsTokenCount": 1290,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "zLenarOVGpmZ3boPoOT5qAg"
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "query_id": 38,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Social conditions and indicators in Germany during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_03642b97ba58114b006b045ca6ed3c87d2a33d7af225904202",
+        "created_at": 1795447975.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_03642b97ba58114b006b045ca833fc87d286217d8243c033ca",
+            "action": {
+              "type": "search",
+              "queries": [
+                "GESIS German General Social Survey ALLBUS 1990 1998 dataset landing page",
+                "SOEP German Socio Economic Panel 1990s data landing page DIW",
+                "German 1990s social indicators dataset German social indicators system GESIS",
+                "Eurobarometer Germany 1990s survey data GESIS landing page"
+              ],
+              "query": "GESIS German General Social Survey ALLBUS 1990 1998 dataset landing page",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03642b97ba58114b006b045cab224087d2a2437bb2006f75c3",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data social indicators Germany time series 1990 1999 social indicators",
+                "site:search.gesis.org/research_data Wohlfahrtssurvey 1993 1998",
+                "site:diw.de SOEP-Core dataset 1984 2023 doi",
+                "site:gesis.org German Microcensus trendfile 1962 2016 dataset"
+              ],
+              "query": "site:search.gesis.org/research_data social indicators Germany time series 1990 1999 social indicators",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_03642b97ba58114b006b045cad83ec87d2936e1f090dba6e17",
+            "action": {
+              "type": "search",
+              "queries": [
+                "site:search.gesis.org/research_data/ZA864 \"System of Social Indicators\" income living conditions",
+                "site:search.gesis.org/research_data \"Welfare Survey 1998\" Germany",
+                "site:search.gesis.org/research_data \"Wohlfahrtssurvey 1993\"",
+                "site:search.gesis.org/research_data \"System of Social Indicators\" \"Housing\" Germany"
+              ],
+              "query": "site:search.gesis.org/research_data/ZA864 \"System of Social Indicators\" income living conditions",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_03642b97ba58114b006b045cb02aa887d2be9d3bc395390d24",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"German General Social Survey (ALLBUS) – Cumulation 1980–2014\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.12574\",\n      \"justification\": \"One of the most comprehensive datasets for studying social conditions and social change in Germany during the 1990s. Includes survey waves from 1990, 1991, 1992, 1994, 1996, and 1998. Covers social attitudes, economic circumstances, employment, education, family relationships, political participation, religion, and social inequality. Particularly useful for comparing East and West Germany following reunification in 1990.\"\n    },\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core) – Data 1984–2021\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v38.1i\",\n      \"justification\": \"A major longitudinal household survey providing detailed information on living conditions in Germany throughout the 1990s. Contains annual observations on household income, employment, unemployment, education, health, housing, family composition, and subjective well-being. Coverage expanded to East Germany in 1990, making it especially valuable for analyzing the social and economic consequences of reunification.\"\n    },\n    {\n      \"title\": \"German General Social Survey (ALLBUScompact) – Cumulation 1980–2008\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.11001\",\n      \"justification\": \"A harmonized and anonymized version of the German General Social Survey, containing multiple survey waves from the 1990s. Includes information on social stratification, migration, family life, religious beliefs, political attitudes, employment, and perceptions of inequality. Particularly suitable for studying long-term changes in German society and comparing social conditions before and after reunification.\"\n    },\n    {\n      \"title\": \"GESIS Microcensus Trendfile 1962–2016\",\n      \"url_or_doi\": \"https://www.gesis.org/en/gml/microcensus/microcensus-trendfile\",\n      \"justification\": \"A harmonized collection of German Microcensus data covering several decades, including 1991, 1993, and every year from 1995 through 1999. Contains information on demographic characteristics, employment, education, household structures, income, migration, nationality, and health. Particularly valuable for examining structural social changes during the 1990s using large, representative population samples. The landing page provides documentation and harmonization routines; access to the underlying microdata is handled separately.\"\n    },\n    {\n      \"title\": \"Welfare Survey 1990 – East Germany (Wohlfahrtssurvey 1990 – Ost)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.2121\",\n      \"justification\": \"A survey conducted between October and December 1990 focusing specifically on living conditions and subjective quality of life in former East Germany. Includes 735 respondents and 227 variables covering housing conditions, financial circumstances, employment, health, satisfaction with public services, environmental concerns, and expectations about convergence with West German living standards. Especially relevant for understanding social conditions immediately following German reunification.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Labour Market and Conditions of Employment\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14255\",\n      \"justification\": \"A historical collection of German labor market and employment indicators spanning 1950–2013, including observations from the 1990s. Covers employment participation, unemployment, working conditions, labor force characteristics, and structural changes in employment. Particularly useful for analyzing labor market disparities and employment transformations associated with reunification. Provides aggregated time-series data rather than individual survey responses.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Health\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14262\",\n      \"justification\": \"A collection of historical health and well-being indicators covering Germany from 1950 to 2013. Includes measures of life expectancy, mortality, causes of death, illness, disability, healthcare utilization, and health insurance. Relevant for examining changes in public health and healthcare conditions during the 1990s, including differences in living standards and health outcomes after reunification.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Education\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14268\",\n      \"justification\": \"Provides long-term educational indicators for Germany covering 1950–2013, including the 1990s. Contains measures of educational participation, preschool attendance, school enrollment, educational attainment, vocational training, higher education, and educational opportunities. Particularly relevant for examining educational inequality, changes in educational attainment, and the integration of East and West German education systems.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Application of Income and Supply\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14257\",\n      \"justification\": \"A historical dataset covering income-related living standards, consumption, and material welfare in Germany between 1950 and 2013. Includes indicators relevant to household purchasing power, consumption patterns, economic resources, and material conditions. Useful for investigating changes in economic well-being during the 1990s and evaluating the social consequences of economic restructuring after reunification.\"\n    },\n    {\n      \"title\": \"System of Social Indicators for the Federal Republic of Germany: Participation\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14270\",\n      \"justification\": \"Provides historical indicators of social and political participation in Germany from 1950 to 2013. Covers political engagement, political interest, trade union membership, workplace representation, religious affiliation, and participation in social institutions. Relevant for studying civic engagement, social integration, institutional change, and differences between East and West Germany during the 1990s.\"\n    },\n    {\n      \"title\": \"European System of Social Indicators: Housing, 1980–2013\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13024\",\n      \"justification\": \"A comparative European dataset containing housing and residential quality indicators for Germany and other countries, covering 1980–2013. Includes objective housing conditions, neighborhood characteristics, subjective housing satisfaction, and inequalities in access to adequate housing. Useful for examining housing quality, residential disparities, and changing living conditions in Germany during the 1990s, with opportunities for international comparison.\"\n    },\n    {\n      \"title\": \"European System of Social Indicators: Labour Market and Working Conditions, 1980–2013\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.13026\",\n      \"justification\": \"A comparative dataset covering labor market conditions, employment, and working environments across European countries, including Germany, from 1980 to 2013. Provides historical indicators suitable for investigating unemployment, employment structures, working conditions, and labor market inequalities during the 1990s. Particularly valuable for comparing Germany's post-reunification labor market developments with broader European trends.\"\n    },\n    {\n      \"title\": \"European System of Social Indicators: Health, 1980–2013\",\n      \"url_or_doi\": \"https://search.gesis.org/research_data/ZA8691\",\n      \"justification\": \"A comparative collection of health-related social indicators covering European countries, including Germany, during the 1990s. Contains measures related to health conditions, subjective well-being, inequalities, social exclusion, and healthcare systems. Useful for examining Germany's health and welfare conditions during the decade and comparing them with developments elsewhere in Europe.\"\n    },\n    {\n      \"title\": \"SOEP-Core v27.2i – German Socio-Economic Panel, Data 1984–2010\",\n      \"url_or_doi\": \"https://www.diw.de/en/diw_01.c.798233.en/edition/soep-core_v27.2i__update_international_edition__data_1984-2010.html\",\n      \"justification\": \"A historical release of the German Socio-Economic Panel containing all survey years from 1990 through 1999. Provides longitudinal household and individual information about employment, income, education, family relationships, and living conditions. Particularly suitable for research focused on the transition period following reunification because the survey incorporated East German households beginning in June 1990. This older release can also be useful for reproducing research conducted using earlier SOEP data versions.\"\n    },\n    {\n      \"title\": \"German Microcensus Panel 1996–1999\",\n      \"url_or_doi\": \"https://www.gesis.org/en/missy\",\n      \"justification\": \"A longitudinal component of the German Microcensus covering the final four years of the 1990s. Enables analysis of changes in individual and household characteristics over time, particularly employment transitions, household structures, demographic characteristics, and social mobility. The GESIS MISSY portal provides documentation for the 1996–1999 Scientific Use File panel, making it a valuable starting point for locating historical microdata on social conditions.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795447994.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 28871,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2191,
+          "output_tokens_details": {
+            "reasoning_tokens": 192
+          },
+          "total_tokens": 31062
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 3
+          }
+        }
+      }
+    }
+  ]
+}

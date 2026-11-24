@@ -1,0 +1,96 @@
+{
+  "query_id": 54,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Housing in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "error": "503 Service Unavailable for https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=<REDACTED> {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+        "query_id": 54,
+        "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+        "mode": "WEB_SEARCH",
+        "model": "gemini-3.6-flash",
+        "attempt": 1
+      }
+    },
+    {
+      "attempt": 2,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Housing in North Rhine-Westphalia during the 2000s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"RWI-GEO-RED: Real-Estate Data for Germany (2007 onwards)\",\n      \"url_or_doi\": \"https://doi.org/10.1515/ger-2019-0126\",\n      \"justification\": \"Maintained by the FDZ Ruhr at the RWI Leibniz Institute for Economic Research, this dataset provides micro-level real estate data for the residential housing market across Germany, including North Rhine-Westphalia, beginning in 2007.\"\n    },\n    {\n      \"title\": \"Landesdatenbank NRW - Baugenehmigungen und Baufertigstellungen\",\n      \"url_or_doi\": \"https://www.landesdatenbank.nrw.de/\",\n      \"justification\": \"The official database of the IT.NRW state statistical office provides longitudinal data on building permits (EVAS 31111) and completed residential buildings and dwellings (EVAS 31121) across municipalities in North Rhine-Westphalia throughout the 2000s.\"\n    },\n    {\n      \"title\": \"RWI-GEO-REDX: Regional Real Estate Price Index for Germany\",\n      \"url_or_doi\": \"https://doi.org/10.7807/immo:redx:puf:v16\",\n      \"justification\": \"This public-use dataset from FDZ Ruhr features regional hedonic housing price indices covering single-family homes and apartments at the municipal and district levels in North Rhine-Westphalia starting in 2008.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 518,
+          "candidatesTokenCount": 381,
+          "totalTokenCount": 2456,
+          "cachedContentTokenCount": 155,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 518
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 155
+            }
+          ],
+          "thoughtsTokenCount": 1557,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "3y-EarrEIuKEnsEPm9OlyAk"
+      }
+    }
+  ]
+}

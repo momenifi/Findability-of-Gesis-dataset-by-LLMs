@@ -1,0 +1,69 @@
+{
+  "query_id": 3,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about NATURAL ENVIRONMENT, Environment and conservation, Information society, Media, Political behaviour and attitudes, Community, urban and rural life, Leisure, tourism and sport, Religion and values, PSYCHOLOGY, Social behaviour and attitudes, Social conditions and indicators, Consumption and consumer behaviour, and Employment in Germany during the 2020s, matching this research need: Germany-wide longitudinal panel data on environmental attitudes, climate and sustainability behaviors, environmental inequality, and public acceptance of environmental policy measures, with repeated mixed-mode surveys from 2024 to 2026.\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Longitudinal Environmental Study (GLEN)\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.14731\",\n      \"justification\": \"GLEN is a DFG-funded nationwide longitudinal panel dataset launched in 2024, featuring repeated mixed-mode (online and paper) survey waves running through 2026 and beyond. It tracks environmental attitudes, climate and sustainability behaviors, environmental inequality, public acceptance of environmental policy measures, media consumption, and social conditions across Germany.\"\n    },\n    {\n      \"title\": \"Umweltbewusstsein in Deutschland 2024\",\n      \"url_or_doi\": \"https://www.umweltbundesamt.de/publikationen/umweltbewusstsein-in-deutschland-2024\",\n      \"justification\": \"Commissioned by the German Environment Agency (Umweltbundesamt), this study provides representative survey data collected in late 2024 measuring environmental awareness, climate adaptation behaviors, social inequality in environmental protection, and public support for environmental policy measures.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 2337,
+          "candidatesTokenCount": 268,
+          "totalTokenCount": 5215,
+          "cachedContentTokenCount": 718,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2337
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 718
+            }
+          ],
+          "thoughtsTokenCount": 2610,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "j8KnauGkA6SH28oP-qfiqQs"
+      }
+    }
+  ]
+}

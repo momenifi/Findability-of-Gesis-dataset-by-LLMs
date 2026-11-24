@@ -1,0 +1,62 @@
+{
+  "query_id": 46,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about LABOUR AND EMPLOYMENT in Germany during the 2010s and 2020s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"German Socio-Economic Panel (SOEP-Core)\",\n      \"url_or_doi\": \"https://doi.org/10.5684/soep.core.v41r\",\n      \"justification\": \"SOEP-Core is a long-running, representative multi-cohort panel study of private households in Germany conducted by DIW Berlin. It tracks labor force participation, employment histories, wages, and working conditions annually across the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Sample of Integrated Labour Market Biographies (SIAB)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.FDZD.2101.de.v1\",\n      \"justification\": \"Provided by the Research Data Centre (FDZ) of the German Federal Employment Agency at the IAB, SIAB is a 2% sample of individual employment and labor market histories in Germany, covering employment subject to social security, marginal part-time work, and benefit receipt through the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"IAB Establishment Panel (IAB-BP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.IABBP9320.de.en.v1\",\n      \"justification\": \"An annual nationwide representative employer survey conducted by the IAB since 1993, providing comprehensive longitudinal data on labor demand, establishment-level employment trends, worker turnover, and wages across Germany during the 2010s and 2020s.\"\n    },\n    {\n      \"title\": \"Establishment History Panel (BHP)\",\n      \"url_or_doi\": \"https://doi.org/10.5164/IAB.BHP7524.de.en.v1\",\n      \"justification\": \"Aggregated administrative dataset from the IAB containing annual establishment-level data for all business units in Germany with social security-liable employees, recording employment structure, worker flows, and wage medians through the 2010s and 2020s.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 525,
+          "candidatesTokenCount": 523,
+          "totalTokenCount": 2185,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 525
+            }
+          ],
+          "thoughtsTokenCount": 1137,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "hrinapP8MdmZ28oP8crEiAI"
+      }
+    }
+  ]
+}

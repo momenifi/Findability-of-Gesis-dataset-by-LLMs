@@ -1,0 +1,178 @@
+{
+  "query_id": 133,
+  "query_variant": "V2_TOPIC_COUNTRY_TIME_SINGLE_TOPIC",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Elections in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein during the 1990s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0d4dc907f44addd0006b0462db43c887d2b3a7f9b0373fcd58",
+        "created_at": 1795449563.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0d4dc907f44addd0006b0462dc43ec87d2858482f10e87c4d7",
+            "action": {
+              "type": "search",
+              "queries": [
+                "Germany historical state elections results 1990 1999 dataset Bundeswahlleiterin Landtagswahlen",
+                "GESIS election results German federal states Landtagswahlen 1990 dataset",
+                "German regional elections database 1990s Länder election results download"
+              ],
+              "query": "Germany historical state elections results 1990 1999 dataset Bundeswahlleiterin Landtagswahlen",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "ws_0d4dc907f44addd0006b0462e03e0087d29c1a82086295e0e7",
+            "action": {
+              "type": "open_page",
+              "url": "https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics"
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0d4dc907f44addd0006b0462e1ec7487d2a6103dee353c3588",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\n  \"items\": [\n    {\n      \"title\": \"GERDA: German Election Database – State Election Results (1946–2026)\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"One of the most comprehensive datasets for historical German elections. Contains state parliamentary election (Landtagswahl) results at municipality and constituency levels, including elections during the 1990s in Berlin, Baden-Württemberg, Bavaria, Bremen, Hesse, Hamburg, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Saarland, and Schleswig-Holstein. Includes party vote shares and downloadable CSV, Excel, and RDS files.\"\n    },\n    {\n      \"title\": \"GERDA: The German Election Database – Scientific Data Publication\",\n      \"url_or_doi\": \"https://doi.org/10.1038/s41597-025-04811-5\",\n      \"justification\": \"Peer-reviewed publication describing the construction, coverage, and validation of GERDA. Particularly useful for researchers studying German state and local elections during the 1990s. Documents historical election results, geographical harmonization, and data sources across German federal states.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Historical Election Results in German Federal States Since 1946\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides separate historical election datasets for all 11 requested German federal states. Includes election results from the 1990s, political party vote shares, parliamentary seat distributions, and representative electoral statistics such as turnout and voting behavior by age and gender where available. Particularly useful for comparing electoral developments across states.\"\n    },\n    {\n      \"title\": \"GESIS – German State Election Studies (Landtagswahlen)\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"GESIS maintains an extensive collection of German state election studies dating back to 1962. The collection includes election-related surveys for individual federal states, including studies conducted during the 1990s. Useful for investigating voter preferences, political attitudes, party identification, and electoral behavior rather than just official election results.\"\n    },\n    {\n      \"title\": \"Federal Returning Officer – Historical German State Parliamentary Election Results\",\n      \"url_or_doi\": \"https://www.bundeswahlleiterin.de/dam/jcr/a333e523-0717-42ad-a772-d5ad7e7e97cc/ltw_erg_gesamt.pdf\",\n      \"justification\": \"Official compilation of historical state parliamentary election results published by Germany's Federal Returning Officer. Includes election results from the 1990s across the requested federal states, with information about votes, party performance, turnout, and parliamentary seats. Particularly valuable as an authoritative reference for validating other electoral datasets.\"\n    },\n    {\n      \"title\": \"GERDA – Harmonized State Election Results at Municipality Level (1990–2026)\",\n      \"url_or_doi\": \"https://github.com/awiedem/german_election_data\",\n      \"justification\": \"Provides harmonized municipality-level electoral data covering German state elections from 1990 onward. The state_harm_21 dataset standardizes historical results to 2021 administrative boundaries, making it especially useful for longitudinal comparisons across the requested states during the 1990s. Includes downloadable election data and documentation.\"\n    },\n    {\n      \"title\": \"GERDA – German Federal Election Results at Municipality Level (1990–2025)\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"Contains federal parliamentary election results for 1990, 1994, and 1998, including municipality-level voting patterns across all 11 requested states. Provides party vote shares and geographically harmonized results. Particularly useful when the research question includes Bundestag elections held within these states, in addition to state parliamentary elections.\"\n    },\n    {\n      \"title\": \"GERDA – Historical State Parliamentary Election Constituency Results (1980–2026)\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"The ltw_wkr_unharm and ltw_wkr_unharm_long datasets provide state election results at electoral constituency (Wahlkreis) level, with coverage beginning in 1980. They include first- and second-vote results where applicable, organized by political party and constituency. Relevant for analyzing geographical voting differences in the requested German states during the 1990s, subject to historical constituency-level availability.\"\n    },\n    {\n      \"title\": \"GESIS – Integrated Historical German State Election Survey Collection\",\n      \"url_or_doi\": \"https://www.gesis.org/en/elections/german-state-elections\",\n      \"justification\": \"Provides access to historical election survey studies and integrated research resources covering German state elections, including the 1990s. Useful for comparing individual-level political attitudes and voting behavior across elections and federal states. The collection complements official election-result datasets by providing survey-based evidence.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Baden-Württemberg Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Includes historical election results for Baden-Württemberg, covering the 1992 and 1996 state parliamentary elections. Provides political party results and historical electoral statistics suitable for examining electoral changes during the 1990s.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Bavaria Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides historical election results for Bavaria, including the 1990, 1994, and 1998 state parliamentary elections. Useful for analyzing CSU electoral dominance, opposition party performance, voting trends, and parliamentary representation throughout the decade.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Berlin Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Contains historical election statistics for Berlin, including the 1990, 1995, and 1999 elections to the Berlin House of Representatives. Particularly relevant for studying electoral patterns following German reunification and political differences between eastern and western Berlin.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Bremen Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides historical election results for Bremen, including the 1991, 1995, and 1999 Bürgerschaft elections. Useful for studying party competition, electoral turnout, and changes in political representation during the 1990s.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Hesse Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides historical election data for Hesse, including the 1991, 1995, and 1999 state parliamentary elections. Supports analysis of political party vote shares, changing electoral coalitions, and parliamentary seat distributions.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Hamburg Historical Election Data (Since 1946)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Contains historical election results for Hamburg, including the 1991, 1993, and 1997 Bürgerschaft elections. Useful for examining electoral competition, voter turnout, and changes in party representation during the 1990s.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Lower Saxony Historical Election Data (Since 1947)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides historical election results for Lower Saxony, including the 1990, 1994, and 1998 state parliamentary elections. Useful for investigating SPD and CDU electoral competition, political party performance, and historical voting trends.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – North Rhine-Westphalia Historical Election Data (Since 1947)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Includes historical election results for North Rhine-Westphalia, covering the 1990 and 1995 state parliamentary elections. Provides information on political party performance and parliamentary representation in Germany's most populous federal state.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Rhineland-Palatinate Historical Election Data (Since 1947)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Contains historical election statistics for Rhineland-Palatinate, including the 1991 and 1996 state parliamentary elections. Useful for analyzing changes in party support, electoral competition, and coalition politics during the 1990s.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Saarland Historical Election Data (Since 1947)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Provides historical election results for Saarland, including the 1990, 1994, and 1999 state parliamentary elections. Relevant for examining SPD and CDU competition, voting patterns, and parliamentary representation during the decade.\"\n    },\n    {\n      \"title\": \"Konrad-Adenauer-Stiftung – Schleswig-Holstein Historical Election Data (Since 1947)\",\n      \"url_or_doi\": \"https://www.kas.de/en/web/wahlanalysen-und-gesellschaftsstudien/election-results-representative-election-statistics\",\n      \"justification\": \"Contains historical election results for Schleswig-Holstein, including the 1992 and 1996 state parliamentary elections. Useful for studying party vote shares, changes in electoral support, and parliamentary seat distributions during the 1990s.\"\n    },\n    {\n      \"title\": \"GERDA – Historical German Municipal Election Results (1969–2026)\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"Provides municipality-level election results and political party vote shares for local elections across Germany, including elections held during the 1990s. Relevant for researchers interested in municipal rather than state parliamentary elections in the requested federal states. Historical geographic coverage varies by state; Schleswig-Holstein has particularly limited municipal coverage before 2018.\"\n    },\n    {\n      \"title\": \"GERDA – Historical German County Council Election Results (1948–2026)\",\n      \"url_or_doi\": \"https://www.german-elections.com/election-data/\",\n      \"justification\": \"Includes historical county council (Kreistag) election results at municipality and county levels. The county_elec_unharm dataset covers elections beginning in 1948, while harmonized datasets support comparisons from the 1990s onward. Useful for examining local electoral patterns and political party support across counties in the requested states.\"\n    }\n  ]\n}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795449581.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 19009,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 2666,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 21675
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}

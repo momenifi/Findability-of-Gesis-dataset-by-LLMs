@@ -1,0 +1,69 @@
+{
+  "query_id": 20,
+  "query_variant": "V1_TOPIC_COUNTRY_TIME_ALL_TOPICS",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Employment, Community, urban and rural life, TRADE, INDUSTRY AND MARKETS, and Specific social services: use and availability in Lagos during the 1980s?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"National Integrated Survey of Households (NISH): National Consumer Survey and Labour Force Surveys (1981–1986)\",\n      \"url_or_doi\": \"https://microdata.nigerianstat.gov.ng/\",\n      \"justification\": \"Conducted by Nigeria's National Bureau of Statistics (formerly Federal Office of Statistics), this survey series collected microdata across Nigerian states including Lagos during the 1980s on employment, household expenditures, market involvement, trade, and living conditions.\"\n    },\n    {\n      \"title\": \"World Values Survey / Integrated Values Surveys (1981–2022)\",\n      \"url_or_doi\": \"https://doi.org/10.14281/18241.22\",\n      \"justification\": \"A longitudinal cross-national survey dataset starting with Wave 1 (1981–1984) that measures social attitudes, community life, employment priorities, market/economic perceptions, and civic engagement.\"\n    },\n    {\n      \"title\": \"Nigeria - Public Delivery of Primary Health Care Services 2002 (World Bank Microdata Library)\",\n      \"url_or_doi\": \"https://microdata.worldbank.org/index.php/catalog/1297\",\n      \"justification\": \"A World Bank facility and household survey microdata set focusing on urban Lagos and rural Kogi that evaluates community participation, local governance, and the availability and use of primary social services.\"\n    },\n    {\n      \"title\": \"UK Data Service Data Catalogue\",\n      \"url_or_doi\": \"https://ukdataservice.ac.uk/\",\n      \"justification\": \"Houses historical and cross-national social, economic, labor, and community research data collections covering West Africa and Nigeria across key themes including trade, employment, urban life, and social services.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 1289,
+          "candidatesTokenCount": 439,
+          "totalTokenCount": 4015,
+          "cachedContentTokenCount": 869,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1289
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 869
+            }
+          ],
+          "thoughtsTokenCount": 2287,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "swuEaoztFt7hnsEPi-aPgAo"
+      }
+    }
+  ]
+}

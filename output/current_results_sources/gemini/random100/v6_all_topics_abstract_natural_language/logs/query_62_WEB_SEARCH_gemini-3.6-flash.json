@@ -1,0 +1,69 @@
+{
+  "query_id": 62,
+  "query_variant": "V6_TOPIC_COUNTRY_TIME_ABSTRACT_NATURAL_LANGUAGE",
+  "mode": "WEB_SEARCH",
+  "model": "gemini-3.6-flash",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "gemini-3.6-flash",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find datasets about Higher and further education, Media, International politics and organisations, Political behaviour and attitudes, Government, political systems and organisations, and SOCIAL STRATIFICATION AND GROUPINGS in Germany during the 1960s, matching this research need: survey data on Egyptian students in Germany covering integration with Germans, satisfaction with higher education, political attitudes toward Egypt and world affairs, views on development, religion, freedom, foreign aid, and post-study return plans\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Opinions and Values of Egyptian Students in West Germany\",\n      \"url_or_doi\": \"https://doi.org/10.4232/1.3331\",\n      \"justification\": \"This GESIS survey dataset (ZA3331), conducted between June 1964 and March 1965 by the United States Information Agency (USIA), specifically surveys Egyptian students living in West Germany. It captures their integration and social contact with Germans, satisfaction with higher education in the FRG, political attitudes regarding Egypt and international affairs, views on religion, freedom, foreign aid, development, and post-study return plans.\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "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"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 758,
+          "candidatesTokenCount": 168,
+          "totalTokenCount": 2046,
+          "cachedContentTokenCount": 368,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 758
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 368
+            }
+          ],
+          "thoughtsTokenCount": 1120,
+          "serviceTier": "standard"
+        },
+        "modelVersion": "gemini-3.6-flash",
+        "responseId": "KoqEasWOAf2WvdIP27aWCA"
+      }
+    }
+  ]
+}

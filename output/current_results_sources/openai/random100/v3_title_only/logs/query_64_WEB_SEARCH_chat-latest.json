@@ -1,0 +1,168 @@
+{
+  "query_id": 64,
+  "query_variant": "V3_TITLE_ONLY",
+  "mode": "WEB_SEARCH",
+  "model": "chat-latest",
+  "top_k_return": 10,
+  "include_top_k_limit_in_prompt": false,
+  "max_returned_items_to_save": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "request": {
+        "model": "chat-latest",
+        "mode": "WEB_SEARCH",
+        "web_search_enabled": true,
+        "openai_web_search_tool_choice": "required",
+        "openwebui_web_search_mode": null,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use web search to find relevant datasets. Only include landing pages or DOIs. Do not invent links. Do not call time, date, timestamp, or clock tools."
+          },
+          {
+            "role": "user",
+            "content": "Query: Can you find the dataset titled Sofortresonanzen DDR Fernsehen 51. Woche 1985 (SFR 51/85)?\nRespond ONLY as JSON in this exact shape: {\"items\":[{\"title\":\"...\",\"url_or_doi\":\"...\",\"justification\":\"...\"}]}. Put any DOI, URL, landing page, or link in url_or_doi."
+          }
+        ]
+      },
+      "response": {
+        "id": "resp_0ede5634c5f9979e006b046e6bb04887d298e47c342549bb04",
+        "created_at": 1795452523.0,
+        "error": null,
+        "incomplete_details": null,
+        "instructions": null,
+        "metadata": {},
+        "model": "chat-latest",
+        "object": "response",
+        "output": [
+          {
+            "id": "ws_0ede5634c5f9979e006b046e6c9c2087d28a05965ef15f104c",
+            "action": {
+              "type": "search",
+              "queries": [
+                "\"Sofortresonanzen DDR Fernsehen\" \"51\" \"1985\"",
+                "\"SFR 51/85\" dataset"
+              ],
+              "query": "\"Sofortresonanzen DDR Fernsehen\" \"51\" \"1985\"",
+              "sources": null
+            },
+            "status": "completed",
+            "type": "web_search_call"
+          },
+          {
+            "id": "msg_0ede5634c5f9979e006b046e6e5cfc87d2b12b7150bf17fbb0",
+            "content": [
+              {
+                "annotations": [],
+                "text": "{\"items\":[{\"title\":\"Sofortresonanzen DDR Fernsehen 51. Woche 1985 (SFR 51/85)\",\"url_or_doi\":\"https://doi.org/10.4232/1.7204\",\"justification\":\"Exact match for the requested dataset. The dataset is archived by GESIS Data Archive under DOI 10.4232/1.7204 and was published in 2006. It covers television viewing behavior and audience responses in the German Democratic Republic (DDR) during the 51st week of 1985, with data collection beginning on December 18, 1985. The GESIS metadata confirms the dataset title, year, week number, and DOI.\"},{\"title\":\"GESIS Data Search Knowledge Graph: Sofortresonanzen DDR Fernsehen 51. Woche 1985 (SFR 51/85)\",\"url_or_doi\":\"https://data.gesis.org/datasearchkg/Dataset/10.4232/1.7204\",\"justification\":\"Verified GESIS dataset metadata landing page corresponding to the exact requested title. The record identifies the dataset as a German-language research dataset, published by GESIS Data Archive, with version 1.0.0 and geographic coverage of the German Democratic Republic. It provides authoritative bibliographic metadata and the persistent identifier 10.4232/1.7204.\"}]}",
+                "type": "output_text",
+                "logprobs": []
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          }
+        ],
+        "parallel_tool_calls": true,
+        "temperature": 1.0,
+        "tool_choice": "required",
+        "tools": [
+          {
+            "type": "web_search",
+            "filters": null,
+            "search_context_size": "medium",
+            "user_location": {
+              "city": null,
+              "country": "US",
+              "region": null,
+              "timezone": null,
+              "type": "approximate"
+            },
+            "return_token_budget": "default",
+            "search_content_types": [
+              "text"
+            ]
+          }
+        ],
+        "top_p": 0.98,
+        "background": false,
+        "completed_at": 1795452528.0,
+        "conversation": null,
+        "max_output_tokens": null,
+        "max_tool_calls": null,
+        "moderation": null,
+        "previous_response_id": null,
+        "prompt": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "in_memory",
+        "reasoning": {
+          "effort": "medium",
+          "generate_summary": null,
+          "summary": null,
+          "context": "current_turn",
+          "mode": "standard"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": 10607,
+          "input_tokens_details": {
+            "cached_tokens": 4096,
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            }
+          },
+          "output_tokens": 287,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 10894
+        },
+        "user": null,
+        "access_programs": null,
+        "billing": {
+          "payer": "developer"
+        },
+        "frequency_penalty": 0.0,
+        "image": {
+          "context_compression": "disabled"
+        },
+        "input_transformations": [],
+        "presence_penalty": 0.0,
+        "store": true,
+        "tool_usage": {
+          "image_gen": {
+            "input_tokens": 0,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "output_tokens": 0,
+            "output_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 0
+            },
+            "total_tokens": 0
+          },
+          "web_search": {
+            "num_requests": 1
+          }
+        }
+      }
+    }
+  ]
+}
