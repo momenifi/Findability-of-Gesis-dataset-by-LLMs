@@ -41,7 +41,7 @@ identify their underlying snapshots.
 
 `chat-latest` is a model alias rather than a dated, pinned snapshot. The saved
 responses do not identify a more specific underlying OpenAI version, so this
-report does not equate it with a particular GPT version in the ChatGPT interface. At the time of the experiment, GPT-6.2 was the latest publicly released GPT model generation.
+report does not equate it with a particular GPT version in the ChatGPT interface. At the time of the experiment, `GPT-6.2` was the latest publicly released GPT model generation.
 The Gemini logs likewise record the label above, without a more specific dated
 snapshot. Model labels and the provider's search infrastructure are both relevant
 when interpreting or attempting to reproduce the results.
